@@ -79,6 +79,7 @@
 </script>
 
 <meta name="format-detection" content="telephone=no">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -181,7 +182,9 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
 .topnav-link.active{background:var(--bg3);color:var(--text);font-weight:600}
 .topnav-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 /* mobile hamburger */
-.topnav-hamburger{display:none;margin-left:auto;width:36px;height:36px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.topnav-login-btn{margin-left:auto;padding:6px 14px;border-radius:var(--r);border:1px solid var(--border2);background:var(--ink);color:var(--bg2);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);white-space:nowrap;flex-shrink:0;transition:opacity .15s}
+.topnav-login-btn:hover{opacity:.82}
+.topnav-hamburger{display:none;margin-left:8px;width:36px;height:36px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
 .topnav-hamburger svg{width:16px;height:16px;stroke:var(--text2);fill:none;stroke-width:2;stroke-linecap:round}
 /* mobile drawer */
 .mobile-drawer{display:none;position:fixed;inset:0;z-index:50}
@@ -914,8 +917,12 @@ details.rich-detail summary{display:none} /* detailsは直接使わずsummaryが
 
 <!-- AUTH -->
 <div id="toast-wrap"></div>
-  <div id="auth-screen">
-  <div class="auth-wrap">
+  <div id="auth-screen" style="display:none"></div>
+
+<!-- ログインモーダル -->
+<div id="login-modal" style="display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;background:rgba(0,0,0,0.45)">
+  <div class="auth-wrap" style="position:relative;background:var(--bg);border-radius:16px;padding:32px 20px 20px;">
+    <button onclick="closeLoginModal()" style="position:absolute;top:-12px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text2)">✕</button>
     <div class="auth-logo">
       <div class="auth-logo-mark">宅建</div>
       <h1>宅建マスター</h1>
@@ -977,6 +984,7 @@ details.rich-detail summary{display:none} /* detailsは直接使わずsummaryが
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
         </a>
       </nav>
+      <button class="topnav-login-btn" id="topnav-login-btn" onclick="openLoginModal()" style="display:none">ログイン</button>
       <button class="topnav-hamburger" id="hamburger-btn" onclick="openMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
       </button>
@@ -2461,33 +2469,47 @@ function closeMobileDrawer(){ document.getElementById('mobile-drawer').classList
 function openSidebar(){ openMobileDrawer(); }
 function closeSidebar(){ closeMobileDrawer(); }
 
+// ===== SUPABASE =====
+const SUPABASE_URL = 'https://czxrmmbpvocprrwhmuir.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_RS9eVE-YsfWg8waxyVjOWA_dIl1cb9x';
+const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 // ===== AUTH =====
 function switchAuthTab(tab){
   document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',(tab==='login'&&i===0)||(tab==='register'&&i===1)));
   document.getElementById('auth-login').style.display=tab==='login'?'':'none';
   document.getElementById('auth-register').style.display=tab==='register'?'':'none';
 }
-function doLogin(){
+async function doLogin(){
   const e=document.getElementById('login-email').value.trim(),p=document.getElementById('login-pw').value;
   if(!e||!p){document.getElementById('login-err').textContent='メールとパスワードを入力してください';return}
-  loadDB(); const u=db[e];
-  if(!u||u.pw!==p){document.getElementById('login-err').textContent='メールアドレスまたはパスワードが違います';return}
+  document.getElementById('login-err').textContent='ログイン中...';
+  const {data,error}=await _sb.auth.signInWithPassword({email:e,password:p});
+  if(error){document.getElementById('login-err').textContent='メールアドレスまたはパスワードが違います';return}
+  loadDB();
+  const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
+  if(!db[e]){db[e]=u;saveDB();}
   currentUser={email:e,name:u.name}; enterApp();
 }
-function doRegister(){
+async function doRegister(){
   const n=document.getElementById('reg-name').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-pw').value;
   if(!n||!e||!p){document.getElementById('reg-err').textContent='すべての項目を入力してください';return}
   if(p.length<6){document.getElementById('reg-err').textContent='パスワードは6文字以上';return}
-  loadDB(); if(db[e]){document.getElementById('reg-err').textContent='このメールアドレスは既に登録されています';return}
-  db[e]={name:n,pw:p,plan:'free',answers:{},sessions:[],streak:0}; saveDB();
-  currentUser={email:e,name:n}; enterApp();
+  document.getElementById('reg-err').textContent='登録中...';
+  const {data,error}=await _sb.auth.signUp({email:e,password:p});
+  if(error){document.getElementById('reg-err').textContent=error.message;return}
+  loadDB();
+  db[e]={name:n,plan:'free',answers:{},sessions:[],streak:0}; saveDB();
+  currentUser={email:e,name:n};
+  document.getElementById('reg-err').textContent='確認メールを送信しました。メールを確認してください。';
+  enterApp();
 }
 function demoLogin(){
   loadDB(); const email='demo@takken.app';
   if(!db[email]){
     const now=Date.now(),day=86400000, ans={};
     QUESTIONS.forEach((q,i)=>{ ans[q.id]={ans:q.ans,time:10+Math.random()*20,date:now-(4-Math.floor(i/4))*day}; });
-    db[email]={name:'デモユーザー',pw:'demo123',plan:'free',answers:ans,
+    db[email]={name:'デモユーザー',plan:'free',answers:ans,
       sessions:[{date:now-5*day,correct:3,total:5,pct:60},{date:now-4*day,correct:4,total:5,pct:80},
                 {date:now-3*day,correct:5,total:5,pct:100},{date:now-2*day,correct:3,total:5,pct:60},
                 {date:now-1*day,correct:4,total:5,pct:80}],streak:3};
@@ -2495,20 +2517,41 @@ function demoLogin(){
   }
   currentUser={email,name:'デモユーザー'}; enterApp();
 }
-function doLogout(){ currentUser=null; document.getElementById('app').style.display='none'; document.getElementById('auth-screen').style.display='flex'; }
+async function doLogout(){
+  await _sb.auth.signOut();
+  currentUser=null;
+  const btn = document.getElementById('topnav-login-btn');
+  if(btn) btn.style.display='';
+  // ゲストとして再入場
+  loadDB();
+  const guestEmail='__guest__';
+  if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
+  currentUser={email:guestEmail,name:'ゲスト'};
+  enterApp();
+}
+function openLoginModal(){
+  document.getElementById('login-modal').style.display='flex';
+  document.getElementById('login-err').textContent='';
+  document.getElementById('reg-err').textContent='';
+}
+function closeLoginModal(){
+  document.getElementById('login-modal').style.display='none';
+}
 function resetData(){ const u=getUserData();u.answers={};u.sessions=[];u.streak=0;saveUser(u);gotoPage('quiz-start'); }
 
 function enterApp(){
   document.getElementById('auth-screen').style.display='none';
   document.getElementById('app').style.display='block';
+  closeLoginModal();
+  const isGuest = currentUser && currentUser.email === '__guest__';
+  const btn = document.getElementById('topnav-login-btn');
+  if(btn) btn.style.display = isGuest ? '' : 'none';
   const u=getUserData();
-  // Update day streak on login
   updateDayStreak(u);
   saveUser(u);
   document.getElementById('sb-avatar').textContent=currentUser.name.charAt(0);
   document.getElementById('sb-name').textContent=currentUser.name;
   buildFieldChips(); buildYearGrid();
-  // URLハッシュがあればそのページに直接遷移
   gotoPage(_resolveInitialPage());
 }
 
@@ -5237,6 +5280,26 @@ function closePremium(){document.getElementById('premium-modal').classList.remov
 function mockUpgrade(){const u=getUserData();u.plan='premium';saveUser(u);closePremium();gotoPage('account')}
 
 loadDB();
+// ゲストとしてまず入場
+(function(){
+  const guestEmail='__guest__';
+  if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
+  currentUser={email:guestEmail,name:'ゲスト'};
+  enterApp();
+  renderOrigPage();
+  gotoPage('quiz-start');
+})();
+// Supabaseセッションがあればログイン済みユーザーに切り替え
+(async function(){
+  const {data:{session}}=await _sb.auth.getSession();
+  if(session){
+    const e=session.user.email;
+    const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
+    if(!db[e]){db[e]=u;saveDB();}
+    currentUser={email:e,name:u.name};
+    enterApp();
+  }
+})();
 // ===== EXAM COUNTDOWN =====
 (function(){
   const DAILY_MSGS = [
@@ -5284,18 +5347,7 @@ loadDB();
     msgEl.textContent = DAILY_MSGS[dayIndex % DAILY_MSGS.length];
   }
 })();
-// Auto-enter app as guest (no login required)
-(function(){
-  const guestEmail = '__guest__';
-  if(!db[guestEmail]){
-    db[guestEmail] = {name:'ゲスト', pw:'', plan:'free', answers:{}, sessions:[], streak:0};
-    saveDB();
-  }
-  currentUser = {email: guestEmail, name:'ゲスト'};
-  enterApp();
-  renderOrigPage();
-  gotoPage('quiz-start');
-})();
+
 </script>
 <!-- MISSION COMPLETE POPUP -->
 <div class="mission-popup-overlay" id="mission-popup-overlay" onclick="closeMissionPopup(event)">
