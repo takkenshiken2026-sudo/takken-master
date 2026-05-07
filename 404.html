@@ -184,6 +184,8 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
 /* mobile hamburger */
 .topnav-login-btn{margin-left:auto;padding:6px 14px;border-radius:var(--r);border:1px solid var(--border2);background:var(--ink);color:var(--bg2);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);white-space:nowrap;flex-shrink:0;transition:opacity .15s}
 .topnav-login-btn:hover{opacity:.82}
+.topnav-logout-btn{margin-left:auto;padding:6px 14px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);white-space:nowrap;flex-shrink:0;transition:all .15s}
+.topnav-logout-btn:hover{background:var(--bg3);color:var(--text)}
 .topnav-hamburger{display:none;margin-left:8px;width:36px;height:36px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
 .topnav-hamburger svg{width:16px;height:16px;stroke:var(--text2);fill:none;stroke-width:2;stroke-linecap:round}
 /* mobile drawer */
@@ -938,6 +940,7 @@ details.rich-detail summary{display:none} /* detailsは直接使わずsummaryが
         <div class="form-group"><label class="form-label">パスワード</label><input class="form-input" id="login-pw" type="password" placeholder="••••••••"></div>
         <div class="auth-err" id="login-err"></div>
         <button class="btn-auth" onclick="doLogin()">ログイン</button>
+        <div class="auth-demo" style="margin-top:10px"><a onclick="sendPasswordReset()">パスワードを忘れた方はこちら</a></div>
         <div class="auth-demo"><a onclick="demoLogin()">デモアカウントで試す →</a></div>
       </div>
       <div id="auth-register" style="display:none">
@@ -947,6 +950,11 @@ details.rich-detail summary{display:none} /* detailsは直接使わずsummaryが
         <div class="auth-err" id="reg-err"></div>
         <button class="btn-auth" onclick="doRegister()">アカウント作成</button>
         <div class="auth-demo"><a onclick="demoLogin()">デモアカウントで試す →</a></div>
+      </div>
+      <div id="auth-reset" style="display:none">
+        <div class="form-group"><label class="form-label">新しいパスワード（6文字以上）</label><input class="form-input" id="reset-pw" type="password" placeholder="••••••••"></div>
+        <div class="auth-err" id="reset-err"></div>
+        <button class="btn-auth" onclick="updatePassword()">パスワードを更新</button>
       </div>
     </div>
   </div>
@@ -985,6 +993,7 @@ details.rich-detail summary{display:none} /* detailsは直接使わずsummaryが
         </a>
       </nav>
       <button class="topnav-login-btn" id="topnav-login-btn" onclick="openLoginModal()" style="display:none">ログイン</button>
+      <button class="topnav-logout-btn" id="topnav-logout-btn" onclick="doLogout()" style="display:none">ログアウト</button>
       <button class="topnav-hamburger" id="hamburger-btn" onclick="openMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
       </button>
@@ -2516,6 +2525,7 @@ function switchAuthTab(tab){
   document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',(tab==='login'&&i===0)||(tab==='register'&&i===1)));
   document.getElementById('auth-login').style.display=tab==='login'?'':'none';
   document.getElementById('auth-register').style.display=tab==='register'?'':'none';
+  document.getElementById('auth-reset').style.display='none';
 }
 async function doLogin(){
   const e=document.getElementById('login-email').value.trim(),p=document.getElementById('login-pw').value;
@@ -2570,8 +2580,6 @@ function demoLogin(){
 async function doLogout(){
   await _sb.auth.signOut();
   currentUser=null;
-  const btn = document.getElementById('topnav-login-btn');
-  if(btn) btn.style.display='';
   // ゲストとして再入場
   loadDB();
   const guestEmail='__guest__';
@@ -2579,8 +2587,46 @@ async function doLogout(){
   currentUser={email:guestEmail,name:'ゲスト'};
   enterApp();
 }
+
+async function sendPasswordReset(){
+  const e=document.getElementById('login-email').value.trim();
+  const errEl=document.getElementById('login-err');
+  if(!e){errEl.textContent='メールアドレスを入力してから押してください';return}
+  errEl.textContent='再設定メールを送信中...';
+  const redirectTo=location.origin && location.origin !== 'null'
+    ? location.origin + location.pathname
+    : undefined;
+  const {error}=await _sb.auth.resetPasswordForEmail(e, redirectTo?{redirectTo}:undefined);
+  if(error){errEl.textContent='再設定メールを送れませんでした: '+error.message;return}
+  errEl.textContent='パスワード再設定メールを送信しました。メールを確認してください。';
+}
+
+function showPasswordResetForm(){
+  document.getElementById('login-modal').style.display='flex';
+  document.getElementById('auth-login').style.display='none';
+  document.getElementById('auth-register').style.display='none';
+  document.getElementById('auth-reset').style.display='';
+  document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('reset-err').textContent='新しいパスワードを入力してください。';
+}
+
+async function updatePassword(){
+  const p=document.getElementById('reset-pw').value;
+  const errEl=document.getElementById('reset-err');
+  if(!p||p.length<6){errEl.textContent='パスワードは6文字以上で入力してください';return}
+  errEl.textContent='更新中...';
+  const {error}=await _sb.auth.updateUser({password:p});
+  if(error){errEl.textContent='更新できませんでした: '+error.message;return}
+  errEl.textContent='パスワードを更新しました。次回から新しいパスワードでログインできます。';
+  setTimeout(()=>closeLoginModal(),1200);
+}
+
 function openLoginModal(){
   document.getElementById('login-modal').style.display='flex';
+  document.getElementById('auth-login').style.display='';
+  document.getElementById('auth-register').style.display='none';
+  document.getElementById('auth-reset').style.display='none';
+  document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',i===0));
   document.getElementById('login-err').textContent='';
   document.getElementById('reg-err').textContent='';
 }
@@ -2594,8 +2640,10 @@ function enterApp(){
   document.getElementById('app').style.display='block';
   closeLoginModal();
   const isGuest = currentUser && currentUser.email === '__guest__';
-  const btn = document.getElementById('topnav-login-btn');
-  if(btn) btn.style.display = isGuest ? '' : 'none';
+  const loginBtn = document.getElementById('topnav-login-btn');
+  const logoutBtn = document.getElementById('topnav-logout-btn');
+  if(loginBtn) loginBtn.style.display = isGuest ? '' : 'none';
+  if(logoutBtn) logoutBtn.style.display = isGuest ? 'none' : '';
   const u=getUserData();
   updateDayStreak(u);
   saveUser(u);
@@ -5353,6 +5401,10 @@ loadDB();
 // Supabaseセッションがあればログイン済みユーザーに切り替え
 (async function(){
   const {data:{session}}=await _sb.auth.getSession();
+  const hash = location.hash || '';
+  if(hash.includes('type=recovery') || hash.includes('access_token=')){
+    showPasswordResetForm();
+  }
   if(session){
     const e=session.user.email;
     const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
