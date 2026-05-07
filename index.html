@@ -2474,6 +2474,43 @@ const SUPABASE_URL = 'https://czxrmmbpvocprrwhmuir.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RS9eVE-YsfWg8waxyVjOWA_dIl1cb9x';
 const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+async function loadAnswersFromSupabase(){
+  if(!currentUser?.id) return;
+  const u=getUserData();
+  if(!u) return;
+  const {data,error}=await _sb
+    .from('user_answers')
+    .select('*')
+    .eq('user_id',currentUser.id);
+  if(error){
+    console.warn('Supabaseから回答履歴を読み込めませんでした', error.message);
+    return;
+  }
+  (data||[]).forEach(row=>{
+    if(row.question_id==null || row.answer==null) return;
+    const answeredAt=row.answered_at||row.created_at||row.updated_at;
+    u.answers[row.question_id]={
+      ans:Number(row.answer),
+      time:Number(row.time_sec||0),
+      date:answeredAt?new Date(answeredAt).getTime():Date.now()
+    };
+  });
+  saveUser(u);
+}
+
+async function saveAnswerToSupabase(q,picked,correct,elapsed){
+  if(!currentUser?.id) return;
+  const {error}=await _sb.from('user_answers').insert({
+    user_id:currentUser.id,
+    question_id:q.id,
+    answer:picked,
+    is_correct:correct,
+    time_sec:elapsed,
+    answered_at:new Date().toISOString()
+  });
+  if(error) console.warn('Supabaseに回答を保存できませんでした', error.message);
+}
+
 // ===== AUTH =====
 function switchAuthTab(tab){
   document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',(tab==='login'&&i===0)||(tab==='register'&&i===1)));
@@ -2489,7 +2526,9 @@ async function doLogin(){
   loadDB();
   const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
   if(!db[e]){db[e]=u;saveDB();}
-  currentUser={email:e,name:u.name}; enterApp();
+  currentUser={id:data.user.id,email:e,name:u.name};
+  await loadAnswersFromSupabase();
+  enterApp();
 }
 async function doRegister(){
   const n=document.getElementById('reg-name').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-pw').value;
@@ -2500,7 +2539,7 @@ async function doRegister(){
   if(error){document.getElementById('reg-err').textContent=error.message;return}
   loadDB();
   db[e]={name:n,plan:'free',answers:{},sessions:[],streak:0}; saveDB();
-  currentUser={email:e,name:n};
+  currentUser={id:data.user?.id,email:e,name:n};
   document.getElementById('reg-err').textContent='確認メールを送信しました。メールを確認してください。';
   enterApp();
 }
@@ -4660,6 +4699,7 @@ function pickOpt(i){
   u.answers[q.id]={ans:i,time:elapsed,date:Date.now()};
   if(correct)u.streak=(u.streak||0)+1; else u.streak=0;
   saveUser(u); quizState.sessionResults.push({q,picked:i,correct,time:elapsed});
+  saveAnswerToSupabase(q,i,correct,elapsed);
   document.querySelectorAll('.opt').forEach((el,j)=>{
     el.classList.add('disabled');
     if(j===q.ans)el.classList.add('correct');
@@ -5296,7 +5336,8 @@ loadDB();
     const e=session.user.email;
     const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
     if(!db[e]){db[e]=u;saveDB();}
-    currentUser={email:e,name:u.name};
+    currentUser={id:session.user.id,email:e,name:u.name};
+    await loadAnswersFromSupabase();
     enterApp();
   }
 })();
