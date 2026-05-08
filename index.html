@@ -503,13 +503,21 @@ details.rich-detail summary{display:none}
 
 /* ===== REVIEW ===== */
 .review-grid{display:flex;flex-direction:column;gap:7px}
-.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s;box-shadow:var(--sh)}
+.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:all .15s;box-shadow:var(--sh)}
 .review-card:hover{box-shadow:var(--sh2);border-color:var(--border2)}
-.review-indicator{width:3px;border-radius:2px;align-self:stretch;flex-shrink:0}
+.review-indicator{width:4px;border-radius:2px;align-self:stretch;flex-shrink:0}
 .review-body{flex:1;min-width:0}
-.review-q{font-size:16px;line-height:1.55;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--font)}
+.review-q{font-size:15px;line-height:1.65;margin-bottom:8px;font-family:var(--font);white-space:normal;word-break:break-all}
 .review-meta{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
-.review-arrow{color:var(--text3);font-size:16px;flex-shrink:0}
+.review-arrow{color:var(--text3);font-size:18px;flex-shrink:0;margin-top:2px}
+/* collapsible group */
+.review-group-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);margin:14px 0 6px;user-select:none;transition:background .15s}
+.review-group-header:hover{background:var(--bg4)}
+.review-group-header-left{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--text)}
+.review-group-chevron{font-size:12px;color:var(--text3);transition:transform .2s;display:inline-block}
+.review-group-chevron.open{transform:rotate(90deg)}
+.review-group-body{display:none}
+.review-group-body.open{display:block}
 
 /* ===== ANALYTICS ===== */
 .analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
@@ -688,7 +696,7 @@ details.rich-detail summary{display:none}
   .mission-text{font-size:14px}
   /* review */
   .review-card{padding:12px 12px}
-  .review-q{font-size:13px;line-height:1.5}
+  .review-q{font-size:14px;line-height:1.6}
   /* heatmap */
   .heatmap-grid{grid-template-columns:repeat(7,1fr);gap:2px}
   /* tables */
@@ -5189,7 +5197,13 @@ function buildRichExp(expText, opts, ans){
       ${cautionHTML}
     </div>`;
 }
-function reviewQ(qid){ quizState.queue=[QUESTIONS.find(q=>q.id===qid)];quizState.idx=0;quizState.sessionResults=[];gotoPage('quiz');renderQ(); }
+function reviewQ(qid){
+  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+  const allQ=[...QUESTIONS,...allOrig];
+  const q=allQ.find(q=>q.id===qid);
+  if(!q) return;
+  quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.fromReview=true;gotoPage('quiz');renderQ();
+}
 
 // ===== SCORE =====
 
@@ -5271,6 +5285,8 @@ function showScore(){
   // session-end badge check
   const sessionNewBadges=checkAndAwardBadges({correct,sessionResults:res,u});
   if(sessionNewBadges.length) saveUser(u);
+  // 復習からの場合はスコア画面をスキップして復習リストに戻る
+  if(quizState.fromReview){ quizState.fromReview=false; gotoPage('review'); return; }
   gotoPage('score');
   // Session-end message
   const fb = getSessionFeedback(pct, res.length, res, u);
@@ -5314,12 +5330,19 @@ function showScore(){
 }
 
 // ===== REVIEW =====
+function toggleReviewGroup(id){
+  const body=document.getElementById('rg-body-'+id);
+  const chev=document.getElementById('rg-chev-'+id);
+  if(!body||!chev) return;
+  body.classList.toggle('open');
+  chev.classList.toggle('open');
+}
 function renderReview(){
   const u=getUserData();
   const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
   const allQ=[...QUESTIONS,...allOrig];
   const wrongQs=allQ.filter(q=>u.answers[q.id]&&u.answers[q.id].ans!==q.ans);
-  const unanswered=QUESTIONS.filter(q=>!u.answers[q.id]); // 過去問のみ未解答表示
+
   const fmt=d=>new Date(d).toLocaleDateString('ja',{month:'numeric',day:'numeric'});
 
   // カード生成
@@ -5343,13 +5366,21 @@ function renderReview(){
     </div>`;
   }
 
-  // 分野→単元/年度でグループ化して描画
+  // 分野→単元/年度でグループ化して描画（折りたたみ対応）
   function renderGroup(qs,isWrong){
     let html='';
     FIELDS.forEach(f=>{
       const fqs=qs.filter(q=>q.field===f.id);
       if(!fqs.length) return;
-      html+=`<div style="font-size:13px;font-weight:700;color:var(--text);margin:16px 0 8px">${f.name}（${fqs.length}問）</div>`;
+      const gid='field-'+isWrong+'-'+f.id;
+      html+=`<div class="review-group-header" onclick="toggleReviewGroup('${gid}')">
+        <div class="review-group-header-left">
+          <span class="review-group-chevron open" id="rg-chev-${gid}">›</span>
+          <span>${f.name}</span>
+          <span style="font-weight:400;color:var(--text3)">${fqs.length}問</span>
+        </div>
+      </div>
+      <div class="review-group-body open" id="rg-body-${gid}">`;
       // オリジナル問題：単元別
       const origQs=fqs.filter(q=>q.unit);
       if(origQs.length){
@@ -5371,6 +5402,7 @@ function renderReview(){
           html+=`<div class="review-grid" style="margin-bottom:4px">${yqs.map(q=>makeCard(q,isWrong)).join('')}</div>`;
         });
       }
+      html+=`</div>`;
     });
     return html;
   }
@@ -5380,10 +5412,7 @@ function renderReview(){
     html+=`<div class="section-label" style="margin-bottom:10px">不正解 (${wrongQs.length}問)</div>`;
     html+=renderGroup(wrongQs,true);
   }
-  if(unanswered.length){
-    html+=`<div class="section-label" style="margin-bottom:10px;margin-top:${wrongQs.length?'24px':'0'}">未解答 (${unanswered.length}問)</div>`;
-    html+=renderGroup(unanswered,false);
-  }
+
   if(!html) html='<div style="font-size:13px;color:var(--text3);padding:20px 0;text-align:center">復習する問題はありません</div>';
   document.getElementById('review-list').innerHTML=html;
 }
