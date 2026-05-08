@@ -157,6 +157,36 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
   .orig-banner-title{font-size:14px}
 }
 
+/* ===== FOCUS TIMER ===== */
+.focus-btn{margin-left:8px;margin-right:12px;width:38px;height:38px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0}
+.focus-btn:hover,.focus-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
+.focus-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.focus-panel{position:fixed;top:62px;right:20px;width:300px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);box-shadow:var(--sh2);z-index:80;padding:16px;display:none}
+.focus-panel.open{display:block;animation:soft-enter .18s ease both}
+.focus-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.focus-panel-title{font-size:14px;font-weight:700;color:var(--text)}
+.focus-close{width:28px;height:28px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg2);color:var(--text3);cursor:pointer;font-size:18px;line-height:1}
+.focus-time{font-family:var(--mono);font-size:42px;font-weight:700;letter-spacing:-1px;line-height:1;text-align:center;margin:14px 0;color:var(--text)}
+.focus-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.focus-chip{border:1px solid var(--border2);background:var(--bg2);color:var(--text2);border-radius:var(--r);padding:6px 0;font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer}
+.focus-chip.on{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
+.focus-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.focus-action{border:none;border-radius:var(--r);padding:9px 0;font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer}
+.focus-action.primary{background:var(--ink);color:var(--bg2)}
+.focus-action.ghost{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.focus-section{border-top:1px solid var(--border);padding-top:12px}
+.focus-section-label{font-size:12px;font-weight:700;color:var(--text3);letter-spacing:.06em;margin-bottom:8px}
+.sound-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.sound-btn{border:1px solid var(--border2);background:var(--bg2);color:var(--text2);border-radius:var(--r);padding:7px 0;font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer}
+.sound-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
+.volume-row{display:flex;align-items:center;gap:8px}
+.volume-row span{font-size:12px;color:var(--text3);white-space:nowrap}
+.volume-row input{width:100%;accent-color:var(--ink)}
+@media(max-width:700px){
+  .focus-btn{margin-left:auto;margin-right:8px;width:36px;height:36px}
+  .focus-panel{top:58px;left:12px;right:12px;width:auto}
+}
+
 /* ===== AUTH ===== */
 #auth-screen{min-height:100vh;display:none;align-items:center;justify-content:center;background:var(--bg)}
 .auth-wrap{width:100%;max-width:380px;padding:0 20px}
@@ -183,7 +213,7 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
 #app{display:block;min-height:100vh}
 /* ---- top header ---- */
 .topnav{position:sticky;top:0;z-index:30;background:#ffffff;border-bottom:1px solid var(--border)}
-.topnav-inner{max-width:960px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;gap:0}
+.topnav-inner{max-width:1080px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;gap:0}
 .topnav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text);cursor:pointer;margin-right:28px;flex-shrink:0;pointer-events:auto}
 .topnav-logo-mark{width:28px;height:28px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--bg2);flex-shrink:0;font-family:var(--font)}
 .topnav-logo-text{font-size:16px;font-weight:700;letter-spacing:-0.01em;white-space:nowrap}
@@ -216,6 +246,7 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
 .main{min-height:calc(100vh - 54px);padding-bottom:56px}
 .topbar{display:none!important}
 .page{display:none;padding:28px 20px;max-width:960px;margin:0 auto}
+.page#page-quiz-start{max-width:1080px}
 .page.active{background:#ffffff;min-height:calc(100vh - 54px - 40px);border-left:1px solid var(--border);border-right:1px solid var(--border)}
 .page.active{display:block}
 h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
@@ -332,9 +363,16 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .quiz-prog-track{height:2px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .quiz-prog-fill{height:100%;background:var(--ink);transition:width .4s cubic-bezier(.4,0,.2,1);border-radius:2px}
 .q-card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r2);padding:20px 22px;margin-bottom:10px;box-shadow:none}
+.q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
 .q-meta{display:flex;align-items:center;gap:5px;margin-bottom:12px;flex-wrap:nowrap;overflow:hidden}
+.q-head .q-meta{margin-bottom:0;flex:1;min-width:0}
 .q-num{font-size:14px;font-family:var(--mono);color:var(--text3)}
 .q-text{font-size:16px;line-height:1.8;color:var(--text);font-family:var(--font)}
+.bookmark-btn{width:34px;height:34px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.bookmark-btn:hover{background:var(--bg4);color:var(--text)}
+.bookmark-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
+.bookmark-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bookmark-btn.on svg{fill:currentColor}
 .opts-list{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
 .opt{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;border-radius:var(--r);border:1.5px solid var(--border2);background:#ffffff;cursor:pointer;font-size:16px;line-height:1.75;transition:all .15s;box-shadow:var(--sh)}
 .opt:hover:not(.disabled){background:var(--bg3);border-color:var(--text2)}
@@ -522,10 +560,28 @@ details.rich-detail summary{display:none}
 /* ===== ANALYTICS ===== */
 .analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .analytics-full{margin-bottom:12px}
-.heatmap-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
-.heatmap-cell{aspect-ratio:1;border-radius:3px}
-.heatmap-labels{display:flex;justify-content:space-between;margin-top:5px}
-.heatmap-label{font-size:12px;color:var(--text3);font-family:var(--mono)}
+.study-cal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.study-cal-month{font-size:15px;font-weight:700;color:var(--text);font-family:var(--mono);letter-spacing:-0.01em}
+.study-cal-tools{display:flex;align-items:center;gap:8px}
+.study-cal-tabs{display:flex;align-items:center;gap:2px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:2px}
+.study-cal-tab{border:none;background:transparent;color:var(--text2);font-size:11px;font-weight:600;font-family:var(--font);padding:4px 8px;border-radius:4px;cursor:pointer;transition:all .15s}
+.study-cal-tab.on{background:var(--bg2);color:var(--text);box-shadow:var(--sh)}
+.study-cal-nav{display:flex;align-items:center;gap:4px}
+.study-cal-btn{width:28px;height:28px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:16px;line-height:1;cursor:pointer;font-family:var(--font);display:flex;align-items:center;justify-content:center;transition:all .15s}
+.study-cal-btn:hover{background:var(--bg3);color:var(--text)}
+.study-cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px}
+.study-cal-weekday{text-align:center;font-size:10px;font-weight:700;color:var(--text3);font-family:var(--mono)}
+.study-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.study-cal-day{min-height:44px;border-radius:5px;border:1px solid var(--border);background:var(--bg2);padding:5px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between}
+.study-cal-day.empty{background:transparent;border-color:transparent}
+.study-cal-day.future{background:var(--bg3);color:var(--text3);opacity:.62}
+.study-cal-day.today{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.study-cal-day.studied{background:#f8f8f8}
+.study-cal-date{font-size:11px;font-weight:700;color:var(--text2);font-family:var(--mono);line-height:1}
+.study-cal-count{align-self:flex-end;min-width:18px;height:18px;border-radius:9px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--mono);padding:0 5px}
+.study-cal-day:not(.studied) .study-cal-count{display:none}
+.study-cal-summary{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:12px;color:var(--text3);line-height:1.55}
+.study-cal-summary strong{font-family:var(--mono);color:var(--text);font-size:13px}
 .time-bars{display:flex;align-items:flex-end;gap:4px;height:70px}
 .time-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
 .time-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
@@ -676,6 +732,8 @@ details.rich-detail summary{display:none}
   .glos-compare{grid-template-columns:1fr}
   /* quiz */
   .q-card{padding:12px 14px;margin-bottom:8px}
+  .q-head{margin-bottom:8px}
+  .bookmark-btn{width:32px;height:32px}
   .q-text{font-size:14px;line-height:1.65}
   .q-meta{margin-bottom:8px}
   .opts-list{gap:5px;margin-bottom:8px}
@@ -697,8 +755,13 @@ details.rich-detail summary{display:none}
   /* review */
   .review-card{padding:12px 12px}
   .review-q{font-size:14px;line-height:1.6}
-  /* heatmap */
-  .heatmap-grid{grid-template-columns:repeat(7,1fr);gap:2px}
+  /* calendar */
+  .study-cal-head{align-items:flex-start}
+  .study-cal-tools{flex-direction:column;align-items:flex-end;gap:6px}
+  .study-cal-day{min-height:38px;padding:4px}
+  .study-cal-date{font-size:10px}
+  .study-cal-count{min-width:16px;height:16px;font-size:9px;padding:0 4px}
+  .study-cal-summary{flex-direction:column;align-items:flex-start}
   /* tables */
   .d-flow{gap:3px}
   .d-box{font-size:12px;padding:4px 7px}
@@ -759,12 +822,12 @@ details.rich-detail summary{display:none}
 .site-footer-inner{max-width:960px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .site-footer-logo{display:flex;align-items:center;gap:7px;flex-shrink:0}
 .site-footer-links{display:flex;gap:20px;flex:1;flex-wrap:wrap}
-.site-footer-links a{font-size:var(--fs-sub);color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none}
+.site-footer-links a{font-size:14px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none}
 .site-footer-links a:hover{color:var(--text2)}
-.site-footer-copy{font-size:var(--fs-caption);color:var(--text3);margin-left:auto;white-space:nowrap}
+.site-footer-copy{font-size:14px;color:var(--text3);margin-left:auto;white-space:nowrap}
 .site-footer-sep{width:1px;height:14px;background:var(--border2);flex-shrink:0}
 .site-footer-legal{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.site-footer-legal a{font-size:var(--fs-caption);color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none;white-space:nowrap}
+.site-footer-legal a{font-size:14px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none;white-space:nowrap}
 .site-footer-legal a:hover{color:var(--text2)}
 @media(max-width:600px){
   .site-footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
@@ -783,12 +846,13 @@ details.rich-detail summary{display:none}
 }
  */
 /* Toast notification */
-#toast-wrap{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:9999;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:8px}
-.toast{background:var(--ink);color:var(--bg2);padding:10px 22px;border-radius:50px;font-size:14px;font-weight:600;letter-spacing:.03em;opacity:0;transform:translateY(-12px) scale(.95);transition:opacity .2s,transform .2s;white-space:nowrap}
-.toast.show{opacity:1;transform:translateY(0) scale(1)}
-.toast.correct{background:var(--green)}
-.toast.wrong{background:var(--text2)}
-.toast.streak{background:var(--ink)}
+#toast-wrap{position:fixed;top:66px;right:20px;z-index:9999;pointer-events:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.toast{background:rgba(255,255,255,.96);color:var(--text);border:1px solid var(--border2);box-shadow:0 8px 24px rgba(0,0,0,.12);padding:9px 13px;border-radius:8px;font-size:13px;font-weight:600;letter-spacing:0;opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease;white-space:nowrap;backdrop-filter:blur(8px)}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.correct{border-color:var(--grn-b);color:var(--green)}
+.toast.wrong{border-color:var(--red-b);color:var(--red)}
+.toast.streak,.toast.badge{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
+.toast.bookmark{border-color:var(--border2)}
 /* Badge */
 .badge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
 .badge-item{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border-radius:var(--r2);border:1.5px solid var(--border);background:var(--bg2);position:relative;transition:border-color .15s}
@@ -840,7 +904,12 @@ details.rich-detail summary{display:none}
 .answer-feedback.wrong{color:var(--red);background:var(--red-s);border:1.5px solid var(--red-b)}
 /* Score badges row */
 .score-badges-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.score-earned-badge{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;background:var(--bg3);border:1px solid var(--border2);font-size:var(--fs-sub);font-weight:600;color:var(--text)}
+.score-earned-badge{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--border2);font-size:var(--fs-sub);font-weight:600;color:var(--text);animation:soft-enter .22s ease both}
+@keyframes soft-enter{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+  #toast-wrap{top:auto;right:12px;left:12px;bottom:calc(var(--fnav-h,56px) + 12px);align-items:stretch}
+  .toast{text-align:center;white-space:normal}
+}
 /* Streak display in exam banner */
 @media(max-width:600px){
   .badge-grid{grid-template-columns:repeat(3,1fr)}
@@ -992,11 +1061,14 @@ details.rich-detail summary{display:none}
         <span class="topnav-logo-text">宅建マスター</span>
       </a>
       <nav class="topnav-links" aria-label="メインナビゲーション">
-        <a class="topnav-link" id="tnav-orig" href="/quiz/orig/" onclick="event.preventDefault();gotoPage('orig')">
-          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>オリジナル問題
+        <a class="topnav-link" id="tnav-ichimondou" href="/quiz/ichimondou/" onclick="event.preventDefault();startIchimondou()">
+          <svg viewBox="0 0 16 16"><path d="M8 2v12M4 4h8M4 8h8M4 12h8"/></svg>一問一答
         </a>
         <a class="topnav-link" id="tnav-past" href="/quiz/past/" onclick="event.preventDefault();gotoPage('past-config')">
           <svg viewBox="0 0 16 16"><path d="M3 2h10v12H3z"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>過去問
+        </a>
+        <a class="topnav-link" id="tnav-orig" href="/quiz/orig/" onclick="event.preventDefault();gotoPage('orig')">
+          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>オリジナル問題
         </a>
         <a class="topnav-link" id="tnav-mock" href="/quiz/mock/" onclick="event.preventDefault();gotoPage('mock')">
           <svg viewBox="0 0 16 16"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>オリジナル模試
@@ -1012,6 +1084,9 @@ details.rich-detail summary{display:none}
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
         </a>
       </nav>
+      <button class="focus-btn" id="focus-btn" onclick="toggleFocusPanel()" aria-label="集中タイマー">
+        <svg viewBox="0 0 16 16"><circle cx="8" cy="8.5" r="5.5"/><path d="M8 5.5v3l2 1.2M6 1.5h4"/></svg>
+      </button>
       <button class="topnav-login-btn" id="topnav-login-btn" onclick="openLoginModal()" style="display:none">ログイン</button>
       <button class="topnav-logout-btn" id="topnav-logout-btn" onclick="doLogout()" style="display:none">ログアウト</button>
       <button class="topnav-hamburger" id="hamburger-btn" onclick="openMobileDrawer()">
@@ -1019,6 +1094,36 @@ details.rich-detail summary{display:none}
       </button>
     </div>
   </nav>
+
+  <div class="focus-panel" id="focus-panel">
+    <div class="focus-panel-head">
+      <div class="focus-panel-title">集中タイマー</div>
+      <button class="focus-close" onclick="closeFocusPanel()" aria-label="閉じる">×</button>
+    </div>
+    <div class="focus-presets">
+      <button class="focus-chip on" id="focus-preset-15" onclick="setFocusMinutes(15)">15分</button>
+      <button class="focus-chip" id="focus-preset-25" onclick="setFocusMinutes(25)">25分</button>
+      <button class="focus-chip" id="focus-preset-50" onclick="setFocusMinutes(50)">50分</button>
+    </div>
+    <div class="focus-time" id="focus-time">15:00</div>
+    <div class="focus-actions">
+      <button class="focus-action primary" id="focus-start-btn" onclick="toggleFocusTimer()">開始</button>
+      <button class="focus-action ghost" onclick="resetFocusTimer()">リセット</button>
+    </div>
+    <div class="focus-section">
+      <div class="focus-section-label">環境音</div>
+      <div class="sound-row">
+        <button class="sound-btn" id="sound-rain" onclick="toggleFocusSound('rain')">雨音</button>
+        <button class="sound-btn" id="sound-wave" onclick="toggleFocusSound('wave')">波音</button>
+        <button class="sound-btn" id="sound-white" onclick="toggleFocusSound('white')">ホワイト</button>
+        <button class="sound-btn" id="sound-off" onclick="toggleFocusSound('off')">OFF</button>
+      </div>
+      <div class="volume-row">
+        <span>音量</span>
+        <input id="focus-volume" type="range" min="0" max="100" value="35" oninput="setFocusVolume(this.value)" aria-label="環境音の音量">
+      </div>
+    </div>
+  </div>
 
   <!-- EXAM COUNTDOWN BANNER -->
   <div class="exam-banner" id="exam-banner">
@@ -1040,11 +1145,14 @@ details.rich-detail summary{display:none}
         <svg viewBox="0 0 16 16"><path d="M2 13V6l6-4 6 4v7H10V9H6v4z"/></svg>TOP
       </a>
       <div style="height:1px;background:var(--border);margin:4px 0"></div>
-      <a class="mobile-nav-item" id="mnav-orig" href="/quiz/orig/" onclick="event.preventDefault();gotoPage('orig');closeMobileDrawer()">
-        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>オリジナル問題
+      <a class="mobile-nav-item" id="mnav-ichimondou" href="/quiz/ichimondou/" onclick="event.preventDefault();startIchimondou();closeMobileDrawer()">
+        <svg viewBox="0 0 16 16"><path d="M8 2v12M4 4h8M4 8h8M4 12h8"/></svg>一問一答
       </a>
       <a class="mobile-nav-item" id="mnav-quiz-start" href="/quiz/past/" onclick="event.preventDefault();gotoPage('past-config');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M3 2h10v12H3z"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>過去問
+      </a>
+      <a class="mobile-nav-item" id="mnav-orig" href="/quiz/orig/" onclick="event.preventDefault();gotoPage('orig');closeMobileDrawer()">
+        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>オリジナル問題
       </a>
       <a class="mobile-nav-item" id="mnav-mock" href="/quiz/mock/" onclick="event.preventDefault();gotoPage('mock');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>オリジナル模試
@@ -1122,7 +1230,7 @@ details.rich-detail summary{display:none}
           <div class="mode-num-v2">04</div>
           <div class="mode-body-v2">
             <div class="mode-purpose-v2">本番に向けて実力試しをしたい</div>
-            <div class="mode-title-v2">模試</div>
+            <div class="mode-title-v2">オリジナル模試 <span style="font-size:10px;background:var(--ink);color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px;font-weight:600;vertical-align:middle">PRO</span></div>
           </div>
           <div class="mode-arrow-v2">›</div>
         </div>
@@ -1190,7 +1298,12 @@ details.rich-detail summary{display:none}
         <div class="quiz-prog-track"><div class="quiz-prog-fill" id="qp-fill" style="width:0%"></div></div>
       </div>
       <div class="q-card">
-        <div class="q-meta" id="q-meta"></div>
+        <div class="q-head">
+          <div class="q-meta" id="q-meta"></div>
+          <button class="bookmark-btn" id="q-bookmark-btn" onclick="toggleCurrentBookmark()" aria-label="ブックマークに追加">
+            <svg viewBox="0 0 16 16"><path d="M4 2.5h8v11L8 11l-4 2.5z"/></svg>
+          </button>
+        </div>
         <div class="q-text" id="q-body"></div>
       </div>
       <div class="opts-list" id="opts"></div>
@@ -1234,7 +1347,7 @@ details.rich-detail summary{display:none}
       <div id="dash-level-bar"></div>
       <div class="stat-row">
         <div class="stat-card"><div class="stat-label">総解答数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">正解・不正解を問わず、これまでに回答した問題の合計数</span></span></div><div class="stat-val cv-blue" id="d-total">0</div><div class="stat-sub">問</div></div>
-        <div class="stat-card"><div class="stat-label">全体正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">全回答のうち正解した割合。高いほど定着度が高い</span></span></div><div class="stat-val cv-blue" id="d-rate">—</div><div class="stat-sub">overall</div></div>
+        <div class="stat-card"><div class="stat-label">全体正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">全回答のうち正解した割合。高いほど定着度が高い</span></span></div><div class="stat-val cv-blue" id="d-rate">—</div></div>
         <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">直近で何問連続して正解しているか。不正解でリセット</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問</div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
         <div class="stat-card"><div class="stat-label">復習待ち <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">一度不正解だった問題の数。復習タブで再挑戦できる</span></span></div><div class="stat-val cv-red" id="d-review-cnt">0</div><div class="stat-sub">問</div><button onclick="gotoPage('review')" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:4px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:var(--font);display:block;width:100%;transition:all .15s" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='none'">復習を始める →</button></div>
       </div>
@@ -1253,7 +1366,7 @@ details.rich-detail summary{display:none}
 
       <div class="dash-grid">
         <div class="card"><h2 class="section-label">年度別正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">過去問の年度ごとの正解率。未解答の年度は「—」と表示</span></span></h2><div id="an-year-bars"></div></div>
-        <div class="card"><h2 class="section-label">学習カレンダー（直近49日）<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">直近49日間の学習記録。色が濃い日ほど多く解いた日</span></span></h2><div id="an-heatmap"></div><div class="heatmap-labels" id="an-heatmap-labels"></div></div>
+        <div class="card"><h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2><div id="an-calendar"></div></div>
       </div>
 
       <div class="card analytics-full" style="margin-bottom:0">
@@ -1679,7 +1792,7 @@ details.rich-detail summary{display:none}
       <div class="site-footer-inner">
         <div class="site-footer-logo">
           <div class="topnav-logo-mark" style="width:22px;height:22px;font-size:10px;border-radius:5px;flex-shrink:0">宅建</div>
-          <span style="font-size:13px;font-weight:700;letter-spacing:-0.01em">宅建マスター</span>
+          <span style="font-size:14px;font-weight:700;letter-spacing:-0.01em">宅建マスター</span>
         </div>
         <nav class="site-footer-legal" aria-label="法的情報">
           <a href="/privacy-terms/" onclick="event.preventDefault();window.location.href='privacy-terms.html'">プライバシーポリシー・利用規約</a>
@@ -1845,6 +1958,125 @@ function showToast(msg, type='default', duration=1800){
     el.classList.remove('show');
     setTimeout(()=>el.remove(), 250);
   }, duration);
+}
+
+// --- Focus timer / ambient sound ---
+const focusAudioSources={
+  rain:'focus-rain.ogg',
+  wave:'focus-waves.ogg',
+  white:'focus-white-noise.ogg'
+};
+const focusState={duration:15*60,left:15*60,running:false,timer:null,sound:'off',player:null};
+function fmtFocusTime(sec){
+  const m=Math.floor(sec/60),s=sec%60;
+  return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+function renderFocusTimer(){
+  const timeEl=document.getElementById('focus-time');
+  const btn=document.getElementById('focus-start-btn');
+  if(timeEl) timeEl.textContent=fmtFocusTime(focusState.left);
+  if(btn) btn.textContent=focusState.running?'一時停止':'開始';
+  [15,25,50].forEach(m=>{
+    const el=document.getElementById('focus-preset-'+m);
+    if(el) el.classList.toggle('on',focusState.duration===m*60);
+  });
+}
+function toggleFocusPanel(){
+  const panel=document.getElementById('focus-panel');
+  const btn=document.getElementById('focus-btn');
+  if(!panel) return;
+  const open=!panel.classList.contains('open');
+  panel.classList.toggle('open',open);
+  if(btn) btn.classList.toggle('on',open);
+  renderFocusTimer();
+  renderFocusSound();
+}
+function closeFocusPanel(){
+  const panel=document.getElementById('focus-panel');
+  const btn=document.getElementById('focus-btn');
+  if(panel) panel.classList.remove('open');
+  if(btn) btn.classList.remove('on');
+}
+function setFocusMinutes(min){
+  focusState.duration=min*60;
+  if(!focusState.running) focusState.left=focusState.duration;
+  renderFocusTimer();
+}
+function toggleFocusTimer(){
+  focusState.running?pauseFocusTimer():startFocusTimer();
+}
+function startFocusTimer(){
+  if(focusState.running) return;
+  focusState.running=true;
+  focusState.timer=setInterval(()=>{
+    focusState.left=Math.max(0,focusState.left-1);
+    renderFocusTimer();
+    if(focusState.left<=0){
+      pauseFocusTimer();
+      focusState.left=focusState.duration;
+      renderFocusTimer();
+      showToast('タイマーが終了しました','badge',2400);
+    }
+  },1000);
+  renderFocusTimer();
+}
+function pauseFocusTimer(){
+  focusState.running=false;
+  if(focusState.timer) clearInterval(focusState.timer);
+  focusState.timer=null;
+  renderFocusTimer();
+}
+function resetFocusTimer(){
+  pauseFocusTimer();
+  focusState.left=focusState.duration;
+  renderFocusTimer();
+}
+function clearFocusSound(){
+  if(focusState.player){
+    focusState.player.pause();
+    focusState.player.src='';
+    focusState.player.load();
+  }
+  focusState.player=null;
+}
+function playFocusSound(kind){
+  clearFocusSound();
+  const src=focusAudioSources[kind];
+  if(!src){
+    showToast('音源が見つかりません','wrong',1800);
+    focusState.sound='off';
+    return;
+  }
+  const player=new Audio(src);
+  player.loop=true;
+  player.preload='auto';
+  player.volume=(Number(document.getElementById('focus-volume')?.value||35)/100);
+  focusState.player=player;
+  player.play().catch(()=>{
+    focusState.sound='off';
+    clearFocusSound();
+    renderFocusSound();
+    showToast('音を再生できませんでした','wrong',2000);
+  });
+}
+function renderFocusSound(){
+  ['rain','wave','white','off'].forEach(k=>{
+    const el=document.getElementById('sound-'+k);
+    if(el) el.classList.toggle('on',focusState.sound===k);
+  });
+}
+function toggleFocusSound(kind){
+  if(kind==='off' || focusState.sound===kind){
+    focusState.sound='off';
+    clearFocusSound();
+  } else {
+    focusState.sound=kind;
+    playFocusSound(kind);
+  }
+  renderFocusSound();
+}
+function setFocusVolume(value){
+  if(focusState.player) focusState.player.volume=Number(value)/100;
 }
 
 // --- Feedback messages ---
@@ -2026,11 +2258,13 @@ function renderDashLevel(){
   const lv=getLevel(total);
   const next=getLevelNext(total);
   const pct=next?Math.round((total-lv.min)/(next.min-lv.min)*100):100;
+  const levelTip=`累計解答数に応じて上がる指標。全${LEVELS.length}段階（Lv1〜Lv${LEVELS.length}）で、現在はLv${lv.lv}です。`;
   el.innerHTML=`<div class="level-badge-wrap" style="margin-bottom:16px">
     <div class="level-badge-inner" style="flex-direction:row;align-items:center;gap:14px">
       <div class="level-badge-num" style="font-size:26px;min-width:52px;text-align:center">Lv${lv.lv}</div>
       <div class="level-badge-info" style="flex:1;min-width:0">
-        <div class="level-badge-title">${lv.label}</div>
+        <div class="level-badge-title">レベル ${tip(levelTip)} <span style="font-size:12px;color:var(--text3);font-weight:600;margin-left:6px">全${LEVELS.length}段階</span></div>
+        <div class="level-badge-sub" style="margin-top:2px;color:var(--text2);font-weight:600">${lv.label}</div>
         <div class="level-badge-sub">${next?`次のレベルまで ${next.min-total}問`:''} ／ 累計${total}問</div>
         <div class="level-bar-wrap" style="margin-top:6px"><div class="level-bar-fill" style="width:${pct}%"></div></div>
       </div>
@@ -2491,7 +2725,15 @@ function _getItem(k){ try{ return localStorage.getItem(k); }catch(e){ return _me
 function _setItem(k,v){ try{ localStorage.setItem(k,v); }catch(e){ _memStore[k]=v; } }
 function loadDB(){ try{ var s=_getItem('takken_v3'); db=s?JSON.parse(s):{} }catch(e){db={}} }
 function saveDB(){ try{ _setItem('takken_v3',JSON.stringify(db)); }catch(e){} }
-function getUserData(){ return currentUser?db[currentUser.email]:null }
+function normalizeUserData(u){
+  if(!u) return u;
+  u.answers=u.answers||{};
+  u.sessions=u.sessions||[];
+  u.bookmarks=u.bookmarks||{};
+  u.streak=u.streak||0;
+  return u;
+}
+function getUserData(){ return currentUser?normalizeUserData(db[currentUser.email]):null }
 function saveUser(d){ if(currentUser){db[currentUser.email]=d;saveDB()} }
 
 // ===== MOBILE NAV =====
@@ -2572,7 +2814,7 @@ async function doLogin(){
     return;
   }
   loadDB();
-  const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
+  const u=normalizeUserData(db[e]||{name:e,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0});
   if(!db[e]){db[e]=u;saveDB();}
   currentUser={id:data.user.id,email:e,name:u.name};
   await loadAnswersFromSupabase();
@@ -2594,7 +2836,7 @@ async function doRegister(){
     return;
   }
   loadDB();
-  db[e]={name:n,plan:'free',answers:{},sessions:[],streak:0}; saveDB();
+  db[e]={name:n,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0}; saveDB();
   currentUser={id:data.user?.id,email:e,name:n};
   if(data.session){
     enterApp();
@@ -2607,7 +2849,7 @@ function demoLogin(){
   if(!db[email]){
     const now=Date.now(),day=86400000, ans={};
     QUESTIONS.forEach((q,i)=>{ ans[q.id]={ans:q.ans,time:10+Math.random()*20,date:now-(4-Math.floor(i/4))*day}; });
-    db[email]={name:'デモユーザー',plan:'free',answers:ans,
+    db[email]={name:'デモユーザー',plan:'free',answers:ans,bookmarks:{},
       sessions:[{date:now-5*day,correct:3,total:5,pct:60},{date:now-4*day,correct:4,total:5,pct:80},
                 {date:now-3*day,correct:5,total:5,pct:100},{date:now-2*day,correct:3,total:5,pct:60},
                 {date:now-1*day,correct:4,total:5,pct:80}],streak:3};
@@ -2621,7 +2863,7 @@ async function doLogout(){
   // ゲストとして再入場
   loadDB();
   const guestEmail='__guest__';
-  if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
+  if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],bookmarks:{},streak:0};saveDB();}
   currentUser={email:guestEmail,name:'ゲスト'};
   enterApp();
 }
@@ -2671,7 +2913,7 @@ function openLoginModal(){
 function closeLoginModal(){
   document.getElementById('login-modal').style.display='none';
 }
-function resetData(){ const u=getUserData();u.answers={};u.sessions=[];u.streak=0;saveUser(u);gotoPage('quiz-start'); }
+function resetData(){ const u=getUserData();u.answers={};u.sessions=[];u.bookmarks={};u.streak=0;saveUser(u);gotoPage('quiz-start'); }
 
 function enterApp(){
   document.getElementById('auth-screen').style.display='none';
@@ -2692,7 +2934,7 @@ function enterApp(){
 }
 
 const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'分析','review':'復習','analytics':'分析','account':'アカウント','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果'};
-const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','glossary':'glossary'};
+const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','glossary':'glossary','ichimondou':'ichimondou'};
 
 // ページごとのSEOメタ情報
 const PAGE_SEO = {
@@ -2738,6 +2980,12 @@ const PAGE_SEO = {
     path:  '/quiz/mock/',
     hash:  '#mock'
   },
+  'ichimondou': {
+    title: '一問一答｜宅建マスター',
+    desc:  '宅建試験の重要知識を一問一答形式で確認。短時間で基礎知識の定着を進められます。',
+    path:  '/quiz/ichimondou/',
+    hash:  '#ichimondou'
+  },
   'account': {
     title: 'アカウント｜宅建マスター',
     desc:  '宅建マスターのアカウント管理。プロフィール・プラン確認・学習データの管理ができます。',
@@ -2767,7 +3015,7 @@ function _updatePageMeta(id) {
   if (ogDesc)  ogDesc.content  = seo.desc;
   // GitHub Pagesでは /review/ のような仮想パスをリロードすると404になるため、
   // 公開環境では常に /#review のようなハッシュURLにする。
-  if (!['quiz','score','mock-score'].includes(id)) {
+  if (!['quiz','score','mock-score','ichimondou-score'].includes(id)) {
     try {
       const hash = seo.hash || '';
       const url = location.pathname.replace(/\/(quiz|dashboard|review|glossary|account).*/, '/') + hash;
@@ -2883,6 +3131,10 @@ function showIchiScore() {
 }
 
 function gotoPage(id){
+  if(id==='ichimondou' && (!ichiState.questions || !ichiState.questions.length)){
+    startIchimondou();
+    return;
+  }
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -2897,6 +3149,7 @@ function gotoPage(id){
     const map = {
       'orig':     id==='orig' || fromOrig,
       'past':     fromPastNav,
+      'ichimondou': id==='ichimondou' || id==='ichimondou-score',
       'dash':     id==='dash',
       'review':   id==='review',
       'glossary': id==='glossary',
@@ -2946,6 +3199,7 @@ function _resolveInitialPage() {
   const pathMap = {
     '/quiz/past/':   'past-config',
     '/quiz/orig/':   'orig',
+    '/quiz/ichimondou/': 'ichimondou',
     '/dashboard/':   'dash',
     '/review/':      'review',
     '/glossary/':    'glossary',
@@ -2955,7 +3209,7 @@ function _resolveInitialPage() {
   // パスで判定（後方互換としてhashも見る）
   const path = location.pathname;
   const hashMap = {
-    '#past':'past-config','#orig':'orig','#dash':'dash',
+    '#past':'past-config','#orig':'orig','#ichimondou':'ichimondou','#dash':'dash',
     '#review':'review','#glossary':'glossary','#mock':'mock','#account':'account'
   };
   return pathMap[path] || hashMap[location.hash] || 'quiz-start';
@@ -2985,6 +3239,9 @@ function renderFieldBars(cid){
 
 // ===== DASHBOARD =====
 let fieldTabMode = 'field'; // 'field' | 'unit'
+let analyticsCalendarMonth = null;
+let analyticsCalendarWeek = null;
+let analyticsCalendarMode = 'month';
 function switchFieldTab(mode){
   fieldTabMode = mode;
   document.getElementById('ftab-field').classList.toggle('on', mode==='field');
@@ -4663,6 +4920,7 @@ function renderMockQ(){
   document.getElementById('qp-fill').style.width = `${((mockState.idx)/total)*100}%`;
   document.getElementById('qp-time').innerHTML = `<span class="quiz-countdown" id="mock-clock">--:--</span>`;
   document.getElementById('q-meta').innerHTML = `<span class="tag tag-gray">${{rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'}[q.field]}</span><span class="tag tag-blue">模試${mockState.patternId} 問${q.num}</span>`;
+  updateBookmarkButton(null);
   document.getElementById('q-body').textContent = q.text;
   const opts = document.getElementById('opts');
   opts.innerHTML = q.opts.map((o,i)=>`<div class="opt" id="opt${i}" onclick="pickMockOpt(${i})">${i+1}. ${o}</div>`).join('');
@@ -4771,6 +5029,7 @@ function startOrigQuiz(level){
   quizState.queue = [...qs];
   quizState.idx = 0;
   quizState.sessionResults = [];
+  quizState.mode = 'orig';
   gotoPage('quiz');
   renderQ();
 }
@@ -4788,6 +5047,40 @@ function beginQuiz(){
 
 // ===== QUIZ =====
 let timer=null;
+function allPracticeQuestions(){
+  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+  return [...QUESTIONS,...allOrig];
+}
+function isBookmarked(qid){
+  const u=getUserData();
+  return !!(u?.bookmarks && u.bookmarks[qid]);
+}
+function updateBookmarkButton(q){
+  const btn=document.getElementById('q-bookmark-btn');
+  if(!btn) return;
+  const canBookmark=!!(q&&q.id);
+  btn.style.display=canBookmark?'':'none';
+  if(!canBookmark) return;
+  const on=isBookmarked(q.id);
+  btn.classList.toggle('on',on);
+  btn.setAttribute('aria-label',on?'ブックマークを解除':'ブックマークに追加');
+  btn.setAttribute('title',on?'ブックマークを解除':'ブックマークに追加');
+}
+function toggleCurrentBookmark(){
+  const q=quizState.queue[quizState.idx];
+  if(!q||!q.id) return;
+  const u=getUserData();
+  u.bookmarks=u.bookmarks||{};
+  if(u.bookmarks[q.id]){
+    delete u.bookmarks[q.id];
+    showToast('保存を解除しました','bookmark',1300);
+  } else {
+    u.bookmarks[q.id]=Date.now();
+    showToast('ブックマークに保存しました','bookmark',1400);
+  }
+  saveUser(u);
+  updateBookmarkButton(q);
+}
 function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   const q=quizState.queue[quizState.idx],total=quizState.queue.length,idx=quizState.idx;
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
@@ -4797,6 +5090,7 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   const freqN=getFreqStars(q);
   const yearTag=q.year?`<span class="tag tag-blue">${q.year}年</span>`:'<span class="tag tag-blue">オリジナル</span>';
   document.getElementById('q-meta').innerHTML=`<span class="tag tag-gray">${f.name}</span>${yearTag}<span class="diff-wrap">${diffStarsHTML(diffN)}</span>${freqStarsHTML(freqN)}`;
+  updateBookmarkButton(q);
   document.getElementById('q-body').textContent=q.text;
   document.getElementById('opts').innerHTML=q.opts.map((o,i)=>
     `<div class="opt" id="opt${i}" onclick="pickOpt(${i})"><span class="opt-num">${i+1}</span><span>${o}</span></div>`).join('');
@@ -4843,7 +5137,7 @@ function pickOpt(i){
   showNextBtn(true, null);
   // Badge check (per-answer)
   const newBadges=checkAndAwardBadges({correct,sessionResults:quizState.sessionResults,u});
-  if(newBadges.length){ saveUser(u); newBadges.forEach(b=>{ setTimeout(()=>showToast(b.icon+' '+b.name+' バッジ獲得！','streak',2800),900); }); }
+  if(newBadges.length){ saveUser(u); newBadges.forEach((b,i)=>{ setTimeout(()=>showToast(`${b.icon} ${b.name} を獲得しました`,'badge',2200),i*180); }); }
   checkMissionAllComplete();
 }
 
@@ -5198,11 +5492,9 @@ function buildRichExp(expText, opts, ans){
     </div>`;
 }
 function reviewQ(qid){
-  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
-  const allQ=[...QUESTIONS,...allOrig];
-  const q=allQ.find(q=>q.id===qid);
+  const q=allPracticeQuestions().find(q=>q.id===qid);
   if(!q) return;
-  quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.fromReview=true;gotoPage('quiz');renderQ();
+  quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.fromReview=true;quizState.mode=q.unit?'orig':'past';gotoPage('quiz');renderQ();
 }
 
 // ===== SCORE =====
@@ -5339,14 +5631,17 @@ function toggleReviewGroup(id){
 }
 function renderReview(){
   const u=getUserData();
-  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
-  const allQ=[...QUESTIONS,...allOrig];
+  const allQ=allPracticeQuestions();
   const wrongQs=allQ.filter(q=>u.answers[q.id]&&u.answers[q.id].ans!==q.ans);
+  const bookmarkMap=u.bookmarks||{};
+  const bookmarkedQs=allQ
+    .filter(q=>bookmarkMap[q.id])
+    .sort((a,b)=>(bookmarkMap[b.id]||0)-(bookmarkMap[a.id]||0));
 
   const fmt=d=>new Date(d).toLocaleDateString('ja',{month:'numeric',day:'numeric'});
 
   // カード生成
-  function makeCard(q,isWrong){
+  function makeCard(q,isWrong,isBookmarkedCard=false){
     const dateStr=u.answers[q.id]?.date?fmt(u.answers[q.id].date):'';
     const isOrig=!!q.unit;
     const sourceTag=isOrig
@@ -5359,6 +5654,7 @@ function renderReview(){
         <div class="review-meta">
           ${sourceTag}
           ${isWrong?'<span class="tag tag-red">不正解</span>':''}
+          ${isBookmarkedCard?'<span class="tag tag-blue">ブックマーク</span>':''}
           ${dateStr?`<span style="font-size:12px;color:var(--text3);margin-left:auto">${dateStr}</span>`:''}
         </div>
       </div>
@@ -5367,7 +5663,7 @@ function renderReview(){
   }
 
   // 分野→単元/年度でグループ化して描画（折りたたみ対応）
-  function renderGroup(qs,isWrong){
+  function renderGroup(qs,isWrong,isBookmarkedGroup=false){
     let html='';
     FIELDS.forEach(f=>{
       const fqs=qs.filter(q=>q.field===f.id);
@@ -5389,7 +5685,7 @@ function renderReview(){
           const uqs=origQs.filter(q=>q.unit===unit.id);
           if(!uqs.length) return;
           html+=`<div style="font-size:12px;font-weight:600;color:var(--text3);margin:10px 0 5px;padding-left:2px">${unit.label}（${uqs.length}問）</div>`;
-          html+=`<div class="review-grid" style="margin-bottom:4px">${uqs.map(q=>makeCard(q,isWrong)).join('')}</div>`;
+          html+=`<div class="review-grid" style="margin-bottom:4px">${uqs.map(q=>makeCard(q,isWrong,isBookmarkedGroup)).join('')}</div>`;
         });
       }
       // 過去問：年度別
@@ -5399,7 +5695,7 @@ function renderReview(){
         years.forEach(y=>{
           const yqs=pastQs.filter(q=>q.year===y);
           html+=`<div style="font-size:12px;font-weight:600;color:var(--text3);margin:10px 0 5px;padding-left:2px">${y}年（${yqs.length}問）</div>`;
-          html+=`<div class="review-grid" style="margin-bottom:4px">${yqs.map(q=>makeCard(q,isWrong)).join('')}</div>`;
+          html+=`<div class="review-grid" style="margin-bottom:4px">${yqs.map(q=>makeCard(q,isWrong,isBookmarkedGroup)).join('')}</div>`;
         });
       }
       html+=`</div>`;
@@ -5408,8 +5704,12 @@ function renderReview(){
   }
 
   let html='';
+  if(bookmarkedQs.length){
+    html+=`<div class="section-label" style="margin-bottom:10px">ブックマーク (${bookmarkedQs.length}問)</div>`;
+    html+=renderGroup(bookmarkedQs,false,true);
+  }
   if(wrongQs.length){
-    html+=`<div class="section-label" style="margin-bottom:10px">不正解 (${wrongQs.length}問)</div>`;
+    html+=`<div class="section-label" style="margin:16px 0 10px">不正解 (${wrongQs.length}問)</div>`;
     html+=renderGroup(wrongQs,true);
   }
 
@@ -5437,20 +5737,120 @@ function renderAnalytics(){
       <span class="field-row-pct">${origPct!==null?origPct+'%':'—'}</span>
     </div><div class="bar-track"><div class="bar-fill" style="width:${origPct||0}%;background:var(--text2)"></div></div></div>`;
   document.getElementById('an-year-bars').innerHTML=yearRows+origRow;
-  // heatmap
-  const today=new Date();today.setHours(0,0,0,0);
-  const cells=[];
-  for(let i=48;i>=0;i--){
-    const d=new Date(today);d.setDate(d.getDate()-i);
-    const key=d.toDateString();
-    let cnt=0;
-    Object.values(u.answers||{}).forEach(a=>{const ad=new Date(a.date||0);ad.setHours(0,0,0,0);if(ad.toDateString()===key)cnt++;});
-    cells.push({cnt,d});
+  renderStudyCalendar();
+}
+function getDailyAnswerCounts(){
+  const u=getUserData();
+  const counts={};
+  Object.values(u?.answers||{}).forEach(a=>{
+    if(!a.date) return;
+    const d=new Date(a.date);
+    if(Number.isNaN(d.getTime())) return;
+    const key=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+    counts[key]=(counts[key]||0)+1;
+  });
+  return counts;
+}
+function dateKey(d){
+  return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+}
+function startOfWeek(d){
+  const day=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  day.setDate(day.getDate()-day.getDay());
+  return day;
+}
+function makeStudyCalendarDay(d,counts,today){
+  const key=dateKey(d);
+  const cnt=counts[key]||0;
+  const cls=[
+    'study-cal-day',
+    cnt>0?'studied':'',
+    d.getTime()===today.getTime()?'today':'',
+    d.getTime()>today.getTime()?'future':''
+  ].filter(Boolean).join(' ');
+  return {
+    cnt,
+    html:`<div class="${cls}" title="${d.toLocaleDateString('ja-JP')} ${cnt}問">
+      <span class="study-cal-date">${d.getDate()}</span>
+      <span class="study-cal-count">${cnt}</span>
+    </div>`
+  };
+}
+function switchAnalyticsCalendarMode(mode){
+  analyticsCalendarMode=mode;
+  const now=new Date();
+  if(!analyticsCalendarMonth) analyticsCalendarMonth=new Date(now.getFullYear(),now.getMonth(),1).getTime();
+  if(!analyticsCalendarWeek) analyticsCalendarWeek=startOfWeek(now).getTime();
+  renderStudyCalendar();
+}
+function shiftAnalyticsCalendar(delta){
+  const now=new Date();
+  if(analyticsCalendarMode==='week'){
+    const base=analyticsCalendarWeek?new Date(analyticsCalendarWeek):startOfWeek(now);
+    base.setDate(base.getDate()+delta*7);
+    analyticsCalendarWeek=startOfWeek(base).getTime();
+  } else {
+    const base=analyticsCalendarMonth?new Date(analyticsCalendarMonth):new Date();
+    base.setMonth(base.getMonth()+delta,1);
+    analyticsCalendarMonth=new Date(base.getFullYear(),base.getMonth(),1).getTime();
   }
-  const maxCnt=Math.max(...cells.map(c=>c.cnt),1);
-  document.getElementById('an-heatmap').innerHTML=`<div class="heatmap-grid">${cells.map(c=>`
-    <div class="heatmap-cell" title="${c.d.toLocaleDateString('ja')} ${c.cnt}問" style="background:${c.cnt>0?`rgba(68,68,68,${(0.12+c.cnt/maxCnt*0.7).toFixed(2)})`:'var(--bg4)'}"></div>`).join('')}</div>`;
-  document.getElementById('an-heatmap-labels').innerHTML=`<span class="heatmap-label">${cells[0].d.toLocaleDateString('ja',{month:'short',day:'numeric'})}</span><span class="heatmap-label" style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3)"><span style="display:inline-flex;gap:3px;align-items:center"><span style="width:10px;height:10px;border-radius:2px;background:var(--bg4);display:inline-block"></span><span style="width:10px;height:10px;border-radius:2px;background:rgba(68,68,68,0.3);display:inline-block"></span><span style="width:10px;height:10px;border-radius:2px;background:rgba(68,68,68,0.65);display:inline-block"></span><span style="width:10px;height:10px;border-radius:2px;background:rgba(68,68,68,0.82);display:inline-block"></span></span>色が濃いほど問題数が多い</span><span class="heatmap-label">今日</span>`;
+  renderStudyCalendar();
+}
+function renderStudyCalendar(){
+  const el=document.getElementById('an-calendar');
+  if(!el) return;
+  const now=new Date();
+  if(!analyticsCalendarMonth) analyticsCalendarMonth=new Date(now.getFullYear(),now.getMonth(),1).getTime();
+  if(!analyticsCalendarWeek) analyticsCalendarWeek=startOfWeek(now).getTime();
+  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const counts=getDailyAnswerCounts();
+  const isWeek=analyticsCalendarMode==='week';
+  let label='', gridHTML='', total=0, studiedDays=0;
+  if(isWeek){
+    const weekStart=new Date(analyticsCalendarWeek);
+    const weekEnd=new Date(weekStart); weekEnd.setDate(weekStart.getDate()+6);
+    label=`${weekStart.getFullYear()}.${String(weekStart.getMonth()+1).padStart(2,'0')}.${String(weekStart.getDate()).padStart(2,'0')} - ${String(weekEnd.getMonth()+1).padStart(2,'0')}.${String(weekEnd.getDate()).padStart(2,'0')}`;
+    const days=[];
+    for(let i=0;i<7;i++){
+      const d=new Date(weekStart); d.setDate(weekStart.getDate()+i);
+      const day=makeStudyCalendarDay(d,counts,today);
+      if(day.cnt>0){ total+=day.cnt; studiedDays++; }
+      days.push(day.html);
+    }
+    gridHTML=days.join('');
+  } else {
+    const monthDate=new Date(analyticsCalendarMonth);
+    const year=monthDate.getFullYear(), month=monthDate.getMonth();
+    const first=new Date(year,month,1);
+    const last=new Date(year,month+1,0);
+    const blanks=Array.from({length:first.getDay()},()=>'<div class="study-cal-day empty" aria-hidden="true"></div>');
+    const days=[];
+    label=`${year}.${String(month+1).padStart(2,'0')}`;
+    for(let dayNum=1;dayNum<=last.getDate();dayNum++){
+      const d=new Date(year,month,dayNum);
+      const day=makeStudyCalendarDay(d,counts,today);
+      if(day.cnt>0){ total+=day.cnt; studiedDays++; }
+      days.push(day.html);
+    }
+    gridHTML=blanks.join('')+days.join('');
+  }
+  const weekLabels=['日','月','火','水','木','金','土'].map(w=>`<div class="study-cal-weekday">${w}</div>`).join('');
+  el.innerHTML=`<div class="study-cal-head">
+      <div class="study-cal-month">${label}</div>
+      <div class="study-cal-tools">
+        <div class="study-cal-tabs" role="group" aria-label="カレンダー表示">
+          <button class="study-cal-tab ${!isWeek?'on':''}" onclick="switchAnalyticsCalendarMode('month')">月</button>
+          <button class="study-cal-tab ${isWeek?'on':''}" onclick="switchAnalyticsCalendarMode('week')">週</button>
+        </div>
+        <div class="study-cal-nav">
+          <button class="study-cal-btn" onclick="shiftAnalyticsCalendar(-1)" aria-label="${isWeek?'前の週':'前の月'}">‹</button>
+          <button class="study-cal-btn" onclick="shiftAnalyticsCalendar(1)" aria-label="${isWeek?'次の週':'次の月'}">›</button>
+        </div>
+      </div>
+    </div>
+    <div class="study-cal-weekdays">${weekLabels}</div>
+    <div class="study-cal-grid">${gridHTML}</div>
+    <div class="study-cal-summary"><span>この${isWeek?'週':'月'}の学習日 <strong>${studiedDays}</strong>日</span><span>解答数 <strong>${total}</strong>問</span></div>`;
 }
 
 // ===== ACCOUNT =====
