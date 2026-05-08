@@ -121,6 +121,14 @@
   --amb-s: #f0f0f2;
   --font:  'Noto Sans JP', sans-serif;
   --mono:  'Noto Sans JP', sans-serif;
+  --fs-title: 24px;
+  --fs-body: 16px;
+  --fs-sub: 14px;
+  --fs-caption: 12px;
+  --fs-tiny: 10px;
+  --fw-strong: 700;
+  --fw-normal: 500;
+  --fnav-h: 56px;
   --r:  6px;
   --r2: 10px;
   --sh:  0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
@@ -128,7 +136,7 @@
   --sb: 208px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
 .main{background:#f0f0f1}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:4px}
 
@@ -183,7 +191,15 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
 .volume-row span{font-size:12px;color:var(--text3);white-space:nowrap}
 .volume-row input{width:100%;accent-color:var(--ink)}
 @media(max-width:700px){
-  .focus-btn{margin-left:auto;margin-right:8px;width:36px;height:36px}
+  :root{
+    --fs-title:18px;
+    --fs-body:14px;
+    --fs-sub:13px;
+    --fs-caption:11px;
+    --fs-tiny:10px;
+    --fnav-h:0px;
+  }
+  .focus-btn{margin-left:auto;margin-right:6px;width:36px;height:36px}
   .focus-panel{top:58px;left:12px;right:12px;width:auto}
 }
 
@@ -250,8 +266,8 @@ body{font-family:var(--font);background:#f0f0f1;color:var(--text);min-height:100
 .page.active{background:#ffffff;min-height:calc(100vh - 54px - 40px);border-left:1px solid var(--border);border-right:1px solid var(--border)}
 .page.active{display:block}
 h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
-.page-title{font-size:24px;font-weight:800;margin-bottom:6px;letter-spacing:-0.03em;font-family:var(--font);line-height:1.25}
-.page-sub{font-size:14px;color:var(--text2);margin-bottom:22px;line-height:1.65}
+.page-title{font-size:var(--fs-title);font-weight:var(--fw-strong);margin-bottom:6px;letter-spacing:0;font-family:var(--font);line-height:1.3}
+.page-sub{font-size:var(--fs-sub);color:var(--text2);margin-bottom:22px;line-height:1.65}
 
 /* ===== BREADCRUMB ===== */
 .breadcrumb{margin-bottom:10px}
@@ -270,9 +286,9 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .tag-red{background:var(--red-s);color:var(--red)}
 .tag-gray{background:var(--bg3);color:var(--text3)}
 .tag-green{background:var(--grn-s);color:var(--green)}
-.btn-primary{padding:9px 20px;border-radius:var(--r);background:var(--ink);border:none;color:var(--bg2);font-size:16px;font-weight:600;cursor:pointer;font-family:var(--font);transition:opacity .15s;letter-spacing:.01em}
+.btn-primary{padding:9px 20px;border-radius:var(--r);background:var(--ink);border:none;color:var(--bg2);font-size:var(--fs-sub);font-weight:var(--fw-strong);cursor:pointer;font-family:var(--font);transition:opacity .15s;letter-spacing:0}
 .btn-primary:hover{opacity:.8}
-.btn-ghost{padding:8px 15px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:16px;cursor:pointer;font-family:var(--font);transition:all .15s}
+.btn-ghost{padding:8px 15px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:var(--fs-sub);cursor:pointer;font-family:var(--font);transition:all .15s}
 .btn-ghost:hover{background:var(--bg3);color:var(--text)}
 
 /* ===== QUIZ START ===== */
@@ -290,7 +306,7 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-meta-item{display:inline-flex;align-items:center;gap:4px}
 .ichi-meta-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.06em;white-space:nowrap}
 .ichi-field{font-size:10px;color:var(--text3);font-weight:700;letter-spacing:.06em;margin-bottom:12px}
-.ichi-statement{font-size:16px;color:var(--text);line-height:1.75;font-weight:500}
+.ichi-statement{font-size:var(--fs-body);color:var(--text);line-height:1.75;font-weight:var(--fw-normal)}
 .ichi-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .ichi-btn{padding:20px 0;border-radius:var(--r2);font-size:28px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:#fff;font-family:var(--font);transition:all .18s;box-shadow:var(--sh)}
 .ichi-btn:hover{transform:translateY(-2px);box-shadow:var(--sh2)}
@@ -299,12 +315,12 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .ichi-btn.correct-hl{background:#f0fdf4;border-color:#1a7a40;color:#1a7a40}
 .ichi-btn.wrong-hl{background:#fdf2f2;border-color:#c0392b;color:#c0392b}
-.ichi-result{background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:16px;display:none}
+.ichi-result{background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:16px;display:none;overflow:visible}
 .ichi-result.show{display:block}
-.ichi-result-badge{font-size:14px;font-weight:800;margin-bottom:6px}
+.ichi-result-badge{font-size:var(--fs-sub);font-weight:var(--fw-strong);margin-bottom:6px}
 .ichi-result-badge.ok{color:#1a7a40}
 .ichi-result-badge.ng{color:#c0392b}
-.ichi-result-exp{font-size:14px;color:var(--text2);line-height:1.65}
+.ichi-result-exp{font-size:var(--fs-sub);color:var(--text2);line-height:1.75;overflow:visible;white-space:normal}
 .ichi-next-btn{width:100%;padding:13px;background:var(--ink);border:none;border-radius:var(--r);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);transition:opacity .15s;display:none}
 .ichi-next-btn.show{display:block}
 .ichi-next-btn:hover{opacity:.82}
@@ -366,6 +382,9 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
 .q-meta{display:flex;align-items:center;gap:5px;margin-bottom:12px;flex-wrap:nowrap;overflow:hidden}
 .q-head .q-meta{margin-bottom:0;flex:1;min-width:0}
+.q-meta-item{display:inline-flex;align-items:center;gap:4px;min-width:0}
+.q-meta-label{font-size:12px;color:var(--text3);font-weight:500;white-space:nowrap;line-height:1.2}
+.q-meta-value{font-size:12px;color:var(--text);font-weight:600;white-space:nowrap;line-height:1.2}
 .q-num{font-size:14px;font-family:var(--mono);color:var(--text3)}
 .q-text{font-size:16px;line-height:1.8;color:var(--text);font-family:var(--font)}
 .bookmark-btn{width:34px;height:34px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
@@ -444,10 +463,15 @@ details.rich-detail summary{display:none}
 .mission-popup-share svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
 .mission-popup-close{font-size:14px;color:var(--text3);cursor:pointer;background:none;border:none;font-family:var(--font);padding:6px 12px;margin-top:2px}
 .mission-popup-close:hover{color:var(--text2)}
+.share-text-box{width:100%;min-height:92px;resize:vertical;border:1px solid var(--border2);border-radius:10px;background:var(--bg3);color:var(--text);font-size:13px;line-height:1.6;font-family:var(--font);padding:10px 12px;margin-bottom:10px;outline:none}
+.share-text-box:focus{background:#fff;border-color:var(--ink)}
+.share-note{font-size:11px;color:var(--text3);line-height:1.5;margin:-4px 0 10px;text-align:left}
 /* ===== FREQ STARS ===== */
-.freq-wrap{display:inline-flex;align-items:center;gap:3px;margin-left:2px;vertical-align:middle;flex-shrink:0}
-.freq-label{font-size:var(--fs-tiny);color:var(--text3);font-weight:600;letter-spacing:.04em;margin-right:1px}
-.freq-star{font-size:11px;line-height:1}
+.freq-wrap{display:inline-flex;align-items:center;gap:3px;vertical-align:middle;flex-shrink:0;min-width:0}
+.freq-stars{display:inline-flex;gap:2px;vertical-align:middle;line-height:1}
+.freq-star{width:11px;height:11px;display:inline-block}
+.freq-star.on{color:var(--ink)}
+.freq-star.off{color:var(--bg4)}
 .ks-wrap{margin-top:12px;border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden;background:var(--bg2)}
 .ks-header{display:flex;align-items:center;gap:9px;padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border2)}
 .ks-header-label{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--text2);text-transform:uppercase}
@@ -594,6 +618,13 @@ details.rich-detail summary{display:none}
 .account-email{font-size:14px;color:var(--text3);margin-top:2px;margin-bottom:12px}
 .btn-logout{padding:7px 14px;border-radius:var(--r);border:1px solid var(--red-b);background:none;color:var(--red);font-size:14px;cursor:pointer;font-family:var(--font);transition:all .15s}
 .btn-logout:hover{background:var(--red-s)}
+.letter-list{display:flex;flex-direction:column;gap:8px}
+.letter-empty{font-size:13px;color:var(--text3);line-height:1.7;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.letter-item{border:1px solid var(--border);border-radius:var(--r);background:#fff;padding:12px 14px;cursor:pointer;transition:all .15s;text-align:left;width:100%;font-family:var(--font);color:var(--text)}
+.letter-item:hover{background:var(--bg3);border-color:var(--border2)}
+.letter-item-title{font-size:14px;font-weight:700;line-height:1.35;margin-bottom:4px}
+.letter-item-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.support-letter-body{text-align:left;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:14px;line-height:1.9;color:var(--text);font-size:15px;white-space:pre-line}
 .danger-btn{display:block;padding:7px 14px;border-radius:var(--r);border:1px solid var(--red-b);background:none;color:var(--red);font-size:14px;cursor:pointer;font-family:var(--font);margin-top:9px;transition:all .15s}
 .danger-btn:hover{background:var(--red-s)}
 .plan-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:600}
@@ -713,10 +744,20 @@ details.rich-detail summary{display:none}
   /* nav */
   .topnav-links{display:none}
   .topnav-hamburger{display:flex}
+  .topnav-inner{padding:0 10px;height:52px}
+  .topnav-logo{margin-right:8px}
+  .topnav-logo-mark{width:26px;height:26px;font-size:11px}
+  .topnav-logo-text{font-size:15px}
+  .focus-btn{margin-left:auto;margin-right:6px;width:34px;height:34px}
+  .topnav-login-btn,.topnav-logout-btn{margin-left:0;margin-right:6px;padding:6px 9px;font-size:12px;height:34px}
+  .topnav-hamburger{margin-left:0;width:34px;height:34px}
   /* page */
-  .page{padding:14px 14px 80px}
-  .page-title{font-size:16px}
-  .page-sub{font-size:12px}
+  .main{min-height:calc(100vh - 52px);padding-bottom:0}
+  .page{padding:14px 14px calc(96px + env(safe-area-inset-bottom))}
+  .page.active{min-height:calc(100vh - 52px)}
+  .page-title{font-size:var(--fs-title);font-weight:var(--fw-strong)}
+  .page-sub{font-size:var(--fs-sub);line-height:1.6;margin-bottom:18px}
+  .section-label,h2.section-label{font-size:var(--fs-caption);letter-spacing:.04em}
   /* grids */
   .stat-row{grid-template-columns:repeat(2,1fr);gap:8px}
   .dash-grid{grid-template-columns:1fr}
@@ -732,12 +773,37 @@ details.rich-detail summary{display:none}
   .glos-compare{grid-template-columns:1fr}
   /* quiz */
   .q-card{padding:12px 14px;margin-bottom:8px}
-  .q-head{margin-bottom:8px}
+  .q-head{align-items:flex-start;gap:8px;margin-bottom:8px}
+  .q-head .q-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;width:100%;overflow:visible}
+  .q-meta-item{gap:3px;min-width:0;max-width:100%;padding:0;border:none;background:transparent}
+  .q-meta-label,.q-meta-value{font-size:11px}
+  .q-meta-label{white-space:normal;line-height:1.25}
+  .q-meta-value{white-space:normal;line-height:1.25;font-weight:600}
+  .q-meta-field .q-meta-label{display:block;white-space:normal;line-height:1.25}
+  .diff-wrap,.freq-wrap{gap:2px;margin-left:0}
+  .q-meta-item.diff-wrap,.q-meta-item .freq-wrap{flex:0 0 auto}
+  .diff-label{font-size:11px;line-height:1.15}
+  .diff-stars,.freq-stars{gap:1px}
+  .diff-star,.freq-star{width:9px;height:9px;flex:0 0 9px}
   .bookmark-btn{width:32px;height:32px}
   .q-text{font-size:14px;line-height:1.65}
   .q-meta{margin-bottom:8px}
   .opts-list{gap:5px;margin-bottom:8px}
   .opt{font-size:14px;padding:10px 12px;line-height:1.55;gap:10px}
+  .btn-next-float.show{left:14px;right:14px;width:auto;max-width:none;transform:none;bottom:calc(12px + env(safe-area-inset-bottom));border-radius:var(--r);padding:14px 18px}
+  #page-ichimondou{padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+  .ichi-card{padding:16px 14px;margin-bottom:12px;min-height:0}
+  .ichi-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px;margin-bottom:8px}
+  .ichi-meta-item{padding:0;border:none;background:transparent;flex-wrap:nowrap;max-width:100%;min-width:0}
+  .ichi-meta-label{line-height:1.25;flex:0 0 auto}
+  .ichi-meta .diff-stars{min-width:0;flex:0 0 auto}
+  .ichi-field{margin-bottom:8px}
+  .ichi-statement{font-size:14px;line-height:1.7}
+  .ichi-btns{gap:8px;margin-bottom:12px}
+  .ichi-btn{padding:16px 0;font-size:24px}
+  .ichi-result{padding:13px 14px;margin-bottom:86px;max-height:none;overflow:visible}
+  .ichi-result-exp{font-size:14px;line-height:1.8;max-height:none;overflow:visible}
+  .ichi-next-btn.show{position:fixed;left:14px;right:14px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;width:auto;padding:14px 18px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
   /* score */
   .score-btns{flex-direction:column}
   .score-btns .btn-primary,.score-btns .btn-ghost{width:100%;text-align:center}
@@ -768,8 +834,11 @@ details.rich-detail summary{display:none}
   .d-table{font-size:12px}
   .d-table th,.d-table td{padding:4px 6px}
   /* footer */
+  .site-footer{position:static}
   .site-footer-copy{display:none}
-  .site-footer-inner{padding:10px 14px;gap:10px}
+  .site-footer-inner{padding:10px 14px;gap:10px;flex-direction:row;align-items:center}
+  .site-footer-logo{display:none}
+  .site-footer-legal a{font-size:12px}
   /* exam banner */
   .exam-banner{padding:5px 14px;gap:6px;font-size:12px}
   .exam-banner-msg{display:none}
@@ -855,11 +924,17 @@ details.rich-detail summary{display:none}
 .toast.bookmark{border-color:var(--border2)}
 /* Badge */
 .badge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
-.badge-item{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border-radius:var(--r2);border:1.5px solid var(--border);background:var(--bg2);position:relative;transition:border-color .15s}
-.badge-item.earned{border-color:var(--ink)}
-.badge-item.locked{opacity:.38}
-.badge-icon{font-size:26px;line-height:1}
+.badge-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.badge-count{font-size:12px;color:var(--text3);font-family:var(--mono);white-space:nowrap}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border-radius:var(--r2);border:1.5px solid var(--border);background:var(--bg2);position:relative;transition:border-color .15s,opacity .15s,background .15s}
+.badge-item.earned{border-color:var(--ink);background:#fff;cursor:pointer}
+.badge-item.earned:hover{background:var(--bg3)}
+.badge-item.locked{opacity:.42;background:var(--bg3)}
+.badge-icon{width:34px;height:34px;border-radius:9px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2)}
+.badge-item.earned .badge-icon{background:var(--ink);border-color:var(--ink);color:#fff}
+.badge-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .badge-name{font-size:12px;font-weight:600;text-align:center;color:var(--text2);line-height:1.3}
+.badge-desc{font-size:10px;color:var(--text3);line-height:1.35;text-align:center}
 .badge-new{position:absolute;top:-6px;right:-6px;background:var(--green);color:#fff;font-size:var(--fs-tiny);font-weight:700;padding:2px 5px;border-radius:8px}
 /* Level bar */
 .level-bar-wrap{background:var(--bg3);border-radius:4px;height:6px;margin-top:5px;overflow:hidden}
@@ -879,15 +954,32 @@ details.rich-detail summary{display:none}
 .lv-streak-label{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em}
 /* Mission card */
 .mission-card{background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--r2);padding:18px 20px;margin-bottom:12px;box-shadow:var(--sh)}
+.mission-card.spotlight{
+  animation: mission-spotlight-enter .5s cubic-bezier(.34,1.56,.64,1) both,
+             mission-spotlight-glow 2.2s .4s ease-in-out both;
+  border-color: #1a7a40;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 60%);
+  box-shadow: 0 0 0 3px rgba(26,122,64,0.20), 0 4px 20px rgba(26,122,64,0.15);
+}
+@keyframes mission-spotlight-enter{
+  0%  {transform:translateY(6px) scale(.98);opacity:.6}
+  100%{transform:translateY(0)   scale(1);  opacity:1}
+}
+@keyframes mission-spotlight-glow{
+  0%  {box-shadow:0 0 0 3px rgba(26,122,64,.22),0 4px 20px rgba(26,122,64,.15);border-color:#1a7a40;background:linear-gradient(135deg,#f0fdf4 0%,#fff 60%)}
+  30% {box-shadow:0 0 0 6px rgba(26,122,64,.18),0 6px 28px rgba(26,122,64,.22);border-color:#1a7a40;background:linear-gradient(135deg,#e8faf0 0%,#fff 55%)}
+  60% {box-shadow:0 0 0 4px rgba(26,122,64,.14),0 4px 20px rgba(26,122,64,.14);border-color:#1a7a40;background:linear-gradient(135deg,#f0fdf4 0%,#fff 60%)}
+  100%{box-shadow:0 0 0 3px rgba(26,122,64,.10),0 2px 12px rgba(26,122,64,.08);border-color:#2a9a50;background:linear-gradient(135deg,#f4fef6 0%,#fff 65%)}
+}
 .mission-title{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
-.mission-item{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)}
+.mission-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
 .mission-item:last-child{border-bottom:none;padding-bottom:0}
 .mission-check{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
 .mission-check.done{background:var(--green);border-color:var(--green)}
 .mission-check.done::after{content:'';display:block;width:6px;height:10px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-1px,-1px)}
-.mission-text{flex:1;font-size:16px;color:var(--text)}
+.mission-text{flex:1;font-size:14px;line-height:1.55;color:var(--text);font-weight:500}
 .mission-text.done{color:var(--text3);text-decoration:line-through}
-.mission-prog{font-size:14px;font-family:var(--mono);color:var(--text3)}
+.mission-prog{font-size:13px;font-family:var(--mono);color:var(--text3)}
 /* Difficulty stars in q-meta */
 .diff-wrap{display:inline-flex;align-items:center;gap:3px;margin-left:2px;vertical-align:middle;flex-shrink:0}
 .diff-label{font-size:12px;color:var(--text3);font-weight:500;white-space:nowrap}
@@ -909,6 +1001,9 @@ details.rich-detail summary{display:none}
 @media(max-width:700px){
   #toast-wrap{top:auto;right:12px;left:12px;bottom:calc(var(--fnav-h,56px) + 12px);align-items:stretch}
   .toast{text-align:center;white-space:normal}
+  .diff-stars,.freq-stars{gap:1px}
+  .diff-star,.freq-star{width:9px!important;height:9px!important;flex:0 0 9px}
+  .ichi-meta .diff-star{font-size:9px;line-height:1}
 }
 /* Streak display in exam banner */
 @media(max-width:600px){
@@ -1281,7 +1376,7 @@ details.rich-detail summary{display:none}
         <div class="ichi-score-label" id="ichi-score-label"></div>
         <div class="ichi-score-btns">
           <button class="btn-primary" onclick="startIchimondou()" style="font-size:15px;padding:13px">もう1回</button>
-          <button class="btn-ghost" onclick="gotoPage('quiz-start')" style="font-size:15px;padding:13px">問題を選ぶ</button>
+          <button class="btn-ghost" onclick="gotoPage('quiz-start')" style="font-size:15px;padding:13px">他の問題を解く</button>
         </div>
       </div>
     </div>
@@ -1326,6 +1421,7 @@ details.rich-detail summary{display:none}
         <div class="score-q-list" id="score-q-list"></div>
         <div class="score-btns">
           <button class="btn-ghost"   onclick="gotoPage('dash')">分析へ</button>
+          <button class="btn-ghost"   onclick="gotoPage('quiz-start')">他の問題を解く</button>
           <button class="btn-primary" onclick="beginQuiz()">もう1セット</button>
         </div>
       </div>
@@ -1353,7 +1449,7 @@ details.rich-detail summary{display:none}
       <!-- 分野別・単元別正答率 -->
       <div class="card" style="margin-bottom:13px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-          <div class="section-label" style="margin-bottom:0">分野別正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">権利関係・宅建業法など分野ごとの正解率。60%未満は「苦手」フラグが付く</span></span></div>
+          <div class="section-label" style="margin-bottom:0">分野別正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">権利関係・宅建業法など分野ごとの正解率。回答済みの分野だけ4段階で表示</span></span></div>
           <div style="display:flex;gap:4px" id="field-unit-tabs">
             <button class="count-btn on" id="ftab-field" onclick="switchFieldTab('field')">分野</button>
             <button class="count-btn" id="ftab-unit" onclick="switchFieldTab('unit')">単元</button>
@@ -1367,9 +1463,19 @@ details.rich-detail summary{display:none}
         <div class="card"><h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2><div id="an-calendar"></div></div>
       </div>
 
-      <div class="card analytics-full" style="margin-bottom:0">
+      <div class="card analytics-full">
         <h2 class="section-label">正答率の推移（セッション別）<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">セッション（1回の学習）ごとの正答率の変化。最大14回分を表示</span></span></h2>
         <div class="chart-area"><svg id="trend-svg" style="width:100%;height:100%"></svg></div>
+      </div>
+
+      <!-- 獲得バッジ -->
+      <div class="card" style="margin-bottom:13px">
+        <div id="dash-badge-grid"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <h2 class="section-label">応援レター</h2>
+        <div id="support-letter-list"></div>
       </div>
     </div>
 
@@ -1384,29 +1490,6 @@ details.rich-detail summary{display:none}
       <h2 class="page-title">復習</h2>
       <div class="page-sub">不正解・未解答の問題一覧</div>
       <div id="review-list"></div>
-    </div>
-
-    <!-- ACCOUNT -->
-    <div class="page" id="page-account">
-      <h2 class="page-title">アカウント</h2>
-      <div class="page-sub">プロフィールとプラン管理</div>
-      <div id="acc-badge-section" style="margin-bottom:18px"></div>
-      <div class="account-grid">
-        <div class="card">
-          <h2 class="section-label">プロフィール</h2>
-          <div class="account-avatar" id="acc-avatar">?</div>
-          <div class="account-name" id="acc-name">—</div>
-          <div class="account-email" id="acc-email">—</div>
-          <div id="acc-plan-badge" style="margin-bottom:13px"></div>
-          <button class="btn-logout" onclick="doLogout()">ログアウト</button>
-        </div>
-        <div class="card">
-          <h2 class="section-label">プラン</h2>
-          <div id="plan-info"></div><br>
-          <button class="btn-primary" style="font-size:12px;padding:8px 16px" onclick="gotoPage('mock')">オリジナル模試を見る</button>
-          <button class="danger-btn" onclick="if(confirm('すべての学習データを削除しますか？'))resetData()">学習データをリセット</button>
-        </div>
-      </div>
     </div>
 
     <!-- PAST QUIZ CONFIG -->
@@ -1776,7 +1859,7 @@ details.rich-detail summary{display:none}
           <span style="font-size:14px;font-weight:700;letter-spacing:-0.01em">宅建マスター</span>
         </div>
         <nav class="site-footer-legal" aria-label="法的情報">
-          <a href="/privacy-terms/" onclick="event.preventDefault();window.location.href='privacy-terms.html'">プライバシーポリシー・利用規約</a>
+          <a href="/privacy-terms/" onclick="event.preventDefault();window.location.href='privacy-terms.html'">利用規約</a>
           <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener">お問い合わせ</a>
         </nav>
         <div class="site-footer-copy">© 2025 宅建マスター</div>
@@ -1816,21 +1899,21 @@ details.rich-detail summary{display:none}
 
 // --- Level definitions ---
 const LEVELS = [
-  {lv:1,  label:'スタート',    min:0},
-  {lv:2,  label:'助走中',      min:20},
-  {lv:3,  label:'基礎固め',    min:50},
-  {lv:4,  label:'50問突破',    min:100},
-  {lv:5,  label:'コツをつかむ',min:180},
-  {lv:6,  label:'ペースが出た',min:280},
-  {lv:7,  label:'習慣化',      min:400},
-  {lv:8,  label:'300問突破',   min:550},
-  {lv:9,  label:'積み重ね',    min:750},
-  {lv:10, label:'500問突破',   min:1000},
-  {lv:11, label:'継続は力',    min:1300},
-  {lv:12, label:'1000問突破',  min:1700},
-  {lv:13, label:'経験豊富',    min:2200},
-  {lv:14, label:'2000問突破',  min:2800},
-  {lv:15, label:'3000問突破',  min:3500},
+  {lv:1,  label:'はじめの一歩',    min:0},
+  {lv:2,  label:'20問チャレンジ',  min:20},
+  {lv:3,  label:'50問チャレンジ',  min:50},
+  {lv:4,  label:'100問達成',       min:100},
+  {lv:5,  label:'180問達成',       min:180},
+  {lv:6,  label:'280問達成',       min:280},
+  {lv:7,  label:'400問達成',       min:400},
+  {lv:8,  label:'550問達成',       min:550},
+  {lv:9,  label:'750問達成',       min:750},
+  {lv:10, label:'1000問達成',      min:1000},
+  {lv:11, label:'1300問達成',      min:1300},
+  {lv:12, label:'1700問達成',      min:1700},
+  {lv:13, label:'2200問達成',      min:2200},
+  {lv:14, label:'2800問達成',      min:2800},
+  {lv:15, label:'3500問達成',      min:3500},
 ];
 
 function tip(text){ return `<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">${text}</span></span>`; }
@@ -1848,19 +1931,60 @@ function getLevelNext(totalAnswered){
 
 // --- Badge definitions ---
 const BADGE_DEFS = [
-  {id:'first_correct',  icon:'★',  name:'初正解',        desc:'初めて正解した'},
-  {id:'streak3',        icon:'▲',  name:'3連続正解',      desc:'3問連続正解'},
-  {id:'streak5',        icon:'◆',  name:'5連続正解',      desc:'5問連続正解'},
-  {id:'streak10',       icon:'■',  name:'10連続正解',     desc:'10問連続正解'},
-  {id:'total50',        icon:'●',  name:'50問突破',       desc:'累計50問解答'},
-  {id:'total200',       icon:'♦',  name:'200問突破',      desc:'累計200問解答'},
-  {id:'total500',       icon:'▼',  name:'500問突破',      desc:'累計500問解答'},
-  {id:'perfect_session',icon:'◎',  name:'パーフェクト',   desc:'セッション全問正解'},
-  {id:'day3',           icon:'▶',  name:'3日連続学習',    desc:'3日間連続学習'},
-  {id:'day7',           icon:'◀',  name:'7日連続学習',    desc:'7日間連続学習'},
-  {id:'all_fields',     icon:'⊕',  name:'全分野制覇',    desc:'全4分野で1問以上正解'},
-  {id:'law_master',     icon:'⊗',  name:'宅建業法通',     desc:'宅建業法の正答率70%以上'},
+  {id:'first_answer',   icon:'play',     name:'はじめの一問',      desc:'初めて1問解答'},
+  {id:'first_correct',  icon:'check',    name:'初正解',            desc:'初めて正解'},
+  {id:'total10',        icon:'stack',    name:'10問達成',          desc:'累計10問解答'},
+  {id:'total50',        icon:'stack',    name:'50問達成',          desc:'累計50問解答'},
+  {id:'total100',       icon:'stack',    name:'100問達成',         desc:'累計100問解答'},
+  {id:'total200',       icon:'stack',    name:'200問達成',         desc:'累計200問解答'},
+  {id:'total500',       icon:'stack',    name:'500問達成',         desc:'累計500問解答'},
+  {id:'total1000',      icon:'stack',    name:'1000問達成',        desc:'累計1000問解答'},
+  {id:'streak3',        icon:'zap',      name:'3連続正解',         desc:'3問連続正解'},
+  {id:'streak5',        icon:'zap',      name:'5連続正解',         desc:'5問連続正解'},
+  {id:'streak10',       icon:'zap',      name:'10連続正解',        desc:'10問連続正解'},
+  {id:'perfect_session',icon:'award',    name:'パーフェクト',      desc:'1セット全問正解'},
+  {id:'day3',           icon:'calendar', name:'3日連続学習',       desc:'3日間連続で学習'},
+  {id:'day7',           icon:'calendar', name:'7日連続学習',       desc:'7日間連続で学習'},
+  {id:'day14',          icon:'calendar', name:'14日連続学習',      desc:'14日間連続で学習'},
+  {id:'review_action',  icon:'review',   name:'復習を解く',        desc:'復習ページから問題に再挑戦'},
+  {id:'bookmark_action',icon:'bookmark', name:'ブックマークを押す',desc:'気になる問題をブックマーク'},
+  {id:'timer_action',   icon:'timer',    name:'タイマーを使う',    desc:'集中タイマーを開いて学習準備'},
+  {id:'all_fields',     icon:'grid',     name:'全分野タッチ',      desc:'全4分野で1問以上正解'},
+  {id:'rights_master',  icon:'book',     name:'権利関係 得意',     desc:'権利関係10問以上・正答率70%以上'},
+  {id:'law_master',     icon:'book',     name:'宅建業法 得意',     desc:'宅建業法10問以上・正答率70%以上'},
+  {id:'limit_master',   icon:'book',     name:'法令制限 得意',     desc:'法令制限10問以上・正答率70%以上'},
+  {id:'tax_master',     icon:'book',     name:'税・その他 得意',   desc:'税・その他10問以上・正答率70%以上'},
 ];
+
+function badgeIconHTML(icon){
+  const paths = {
+    play:'<path d="M6 4l7 4-7 4z"/>',
+    check:'<path d="M3 8.5l3 3L13 4"/>',
+    stack:'<path d="M3 5l5-3 5 3-5 3z"/><path d="M3 8l5 3 5-3"/><path d="M3 11l5 3 5-3"/>',
+    zap:'<path d="M9 1L4 9h4l-1 6 5-8H8z"/>',
+    award:'<circle cx="8" cy="6" r="3.5"/><path d="M5.5 9l-1 5 3.5-2 3.5 2-1-5"/>',
+    calendar:'<rect x="3" y="3.5" width="10" height="10" rx="1.5"/><path d="M5.5 2v3M10.5 2v3M3 6.5h10"/>',
+    review:'<path d="M3 4h10M3 8h7M3 12h9"/><path d="M12 7l2 2-2 2"/>',
+    bookmark:'<path d="M4 2.5h8v11L8 11l-4 2.5z"/>',
+    timer:'<circle cx="8" cy="8.5" r="5.5"/><path d="M8 5.5v3l2 1.4M6 1.5h4"/>',
+    grid:'<rect x="3" y="3" width="4" height="4" rx="1"/><rect x="9" y="3" width="4" height="4" rx="1"/><rect x="3" y="9" width="4" height="4" rx="1"/><rect x="9" y="9" width="4" height="4" rx="1"/>',
+    book:'<path d="M4 2.5h5a3 3 0 013 3v8H7a3 3 0 00-3-3z"/><path d="M4 2.5v8"/>'
+  };
+  return `<svg viewBox="0 0 16 16" aria-hidden="true">${paths[icon]||paths.award}</svg>`;
+}
+
+function awardBadgeById(id, u){
+  const badge = BADGE_DEFS.find(b=>b.id===id);
+  if(!badge) return null;
+  u = u || getUserData();
+  if(!u) return null;
+  u.badges = u.badges || {};
+  if(u.badges[id]) return null;
+  u.badges[id] = Date.now();
+  saveUser(u);
+  showToast(`${badge.name} を獲得しました`,'badge',2200);
+  return badge;
+}
 
 function checkAndAwardBadges(context){
   // context: {correct, sessionResults, u, prevStreakDay}
@@ -1870,19 +1994,29 @@ function checkAndAwardBadges(context){
   const total = Object.keys(u.answers||{}).length;
   const streak = u.streak||0;
   const dayStreak = u.dayStreak||0;
+  const fieldRateOk = (field)=>{
+    const qs=QUESTIONS.filter(q=>q.field===field&&u.answers[q.id]);
+    const ok=qs.filter(q=>u.answers[q.id].ans===q.ans);
+    return qs.length>=10&&(ok.length/qs.length)>=0.7;
+  };
 
   const checkBadge = (id)=>{
     if(u.badges[id]) return false;
     let earned = false;
+    if(id==='first_answer'   && total>=1) earned=true;
     if(id==='first_correct'  && total>=1 && Object.values(u.answers).some(a=>a.ans !== undefined && context.u.answers)) earned = context.correct;
     if(id==='streak3'        && streak>=3) earned=true;
     if(id==='streak5'        && streak>=5) earned=true;
     if(id==='streak10'       && streak>=10) earned=true;
+    if(id==='total10'        && total>=10) earned=true;
     if(id==='total50'        && total>=50) earned=true;
+    if(id==='total100'       && total>=100) earned=true;
     if(id==='total200'       && total>=200) earned=true;
     if(id==='total500'       && total>=500) earned=true;
+    if(id==='total1000'      && total>=1000) earned=true;
     if(id==='day3'           && dayStreak>=3) earned=true;
     if(id==='day7'           && dayStreak>=7) earned=true;
+    if(id==='day14'          && dayStreak>=14) earned=true;
     if(id==='perfect_session'&& context.sessionResults && context.sessionResults.length>=3 && context.sessionResults.every(r=>r.correct)) earned=true;
     if(id==='all_fields'){
       const fields=['rights','law','limit','tax'];
@@ -1891,11 +2025,10 @@ function checkAndAwardBadges(context){
         return q&&q.field===f&&a.ans===q.ans;
       }));
     }
-    if(id==='law_master'){
-      const lawQs=QUESTIONS.filter(q=>q.field==='law'&&u.answers[q.id]);
-      const ok=lawQs.filter(q=>u.answers[q.id].ans===q.ans);
-      earned=lawQs.length>=10&&(ok.length/lawQs.length)>=0.7;
-    }
+    if(id==='rights_master') earned=fieldRateOk('rights');
+    if(id==='law_master') earned=fieldRateOk('law');
+    if(id==='limit_master') earned=fieldRateOk('limit');
+    if(id==='tax_master') earned=fieldRateOk('tax');
     if(earned){ u.badges[id]=Date.now(); return true; }
     return false;
   };
@@ -1971,6 +2104,11 @@ function toggleFocusPanel(){
   if(btn) btn.classList.toggle('on',open);
   renderFocusTimer();
   renderFocusSound();
+  if(open){
+    const u=getUserData();
+    awardBadgeById('timer_action', u);
+    if(u) addSupportLetter('timer_letter', u);
+  }
 }
 function closeFocusPanel(){
   const panel=document.getElementById('focus-panel');
@@ -2094,41 +2232,61 @@ function getFeedbackMsg(correct, streak){
   return ''; // 不正解時はトーストなし
 }
 
-// --- Mission definitions (20 mission templates, picked by date hash) ---
+// --- Mission definitions (40 mission templates, picked by date hash) ---
 // ミッションは4カテゴリに分類し、毎日1つずつ異なるカテゴリから選ぶ
 // → 同一分野の重複なし、毎日バランスの取れた3ミッション
 const MISSION_POOL = {
   // カテゴリA: 解答数系
   A: [
+    {id:'solve1',   text:'まず1問解こう',     type:'solve', target:1},
+    {id:'solve2',   text:'今日2問解こう',     type:'solve', target:2},
     {id:'solve3',   text:'今日3問解こう',   type:'solve', target:3},
+    {id:'solve4',   text:'今日4問解こう',     type:'solve', target:4},
     {id:'solve5',   text:'今日5問解こう',   type:'solve', target:5},
+    {id:'solve6',   text:'今日6問解こう',     type:'solve', target:6},
+    {id:'solve8',   text:'今日8問解こう',     type:'solve', target:8},
     {id:'solve10',  text:'今日10問解こう',  type:'solve', target:10},
     {id:'solve15',  text:'今日15問解こう',  type:'solve', target:15},
     {id:'solve20',  text:'今日20問解こう',  type:'solve', target:20},
   ],
   // カテゴリB: 連続正解・パーフェクト系
   B: [
+    {id:'correct1', text:'1問正解しよう',             type:'streak',  target:1},
     {id:'correct2', text:'2問連続正解しよう',         type:'streak',  target:2},
     {id:'correct3', text:'3問連続正解しよう',          type:'streak',  target:3},
+    {id:'correct4', text:'4問連続正解しよう',          type:'streak',  target:4},
     {id:'correct5', text:'5問連続正解しよう',          type:'streak',  target:5},
     {id:'perfect1', text:'全問正解のセッションを達成', type:'perfect', target:1},
+    {id:'orig1',    text:'オリジナル問題を1問解こう',  type:'mode', mode:'orig', target:1},
+    {id:'orig2',    text:'オリジナル問題を2問解こう',  type:'mode', mode:'orig', target:2},
     {id:'orig3',    text:'オリジナル問題を3問解こう',  type:'mode', mode:'orig', target:3},
+    {id:'review_any1', text:'復習を1問進めよう',       type:'review', target:1},
   ],
   // カテゴリC: 分野系（権利関係・宅建業法）
   C: [
     {id:'rights1',  text:'権利関係を1問解こう',   type:'field', field:'rights', target:1},
+    {id:'rights2',  text:'権利関係を2問解こう',   type:'field', field:'rights', target:2},
     {id:'rights3',  text:'権利関係を3問解こう',   type:'field', field:'rights', target:3},
+    {id:'rights4',  text:'権利関係を4問解こう',   type:'field', field:'rights', target:4},
     {id:'law1',     text:'宅建業法を1問解こう',   type:'field', field:'law',    target:1},
+    {id:'law2',     text:'宅建業法を2問解こう',   type:'field', field:'law',    target:2},
     {id:'law3',     text:'宅建業法を3問解こう',   type:'field', field:'law',    target:3},
+    {id:'law4',     text:'宅建業法を4問解こう',   type:'field', field:'law',    target:4},
+    {id:'past1',    text:'過去問を1問解こう',      type:'mode',  mode:'past',    target:1},
     {id:'past3',    text:'過去問を3問解こう',      type:'mode',  mode:'past',    target:3},
   ],
   // カテゴリD: 分野系（法令制限・税）
   D: [
     {id:'limit1',   text:'法令制限を1問解こう',      type:'field', field:'limit', target:1},
+    {id:'limit2',   text:'法令制限を2問解こう',      type:'field', field:'limit', target:2},
     {id:'limit3',   text:'法令制限を3問解こう',       type:'field', field:'limit', target:3},
+    {id:'limit4',   text:'法令制限を4問解こう',      type:'field', field:'limit', target:4},
     {id:'tax1',     text:'税・その他を1問解こう',     type:'field', field:'tax',   target:1},
     {id:'tax2',     text:'税・その他を2問解こう',     type:'field', field:'tax',   target:2},
-    {id:'review1',  text:'苦手な問題を1問解こう',     type:'review', target:1},
+    {id:'tax3',     text:'税・その他を3問解こう',     type:'field', field:'tax',   target:3},
+    {id:'tax4',     text:'税・その他を4問解こう',     type:'field', field:'tax',   target:4},
+    {id:'review1',  text:'復習を1問進めよう',         type:'review', target:1},
+    {id:'review2',  text:'復習を2問進めよう',         type:'review', target:2},
   ],
 };
 
@@ -2172,9 +2330,17 @@ function getMissionProgress(mission, u){
     return {cur, target:mission.target};
   }
   if(mission.type==='mode'){
-    // Track via session results stored in sessions
+    const answerCur=todayAnswers.filter(([qid])=>{
+      const q=QUESTIONS.find(qq=>qq.id==qid);
+      if(!q) return false;
+      if(mission.mode==='past') return !!q.year;
+      if(mission.mode==='orig') return !q.year;
+      return false;
+    }).length;
+    // Also count completed sessions for compatibility with older stored data.
     const todaySessions=(u.sessions||[]).filter(s=>s.date>=todayMs&&s.date<tomorrowMs&&s.mode===mission.mode);
-    const cur=todaySessions.reduce((a,s)=>a+s.total,0);
+    const sessionCur=todaySessions.reduce((a,s)=>a+s.total,0);
+    const cur=Math.max(answerCur, sessionCur);
     return {cur, target:mission.target};
   }
   if(mission.type==='perfect'){
@@ -2182,7 +2348,7 @@ function getMissionProgress(mission, u){
     return {cur:donePerfect, target:1};
   }
   if(mission.type==='review'){
-    return {cur:Math.min(todayAnswers.length,1), target:1}; // simplified
+    return {cur:Math.min(todayAnswers.length, mission.target), target:mission.target}; // simplified
   }
   return {cur:0, target:mission.target};
 }
@@ -2228,7 +2394,20 @@ function renderDailyStatus(){
     </div>`;
   }).join('');
 
-  wrap.innerHTML=`<div class="mission-card"><div class="mode-card-header"><div class="mode-icon-wrap"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div><div class="mode-card-title">今日のミッション</div></div>${mHTML}</div>`;
+  const spotlight = window._missionSpotlightPending ? ' spotlight' : '';
+  wrap.innerHTML=`<div class="mission-card${spotlight}" id="today-mission-card"><div class="mode-card-header"><div class="mode-icon-wrap"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div><div class="mode-card-title">今日のミッション</div></div>${mHTML}</div>`;
+  if(window._missionSpotlightPending){
+    window._missionSpotlightPending=false;
+    setTimeout(()=>{
+      const card=document.getElementById('today-mission-card');
+      if(!card) return;
+      card.style.transition='border-color 1.4s ease, box-shadow 1.4s ease, background 1.4s ease';
+      card.style.borderColor='';
+      card.style.boxShadow='';
+      card.style.background='';
+      card.classList.remove('spotlight');
+    }, 4500);
+  }
 }
 
 function renderDashLevel(){
@@ -2258,14 +2437,19 @@ function renderBadgeGrid(targetId, compact){
   if(!el) return;
   const u=getUserData(); if(!u) return;
   const badges=u.badges||{};
+  const earnedCount=BADGE_DEFS.filter(b=>badges[b.id]).length;
   const html=BADGE_DEFS.map(b=>{
     const earned=!!badges[b.id];
-    return `<div class="badge-item ${earned?'earned':'locked'}" title="${b.desc}">
-      <div class="badge-icon">${b.icon}</div>
+    return `<div class="badge-item ${earned?'earned':'locked'}" title="${earned?'クリックしてXにシェア':b.desc}" ${earned?`onclick="openBadgeShare('${b.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBadgeShare('${b.id}');}"`:''}>
+      <div class="badge-icon">${badgeIconHTML(b.icon)}</div>
       <div class="badge-name">${b.name}</div>
+      <div class="badge-desc">${b.desc}</div>
     </div>`;
   }).join('');
-  el.innerHTML=`<div class="section-label" style="margin-bottom:10px">バッジ</div><div class="badge-grid">${html}</div>`;
+  el.innerHTML=`<div class="badge-card-head">
+    <div class="section-label" style="margin-bottom:0">獲得バッジ ${tip('学習の節目や連続正解、分野ごとの達成で獲得できます。未獲得のバッジも一覧で確認できます。')}</div>
+    <div class="badge-count">${earnedCount}/${BADGE_DEFS.length}</div>
+  </div><div class="badge-grid">${html}</div>`;
 }
 
 // --- Difficulty helper ---
@@ -2280,9 +2464,8 @@ function getFreqStars(q){
   return FIELD_FREQ_DEFAULT[q.field] || 2;
 }
 function freqStarsHTML(n){
-  const filled = '★'.repeat(n);
-  const empty  = '☆'.repeat(3-n);
-  return `<span class="freq-wrap"><span class="freq-label">頻出</span><span class="freq-star" style="color:var(--ink)">${filled}</span><span class="freq-star" style="color:var(--bg4)">${empty}</span></span>`;
+  const stars=[1,2,3].map(i=>`<svg class="freq-star ${i<=n?'on':'off'}" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,1 6.5,4 9.5,4 7,6 8,9 5,7 2,9 3,6 0.5,4 3.5,4"/></svg>`).join('');
+  return `<span class="freq-wrap"><span class="q-meta-label">頻出</span><span class="freq-stars">${stars}</span></span>`;
 }
 function getDifficultyStars(q){
   // オリジナル問題: level 1→2, 2→3, 3→5 にマッピング
@@ -2711,11 +2894,17 @@ function normalizeUserData(u){
   u.answers=u.answers||{};
   u.sessions=u.sessions||[];
   u.bookmarks=u.bookmarks||{};
+  u.letters=u.letters||[];
+  u.visitMarks=u.visitMarks||{};
   u.streak=u.streak||0;
   return u;
 }
 function getUserData(){ return currentUser?normalizeUserData(db[currentUser.email]):null }
 function saveUser(d){ if(currentUser){db[currentUser.email]=d;saveDB()} }
+function localDateKey(date){
+  const d=date||new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
 
 // ===== MOBILE NAV =====
 function openMobileDrawer(){ document.getElementById('mobile-drawer').classList.add('open'); document.body.style.overflow='hidden'; }
@@ -2912,9 +3101,10 @@ function enterApp(){
   document.getElementById('sb-name').textContent=currentUser.name;
   buildFieldChips(); buildYearGrid();
   gotoPage(_resolveInitialPage());
+  handleDailyFirstVisit();
 }
 
-const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'分析','review':'復習','analytics':'分析','account':'アカウント','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果'};
+const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'分析','review':'復習','analytics':'分析','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果'};
 const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','glossary':'glossary','ichimondou':'ichimondou'};
 
 // ページごとのSEOメタ情報
@@ -2966,12 +3156,6 @@ const PAGE_SEO = {
     desc:  '宅建試験の重要知識を一問一答形式で確認。短時間で基礎知識の定着を進められます。',
     path:  '/quiz/ichimondou/',
     hash:  '#ichimondou'
-  },
-  'account': {
-    title: 'アカウント｜宅建マスター',
-    desc:  '宅建マスターのアカウント管理。プロフィール・プラン確認・学習データの管理ができます。',
-    path:  '/account/',
-    hash:  '#account'
   }
 };
 
@@ -2999,7 +3183,7 @@ function _updatePageMeta(id) {
   if (!['quiz','score','mock-score','ichimondou-score'].includes(id)) {
     try {
       const hash = seo.hash || '';
-      const url = location.pathname.replace(/\/(quiz|dashboard|review|glossary|account).*/, '/') + hash;
+      const url = location.pathname.replace(/\/(quiz|dashboard|review|glossary).*/, '/') + hash;
       history.pushState({ page: id }, seo.title, url);
     } catch(e) { /* file:// protocol など pushState できない環境では無視 */ }
   }
@@ -3088,16 +3272,22 @@ function answerIchi(userAnswer) {
   badge.className = 'ichi-result-badge ' + (correct ? 'ok' : 'ng');
   badge.textContent = correct ? '✓ 正解' : '✗ 不正解';
   badge.textContent += '　' + (q.correctAnswer ? '○が正解' : '×が正解');
-  exp.textContent = q.exp ? q.exp.slice(0,120) + (q.exp.length>120?'…':'') : '';
-  document.getElementById('ichi-result').className = 'ichi-result show';
+  exp.textContent = q.exp || '';
+  const resultBox = document.getElementById('ichi-result');
+  resultBox.className = 'ichi-result show';
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn show';
+  if(window.matchMedia && window.matchMedia('(max-width: 700px)').matches){
+    setTimeout(()=>resultBox.scrollIntoView({behavior:'smooth', block:'start'}), 40);
+  }
 }
 
 function nextIchi() {
   ichiState.idx++;
   if(ichiState.idx >= 10) {
+    document.getElementById('ichi-next-btn').className = 'ichi-next-btn';
     showIchiScore();
   } else {
+    window.scrollTo({top:0,behavior:'instant'});
     showIchiQuestion();
   }
 }
@@ -3152,14 +3342,12 @@ function gotoPage(id){
     mnavPast.classList.toggle('active', id==='past-config' || fromPast);
   }
   closeSidebar();
-  if(id==='dash')        { renderDash(); renderDashLevel(); setTimeout(()=>renderAnalytics(),50); }
+  if(id==='dash')        { renderDash(); renderDashLevel(); renderSupportLetterList(); setTimeout(()=>renderAnalytics(),50); }
   if(id==='review')      renderReview();
   if(id==='orig')        renderOrigPage();
   if(id==='quiz-start')  { renderDailyStatus(); }
-  if(id==='account')     { renderBadgeGrid('acc-badge-section'); }
   if(id==='mock')        renderMockPage();
   if(id==='glossary')    renderGlossary();
-  if(id==='account')     renderAccount();
   if(id==='past-config') buildYearGrid();
   window.scrollTo(0,0);
 }
@@ -3185,13 +3373,13 @@ function _resolveInitialPage() {
     '/review/':      'review',
     '/glossary/':    'glossary',
     '/quiz/mock/':   'mock',
-    '/account/':     'account'
+    '/account/':     'dash'
   };
   // パスで判定（後方互換としてhashも見る）
   const path = location.pathname;
   const hashMap = {
     '#past':'past-config','#orig':'orig','#ichimondou':'ichimondou','#dash':'dash',
-    '#review':'review','#glossary':'glossary','#mock':'mock','#account':'account'
+    '#review':'review','#glossary':'glossary','#mock':'mock','#account':'dash'
   };
   return pathMap[path] || hashMap[location.hash] || 'quiz-start';
 }
@@ -3207,12 +3395,20 @@ function yearStats(y){
   const ans=qs.filter(q=>u.answers[q.id]), ok=ans.filter(q=>u.answers[q.id].ans===q.ans);
   return {total:qs.length,answered:ans.length,correct:ok.length,pct:ans.length>0?Math.round(ok.length/ans.length*100):null};
 }
+function performanceTagHTML(pct){
+  if(pct===null) return '';
+  let label='苦手', cls='tag-red';
+  if(pct>=85){ label='得意'; cls='tag-green'; }
+  else if(pct>=70){ label='順調'; cls='tag-blue'; }
+  else if(pct>=50){ label='要復習'; cls='tag-gray'; }
+  return `<span class="tag ${cls}" style="font-size:9px;margin-left:4px">${label}</span>`;
+}
 function renderFieldBars(cid){
   const el=document.getElementById(cid); if(!el)return;
   el.innerHTML=FIELDS.map(f=>{
-    const s=fieldStats(f.id), pct=s.pct!==null?s.pct:0, isWeak=s.pct!==null&&s.pct<60;
+    const s=fieldStats(f.id), pct=s.pct!==null?s.pct:0;
     return `<div class="field-row"><div class="field-row-head">
-      <span class="field-row-name">${f.name}${isWeak?'<span class="tag tag-red" style="font-size:9px;margin-left:4px">苦手</span>':''}</span>
+      <span class="field-row-name">${f.name}${performanceTagHTML(s.pct)}</span>
       <span class="field-row-pct">${s.pct!==null?s.pct+'%':'—'}</span>
     </div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${f.color}"></div></div></div>`;
   }).join('');
@@ -3249,9 +3445,8 @@ function renderFieldBarsWrap(){
         const ans = qs.filter(q=>u.answers[q.id]);
         const ok = ans.filter(q=>u.answers[q.id].ans===q.ans);
         const pct = ans.length>0 ? Math.round(ok.length/ans.length*100) : null;
-        const isWeak = pct!==null && pct<60;
         html += `<div class="field-row"><div class="field-row-head">
-          <span class="field-row-name" style="font-size:13px">${unit.label}${isWeak?'<span class="tag tag-red" style="font-size:9px;margin-left:4px">苦手</span>':''}</span>
+          <span class="field-row-name" style="font-size:13px">${unit.label}${performanceTagHTML(pct)}</span>
           <span class="field-row-pct">${pct!==null?pct+'%':'—'}</span>
         </div><div class="bar-track"><div class="bar-fill" style="width:${pct||0}%;background:${f.color}"></div></div></div>`;
       });
@@ -3273,6 +3468,7 @@ function renderDash(){
   document.getElementById('d-review-cnt').textContent=wrong.length;
   const h=new Date().getHours();
   document.getElementById('dash-greeting').textContent=`${h<12?'おはようございます':'おかえりなさい'}、${currentUser.name}さん`;
+  renderBadgeGrid('dash-badge-grid');
   renderFieldBarsWrap();
   renderTrendChart('trend-svg',u.sessions||[]);
 }
@@ -5058,6 +5254,8 @@ function toggleCurrentBookmark(){
   } else {
     u.bookmarks[q.id]=Date.now();
     showToast('ブックマークに保存しました','bookmark',1400);
+    awardBadgeById('bookmark_action', u);
+    addSupportLetter('bookmark_letter', u);
   }
   saveUser(u);
   updateBookmarkButton(q);
@@ -5069,8 +5267,12 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
   const diffN=getDifficultyStars(q);
   const freqN=getFreqStars(q);
-  const yearTag=q.year?`<span class="tag tag-blue">${q.year}年</span>`:'<span class="tag tag-blue">オリジナル</span>';
-  document.getElementById('q-meta').innerHTML=`<span class="tag tag-gray">${f.name}</span>${yearTag}<span class="diff-wrap">${diffStarsHTML(diffN)}</span>${freqStarsHTML(freqN)}`;
+  const sourceLabel=q.year?`${q.year}年`:'オリジナル';
+  document.getElementById('q-meta').innerHTML=`
+    <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
+    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>
+    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffN)}</span>
+    <span class="q-meta-item">${freqStarsHTML(freqN)}</span>`;
   updateBookmarkButton(q);
   document.getElementById('q-body').textContent=q.text;
   document.getElementById('opts').innerHTML=q.opts.map((o,i)=>
@@ -5118,7 +5320,8 @@ function pickOpt(i){
   showNextBtn(true, null);
   // Badge check (per-answer)
   const newBadges=checkAndAwardBadges({correct,sessionResults:quizState.sessionResults,u});
-  if(newBadges.length){ saveUser(u); newBadges.forEach((b,i)=>{ setTimeout(()=>showToast(`${b.icon} ${b.name} を獲得しました`,'badge',2200),i*180); }); }
+  if(newBadges.length){ saveUser(u); newBadges.forEach((b,i)=>{ setTimeout(()=>showToast(`${b.name} を獲得しました`,'badge',2200),i*180); }); }
+  setTimeout(()=>maybeSendSupportLetters({u,correct,field:q.field,fromReview:!!quizState.fromReview}), 650);
   checkMissionAllComplete();
 }
 
@@ -5272,10 +5475,10 @@ function drawMissionCert(){
   ctx.strokeRect(40,72,W-80,46);
 
   ctx.fillStyle = '#e8d080';
-  ctx.font = 'bold 18px serif';
+  ctx.font = 'bold 24px serif';
   ctx.textAlign = 'center';
   ctx.letterSpacing = '0.2em';
-  ctx.fillText('達　成　証　明　書', W/2, 103);
+  ctx.fillText('達　成　証　明　書', W/2, 105);
   ctx.letterSpacing = '0';
 
   // トロフィー絵文字
@@ -5284,10 +5487,10 @@ function drawMissionCert(){
 
   // メインテキスト
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 28px sans-serif';
-  ctx.fillText('宅建マスター', W/2, 225);
-  ctx.font = 'bold 24px sans-serif';
-  ctx.fillText('本日のミッション全完了', W/2, 263);
+  ctx.font = 'bold 34px sans-serif';
+  ctx.fillText('宅建マスター', W/2, 224);
+  ctx.font = 'bold 30px sans-serif';
+  ctx.fillText('本日のミッション全完了', W/2, 265);
 
   // 区切り線
   const lineGrad = ctx.createLinearGradient(W/2-160,0,W/2+160,0);
@@ -5300,21 +5503,21 @@ function drawMissionCert(){
 
   // 日付（大きく）
   ctx.fillStyle = '#f0d060';
-  ctx.font = 'bold 36px sans-serif';
+  ctx.font = 'bold 42px sans-serif';
   ctx.fillText(dateStr, W/2, 335);
   ctx.fillStyle = '#c8a030';
-  ctx.font = '16px sans-serif';
-  ctx.fillText(`（${weekDay}曜日）`, W/2, 360);
+  ctx.font = '20px sans-serif';
+  ctx.fillText(`（${weekDay}曜日）`, W/2, 365);
 
   // 下部のメッセージ
   ctx.fillStyle = 'rgba(255,255,255,0.5)';
-  ctx.font = '14px sans-serif';
-  ctx.fillText('継続が合格への最短距離', W/2, 398);
+  ctx.font = '18px sans-serif';
+  ctx.fillText('継続が合格への最短距離', W/2, 404);
 
   // サイト名
   ctx.fillStyle = 'rgba(200,150,12,0.7)';
-  ctx.font = '13px monospace';
-  ctx.fillText('takken-master.jp', W/2, 445);
+  ctx.font = '18px sans-serif';
+  ctx.fillText('宅建マスター', W/2, 445);
 }
 
 function saveMissionCert(){
@@ -5338,13 +5541,485 @@ function canvasToBlob(canvas){
   return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
 }
 
+let currentBadgeShareId = null;
+const SHARE_URL = 'https://takken-master.jp';
+const SHARE_HASHTAGS = '#宅建 #宅建勉強 #宅建マスター';
+function buildXShareText(body){
+  return `${body.trim()}\n\n${SHARE_URL}\n\n${SHARE_HASHTAGS}`;
+}
+function getBadgeShareText(badge){
+  return buildXShareText(`宅建マスターで「${badge.name}」バッジを獲得しました。\n${badge.desc}\n宅建合格を目指して学習を続けています。`);
+}
+function openBadgeShare(id){
+  const u=getUserData();
+  if(!u || !u.badges || !u.badges[id]) return;
+  const badge=BADGE_DEFS.find(b=>b.id===id);
+  if(!badge) return;
+  currentBadgeShareId=id;
+  const title=document.getElementById('badge-share-title');
+  const sub=document.getElementById('badge-share-sub');
+  const text=document.getElementById('badge-share-text');
+  if(title) title.textContent=`${badge.name} バッジ獲得`;
+  if(sub) sub.textContent=badge.desc;
+  if(text) text.value=getBadgeShareText(badge);
+  document.getElementById('badge-share-overlay')?.classList.add('open');
+  setTimeout(()=>drawBadgeShareCard(badge), 80);
+}
+function closeBadgeShare(e){
+  const overlay=document.getElementById('badge-share-overlay');
+  if(!e || e.target===overlay) overlay?.classList.remove('open');
+}
+
+const SUPPORT_LETTER_DEFS = [
+  {
+    id:'first_step',
+    title:'はじめの一歩へ',
+    when:'初めて問題を解いた日',
+    body:'今日、最初の一問に向き合いました。\n\n宅建の勉強は、最初から全部わかる必要はありません。大事なのは、問題を見て、考えて、少しずつ慣れていくことです。\n\n今日の一問は小さく見えても、合格までの道の上にちゃんと残る一歩です。'
+  },
+  {
+    id:'review_courage',
+    title:'間違いに戻れる人へ',
+    when:'復習に取り組んだ日',
+    body:'復習に戻りました。\n\n間違えた問題をもう一度見るのは、少し面倒で、少し悔しいものです。でも、そこに戻れる人は強くなります。\n\n今日あなたが復習した論点は、次に出会った時には前より味方になっています。'
+  },
+  {
+    id:'three_days',
+    title:'三日続けたあなたへ',
+    when:'3日連続で学習した日',
+    body:'三日続けて学習しました。\n\n毎日完璧に進める必要はありません。それでも、今日も机に戻ってきたことには価値があります。\n\n続けられる人は、試験本番の前にも自分を立て直せます。この三日は、その力の証拠です。'
+  },
+  {
+    id:'fifty_answers',
+    title:'五十問を越えたあなたへ',
+    when:'累計50問に到達した日',
+    body:'累計50問に到達しました。\n\n50問分、迷い、選び、解説を読みました。正解も不正解も、全部が知識の輪郭を作っています。\n\nここから先は、見たことのある論点が少しずつ増えていきます。積み上げはもう始まっています。'
+  },
+  {
+    id:'hard_day',
+    title:'うまくいかなかった日へ',
+    when:'正答率が低かった日の学習後',
+    body:'今日は思うように正解できなかったかもしれません。\n\nでも、間違いが多い日は「自分に足りない場所」が見えた日でもあります。宅建は、そこを一つずつ埋める試験です。\n\n今日の不正解は、あなたを否定するものではありません。次に伸びる場所を教えてくれています。'
+  },
+  {
+    id:'first_correct_letter',
+    title:'初めて正解したあなたへ',
+    when:'初めて正解した日',
+    body:'初めての正解、おめでとうございます。\n\n正解できた問題は、ただの一点ではありません。問題文を読み、選択肢を比べ、自分で答えを選べたという証拠です。\n\nこの感覚を少しずつ増やしていきましょう。宅建の知識は、こうして自分のものになっていきます。'
+  },
+  {
+    id:'ten_answers',
+    title:'十問分、向き合ったあなたへ',
+    when:'累計10問に到達した日',
+    body:'累計10問に到達しました。\n\nまだ序盤でも、10問分の問題に向き合った事実は確かです。最初の頃は、わからない言葉が多くて当然です。\n\n大事なのは、見慣れない言葉を少しずつ見慣れたものにしていくこと。もうその作業は始まっています。'
+  },
+  {
+    id:'hundred_answers',
+    title:'百問を越えたあなたへ',
+    when:'累計100問に到達した日',
+    body:'累計100問に到達しました。\n\n100問解いた人には、100問分の迷いと判断の履歴があります。これは、ただ読んでいるだけでは得られない経験です。\n\nここからは「前に見たことがある」が増えていきます。その感覚は、本番であなたを助けてくれます。'
+  },
+  {
+    id:'bookmark_letter',
+    title:'気になる問題を残せたあなたへ',
+    when:'初めてブックマークした日',
+    body:'気になる問題をブックマークしました。\n\n「これはあとで見直したい」と思えるのは、自分の弱点や大事な論点に気づけているということです。\n\nただ解きっぱなしにしない姿勢は、合格に近い学び方です。未来の自分に、いいメモを残せました。'
+  },
+  {
+    id:'timer_letter',
+    title:'集中する準備ができたあなたへ',
+    when:'集中タイマーを使った日',
+    body:'集中タイマーを開きました。\n\n長時間がんばる日だけが、良い勉強ではありません。短い時間でも、区切って始められる人は強いです。\n\n今日は15分でも十分です。始めるための準備ができたことを、ちゃんと前進として数えましょう。'
+  },
+  {
+    id:'rights_letter',
+    title:'権利関係に向き合ったあなたへ',
+    when:'権利関係を学習した日',
+    body:'権利関係に取り組みました。\n\n民法の問題は、最初は言い回しが難しく感じやすい分野です。でも、理由を追いかけるほど少しずつ見通しがよくなります。\n\n今日向き合った一問は、条文や判例への慣れを確実に増やしています。'
+  },
+  {
+    id:'law_letter',
+    title:'宅建業法を積み上げたあなたへ',
+    when:'宅建業法を学習した日',
+    body:'宅建業法に取り組みました。\n\n宅建業法は、努力が点数に結びつきやすい大事な分野です。細かい数字や手続きも、繰り返すほど味方になります。\n\n今日の一問は、本番で取りたい一点に近づく一問です。'
+  },
+  {
+    id:'limit_tax_letter',
+    title:'後回しにしがちな分野へ進んだあなたへ',
+    when:'法令制限・税その他を学習した日',
+    body:'法令制限や税その他の分野に触れました。\n\n後回しにしたくなる分野に手をつけられた日は、それだけで価値があります。苦手意識は、少し見る回数を増やすだけでも薄くなっていきます。\n\n今日の一問は、得点の穴を小さくする一歩です。'
+  },
+  {
+    id:'perfect_letter',
+    title:'全問正解できたあなたへ',
+    when:'全問正解のセッションを達成した日',
+    body:'全問正解のセッションを達成しました。\n\nもちろん本番まで油断はできません。でも、今日はちゃんと「できた」と言っていい日です。\n\n積み上げてきた知識が、選択肢を選ぶ力として表れています。この手応えを次の学習にも持っていきましょう。'
+  },
+  {
+    id:'return_letter',
+    title:'また戻ってきたあなたへ',
+    when:'久しぶりに学習を再開した日',
+    body:'また学習に戻ってきました。\n\n少し間が空いたとしても、戻ってこられたなら大丈夫です。勉強は途切れたら終わりではなく、戻った日からまた続きになります。\n\n今日ここを開いたことは、立て直す力がある証拠です。'
+  }
+];
+
+function getLetterById(id){
+  return SUPPORT_LETTER_DEFS.find(l=>l.id===id);
+}
+function getStoredLetterDef(letter){
+  const def=getLetterById(letter.id);
+  if(def) return def;
+  return {
+    id:letter.id,
+    title:letter.title||'今日の応援レター',
+    when:letter.when||'毎日の最初の訪問',
+    body:letter.body||''
+  };
+}
+function formatLetterDate(ts){
+  const d=new Date(ts||Date.now());
+  return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+}
+function addSupportLetter(id, u){
+  const def=getLetterById(id);
+  if(!def) return null;
+  u=u||getUserData();
+  if(!u) return null;
+  u.letters=u.letters||[];
+  if(u.letters.some(l=>l.id===id)) return null;
+  const letter={id, date:Date.now()};
+  u.letters.unshift(letter);
+  saveUser(u);
+  showSupportLetter(id, true);
+  return letter;
+}
+function showSupportLetter(id, isNew){
+  const u=getUserData();
+  const stored=(u?.letters||[]).find(l=>l.id===id);
+  const def=stored?getStoredLetterDef(stored):getLetterById(id);
+  if(!def) return;
+  const title=document.getElementById('support-letter-title');
+  const sub=document.getElementById('support-letter-sub');
+  const body=document.getElementById('support-letter-body');
+  if(title) title.textContent=def.title;
+  if(sub) sub.textContent=isNew?'応援レターが届きました':def.when;
+  if(body) body.textContent=def.body;
+  document.getElementById('support-letter-overlay')?.classList.add('open');
+}
+function closeSupportLetter(e){
+  const overlay=document.getElementById('support-letter-overlay');
+  if(!e || e.target===overlay) overlay?.classList.remove('open');
+}
+function maybeSendSupportLetters(context){
+  const u=context.u||getUserData();
+  if(!u) return;
+  u.letters=u.letters||[];
+  const total=Object.keys(u.answers||{}).length;
+  if(context.returnedAfterBreak) { if(addSupportLetter('return_letter',u)) return; }
+  if(total>=1) { if(addSupportLetter('first_step',u)) return; }
+  if(context.correct) { if(addSupportLetter('first_correct_letter',u)) return; }
+  if(total>=10) { if(addSupportLetter('ten_answers',u)) return; }
+  if(context.fromReview) { if(addSupportLetter('review_courage',u)) return; }
+  if((u.dayStreak||0)>=3) { if(addSupportLetter('three_days',u)) return; }
+  if(total>=50) { if(addSupportLetter('fifty_answers',u)) return; }
+  if(total>=100) { if(addSupportLetter('hundred_answers',u)) return; }
+  if(context.field==='rights') { if(addSupportLetter('rights_letter',u)) return; }
+  if(context.field==='law') { if(addSupportLetter('law_letter',u)) return; }
+  if(context.field==='limit'||context.field==='tax') { if(addSupportLetter('limit_tax_letter',u)) return; }
+  if(context.sessionResults && context.sessionResults.length>=3 && context.sessionResults.every(r=>r.correct)){
+    if(addSupportLetter('perfect_letter',u)) return;
+  }
+  if(context.sessionResults && context.sessionResults.length>=5){
+    const correct=context.sessionResults.filter(r=>r.correct).length;
+    if(correct/context.sessionResults.length<0.4) addSupportLetter('hard_day',u);
+  }
+}
+
+function buildDailyVisitLetter(){
+  const u=getUserData()||{};
+  const total=Object.keys(u.answers||{}).length;
+  const dayStreak=u.dayStreak||0;
+  const variants=[
+    {
+      title:'今日も来たあなたへ',
+      body:'今日ここを開いた時点で、もう学習は少し前に進んでいます。\n\nたくさん解ける日も、1問だけの日もあります。それでも、戻ってくる習慣は本番前の自分を支えてくれます。\n\n今日はまず、目の前の一問からいきましょう。'
+    },
+    {
+      title:'積み上げを続けるあなたへ',
+      body:`これまでに${total}問分、宅建に向き合ってきました。\n\n数字はただの記録ではありません。迷いながら選んだ時間、解説を読んだ時間、その全部が積み上げです。\n\n今日も小さく進めば十分です。`
+    },
+    {
+      title:'今日の自分を責めないために',
+      body:'勉強を始める前から、完璧な集中力はいりません。\n\n「少しだけやる」と決めて始める日があっていいです。宅建は、そういう小さな再開を重ねた人が最後に強くなります。\n\n今日の一歩を、ちゃんと一歩として扱いましょう。'
+    },
+    {
+      title:'続いているあなたへ',
+      body:`連続学習は現在${dayStreak}日です。\n\n続いている日数が長い時は自信にして、短い時は今日を新しい起点にすれば大丈夫です。\n\n大切なのは、また戻ってこられること。その力はもう育っています。`
+    },
+    {
+      title:'一問だけの日にも価値があります',
+      body:'今日はたくさん進めなくても大丈夫です。\n\n一問だけでも、問題文を読み、選択肢に触れ、宅建の言葉を思い出す時間になります。\n\n少ない日を否定しない人ほど、長く続けられます。今日は小さく始めましょう。'
+    },
+    {
+      title:'未来の自分に渡す一問',
+      body:'今日解く一問は、未来の自分への小さな引き継ぎです。\n\n今すぐ完璧に覚えられなくても、次に見た時の理解が少し早くなります。学習は、その少し早くなる感覚を積み重ねるものです。\n\n今日の一問を、未来の自分に渡しておきましょう。'
+    },
+    {
+      title:'焦らず、でも止まらず',
+      body:'焦る気持ちがある日は、それだけ本気で合格したいということでもあります。\n\nただ、焦りすぎると目の前の一問が雑になりやすいです。今日は速さより、ひとつ根拠を確認することを大切にしましょう。\n\n焦らず、でも止まらず。それで十分前に進めます。'
+    },
+    {
+      title:'昨日の続きではなく、今日の一歩',
+      body:'昨日うまくいったかどうかに関係なく、今日は今日の一歩を作れます。\n\n調子がいい日も、重い日も、アプリを開いて学習に戻った事実は同じように価値があります。\n\n今日の自分にできる分だけ、静かに進めていきましょう。'
+    },
+    {
+      title:'苦手な問題ほど、宝になる',
+      body:'今日も問題に向き合うあなたへ。\n\n何度解いても迷う問題があるとしたら、そこが本番で点差を生む場所かもしれません。苦手に感じる論点こそ、丁寧に向き合う価値があります。\n\n今日は一つ、根拠まで確認して解いてみましょう。'
+    },
+    {
+      title:'試験日までの地図を持つあなたへ',
+      body:'宅建の試験は毎年10月。今日も、その日に向かって歩いています。\n\n一日の積み上げは小さく見えても、試験日の自分が手にできる知識は着実に増えています。\n\n今日の学習が、当日の自信の一部になります。'
+    },
+    {
+      title:'解説を読む時間が、力になる',
+      body:'正解しても不正解でも、解説をきちんと読んだ問題は財産になります。\n\n「なぜ正解か」「なぜ不正解か」まで確認した一問は、似た問題が出たときに必ず役に立ちます。\n\n今日は答え合わせの先まで、丁寧に進めてみましょう。'
+    },
+    {
+      title:'知識が「なじむ」まで待てる人へ',
+      body:'一度読んだだけでは覚えられない。それは普通のことです。\n\n宅建の知識は、何度も問題の中で出会うことで少しずつなじんでいきます。今日もその「出会い直し」をしに来たと思えば、重くなりません。\n\nじっくり、でも着実に進めていきましょう。'
+    },
+    {
+      title:'合格した自分を、少しだけ想像して',
+      body:'宅建士証を手にしたとき、どんな気持ちでしょうか。\n\n試験に合格した人は、特別な才能があったわけではありません。日々の学習を重ね、諦めずに試験日を迎えた人たちです。\n\n今日のあなたも、その道の上にいます。'
+    },
+    {
+      title:'迷った選択肢こそ、記録しておこう',
+      body:'「これかな、あれかな」と迷った問題は、記憶に残りやすいものです。\n\n迷いながら選ぶ経験が、論点の輪郭を鮮明にしていきます。間違えた問題も、迷いながら正解した問題も、どちらも学びです。\n\n今日も迷いながら進んでいきましょう。'
+    },
+    {
+      title:'数字は呪文、繰り返しで覚える',
+      body:'宅建には、期間や割合、人数など、覚えるべき数字がたくさんあります。\n\n最初は混乱しても、問題を解くたびに少しずつ体になじんでいきます。語呂合わせでも、繰り返しでも、自分に合う方法で構いません。\n\n今日も一つ、数字と仲良くなりましょう。'
+    },
+    {
+      title:'本番に強い人の共通点',
+      body:'試験本番に強い人は、特別な才能がある人ではないことが多いです。\n\n「わからなくても最後まで解く」「見直しをきちんとする」「焦った時に立ち止まれる」——そういった習慣を持つ人が強い。\n\n今日の学習の中に、その習慣を少し混ぜてみましょう。'
+    },
+    {
+      title:'休んだ日があっても、大丈夫',
+      body:'毎日完璧に続けられる人は、そう多くありません。\n\n大事なのは、休んだ翌日に戻ってこられることです。今日ここを開いたなら、それができています。\n\n昨日のことは置いておいて、今日の一問を始めましょう。'
+    },
+    {
+      title:'問題文を「読む力」も鍛えられている',
+      body:'宅建の問題は、言葉の使い方が独特です。「原則として」「例外的に」「必ず」「場合がある」——こういった言葉を読み分ける力も、問題を解くたびに育っています。\n\n知識だけでなく、問題文を読む力も確実についています。今日もその力を磨きましょう。'
+    },
+    {
+      title:'分野を偏らせない日に',
+      body:'得意な分野ばかり解くと、点数が偏りがちになります。\n\n宅建は4分野まんべんなく得点することが、合格への近道です。今日は少し、普段後回しにしがちな分野にも触れてみませんか。\n\n苦手な場所に少し踏み込んだ日は、実は大きな前進です。'
+    },
+    {
+      title:'過去問は「未来問」でもある',
+      body:'過去問を解くのは、過去を学ぶためだけではありません。\n\n宅建の試験は、繰り返し同じ論点が形を変えて出題されます。今日解いた過去問の論点が、本番に姿を変えて現れる可能性があります。\n\n今日の一問を、本番への準備として解いていきましょう。'
+    },
+    {
+      title:'「なんとなく正解」を卒業する日',
+      body:'「なんとなく合ってた」という正解は、本番では頼りにくいものです。\n\n今日は一問だけでも、「なぜこれが正解か」を自分の言葉で言えるまで確認してみましょう。\n\nその積み重ねが、本番での確信ある一点につながります。'
+    },
+    {
+      title:'学習の「質」を上げる一日に',
+      body:`これまで${total}問に向き合ってきました。\n\n問題数が増えてきたら、次のステップは「質」を上げることです。速く解くより、根拠を確認しながら解く。今日はそこを意識してみましょう。\n\n丁寧な一問は、10問分の価値を持つことがあります。`
+    },
+    {
+      title:'眠い日、疲れた日にも',
+      body:'疲れていても、ここを開いたのですね。\n\n そんな日は無理に長くやらなくていいです。問題文を一問読んで、選択肢を選ぶだけでも、脳は宅建の言葉を思い出そうとしています。\n\n今日は短くていい。でもゼロにしない。それだけで十分です。'
+    },
+    {
+      title:'合格は「当日」ではなく「今日」作られる',
+      body:'試験当日に何かが劇的に変わることはありません。\n\n合格は、今日のような学習の日々の中で、少しずつ作られていくものです。今日ここを開いたあなたは、その作業をまた一日分進めています。\n\n地味でも、確実な一日にしましょう。'
+    },
+    {
+      title:'わからなくていい、今は',
+      body:'難しくて理解できない問題に出会うことがあります。\n\n今すぐ完璧に理解しなくてもいいです。「こういう問題がある」と知ることも、学習の一部です。何度か出会ううちに、少しずつ見えてくることがあります。\n\n今日は「出会うだけ」でも前に進んでいます。'
+    },
+    {
+      title:'模試は「本番の練習」ではなく「弱点の地図」',
+      body:'模試で点数が低くても、落ち込まなくていいです。\n\n模試の役割は、まだ固まっていない論点を教えてくれることです。点数より、どこで間違えたかに注目しましょう。\n\n今日の間違いは、本番で正解するための地図になります。'
+    },
+    {
+      title:'宅建業法は、得点の柱にできる',
+      body:'宅建業法は、出題数が多く、繰り返し同じ論点が出やすい分野です。\n\n頑張った分だけ点数に直結しやすいので、積み上げがいのある分野でもあります。今日は業法の問題を一問でも多く解いてみましょう。\n\nここを固めると、合格がぐっと近くなります。'
+    },
+    {
+      title:'小さな達成を、ちゃんと数える',
+      body:'今日も学習に来ました。それだけで、一つの達成です。\n\n大きな節目だけを喜ぼうとすると、毎日が地味に感じてしまいます。「今日も来た」「一問解いた」「解説を読んだ」——小さな事実を、ちゃんと自分の前進として数えましょう。\n\n積み重ねは、小さな達成でできています。'
+    },
+    {
+      title:'試験まで、まだ時間がある',
+      body:'焦らなくていい時間がある今こそ、丁寧に学べます。\n\n直前になると、どうしても量をこなすことに追われがちです。今の時期に「根拠まで理解する」習慣をつけておくと、直前期の追い込みも効果的になります。\n\n今日は急がずに、一問一問を大切にしましょう。'
+    },
+    {
+      title:'あなたの学習スタイルで、いい',
+      body:'毎日同じ量をこなせる人ばかりではありません。\n\n忙しい日は少なく、余裕のある日は多く。そのバランスで続けていける人が、最後まで残ります。自分のペースを責めずに、今日できる分を積み重ねていきましょう。\n\nあなたのやり方で、合格は目指せます。'
+    },
+    {
+      title:'今日という日は、一度しかない',
+      body:'今日の学習は、今日にしかできません。\n\n明日に回せる問題もありますが、今日解いた問題は今日の自分の経験になります。同じ一問でも、今日解くことで今日の記憶として残ります。\n\n今日という一日を、小さくでも使っていきましょう。'
+    }
+  ];
+  const idx=(new Date().getDate()+new Date().getMonth()*3)%variants.length;
+  return variants[idx];
+}
+
+function handleDailyFirstVisit(){
+  const u=getUserData();
+  if(!u) return;
+  u.visitMarks=u.visitMarks||{};
+  const key=localDateKey();
+  if(u.visitMarks.firstVisitDate===key) return;
+  const prevVisitDate=u.visitMarks.firstVisitDate;
+  const returnedAfterBreak=!!prevVisitDate && (new Date(key).getTime()-new Date(prevVisitDate).getTime())>86400000;
+  u.visitMarks.firstVisitDate=key;
+  u.visitMarks.missionSpotlightDate=key;
+  const daily=buildDailyVisitLetter();
+  const letterId=`daily_visit_${key}`;
+  u.letters=u.letters||[];
+  if(!u.letters.some(l=>l.id===letterId)){
+    u.letters.unshift({
+      id:letterId,
+      title:daily.title,
+      when:'毎日の最初の訪問',
+      body:daily.body,
+      date:Date.now()
+    });
+  }
+  saveUser(u);
+  window._missionSpotlightPending=true;
+  // quiz-startが既に表示中なら即反映、そうでなければgotoPage('quiz-start')時に拾う
+  const quizStartActive=document.getElementById('page-quiz-start')?.classList.contains('active');
+  if(quizStartActive) renderDailyStatus();
+  if(returnedAfterBreak && addSupportLetter('return_letter', u)) return;
+  setTimeout(()=>showSupportLetter(letterId, true), 520);
+}
+
+function drawCanvasBadgeIcon(ctx, icon, x, y, size, color){
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.strokeStyle=color;
+  ctx.fillStyle=color;
+  ctx.lineWidth=Math.max(3, size/11);
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  const s=size/16;
+  ctx.scale(s, s);
+  ctx.beginPath();
+  if(icon==='play'){
+    ctx.moveTo(5,3.5); ctx.lineTo(12,8); ctx.lineTo(5,12.5); ctx.closePath(); ctx.fill();
+  }else if(icon==='check'){
+    ctx.moveTo(3,8.5); ctx.lineTo(6.2,11.5); ctx.lineTo(13,4); ctx.stroke();
+  }else if(icon==='stack'){
+    [[3,5,8,2,13,5,8,8],[3,8,8,11,13,8],[3,11,8,14,13,11]].forEach((p,i)=>{
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(p[2],p[3]); ctx.lineTo(p[4],p[5]); if(i===0){ctx.lineTo(p[6],p[7]); ctx.closePath();} ctx.stroke();
+    });
+  }else if(icon==='zap'){
+    ctx.moveTo(9,1.5); ctx.lineTo(4,9); ctx.lineTo(8,9); ctx.lineTo(7,14.5); ctx.lineTo(12,7); ctx.lineTo(8,7); ctx.closePath(); ctx.fill();
+  }else if(icon==='calendar'){
+    ctx.roundRect(3,3.5,10,10,1.5); ctx.stroke(); ctx.beginPath(); ctx.moveTo(5.5,2); ctx.lineTo(5.5,5); ctx.moveTo(10.5,2); ctx.lineTo(10.5,5); ctx.moveTo(3,6.5); ctx.lineTo(13,6.5); ctx.stroke();
+  }else if(icon==='review'){
+    ctx.moveTo(3,4); ctx.lineTo(13,4); ctx.moveTo(3,8); ctx.lineTo(10,8); ctx.moveTo(3,12); ctx.lineTo(12,12); ctx.moveTo(12,7); ctx.lineTo(14,9); ctx.lineTo(12,11); ctx.stroke();
+  }else if(icon==='bookmark'){
+    ctx.moveTo(4,2.5); ctx.lineTo(12,2.5); ctx.lineTo(12,13.5); ctx.lineTo(8,11); ctx.lineTo(4,13.5); ctx.closePath(); ctx.stroke();
+  }else if(icon==='timer'){
+    ctx.arc(8,8.5,5.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(8,5.5); ctx.lineTo(8,8.5); ctx.lineTo(10,9.9); ctx.moveTo(6,1.5); ctx.lineTo(10,1.5); ctx.stroke();
+  }else if(icon==='grid'){
+    [[3,3],[9,3],[3,9],[9,9]].forEach(([gx,gy])=>{ctx.beginPath(); ctx.roundRect(gx,gy,4,4,1); ctx.stroke();});
+  }else if(icon==='book'){
+    ctx.moveTo(4,2.5); ctx.lineTo(9,2.5); ctx.quadraticCurveTo(12,2.5,12,5.5); ctx.lineTo(12,13.5); ctx.lineTo(7,13.5); ctx.quadraticCurveTo(4,13.5,4,10.5); ctx.closePath(); ctx.stroke(); ctx.beginPath(); ctx.moveTo(4,2.5); ctx.lineTo(4,10.5); ctx.stroke();
+  }else{
+    ctx.arc(8,6,3.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(5.5,9); ctx.lineTo(4.5,14); ctx.lineTo(8,12); ctx.lineTo(11.5,14); ctx.lineTo(10.5,9); ctx.stroke();
+  }
+  ctx.restore();
+}
+function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight, maxLines){
+  const chars=[...text];
+  let line='', lines=[];
+  chars.forEach(ch=>{
+    const test=line+ch;
+    if(ctx.measureText(test).width>maxWidth && line){ lines.push(line); line=ch; }
+    else line=test;
+  });
+  if(line) lines.push(line);
+  lines.slice(0,maxLines).forEach((l,i)=>ctx.fillText(l, x, y+i*lineHeight));
+}
+function drawBadgeShareCard(badge){
+  const canvas=document.getElementById('badge-share-canvas');
+  if(!canvas || !badge) return;
+  const ctx=canvas.getContext('2d');
+  const W=720,H=480;
+  canvas.width=W; canvas.height=H;
+  ctx.fillStyle='#f7f7f8'; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#ffffff'; ctx.beginPath(); ctx.roundRect(36,36,W-72,H-72,22); ctx.fill();
+  ctx.strokeStyle='rgba(0,0,0,.12)'; ctx.lineWidth=2; ctx.stroke();
+  ctx.fillStyle='#111111'; ctx.font='bold 24px sans-serif'; ctx.textAlign='center';
+  ctx.fillText('宅建マスター', W/2, 86);
+  ctx.fillStyle='#555555'; ctx.font='bold 22px sans-serif'; ctx.fillText('学習バッジ獲得', W/2, 116);
+  ctx.fillStyle='#111111'; ctx.beginPath(); ctx.roundRect(W/2-54,145,108,108,24); ctx.fill();
+  drawCanvasBadgeIcon(ctx, badge.icon, W/2-33, 166, 66, '#ffffff');
+  ctx.fillStyle='#111111'; ctx.font='bold 42px sans-serif'; ctx.fillText(badge.name, W/2, 310);
+  ctx.fillStyle='#555555'; ctx.font='22px sans-serif'; wrapCanvasText(ctx, badge.desc, W/2, 350, 560, 32, 2);
+  const u=getUserData()||{};
+  const total=Object.keys(u.answers||{}).length;
+  ctx.fillStyle='#f0f0f1'; ctx.beginPath(); ctx.roundRect(W/2-170,388,340,42,21); ctx.fill();
+  ctx.fillStyle='#555555'; ctx.font='18px sans-serif'; ctx.fillText(`累計${total}問解答 ・ レベル${getLevel(total).lv}`, W/2, 416);
+  ctx.fillStyle='#999999'; ctx.font='18px sans-serif'; ctx.fillText('宅建マスター', W/2, 455);
+}
+function saveBadgeShareImage(){
+  const badge=BADGE_DEFS.find(b=>b.id===currentBadgeShareId);
+  const canvas=document.getElementById('badge-share-canvas');
+  if(!badge || !canvas) return;
+  drawBadgeShareCard(badge);
+  const a=document.createElement('a');
+  a.download=`takken-master-badge-${badge.id}.png`;
+  a.href=canvas.toDataURL('image/png');
+  a.click();
+}
+function copyBadgeShareText(){
+  const text=document.getElementById('badge-share-text')?.value || '';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>showToast('投稿文をコピーしました','badge',1600));
+  }else{
+    showToast('投稿文を選択してコピーしてください','badge',1800);
+  }
+}
+async function shareBadgeToX(){
+  const badge=BADGE_DEFS.find(b=>b.id===currentBadgeShareId);
+  const canvas=document.getElementById('badge-share-canvas');
+  if(!badge || !canvas) return;
+  drawBadgeShareCard(badge);
+  const text=document.getElementById('badge-share-text')?.value || getBadgeShareText(badge);
+  const blob=await canvasToBlob(canvas);
+  const file=blob ? new File([blob], `takken-master-badge-${badge.id}.png`, {type:'image/png'}) : null;
+  if(file && navigator.canShare && navigator.canShare({files:[file]})){
+    try{
+      await navigator.share({text, files:[file]});
+      return;
+    }catch(e){
+      if(e && e.name==='AbortError') return;
+    }
+  }
+  if(blob){
+    saveBadgeShareImage();
+    showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
+  }
+  const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
 async function shareMissionToX(){
   const canvas = document.getElementById('mission-cert-canvas');
   if(!canvas) return;
   drawMissionCert();
   const now = new Date();
-  const dateStr = `${now.getMonth()+1}/${now.getDate()}`;
-  const text = `宅建マスターで今日のミッションをすべてクリアしました！🏆\n${dateStr} 宅建合格を目指して継続中。\n#宅建 #宅建勉強 #宅建マスター`;
+  const dateStr = `${now.getMonth()+1}月${now.getDate()}日`;
+  const text = buildXShareText(`宅建マスターで今日のミッションをすべてクリアしました。\n${dateStr}も宅建合格を目指して学習を続けています。`);
   const blob = await canvasToBlob(canvas);
   const file = blob ? new File([blob], `takken-master-mission-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}.png`, {type:'image/png'}) : null;
   if(file && navigator.canShare && navigator.canShare({files:[file]})){
@@ -5364,7 +6039,7 @@ async function shareMissionToX(){
     setTimeout(()=>URL.revokeObjectURL(objectUrl), 1000);
     showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
   }
-  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://takken-master.jp')}`;
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 function buildKaisetsu(k, q){
@@ -5480,7 +6155,7 @@ function buildRichExp(expText, opts, ans){
       <ul class="rich-caution-list">${cautions.map(c=>`<li>${tagNums(tagLaw(c))}。</li>`).join('')}</ul>
     </div>` : '';
   // 正解選択肢の確認
-  const correctOptText = opts && ans !== undefined ? `<div class="rich-correct-opt">正解：<strong>${opts[ans]}</strong></div>` : '';
+  const correctOptText = opts && ans !== undefined ? `<div class="rich-correct-opt">正解：${opts[ans]}</div>` : '';
   return `
     <div class="rich-exp">
       ${correctOptText}
@@ -5501,6 +6176,9 @@ function buildRichExp(expText, opts, ans){
 function reviewQ(qid){
   const q=allPracticeQuestions().find(q=>q.id===qid);
   if(!q) return;
+  awardBadgeById('review_action');
+  const u=getUserData();
+  if(u) addSupportLetter('review_courage', u);
   quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.fromReview=true;quizState.mode=q.unit?'orig':'past';gotoPage('quiz');renderQ();
 }
 
@@ -5581,9 +6259,11 @@ function showScore(){
   const res=quizState.sessionResults, correct=res.filter(r=>r.correct).length;
   const pct=Math.round(correct/res.length*100), avgTime=(res.reduce((a,r)=>a+r.time,0)/res.length).toFixed(1);
   const u=getUserData(); u.sessions=u.sessions||[];u.sessions.push({date:Date.now(),correct,total:res.length,pct,mode:quizState.mode});saveUser(u);
+  const endedFromReview=!!quizState.fromReview;
   // session-end badge check
   const sessionNewBadges=checkAndAwardBadges({correct,sessionResults:res,u});
   if(sessionNewBadges.length) saveUser(u);
+  setTimeout(()=>maybeSendSupportLetters({u,sessionResults:res,fromReview:endedFromReview}), endedFromReview?420:900);
   // 復習からの場合はスコア画面をスキップして復習リストに戻る
   if(quizState.fromReview){ quizState.fromReview=false; gotoPage('review'); return; }
   gotoPage('score');
@@ -5618,7 +6298,7 @@ function showScore(){
   const earnedEl=document.getElementById('score-badges-earned');
   if(earnedEl&&sessionNewBadges.length){
     earnedEl.innerHTML='<div class="section-label" style="margin-bottom:8px">バッジ獲得</div><div class="score-badges-row">'
-      +sessionNewBadges.map(b=>`<div class="score-earned-badge">${b.icon} ${b.name}</div>`).join('')+'</div>';
+      +sessionNewBadges.map(b=>`<div class="score-earned-badge"><span class="badge-icon" style="width:24px;height:24px;border-radius:6px">${badgeIconHTML(b.icon)}</span>${b.name}</div>`).join('')+'</div>';
   }
   document.getElementById('score-q-list').innerHTML=res.map(r=>`
     <div class="score-q-item">
@@ -5860,20 +6540,28 @@ function renderStudyCalendar(){
     <div class="study-cal-summary"><span>この${isWeek?'週':'月'}の学習日 <strong>${studiedDays}</strong>日</span><span>解答数 <strong>${total}</strong>問</span></div>`;
 }
 
-// ===== ACCOUNT =====
-function renderAccount(){
+function renderSupportLetterList(){
+  const el=document.getElementById('support-letter-list');
+  if(!el) return;
   const u=getUserData();
-  document.getElementById('acc-avatar').textContent=currentUser.name.charAt(0);
-  document.getElementById('acc-name').textContent=currentUser.name;
-  document.getElementById('acc-email').textContent=currentUser.email;
-  document.getElementById('acc-plan-badge').innerHTML=u.plan==='premium'?'<span class="plan-badge plan-premium">プレミアム</span>':'<span class="plan-badge plan-free">無料プラン</span>';
-  document.getElementById('plan-info').innerHTML=u.plan==='premium'?'<div style="font-size:13px;color:var(--green)">プレミアムプランを利用中</div>':'<div style="font-size:13px;color:var(--text2);line-height:1.7">現在は無料プランをご利用中です。<br>プレミアムにアップグレードすると詳細分析レポートが使えます。</div>';
+  const allLetters=(u?.letters||[]).filter(l=>getStoredLetterDef(l));
+  if(!allLetters.length){
+    el.innerHTML='<div class="letter-empty">学習の節目に、あなた宛ての応援レターが届きます。届いたレターはここで読み返せます。</div>';
+    return;
+  }
+  el.innerHTML=`<div class="letter-list">${allLetters.map(l=>{
+    const def=getStoredLetterDef(l);
+    return `<button class="letter-item" onclick="showSupportLetter('${l.id}', false)">
+      <div class="letter-item-title">${def.title}</div>
+      <div class="letter-item-meta">${formatLetterDate(l.date)} ・ ${def.when}</div>
+    </button>`;
+  }).join('')}</div>`;
 }
 
 // ===== PREMIUM =====
 function openPremium(){document.getElementById('premium-modal').classList.add('open')}
 function closePremium(){document.getElementById('premium-modal').classList.remove('open')}
-function mockUpgrade(){const u=getUserData();u.plan='premium';saveUser(u);closePremium();gotoPage('account')}
+function mockUpgrade(){const u=getUserData();u.plan='premium';saveUser(u);closePremium();gotoPage('dash')}
 
 loadDB();
 // ゲストとしてまず入場
@@ -5970,6 +6658,39 @@ loadDB();
       </button>
     </div>
     <button class="mission-popup-close" onclick="document.getElementById('mission-popup-overlay').classList.remove('open')">閉じる</button>
+  </div>
+</div>
+<!-- SUPPORT LETTER POPUP -->
+<div class="mission-popup-overlay" id="support-letter-overlay" onclick="closeSupportLetter(event)">
+  <div class="mission-popup">
+    <div class="mission-popup-title" id="support-letter-title">応援レター</div>
+    <div class="mission-popup-sub" id="support-letter-sub">応援レターが届きました</div>
+    <div class="support-letter-body" id="support-letter-body"></div>
+    <div class="mission-popup-actions">
+      <button class="mission-popup-save" onclick="document.getElementById('support-letter-overlay').classList.remove('open');gotoPage('dash')">レターを読み返す</button>
+    </div>
+    <button class="mission-popup-close" onclick="document.getElementById('support-letter-overlay').classList.remove('open')">閉じる</button>
+  </div>
+</div>
+<!-- BADGE SHARE POPUP -->
+<div class="mission-popup-overlay" id="badge-share-overlay" onclick="closeBadgeShare(event)">
+  <div class="mission-popup">
+    <div class="mission-popup-title" id="badge-share-title">バッジ獲得</div>
+    <div class="mission-popup-sub" id="badge-share-sub">学習の達成をシェアできます。</div>
+    <div class="mission-cert-canvas-wrap">
+      <canvas id="badge-share-canvas" width="720" height="480"></canvas>
+    </div>
+    <textarea class="share-text-box" id="badge-share-text" aria-label="X投稿文"></textarea>
+    <div class="share-note">対応端末では画像付き共有が開きます。非対応の場合は画像を保存してX投稿画面を開きます。</div>
+    <div class="mission-popup-actions">
+      <button class="mission-popup-save" onclick="copyBadgeShareText()">投稿文をコピーする</button>
+      <button class="mission-popup-save" onclick="saveBadgeShareImage()">画像として保存する</button>
+      <button class="mission-popup-share" onclick="shareBadgeToX()">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.749l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Xに投稿する
+      </button>
+    </div>
+    <button class="mission-popup-close" onclick="document.getElementById('badge-share-overlay').classList.remove('open')">閉じる</button>
   </div>
 </div>
 <div id="g-tooltip"></div>
