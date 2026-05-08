@@ -737,11 +737,7 @@ details.rich-detail summary{display:none}
 .glos-summary{font-size:14px;color:var(--text2);margin-left:auto;max-width:200px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .glos-chevron{width:14px;height:14px;stroke:var(--text3);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s}
 .glos-card.open .glos-chevron{transform:rotate(180deg)}
-.glos-audio-btn{width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--bg3);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
-.glos-audio-btn:hover{background:var(--bg4)}
-.glos-audio-btn.playing{background:var(--ink);border-color:var(--ink)}
-.glos-audio-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
-.glos-audio-btn.playing svg{stroke:var(--bg2)}
+
 .glos-body{display:none;padding:0 15px 15px;border-top:1px solid var(--border)}
 .glos-card.open .glos-body{display:block}
 .glos-desc{font-size:15px;line-height:1.8;color:var(--text);margin:12px 0}
@@ -1260,6 +1256,9 @@ details.rich-detail summary{display:none}
         <a class="topnav-link" id="tnav-glossary" href="/glossary/" onclick="event.preventDefault();gotoPage('glossary')">
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
         </a>
+        <a class="topnav-link" id="tnav-audio" href="/audio/" onclick="event.preventDefault();gotoPage('audio')">
+          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><polygon points="6,5.5 6,10.5 11,8" fill="currentColor" stroke="none"/></svg>音声学習
+        </a>
       </nav>
       <button class="focus-btn" id="focus-btn" onclick="toggleFocusPanel()" aria-label="集中タイマー">
         <svg viewBox="0 0 16 16"><circle cx="8" cy="8.5" r="5.5"/><path d="M8 5.5v3l2 1.2M6 1.5h4"/></svg>
@@ -1342,6 +1341,9 @@ details.rich-detail summary{display:none}
       </a>
       <a class="mobile-nav-item" id="mnav-glossary" href="/glossary/" onclick="event.preventDefault();gotoPage('glossary');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
+      </a>
+      <a class="mobile-nav-item" id="mnav-audio" href="/audio/" onclick="event.preventDefault();gotoPage('audio');closeMobileDrawer()">
+        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><polygon points="6,5.5 6,10.5 11,8" fill="currentColor" stroke="none"/></svg>音声学習
       </a>
 
     </div>
@@ -1987,6 +1989,26 @@ details.rich-detail summary{display:none}
         </ul>
       </div>
     </noscript>
+
+    <!-- AUDIO PAGE -->
+    <div class="page" id="page-audio">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="/" onclick="event.preventDefault();gotoPage('quiz-start')">宅建マスター</a></li>
+          <li class="breadcrumb-item breadcrumb-current" aria-current="page">音声学習</li>
+        </ol>
+      </nav>
+      <h2 class="page-title">音声学習</h2>
+      <div class="page-sub">通勤・移動中に聴いて学ぶ</div>
+
+      <!-- 準備中バナー -->
+      <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r2);padding:48px 24px;text-align:center;">
+        <div style="font-size:40px;margin-bottom:16px;">🎧</div>
+        <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;">準備中です</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8;">音声学習コンテンツを鋭意制作中です。<br>もうしばらくお待ちください。</div>
+      </div>
+
+    </div>
 
   </main>
 </div>
@@ -3241,7 +3263,7 @@ function enterApp(){
   handleDailyFirstVisit();
 }
 
-const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'分析','review':'復習','analytics':'分析','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果'};
+const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'分析','review':'復習','analytics':'分析','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果','audio':'音声学習'};
 const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','glossary':'glossary','ichimondou':'ichimondou'};
 
 // ページごとのSEOメタ情報
@@ -3493,6 +3515,7 @@ function gotoPage(id){
       'dash':     id==='dash',
       'review':   id==='review',
       'glossary': id==='glossary',
+      'audio':    id==='audio',
     };
     Object.entries(map).forEach(([k,active])=>{
       const tn = document.getElementById('tnav-'+k);
@@ -3857,8 +3880,6 @@ const GLOSSARY_DATA = [
 ];
 
 let glosActiveCat = 'all';
-let glosSpeaking = false;
-let glosSpeechUtt = null;
 
 function renderGlossary(){
   // 静的SEOコンテンツを削除して動的コンテンツに切り替え
@@ -3905,9 +3926,6 @@ function renderGlossaryList(){
         <span class="glos-tag" style="background:var(--bg3);color:var(--text2)">${catNames[g.cat]}</span>
         <span class="glos-term">${g.term}<span class="glos-reading">（${g.reading}）</span></span>
         <span class="glos-summary">${g.summary}</span>
-        <button class="glos-audio-btn" id="aud-${g.id}" onclick="event.stopPropagation();speakGlos('${g.id}')" title="音声で読む">
-          <svg viewBox="0 0 16 16"><path d="M3 6H1v4h2l4 3V3L3 6z"/><path d="M11.5 4.5a5 5 0 0 1 0 7M9 6.5a2.5 2.5 0 0 1 0 3"/></svg>
-        </button>
         <svg class="glos-chevron" viewBox="0 0 14 14"><path d="M4 5l3 4 3-4"/></svg>
       </div>
       <div class="glos-body">
@@ -3942,32 +3960,6 @@ function renderGlosDiagram(d){
   return '';
 }
 
-function speakGlos(id){
-  const g = GLOSSARY_DATA.find(x=>x.id===id);
-  if(!g || !window.speechSynthesis) return;
-  const btn = document.getElementById('aud-'+id);
-  // すでに再生中なら停止
-  if(glosSpeaking && glosSpeechUtt){
-    window.speechSynthesis.cancel();
-    document.querySelectorAll('.glos-audio-btn').forEach(b=>b.classList.remove('playing'));
-    glosSpeaking = false;
-    glosSpeechUtt = null;
-    return;
-  }
-  // カードを開く
-  const card = document.getElementById('gc-'+id);
-  if(!card.classList.contains('open')) card.classList.add('open');
-  // 読み上げテキスト（用語名＋説明）
-  const text = `${g.term}。${g.desc}`;
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'ja-JP';
-  utt.rate = 0.9;
-  utt.onstart = ()=>{ glosSpeaking=true; btn.classList.add('playing'); };
-  utt.onend = ()=>{ glosSpeaking=false; btn.classList.remove('playing'); glosSpeechUtt=null; };
-  utt.onerror = ()=>{ glosSpeaking=false; btn.classList.remove('playing'); glosSpeechUtt=null; };
-  glosSpeechUtt = utt;
-  window.speechSynthesis.speak(utt);
-}
 
 // ===== ORIGINAL MOCK TEST DATA =====
 const ORIG_QUESTIONS = {
