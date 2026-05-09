@@ -2034,6 +2034,113 @@ body.is-solving .exam-banner{display:none}
 <script src="takken-data-original.js"></script>
 <script>
 
+// ===== GLOSSARY UI（定数 GLOSSARY_DATA は takken-data-glossary.js）=====
+let glosActiveCat = 'all';
+let glosSpeaking = false;
+let glosSpeechUtt = null;
+
+function renderGlossary(){
+  const staticSec = document.querySelector('.glos-static-section');
+  if (staticSec) staticSec.remove();
+  const cats = [
+    {id:'all',label:'すべて'},
+    {id:'rights',label:'権利関係'},
+    {id:'law',label:'宅建業法'},
+    {id:'limit',label:'法令制限'},
+    {id:'tax',label:'税・その他'},
+  ];
+  const catEl = document.getElementById('glos-cats');
+  catEl.innerHTML = cats.map(c=>`<button class="gcat-btn${glosActiveCat===c.id?' active':''}" onclick="setGlosCat('${c.id}')">${c.label}</button>`).join('');
+  renderGlossaryList();
+}
+
+function setGlosCat(cat){
+  glosActiveCat = cat;
+  document.querySelectorAll('.gcat-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderGlossaryList();
+}
+
+function filterGlossary(){
+  renderGlossaryList();
+}
+
+function renderGlossaryList(){
+  const q = (document.getElementById('glos-search')||{value:''}).value.trim().toLowerCase();
+  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
+  const filtered = GLOSSARY_DATA.filter(g=>{
+    if(glosActiveCat!=='all' && g.cat!==glosActiveCat) return false;
+    if(q && !g.term.includes(q) && !g.reading.includes(q) && !g.summary.includes(q) && !g.desc.includes(q)) return false;
+    return true;
+  });
+  const listEl = document.getElementById('glossary-list');
+  if(!filtered.length){listEl.innerHTML='<div style="text-align:center;padding:30px;color:var(--text3);font-size:13px">該当する用語が見つかりません</div>';return;}
+  listEl.innerHTML = filtered.map(g=>`
+    <div class="glos-card" id="gc-${g.id}">
+      <div class="glos-card-head" onclick="toggleGlosCard('${g.id}')">
+        <span class="glos-tag" style="background:var(--bg3);color:var(--text2)">${catNames[g.cat]}</span>
+        <span class="glos-term">${g.term}<span class="glos-reading">（${g.reading}）</span></span>
+        <span class="glos-summary">${g.summary}</span>
+        <button class="glos-audio-btn" id="aud-${g.id}" onclick="event.stopPropagation();speakGlos('${g.id}')" title="音声で読む">
+          <svg viewBox="0 0 16 16"><path d="M3 6H1v4h2l4 3V3L3 6z"/><path d="M11.5 4.5a5 5 0 0 1 0 7M9 6.5a2.5 2.5 0 0 1 0 3"/></svg>
+        </button>
+        <svg class="glos-chevron" viewBox="0 0 14 14"><path d="M4 5l3 4 3-4"/></svg>
+      </div>
+      <div class="glos-body">
+        <div class="glos-desc">${g.desc}</div>
+        ${g.diagram ? renderGlosDiagram(g.diagram) : ''}
+      </div>
+    </div>`).join('');
+}
+
+function toggleGlosCard(id){
+  const card = document.getElementById('gc-'+id);
+  card.classList.toggle('open');
+}
+
+function renderGlosDiagram(d){
+  if(d.type==='table'){
+    const head = d.head.map(h=>`<th>${h}</th>`).join('');
+    const rows = d.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('');
+    return `<div class="glos-diagram"><table class="glos-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+  if(d.type==='flow'){
+    const steps = d.steps.map((s,i)=>`<div class="glos-flow-step">${s}</div>${i<d.steps.length-1?'<div class="glos-flow-arrow">→</div>':''}`).join('');
+    return `<div class="glos-diagram"><div class="glos-flow">${steps}</div>${d.note?`<div class="glos-note">${d.note}</div>`:''}</div>`;
+  }
+  if(d.type==='compare'){
+    return `<div class="glos-diagram"><div class="glos-compare">
+      <div class="glos-compare-col"><h4>${d.left.title}</h4>${d.left.items.map(i=>`<p>• ${i}</p>`).join('')}</div>
+      <div class="glos-compare-col"><h4>${d.right.title}</h4>${d.right.items.map(i=>`<p>• ${i}</p>`).join('')}</div>
+    </div></div>`;
+  }
+  return '';
+}
+
+function speakGlos(id){
+  const g = GLOSSARY_DATA.find(x=>x.id===id);
+  if(!g || !window.speechSynthesis) return;
+  const btn = document.getElementById('aud-'+id);
+  if(glosSpeaking && glosSpeechUtt){
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.glos-audio-btn').forEach(b=>b.classList.remove('playing'));
+    glosSpeaking = false;
+    glosSpeechUtt = null;
+    return;
+  }
+  const card = document.getElementById('gc-'+id);
+  if(!card.classList.contains('open')) card.classList.add('open');
+  const text = `${g.term}。${g.desc}`;
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'ja-JP';
+  utt.rate = 0.9;
+  utt.onstart = ()=>{ glosSpeaking=true; btn.classList.add('playing'); };
+  utt.onend = ()=>{ glosSpeaking=false; btn.classList.remove('playing'); glosSpeechUtt=null; };
+  utt.onerror = ()=>{ glosSpeaking=false; btn.classList.remove('playing'); glosSpeechUtt=null; };
+  glosSpeechUtt = utt;
+  window.speechSynthesis.speak(utt);
+}
+
 // ===== GAMIFICATION ENGINE =====
 
 // --- Level definitions ---
