@@ -1430,14 +1430,6 @@ body.is-solving .exam-banner{display:none}
           </div>
           <div class="mode-arrow-v2">›</div>
         </div>
-        <div class="mode-card-v2" onclick="gotoPage('mock')">
-          <div class="mode-num-v2">04</div>
-          <div class="mode-body-v2">
-            <div class="mode-purpose-v2">準備中です</div>
-            <div class="mode-title-v2">オリジナル模試</div>
-          </div>
-          <div class="mode-arrow-v2">›</div>
-        </div>
       </div>
 
       <div id="daily-status-wrap"></div>
@@ -2037,10 +2029,9 @@ body.is-solving .exam-banner{display:none}
 </div>
 
 
-<script src="./data/base-questions.js"></script>
-<script src="./data/glossary-data.js"></script>
-<script src="./data/orig-questions.js"></script>
-
+<script src="./base-questions.js"></script>
+<script src="./glossary-data.js"></script>
+<script src="./orig-questions.js"></script>
 <script>
 
 // ===== GAMIFICATION ENGINE =====
@@ -2710,8 +2701,7 @@ const FIELDS = [
 
 // デフォルト問題データ（パラフレーズ版）
 // ※実際の過去問データはJSON読み込みで差し替えてください
-// loaded from ./data/base-questions.js
-
+// BASE_QUESTIONS moved to ./base-questions.js
 let QUESTIONS = [...BASE_QUESTIONS];
 
 // ===== わかりやすい解説（具体例あり） =====
@@ -3534,94 +3524,10 @@ function selOrder(o){quizState.order=o;['seq','rnd'].forEach(v=>{const el=docume
 
 // JSON import
 // ===== GLOSSARY =====
-// loaded from ./data/glossary-data.js
-
-
-let glosActiveCat = 'all';
-
-function renderGlossary(){
-  // 静的SEOコンテンツを削除して動的コンテンツに切り替え
-  const staticSec = document.querySelector('.glos-static-section');
-  if (staticSec) staticSec.remove();
-  const cats = [
-    {id:'all',label:'すべて'},
-    {id:'rights',label:'権利関係'},
-    {id:'law',label:'宅建業法'},
-    {id:'limit',label:'法令制限'},
-    {id:'tax',label:'税・その他'},
-  ];
-  const catColors = {rights:'#444444',law:'#555555',limit:'#666666',tax:'#777777'};
-  const catEl = document.getElementById('glos-cats');
-  catEl.innerHTML = cats.map(c=>`<button class="gcat-btn${glosActiveCat===c.id?' active':''}" onclick="setGlosCat('${c.id}')">${c.label}</button>`).join('');
-  renderGlossaryList();
-}
-
-function setGlosCat(cat){
-  glosActiveCat = cat;
-  document.querySelectorAll('.gcat-btn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-  renderGlossaryList();
-}
-
-function filterGlossary(){
-  renderGlossaryList();
-}
-
-function renderGlossaryList(){
-  const q = (document.getElementById('glos-search')||{value:''}).value.trim().toLowerCase();
-  const catColors = {rights:'#444444',law:'#555555',limit:'#666666',tax:'#777777'};
-  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
-  const filtered = GLOSSARY_DATA.filter(g=>{
-    if(glosActiveCat!=='all' && g.cat!==glosActiveCat) return false;
-    if(q && !g.term.includes(q) && !g.reading.includes(q) && !g.summary.includes(q) && !g.desc.includes(q)) return false;
-    return true;
-  });
-  const listEl = document.getElementById('glossary-list');
-  if(!filtered.length){listEl.innerHTML='<div style="text-align:center;padding:30px;color:var(--text3);font-size:13px">該当する用語が見つかりません</div>';return;}
-  listEl.innerHTML = filtered.map(g=>`
-    <div class="glos-card" id="gc-${g.id}">
-      <div class="glos-card-head" onclick="toggleGlosCard('${g.id}')">
-        <span class="glos-tag" style="background:var(--bg3);color:var(--text2)">${catNames[g.cat]}</span>
-        <span class="glos-term">${g.term}<span class="glos-reading">（${g.reading}）</span></span>
-        <span class="glos-summary">${g.summary}</span>
-        <svg class="glos-chevron" viewBox="0 0 14 14"><path d="M4 5l3 4 3-4"/></svg>
-      </div>
-      <div class="glos-body">
-        <div class="glos-desc">${g.desc}</div>
-        ${g.diagram ? renderGlosDiagram(g.diagram) : ''}
-        ${g.article ? `<a class="glos-article-link" href="takken-master-all/${g.article}.html" target="_blank" rel="noopener">詳しく読む →</a>` : ''}
-      </div>
-    </div>`).join('');
-}
-
-function toggleGlosCard(id){
-  const card = document.getElementById('gc-'+id);
-  card.classList.toggle('open');
-}
-
-function renderGlosDiagram(d){
-  if(d.type==='table'){
-    const head = d.head.map(h=>`<th>${h}</th>`).join('');
-    const rows = d.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('');
-    return `<div class="glos-diagram"><table class="glos-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
-  }
-  if(d.type==='flow'){
-    const steps = d.steps.map((s,i)=>`<div class="glos-flow-step">${s}</div>${i<d.steps.length-1?'<div class="glos-flow-arrow">→</div>':''}`).join('');
-    return `<div class="glos-diagram"><div class="glos-flow">${steps}</div>${d.note?`<div class="glos-note">${d.note}</div>`:''}</div>`;
-  }
-  if(d.type==='compare'){
-    return `<div class="glos-diagram"><div class="glos-compare">
-      <div class="glos-compare-col"><h4>${d.left.title}</h4>${d.left.items.map(i=>`<p>• ${i}</p>`).join('')}</div>
-      <div class="glos-compare-col"><h4>${d.right.title}</h4>${d.right.items.map(i=>`<p>• ${i}</p>`).join('')}</div>
-    </div></div>`;
-  }
-  return '';
-}
-
+// GLOSSARY_DATA moved to ./glossary-data.js
 
 // ===== ORIGINAL MOCK TEST DATA =====
-// loaded from ./data/orig-questions.js
-
+// ORIG_QUESTIONS moved to ./orig-questions.js
 
 // ===== ORIGINAL PRACTICE STATE =====
 // ===== 45-UNIT DEFINITION =====
@@ -5554,6 +5460,850 @@ loadDB();
   document.addEventListener('mouseout',function(e){
     if(e.target.closest('.tip-icon')) el.style.display='none';
   });
+})();
+</script>
+<!--
+========================================================================
+  宅建マスター 学習機能強化パッチ
+  追加機能：
+    1. スペースドリペティション（忘却曲線ベース復習スケジュール）
+    2. 分野別理解度レーダーチャート
+    3. 弱点自動特定・優先出題モード
+    4. 学習目標・計画機能（1日○問設定）
+
+  ── 導入方法 ──
+  index.html の </body> タグの直前に、このファイルの内容を
+  まるごとコピー&ペーストしてください。
+  既存コードは一切変更不要です。
+
+  ── 動作要件 ──
+  - 外部ライブラリ不要（完全にバニラJS）
+  - localStorage を使用（Supabase認証に影響なし）
+  - 既存の getUserData() / saveUser() / allPracticeQuestions() を利用
+========================================================================
+-->
+
+<!-- ===== 追加CSS ===== -->
+<style>
+/* ---- 共通ユーティリティ ---- */
+.enh-card{background:#fff;border:1px solid var(--border2);border-radius:var(--r2);padding:18px;margin-bottom:13px;box-shadow:var(--sh)}
+.enh-section-label{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
+.enh-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.enh-sub{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* ---- 1. スペースドリペティション ---- */
+.srs-banner{display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:var(--r2);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:opacity .15s}
+.srs-banner:hover{opacity:.88}
+.srs-banner-icon{width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.srs-banner-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.srs-banner-body{flex:1}
+.srs-banner-label{font-size:10px;font-weight:700;letter-spacing:.1em;opacity:.6;text-transform:uppercase;margin-bottom:2px}
+.srs-banner-title{font-size:15px;font-weight:700;margin-bottom:1px}
+.srs-banner-sub{font-size:12px;opacity:.7}
+.srs-banner-badge{background:rgba(255,255,255,.18);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700;flex-shrink:0}
+
+.srs-queue-card{border:1px solid var(--border2);border-radius:var(--r);padding:10px 14px;margin-bottom:7px;cursor:pointer;transition:background .12s;display:flex;align-items:center;gap:10px}
+.srs-queue-card:hover{background:var(--bg3)}
+.srs-queue-card-body{flex:1;min-width:0}
+.srs-queue-q{font-size:13px;color:var(--text);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srs-queue-meta{display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap}
+.srs-level-chip{font-size:10px;font-weight:700;border-radius:3px;padding:1px 6px;letter-spacing:.03em}
+.srs-level-0{background:#fee2e2;color:#b91c1c}
+.srs-level-1{background:#fef3c7;color:#b45309}
+.srs-level-2{background:#e0f2fe;color:#0369a1}
+.srs-level-3{background:#dcfce7;color:#15803d}
+.srs-level-4{background:#f3e8ff;color:#7c3aed}
+.srs-due-chip{font-size:10px;color:var(--text3)}
+.srs-queue-arrow{color:var(--text3);flex-shrink:0}
+
+/* ---- 2. レーダーチャート ---- */
+.radar-wrap{display:flex;justify-content:center;padding:8px 0}
+.radar-svg{overflow:visible}
+.radar-legend{display:flex;gap:20px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.radar-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2)}
+.radar-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.radar-axis-label{font-size:11px;fill:var(--text2);font-family:var(--font)}
+.radar-score-label{font-size:14px;font-weight:700;fill:var(--text)}
+
+/* ---- 3. 弱点優先出題 ---- */
+.weak-mode-card{border:1.5px solid var(--border2);border-radius:var(--r2);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.weak-mode-card:hover{border-color:var(--ink);box-shadow:var(--sh2)}
+.weak-mode-card-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.weak-mode-icon{width:36px;height:36px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.weak-mode-icon svg{width:16px;height:16px;stroke:var(--text2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.weak-mode-label{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:2px}
+.weak-mode-name{font-size:15px;font-weight:700;color:var(--text)}
+.weak-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.weak-bar-label{font-size:12px;color:var(--text2);width:70px;flex-shrink:0}
+.weak-bar-track{flex:1;height:6px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.weak-bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.weak-bar-val{font-size:12px;font-weight:700;width:38px;text-align:right;flex-shrink:0}
+.weak-field-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.weak-field-chip{font-size:11px;border:1px solid var(--border2);border-radius:12px;padding:2px 9px;color:var(--text2);background:var(--bg3)}
+.weak-field-chip.bad{background:#fee2e2;border-color:rgba(192,57,43,.2);color:var(--red)}
+.weak-start-btn{width:100%;padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:12px;transition:opacity .15s}
+.weak-start-btn:hover{opacity:.85}
+
+/* ---- 4. 学習目標 ---- */
+.goal-card{border:1px solid var(--border2);border-radius:var(--r2);padding:16px 18px;background:#fff;margin-bottom:13px}
+.goal-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.goal-label{font-size:13px;font-weight:600;color:var(--text2);flex-shrink:0;min-width:80px}
+.goal-stepper{display:flex;align-items:center;gap:6px}
+.goal-step-btn{width:30px;height:30px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:var(--font)}
+.goal-step-btn:hover{background:var(--bg3)}
+.goal-step-val{font-size:18px;font-weight:700;min-width:36px;text-align:center;color:var(--text)}
+.goal-step-unit{font-size:13px;color:var(--text3);margin-left:2px}
+.goal-prog-wrap{margin-top:12px}
+.goal-prog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.goal-prog-label{font-size:13px;font-weight:600;color:var(--text)}
+.goal-prog-val{font-size:13px;font-weight:700;color:var(--text)}
+.goal-prog-track{height:10px;background:var(--bg4);border-radius:5px;overflow:hidden}
+.goal-prog-fill{height:100%;border-radius:5px;background:var(--ink);transition:width .4s}
+.goal-prog-fill.done{background:var(--green)}
+.goal-msg{font-size:12px;color:var(--text3);margin-top:6px;text-align:center;min-height:18px}
+.goal-days-row{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+.goal-day-chip{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;background:var(--bg4);color:var(--text3);position:relative}
+.goal-day-chip.done{background:var(--ink);color:#fff}
+.goal-day-chip.today-chip{box-shadow:0 0 0 2px var(--ink);background:var(--bg3);color:var(--ink)}
+
+/* ---- 復習ページ内 SRS セクション ---- */
+.srs-review-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.srs-review-badge{background:var(--ink);color:#fff;border-radius:12px;padding:2px 10px;font-size:11px;font-weight:700}
+
+@media(max-width:700px){
+  .radar-wrap svg{width:240px;height:240px}
+  .weak-mode-card{padding:14px 14px}
+}
+</style>
+
+<!-- ===== 追加HTML: 弱点優先出題モーダル ===== -->
+<div id="weak-mode-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)" onclick="if(event.target===this)closeWeakMode()">
+  <div style="background:#fff;border-radius:16px;padding:24px;max-width:420px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.3)">
+    <div style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px">弱点集中対策</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.65">正答率が低い分野・問題を中心に出題します。苦手を集中的に克服しましょう。</div>
+    <div id="weak-mode-analysis"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px">
+      <button onclick="closeWeakMode()" style="padding:10px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font)">閉じる</button>
+      <button onclick="startWeakModeQuiz()" style="padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font)">スタート</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 追加HTML: SRS セッション通知 (スタート画面に差し込まれる) ===== -->
+<div id="srs-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)" onclick="if(event.target===this)closeSrsModal()">
+  <div style="background:#fff;border-radius:16px;padding:24px;max-width:480px;width:100%;max-height:88vh;overflow-y:auto">
+    <div style="font-size:18px;font-weight:800;margin-bottom:6px">復習スケジュール</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.65">忘却曲線に基づいて、今日復習すべき問題を表示しています。</div>
+    <div id="srs-queue-list"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px">
+      <button onclick="closeSrsModal()" style="padding:10px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font)">閉じる</button>
+      <button onclick="startSrsQuiz()" id="srs-start-btn" style="padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font)">まとめて復習する</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 追加JavaScript ===== -->
+<script>
+(function(){
+'use strict';
+
+// =====================================================================
+// ユーティリティ
+// =====================================================================
+function todayStr(){
+  const d=new Date(); d.setHours(0,0,0,0);
+  return d.toISOString().slice(0,10);
+}
+function daysSince(dateStr){
+  if(!dateStr) return 999;
+  const diff=new Date(todayStr()).getTime()-new Date(dateStr).getTime();
+  return Math.floor(diff/(1000*60*60*24));
+}
+function fmtRate(n,d){
+  if(!d) return '—';
+  return Math.round(n/d*100)+'%';
+}
+
+// =====================================================================
+// 1. スペースドリペティション (SRS)
+// =====================================================================
+// SM-2アルゴリズムを簡易実装
+// srsData: { [qid]: { level:0-4, due:YYYY-MM-DD, lastSeen:YYYY-MM-DD } }
+// level 0: 翌日, 1: 3日後, 2: 7日後, 3: 14日後, 4: 30日後
+const SRS_INTERVALS = [1, 3, 7, 14, 30];
+const SRS_KEY = 'takken_srs_v1';
+
+function getSrsData(){
+  try{ return JSON.parse(localStorage.getItem(SRS_KEY)||'{}'); }catch(e){ return {}; }
+}
+function saveSrsData(data){
+  try{ localStorage.setItem(SRS_KEY, JSON.stringify(data)); }catch(e){}
+}
+
+// 問題に正解した後、SRSレベルを更新
+function srsOnCorrect(qid){
+  const data=getSrsData();
+  const item=data[qid]||{level:0,due:todayStr(),lastSeen:todayStr()};
+  item.level=Math.min(4, (item.level||0)+1);
+  item.lastSeen=todayStr();
+  const interval=SRS_INTERVALS[item.level];
+  const due=new Date(); due.setDate(due.getDate()+interval);
+  item.due=due.toISOString().slice(0,10);
+  data[qid]=item;
+  saveSrsData(data);
+}
+// 不正解: レベルをリセット
+function srsOnWrong(qid){
+  const data=getSrsData();
+  const item=data[qid]||{level:0,due:todayStr(),lastSeen:todayStr()};
+  item.level=0;
+  item.lastSeen=todayStr();
+  item.due=new Date(Date.now()+86400000).toISOString().slice(0,10);
+  data[qid]=item;
+  saveSrsData(data);
+}
+// 今日の復習キューを取得
+function getSrsDueQueue(){
+  const data=getSrsData();
+  const today=todayStr();
+  const u=typeof getUserData==='function'?getUserData():null;
+  const answers=u?.answers||{};
+  const allQ=typeof allPracticeQuestions==='function'?allPracticeQuestions():[];
+  // 1. SRSに登録済みで今日以前のdue
+  const srsQids=Object.keys(data).filter(qid=>data[qid].due<=today);
+  // 2. さらに一度でも解いたことがある問題に限定
+  const dueQids=srsQids.filter(qid=>answers[qid]);
+  const dueQs=dueQids.map(qid=>{
+    const q=allQ.find(qq=>String(qq.id)===qid);
+    return q?{q,srs:data[qid]}:null;
+  }).filter(Boolean);
+  // levelの低い順（優先度高）でソート
+  dueQs.sort((a,b)=>(a.srs.level||0)-(b.srs.level||0));
+  return dueQs;
+}
+// 解答済みのすべての問題をSRSに登録（初回）
+function initSrsFromAnswers(){
+  const data=getSrsData();
+  const u=typeof getUserData==='function'?getUserData():null;
+  if(!u) return;
+  const answers=u.answers||{};
+  let changed=false;
+  Object.entries(answers).forEach(([qid,a])=>{
+    if(!data[qid]){
+      const isCorrect=(a.ans!==undefined);
+      data[qid]={level:isCorrect?1:0,due:todayStr(),lastSeen:a.date?new Date(a.date).toISOString().slice(0,10):todayStr()};
+      changed=true;
+    }
+  });
+  if(changed) saveSrsData(data);
+}
+
+// SRSレベル名
+const SRS_LEVEL_LABELS=['要復習','弱い','普通','強い','定着'];
+
+function renderSrsBanner(container){
+  if(!container) return;
+  initSrsFromAnswers();
+  const queue=getSrsDueQueue();
+  if(!queue.length){ container.innerHTML=''; return; }
+  container.innerHTML=`
+  <div class="srs-banner" onclick="openSrsModal()">
+    <div class="srs-banner-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div class="srs-banner-body">
+      <div class="srs-banner-label">スペースドリペティション</div>
+      <div class="srs-banner-title">復習スケジュール</div>
+      <div class="srs-banner-sub">忘却曲線に基づく今日の復習</div>
+    </div>
+    <div class="srs-banner-badge">${queue.length}問</div>
+  </div>`;
+}
+
+function openSrsModal(){
+  const queue=getSrsDueQueue();
+  const el=document.getElementById('srs-queue-list');
+  const overlay=document.getElementById('srs-modal-overlay');
+  if(!el||!overlay) return;
+  const FIELD_NAMES={rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
+  if(!queue.length){
+    el.innerHTML='<div style="text-align:center;padding:20px 0;color:var(--text3);font-size:13px">今日の復習はすべて完了しています。</div>';
+    const btn=document.getElementById('srs-start-btn');
+    if(btn) btn.style.display='none';
+  } else {
+    const btn=document.getElementById('srs-start-btn');
+    if(btn) btn.style.display='';
+    el.innerHTML=queue.slice(0,15).map(({q,srs})=>`
+    <div class="srs-queue-card" onclick="closeSrsModal();reviewQ(${q.id})">
+      <div class="srs-queue-card-body">
+        <div class="srs-queue-q">${q.text.slice(0,60)}${q.text.length>60?'…':''}</div>
+        <div class="srs-queue-meta">
+          <span class="srs-level-chip srs-level-${srs.level||0}">${SRS_LEVEL_LABELS[srs.level||0]}</span>
+          <span class="srs-due-chip">${FIELD_NAMES[q.field]||q.field}</span>
+          ${srs.lastSeen?`<span class="srs-due-chip">最終：${srs.lastSeen}</span>`:''}
+        </div>
+      </div>
+      <div class="srs-queue-arrow">›</div>
+    </div>`).join('');
+    if(queue.length>15) el.innerHTML+=`<div style="text-align:center;font-size:12px;color:var(--text3);padding:8px 0">他 ${queue.length-15}問</div>`;
+  }
+  overlay.style.display='flex';
+}
+window.openSrsModal=openSrsModal;
+
+function closeSrsModal(){
+  const overlay=document.getElementById('srs-modal-overlay');
+  if(overlay) overlay.style.display='none';
+}
+window.closeSrsModal=closeSrsModal;
+
+function startSrsQuiz(){
+  const queue=getSrsDueQueue();
+  if(!queue.length) return;
+  closeSrsModal();
+  // 既存のquizStateを使って問題を開始
+  if(typeof quizState==='undefined') return;
+  quizState.queue=queue.map(({q})=>q).slice(0,20);
+  quizState.idx=0;
+  quizState.sessionResults=[];
+  quizState.fromReview=true;
+  quizState.mode='srs';
+  if(typeof gotoPage==='function') gotoPage('quiz');
+  if(typeof renderQ==='function') renderQ();
+}
+window.startSrsQuiz=startSrsQuiz;
+
+// 既存の recordAnswer にフックしてSRSを更新
+// quizの採点完了時に呼ばれる recordResult / showScore の直後に処理を差し込む
+const _origShowScore=typeof window.showScore==='function'?window.showScore:null;
+// answerQ / recordAnswer をラップ
+function patchSrsHook(){
+  // quizState.sessionResults に記録された後でSRS更新
+  const origAdvance=window.advanceQ;
+  if(origAdvance){
+    window.advanceQ=function(){
+      _flushSrsPatch();
+      origAdvance.apply(this,arguments);
+    };
+  }
+  function _flushSrsPatch(){
+    if(typeof quizState==='undefined') return;
+    const res=quizState.sessionResults;
+    if(!res||!res.length) return;
+    const last=res[res.length-1];
+    if(!last||!last.q) return;
+    const qid=String(last.q.id);
+    if(last.correct) srsOnCorrect(qid);
+    else srsOnWrong(qid);
+  }
+  // showScore完了時にも最終問題を処理
+  const origShowScore=window.showScore;
+  if(origShowScore){
+    window.showScore=function(){
+      if(typeof quizState!=='undefined'&&quizState.sessionResults){
+        quizState.sessionResults.forEach(r=>{
+          if(!r||!r.q) return;
+          const qid=String(r.q.id);
+          if(r.correct) srsOnCorrect(qid);
+          else srsOnWrong(qid);
+        });
+      }
+      return origShowScore.apply(this,arguments);
+    };
+  }
+}
+// DOM読み込み後にパッチ適用
+setTimeout(patchSrsHook,200);
+
+// =====================================================================
+// 2. 分野別レーダーチャート
+// =====================================================================
+function computeFieldStats(){
+  const u=typeof getUserData==='function'?getUserData():null;
+  const answers=u?.answers||{};
+  const allQ=typeof allPracticeQuestions==='function'?allPracticeQuestions():[];
+  const fields=['rights','law','limit','tax'];
+  const FIELD_NAMES={rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
+  return fields.map(f=>{
+    const fqs=allQ.filter(q=>q.field===f&&answers[q.id]);
+    const correct=fqs.filter(q=>answers[q.id]?.ans===q.ans).length;
+    const rate=fqs.length?Math.round(correct/fqs.length*100):0;
+    return{field:f,name:FIELD_NAMES[f],total:fqs.length,correct,rate};
+  });
+}
+
+function renderRadarChart(containerId){
+  const el=document.getElementById(containerId);
+  if(!el) return;
+  const stats=computeFieldStats();
+  const size=220, cx=size/2, cy=size/2, r=80;
+  const fields=stats;
+  const n=fields.length;
+  const angles=fields.map((_,i)=>-Math.PI/2+(2*Math.PI/n)*i);
+  function pt(angle,radius){
+    return[cx+Math.cos(angle)*radius, cy+Math.sin(angle)*radius];
+  }
+  // グリッド
+  let gridSVG='';
+  [20,40,60,80,100].forEach(pct=>{
+    const pts=angles.map(a=>pt(a,r*pct/100));
+    gridSVG+=`<polygon points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="var(--border2)" stroke-width="${pct===100?1.5:0.8}" stroke-dasharray="${pct<100?'4,3':''}"/>`;
+  });
+  // 軸線
+  let axesSVG=angles.map(a=>{
+    const[x,y]=pt(a,r);
+    return`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--border2)" stroke-width="1"/>`;
+  }).join('');
+  // データポリゴン
+  const dataPts=fields.map((f,i)=>pt(angles[i],r*f.rate/100));
+  const dataSVG=`<polygon points="${dataPts.map(p=>p.join(',')).join(' ')}" fill="rgba(51,51,51,.12)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+    ${dataPts.map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" fill="var(--ink)"/>`).join('')}`;
+  // ラベル
+  const LABEL_OFFSET=18;
+  const labelsSVG=fields.map((f,i)=>{
+    const[x,y]=pt(angles[i],r+LABEL_OFFSET);
+    const anchor=x<cx-4?'end':x>cx+4?'start':'middle';
+    return`<text x="${x}" y="${y}" text-anchor="${anchor}" class="radar-axis-label" dominant-baseline="middle">${f.name}<tspan x="${x}" dy="13" font-weight="700" fill="var(--text)">${f.total?f.rate+'%':'未解答'}</tspan></text>`;
+  }).join('');
+  // 目盛りラベル
+  const scaleSVG=[20,40,60,80,100].map(pct=>{
+    const[x,y]=pt(-Math.PI/2,r*pct/100);
+    return`<text x="${x+4}" y="${y}" font-size="9" fill="var(--text3)" dominant-baseline="middle">${pct}%</text>`;
+  }).join('');
+
+  el.innerHTML=`
+  <div class="radar-wrap">
+    <svg class="radar-svg" width="${size+60}" height="${size+60}" viewBox="-30 -30 ${size+60} ${size+60}">
+      ${gridSVG}${axesSVG}${dataSVG}${labelsSVG}${scaleSVG}
+    </svg>
+  </div>`;
+}
+
+// =====================================================================
+// 3. 弱点自動特定・優先出題
+// =====================================================================
+function getWeakAnalysis(){
+  const u=typeof getUserData==='function'?getUserData():null;
+  const answers=u?.answers||{};
+  const allQ=typeof allPracticeQuestions==='function'?allPracticeQuestions():[];
+  const FIELD_NAMES={rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
+
+  // ── 分野別の正答率 ──
+  const fieldStats={};
+  ['rights','law','limit','tax'].forEach(f=>{
+    const fqs=allQ.filter(q=>q.field===f&&answers[q.id]);
+    const correct=fqs.filter(q=>answers[q.id]?.ans===q.ans).length;
+    fieldStats[f]={total:fqs.length,correct,rate:fqs.length?Math.round(correct/fqs.length*100):null,name:FIELD_NAMES[f]};
+  });
+
+  // ── 弱点分野（正答率70%未満・5問以上解答済み） ──
+  const weakFields=Object.entries(fieldStats)
+    .filter(([,s])=>s.total>=5&&s.rate!==null&&s.rate<70)
+    .sort(([,a],[,b])=>a.rate-b.rate)
+    .map(([f])=>f);
+
+  // ── 不正解問題・SRS定着不足問題のQIDセット ──
+  const wrongQids=new Set(
+    allQ.filter(q=>answers[q.id]&&answers[q.id].ans!==q.ans).map(q=>String(q.id))
+  );
+  const srsData=getSrsData();
+  const srsWeakQids=new Set(
+    Object.entries(srsData).filter(([,s])=>(s.level||0)<=1).map(([qid])=>qid)
+  );
+
+  // ── 不正解問題が属する「単元(unit)・分野(field)」を収集 ──
+  // unit は過去問にはなく、オリジナル問題にある。fieldは共通。
+  const weakUnits=new Set();
+  const weakFieldsFromWrong=new Set();
+  allQ.filter(q=>wrongQids.has(String(q.id))).forEach(q=>{
+    if(q.unit) weakUnits.add(q.unit);
+    weakFieldsFromWrong.add(q.field);
+  });
+  // SRS定着不足問題の単元・分野も追加
+  allQ.filter(q=>srsWeakQids.has(String(q.id))&&answers[q.id]).forEach(q=>{
+    if(q.unit) weakUnits.add(q.unit);
+    weakFieldsFromWrong.add(q.field);
+  });
+
+  // ── スコア計算（解答済み問題） ──
+  function getWeakScore(q){
+    const qid=String(q.id);
+    let score=0;
+    if(wrongQids.has(qid)) score+=100;       // 不正解
+    if(srsWeakQids.has(qid)) score+=50;      // SRS定着不足
+    if(weakFields.includes(q.field)) score+=30; // 弱点分野
+    const srsLevel=srsData[qid]?.level||0;
+    score+=(4-srsLevel)*10;                  // SRSレベルが低いほど優先
+    return score;
+  }
+
+  // ── 関連未解答問題のスコア計算 ──
+  // 不正解問題と同じ単元 or 同じ弱点分野の未解答問題を補完候補に
+  function getRelatedScore(q){
+    let score=0;
+    if(q.unit&&weakUnits.has(q.unit)) score+=60;       // 同単元（最優先）
+    else if(weakFieldsFromWrong.has(q.field)) score+=30; // 同分野
+    if(weakFields.includes(q.field)) score+=20;          // 弱点分野
+    return score;
+  }
+
+  // ── 解答済み弱点問題（優先度1位） ──
+  const answeredWeak=allQ
+    .filter(q=>answers[q.id])
+    .map(q=>({q,score:getWeakScore(q),type:'answered'}))
+    .filter(({score})=>score>0)
+    .sort((a,b)=>b.score-a.score);
+
+  // ── 関連未解答問題（優先度2位・補完用） ──
+  const unansweredRelated=allQ
+    .filter(q=>!answers[q.id])
+    .map(q=>({q,score:getRelatedScore(q),type:'related'}))
+    .filter(({score})=>score>0)
+    .sort((a,b)=>b.score-a.score);
+
+  // ── 最大20問を構成：解答済み弱点を先に、足りなければ関連未解答で補完 ──
+  const POOL_MAX=20;
+  const combined=[...answeredWeak,...unansweredRelated].slice(0,POOL_MAX);
+  const weakPool=combined.map(({q})=>q);
+
+  return{
+    fieldStats,
+    weakFields,
+    weakPool,
+    answeredWeakCount:answeredWeak.length,
+    relatedCount:Math.max(0,combined.length-answeredWeak.length),
+    weakUnits
+  };
+}
+
+function openWeakMode(){
+  const overlay=document.getElementById('weak-mode-overlay');
+  if(!overlay) return;
+  const {fieldStats,weakFields,weakPool,answeredWeakCount,relatedCount}=getWeakAnalysis();
+  const el=document.getElementById('weak-mode-analysis');
+  if(!el) return;
+  const FIELD_NAMES={rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
+  // 分野別バー
+  let barsHTML=Object.entries(fieldStats).map(([f,s])=>{
+    const rate=s.rate!==null?s.rate:0;
+    const barColor=rate>=80?'var(--green)':rate>=60?'var(--text2)':'var(--red)';
+    return`<div class="weak-bar-row">
+      <div class="weak-bar-label">${s.name}</div>
+      <div class="weak-bar-track"><div class="weak-bar-fill" style="width:${s.total?rate:0}%;background:${barColor}"></div></div>
+      <div class="weak-bar-val" style="color:${barColor}">${s.total?(rate+'%'):'—'}</div>
+    </div>`;
+  }).join('');
+  // 弱点チップ
+  let weakChipsHTML='';
+  if(weakFields.length){
+    weakChipsHTML=`<div class="weak-field-row">${weakFields.map(f=>`<span class="weak-field-chip bad">${FIELD_NAMES[f]}</span>`).join('')}${Object.keys(FIELD_NAMES).filter(f=>!weakFields.includes(f)&&fieldStats[f]?.total>=5).map(f=>`<span class="weak-field-chip">${FIELD_NAMES[f]}</span>`).join('')}</div>`;
+  }
+  // 出題内訳
+  const totalCount=weakPool.length;
+  const breakdown=totalCount
+    ?`<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <span style="font-size:12px;background:#fee2e2;color:#b91c1c;border-radius:4px;padding:2px 8px;font-weight:600">不正解・定着不足 ${Math.min(answeredWeakCount,20)}問</span>
+        ${relatedCount>0?`<span style="font-size:12px;background:#e0f2fe;color:#0369a1;border-radius:4px;padding:2px 8px;font-weight:600">関連未解答 ${relatedCount}問</span>`:''}
+      </div>`
+    :'';
+  el.innerHTML=`
+  <div style="margin-bottom:14px">${barsHTML}</div>
+  ${weakChipsHTML}
+  <div style="font-size:13px;color:var(--text2);margin-top:10px;padding:10px;background:var(--bg3);border-radius:var(--r);line-height:1.65">
+    出題候補 <strong style="color:var(--text)">${totalCount}問</strong>（最大20問を出題）${breakdown}
+    <div style="font-size:11px;color:var(--text3);margin-top:6px;line-height:1.7">不正解・定着が弱い問題を優先し、同じ単元・分野の未解答問題で補完します。</div>
+  </div>`;
+  overlay.style.display='flex';
+}
+window.openWeakMode=openWeakMode;
+
+function closeWeakMode(){
+  const overlay=document.getElementById('weak-mode-overlay');
+  if(overlay) overlay.style.display='none';
+}
+window.closeWeakMode=closeWeakMode;
+
+function startWeakModeQuiz(){
+  const {weakPool}=getWeakAnalysis();
+  if(!weakPool.length){
+    if(typeof showToast==='function') showToast('弱点問題が見つかりませんでした','default',2000);
+    closeWeakMode();
+    return;
+  }
+  closeWeakMode();
+  if(typeof quizState==='undefined') return;
+  quizState.queue=weakPool.slice(0,20);
+  quizState.idx=0;
+  quizState.sessionResults=[];
+  quizState.fromReview=false;
+  quizState.mode='weak';
+  if(typeof gotoPage==='function') gotoPage('quiz');
+  if(typeof renderQ==='function') renderQ();
+}
+window.startWeakModeQuiz=startWeakModeQuiz;
+
+// =====================================================================
+// 4. 学習目標・計画機能
+// =====================================================================
+const GOAL_KEY='takken_daily_goal_v1';
+
+function getGoal(){
+  try{ return JSON.parse(localStorage.getItem(GOAL_KEY)||'{"daily":10}'); }
+  catch(e){ return{daily:10}; }
+}
+function saveGoal(goal){
+  try{ localStorage.setItem(GOAL_KEY,JSON.stringify(goal)); }catch(e){}
+}
+
+function getTodayAnsweredCount(){
+  const u=typeof getUserData==='function'?getUserData():null;
+  if(!u) return 0;
+  const today=todayStr();
+  return Object.values(u.answers||{}).filter(a=>{
+    if(!a.date) return false;
+    return new Date(a.date).toISOString().slice(0,10)===today;
+  }).length;
+}
+
+function getWeekAnsweredMap(){
+  const u=typeof getUserData==='function'?getUserData():null;
+  if(!u) return {};
+  const map={};
+  Object.values(u.answers||{}).forEach(a=>{
+    if(!a.date) return;
+    const key=new Date(a.date).toISOString().slice(0,10);
+    map[key]=(map[key]||0)+1;
+  });
+  return map;
+}
+
+function changeGoal(delta){
+  const goal=getGoal();
+  goal.daily=Math.max(1,Math.min(100,(goal.daily||10)+delta));
+  saveGoal(goal);
+  renderGoalCard('goal-card-wrap');
+}
+window.changeGoal=changeGoal;
+
+function renderGoalCard(containerId){
+  const el=document.getElementById(containerId);
+  if(!el) return;
+  const goal=getGoal();
+  const daily=goal.daily||10;
+  const done=getTodayAnsweredCount();
+  const pct=Math.min(100,Math.round(done/daily*100));
+  const isDone=done>=daily;
+  // 直近7日の進捗
+  const map=getWeekAnsweredMap();
+  const today=todayStr();
+  const days=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date(); d.setDate(d.getDate()-i);
+    const key=d.toISOString().slice(0,10);
+    const cnt=map[key]||0;
+    days.push({key,cnt,isToday:key===today,label:['日','月','火','水','木','金','土'][d.getDay()],done:cnt>=daily});
+  }
+  const daysHTML=days.map(d=>`<div class="goal-day-chip ${d.done?'done':''} ${d.isToday&&!d.done?'today-chip':''}" title="${d.key}: ${d.cnt}問">${d.label}</div>`).join('');
+  const msgs=['目標まであと'+(daily-done)+'問！',
+    '半分まで来ました。この調子で！',
+    'あと少し！ゴールが見えてきました。',
+    '今日の目標達成！'];
+  const msgIdx=pct===100?3:pct>=50?2:pct>=20?1:0;
+  el.innerHTML=`
+  <div class="goal-card">
+    <div class="enh-section-label">学習目標</div>
+    <div class="goal-row">
+      <div class="goal-label">1日の目標</div>
+      <div class="goal-stepper">
+        <button class="goal-step-btn" onclick="changeGoal(-5)">−</button>
+        <div class="goal-step-val">${daily}</div>
+        <span class="goal-step-unit">問</span>
+        <button class="goal-step-btn" onclick="changeGoal(5)">＋</button>
+      </div>
+    </div>
+    <div class="goal-prog-wrap">
+      <div class="goal-prog-head">
+        <div class="goal-prog-label">今日の進捗</div>
+        <div class="goal-prog-val" style="color:${isDone?'var(--green)':'var(--text)'}">${done} / ${daily}問</div>
+      </div>
+      <div class="goal-prog-track">
+        <div class="goal-prog-fill ${isDone?'done':''}" style="width:${pct}%"></div>
+      </div>
+      <div class="goal-msg">${isDone?'🎉 今日の目標達成！お疲れさまでした':msgs[msgIdx]}</div>
+    </div>
+    <div style="margin-top:10px">
+      <div class="enh-section-label" style="margin-bottom:6px">直近7日</div>
+      <div class="goal-days-row">${daysHTML}</div>
+    </div>
+  </div>`;
+}
+
+// =====================================================================
+// ダッシュボードの拡張（レーダーチャート + 目標）
+// =====================================================================
+function injectDashEnhancements(){
+  const dashEl=document.getElementById('page-dash');
+  if(!dashEl) return;
+
+  // レーダーチャートを分野別正答率カードの後に挿入
+  const fieldBarsCard=dashEl.querySelector('.card');
+  if(fieldBarsCard&&!document.getElementById('radar-chart-card')){
+    const radarCard=document.createElement('div');
+    radarCard.id='radar-chart-card';
+    radarCard.className='card';
+    radarCard.style.marginBottom='13px';
+    radarCard.innerHTML=`<div class="section-label" style="margin-bottom:10px">理解度レーダー</div><div id="radar-chart-container"></div>`;
+    fieldBarsCard.insertAdjacentElement('afterend',radarCard);
+  }
+
+  // 学習目標をstat-rowの前に挿入
+  const statRow=dashEl.querySelector('.stat-row');
+  if(statRow&&!document.getElementById('goal-card-wrap')){
+    const goalWrap=document.createElement('div');
+    goalWrap.id='goal-card-wrap';
+    statRow.insertAdjacentElement('beforebegin',goalWrap);
+  }
+}
+
+// quiz-startページに弱点モード・SRSバナーを追加
+const WEAK_UNLOCK_COUNT=100; // 解放条件：100問解答
+
+function getWeakUnlocked(){
+  const u=typeof getUserData==='function'?getUserData():null;
+  const total=Object.keys(u?.answers||{}).length;
+  return total>=WEAK_UNLOCK_COUNT;
+}
+
+function injectQuizStartEnhancements(){
+  const startEl=document.getElementById('page-quiz-start');
+  if(!startEl||startEl.querySelector('#weak-mode-inject')) return;
+  const modeList=startEl.querySelector('.mode-list-v2');
+  if(!modeList) return;
+
+  const unlocked=getWeakUnlocked();
+  const u=typeof getUserData==='function'?getUserData():null;
+  const total=Object.keys(u?.answers||{}).length;
+  const remaining=Math.max(0,WEAK_UNLOCK_COUNT-total);
+
+  // 弱点モードカード（ロック状態 or 解放状態）
+  const weakCard=document.createElement('div');
+  weakCard.id='weak-mode-inject';
+  if(unlocked){
+    weakCard.innerHTML=`
+    <div class="mode-card-v2" onclick="openWeakMode()">
+      <div class="mode-num-v2">04</div>
+      <div class="mode-body-v2">
+        <div class="mode-purpose-v2">苦手な問題を集中的に克服したい</div>
+        <div class="mode-title-v2">弱点集中対策</div>
+      </div>
+      <div class="mode-arrow-v2">›</div>
+    </div>`;
+  } else {
+    weakCard.innerHTML=`
+    <div class="mode-card-v2" style="opacity:.55;cursor:not-allowed;pointer-events:none;position:relative">
+      <div class="mode-num-v2" style="color:var(--text3)">04</div>
+      <div class="mode-body-v2">
+        <div class="mode-purpose-v2" style="display:flex;align-items:center;gap:5px">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="10" height="8" rx="2"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
+          あと${remaining}問解くと解放されます
+        </div>
+        <div class="mode-title-v2">弱点集中対策</div>
+      </div>
+      <div class="mode-arrow-v2" style="color:var(--text3)">🔒</div>
+    </div>`;
+  }
+  modeList.appendChild(weakCard);
+}
+
+// 復習ページにSRSパネルを追加
+function injectReviewEnhancements(){
+  const reviewEl=document.getElementById('page-review');
+  if(!reviewEl||reviewEl.querySelector('#srs-review-wrap')) return;
+  const reviewList=reviewEl.querySelector('#review-list');
+  if(!reviewList) return;
+  const srsWrap=document.createElement('div');
+  srsWrap.id='srs-review-wrap';
+  reviewList.insertAdjacentElement('beforebegin',srsWrap);
+}
+
+// =====================================================================
+// 既存の renderDash / gotoPage にフック
+// =====================================================================
+const _origRenderDash=window.renderDash;
+window.renderDash=function(){
+  if(_origRenderDash) _origRenderDash.apply(this,arguments);
+  // 少し遅らせてDOM生成後に実行
+  setTimeout(()=>{
+    injectDashEnhancements();
+    renderGoalCard('goal-card-wrap');
+    renderRadarChart('radar-chart-container');
+  },50);
+};
+
+const _origRenderDashLevel=window.renderDashLevel;
+window.renderDashLevel=function(){
+  if(_origRenderDashLevel) _origRenderDashLevel.apply(this,arguments);
+};
+
+const _origGotoPage=window.gotoPage;
+window.gotoPage=function(id){
+  if(_origGotoPage) _origGotoPage.apply(this,arguments);
+  setTimeout(()=>{
+    if(id==='quiz-start'){
+      // 弱点カードが既にある場合は解放状態が変わっていれば再描画
+      const existing=document.getElementById('weak-mode-inject');
+      if(existing) existing.remove();
+      injectQuizStartEnhancements();
+    }
+    if(id==='review'){
+      injectReviewEnhancements();
+      renderSrsBanner(document.getElementById('srs-review-wrap'));
+    }
+    if(id==='dash'){
+      injectDashEnhancements();
+      renderGoalCard('goal-card-wrap');
+      renderRadarChart('radar-chart-container');
+    }
+  },80);
+};
+
+// showScore後にquiz-startへ戻ったとき弱点カードを更新するため
+// 既存showScoreにフック（30問達成直後の再描画）
+const _origShowScore2=window.showScore;
+window.showScore=function(){
+  if(_origShowScore2) _origShowScore2.apply(this,arguments);
+  // スコア表示後に弱点カードを再評価（次のquiz-start遷移時に反映済みのため不要だが念のため）
+};
+
+// =====================================================================
+// 初期化
+// =====================================================================
+function init(){
+  injectDashEnhancements();
+  injectQuizStartEnhancements();
+  injectReviewEnhancements();
+  const activePage=document.querySelector('.page.active');
+  if(activePage){
+    const id=activePage.id.replace('page-','');
+    if(id==='dash'){
+      setTimeout(()=>{
+        renderGoalCard('goal-card-wrap');
+        renderRadarChart('radar-chart-container');
+      },120);
+    }
+    if(id==='review'){
+      renderSrsBanner(document.getElementById('srs-review-wrap'));
+    }
+  }
+}
+
+// getUserData が利用可能になってから初期化
+if(typeof getUserData==='function'){
+  init();
+} else {
+  setTimeout(init,400);
+}
+
 })();
 </script>
 </body>
