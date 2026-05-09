@@ -1394,7 +1394,7 @@ body.is-solving .exam-banner{display:none}
     </div>
 
     <!-- QUIZ START -->
-    <div class="page" id="page-quiz-start">
+    <div class="page active" id="page-quiz-start">
       <nav class="breadcrumb" aria-label="パンくずリスト">
         <ol class="breadcrumb-list">
           <li class="breadcrumb-item"><a href="/" onclick="event.preventDefault();gotoPage('quiz-start')">宅建マスター</a></li>
@@ -1799,7 +1799,172 @@ body.is-solving .exam-banner{display:none}
         <div class="glossary-cats" id="glos-cats"></div>
       </div>
       <div id="glossary-list">
-      </div>
+<!-- SEO: 静的用語解説コンテンツ（JS実行前にクローラーが読める） -->
+<section class="glos-static-section" aria-label="用語解説一覧">
+<div class="glos-cat-section" data-cat="rights">
+<h3 class="glos-cat-heading">権利関係</h3>
+<article class="glos-static-card" id="glos-static-buken" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">物権と債権<span class="glos-reading" itemprop="alternateName">（ぶっけんとさいけん）</span></h4>
+  <p class="glos-static-summary" itemprop="description">権利の性質の違い</p>
+  <p class="glos-static-desc">物権は「物に対する権利」で、誰に対しても主張できる（絶対性）。債権は「特定の人に何かを請求する権利」で、その人にしか主張できない。例えば土地の所有権（物権）は誰にでも「私の土地です」と言えるが、賃借権（債権）は原則として貸主にしか使えない。</p>
+  <span class="glos-diagram-badge">比較あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-jiko" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">時効<span class="glos-reading" itemprop="alternateName">（じこう）</span></h4>
+  <p class="glos-static-summary" itemprop="description">一定期間が経つと権利が変動する制度</p>
+  <p class="glos-static-desc">①取得時効：他人の物を一定期間占有し続けると自分のものになる（善意・無過失なら10年、それ以外は20年）。②消滅時効：権利を使わないでいると権利が消える（債権は知った時から5年・客観的に行使できる時から10年）。時効の援用（「時効を使います」の意思表示）があってはじめて効力が生じる。</p>
+  <span class="glos-diagram-badge">フローあり</span>
+</article>
+<article class="glos-static-card" id="glos-static-mukohitokechi" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">無効と取消し<span class="glos-reading" itemprop="alternateName">（むこうととりけし）</span></h4>
+  <p class="glos-static-summary" itemprop="description">契約の効力を否定する2つの方法</p>
+  <p class="glos-static-desc">無効：最初から効力がない（通謀虚偽表示、公序良俗違反など）。追認しても有効にならない。取消し：一応有効だが、後から取り消せる（詐欺・強迫・錯誤・制限行為能力など）。取消しは取消権者が行使して初めて遡及的に無効になる。取消し後は追認できない。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-dairi" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">代理<span class="glos-reading" itemprop="alternateName">（だいり）</span></h4>
+  <p class="glos-static-summary" itemprop="description">本人の代わりに法律行為をする制度</p>
+  <p class="glos-static-desc">代理人が本人の名前で相手方と契約すると、その効果が直接本人に帰属する。「顕名（けんめい）」つまり「本人の代理として」と示すことが必要。任意代理（本人が選ぶ）と法定代理（未成年の親権者など）がある。無権代理（代理権がない）の場合、本人が追認しない限り本人に効果は帰属しない。</p>
+  <span class="glos-diagram-badge">フローあり</span>
+</article>
+<article class="glos-static-card" id="glos-static-teito" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">抵当権<span class="glos-reading" itemprop="alternateName">（ていとうけん）</span></h4>
+  <p class="glos-static-summary" itemprop="description">占有を移さずに不動産を担保にする権利</p>
+  <p class="glos-static-desc">お金を貸した人（抵当権者）が、借りた人（設定者）の不動産に設定する担保権。設定者は住み続けながら担保に入れられる（非占有担保）。返済できなければ競売にかけて優先的に弁済を受けられる。登記が対抗要件（当事者間では登記なくても成立）。</p>
+  <span class="glos-diagram-badge">比較あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-hoteichijoken" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">法定地上権<span class="glos-reading" itemprop="alternateName">（ほうていちじょうけん）</span></h4>
+  <p class="glos-static-summary" itemprop="description">競売後に建物所有者が土地を使う権利</p>
+  <p class="glos-static-desc">土地に抵当権を設定した時に建物が存在し、競売で土地と建物の所有者が別々になった場合、建物の所有者が土地を使える「地上権」が自動的（法定）に発生する。そうしないと建物を取り壊さなければならなくなるため。成立要件：①設定時に建物が存在、②土地・建物が同一所有者、③競売で所有者が分離。</p>
+  <span class="glos-diagram-badge">フローあり</span>
+</article>
+<article class="glos-static-card" id="glos-static-renzai" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">連帯保証<span class="glos-reading" itemprop="alternateName">（れんたいほしょう）</span></h4>
+  <p class="glos-static-summary" itemprop="description">通常の保証より責任が重い保証形態</p>
+  <p class="glos-static-desc">連帯保証人には「催告の抗弁権（まず主債務者に請求してください）」と「検索の抗弁権（主債務者に財産があります）」がない。つまり債権者はいきなり連帯保証人に全額請求できる。一方、通常の保証人にはこれらの権利がある。アパートの入居で保証人になる際はほぼ連帯保証。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-souzoku" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">相続分と代襲相続<span class="glos-reading" itemprop="alternateName">（そうぞくぶんとだいしゅうそうぞく）</span></h4>
+  <p class="glos-static-summary" itemprop="description">遺産を誰がどれだけ受け取るか</p>
+  <p class="glos-static-desc">法定相続分：配偶者＋子なら配偶者1/2・子全体で1/2。子が先に死亡していて孫がいれば、孫が子の代わりに相続（代襲相続）。相続放棄した人の子は代襲できない（放棄すると最初から相続人でなかったことになる）。遺留分（最低限の相続分）を侵害されたら金銭請求できる。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+</div>
+<div class="glos-cat-section" data-cat="law">
+<h3 class="glos-cat-heading">宅建業法</h3>
+<article class="glos-static-card" id="glos-static-baikai" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">媒介契約の種類<span class="glos-reading" itemprop="alternateName">（ばいかいけいやくのしゅるい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">一般・専任・専属専任の3種類</p>
+  <p class="glos-static-desc">一般媒介：複数業者に依頼OK。レインズ登録義務なし。専任媒介：1社のみ。自己発見の買主との直接取引OK。レインズ登録7日以内・報告2週間に1回。専属専任媒介：1社のみ。自己発見でも直接取引不可。レインズ登録5日以内・報告1週間に1回。いずれも有効期間は最長3か月。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-jusetsu" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">重要事項説明（35条書面）<span class="glos-reading" itemprop="alternateName">（じゅうようじこうせつめい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">契約前に宅建士が必ず説明する書面</p>
+  <p class="glos-static-desc">宅建士が宅建士証を提示し、契約前に説明する義務がある。買主・借主側に交付。記載内容は「登記情報・法令制限・代金以外の費用・建物の状況等」。IT重説（テレビ会議等）も認められる。相手方が宅建業者でも書面交付は必要（説明は省略可）。押印不要。相手方の承諾など所定の要件を満たせば電子書面での交付も可能（2022年5月施行）。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-coolingoff" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">クーリングオフ<span class="glos-reading" itemprop="alternateName">（くーりんぐおふ）</span></h4>
+  <p class="glos-static-summary" itemprop="description">一定期間内に一方的に解除できる制度</p>
+  <p class="glos-static-desc">宅建業者が自ら売主の場合、事務所等以外（喫茶店・買主自宅など）で申込みや契約をした買主は、告知を受けた日から8日以内に書面で解除できる。解除の効力は書面を発送した時点で生じる（発信主義）。解除後は全額返還が必要で、業者は違約金・損害賠償を請求できない。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-hook" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">手付の種類<span class="glos-reading" itemprop="alternateName">（ておつのしゅるい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">契約時に支払う手付金の3つの意味</p>
+  <p class="glos-static-desc">証約手付：契約が成立した証拠。違約手付：違約した場合に没収される罰。解約手付：買主は放棄、売主は倍返しで解除できる。宅建業者が自ら売主の場合、手付は解約手付として機能し、相手方が履行に着手するまでに行使しなければならない。手付額の上限は代金の20%。</p>
+  <span class="glos-diagram-badge">比較あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-hosho" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">営業保証金と弁済業務保証金<span class="glos-reading" itemprop="alternateName">（えいぎょうほしょうきんとべんさいぎょうむほしょうきん）</span></h4>
+  <p class="glos-static-summary" itemprop="description">宅建業者が備える2つの補償制度</p>
+  <p class="glos-static-desc">営業保証金：自分で法務局（供託所）に供託する。主たる事務所1000万円＋従たる事務所500万円/所。弁済業務保証金：保証協会に加入して分担金を納める。主たる事務所60万円＋従たる事務所30万円/所。保証協会加入なら営業保証金は不要。どちらも宅建業者以外の者だけが還付を受けられる。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-hachishu" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">8種制限<span class="glos-reading" itemprop="alternateName">（はっしゅせいげん）</span></h4>
+  <p class="glos-static-summary" itemprop="description">自ら売主の宅建業者に課される8つの制限</p>
+  <p class="glos-static-desc">宅建業者が自ら売主で買主が一般消費者（非業者）の場合に適用される消費者保護ルール。①損害賠償予定額の制限（上限20%）②手付金の制限（上限20%・保全措置）③クーリングオフ④他人物売買の制限⑤手付解除の特則⑥担保責任の特例⑦未完成物件の制限⑧解除・損害賠償の特則。業者間取引には適用されない。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-hoshu" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">報酬の計算（売買）<span class="glos-reading" itemprop="alternateName">（ほうしゅうのけいさん）</span></h4>
+  <p class="glos-static-summary" itemprop="description">売買仲介でもらえる報酬の上限</p>
+  <p class="glos-static-desc">売買代金に応じた速算式：200万円以下→5%、200万超400万以下→4%+2万円、400万超→3%+6万円（いずれも税別、一方の依頼者から）。例：1000万円の物件なら3%+6万=36万円が一方からの上限。低廉な空家等（代金800万円以下の宅地・建物）は、媒介契約時に説明し合意を得た範囲で、売主等から受ける報酬を税込33万円までとする特例がある（2024年7月1日施行）。依頼者の同意があっても告示の上限超過は不可。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+</div>
+<div class="glos-cat-section" data-cat="limit">
+<h3 class="glos-cat-heading">法令上の制限</h3>
+<article class="glos-static-card" id="glos-static-kenpeiritsu" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">建ぺい率・容積率<span class="glos-reading" itemprop="alternateName">（けんぺいりつ・ようせきりつ）</span></h4>
+  <p class="glos-static-summary" itemprop="description">敷地に対する建物の大きさの制限</p>
+  <p class="glos-static-desc">建ぺい率：敷地面積に対する建築面積（1階の床面積）の割合。「この土地の何%まで建物を建てられるか」。容積率：敷地面積に対する延べ床面積の割合。「全フロア合計の床面積が敷地の何%まで」。前面道路が12m未満の場合、容積率は「指定容積率」と「道路幅員×0.4（住居系）」の小さい方。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-yoto" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">用途地域13種類<span class="glos-reading" itemprop="alternateName">（ようとちいき）</span></h4>
+  <p class="glos-static-summary" itemprop="description">土地の使い方を13種類に区分するルール</p>
+  <p class="glos-static-desc">住居系（8種）：第一種低層から田園住居まで。商業系（2種）：近隣商業・商業。工業系（3種）：準工業・工業・工業専用。大原則：低層住居専用地域では大学・病院は建てられない。工業専用地域では住宅・病院・学校は建てられない（倉庫は可）。商業地域では大部分の建物が建てられるが風俗施設の規制あり。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-kaihatsu" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">開発許可<span class="glos-reading" itemprop="alternateName">（かいはつきょか）</span></h4>
+  <p class="glos-static-summary" itemprop="description">宅地造成等の工事をするときの許可</p>
+  <p class="glos-static-desc">「建物を建てる目的で土地の区画・形質を変える（造成等）」行為が開発行為。市街化区域では原則1000㎡以上の開発行為に知事等の許可が必要。市街化調整区域では原則全ての開発行為に許可が必要（例外：農林漁業者の農業用建物等）。工事完了公告後でなければ原則として建物を建てられない。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-nouchi" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">農地法3条・4条・5条<span class="glos-reading" itemprop="alternateName">（のうちほう）</span></h4>
+  <p class="glos-static-summary" itemprop="description">農地の売買・転用に必要な許可</p>
+  <p class="glos-static-desc">3条（権利移動）：農地を農地のまま売買・賃貸する→農業委員会の許可。4条（自己転用）：自分の農地を農地以外（宅地等）にする→都道府県知事等の許可（市街化区域は農業委員会への届出のみ）。5条（転用目的の権利移動）：農地を農地以外にする目的で売買→都道府県知事等の許可（市街化区域は届出）。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-chikunikeikaku" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">地区計画<span class="glos-reading" itemprop="alternateName">（ちくけいかく）</span></h4>
+  <p class="glos-static-summary" itemprop="description">街区単位でのきめ細かい街づくりルール</p>
+  <p class="glos-static-desc">用途地域より細かく、地域の特性に応じた街づくりのルール。用途地域内外を問わず定めることができる（市街化調整区域にも可）。地区計画の区域内で建築等の行為を行う場合は、着手の30日前までに市町村長に届け出る必要がある（許可ではなく届出）。市町村長は勧告はできるが強制はできない。</p>
+  <span class="glos-diagram-badge">フローあり</span>
+</article>
+</div>
+<div class="glos-cat-section" data-cat="tax">
+<h3 class="glos-cat-heading">税・その他</h3>
+<article class="glos-static-card" id="glos-static-fudousantokuzetsu" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">不動産取得税<span class="glos-reading" itemprop="alternateName">（ふどうさんしゅとくぜい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">不動産を取得したときに一度だけかかる税</p>
+  <p class="glos-static-desc">都道府県が課す地方税（国税ではない）。申告不要（都道府県から通知が来る普通徴収）。相続・合併による取得は非課税。標準税率は4%だが住宅・土地は特例で3%。新築住宅は評価額から最大1200万円を控除した額が課税標準になる特例あり（認定長期優良住宅は1300万円）。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-kotei" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">固定資産税<span class="glos-reading" itemprop="alternateName">（こていしさんぜい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">毎年1月1日の所有者に課税される税</p>
+  <p class="glos-static-desc">市町村が課す地方税（東京23区は都）。毎年1月1日時点の所有者に課税される（賦課期日）。評価替えは3年に1度。標準税率1.4%（市町村条例で変更可）。住宅用地の特例：200㎡以下の小規模住宅用地は課税標準が6分の1、200㎡超の一般住宅用地は3分の1。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-joto" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">譲渡所得（長期・短期）<span class="glos-reading" itemprop="alternateName">（じょうとしょとく）</span></h4>
+  <p class="glos-static-summary" itemprop="description">不動産を売ったときの利益に対する税</p>
+  <p class="glos-static-desc">売却益（譲渡所得）は分離課税（他の収入と合算しない）。譲渡した年の1月1日時点で5年以下の保有は短期（所得税30%+住民税9%、復興特別所得税を含めると39.63%）、5年超は長期（所得税15%+住民税5%、復興特別所得税を含めると20.315%）。居住用財産の3000万円特別控除：住まなくなってから3年を経過する日の属する年末までの売却が対象（配偶者への売却は不可）。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-torokumenkyozei" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">登録免許税<span class="glos-reading" itemprop="alternateName">（とうろくめんきょぜい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">登記を行うときに必要な国税</p>
+  <p class="glos-static-desc">国税。登記の種類によって税率が異なる。所有権保存登記は評価額の0.4%、売買による所有権移転は2%、相続による移転は0.4%。住宅の特例（新築）：一定要件を満たす場合は軽減税率あり（保存登記0.15%、移転0.3%）。抵当権設定登記の課税標準は「不動産の価額」ではなく「債権（ローン）の金額」。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+<article class="glos-static-card" id="glos-static-insho" itemscope itemtype="https://schema.org/DefinedTerm">
+  <h4 class="glos-static-term" itemprop="name">印紙税<span class="glos-reading" itemprop="alternateName">（いんしぜい）</span></h4>
+  <p class="glos-static-summary" itemprop="description">契約書などの文書に課される国税</p>
+  <p class="glos-static-desc">課税文書に収入印紙を貼付して納める国税。不動産の売買契約書・建物の賃貸借契約書・金銭消費貸借契約書などが課税対象。電子契約（電磁的記録）は「文書」ではないため印紙税は不要。1通ごとに課税されるため、原本2通を作成すれば各1通に印紙が必要。1万円未満の契約書は非課税。</p>
+  <span class="glos-diagram-badge">表あり</span>
+</article>
+</div>
+</section>
+</div>
     </div>
 
     <!-- FOOTER -->
@@ -1864,20 +2029,9 @@ body.is-solving .exam-banner{display:none}
 </div>
 
 
-<script src="./takken-master-data.js"></script>
-<script src="./takken-data-glossary.js"></script>
-<script src="./takken-data-original.js"></script>
-<script>
-(function(){
-  try {
-    var examDate = new Date('2026-10-18T00:00:00+09:00');
-    var today = new Date(); today.setHours(0,0,0,0);
-    var diff = Math.ceil((examDate - today) / (1000*60*60*24));
-    var el = document.getElementById('exam-days-count');
-    if(el) el.textContent = diff > 0 ? String(diff) : (diff === 0 ? '本日！' : '終了');
-  } catch(e) {}
-})();
-</script>
+<script src="takken-master-data.js"></script>
+<script src="takken-data-glossary.js"></script>
+<script src="takken-data-original.js"></script>
 <script>
 
 // ===== GAMIFICATION ENGINE =====
@@ -1984,7 +2138,7 @@ function checkAndAwardBadges(context){
   const streak = u.streak||0;
   const dayStreak = u.dayStreak||0;
   const fieldRateOk = (field)=>{
-    const qs=safeQuestions().filter(q=>q.field===field&&u.answers[q.id]);
+    const qs=QUESTIONS.filter(q=>q.field===field&&u.answers[q.id]);
     const ok=qs.filter(q=>u.answers[q.id].ans===q.ans);
     return qs.length>=10&&(ok.length/qs.length)>=0.7;
   };
@@ -2015,7 +2169,7 @@ function checkAndAwardBadges(context){
     if(id==='all_fields'){
       const fields=['rights','law','limit','tax'];
       earned=fields.every(f=>Object.entries(u.answers||{}).some(([qid,a])=>{
-        const q=safeQuestions().find(qq=>qq.id==qid);
+        const q=QUESTIONS.find(qq=>qq.id==qid);
         return q&&q.field===f&&a.ans===q.ans;
       }));
     }
@@ -2317,14 +2471,14 @@ function getMissionProgress(mission, u){
   }
   if(mission.type==='field'){
     const cur=todayAnswers.filter(([qid])=>{
-      const q=safeQuestions().find(qq=>qq.id==qid);
+      const q=QUESTIONS.find(qq=>qq.id==qid);
       return q&&q.field===mission.field;
     }).length;
     return {cur, target:mission.target};
   }
   if(mission.type==='mode'){
     const answerCur=todayAnswers.filter(([qid])=>{
-      const q=safeQuestions().find(qq=>qq.id==qid);
+      const q=QUESTIONS.find(qq=>qq.id==qid);
       if(!q) return false;
       if(mission.mode==='past') return !!q.year;
       if(mission.mode==='orig') return !q.year;
@@ -2527,39 +2681,18 @@ function diffStarsHTML(n){
 function buildYearHistoryHTML(q){
   if(!q.num) return '';
   // Find other past questions with similar context (same field, nearby question numbers)
-  const sameField=safeBaseQuestions().filter(bq=>bq.field===q.field&&bq.year&&bq.num);
+  const sameField=BASE_QUESTIONS.filter(bq=>bq.field===q.field&&bq.year&&bq.num);
   const nearby=sameField.filter(bq=>bq.id!==q.id&&Math.abs(bq.num-q.num)<=2&&bq.year!==q.year);
   if(nearby.length===0) return '';
   const years=[...new Set(nearby.map(bq=>bq.year))].sort();
   return `<div class="exp-year-history">この分野の類似問題の出題年：${years.map(y=>`<span class="exp-year-pill">${y}年</span>`).join('')}</div>`;
 }
 
-// FIELDS / YEARS / QUESTIONS は takken-master-data.js で定義済み
+// ===== MASTER DATA (external): loaded via takken-master-data.js =====
 
 // ===== STATE =====
 let currentUser = null, db = {};
-const _FIELD_IDS_FALLBACK = ['rights','law','limit','tax'];
-let quizState = {
-  mode:'past',
-  fields: typeof FIELDS !== 'undefined' && FIELDS && FIELDS.length ? FIELDS.map(f=>f.id) : _FIELD_IDS_FALLBACK.slice(),
-  years: typeof YEARS !== 'undefined' && YEARS && YEARS.length ? [...YEARS] : [],
-  count:10, order:'seq', queue:[], idx:0, startTime:0, sessionResults:[]
-};
-function syncQuizStateFromMaster(){
-  if(typeof FIELDS !== 'undefined' && FIELDS && FIELDS.length) quizState.fields = FIELDS.map(f=>f.id);
-  if(typeof YEARS !== 'undefined' && YEARS && YEARS.length) quizState.years = [...YEARS];
-}
-function safeQuestions(){ return typeof QUESTIONS !== 'undefined' && Array.isArray(QUESTIONS) ? QUESTIONS : []; }
-function safeBaseQuestions(){ return typeof BASE_QUESTIONS !== 'undefined' && Array.isArray(BASE_QUESTIONS) ? BASE_QUESTIONS : []; }
-function safeFields(){ return typeof FIELDS !== 'undefined' && Array.isArray(FIELDS) ? FIELDS : []; }
-function safeOrigQuestions(){
-  if(typeof ORIG_QUESTIONS === 'undefined' || !ORIG_QUESTIONS) return {1:[],2:[],3:[]};
-  return ORIG_QUESTIONS;
-}
-function safeOrigFlat(){
-  const O = safeOrigQuestions();
-  return [...(O[1]||[]),...(O[2]||[]),...(O[3]||[])];
-}
+let quizState = {mode:'past',fields:FIELDS.map(f=>f.id),years:[...YEARS],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[]};
 
 // Storage: localStorage (works in real browsers / GitHub Pages)
 var _memStore = {};
@@ -2594,14 +2727,7 @@ function closeSidebar(){ closeMobileDrawer(); }
 // ===== SUPABASE =====
 const SUPABASE_URL = 'https://czxrmmbpvocprrwhmuir.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RS9eVE-YsfWg8waxyVjOWA_dIl1cb9x';
-let _sb = null;
-try {
-  if (window.supabase && typeof window.supabase.createClient === 'function') {
-    _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  }
-} catch (err) {
-  console.warn('Supabase を初期化できませんでした', err);
-}
+const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 function isValidPassword(p){
   return typeof p === 'string' && p.length >= 6 && /[A-Za-z]/.test(p) && /\d/.test(p);
@@ -2615,7 +2741,6 @@ async function loadAnswersFromSupabase(){
   if(!currentUser?.id) return;
   const u=getUserData();
   if(!u) return;
-  if(!_sb) return;
   const {data,error}=await _sb
     .from('user_answers')
     .select('*')
@@ -2638,7 +2763,6 @@ async function loadAnswersFromSupabase(){
 
 async function saveAnswerToSupabase(q,picked,correct,elapsed){
   if(!currentUser?.id) return;
-  if(!_sb) return;
   const {error}=await _sb.from('user_answers').insert({
     user_id:currentUser.id,
     question_id:q.id,
@@ -2660,7 +2784,6 @@ function switchAuthTab(tab){
 async function doLogin(){
   const e=document.getElementById('login-email').value.trim(),p=document.getElementById('login-pw').value;
   if(!e||!p){document.getElementById('login-err').textContent='メールとパスワードを入力してください';return}
-  if(!_sb){document.getElementById('login-err').textContent='ログインサービスに接続できません。ページを再読み込みしてください。';return}
   document.getElementById('login-err').textContent='ログイン中...';
   const {data,error}=await _sb.auth.signInWithPassword({email:e,password:p});
   if(error){
@@ -2683,7 +2806,6 @@ async function doRegister(){
   const n=document.getElementById('reg-name').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-pw').value;
   if(!n||!e||!p){document.getElementById('reg-err').textContent='すべての項目を入力してください';return}
   if(!isValidPassword(p)){document.getElementById('reg-err').textContent=passwordRuleMessage();return}
-  if(!_sb){document.getElementById('reg-err').textContent='登録サービスに接続できません。ページを再読み込みしてください。';return}
   document.getElementById('reg-err').textContent='登録中...';
   const {data,error}=await _sb.auth.signUp({email:e,password:p,options:{data:{name:n}}});
   if(error){
@@ -2708,7 +2830,7 @@ function demoLogin(){
   loadDB(); const email='demo@takken.app';
   if(!db[email]){
     const now=Date.now(),day=86400000, ans={};
-    safeQuestions().forEach((q,i)=>{ ans[q.id]={ans:q.ans,time:10+Math.random()*20,date:now-(4-Math.floor(i/4))*day}; });
+    QUESTIONS.forEach((q,i)=>{ ans[q.id]={ans:q.ans,time:10+Math.random()*20,date:now-(4-Math.floor(i/4))*day}; });
     db[email]={name:'デモユーザー',plan:'free',answers:ans,bookmarks:{},
       sessions:[{date:now-5*day,correct:3,total:5,pct:60},{date:now-4*day,correct:4,total:5,pct:80},
                 {date:now-3*day,correct:5,total:5,pct:100},{date:now-2*day,correct:3,total:5,pct:60},
@@ -2718,7 +2840,7 @@ function demoLogin(){
   currentUser={email,name:'デモユーザー'}; enterApp();
 }
 async function doLogout(){
-  try { if (_sb) await _sb.auth.signOut(); } catch(e) { console.warn(e); }
+  await _sb.auth.signOut();
   currentUser=null;
   // ゲストとして再入場
   loadDB();
@@ -2732,7 +2854,6 @@ async function sendPasswordReset(){
   const e=document.getElementById('login-email').value.trim();
   const errEl=document.getElementById('login-err');
   if(!e){errEl.textContent='メールアドレスを入力してから押してください';return}
-  if(!_sb){errEl.textContent='サービスに接続できません。';return}
   errEl.textContent='再設定メールを送信中...';
   const redirectTo=location.origin && location.origin !== 'null'
     ? location.origin + location.pathname
@@ -2755,7 +2876,6 @@ async function updatePassword(){
   const p=document.getElementById('reset-pw').value;
   const errEl=document.getElementById('reset-err');
   if(!isValidPassword(p)){errEl.textContent=passwordRuleMessage();return}
-  if(!_sb){errEl.textContent='サービスに接続できません。';return}
   errEl.textContent='更新中...';
   const {error}=await _sb.auth.updateUser({password:p});
   if(error){errEl.textContent='更新できませんでした: '+error.message;return}
@@ -2791,20 +2911,6 @@ function enterApp(){
   saveUser(u);
   document.getElementById('sb-avatar').textContent=currentUser.name.charAt(0);
   document.getElementById('sb-name').textContent=currentUser.name;
-  if (typeof FIELDS === 'undefined' || typeof QUESTIONS === 'undefined' || typeof BASE_QUESTIONS === 'undefined') {
-    if (!document.getElementById('master-data-error-banner')) {
-      const banner = document.createElement('div');
-      banner.id = 'master-data-error-banner';
-      banner.style.cssText = 'background:#fee;border:1px solid #c00;color:#900;padding:16px;margin:0 0 16px;border-radius:8px;font-size:14px;line-height:1.65';
-      banner.innerHTML = '問題データを読み込めていません。<code>takken-master-data.js</code>・<code>takken-data-glossary.js</code>・<code>takken-data-original.js</code> を <code>index.html</code> と同じフォルダに置いてください。GitHub Pages の場合はリポジトリに4ファイルがすべて含まれているか、開発者ツール（F12）→ネットワークでJSが404になっていないか確認してください。';
-      const pg = document.getElementById('page-quiz-start');
-      if (pg) pg.insertBefore(banner, pg.firstChild);
-    }
-    gotoPage(_resolveInitialPage());
-    handleDailyFirstVisit();
-    return;
-  }
-  syncQuizStateFromMaster();
   buildFieldChips(); buildYearGrid();
   gotoPage(_resolveInitialPage());
   handleDailyFirstVisit();
@@ -2902,7 +3008,7 @@ let ichiState = {questions:[], idx:0, score:0, answered:false, isCorrect:false};
 
 function buildIchiQuestions() {
   const all = (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : [])
-    .concat(typeof QUESTIONS !== 'undefined' ? safeQuestions().filter(q=>!safeBaseQuestions().find(b=>b.id===q.id)) : []);
+    .concat(typeof QUESTIONS !== 'undefined' ? QUESTIONS.filter(q=>!BASE_QUESTIONS.find(b=>b.id===q.id)) : []);
   const pool = all.map(q=>({
     q,
     freq:getFrequencyEvidence(q),
@@ -3184,7 +3290,7 @@ function fieldStats(fid){
   return {total:qs.length,answered:ans.length,correct:ok.length,pct:ans.length>0?Math.round(ok.length/ans.length*100):null};
 }
 function yearStats(y){
-  const u=getUserData(), qs=safeQuestions().filter(q=>q.year===y);
+  const u=getUserData(), qs=QUESTIONS.filter(q=>q.year===y);
   const ans=qs.filter(q=>answeredInPeriod(u,q)), ok=ans.filter(q=>u.answers[q.id].ans===q.ans);
   return {total:qs.length,answered:ans.length,correct:ok.length,pct:ans.length>0?Math.round(ok.length/ans.length*100):null};
 }
@@ -3198,7 +3304,7 @@ function performanceTagHTML(pct){
 }
 function renderFieldBars(cid){
   const el=document.getElementById(cid); if(!el)return;
-  el.innerHTML=safeFields().map(f=>{
+  el.innerHTML=FIELDS.map(f=>{
     const s=fieldStats(f.id), pct=s.pct!==null?s.pct:0;
     return `<div class="field-row"><div class="field-row-head">
       <span class="field-row-name">${f.name}${performanceTagHTML(s.pct)}</span>
@@ -3227,9 +3333,9 @@ function renderFieldBarsWrap(){
   } else {
     // Unit-level breakdown grouped by field
     const u = getUserData();
-    const allOrig = safeOrigFlat();
+    const allOrig = [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
     let html = '';
-    safeFields().forEach(f => {
+    FIELDS.forEach(f => {
       const units = ORIG_UNITS[f.id] || [];
       if(!units.length) return;
       html += `<div style="margin-bottom:16px"><div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px;letter-spacing:.02em">${f.name}</div>`;
@@ -3307,7 +3413,7 @@ function renderTrendChart(svgId,sessions){
 
 // ===== QUIZ START =====
 function buildYearGrid(){
-  const allYears=[...new Set(safeQuestions().map(q=>q.year))].sort((a,b)=>b-a);
+  const allYears=[...new Set(QUESTIONS.map(q=>q.year))].sort((a,b)=>b-a);
   // sync quizState.years to available years
   quizState.years=quizState.years.filter(y=>allYears.includes(y));
   if(!quizState.years.length) quizState.years=[...allYears];
@@ -3318,15 +3424,15 @@ function buildYearGrid(){
 }
 function toggleYear(y){
   const idx=quizState.years.indexOf(y);
-  const allYears=[...new Set(safeQuestions().map(q=>q.year))];
+  const allYears=[...new Set(QUESTIONS.map(q=>q.year))];
   if(idx>-1){if(quizState.years.length===1)return;quizState.years.splice(idx,1);document.getElementById('yb'+y).classList.remove('on');}
   else{quizState.years.push(y);document.getElementById('yb'+y).classList.add('on');}
 }
-function selectAllYears(){ const allYears=[...new Set(safeQuestions().map(q=>q.year))];quizState.years=[...allYears];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.add('on');}); }
-function clearAllYears(){ const allYears=[...new Set(safeQuestions().map(q=>q.year))];quizState.years=[allYears[0]];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.toggle('on',y===allYears[0]);}); }
+function selectAllYears(){ const allYears=[...new Set(QUESTIONS.map(q=>q.year))];quizState.years=[...allYears];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.add('on');}); }
+function clearAllYears(){ const allYears=[...new Set(QUESTIONS.map(q=>q.year))];quizState.years=[allYears[0]];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.toggle('on',y===allYears[0]);}); }
 
 function buildFieldChips(){
-  document.getElementById('field-chips').innerHTML=safeFields().map(f=>
+  document.getElementById('field-chips').innerHTML=FIELDS.map(f=>
     `<div class="chip on" id="chip-${f.id}" onclick="toggleChip('${f.id}')">${f.name}</div>`).join('');
 }
 function toggleChip(fid){
@@ -3344,91 +3450,8 @@ function selCount(n){quizState.count=n;[5,10,30,0].forEach(v=>document.getElemen
 function selOrder(o){quizState.order=o;['seq','rnd'].forEach(v=>{const el=document.getElementById('order-'+v);if(el)el.classList.toggle('on',v===o);});}
 
 // JSON import
-// GLOSSARY_DATA は takken-data-glossary.js で定義
-
-let glosActiveCat = 'all';
-
-function renderGlossary(){
-  // 静的SEOコンテンツを削除して動的コンテンツに切り替え
-  const staticSec = document.querySelector('.glos-static-section');
-  if (staticSec) staticSec.remove();
-  const cats = [
-    {id:'all',label:'すべて'},
-    {id:'rights',label:'権利関係'},
-    {id:'law',label:'宅建業法'},
-    {id:'limit',label:'法令制限'},
-    {id:'tax',label:'税・その他'},
-  ];
-  const catColors = {rights:'#444444',law:'#555555',limit:'#666666',tax:'#777777'};
-  const catEl = document.getElementById('glos-cats');
-  catEl.innerHTML = cats.map(c=>`<button class="gcat-btn${glosActiveCat===c.id?' active':''}" onclick="setGlosCat('${c.id}')">${c.label}</button>`).join('');
-  renderGlossaryList();
-}
-
-function setGlosCat(cat){
-  glosActiveCat = cat;
-  document.querySelectorAll('.gcat-btn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-  renderGlossaryList();
-}
-
-function filterGlossary(){
-  renderGlossaryList();
-}
-
-function renderGlossaryList(){
-  const q = (document.getElementById('glos-search')||{value:''}).value.trim().toLowerCase();
-  const catColors = {rights:'#444444',law:'#555555',limit:'#666666',tax:'#777777'};
-  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
-  const filtered = GLOSSARY_DATA.filter(g=>{
-    if(glosActiveCat!=='all' && g.cat!==glosActiveCat) return false;
-    if(q && !g.term.includes(q) && !g.reading.includes(q) && !g.summary.includes(q) && !g.desc.includes(q)) return false;
-    return true;
-  });
-  const listEl = document.getElementById('glossary-list');
-  if(!filtered.length){listEl.innerHTML='<div style="text-align:center;padding:30px;color:var(--text3);font-size:13px">該当する用語が見つかりません</div>';return;}
-  listEl.innerHTML = filtered.map(g=>`
-    <div class="glos-card" id="gc-${g.id}">
-      <div class="glos-card-head" onclick="toggleGlosCard('${g.id}')">
-        <span class="glos-tag" style="background:var(--bg3);color:var(--text2)">${catNames[g.cat]}</span>
-        <span class="glos-term">${g.term}<span class="glos-reading">（${g.reading}）</span></span>
-        <span class="glos-summary">${g.summary}</span>
-        <svg class="glos-chevron" viewBox="0 0 14 14"><path d="M4 5l3 4 3-4"/></svg>
-      </div>
-      <div class="glos-body">
-        <div class="glos-desc">${g.desc}</div>
-        ${g.diagram ? renderGlosDiagram(g.diagram) : ''}
-        ${g.article ? `<a class="glos-article-link" href="takken-master-all/${g.article}.html" target="_blank" rel="noopener">詳しく読む →</a>` : ''}
-      </div>
-    </div>`).join('');
-}
-
-function toggleGlosCard(id){
-  const card = document.getElementById('gc-'+id);
-  card.classList.toggle('open');
-}
-
-function renderGlosDiagram(d){
-  if(d.type==='table'){
-    const head = d.head.map(h=>`<th>${h}</th>`).join('');
-    const rows = d.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('');
-    return `<div class="glos-diagram"><table class="glos-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
-  }
-  if(d.type==='flow'){
-    const steps = d.steps.map((s,i)=>`<div class="glos-flow-step">${s}</div>${i<d.steps.length-1?'<div class="glos-flow-arrow">→</div>':''}`).join('');
-    return `<div class="glos-diagram"><div class="glos-flow">${steps}</div>${d.note?`<div class="glos-note">${d.note}</div>`:''}</div>`;
-  }
-  if(d.type==='compare'){
-    return `<div class="glos-diagram"><div class="glos-compare">
-      <div class="glos-compare-col"><h4>${d.left.title}</h4>${d.left.items.map(i=>`<p>• ${i}</p>`).join('')}</div>
-      <div class="glos-compare-col"><h4>${d.right.title}</h4>${d.right.items.map(i=>`<p>• ${i}</p>`).join('')}</div>
-    </div></div>`;
-  }
-  return '';
-}
-
-
-// ORIG_QUESTIONS は takken-data-original.js で定義
+// ===== GLOSSARY & ORIGINAL MOCK: external files =====
+// → takken-data-glossary.js , takken-data-original.js
 
 // ===== ORIGINAL PRACTICE STATE =====
 // ===== 45-UNIT DEFINITION =====
@@ -3490,7 +3513,7 @@ let origState = {units: [], count: 10};
 // Pre-compute question counts per unit
 function getUnitCounts(){
   const counts = {};
-  const allOrig = safeOrigFlat();
+  const allOrig = [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
   allOrig.forEach(q => { counts[q.unit] = (counts[q.unit]||0) + 1; });
   return counts;
 }
@@ -3593,7 +3616,7 @@ function beginOrigQuiz(){
     alert('少なくとも1つの単元を選択してください。');
     return;
   }
-  const allOrig = safeOrigFlat();
+  const allOrig = [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
   const pool = allOrig.filter(q => origState.units.includes(q.unit));
   if(!pool.length){alert('選択した単元に問題がありません。');return;}
   const shuffled = [...pool].sort(()=>Math.random()-.5);
@@ -3629,7 +3652,7 @@ function renderMockPage(){
 function startMockExam(pid){
   const pat = MOCK_PATTERNS.find(p=>p.id===pid);
   if(!pat) return;
-  const pool = safeBaseQuestions().filter(q=>pat.years.includes(q.year));
+  const pool = BASE_QUESTIONS.filter(q=>pat.years.includes(q.year));
   const queue = [];
   Object.entries(MOCK_DIST).forEach(([field, n])=>{
     const fPool = [...pool.filter(q=>q.field===field)].sort(()=>Math.random()-.5);
@@ -3762,7 +3785,7 @@ function showMockScore(){
 }
 
 function startOrigQuiz(level){
-  const qs = safeOrigQuestions()[level];
+  const qs = ORIG_QUESTIONS[level];
   if(!qs||!qs.length) return;
   quizState.queue = [...qs];
   quizState.idx = 0;
@@ -3775,7 +3798,7 @@ function startOrigQuiz(level){
 function beginQuiz(){
   _missionWasAllDone = false;
   showNextBtn(false, null);
-  const pool=safeQuestions().filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
+  const pool=QUESTIONS.filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
   if(!pool.length){alert('選択された条件に該当する問題がありません。');return}
   const ordered = quizState.order==='rnd' ? [...pool].sort(()=>Math.random()-.5) : [...pool];
   quizState.queue=quizState.count===0?ordered:ordered.slice(0,quizState.count);
@@ -3787,8 +3810,8 @@ function beginQuiz(){
 // ===== QUIZ =====
 let timer=null;
 function allPracticeQuestions(){
-  const allOrig=safeOrigFlat();
-  return [...safeQuestions(),...allOrig];
+  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+  return [...QUESTIONS,...allOrig];
 }
 function escapeHTML(value){
   return String(value||'').replace(/[&<>"']/g, ch=>({
@@ -3879,7 +3902,7 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   const q=quizState.queue[quizState.idx],total=quizState.queue.length,idx=quizState.idx;
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
-  const f=safeFields().find(f=>f.id===q.field)||{name:'—'};
+  const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
   const diffN=getDifficultyStars(q);
   const freqN=getFreqStars(q);
   const sourceLabel=q.year?`${q.year}年`:'オリジナル';
@@ -4715,8 +4738,9 @@ function buildKaisetsu(k, q){
     ${k.basis.example ? `<div class="ks-example"><div class="ks-example-label">具体例</div>${fmt(k.basis.example)}</div>` : ''}
   </div>`;
 
-  // ② なぜこのルールがあるか
-  const s2 = `<div class="ks-body"><p>${fmt(k.reason.text)}</p></div>`;
+  // ② なぜこのルールがあるか（立法趣旨・保護法益など）— reason.text が空の問題はデータ側で未入力のことが多い
+  const reasonText = k.reason && String(k.reason.text || '').trim();
+  const s2 = reasonText ? `<div class="ks-body"><p>${fmt(reasonText)}</p></div>` : '';
 
   // ③ 図解（SVG）
   const s3 = `<div class="ks-body">
@@ -4745,18 +4769,18 @@ function buildKaisetsu(k, q){
     </table>
   </div>`;
 
-  const sections = [
-    {num:'①', title:'正解の根拠', body: s1},
-    {num:'②', title:'なぜこのルールがあるか', body: s2},
-    {num:'③', title:'図解', body: s3},
-    {num:'④', title:'各選択肢がなぜ×か', body: s4},
-    {num:'⑤', title:'まとめ', body: s5},
-  ];
+  const nums = ['①','②','③','④','⑤','⑥','⑦','⑧'];
+  const sections = [];
+  sections.push({ title:'正解の根拠', body: s1 });
+  if (reasonText) sections.push({ title:'なぜこのルールがあるか', body: s2 });
+  if (k.svg && String(k.svg).trim()) sections.push({ title:'図解', body: s3 });
+  if ((k.choices || []).length) sections.push({ title:'各選択肢がなぜ×か', body: s4 });
+  if (k.summary && k.summary.head && k.summary.rows && k.summary.rows.length) sections.push({ title:'まとめ', body: s5 });
 
   const sectionsHTML = sections.map((s,i) => `
     <div class="ks-section" id="ks-sec-${i}">
       <div class="ks-section-head" onclick="toggleKsSec(${i})">
-        <div class="ks-num">${s.num}</div>
+        <div class="ks-num">${nums[i]||String(i+1)}</div>
         <div class="ks-title">${s.title}</div>
         <span class="ks-chevron">▼</span>
       </div>
@@ -4868,7 +4892,7 @@ function getSessionFeedback(pct, total, res, u){
     ];
     msg = goods[Math.floor(Math.random()*goods.length)];
     const wf = wrong.length ? wrong[0].q.field : null;
-    const fn = wf ? (safeFields().find(f=>f.id===wf)||{name:wf}).name : null;
+    const fn = wf ? (FIELDS.find(f=>f.id===wf)||{name:wf}).name : null;
     advice = fn
       ? `不正解は${wrong.length}問でした。${fn}の解説を読み直しておくと確実です。`
       : '不正解の問題は解説を読んで、根拠まで理解しておきましょう。';
@@ -5019,7 +5043,7 @@ function renderReview(){
 	  // 分野→単元/年度でグループ化して描画（折りたたみ対応）
 		  function renderGroup(qs,isWrong,isBookmarkedGroup=false,groupKey='',noteFocused=false,startOpen=true){
 		    let html='';
-	    safeFields().forEach(f=>{
+	    FIELDS.forEach(f=>{
 	      const fqs=qs.filter(q=>q.field===f.id);
 	      if(!fqs.length) return;
 	      const gid='field-'+(groupKey||isWrong)+'-'+f.id;
@@ -5219,12 +5243,11 @@ loadDB();
   if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
   currentUser={email:guestEmail,name:'ゲスト'};
   enterApp();
-  try { renderOrigPage(); } catch (err) { console.warn('renderOrigPage:', err); }
+  renderOrigPage();
   gotoPage('quiz-start');
 })();
 // Supabaseセッションがあればログイン済みユーザーに切り替え
 (async function(){
-  if(!_sb || !_sb.auth) return;
   const {data:{session}}=await _sb.auth.getSession();
   const hash = location.hash || '';
   if(hash.includes('type=recovery') || hash.includes('access_token=')){
@@ -5239,6 +5262,54 @@ loadDB();
     enterApp();
   }
 })();
+// ===== EXAM COUNTDOWN =====
+(function(){
+  const DAILY_MSGS = [
+    '今日の1問が、合格への1歩。',
+    '苦手分野こそ、宝の山。',
+    '迷ったら基本に立ち返ろう。',
+    '継続は、どんな才能にも勝る。',
+    '昨日より今日、今日より明日。',
+    '間違えた問題が本当の先生。',
+    'コーヒー片手に、もう1問。',
+    '睡眠も立派な学習のうち。',
+    '焦らず、でも止まらず。',
+    '宅建業法、得点源にしてしまおう。',
+    '過去問は未来問。繰り返しが力。',
+    '今日の努力は、試験当日に返ってくる。',
+    '民法は難しい。でも諦めない人が受かる。',
+    '小さな積み重ねが、大きな自信になる。',
+    '模試で間違えるのは、本番で正解するため。',
+    '「また後で」が一番の敵。今やろう。',
+    '法律の言葉に、少しずつ慣れてきた頃だ。',
+    '数字（期間・割合）は呪文のように覚えよう。',
+    '試験日が近づくほど、記憶は定着する。',
+    '今日も宅建マスターと一緒に頑張ろう。',
+    '権利関係が解けたとき、ちょっと気持ちいい。',
+    '満点より、合格点。戦略的に学ぼう。',
+    '宅建士証を手にした自分をイメージして。',
+    '復習は最強の武器。何度でも解こう。',
+    '「なぜ正解か」まで理解すると強くなる。',
+    '今日解いた問題、明日また解いてみよう。',
+    '試験は水物。でも準備は裏切らない。',
+    '用語を覚えると、問題文が読みやすくなる。',
+    'あと少し。この調子で走り切ろう。',
+    '宅建合格、あなたならきっとできる。',
+  ];
+  const examDate = new Date('2026-10-18T00:00:00+09:00');
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const diff = Math.ceil((examDate - today) / (1000*60*60*24));
+  const el = document.getElementById('exam-days-count');
+  if(el) el.textContent = diff > 0 ? diff : (diff === 0 ? '本日！' : '終了');
+  // 毎日変わる一言（日付のハッシュで決定）
+  const msgEl = document.getElementById('exam-daily-msg');
+  if(msgEl && diff > 0){
+    const dayIndex = today.getDate() + today.getMonth() * 31;
+    msgEl.textContent = DAILY_MSGS[dayIndex % DAILY_MSGS.length];
+  }
+})();
+
 </script>
 <!-- MISSION COMPLETE POPUP -->
 <div class="mission-popup-overlay" id="mission-popup-overlay" onclick="closeMissionPopup(event)">
