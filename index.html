@@ -1864,9 +1864,20 @@ body.is-solving .exam-banner{display:none}
 </div>
 
 
-<script src="takken-master-data.js"></script>
-<script src="takken-data-glossary.js"></script>
-<script src="takken-data-original.js"></script>
+<script src="./takken-master-data.js"></script>
+<script src="./takken-data-glossary.js"></script>
+<script src="./takken-data-original.js"></script>
+<script>
+(function(){
+  try {
+    var examDate = new Date('2026-10-18T00:00:00+09:00');
+    var today = new Date(); today.setHours(0,0,0,0);
+    var diff = Math.ceil((examDate - today) / (1000*60*60*24));
+    var el = document.getElementById('exam-days-count');
+    if(el) el.textContent = diff > 0 ? String(diff) : (diff === 0 ? '本日！' : '終了');
+  } catch(e) {}
+})();
+</script>
 <script>
 
 // ===== GAMIFICATION ENGINE =====
@@ -2527,7 +2538,17 @@ function buildYearHistoryHTML(q){
 
 // ===== STATE =====
 let currentUser = null, db = {};
-let quizState = {mode:'past',fields:FIELDS.map(f=>f.id),years:[...YEARS],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[]};
+const _FIELD_IDS_FALLBACK = ['rights','law','limit','tax'];
+let quizState = {
+  mode:'past',
+  fields: typeof FIELDS !== 'undefined' && FIELDS && FIELDS.length ? FIELDS.map(f=>f.id) : _FIELD_IDS_FALLBACK.slice(),
+  years: typeof YEARS !== 'undefined' && YEARS && YEARS.length ? [...YEARS] : [],
+  count:10, order:'seq', queue:[], idx:0, startTime:0, sessionResults:[]
+};
+function syncQuizStateFromMaster(){
+  if(typeof FIELDS !== 'undefined' && FIELDS && FIELDS.length) quizState.fields = FIELDS.map(f=>f.id);
+  if(typeof YEARS !== 'undefined' && YEARS && YEARS.length) quizState.years = [...YEARS];
+}
 
 // Storage: localStorage (works in real browsers / GitHub Pages)
 var _memStore = {};
@@ -2562,7 +2583,14 @@ function closeSidebar(){ closeMobileDrawer(); }
 // ===== SUPABASE =====
 const SUPABASE_URL = 'https://czxrmmbpvocprrwhmuir.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RS9eVE-YsfWg8waxyVjOWA_dIl1cb9x';
-const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let _sb = null;
+try {
+  if (window.supabase && typeof window.supabase.createClient === 'function') {
+    _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  }
+} catch (err) {
+  console.warn('Supabase を初期化できませんでした', err);
+}
 
 function isValidPassword(p){
   return typeof p === 'string' && p.length >= 6 && /[A-Za-z]/.test(p) && /\d/.test(p);
@@ -2576,6 +2604,7 @@ async function loadAnswersFromSupabase(){
   if(!currentUser?.id) return;
   const u=getUserData();
   if(!u) return;
+  if(!_sb) return;
   const {data,error}=await _sb
     .from('user_answers')
     .select('*')
@@ -2598,6 +2627,7 @@ async function loadAnswersFromSupabase(){
 
 async function saveAnswerToSupabase(q,picked,correct,elapsed){
   if(!currentUser?.id) return;
+  if(!_sb) return;
   const {error}=await _sb.from('user_answers').insert({
     user_id:currentUser.id,
     question_id:q.id,
@@ -2619,6 +2649,7 @@ function switchAuthTab(tab){
 async function doLogin(){
   const e=document.getElementById('login-email').value.trim(),p=document.getElementById('login-pw').value;
   if(!e||!p){document.getElementById('login-err').textContent='メールとパスワードを入力してください';return}
+  if(!_sb){document.getElementById('login-err').textContent='ログインサービスに接続できません。ページを再読み込みしてください。';return}
   document.getElementById('login-err').textContent='ログイン中...';
   const {data,error}=await _sb.auth.signInWithPassword({email:e,password:p});
   if(error){
@@ -2641,6 +2672,7 @@ async function doRegister(){
   const n=document.getElementById('reg-name').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-pw').value;
   if(!n||!e||!p){document.getElementById('reg-err').textContent='すべての項目を入力してください';return}
   if(!isValidPassword(p)){document.getElementById('reg-err').textContent=passwordRuleMessage();return}
+  if(!_sb){document.getElementById('reg-err').textContent='登録サービスに接続できません。ページを再読み込みしてください。';return}
   document.getElementById('reg-err').textContent='登録中...';
   const {data,error}=await _sb.auth.signUp({email:e,password:p,options:{data:{name:n}}});
   if(error){
@@ -2675,7 +2707,7 @@ function demoLogin(){
   currentUser={email,name:'デモユーザー'}; enterApp();
 }
 async function doLogout(){
-  await _sb.auth.signOut();
+  try { if (_sb) await _sb.auth.signOut(); } catch(e) { console.warn(e); }
   currentUser=null;
   // ゲストとして再入場
   loadDB();
@@ -2689,6 +2721,7 @@ async function sendPasswordReset(){
   const e=document.getElementById('login-email').value.trim();
   const errEl=document.getElementById('login-err');
   if(!e){errEl.textContent='メールアドレスを入力してから押してください';return}
+  if(!_sb){errEl.textContent='サービスに接続できません。';return}
   errEl.textContent='再設定メールを送信中...';
   const redirectTo=location.origin && location.origin !== 'null'
     ? location.origin + location.pathname
@@ -2711,6 +2744,7 @@ async function updatePassword(){
   const p=document.getElementById('reset-pw').value;
   const errEl=document.getElementById('reset-err');
   if(!isValidPassword(p)){errEl.textContent=passwordRuleMessage();return}
+  if(!_sb){errEl.textContent='サービスに接続できません。';return}
   errEl.textContent='更新中...';
   const {error}=await _sb.auth.updateUser({password:p});
   if(error){errEl.textContent='更新できませんでした: '+error.message;return}
@@ -2746,6 +2780,20 @@ function enterApp(){
   saveUser(u);
   document.getElementById('sb-avatar').textContent=currentUser.name.charAt(0);
   document.getElementById('sb-name').textContent=currentUser.name;
+  if (typeof FIELDS === 'undefined' || typeof QUESTIONS === 'undefined' || typeof BASE_QUESTIONS === 'undefined') {
+    if (!document.getElementById('master-data-error-banner')) {
+      const banner = document.createElement('div');
+      banner.id = 'master-data-error-banner';
+      banner.style.cssText = 'background:#fee;border:1px solid #c00;color:#900;padding:16px;margin:0 0 16px;border-radius:8px;font-size:14px;line-height:1.65';
+      banner.innerHTML = '問題データを読み込めていません。<code>takken-master-data.js</code>・<code>takken-data-glossary.js</code>・<code>takken-data-original.js</code> を <code>index.html</code> と同じフォルダに置いてください。GitHub Pages の場合はリポジトリに4ファイルがすべて含まれているか、開発者ツール（F12）→ネットワークでJSが404になっていないか確認してください。';
+      const pg = document.getElementById('page-quiz-start');
+      if (pg) pg.insertBefore(banner, pg.firstChild);
+    }
+    gotoPage(_resolveInitialPage());
+    handleDailyFirstVisit();
+    return;
+  }
+  syncQuizStateFromMaster();
   buildFieldChips(); buildYearGrid();
   gotoPage(_resolveInitialPage());
   handleDailyFirstVisit();
@@ -5160,11 +5208,12 @@ loadDB();
   if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
   currentUser={email:guestEmail,name:'ゲスト'};
   enterApp();
-  renderOrigPage();
+  try { renderOrigPage(); } catch (err) { console.warn('renderOrigPage:', err); }
   gotoPage('quiz-start');
 })();
 // Supabaseセッションがあればログイン済みユーザーに切り替え
 (async function(){
+  if(!_sb || !_sb.auth) return;
   const {data:{session}}=await _sb.auth.getSession();
   const hash = location.hash || '';
   if(hash.includes('type=recovery') || hash.includes('access_token=')){
@@ -5179,54 +5228,6 @@ loadDB();
     enterApp();
   }
 })();
-// ===== EXAM COUNTDOWN =====
-(function(){
-  const DAILY_MSGS = [
-    '今日の1問が、合格への1歩。',
-    '苦手分野こそ、宝の山。',
-    '迷ったら基本に立ち返ろう。',
-    '継続は、どんな才能にも勝る。',
-    '昨日より今日、今日より明日。',
-    '間違えた問題が本当の先生。',
-    'コーヒー片手に、もう1問。',
-    '睡眠も立派な学習のうち。',
-    '焦らず、でも止まらず。',
-    '宅建業法、得点源にしてしまおう。',
-    '過去問は未来問。繰り返しが力。',
-    '今日の努力は、試験当日に返ってくる。',
-    '民法は難しい。でも諦めない人が受かる。',
-    '小さな積み重ねが、大きな自信になる。',
-    '模試で間違えるのは、本番で正解するため。',
-    '「また後で」が一番の敵。今やろう。',
-    '法律の言葉に、少しずつ慣れてきた頃だ。',
-    '数字（期間・割合）は呪文のように覚えよう。',
-    '試験日が近づくほど、記憶は定着する。',
-    '今日も宅建マスターと一緒に頑張ろう。',
-    '権利関係が解けたとき、ちょっと気持ちいい。',
-    '満点より、合格点。戦略的に学ぼう。',
-    '宅建士証を手にした自分をイメージして。',
-    '復習は最強の武器。何度でも解こう。',
-    '「なぜ正解か」まで理解すると強くなる。',
-    '今日解いた問題、明日また解いてみよう。',
-    '試験は水物。でも準備は裏切らない。',
-    '用語を覚えると、問題文が読みやすくなる。',
-    'あと少し。この調子で走り切ろう。',
-    '宅建合格、あなたならきっとできる。',
-  ];
-  const examDate = new Date('2026-10-18T00:00:00+09:00');
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  const diff = Math.ceil((examDate - today) / (1000*60*60*24));
-  const el = document.getElementById('exam-days-count');
-  if(el) el.textContent = diff > 0 ? diff : (diff === 0 ? '本日！' : '終了');
-  // 毎日変わる一言（日付のハッシュで決定）
-  const msgEl = document.getElementById('exam-daily-msg');
-  if(msgEl && diff > 0){
-    const dayIndex = today.getDate() + today.getMonth() * 31;
-    msgEl.textContent = DAILY_MSGS[dayIndex % DAILY_MSGS.length];
-  }
-})();
-
 </script>
 <!-- MISSION COMPLETE POPUP -->
 <div class="mission-popup-overlay" id="mission-popup-overlay" onclick="closeMissionPopup(event)">
