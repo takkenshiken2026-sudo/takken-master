@@ -602,6 +602,11 @@ details.rich-detail summary{display:none}
 .review-card.has-note .review-note-preview{background:#fff;border:1px solid var(--grn-b)}
 .review-note-preview span:first-child{color:var(--text3);font-weight:700;white-space:nowrap}
 .review-section-meta{font-size:12px;color:var(--text3);font-weight:500;margin-left:6px}
+.review-page-section{margin-bottom:32px}
+.review-page-section:last-child{margin-bottom:0}
+.review-section-heading{font-size:var(--fs-title);font-weight:var(--fw-strong);margin:0 0 8px;line-height:1.3;color:var(--text)}
+.review-section-desc{font-size:var(--fs-sub);color:var(--text2);line-height:1.65;margin:0 0 18px}
+.review-section-empty{font-size:13px;color:var(--text3);line-height:1.65;padding:16px 14px;text-align:center;background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--r)}
 .review-arrow{color:var(--text3);font-size:18px;flex-shrink:0;margin-top:2px}
 /* collapsible group */
 .review-group-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);margin:14px 0 6px;user-select:none;transition:background .15s}
@@ -1603,7 +1608,7 @@ body.is-solving .exam-banner{display:none}
         </ol>
       </nav>
       <h2 class="page-title">復習</h2>
-      <div class="page-sub">不正解・未解答の問題一覧</div>
+      <div class="page-sub">おすすめのテーマ・不正解の問題から選んで再学習できます。</div>
       <div id="review-list"></div>
     </div>
 
@@ -1974,7 +1979,8 @@ body.is-solving .exam-banner{display:none}
           <div class="topnav-logo-mark" style="width:22px;height:22px;font-size:10px;border-radius:5px;flex-shrink:0">宅建</div>
           <span style="font-size:14px;font-weight:700;letter-spacing:-0.01em">宅建マスター</span>
         </div>
-        <nav class="site-footer-legal" aria-label="法的情報">
+        <nav class="site-footer-legal" aria-label="サイト情報・ポリシー">
+          <a href="/about/" onclick="event.preventDefault();window.location.href='about.html'">このサイトについて</a>
           <a href="/privacy-terms/" onclick="event.preventDefault();window.location.href='privacy-terms.html'">利用規約</a>
           <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener">お問い合わせ</a>
         </nav>
@@ -2294,18 +2300,18 @@ function checkAndAwardBadges(context){
 // --- Day streak tracker ---
 function updateDayStreak(u){
   const today = new Date(); today.setHours(0,0,0,0);
-  const todayKey = today.toISOString().slice(0,10);
+  const todayKey = localDateKey(today);
   u.loginDates = u.loginDates || [];
   if(!u.loginDates.includes(todayKey)){
     u.loginDates.push(todayKey);
     // keep last 60 days
     u.loginDates = u.loginDates.slice(-60);
   }
-  // calculate consecutive days
+  // calculate consecutive days（カレンダー日はローカルタイムゾーン基準）
   let streak=0;
   const d=new Date(today);
   while(true){
-    const key=d.toISOString().slice(0,10);
+    const key=localDateKey(d);
     if(u.loginDates.includes(key)){ streak++; d.setDate(d.getDate()-1); }
     else break;
   }
@@ -2821,7 +2827,8 @@ function normalizeUserData(u){
 function getUserData(){ return currentUser?normalizeUserData(db[currentUser.email]):null }
 function saveUser(d){ if(currentUser){db[currentUser.email]=d;saveDB()} }
 function localDateKey(date){
-  const d=date||new Date();
+  const d=(date===undefined||date===null)?new Date():(date instanceof Date?date:new Date(date));
+  if(Number.isNaN(d.getTime())) return localDateKey(new Date());
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
@@ -2861,7 +2868,7 @@ async function loadAnswersFromSupabase(){
     const answeredAt=row.answered_at||row.created_at||row.updated_at;
     u.answers[row.question_id]={
       ans:Number(row.answer),
-      time:Number(row.time_sec||0),
+      time:Number(row.time_sec ?? row.time_spent ?? 0),
       date:answeredAt?new Date(answeredAt).getTime():Date.now()
     };
   });
@@ -5114,9 +5121,6 @@ function renderReview(){
 		      if(an.text&&bn.text) return (bn.updatedAt||0)-(an.updatedAt||0);
 		      return (bookmarkMap[b.id]||0)-(bookmarkMap[a.id]||0);
 		    });
-		  const bookmarkedNoteCount=bookmarkedQs.filter(q=>getBookmarkNote(q.id).text).length;
-
-	  const fmt=d=>new Date(d).toLocaleDateString('ja',{month:'numeric',day:'numeric'});
 
 	  // カード生成
 		  function makeCard(q,isWrong,isBookmarkedCard=false,noteFocused=false){
@@ -5188,18 +5192,37 @@ function renderReview(){
     return html;
   }
 
-		  let html='';
-		  if(bookmarkedQs.length){
-		    html+=`<div class="section-label" style="margin-bottom:10px">ブックマーク (${bookmarkedQs.length}問)${bookmarkedNoteCount?`<span class="review-section-meta">メモあり ${bookmarkedNoteCount}問</span>`:''}</div>`;
-		    html+=renderGroup(bookmarkedQs,false,true,'bookmarks',true);
-		  }
-	  if(wrongQs.length){
-	    html+=`<div class="section-label" style="margin:16px 0 10px">不正解 (${wrongQs.length}問)</div>`;
-		    html+=renderGroup(wrongQs,true,false,'wrong',false,false);
+	  let htmlBookmarks='';
+	  if(bookmarkedQs.length){
+		    htmlBookmarks=renderGroup(bookmarkedQs,false,true,'bookmarks',true);
+	  } else {
+	    htmlBookmarks='<p class="review-section-empty" role="status">ブックマークした問題はまだありません。問題画面のブックマークアイコンから追加できます。</p>';
 	  }
 
-  if(!html) html='<div style="font-size:13px;color:var(--text3);padding:20px 0;text-align:center">復習する問題はありません</div>';
-  document.getElementById('review-list').innerHTML=html;
+	  let htmlWrong='';
+	  if(wrongQs.length){
+	    htmlWrong=renderGroup(wrongQs,true,false,'wrong',false,false);
+	  } else {
+	    htmlWrong='<p class="review-section-empty" role="status">いま不正解として記録されている問題はありません。</p>';
+	  }
+
+	  const reviewIntroRecommended='ブックマークした問題と、復習スケジュール（忘却曲線に基づく間隔反復）で、今日重点的に取り組むとよい内容をまとめています。';
+	  const reviewIntroWrong='一度誤答した問題です。解説を確認してから、もう一度チャレンジしましょう。';
+
+	  document.getElementById('review-list').innerHTML=`
+	    <section class="review-page-section" aria-labelledby="review-head-rec">
+	      <h2 id="review-head-rec" class="review-section-heading">おすすめの再学習テーマ</h2>
+	      <p class="review-section-desc">${reviewIntroRecommended}</p>
+	      <div id="srs-review-wrap"></div>
+	      ${htmlBookmarks}
+	    </section>
+	    <section class="review-page-section" aria-labelledby="review-head-wrong">
+	      <h2 id="review-head-wrong" class="review-section-heading">不正解</h2>
+	      <p class="review-section-desc">${reviewIntroWrong}</p>
+	      ${htmlWrong}
+	    </section>`;
+
+	  renderSrsBanner(document.getElementById('srs-review-wrap'));
 }
 
 // ===== ANALYTICS =====
@@ -5501,7 +5524,6 @@ loadDB();
     1. スペースドリペティション（忘却曲線ベース復習スケジュール）
     2. 分野別理解度レーダーチャート
     3. 弱点自動特定・優先出題モード
-    4. 学習目標・計画機能（1日○問設定）
 
   ── 導入方法 ──
   index.html の </body> タグの直前に、このファイルの内容を
@@ -5523,16 +5545,13 @@ loadDB();
 .enh-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
 .enh-sub{font-size:13px;color:var(--text2);line-height:1.6}
 
-/* ---- 1. スペースドリペティション ---- */
-.srs-banner{display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:var(--r2);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:opacity .15s}
-.srs-banner:hover{opacity:.88}
-.srs-banner-icon{width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.srs-banner-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.srs-banner-body{flex:1}
-.srs-banner-label{font-size:10px;font-weight:700;letter-spacing:.1em;opacity:.6;text-transform:uppercase;margin-bottom:2px}
-.srs-banner-title{font-size:15px;font-weight:700;margin-bottom:1px}
-.srs-banner-sub{font-size:12px;opacity:.7}
-.srs-banner-badge{background:rgba(255,255,255,.18);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700;flex-shrink:0}
+/* ---- 1. スペースドリペティション（復習ページの導入カード）---- */
+.srs-review-card{cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s;margin-bottom:16px}
+.srs-review-card:hover{background:var(--bg3);border-color:var(--border2);box-shadow:var(--sh2)}
+.srs-review-card .srs-review-kicker{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.02em;margin-bottom:6px}
+.srs-review-card .srs-review-lead{font-size:13px;color:var(--text2);line-height:1.65;margin:0 0 12px}
+.srs-review-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.srs-review-card-foot .srs-review-action{font-size:12px;color:var(--text3)}
 
 .srs-queue-card{border:1px solid var(--border2);border-radius:var(--r);padding:10px 14px;margin-bottom:7px;cursor:pointer;transition:background .12s;display:flex;align-items:center;gap:10px}
 .srs-queue-card:hover{background:var(--bg3)}
@@ -5576,31 +5595,8 @@ loadDB();
 .weak-start-btn{width:100%;padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:12px;transition:opacity .15s}
 .weak-start-btn:hover{opacity:.85}
 
-/* ---- 4. 学習目標 ---- */
-.goal-card{border:1px solid var(--border2);border-radius:var(--r2);padding:16px 18px;background:#fff;margin-bottom:13px}
-.goal-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.goal-label{font-size:13px;font-weight:600;color:var(--text2);flex-shrink:0;min-width:80px}
-.goal-stepper{display:flex;align-items:center;gap:6px}
-.goal-step-btn{width:30px;height:30px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:var(--font)}
-.goal-step-btn:hover{background:var(--bg3)}
-.goal-step-val{font-size:18px;font-weight:700;min-width:36px;text-align:center;color:var(--text)}
-.goal-step-unit{font-size:13px;color:var(--text3);margin-left:2px}
-.goal-prog-wrap{margin-top:12px}
-.goal-prog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.goal-prog-label{font-size:13px;font-weight:600;color:var(--text)}
-.goal-prog-val{font-size:13px;font-weight:700;color:var(--text)}
-.goal-prog-track{height:10px;background:var(--bg4);border-radius:5px;overflow:hidden}
-.goal-prog-fill{height:100%;border-radius:5px;background:var(--ink);transition:width .4s}
-.goal-prog-fill.done{background:var(--green)}
-.goal-msg{font-size:12px;color:var(--text3);margin-top:6px;text-align:center;min-height:18px}
-.goal-days-row{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
-.goal-day-chip{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;background:var(--bg4);color:var(--text3);position:relative}
-.goal-day-chip.done{background:var(--ink);color:#fff}
-.goal-day-chip.today-chip{box-shadow:0 0 0 2px var(--ink);background:var(--bg3);color:var(--ink)}
-
-/* ---- 復習ページ内 SRS セクション ---- */
-.srs-review-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.srs-review-badge{background:var(--ink);color:#fff;border-radius:12px;padding:2px 10px;font-size:11px;font-weight:700}
+/* ---- 復習ページ SRS モーダル ---- */
+.srs-modal-desc{font-size:13px;color:var(--text2);margin:0 0 16px;line-height:1.65}
 
 @media(max-width:700px){
   .radar-wrap svg{width:240px;height:240px}
@@ -5623,9 +5619,10 @@ loadDB();
 
 <!-- ===== 追加HTML: SRS セッション通知 (スタート画面に差し込まれる) ===== -->
 <div id="srs-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)" onclick="if(event.target===this)closeSrsModal()">
-  <div style="background:#fff;border-radius:16px;padding:24px;max-width:480px;width:100%;max-height:88vh;overflow-y:auto">
-    <div style="font-size:18px;font-weight:800;margin-bottom:6px">復習スケジュール</div>
-    <div style="font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.65">忘却曲線に基づいて、今日復習すべき問題を表示しています。</div>
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:480px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:var(--sh2)">
+    <div class="srs-review-kicker">スペースドリペティション</div>
+    <h2 class="section-label" style="margin-bottom:8px">復習スケジュール</h2>
+    <p class="srs-modal-desc">忘却曲線に基づいて、今日復習すべき問題を表示しています。</p>
     <div id="srs-queue-list"></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px">
       <button onclick="closeSrsModal()" style="padding:10px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font)">閉じる</button>
@@ -5643,8 +5640,7 @@ loadDB();
 // ユーティリティ
 // =====================================================================
 function todayStr(){
-  const d=new Date(); d.setHours(0,0,0,0);
-  return d.toISOString().slice(0,10);
+  return localDateKey(new Date());
 }
 function daysSince(dateStr){
   if(!dateStr) return 999;
@@ -5680,7 +5676,7 @@ function srsOnCorrect(qid){
   item.lastSeen=todayStr();
   const interval=SRS_INTERVALS[item.level];
   const due=new Date(); due.setDate(due.getDate()+interval);
-  item.due=due.toISOString().slice(0,10);
+  item.due=localDateKey(due);
   data[qid]=item;
   saveSrsData(data);
 }
@@ -5690,7 +5686,8 @@ function srsOnWrong(qid){
   const item=data[qid]||{level:0,due:todayStr(),lastSeen:todayStr()};
   item.level=0;
   item.lastSeen=todayStr();
-  item.due=new Date(Date.now()+86400000).toISOString().slice(0,10);
+  const tmr=new Date(); tmr.setDate(tmr.getDate()+1);
+  item.due=localDateKey(tmr);
   data[qid]=item;
   saveSrsData(data);
 }
@@ -5723,7 +5720,7 @@ function initSrsFromAnswers(){
   Object.entries(answers).forEach(([qid,a])=>{
     if(!data[qid]){
       const isCorrect=(a.ans!==undefined);
-      data[qid]={level:isCorrect?1:0,due:todayStr(),lastSeen:a.date?new Date(a.date).toISOString().slice(0,10):todayStr()};
+      data[qid]={level:isCorrect?1:0,due:todayStr(),lastSeen:a.date?localDateKey(new Date(a.date)):todayStr()};
       changed=true;
     }
   });
@@ -5739,16 +5736,14 @@ function renderSrsBanner(container){
   const queue=getSrsDueQueue();
   if(!queue.length){ container.innerHTML=''; return; }
   container.innerHTML=`
-  <div class="srs-banner" onclick="openSrsModal()">
-    <div class="srs-banner-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><polyline points="12 6 12 12 16 14"/></svg>
+  <div class="card srs-review-card" onclick="openSrsModal()">
+    <div class="srs-review-kicker">スペースドリペティション</div>
+    <h2 class="section-label" style="margin-bottom:6px">復習スケジュール</h2>
+    <p class="srs-review-lead">忘却曲線に基づく今日の復習</p>
+    <div class="srs-review-card-foot">
+      <span class="tag tag-blue">${queue.length}問</span>
+      <span class="srs-review-action">一覧を見る ›</span>
     </div>
-    <div class="srs-banner-body">
-      <div class="srs-banner-label">スペースドリペティション</div>
-      <div class="srs-banner-title">復習スケジュール</div>
-      <div class="srs-banner-sub">忘却曲線に基づく今日の復習</div>
-    </div>
-    <div class="srs-banner-badge">${queue.length}問</div>
   </div>`;
 }
 
@@ -6075,103 +6070,7 @@ function startWeakModeQuiz(){
 window.startWeakModeQuiz=startWeakModeQuiz;
 
 // =====================================================================
-// 4. 学習目標・計画機能
-// =====================================================================
-const GOAL_KEY='takken_daily_goal_v1';
-
-function getGoal(){
-  try{ return JSON.parse(localStorage.getItem(GOAL_KEY)||'{"daily":10}'); }
-  catch(e){ return{daily:10}; }
-}
-function saveGoal(goal){
-  try{ localStorage.setItem(GOAL_KEY,JSON.stringify(goal)); }catch(e){}
-}
-
-function getTodayAnsweredCount(){
-  const u=typeof getUserData==='function'?getUserData():null;
-  if(!u) return 0;
-  const today=todayStr();
-  return Object.values(u.answers||{}).filter(a=>{
-    if(!a.date) return false;
-    return new Date(a.date).toISOString().slice(0,10)===today;
-  }).length;
-}
-
-function getWeekAnsweredMap(){
-  const u=typeof getUserData==='function'?getUserData():null;
-  if(!u) return {};
-  const map={};
-  Object.values(u.answers||{}).forEach(a=>{
-    if(!a.date) return;
-    const key=new Date(a.date).toISOString().slice(0,10);
-    map[key]=(map[key]||0)+1;
-  });
-  return map;
-}
-
-function changeGoal(delta){
-  const goal=getGoal();
-  goal.daily=Math.max(1,Math.min(100,(goal.daily||10)+delta));
-  saveGoal(goal);
-  renderGoalCard('goal-card-wrap');
-}
-window.changeGoal=changeGoal;
-
-function renderGoalCard(containerId){
-  const el=document.getElementById(containerId);
-  if(!el) return;
-  const goal=getGoal();
-  const daily=goal.daily||10;
-  const done=getTodayAnsweredCount();
-  const pct=Math.min(100,Math.round(done/daily*100));
-  const isDone=done>=daily;
-  // 直近7日の進捗
-  const map=getWeekAnsweredMap();
-  const today=todayStr();
-  const days=[];
-  for(let i=6;i>=0;i--){
-    const d=new Date(); d.setDate(d.getDate()-i);
-    const key=d.toISOString().slice(0,10);
-    const cnt=map[key]||0;
-    days.push({key,cnt,isToday:key===today,label:['日','月','火','水','木','金','土'][d.getDay()],done:cnt>=daily});
-  }
-  const daysHTML=days.map(d=>`<div class="goal-day-chip ${d.done?'done':''} ${d.isToday&&!d.done?'today-chip':''}" title="${d.key}: ${d.cnt}問">${d.label}</div>`).join('');
-  const msgs=['目標まであと'+(daily-done)+'問！',
-    '半分まで来ました。この調子で！',
-    'あと少し！ゴールが見えてきました。',
-    '今日の目標達成！'];
-  const msgIdx=pct===100?3:pct>=50?2:pct>=20?1:0;
-  el.innerHTML=`
-  <div class="goal-card">
-    <div class="enh-section-label">学習目標</div>
-    <div class="goal-row">
-      <div class="goal-label">1日の目標</div>
-      <div class="goal-stepper">
-        <button class="goal-step-btn" onclick="changeGoal(-5)">−</button>
-        <div class="goal-step-val">${daily}</div>
-        <span class="goal-step-unit">問</span>
-        <button class="goal-step-btn" onclick="changeGoal(5)">＋</button>
-      </div>
-    </div>
-    <div class="goal-prog-wrap">
-      <div class="goal-prog-head">
-        <div class="goal-prog-label">今日の進捗</div>
-        <div class="goal-prog-val" style="color:${isDone?'var(--green)':'var(--text)'}">${done} / ${daily}問</div>
-      </div>
-      <div class="goal-prog-track">
-        <div class="goal-prog-fill ${isDone?'done':''}" style="width:${pct}%"></div>
-      </div>
-      <div class="goal-msg">${isDone?'🎉 今日の目標達成！お疲れさまでした':msgs[msgIdx]}</div>
-    </div>
-    <div style="margin-top:10px">
-      <div class="enh-section-label" style="margin-bottom:6px">直近7日</div>
-      <div class="goal-days-row">${daysHTML}</div>
-    </div>
-  </div>`;
-}
-
-// =====================================================================
-// ダッシュボードの拡張（レーダーチャート + 目標）
+// ダッシュボードの拡張（レーダーチャート）
 // =====================================================================
 function injectDashEnhancements(){
   const dashEl=document.getElementById('page-dash');
@@ -6186,14 +6085,6 @@ function injectDashEnhancements(){
     radarCard.style.marginBottom='13px';
     radarCard.innerHTML=`<div class="section-label" style="margin-bottom:10px">理解度レーダー</div><div id="radar-chart-container"></div>`;
     fieldBarsCard.insertAdjacentElement('afterend',radarCard);
-  }
-
-  // 学習目標をstat-rowの前に挿入
-  const statRow=dashEl.querySelector('.stat-row');
-  if(statRow&&!document.getElementById('goal-card-wrap')){
-    const goalWrap=document.createElement('div');
-    goalWrap.id='goal-card-wrap';
-    statRow.insertAdjacentElement('beforebegin',goalWrap);
   }
 }
 
@@ -6247,15 +6138,12 @@ function injectQuizStartEnhancements(){
   modeList.appendChild(weakCard);
 }
 
-// 復習ページにSRSパネルを追加
+// 復習ページ：旧レイアウトで #review-list の外にあった SRS ノードを除去
 function injectReviewEnhancements(){
-  const reviewEl=document.getElementById('page-review');
-  if(!reviewEl||reviewEl.querySelector('#srs-review-wrap')) return;
-  const reviewList=reviewEl.querySelector('#review-list');
-  if(!reviewList) return;
-  const srsWrap=document.createElement('div');
-  srsWrap.id='srs-review-wrap';
-  reviewList.insertAdjacentElement('beforebegin',srsWrap);
+  const list=document.getElementById('review-list');
+  if(!list) return;
+  const prev=list.previousElementSibling;
+  if(prev && prev.id==='srs-review-wrap') prev.remove();
 }
 
 // =====================================================================
@@ -6267,7 +6155,6 @@ window.renderDash=function(){
   // 少し遅らせてDOM生成後に実行
   setTimeout(()=>{
     injectDashEnhancements();
-    renderGoalCard('goal-card-wrap');
     renderRadarChart('radar-chart-container');
   },50);
 };
@@ -6289,11 +6176,9 @@ window.gotoPage=function(id){
     }
     if(id==='review'){
       injectReviewEnhancements();
-      renderSrsBanner(document.getElementById('srs-review-wrap'));
     }
     if(id==='dash'){
       injectDashEnhancements();
-      renderGoalCard('goal-card-wrap');
       renderRadarChart('radar-chart-container');
     }
   },80);
@@ -6319,12 +6204,8 @@ function init(){
     const id=activePage.id.replace('page-','');
     if(id==='dash'){
       setTimeout(()=>{
-        renderGoalCard('goal-card-wrap');
         renderRadarChart('radar-chart-container');
       },120);
-    }
-    if(id==='review'){
-      renderSrsBanner(document.getElementById('srs-review-wrap'));
     }
   }
 }
