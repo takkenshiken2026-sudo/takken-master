@@ -1984,7 +1984,7 @@ function checkAndAwardBadges(context){
   const streak = u.streak||0;
   const dayStreak = u.dayStreak||0;
   const fieldRateOk = (field)=>{
-    const qs=QUESTIONS.filter(q=>q.field===field&&u.answers[q.id]);
+    const qs=safeQuestions().filter(q=>q.field===field&&u.answers[q.id]);
     const ok=qs.filter(q=>u.answers[q.id].ans===q.ans);
     return qs.length>=10&&(ok.length/qs.length)>=0.7;
   };
@@ -2015,7 +2015,7 @@ function checkAndAwardBadges(context){
     if(id==='all_fields'){
       const fields=['rights','law','limit','tax'];
       earned=fields.every(f=>Object.entries(u.answers||{}).some(([qid,a])=>{
-        const q=QUESTIONS.find(qq=>qq.id==qid);
+        const q=safeQuestions().find(qq=>qq.id==qid);
         return q&&q.field===f&&a.ans===q.ans;
       }));
     }
@@ -2317,14 +2317,14 @@ function getMissionProgress(mission, u){
   }
   if(mission.type==='field'){
     const cur=todayAnswers.filter(([qid])=>{
-      const q=QUESTIONS.find(qq=>qq.id==qid);
+      const q=safeQuestions().find(qq=>qq.id==qid);
       return q&&q.field===mission.field;
     }).length;
     return {cur, target:mission.target};
   }
   if(mission.type==='mode'){
     const answerCur=todayAnswers.filter(([qid])=>{
-      const q=QUESTIONS.find(qq=>qq.id==qid);
+      const q=safeQuestions().find(qq=>qq.id==qid);
       if(!q) return false;
       if(mission.mode==='past') return !!q.year;
       if(mission.mode==='orig') return !q.year;
@@ -2527,7 +2527,7 @@ function diffStarsHTML(n){
 function buildYearHistoryHTML(q){
   if(!q.num) return '';
   // Find other past questions with similar context (same field, nearby question numbers)
-  const sameField=BASE_QUESTIONS.filter(bq=>bq.field===q.field&&bq.year&&bq.num);
+  const sameField=safeBaseQuestions().filter(bq=>bq.field===q.field&&bq.year&&bq.num);
   const nearby=sameField.filter(bq=>bq.id!==q.id&&Math.abs(bq.num-q.num)<=2&&bq.year!==q.year);
   if(nearby.length===0) return '';
   const years=[...new Set(nearby.map(bq=>bq.year))].sort();
@@ -2548,6 +2548,17 @@ let quizState = {
 function syncQuizStateFromMaster(){
   if(typeof FIELDS !== 'undefined' && FIELDS && FIELDS.length) quizState.fields = FIELDS.map(f=>f.id);
   if(typeof YEARS !== 'undefined' && YEARS && YEARS.length) quizState.years = [...YEARS];
+}
+function safeQuestions(){ return typeof QUESTIONS !== 'undefined' && Array.isArray(QUESTIONS) ? QUESTIONS : []; }
+function safeBaseQuestions(){ return typeof BASE_QUESTIONS !== 'undefined' && Array.isArray(BASE_QUESTIONS) ? BASE_QUESTIONS : []; }
+function safeFields(){ return typeof FIELDS !== 'undefined' && Array.isArray(FIELDS) ? FIELDS : []; }
+function safeOrigQuestions(){
+  if(typeof ORIG_QUESTIONS === 'undefined' || !ORIG_QUESTIONS) return {1:[],2:[],3:[]};
+  return ORIG_QUESTIONS;
+}
+function safeOrigFlat(){
+  const O = safeOrigQuestions();
+  return [...(O[1]||[]),...(O[2]||[]),...(O[3]||[])];
 }
 
 // Storage: localStorage (works in real browsers / GitHub Pages)
@@ -2697,7 +2708,7 @@ function demoLogin(){
   loadDB(); const email='demo@takken.app';
   if(!db[email]){
     const now=Date.now(),day=86400000, ans={};
-    QUESTIONS.forEach((q,i)=>{ ans[q.id]={ans:q.ans,time:10+Math.random()*20,date:now-(4-Math.floor(i/4))*day}; });
+    safeQuestions().forEach((q,i)=>{ ans[q.id]={ans:q.ans,time:10+Math.random()*20,date:now-(4-Math.floor(i/4))*day}; });
     db[email]={name:'デモユーザー',plan:'free',answers:ans,bookmarks:{},
       sessions:[{date:now-5*day,correct:3,total:5,pct:60},{date:now-4*day,correct:4,total:5,pct:80},
                 {date:now-3*day,correct:5,total:5,pct:100},{date:now-2*day,correct:3,total:5,pct:60},
@@ -2891,7 +2902,7 @@ let ichiState = {questions:[], idx:0, score:0, answered:false, isCorrect:false};
 
 function buildIchiQuestions() {
   const all = (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : [])
-    .concat(typeof QUESTIONS !== 'undefined' ? QUESTIONS.filter(q=>!BASE_QUESTIONS.find(b=>b.id===q.id)) : []);
+    .concat(typeof QUESTIONS !== 'undefined' ? safeQuestions().filter(q=>!safeBaseQuestions().find(b=>b.id===q.id)) : []);
   const pool = all.map(q=>({
     q,
     freq:getFrequencyEvidence(q),
@@ -3173,7 +3184,7 @@ function fieldStats(fid){
   return {total:qs.length,answered:ans.length,correct:ok.length,pct:ans.length>0?Math.round(ok.length/ans.length*100):null};
 }
 function yearStats(y){
-  const u=getUserData(), qs=QUESTIONS.filter(q=>q.year===y);
+  const u=getUserData(), qs=safeQuestions().filter(q=>q.year===y);
   const ans=qs.filter(q=>answeredInPeriod(u,q)), ok=ans.filter(q=>u.answers[q.id].ans===q.ans);
   return {total:qs.length,answered:ans.length,correct:ok.length,pct:ans.length>0?Math.round(ok.length/ans.length*100):null};
 }
@@ -3187,7 +3198,7 @@ function performanceTagHTML(pct){
 }
 function renderFieldBars(cid){
   const el=document.getElementById(cid); if(!el)return;
-  el.innerHTML=FIELDS.map(f=>{
+  el.innerHTML=safeFields().map(f=>{
     const s=fieldStats(f.id), pct=s.pct!==null?s.pct:0;
     return `<div class="field-row"><div class="field-row-head">
       <span class="field-row-name">${f.name}${performanceTagHTML(s.pct)}</span>
@@ -3216,9 +3227,9 @@ function renderFieldBarsWrap(){
   } else {
     // Unit-level breakdown grouped by field
     const u = getUserData();
-    const allOrig = [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+    const allOrig = safeOrigFlat();
     let html = '';
-    FIELDS.forEach(f => {
+    safeFields().forEach(f => {
       const units = ORIG_UNITS[f.id] || [];
       if(!units.length) return;
       html += `<div style="margin-bottom:16px"><div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px;letter-spacing:.02em">${f.name}</div>`;
@@ -3296,7 +3307,7 @@ function renderTrendChart(svgId,sessions){
 
 // ===== QUIZ START =====
 function buildYearGrid(){
-  const allYears=[...new Set(QUESTIONS.map(q=>q.year))].sort((a,b)=>b-a);
+  const allYears=[...new Set(safeQuestions().map(q=>q.year))].sort((a,b)=>b-a);
   // sync quizState.years to available years
   quizState.years=quizState.years.filter(y=>allYears.includes(y));
   if(!quizState.years.length) quizState.years=[...allYears];
@@ -3307,15 +3318,15 @@ function buildYearGrid(){
 }
 function toggleYear(y){
   const idx=quizState.years.indexOf(y);
-  const allYears=[...new Set(QUESTIONS.map(q=>q.year))];
+  const allYears=[...new Set(safeQuestions().map(q=>q.year))];
   if(idx>-1){if(quizState.years.length===1)return;quizState.years.splice(idx,1);document.getElementById('yb'+y).classList.remove('on');}
   else{quizState.years.push(y);document.getElementById('yb'+y).classList.add('on');}
 }
-function selectAllYears(){ const allYears=[...new Set(QUESTIONS.map(q=>q.year))];quizState.years=[...allYears];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.add('on');}); }
-function clearAllYears(){ const allYears=[...new Set(QUESTIONS.map(q=>q.year))];quizState.years=[allYears[0]];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.toggle('on',y===allYears[0]);}); }
+function selectAllYears(){ const allYears=[...new Set(safeQuestions().map(q=>q.year))];quizState.years=[...allYears];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.add('on');}); }
+function clearAllYears(){ const allYears=[...new Set(safeQuestions().map(q=>q.year))];quizState.years=[allYears[0]];allYears.forEach(y=>{const b=document.getElementById('yb'+y);if(b)b.classList.toggle('on',y===allYears[0]);}); }
 
 function buildFieldChips(){
-  document.getElementById('field-chips').innerHTML=FIELDS.map(f=>
+  document.getElementById('field-chips').innerHTML=safeFields().map(f=>
     `<div class="chip on" id="chip-${f.id}" onclick="toggleChip('${f.id}')">${f.name}</div>`).join('');
 }
 function toggleChip(fid){
@@ -3479,7 +3490,7 @@ let origState = {units: [], count: 10};
 // Pre-compute question counts per unit
 function getUnitCounts(){
   const counts = {};
-  const allOrig = [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+  const allOrig = safeOrigFlat();
   allOrig.forEach(q => { counts[q.unit] = (counts[q.unit]||0) + 1; });
   return counts;
 }
@@ -3582,7 +3593,7 @@ function beginOrigQuiz(){
     alert('少なくとも1つの単元を選択してください。');
     return;
   }
-  const allOrig = [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+  const allOrig = safeOrigFlat();
   const pool = allOrig.filter(q => origState.units.includes(q.unit));
   if(!pool.length){alert('選択した単元に問題がありません。');return;}
   const shuffled = [...pool].sort(()=>Math.random()-.5);
@@ -3618,7 +3629,7 @@ function renderMockPage(){
 function startMockExam(pid){
   const pat = MOCK_PATTERNS.find(p=>p.id===pid);
   if(!pat) return;
-  const pool = BASE_QUESTIONS.filter(q=>pat.years.includes(q.year));
+  const pool = safeBaseQuestions().filter(q=>pat.years.includes(q.year));
   const queue = [];
   Object.entries(MOCK_DIST).forEach(([field, n])=>{
     const fPool = [...pool.filter(q=>q.field===field)].sort(()=>Math.random()-.5);
@@ -3751,7 +3762,7 @@ function showMockScore(){
 }
 
 function startOrigQuiz(level){
-  const qs = ORIG_QUESTIONS[level];
+  const qs = safeOrigQuestions()[level];
   if(!qs||!qs.length) return;
   quizState.queue = [...qs];
   quizState.idx = 0;
@@ -3764,7 +3775,7 @@ function startOrigQuiz(level){
 function beginQuiz(){
   _missionWasAllDone = false;
   showNextBtn(false, null);
-  const pool=QUESTIONS.filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
+  const pool=safeQuestions().filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
   if(!pool.length){alert('選択された条件に該当する問題がありません。');return}
   const ordered = quizState.order==='rnd' ? [...pool].sort(()=>Math.random()-.5) : [...pool];
   quizState.queue=quizState.count===0?ordered:ordered.slice(0,quizState.count);
@@ -3776,8 +3787,8 @@ function beginQuiz(){
 // ===== QUIZ =====
 let timer=null;
 function allPracticeQuestions(){
-  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
-  return [...QUESTIONS,...allOrig];
+  const allOrig=safeOrigFlat();
+  return [...safeQuestions(),...allOrig];
 }
 function escapeHTML(value){
   return String(value||'').replace(/[&<>"']/g, ch=>({
@@ -3868,7 +3879,7 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   const q=quizState.queue[quizState.idx],total=quizState.queue.length,idx=quizState.idx;
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
-  const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
+  const f=safeFields().find(f=>f.id===q.field)||{name:'—'};
   const diffN=getDifficultyStars(q);
   const freqN=getFreqStars(q);
   const sourceLabel=q.year?`${q.year}年`:'オリジナル';
@@ -4857,7 +4868,7 @@ function getSessionFeedback(pct, total, res, u){
     ];
     msg = goods[Math.floor(Math.random()*goods.length)];
     const wf = wrong.length ? wrong[0].q.field : null;
-    const fn = wf ? (FIELDS.find(f=>f.id===wf)||{name:wf}).name : null;
+    const fn = wf ? (safeFields().find(f=>f.id===wf)||{name:wf}).name : null;
     advice = fn
       ? `不正解は${wrong.length}問でした。${fn}の解説を読み直しておくと確実です。`
       : '不正解の問題は解説を読んで、根拠まで理解しておきましょう。';
@@ -5008,7 +5019,7 @@ function renderReview(){
 	  // 分野→単元/年度でグループ化して描画（折りたたみ対応）
 		  function renderGroup(qs,isWrong,isBookmarkedGroup=false,groupKey='',noteFocused=false,startOpen=true){
 		    let html='';
-	    FIELDS.forEach(f=>{
+	    safeFields().forEach(f=>{
 	      const fqs=qs.filter(q=>q.field===f.id);
 	      if(!fqs.length) return;
 	      const gid='field-'+(groupKey||isWrong)+'-'+f.id;
