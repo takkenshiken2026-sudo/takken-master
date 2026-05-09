@@ -310,14 +310,20 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-field{font-size:10px;color:var(--text3);font-weight:700;letter-spacing:.06em;margin-bottom:12px}
 .ichi-statement{font-size:var(--fs-body);color:var(--text);line-height:1.75;font-weight:var(--fw-normal)}
 .ichi-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.ichi-btn{padding:20px 0;border-radius:var(--r2);font-size:28px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:#fff;font-family:var(--font);transition:all .18s;box-shadow:var(--sh)}
+.ichi-btn{padding:20px 0;border-radius:var(--r2);font-size:28px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:#fff;font-family:var(--font);transition:all .18s;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
 .ichi-btn:hover{transform:translateY(-2px);box-shadow:var(--sh2)}
 .ichi-btn.maru{color:var(--ink)}
 .ichi-btn.batu{color:var(--ink)}
-.ichi-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.ichi-btn.correct-hl{background:#f0fdf4;border-color:#1a7a40;color:#1a7a40}
-.ichi-btn.wrong-hl{background:#fdf2f2;border-color:#c0392b;color:#c0392b}
-.ichi-result{background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:16px;display:none;overflow:visible}
+.ichi-btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+.ichi-btn.correct-hl,.ichi-btn.wrong-hl{opacity:1}
+.ichi-btn.correct-hl{background:var(--grn-s);border-color:var(--green);color:var(--green)}
+.ichi-btn.wrong-hl{background:var(--red-s);border-color:var(--red);color:var(--red)}
+.ichi-btn.correct-hl::after,.ichi-btn.wrong-hl::after{font-size:11px;font-weight:700;line-height:1;letter-spacing:.04em}
+.ichi-btn.correct-hl::after{content:'正解'}
+.ichi-btn.wrong-hl::after{content:'あなたの回答'}
+.ichi-result{background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:16px;display:none;overflow:visible;border:1px solid var(--border)}
+.ichi-result.ok{background:var(--grn-s);border-color:var(--grn-b)}
+.ichi-result.ng{background:var(--red-s);border-color:var(--red-b)}
 .ichi-result.show{display:block}
 .ichi-result-badge{font-size:var(--fs-sub);font-weight:var(--fw-strong);margin-bottom:6px}
 .ichi-result-badge.ok{color:#1a7a40}
@@ -390,10 +396,10 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .q-meta-value{font-size:12px;color:var(--text);font-weight:600;white-space:nowrap;line-height:1.2}
 .q-num{font-size:14px;font-family:var(--mono);color:var(--text3)}
 .q-text{font-size:16px;line-height:1.8;color:var(--text);font-family:var(--font)}
-.bookmark-btn{width:34px;height:34px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg2);color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
-.bookmark-btn:hover{background:var(--bg4);color:var(--text)}
-.bookmark-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
-.bookmark-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bookmark-btn{width:38px;height:38px;border-radius:var(--r);border:1.5px solid var(--border2);background:#fff;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh)}
+.bookmark-btn:hover{background:var(--bg3);border-color:var(--ink);color:var(--text);transform:translateY(-1px)}
+.bookmark-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2);box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.bookmark-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bookmark-btn.on svg{fill:currentColor}
 .bookmark-note-panel{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r2);padding:14px 16px;margin:-4px 0 12px;box-shadow:var(--sh)}
 .bookmark-note-panel.locked{background:var(--bg3);color:var(--text3);font-size:13px;line-height:1.6}
@@ -820,13 +826,13 @@ details.rich-detail summary{display:none}
   .q-meta .diff-stars{width:55px;flex-basis:55px}
   .q-meta .freq-stars{width:49px;flex-basis:49px}
   .diff-star,.freq-star{width:9px;height:9px;flex:0 0 9px}
-  .bookmark-btn{width:32px;height:32px}
+  .bookmark-btn{width:40px;height:40px}
   .q-text{font-size:14px;line-height:1.65}
   .q-meta{margin-bottom:8px}
   .opts-list{gap:5px;margin-bottom:8px}
   .opt{font-size:14px;padding:10px 12px;line-height:1.55;gap:10px}
-  .btn-next-float.show{left:14px;right:14px;width:auto;max-width:none;transform:none;bottom:calc(12px + env(safe-area-inset-bottom));border-radius:var(--r);padding:14px 18px}
-  #page-ichimondou{padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+  .btn-next-float.show{left:auto;right:14px;width:auto;min-width:112px;max-width:none;transform:none;bottom:calc(76px + env(safe-area-inset-bottom));border-radius:999px;padding:13px 18px}
+  #page-ichimondou{padding-bottom:calc(180px + env(safe-area-inset-bottom))}
   .ichi-card{padding:16px 14px;margin-bottom:12px;min-height:0}
   .ichi-head{margin-bottom:8px}
   .ichi-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px;margin-bottom:8px}
@@ -835,11 +841,12 @@ details.rich-detail summary{display:none}
   .ichi-meta .diff-stars{min-width:0;flex:0 0 auto}
   .ichi-field{margin-bottom:8px}
   .ichi-statement{font-size:14px;line-height:1.7}
-  .ichi-btns{gap:8px;margin-bottom:12px}
+  .ichi-btns:not(.answered){position:fixed;left:14px;right:14px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:44;gap:8px;margin-bottom:0}
+  .ichi-btns.answered{gap:8px;margin-bottom:12px}
   .ichi-btn{padding:16px 0;font-size:24px}
   .ichi-result{padding:13px 14px;margin-bottom:86px;max-height:none;overflow:visible}
   .ichi-result-exp{font-size:14px;line-height:1.8;max-height:none;overflow:visible}
-  .ichi-next-btn.show{position:fixed;left:14px;right:14px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;width:auto;padding:14px 18px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+  .ichi-next-btn.show{position:fixed;right:14px;left:auto;bottom:calc(76px + env(safe-area-inset-bottom));z-index:45;width:auto;min-width:112px;padding:13px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
   /* score */
   .score-btns{flex-direction:column}
   .score-btns .btn-primary,.score-btns .btn-ghost{width:100%;text-align:center}
@@ -1461,7 +1468,7 @@ body.is-solving .exam-banner{display:none}
         <div class="ichi-statement" id="ichi-statement"></div>
       </div>
       <div id="ichi-bookmark-note-wrap"></div>
-      <div class="ichi-btns">
+      <div class="ichi-btns" id="ichi-btns">
         <button class="ichi-btn maru" id="ichi-btn-maru" onclick="answerIchi(true)">○</button>
         <button class="ichi-btn batu" id="ichi-btn-batu" onclick="answerIchi(false)">×</button>
       </div>
@@ -3455,6 +3462,7 @@ function showIchiQuestion() {
   document.getElementById('ichi-btn-batu').disabled = false;
   document.getElementById('ichi-btn-maru').className = 'ichi-btn maru';
   document.getElementById('ichi-btn-batu').className = 'ichi-btn batu';
+  document.getElementById('ichi-btns')?.classList.remove('answered');
   const result = document.getElementById('ichi-result');
   result.className = 'ichi-result';
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn';
@@ -3475,6 +3483,7 @@ function answerIchi(userAnswer) {
   // ボタン色変更
   document.getElementById('ichi-btn-maru').disabled = true;
   document.getElementById('ichi-btn-batu').disabled = true;
+  document.getElementById('ichi-btns')?.classList.add('answered');
   if(q.correctAnswer === true) {
     document.getElementById('ichi-btn-maru').className += ' correct-hl';
     if(!correct) document.getElementById('ichi-btn-batu').className += ' wrong-hl';
@@ -3490,11 +3499,8 @@ function answerIchi(userAnswer) {
   badge.textContent += '　' + (q.correctAnswer ? '○が正解' : '×が正解');
   exp.textContent = q.exp || '';
   const resultBox = document.getElementById('ichi-result');
-  resultBox.className = 'ichi-result show';
+  resultBox.className = 'ichi-result show ' + (correct ? 'ok' : 'ng');
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn show';
-  if(window.matchMedia && window.matchMedia('(max-width: 700px)').matches){
-    setTimeout(()=>resultBox.scrollIntoView({behavior:'smooth', block:'start'}), 40);
-  }
 }
 
 function nextIchi() {
