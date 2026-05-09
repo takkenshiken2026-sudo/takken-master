@@ -148,7 +148,7 @@ body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:v
 #g-tooltip{position:fixed;background:var(--ink);color:#fff;font-size:12px;line-height:1.6;padding:7px 10px;border-radius:6px;white-space:normal;width:200px;pointer-events:none;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,0.22);display:none}
 
 .site-catchcopy{font-size:32px;font-weight:800;color:var(--text);margin-top:24px;margin-bottom:40px;line-height:1.45;letter-spacing:-0.03em}
-@media(max-width:700px){.site-catchcopy{font-size:16px}}
+@media(max-width:700px){.site-catchcopy{font-size:16px;margin-top:10px;margin-bottom:22px;line-height:1.42}}
 
 /* ===== ORIG BANNER ===== */
 .orig-banner{display:flex;align-items:center;gap:16px;background:var(--ink);color:#fff;border-radius:var(--r2);padding:18px 20px;margin-bottom:10px;cursor:pointer;transition:opacity .15s;text-decoration:none}
@@ -478,7 +478,7 @@ details.rich-detail summary{display:none}
 .share-text-box:focus{background:#fff;border-color:var(--ink)}
 /* ===== FREQ STARS ===== */
 .freq-wrap{display:inline-flex;align-items:center;gap:3px;vertical-align:middle;flex-shrink:0;min-width:0;height:18px}
-.freq-stars{display:inline-flex;align-items:center;gap:2px;vertical-align:middle;line-height:1;width:37px;flex:0 0 37px}
+.freq-stars{display:inline-flex;align-items:center;gap:2px;vertical-align:middle;line-height:1;width:63px;flex:0 0 63px}
 .freq-star{width:11px;height:11px;display:block;flex:0 0 11px;line-height:11px;text-align:center}
 .freq-star.on{color:var(--ink)}
 .freq-star.off{color:var(--bg4)}
@@ -558,10 +558,15 @@ details.rich-detail summary{display:none}
 .stat-val.cv-red{color:var(--red)}
 .stat-val.cv-gray{color:var(--text2)}
 .stat-sub{font-size:12px;color:var(--text3);margin-left:4px;display:inline}
-.dash-period-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:13px 14px;margin:13px 0;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.dash-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.dash-title-row .page-title{margin-bottom:0}
+.dash-period-card{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .dash-period-tabs{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.dash-period-custom{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.dash-period-input{height:32px;border:1px solid var(--border2);border-radius:6px;background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;padding:0 8px}
+.dash-period-custom{display:none;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap;margin:-4px 0 12px}
+.dash-period-custom.open{display:flex}
+.dash-period-card .count-btn{min-width:46px;height:26px;padding:0 9px;font-size:11px;border-width:1px;background:#fff}
+.dash-period-card .count-btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dash-period-input{height:26px;border:1px solid var(--border2);border-radius:6px;background:#fff;color:var(--text);font-family:var(--font);font-size:11px;padding:0 7px}
 .dash-period-sep{font-size:12px;color:var(--text3)}
 .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .field-row{margin-bottom:12px}
@@ -774,11 +779,21 @@ details.rich-detail summary{display:none}
   .page-title{font-size:var(--fs-title);font-weight:var(--fw-strong)}
   .page-sub{font-size:var(--fs-sub);line-height:1.6;margin-bottom:18px}
   .section-label,h2.section-label{font-size:var(--fs-caption);letter-spacing:.04em}
+  .dash-title-row{align-items:flex-start;flex-direction:column;gap:8px;margin-bottom:6px}
+  .dash-period-card{width:100%;justify-content:flex-start}
+  .dash-period-card .count-btn{min-width:44px;height:26px;padding:0 8px;font-size:11px}
+  .dash-period-custom{justify-content:flex-start;margin:-8px 0 12px}
   /* grids */
   .stat-row{grid-template-columns:repeat(2,1fr);gap:8px}
   .dash-grid{grid-template-columns:1fr}
   .mode-grid{grid-template-columns:1fr 1fr;gap:8px}
   .mode-card-featured{grid-column:1 / -1}
+  .mode-card-v2{padding:13px 14px;gap:10px;min-height:86px}
+  .mode-num-v2{width:18px}
+  .mode-purpose-v2,.mode-title-v2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mode-purpose-v2{font-size:12px;margin-bottom:2px}
+  .mode-title-v2{font-size:17px;line-height:1.25}
+  .mode-arrow-v2{font-size:15px}
   .year-grid{grid-template-columns:repeat(3,1fr)}
   .analytics-grid{grid-template-columns:1fr}
   .account-grid{grid-template-columns:1fr}
@@ -798,12 +813,12 @@ details.rich-detail summary{display:none}
   .q-meta-field .q-meta-label{display:block;white-space:normal;line-height:1.25}
   .diff-wrap,.freq-wrap{gap:2px;margin-left:0}
   .q-meta-item.diff-wrap{flex:0 0 104px}
-  .q-meta-item.freq-item{flex:0 0 78px}
+  .q-meta-item.freq-item{flex:0 0 90px}
   .q-meta .diff-label{font-size:11px;line-height:1.15;width:38px;flex-basis:38px}
   .q-meta .freq-wrap .q-meta-label{font-size:11px;line-height:1.15;width:38px;flex-basis:38px}
   .diff-stars,.freq-stars{gap:1px}
   .q-meta .diff-stars{width:55px;flex-basis:55px}
-  .q-meta .freq-stars{width:29px;flex-basis:29px}
+  .q-meta .freq-stars{width:49px;flex-basis:49px}
   .diff-star,.freq-star{width:9px;height:9px;flex:0 0 9px}
   .bookmark-btn{width:32px;height:32px}
   .q-text{font-size:14px;line-height:1.65}
@@ -857,12 +872,15 @@ details.rich-detail summary{display:none}
   /* footer */
   .site-footer{position:static}
   .site-footer-copy{display:none}
-  .site-footer-inner{padding:10px 14px;gap:10px;flex-direction:row;align-items:center}
-  .site-footer-logo{display:none}
-  .site-footer-legal a{font-size:12px}
+  .site-footer-inner{padding:10px 12px;gap:10px;flex-direction:row;align-items:center;flex-wrap:nowrap;white-space:nowrap}
+  .site-footer-logo{display:flex;gap:6px;min-width:0}
+  .site-footer-logo span{font-size:14px!important}
+  .site-footer-legal{gap:14px;flex-wrap:nowrap;flex-shrink:0}
+  .site-footer-legal a{font-size:12px;white-space:nowrap}
   /* exam banner */
   .exam-banner{padding:5px 14px;gap:6px;font-size:12px}
   .exam-banner-msg{display:none}
+  .next-key-hint{display:none}
   /* stat card */
   .stat-card{padding:12px}
   .stat-val{font-size:22px}
@@ -906,6 +924,7 @@ details.rich-detail summary{display:none}
 .exam-banner-label{opacity:.75;font-size:var(--fs-caption)}
 .exam-banner-date{opacity:.6;font-size:var(--fs-tiny);font-family:var(--mono)}
 .exam-banner-msg{opacity:.85;font-size:var(--fs-caption);font-style:italic;border-left:1px solid rgba(255,255,255,0.3);padding-left:10px;margin-left:2px}
+body.is-solving .exam-banner{display:none}
 
 /* ===== FOOTER ===== */
 .site-footer{position:fixed;bottom:0;left:0;right:0;border-top:1px solid var(--border);background:var(--bg2);z-index:20}
@@ -919,11 +938,11 @@ details.rich-detail summary{display:none}
 .site-footer-legal{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .site-footer-legal a{font-size:14px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none;white-space:nowrap}
 .site-footer-legal a:hover{color:var(--text2)}
-@media(max-width:600px){
-  .site-footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
+@media(max-width:700px){
+  .site-footer-inner{flex-direction:row;align-items:center;gap:10px;flex-wrap:nowrap;white-space:nowrap}
   .site-footer-copy{margin-left:0}
   .site-footer-sep{display:none}
-  .site-footer-legal{gap:12px}
+  .site-footer-legal{gap:14px;flex-wrap:nowrap}
 }
 
 /* ========== GAMIFICATION ==========
@@ -972,7 +991,7 @@ details.rich-detail summary{display:none}
 .level-badge-inner{display:flex;flex-direction:column;padding:18px;flex:1}
 .level-badge-num{font-size:var(--fs-title);font-weight:700;font-family:var(--mono);color:var(--ink);line-height:1;margin:4px 0 2px}
 .level-badge-info{flex:1;min-width:0}
-.level-badge-title{font-size:16px;font-weight:700;color:var(--text)}
+.level-badge-title{font-size:12px;font-weight:700;color:var(--text);letter-spacing:.04em}
 .level-badge-sub{font-size:12px;color:var(--text3);margin-top:3px}
 /* Streak banner in quiz-start */
 .streak-bar{display:flex;align-items:stretch;background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--r2);margin-bottom:0;box-shadow:var(--sh);overflow:hidden}
@@ -1049,13 +1068,13 @@ details.rich-detail summary{display:none}
 .mission-prog{font-size:13px;font-family:var(--mono);color:var(--text3)}
 /* Difficulty stars in q-meta */
 .q-meta-item.diff-wrap{flex:0 0 114px}
-.q-meta-item.freq-item{flex:0 0 86px}
+.q-meta-item.freq-item{flex:0 0 108px}
 .diff-wrap{display:inline-flex;align-items:center;gap:3px;margin-left:0;vertical-align:middle;flex-shrink:0;height:18px}
 .q-meta .diff-label,.q-meta .freq-wrap .q-meta-label{font-size:12px;color:var(--text3);font-weight:500;white-space:nowrap;line-height:18px;width:42px;flex:0 0 42px}
 .freq-wrap{display:inline-flex;align-items:center;gap:3px;vertical-align:middle;flex-shrink:0;height:18px}
 .diff-stars,.freq-stars{display:inline-flex;align-items:center;gap:2px;vertical-align:middle;flex-shrink:0;line-height:1}
 .q-meta .diff-stars{width:67px;flex:0 0 67px}
-.q-meta .freq-stars{width:37px;flex:0 0 37px}
+.q-meta .freq-stars{width:63px;flex:0 0 63px}
 .diff-star,.freq-star{width:11px;height:11px;display:block;flex:0 0 11px;line-height:11px;text-align:center;font-size:11px}
 .diff-star.on{color:var(--ink)}
 .diff-star.off{color:var(--bg4)}
@@ -1081,6 +1100,8 @@ details.rich-detail summary{display:none}
   #toast-wrap{top:auto;right:12px;left:12px;bottom:calc(var(--fnav-h,56px) + 12px);align-items:stretch}
   .toast{text-align:center;white-space:normal}
   .diff-stars,.freq-stars{gap:1px}
+  .q-meta-item.freq-item{flex:0 0 96px}
+  .q-meta .freq-stars{width:49px;flex:0 0 49px}
   .diff-star,.freq-star{width:9px!important;height:9px!important;flex:0 0 9px}
   .ichi-meta .diff-star{font-size:9px;line-height:1}
 }
@@ -1204,7 +1225,6 @@ details.rich-detail summary{display:none}
         <div class="auth-err" id="login-err"></div>
         <button class="btn-auth" onclick="doLogin()">ログイン</button>
         <div class="auth-demo" style="margin-top:10px"><a onclick="sendPasswordReset()">パスワードを忘れた方はこちら</a></div>
-        <div class="auth-demo"><a onclick="demoLogin()">ログインしないでそのまま利用 →</a></div>
       </div>
       <div id="auth-register" style="display:none">
         <div class="form-group"><label class="form-label">お名前</label><input class="form-input" id="reg-name" type="text" placeholder="田中 太郎"></div>
@@ -1212,7 +1232,6 @@ details.rich-detail summary{display:none}
         <div class="form-group"><label class="form-label">パスワード（英字と数字を含む6文字以上）</label><input class="form-input" id="reg-pw" type="password" placeholder="abc123"></div>
         <div class="auth-err" id="reg-err"></div>
         <button class="btn-auth" onclick="doRegister()">アカウント作成</button>
-        <div class="auth-demo"><a onclick="demoLogin()">ログインしないでそのまま利用 →</a></div>
       </div>
       <div id="auth-reset" style="display:none">
         <div class="form-group"><label class="form-label">新しいパスワード（英字と数字を含む6文字以上）</label><input class="form-input" id="reset-pw" type="password" placeholder="abc123"></div>
@@ -1391,7 +1410,7 @@ details.rich-detail summary{display:none}
         <div class="mode-card-v2" onclick="gotoPage('past-config')">
           <div class="mode-num-v2">02</div>
           <div class="mode-body-v2">
-            <div class="mode-purpose-v2">本番の出題傾向を押さえたい（過去問10年以上掲載）</div>
+            <div class="mode-purpose-v2">本番の出題傾向を押さえたい（10年以上掲載）</div>
             <div class="mode-title-v2">過去問</div>
           </div>
           <div class="mode-arrow-v2">›</div>
@@ -1399,7 +1418,7 @@ details.rich-detail summary{display:none}
         <div class="mode-card-v2" onclick="gotoPage('orig')">
           <div class="mode-num-v2">03</div>
           <div class="mode-body-v2">
-            <div class="mode-purpose-v2">本格的に実力をつけたい（オリジナル問題1,000問格納済み）</div>
+            <div class="mode-purpose-v2">本格的に実力をつけたい（1,000問以上掲載）</div>
             <div class="mode-title-v2">オリジナル問題</div>
           </div>
           <div class="mode-arrow-v2">›</div>
@@ -1527,28 +1546,28 @@ details.rich-detail summary{display:none}
           <li class="breadcrumb-item breadcrumb-current" aria-current="page">分析</li>
         </ol>
       </nav>
-      <h2 class="page-title">分析</h2>
+      <div class="dash-title-row">
+        <h2 class="page-title">分析</h2>
+        <div class="dash-period-card">
+          <div class="dash-period-tabs" role="group" aria-label="分析期間">
+            <button class="count-btn on" id="dash-period-all" onclick="setDashPeriod('all')">全期間</button>
+            <button class="count-btn" id="dash-period-month" onclick="setDashPeriod('month')">今月</button>
+            <button class="count-btn" id="dash-period-week" onclick="setDashPeriod('week')">今週</button>
+            <button class="count-btn" id="dash-period-custom" onclick="setDashPeriod('custom')">任意</button>
+          </div>
+        </div>
+      </div>
       <div class="page-sub" id="dash-greeting">おかえりなさい</div>
-
-      <div id="dash-level-bar"></div>
-      <div class="dash-period-card">
-        <div class="dash-period-tabs" role="group" aria-label="分析期間">
-          <button class="count-btn on" id="dash-period-all" onclick="setDashPeriod('all')">全期間</button>
-          <button class="count-btn" id="dash-period-month" onclick="setDashPeriod('month')">今月</button>
-          <button class="count-btn" id="dash-period-week" onclick="setDashPeriod('week')">今週</button>
-          <button class="count-btn" id="dash-period-custom" onclick="setDashPeriod('custom')">任意</button>
-        </div>
-        <div class="dash-period-custom">
-          <input class="dash-period-input" type="date" id="dash-date-from" onchange="setDashPeriod('custom')" aria-label="開始日">
-          <span class="dash-period-sep">〜</span>
-          <input class="dash-period-input" type="date" id="dash-date-to" onchange="setDashPeriod('custom')" aria-label="終了日">
-        </div>
+      <div class="dash-period-custom" id="dash-period-custom-row">
+        <input class="dash-period-input" type="date" id="dash-date-from" onchange="setDashPeriod('custom')" aria-label="開始日">
+        <span class="dash-period-sep">〜</span>
+        <input class="dash-period-input" type="date" id="dash-date-to" onchange="setDashPeriod('custom')" aria-label="終了日">
       </div>
       <div class="stat-row">
         <div class="stat-card"><div class="stat-label">総解答数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">正解・不正解を問わず、これまでに回答した問題の合計数</span></span></div><div class="stat-val cv-blue" id="d-total">0</div><div class="stat-sub">問</div></div>
         <div class="stat-card"><div class="stat-label">全体正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">全回答のうち正解した割合。高いほど定着度が高い</span></span></div><div class="stat-val cv-blue" id="d-rate">—</div></div>
-        <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">直近で何問連続して正解しているか。不正解でリセット</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問</div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
         <div class="stat-card"><div class="stat-label">復習待ち <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">一度不正解だった問題の数。復習タブで再挑戦できる</span></span></div><div class="stat-val cv-red" id="d-review-cnt">0</div><div class="stat-sub">問</div><button onclick="gotoPage('review')" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:4px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:var(--font);display:block;width:100%;transition:all .15s" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='none'">復習を始める →</button></div>
+        <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">直近で何問連続して正解しているか。不正解でリセット</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問</div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
       </div>
 
       <!-- 分野別・単元別正答率 -->
@@ -1563,15 +1582,11 @@ details.rich-detail summary{display:none}
         <div id="field-bars-wrap"></div>
       </div>
 
-      <div class="dash-grid">
-        <div class="card"><h2 class="section-label">年度別正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">過去問の年度ごとの正解率。未解答の年度は「—」と表示</span></span></h2><div id="an-year-bars"></div></div>
-        <div class="card"><h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2><div id="an-calendar"></div></div>
-      </div>
+      <div class="card" style="margin-bottom:13px"><h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2><div id="an-calendar"></div></div>
 
-      <div class="card analytics-full">
-        <h2 class="section-label">正答率の推移（セッション別）<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">セッション（1回の学習）ごとの正答率の変化。最大14回分を表示</span></span></h2>
-        <div class="chart-area"><svg id="trend-svg" style="width:100%;height:100%"></svg></div>
-      </div>
+      <h2 class="page-title" style="margin-top:22px">学習の歩み</h2>
+      <div class="page-sub">レベルとバッジで、これまでの積み上げを確認できます</div>
+      <div id="dash-level-bar"></div>
 
       <!-- 獲得バッジ -->
       <div class="card" style="margin-bottom:13px">
@@ -1603,8 +1618,18 @@ details.rich-detail summary{display:none}
       </nav>
       <h2 class="page-title">過去問</h2>
       <div class="page-sub">年度・分野を選んで学習スタート</div>
-      <div style="font-size:12px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;margin-bottom:16px;line-height:1.65">
-        ※ 掲載問題は、公式過去問そのものではなく、著作権上の配慮と最新法令への対応のため問題文・選択肢を編集した「過去問形式」の演習問題です。試験本番の原文・公式解答は<a href="https://www.retio.or.jp" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:underline">不動産適正取引推進機構（RETIO）</a>の公式サイトをご確認ください。
+
+      <div class="orig-bottom-bar" style="margin-top:0;margin-bottom:16px;padding-top:0;border-top:none;border-bottom:1px solid var(--border);padding-bottom:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px">
+          <h2 class="section-label" style="margin-bottom:0">出題数</h2>
+          <button class="btn-primary" onclick="beginQuiz()">スタート</button>
+        </div>
+        <div class="count-btns">
+          <button class="count-btn"    onclick="selCount(5)"  id="cb5">5問</button>
+          <button class="count-btn on" onclick="selCount(10)" id="cb10">10問</button>
+          <button class="count-btn"    onclick="selCount(30)" id="cb30">30問</button>
+          <button class="count-btn"    onclick="selCount(0)"  id="cb0">全問</button>
+        </div>
       </div>
 
       <h2 class="section-label">年度を選ぶ</h2>
@@ -1617,25 +1642,16 @@ details.rich-detail summary{display:none}
       <h2 class="section-label">分野を選ぶ</h2>
       <div class="field-chips" id="field-chips"></div>
 
-      <div class="count-row">
-        <span class="count-label">出題数</span>
-        <div class="count-btns">
-          <button class="count-btn"    onclick="selCount(5)"  id="cb5">5問</button>
-          <button class="count-btn on" onclick="selCount(10)" id="cb10">10問</button>
-          <button class="count-btn"    onclick="selCount(30)" id="cb30">30問</button>
-          <button class="count-btn"    onclick="selCount(0)"  id="cb0">全問</button>
-        </div>
+      <h2 class="section-label">出題順</h2>
+      <div class="count-btns" style="margin-bottom:22px">
+        <button class="count-btn on" id="order-seq" onclick="selOrder('seq')">最初から解く</button>
+        <button class="count-btn"    id="order-rnd" onclick="selOrder('rnd')">ランダムに解く</button>
       </div>
 
-      <div class="count-row">
-        <span class="count-label">出題順</span>
-        <div class="count-btns">
-          <button class="count-btn on" id="order-seq" onclick="selOrder('seq')">最初から解く</button>
-          <button class="count-btn"    id="order-rnd" onclick="selOrder('rnd')">ランダムに解く</button>
-        </div>
+      <div style="font-size:12px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;margin-top:16px;line-height:1.65">
+        ※ 掲載問題は、公式過去問そのものではなく、著作権上の配慮と最新法令への対応のため問題文・選択肢を編集した「過去問形式」の演習問題です。試験本番の原文・公式解答は<a href="https://www.retio.or.jp" target="_blank" rel="noopener" style="color:var(--text2);text-decoration:underline">不動産適正取引推進機構（RETIO）</a>の公式サイトをご確認ください。
       </div>
 
-      <button class="btn-primary" style="padding:11px 28px;font-size:14px;width:100%;max-width:300px" onclick="beginQuiz()">学習スタート</button>
     </div>
 
     <!-- ORIGINAL PRACTICE -->
@@ -2058,15 +2074,20 @@ const BADGE_DEFS = [
   {id:'total50',        icon:'stack',    name:'50問達成',          desc:'累計50問解答'},
   {id:'total100',       icon:'stack',    name:'100問達成',         desc:'累計100問解答'},
   {id:'total200',       icon:'stack',    name:'200問達成',         desc:'累計200問解答'},
+  {id:'total300',       icon:'stack',    name:'300問達成',         desc:'累計300問解答'},
   {id:'total500',       icon:'stack',    name:'500問達成',         desc:'累計500問解答'},
+  {id:'total750',       icon:'stack',    name:'750問達成',         desc:'累計750問解答'},
   {id:'total1000',      icon:'stack',    name:'1000問達成',        desc:'累計1000問解答'},
   {id:'streak3',        icon:'zap',      name:'3連続正解',         desc:'3問連続正解'},
   {id:'streak5',        icon:'zap',      name:'5連続正解',         desc:'5問連続正解'},
   {id:'streak10',       icon:'zap',      name:'10連続正解',        desc:'10問連続正解'},
+  {id:'streak20',       icon:'zap',      name:'20連続正解',        desc:'20問連続正解'},
   {id:'perfect_session',icon:'award',    name:'パーフェクト',      desc:'1セット全問正解'},
+  {id:'perfect10_session',icon:'award',  name:'10問満点',          desc:'10問以上のセットで全問正解'},
   {id:'day3',           icon:'calendar', name:'3日連続学習',       desc:'3日間連続で学習'},
   {id:'day7',           icon:'calendar', name:'7日連続学習',       desc:'7日間連続で学習'},
   {id:'day14',          icon:'calendar', name:'14日連続学習',      desc:'14日間連続で学習'},
+  {id:'day30',          icon:'calendar', name:'30日連続学習',      desc:'30日間連続で学習'},
   {id:'review_action',  icon:'review',   name:'復習を解く',        desc:'復習ページから問題に再挑戦'},
   {id:'bookmark_action',icon:'bookmark', name:'ブックマークを押す',desc:'気になる問題をブックマーク'},
   {id:'timer_action',   icon:'timer',    name:'タイマーを使う',    desc:'集中タイマーを開いて学習準備'},
@@ -2103,7 +2124,6 @@ function awardBadgeById(id, u){
   if(u.badges[id]) return null;
   u.badges[id] = Date.now();
   saveUser(u);
-  showToast(`${badge.name} を獲得しました`,'badge',2200);
   return badge;
 }
 
@@ -2129,16 +2149,21 @@ function checkAndAwardBadges(context){
     if(id==='streak3'        && streak>=3) earned=true;
     if(id==='streak5'        && streak>=5) earned=true;
     if(id==='streak10'       && streak>=10) earned=true;
+    if(id==='streak20'       && streak>=20) earned=true;
     if(id==='total10'        && total>=10) earned=true;
     if(id==='total50'        && total>=50) earned=true;
     if(id==='total100'       && total>=100) earned=true;
     if(id==='total200'       && total>=200) earned=true;
+    if(id==='total300'       && total>=300) earned=true;
     if(id==='total500'       && total>=500) earned=true;
+    if(id==='total750'       && total>=750) earned=true;
     if(id==='total1000'      && total>=1000) earned=true;
     if(id==='day3'           && dayStreak>=3) earned=true;
     if(id==='day7'           && dayStreak>=7) earned=true;
     if(id==='day14'          && dayStreak>=14) earned=true;
+    if(id==='day30'          && dayStreak>=30) earned=true;
     if(id==='perfect_session'&& context.sessionResults && context.sessionResults.length>=3 && context.sessionResults.every(r=>r.correct)) earned=true;
+    if(id==='perfect10_session'&& context.sessionResults && context.sessionResults.length>=10 && context.sessionResults.every(r=>r.correct)) earned=true;
     if(id==='all_fields'){
       const fields=['rights','law','limit','tax'];
       earned=fields.every(f=>Object.entries(u.answers||{}).some(([qid,a])=>{
@@ -2544,8 +2569,8 @@ function renderDashLevel(){
   const pct=next?Math.round((total-lv.min)/(next.min-lv.min)*100):100;
   const levelTip=`累計解答数に応じて上がる指標。全${LEVELS.length}段階（Lv1〜Lv${LEVELS.length}）で、現在はLv${lv.lv}です。`;
   el.innerHTML=`<div class="level-badge-wrap" style="margin-bottom:16px">
-    <div class="level-badge-inner" style="flex-direction:row;align-items:center;gap:14px">
-      <div class="level-badge-num" style="font-size:26px;min-width:52px;text-align:center">Lv${lv.lv}</div>
+    <div class="level-badge-inner" style="flex-direction:row;align-items:center;gap:12px;padding:14px">
+      <div class="level-badge-num" style="font-size:12px;min-width:38px;text-align:center;letter-spacing:.04em">Lv${lv.lv}</div>
       <div class="level-badge-info" style="flex:1;min-width:0">
         <div class="level-badge-title">レベル ${tip(levelTip)} <span style="font-size:12px;color:var(--text3);font-weight:600;margin-left:6px">全${LEVELS.length}段階</span></div>
         <div class="level-badge-sub" style="margin-top:2px;color:var(--text2);font-weight:600">${lv.label}</div>
@@ -2610,7 +2635,7 @@ function getFrequencyEvidence(q){
     key,
     count: stat.count || (q.year ? 1 : 0),
     years: stat.years.length ? stat.years : (q.year ? [q.year] : []),
-    stars: Math.min(3, yearCount)
+    stars: Math.min(5, Math.max(1, yearCount))
   };
 }
 function getDifficultyEvidence(q){
@@ -2641,7 +2666,7 @@ function getFreqStars(q){
   return getFrequencyEvidence(q).stars;
 }
 function freqStarsHTML(n){
-  return `<span class="freq-wrap"><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(n,3)}</span></span>`;
+  return `<span class="freq-wrap"><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(n,5)}</span></span>`;
 }
 function getDifficultyStars(q){
   return getDifficultyEvidence(q).stars;
@@ -3423,7 +3448,7 @@ function showIchiQuestion() {
   const freq=q.freqEvidence || getFrequencyEvidence(q);
   document.getElementById('ichi-meta').innerHTML =
     metaStarsHTML(diff.label, diff.stars, 5, diff.title) +
-    metaStarsHTML('頻出度', freq.stars, 3, `${freq.key || '論点'}：${freq.years.length ? freq.years.join('・') + '年' : '収録過去問で該当年なし'}`);
+    metaStarsHTML('頻出度', freq.stars, 5, `${freq.key || '論点'}：${freq.years.length ? freq.years.join('・') + '年' : '収録過去問で該当年なし'}`);
   updateBookmarkButton(q, 'ichi-bookmark-btn');
   renderBookmarkNote(q, 'ichi-bookmark-note-wrap');
   document.getElementById('ichi-btn-maru').disabled = false;
@@ -3497,6 +3522,8 @@ function gotoPage(id){
     startIchimondou();
     return;
   }
+  if(id!=='quiz') showNextBtn(false, null);
+  document.body.classList.toggle('is-solving', id==='quiz' || id==='ichimondou');
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -3622,6 +3649,7 @@ function setDashPeriod(mode){
   ['all','month','week','custom'].forEach(m=>{
     document.getElementById('dash-period-'+m)?.classList.toggle('on',m===mode);
   });
+  document.getElementById('dash-period-custom-row')?.classList.toggle('open',mode==='custom');
   renderDash();
   renderAnalytics();
 }
@@ -3715,8 +3743,6 @@ function renderDash(){
   document.getElementById('dash-greeting').textContent=`${h<12?'おはようございます':'おかえりなさい'}、${currentUser.name}さん`;
   renderBadgeGrid('dash-badge-grid');
   renderFieldBarsWrap();
-  const sessions=(u.sessions||[]).filter(s=>dashPeriodMode==='all'||isInDashPeriod(s.date));
-  renderTrendChart('trend-svg',sessions);
 }
 function renderTrendChart(svgId,sessions){
   const svg=document.getElementById(svgId); if(!svg)return;
@@ -5402,6 +5428,7 @@ function startOrigQuiz(level){
 
 function beginQuiz(){
   _missionWasAllDone = false;
+  showNextBtn(false, null);
   const pool=QUESTIONS.filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
   if(!pool.length){alert('選択された条件に該当する問題がありません。');return}
   const ordered = quizState.order==='rnd' ? [...pool].sort(()=>Math.random()-.5) : [...pool];
@@ -5563,7 +5590,7 @@ function pickOpt(i){
   showNextBtn(true, null);
   // Badge check (per-answer)
   const newBadges=checkAndAwardBadges({correct,sessionResults:quizState.sessionResults,u});
-  if(newBadges.length){ saveUser(u); newBadges.forEach((b,i)=>{ setTimeout(()=>showToast(`${b.name} を獲得しました`,'badge',2200),i*180); }); }
+  if(newBadges.length) saveUser(u);
   setTimeout(()=>maybeSendSupportLetters({u,correct,field:q.field,fromReview:!!quizState.fromReview}), 650);
   checkMissionAllComplete();
 }
@@ -5596,7 +5623,8 @@ function showNextBtn(show, cb, label){
   if(!el) return;
   if(show){
     if(cb) _nextFloatCallback = cb;
-    el.textContent = `${label || '次へ →'}  Enter`;
+    const isMobile = window.matchMedia && window.matchMedia('(max-width: 700px)').matches;
+    el.textContent = isMobile ? (label || '次へ →') : `${label || '次へ →'}  Enter`;
     el.classList.add('show');
     // re-trigger animation
     el.style.animation='none'; el.offsetHeight; el.style.animation='';
@@ -6699,24 +6727,6 @@ function renderReview(){
 
 // ===== ANALYTICS =====
 function renderAnalytics(){
-  const allYears=[...new Set(QUESTIONS.map(q=>q.year))].sort((a,b)=>b-a);
-  const u=getUserData();
-  const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
-  const origAns=allOrig.filter(q=>answeredInPeriod(u,q));
-  const origOk=origAns.filter(q=>u.answers[q.id].ans===q.ans);
-  const origPct=origAns.length>0?Math.round(origOk.length/origAns.length*100):null;
-  const yearRows=allYears.map(y=>{
-    const s=yearStats(y),pct=s.pct!==null?s.pct:0;
-    return `<div class="field-row"><div class="field-row-head">
-      <span class="field-row-name">${y}年</span>
-      <span class="field-row-pct">${s.pct!==null?s.pct+'%':'—'}</span>
-    </div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:var(--text2)"></div></div></div>`;
-  }).join('');
-  const origRow=`<div class="field-row" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)"><div class="field-row-head">
-      <span class="field-row-name">オリジナル問題</span>
-      <span class="field-row-pct">${origPct!==null?origPct+'%':'—'}</span>
-    </div><div class="bar-track"><div class="bar-fill" style="width:${origPct||0}%;background:var(--text2)"></div></div></div>`;
-  document.getElementById('an-year-bars').innerHTML=yearRows+origRow;
   renderStudyCalendar();
 }
 function getDailyAnswerCounts(){
@@ -6959,9 +6969,6 @@ loadDB();
     <div class="mission-popup-title" id="support-letter-title">応援レター</div>
     <div class="mission-popup-sub" id="support-letter-sub">応援レターが届きました</div>
     <div class="support-letter-body" id="support-letter-body"></div>
-    <div class="mission-popup-actions">
-      <button class="mission-popup-save" onclick="document.getElementById('support-letter-overlay').classList.remove('open');gotoPage('dash')">レターを読み返す</button>
-    </div>
     <button class="mission-popup-close" onclick="document.getElementById('support-letter-overlay').classList.remove('open')">閉じる</button>
   </div>
 </div>
