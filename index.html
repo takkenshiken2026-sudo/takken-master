@@ -294,9 +294,16 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 /* ===== QUIZ START V2 ===== */
 .mode-list-v2{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 /* ===== 一問一答 ===== */
+.ichi-config{padding:4px 0 20px;margin-bottom:8px}
+.ichi-config-lead{font-size:var(--fs-sub);color:var(--text2);line-height:1.65;margin-bottom:14px}
+.ichi-config #ichi-field-chips{margin-bottom:16px}
+.ichi-start-btn{width:100%;padding:13px;font-size:15px;font-weight:700}
+.ichi-play-wrap{display:block}
 .ichi-prog-wrap{margin-bottom:20px}
-.ichi-prog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ichi-prog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap}
 .ichi-prog-label{font-size:12px;font-family:var(--mono);color:var(--text2);font-weight:500}
+.ichi-rate{font-size:12px;font-family:var(--mono);color:var(--text);font-weight:600}
+.ichi-end-btn{font-size:12px;padding:6px 12px;margin-left:auto;flex-shrink:0}
 .ichi-prog-track{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .ichi-prog-fill{height:100%;background:var(--ink);border-radius:2px;transition:width .3s ease}
 .ichi-card{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:24px 20px;box-shadow:var(--sh);margin-bottom:20px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
@@ -335,7 +342,9 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-score-wrap{text-align:center;padding:20px 0}
 .ichi-score-num{font-size:64px;font-weight:800;color:var(--text);letter-spacing:-0.04em;font-family:var(--mono);line-height:1}
 .ichi-score-denom{font-size:16px;color:var(--text3);margin-bottom:8px}
-.ichi-score-label{font-size:14px;color:var(--text2);margin-bottom:32px}
+.ichi-score-label{font-size:14px;color:var(--text2);margin-bottom:16px}
+.ichi-score-summary{display:flex;justify-content:center;gap:28px;margin-bottom:24px;flex-wrap:wrap;font-size:14px;color:var(--text2)}
+.ichi-score-summary strong{font-family:var(--mono);font-size:18px;color:var(--text);margin-left:6px}
 .ichi-score-btns{display:flex;flex-direction:column;gap:10px}
 .mode-card-v2{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:16px;box-shadow:var(--sh);transition:all .18s}
 .mode-card-v2:hover{box-shadow:var(--sh2);border-color:var(--text2);transform:translateY(-1px);background:var(--bg3)}
@@ -557,7 +566,7 @@ details.rich-detail summary{display:none}
 .score-btns{display:flex;gap:9px;flex-wrap:wrap}
 
 /* ===== DASHBOARD ===== */
-.stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+.stat-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:18px}
 .stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;box-shadow:var(--sh)}
 .stat-label{font-size:12px;color:var(--text);letter-spacing:.04em;margin-bottom:7px;font-weight:700}
 .stat-val{font-size:28px;font-weight:700;font-family:var(--mono);line-height:1;letter-spacing:-1px;display:inline}
@@ -1144,6 +1153,9 @@ body.is-solving .exam-banner{display:none}
 .diff-star,.freq-star{width:11px;height:11px;display:block;flex:0 0 11px;line-height:11px;text-align:center;font-size:11px}
 .diff-star.on{color:var(--ink)}
 .diff-star.off{color:var(--bg4)}
+.diff-unknown{font-size:12px;font-weight:700;color:var(--text3);font-family:var(--mono);letter-spacing:.02em;white-space:nowrap;line-height:18px}
+.ichi-meta .ichi-diff-wrap .diff-inner{display:inline-flex;align-items:center;gap:4px}
+.ichi-meta .ichi-diff-wrap .diff-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.06em;width:auto;flex:0 0 auto}
 .freq-star.on{color:var(--ink)}
 .freq-star.off{color:var(--bg4)}
 /* Year tags in exp */
@@ -1377,7 +1389,6 @@ body.is-solving .exam-banner{display:none}
         <button class="sound-btn" id="sound-rain" onclick="toggleFocusSound('rain')">雨音</button>
         <button class="sound-btn" id="sound-wave" onclick="toggleFocusSound('wave')">波音</button>
         <button class="sound-btn" id="sound-white" onclick="toggleFocusSound('white')">ホワイト</button>
-        <button class="sound-btn" id="sound-cafe" onclick="toggleFocusSound('cafe')">カフェBGM</button>
         <button class="sound-btn" id="sound-off" onclick="toggleFocusSound('off')">OFF</button>
       </div>
       <div class="volume-row">
@@ -1502,9 +1513,23 @@ body.is-solving .exam-banner{display:none}
           <li class="breadcrumb-item breadcrumb-current">一問一答</li>
         </ol>
       </nav>
+      <div id="ichi-config" class="ichi-config">
+        <p class="ichi-config-lead">分野を選んで「開始」してください。連続で出題され、「終了」で結果が表示されます。</p>
+        <div class="field-chips" id="ichi-field-chips">
+          <button type="button" class="chip on" data-field="" onclick="selectIchiField(this)">全分野</button>
+          <button type="button" class="chip" data-field="rights" onclick="selectIchiField(this)">権利関係</button>
+          <button type="button" class="chip" data-field="law" onclick="selectIchiField(this)">宅建業法</button>
+          <button type="button" class="chip" data-field="limit" onclick="selectIchiField(this)">法令上の制限</button>
+          <button type="button" class="chip" data-field="tax" onclick="selectIchiField(this)">税・その他</button>
+        </div>
+        <button type="button" class="btn-primary ichi-start-btn" onclick="beginIchimondouSession()">開始</button>
+      </div>
+      <div id="ichi-play-wrap" class="ichi-play-wrap" style="display:none">
       <div class="ichi-prog-wrap">
         <div class="ichi-prog-head">
-          <span class="ichi-prog-label" id="ichi-prog-label">1 / 10</span>
+          <span class="ichi-prog-label" id="ichi-prog-label">第 1 問</span>
+          <span class="ichi-rate" id="ichi-rate">正答率 —</span>
+          <button type="button" class="btn-ghost ichi-end-btn" onclick="endIchimondouSession()">終了</button>
         </div>
         <div class="ichi-prog-track"><div class="ichi-prog-fill" id="ichi-prog-fill" style="width:0%"></div></div>
       </div>
@@ -1528,6 +1553,7 @@ body.is-solving .exam-banner{display:none}
         <div class="ichi-result-exp" id="ichi-result-exp"></div>
       </div>
       <button class="ichi-next-btn" id="ichi-next-btn" onclick="nextIchi()">次へ → <span class="next-key-hint">Enter</span></button>
+      </div>
     </div>
 
     <!-- 一問一答スコア -->
@@ -1540,10 +1566,15 @@ body.is-solving .exam-banner{display:none}
       </nav>
       <div class="ichi-score-wrap">
         <div class="ichi-score-num" id="ichi-score-num">0</div>
-        <div class="ichi-score-denom">/ 10問正解</div>
+        <div class="ichi-score-denom" id="ichi-score-denom">/ 0問中</div>
+        <div class="ichi-score-summary" id="ichi-score-summary">
+          <span>回答数<strong id="ichi-score-attempts">0</strong>問</span>
+          <span>正答率<strong id="ichi-score-pct">—</strong></span>
+        </div>
         <div class="ichi-score-label" id="ichi-score-label"></div>
         <div class="ichi-score-btns">
           <button class="btn-primary" onclick="startIchimondou()" style="font-size:15px;padding:13px">もう1回</button>
+          <button class="btn-ghost" onclick="shareIchiResultToX()" style="font-size:15px;padding:13px">Xに投稿する</button>
           <button class="btn-ghost" onclick="gotoPage('quiz-start')" style="font-size:15px;padding:13px">他の問題を解く</button>
         </div>
       </div>
@@ -1571,6 +1602,7 @@ body.is-solving .exam-banner{display:none}
 	      <div class="opts-list" id="opts"></div>
       <div id="q-result"></div>
       <div class="quiz-btns">
+        <button class="btn-ghost" id="btn-back-to-score" style="display:none" onclick="backToScoreFromReplay()">結果に戻る</button>
         <button class="btn-ghost" onclick="gotoPage('quiz-start')">中断</button>
         <button class="btn-next" id="btn-next-dummy" style="display:none"></button>
       </div>
@@ -1580,7 +1612,7 @@ body.is-solving .exam-banner{display:none}
 
     <!-- SCORE -->
     <div class="page" id="page-score">
-      <h2 class="page-title">セッション結果</h2>
+      <h2 class="page-title">結果</h2>
       <div class="page-sub">お疲れさまでした</div>
       <div class="score-wrap">
         <div id="score-session-msg" style="margin-bottom:16px"></div>
@@ -1623,6 +1655,7 @@ body.is-solving .exam-banner{display:none}
       </div>
       <div class="stat-row">
         <div class="stat-card"><div class="stat-label">総解答数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">正解・不正解を問わず、これまでに回答した問題の合計数</span></span></div><div class="stat-val cv-blue" id="d-total">0</div><div class="stat-sub">問</div></div>
+        <div class="stat-card"><div class="stat-label">獲得バッジ <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">これまでに解放したバッジの種類数（全バッジ種類に対する割合）</span></span></div><div class="stat-val cv-blue" id="d-badge-earned">0</div><div class="stat-sub" id="d-badge-sub">/ 0種</div></div>
         <div class="stat-card"><div class="stat-label">全体正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">全回答のうち正解した割合。高いほど定着度が高い</span></span></div><div class="stat-val cv-blue" id="d-rate">—</div></div>
         <div class="stat-card"><div class="stat-label">復習待ち <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">一度不正解だった問題の数。復習タブで再挑戦できる</span></span></div><div class="stat-val cv-red" id="d-review-cnt">0</div><div class="stat-sub">問</div><button onclick="gotoPage('review')" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:4px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:var(--font);display:block;width:100%;transition:all .15s" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='none'">復習を始める →</button></div>
         <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">直近で何問連続して正解しているか。不正解でリセット</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問</div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
@@ -1873,7 +1906,7 @@ body.is-solving .exam-banner{display:none}
       <div id="glossary-list">
 <!-- SEO: 静的用語解説コンテンツ（JS実行前にクローラーが読める） -->
 <section class="glos-static-section" aria-label="用語解説一覧">
-<p class="glos-static-intro"><a href="https://takken-master.jp/glossary/">用語解説の全一覧（記事一覧）</a>を公開しています。JavaScriptを有効にすると、アプリ内の用語データを検索・カテゴリで絞り込みできます。以下はクローラー向けに代表的な用語を静的に記載しています。</p>
+<p class="glos-static-intro"><a href="https://takken-master.jp/glossary/">用語解説の全一覧（170テーマ）</a>と同じスラッグで、アプリ内にも用語データを用意しています。JavaScriptを有効にすると検索・カテゴリで絞り込みできます。以下はクローラー向けに代表的な用語を静的に記載しています。</p>
 <div class="glos-cat-section" data-cat="rights">
 <h3 class="glos-cat-heading">権利関係</h3>
 <article class="glos-static-card" id="glos-static-buken" itemscope itemtype="https://schema.org/DefinedTerm">
@@ -2412,61 +2445,7 @@ const focusAudioSources={
   wave:'focus-waves.ogg',
   white:'focus-white-noise.ogg'
 };
-const focusState={duration:15*60,left:15*60,running:false,timer:null,sound:'off',player:null,webAmb:null};
-function stopCafeWebAmbience(){
-  const w=focusState.webAmb;
-  if(!w) return;
-  focusState.webAmb=null;
-  try{
-    (w.nodes||[]).forEach(n=>{ try{ n.stop(); }catch(e){} try{ n.disconnect(); }catch(e){} });
-    if(w.ctx&&w.ctx.state!=='closed') w.ctx.close();
-  }catch(e){}
-}
-function playCafeSyntheticAmbience(vol){
-  const AC=window.AudioContext||window.webkitAudioContext;
-  if(!AC){
-    showToast('この環境ではカフェBGMを再生できません','wrong',2000);
-    focusState.sound='off';
-    renderFocusSound();
-    return;
-  }
-  const ctx=new AC();
-  const master=ctx.createGain();
-  master.gain.value=Math.min(0.22,vol*0.32);
-  master.connect(ctx.destination);
-  const freqs=[196,246.94,293.66,349.23];
-  const nodes=[];
-  freqs.forEach(f=>{
-    const osc=ctx.createOscillator();
-    osc.type='sine';
-    osc.frequency.value=f;
-    const g=ctx.createGain();
-    g.gain.value=0.11;
-    osc.connect(g).connect(master);
-    osc.start();
-    nodes.push(osc);
-  });
-  focusState.webAmb={ctx,master,nodes};
-  ctx.resume().catch(()=>{});
-}
-function tryPlayCafeAmbience(){
-  const vol=Number(document.getElementById('focus-volume')?.value||35)/100;
-  const files=['focus-cafe.mp3','focus-cafe.ogg'];
-  function attempt(idx){
-    if(idx>=files.length){ playCafeSyntheticAmbience(vol); return; }
-    const player=new Audio(files[idx]);
-    player.loop=true;
-    player.volume=vol*0.9;
-    const fail=()=>{ try{ player.pause(); player.src=''; }catch(e){} attempt(idx+1); };
-    player.addEventListener('error',fail,{once:true});
-    player.addEventListener('canplaythrough',()=>{
-      focusState.player=player;
-      player.play().catch(fail);
-    },{once:true});
-    player.load();
-  }
-  attempt(0);
-}
+const focusState={duration:15*60,left:15*60,running:false,timer:null,sound:'off',player:null};
 function fmtFocusTime(sec){
   const m=Math.floor(sec/60),s=sec%60;
   return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
@@ -2536,7 +2515,6 @@ function resetFocusTimer(){
   renderFocusTimer();
 }
 function clearFocusSound(){
-  stopCafeWebAmbience();
   if(focusState.player){
     focusState.player.pause();
     focusState.player.src='';
@@ -2546,10 +2524,6 @@ function clearFocusSound(){
 }
 function playFocusSound(kind){
   clearFocusSound();
-  if(kind==='cafe'){
-    tryPlayCafeAmbience();
-    return;
-  }
   const src=focusAudioSources[kind];
   if(!src){
     showToast('音源が見つかりません','wrong',1800);
@@ -2569,7 +2543,7 @@ function playFocusSound(kind){
   });
 }
 function renderFocusSound(){
-  ['rain','wave','white','cafe','off'].forEach(k=>{
+  ['rain','wave','white','off'].forEach(k=>{
     const el=document.getElementById('sound-'+k);
     if(el) el.classList.toggle('on',focusState.sound===k);
   });
@@ -2587,9 +2561,6 @@ function toggleFocusSound(kind){
 function setFocusVolume(value){
   const v=Number(value)/100;
   if(focusState.player) focusState.player.volume=v;
-  if(focusState.webAmb&&focusState.webAmb.master){
-    focusState.webAmb.master.gain.value=Math.min(0.22,v*0.32);
-  }
 }
 
 // --- Feedback messages ---
@@ -2850,78 +2821,143 @@ function renderBadgeGrid(targetId, compact){
   </div><div class="badge-grid">${html}</div>`;
 }
 
-// --- Evidence-based meta helpers ---
-function starIconsHTML(n, max){
-  const val=Math.max(0, Math.min(max, Number(n)||0));
-  return Array.from({length:max},(_,i)=>`<span class="diff-star ${i<val?'on':'off'}">★</span>`).join('');
+// --- Evidence-based meta helpers（★は常に1〜5段階。根拠は title / ツールチップで明示）---
+function escapeAttr(s){
+  if(s==null||s==='') return '';
+  return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 }
-function getQuestionTopicKey(q){
-  const raw=(q?.kaisetsu?.topic || q?.diagram?.title || q?.text || '').split(/[：:]/)[0];
-  return raw
+function clampStarRating(n){
+  const x=Number(n);
+  if(!isFinite(x)) return 3;
+  return Math.min(5, Math.max(1, Math.round(x)));
+}
+function starIconsHTML(n, max){
+  const cap=Math.max(1, Number(max)||5);
+  const val=clampStarRating(n);
+  return Array.from({length:cap},(_,i)=>`<span class="diff-star ${i<val?'on':'off'}">★</span>`).join('');
+}
+/** 頻出集計用：分野＋解説トピックから年度表記等を除いたクラスタキー */
+function getFrequencyTopicKey(q){
+  const field=q.field||'';
+  let raw=(q?.kaisetsu?.topic||q?.diagram?.title||'').trim();
+  raw=raw.replace(/^.{0,80}?(宅建士試験|宅建士\s*試験|試験\s*番号)/,'');
+  raw=raw.split(/[：:]/)[0].trim();
+  let core=raw
+    .replace(/\d{4}\s*年|令和\s*\d+\s*年|平成\s*\d+\s*年|昭和\s*\d+\s*年|第\s*\d+\s*問|問\s*\d+/g,'')
     .replace(/[「」『』（）()・、。,\s]/g,'')
-    .replace(/に関する.*$/,'')
-    .slice(0,24);
+    .replace(/に関する.*$/,'');
+  if(core.length>42) core=core.slice(0,42);
+  if(!core&&q.unit) return field+':unit:'+q.unit;
+  if(!core) return field+':general';
+  return field+':'+core;
 }
 function getTopicStats(){
-  if(window._topicStatsCache) return window._topicStatsCache;
+  if(window._topicStatsCacheV4) return window._topicStatsCacheV4;
   const stats={};
-  (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : []).forEach(q=>{
-    const key=getQuestionTopicKey(q);
-    if(!key || !q.year) return;
-    stats[key]=stats[key]||{count:0, years:new Set()};
+  const list=(typeof collectAllBaseQuestions==='function')
+    ? collectAllBaseQuestions()
+    : [].concat(typeof BASE_QUESTIONS!=='undefined'?BASE_QUESTIONS:[]).concat(typeof QUESTIONS!=='undefined'?QUESTIONS:[]);
+  list.forEach(q=>{
+    const key=getFrequencyTopicKey(q);
+    if(!key) return;
+    if(!stats[key]) stats[key]={count:0,years:new Set(),noYear:0};
     stats[key].count+=1;
-    stats[key].years.add(q.year);
+    if(q.year) stats[key].years.add(q.year);
+    else stats[key].noYear+=1;
   });
   Object.values(stats).forEach(s=>{ s.years=[...s.years].sort((a,b)=>a-b); });
-  window._topicStatsCache=stats;
+  window._topicStatsCacheV4=stats;
   return stats;
 }
 function getFrequencyEvidence(q){
-  const key=getQuestionTopicKey(q);
-  const stat=getTopicStats()[key] || {count:0, years:[]};
-  const yearCount=stat.years.length || (q.year ? 1 : 0);
+  const key=getFrequencyTopicKey(q);
+  const all=getTopicStats();
+  const stat=all[key]||{count:0,years:[],noYear:0};
+  const yearList=Array.isArray(stat.years)?stat.years:[];
+  const yCount=yearList.length;
+  const qCount=stat.count||0;
+  let maxY=1,maxC=1;
+  Object.values(all).forEach(s=>{
+    const ly=(s.years&&s.years.length)||0;
+    if(ly>maxY) maxY=ly;
+    if((s.count||0)>maxC) maxC=s.count||0;
+  });
+  let stars=3;
+  let detail='';
+  if(yCount>=2&&maxY>=2){
+    stars=Math.round(1+(yCount-1)*4/Math.max(1,maxY-1));
+    detail=`分野「${q.field||'—'}」内クラスタでは、収録過去問に${yCount}種類の出題年度が登場（データ全体で最大${maxY}年度）。`;
+  }else if(qCount>=2&&maxC>=2){
+    stars=Math.round(1+(qCount-1)*4/Math.max(1,maxC-1));
+    detail=`同一クラスタに類似論点の問題が${qCount}問収録（データ内で同一クラスタは最大${maxC}問）。`;
+  }else if(q.year){
+    stars=2;
+    detail=`収録データでは当該論点クラスタは主に${q.year}年度のみ確認。頻出の広さは限定的とみなします。`;
+  }else{
+    stars=3;
+    detail=`オリジナル問題または年度なし。過去出題年は未設定のため、類題数ベースで中立寄り（★3）に調整する場合があります。`;
+  }
+  stars=clampStarRating(stars);
+  const yearsDisp=yearList.length?yearList.join('・')+'年':(q.year?q.year+'年のみ':'年度なし');
+  const title=`頻出度★${stars}（1〜5）：${detail} 参照：${yearsDisp} / クラスタキー「${key}」`;
   return {
     key,
-    count: stat.count || (q.year ? 1 : 0),
-    years: stat.years.length ? stat.years : (q.year ? [q.year] : []),
-    stars: Math.min(5, Math.max(1, yearCount))
+    count:qCount,
+    years:yearList.length?yearList:(q.year?[q.year]:[]),
+    stars,
+    title
   };
 }
 function getDifficultyEvidence(q){
-  if(q.level){
-    const level=Number(q.level);
-    return {
-      label:'難易度',
-      stars: level===1 ? 2 : (level===2 ? 3 : 5),
-      title:`問題データのlevel=${level}に基づく難易度`
-    };
+  if(q.level!=null&&q.level!==''){
+    const raw=Number(q.level);
+    if(isFinite(raw)){
+      const lv=Math.round(raw);
+      // 難易度は5段階（1〜5）。★の個数＝level。旧データで1〜3のみのときは★が1・2・3個と並ぶ。
+      if(lv>=1&&lv<=5){
+        return {
+          label:'難易度',
+          stars:lv,
+          known:true,
+          title:`難易度は全5段階（level 1＝最易〜5＝最も難しい）です。★の数は level と同じです。過去に1〜3だけ入っていた問題も、level1→★1個・2→★2個・3→★3個になります。`
+        };
+      }
+    }
   }
-  const u=getUserData();
-  const ans=u?.answers?.[q.id];
-  if(ans && typeof ans.ans!=='undefined'){
-    const correct=ans.ans===q.ans;
-    return {
-      label:'苦手度',
-      stars: correct ? 1 : 5,
-      title: correct ? 'あなたがこの問題を正解済み' : 'あなたがこの問題を不正解済み'
-    };
-  }
-  return {label:'難易度', stars:0, title:'客観難易度データなし'};
+  return {
+    label:'難易度',
+    stars:null,
+    known:false,
+    title:'問題データに難易度（level：1〜5の整数）がないため、★による判定はできません。'
+  };
 }
 function metaStarsHTML(label, n, max, title){
-  return `<span class="ichi-meta-item" title="${title||''}"><span class="ichi-meta-label">${label}</span><span class="diff-stars">${starIconsHTML(n,max)}</span></span>`;
+  return `<span class="ichi-meta-item" title="${escapeAttr(title||'')}"><span class="ichi-meta-label">${label}</span><span class="diff-stars">${starIconsHTML(n,max||5)}</span></span>`;
 }
 function getFreqStars(q){
-  return getFrequencyEvidence(q).stars;
+  return clampStarRating(getFrequencyEvidence(q).stars);
 }
-function freqStarsHTML(n){
-  return `<span class="freq-wrap"><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(n,5)}</span></span>`;
+function freqStarsHTML(ev){
+  if(typeof ev==='number'){
+    return `<span class="freq-wrap" title=""><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(ev,5)}</span></span>`;
+  }
+  const n=clampStarRating(ev.stars);
+  return `<span class="freq-wrap" title="${escapeAttr(ev.title||'')}"><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(n,5)}</span></span>`;
 }
 function getDifficultyStars(q){
-  return getDifficultyEvidence(q).stars;
+  const ev=getDifficultyEvidence(q);
+  if(ev.known===false||ev.stars==null) return null;
+  return clampStarRating(ev.stars);
 }
-function diffStarsHTML(n){
-  return `<span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(n,5)}</span>`;
+function diffStarsHTML(ev){
+  if(typeof ev==='number'){
+    return `<span class="diff-inner" title=""><span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(ev,5)}</span></span>`;
+  }
+  if(ev && ev.known===false){
+    return `<span class="diff-inner" title="${escapeAttr(ev.title||'')}"><span class="diff-label">難易度</span><span class="diff-unknown">判定不可</span></span>`;
+  }
+  const n=clampStarRating(ev.stars);
+  return `<span class="diff-inner" title="${escapeAttr(ev.title||'')}"><span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(n,5)}</span></span>`;
 }
 
 // --- Past-question year history in exp ---
@@ -2955,11 +2991,146 @@ function normalizeUserData(u){
 	  u.bookmarkNotes=u.bookmarkNotes||{};
 	  u.letters=u.letters||[];
   u.visitMarks=u.visitMarks||{};
+  u.badges=u.badges||{};
   u.streak=u.streak||0;
   return u;
 }
 function getUserData(){ return currentUser?normalizeUserData(db[currentUser.email]):null }
-function saveUser(d){ if(currentUser){db[currentUser.email]=d;saveDB()} }
+
+/** Supabase user_learning_sync と同期する項目（メモ・結果履歴・応援レター等）。テーブル未作成時は console のみ。 */
+const USER_LEARNING_SYNC_TABLE = 'user_learning_sync';
+let _learningSyncTimer = null;
+function _cloneUserSnapshot(obj){
+  try{ return typeof structuredClone==='function' ? structuredClone(obj) : JSON.parse(JSON.stringify(obj)); }catch(e){ return {}; }
+}
+function _normalizeBmNoteCell(x){
+  if(x==null) return {text:'', updatedAt:0};
+  if(typeof x==='string') return {text:x, updatedAt:0};
+  return {text:String(x.text||''), updatedAt:Number(x.updatedAt)||0};
+}
+function mergeBookmarkNotes(a,b){
+  const out={}, ids=new Set([...Object.keys(a||{}),...Object.keys(b||{})]);
+  ids.forEach(qid=>{
+    const na=_normalizeBmNoteCell(a[qid]), nb=_normalizeBmNoteCell(b[qid]);
+    const ha=a&&Object.prototype.hasOwnProperty.call(a,qid), hb=b&&Object.prototype.hasOwnProperty.call(b,qid);
+    if(!hb) out[qid]=na;
+    else if(!ha) out[qid]=nb;
+    else out[qid]=na.updatedAt>=nb.updatedAt?na:nb;
+  });
+  return out;
+}
+function mergeBookmarksTs(a,b){
+  const out={...a};
+  Object.keys(b||{}).forEach(k=>{
+    out[k]=Math.max(Number(out[k])||0, Number(b[k])||0);
+  });
+  return out;
+}
+function mergeSessionsDedupe(a,b){
+  const map=new Map();
+  [...(a||[]),...(b||[])].forEach(s=>{
+    if(!s||typeof s.date!=='number') return;
+    const k=`${s.date}|${s.correct}|${s.total}|${s.pct}|${s.mode||''}`;
+    if(!map.has(k)) map.set(k,s);
+  });
+  return [...map.values()].sort((x,y)=>y.date-x.date).slice(0,250);
+}
+function mergeLettersById(a,b){
+  const byId={};
+  [...(b||[]),...(a||[])].forEach(l=>{
+    if(!l||l.id==null) return;
+    const id=String(l.id);
+    const prev=byId[id];
+    if(!prev||(Number(l.date)||0)>=(Number(prev.date)||0)) byId[id]=l;
+  });
+  return Object.values(byId).sort((x,y)=>(Number(y.date)||0)-(Number(x.date)||0)).slice(0,350);
+}
+function mergeBadgesTs(a,b){
+  const out={...a};
+  Object.keys(b||{}).forEach(id=>{
+    out[id]=Math.max(Number(out[id])||0, Number(b[id])||0);
+  });
+  return out;
+}
+function mergeVisitMarksJoin(a,b){
+  const keys=new Set([...Object.keys(a||{}),...Object.keys(b||{})]);
+  const out={};
+  keys.forEach(k=>{
+    const va=a&&a[k], vb=b&&b[k];
+    if(va===undefined) out[k]=vb;
+    else if(vb===undefined) out[k]=va;
+    else out[k]=String(va)>String(vb)?va:vb;
+  });
+  return out;
+}
+function mergeLearningPayload(localUser, remotePayload){
+  const L=normalizeUserData(_cloneUserSnapshot(localUser));
+  const R=remotePayload||{};
+  L.bookmarkNotes=mergeBookmarkNotes(L.bookmarkNotes, R.bookmarkNotes);
+  L.bookmarks=mergeBookmarksTs(L.bookmarks, R.bookmarks);
+  L.sessions=mergeSessionsDedupe(L.sessions, R.sessions);
+  L.letters=mergeLettersById(L.letters, R.letters);
+  L.badges=mergeBadgesTs(L.badges, R.badges);
+  L.visitMarks=mergeVisitMarksJoin(L.visitMarks, R.visitMarks);
+  L.streak=Math.max(Number(L.streak)||0, Number(R.streak)||0);
+  return L;
+}
+function extractLearningSyncPayload(u){
+  const n=normalizeUserData(u);
+  return {
+    bookmarkNotes:n.bookmarkNotes||{},
+    bookmarks:n.bookmarks||{},
+    sessions:(n.sessions||[]).slice(0,250),
+    letters:(n.letters||[]).slice(0,350),
+    badges:n.badges||{},
+    visitMarks:n.visitMarks||{},
+    streak:n.streak||0
+  };
+}
+function scheduleLearningSyncToSupabase(){
+  if(!currentUser?.id || currentUser.email==='__guest__') return;
+  clearTimeout(_learningSyncTimer);
+  _learningSyncTimer=setTimeout(()=>{ _learningSyncTimer=null; syncUserLearningToSupabaseNow(); }, 2000);
+}
+async function flushLearningSyncToSupabase(){
+  clearTimeout(_learningSyncTimer);
+  _learningSyncTimer=null;
+  await syncUserLearningToSupabaseNow();
+}
+async function syncUserLearningToSupabaseNow(){
+  if(!currentUser?.id || currentUser.email==='__guest__') return;
+  const email=currentUser.email;
+  try{
+    let u=normalizeUserData(_cloneUserSnapshot(db[email]||{}));
+    const {data,error}=await _sb.from(USER_LEARNING_SYNC_TABLE).select('payload').eq('user_id',currentUser.id).maybeSingle();
+    if(error&&error.code!=='PGRST116') console.warn('[learning-sync]',error.message);
+    if(data?.payload) u=mergeLearningPayload(u,data.payload);
+    db[email]=u;
+    saveDB();
+    const payload=extractLearningSyncPayload(u);
+    const {error:upErr}=await _sb.from(USER_LEARNING_SYNC_TABLE).upsert({
+      user_id:currentUser.id,
+      payload,
+      updated_at:new Date().toISOString()
+    },{onConflict:'user_id'});
+    if(upErr) console.warn('[learning-sync upload]',upErr.message);
+  }catch(e){ console.warn('[learning-sync]',e); }
+}
+async function loadMergeUserLearningSyncFromSupabase(){
+  if(!currentUser?.id || currentUser.email==='__guest__') return;
+  const email=currentUser.email;
+  try{
+    const {data,error}=await _sb.from(USER_LEARNING_SYNC_TABLE).select('payload').eq('user_id',currentUser.id).maybeSingle();
+    if(error&&error.code!=='PGRST116'){ console.warn('[learning-sync load]',error.message); return; }
+    if(!data?.payload) return;
+    let u=normalizeUserData(db[email]||{});
+    u=mergeLearningPayload(u,data.payload);
+    db[email]=u;
+    saveDB();
+  }catch(e){ console.warn('[learning-sync load]',e); }
+}
+
+function saveUser(d){ if(currentUser){ db[currentUser.email]=d; saveDB(); scheduleLearningSyncToSupabase(); } }
 function localDateKey(date){
   const d=(date===undefined||date===null)?new Date():(date instanceof Date?date:new Date(date));
   if(Number.isNaN(d.getTime())) return localDateKey(new Date());
@@ -3048,6 +3219,8 @@ async function doLogin(){
   if(!db[e]){db[e]=u;saveDB();}
   currentUser={id:data.user.id,email:e,name:u.name};
   await loadAnswersFromSupabase();
+  await loadMergeUserLearningSyncFromSupabase();
+  await syncUserLearningToSupabaseNow();
   enterApp();
 }
 async function doRegister(){
@@ -3066,9 +3239,15 @@ async function doRegister(){
     return;
   }
   loadDB();
-  db[e]={name:n,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0}; saveDB();
+  db[e]=normalizeUserData({name:n,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0});
+  saveDB();
   currentUser={id:data.user?.id,email:e,name:n};
   if(data.session){
+    if(currentUser.id){
+      await loadAnswersFromSupabase();
+      await loadMergeUserLearningSyncFromSupabase();
+      await syncUserLearningToSupabaseNow();
+    }
     enterApp();
   }else{
     document.getElementById('reg-err').textContent='確認メールを送信しました。メール内のリンクを開いてからログインしてください。';
@@ -3088,6 +3267,7 @@ function demoLogin(){
   currentUser={email,name:'デモユーザー'}; enterApp();
 }
 async function doLogout(){
+  await flushLearningSyncToSupabase();
   await _sb.auth.signOut();
   currentUser=null;
   // ゲストとして再入場
@@ -3252,79 +3432,172 @@ function _updatePageMeta(id) {
 
 // ===== 一問一答 =====
 const FIELD_LABELS = {rights:'権利関係', law:'宅建業法', limit:'法令上の制限', tax:'税・その他'};
-let ichiState = {questions:[], idx:0, score:0, answered:false, isCorrect:false};
+let ichiState = {
+  sourcePool: [],
+  questions: [],
+  idx: 0,
+  score: 0,
+  attempts: 0,
+  answered: false,
+  fieldFilter: null,
+  active: false
+};
 
-function buildIchiQuestions() {
-  const all = (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : [])
-    .concat(typeof QUESTIONS !== 'undefined' ? QUESTIONS.filter(q=>!BASE_QUESTIONS.find(b=>b.id===q.id)) : []);
-  const pool = all.map(q=>({
+function selectIchiField(el) {
+  el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function syncIchiPageVisibility() {
+  const cfg = document.getElementById('ichi-config');
+  const play = document.getElementById('ichi-play-wrap');
+  if (!cfg || !play) return;
+  const showPlay = !!ichiState.active;
+  cfg.style.display = showPlay ? 'none' : 'block';
+  play.style.display = showPlay ? 'block' : 'none';
+}
+
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function collectAllBaseQuestions() {
+  return (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : [])
+    .concat(typeof QUESTIONS !== 'undefined' ? QUESTIONS.filter(q => !BASE_QUESTIONS.find(b => b.id === q.id)) : []);
+}
+function getBaseQuestionById(id) {
+  return collectAllBaseQuestions().find(b => b.id === id);
+}
+
+/** 出題用プール（頻出・バランスは従来どおり上位から組む） */
+function buildIchiSourcePool(fieldFilter) {
+  const all = collectAllBaseQuestions().filter(q => !fieldFilter || q.field === fieldFilter);
+  const pool = all.map(q => ({
     q,
-    freq:getFrequencyEvidence(q),
-    score:getFrequencyEvidence(q).stars * 100 + getFrequencyEvidence(q).count * 8 + (q.year ? Math.min(4, Math.max(0, q.year - 2020)) : 0) + Math.random()
-  })).sort((a,b)=>b.score-a.score);
+    freq: getFrequencyEvidence(q),
+    score: getFrequencyEvidence(q).stars * 100 + getFrequencyEvidence(q).count * 8 + (q.year ? Math.min(4, Math.max(0, q.year - 2020)) : 0) + Math.random()
+  })).sort((a, b) => b.score - a.score);
   const topPool = pool.slice(0, Math.min(pool.length, 40));
   const selected = [];
   const usedFields = {};
-  topPool.forEach(item=>{
-    if(selected.length >= 10) return;
+  topPool.forEach(item => {
+    if (selected.length >= 10) return;
     const fieldCount = usedFields[item.q.field] || 0;
-    if(fieldCount < 4 || selected.length >= 8){
+    if (fieldCount < 4 || selected.length >= 8) {
       selected.push(item.q);
       usedFields[item.q.field] = fieldCount + 1;
     }
   });
-  pool.forEach(item=>{
-    if(selected.length < 10 && !selected.some(q=>q.id===item.q.id)) selected.push(item.q);
+  pool.forEach(item => {
+    if (selected.length < 10 && !selected.some(q => q.id === item.q.id)) selected.push(item.q);
   });
-  return selected.map(q => {
-    const isTrue = Math.random() < 0.5;
-    let optIdx, statement, correctAnswer;
-    if(isTrue) {
-      optIdx = q.ans;
-      statement = q.opts[q.ans];
-      correctAnswer = true;
-    } else {
-      const wrongIdxs = [0,1,2,3].filter(i=>i!==q.ans);
-      optIdx = wrongIdxs[Math.floor(Math.random()*wrongIdxs.length)];
-      statement = q.opts[optIdx];
-      correctAnswer = false;
-    }
-    return {
-      id:q.id,
-      field: q.field,
-      statement,
-      correctAnswer,
-      exp: q.exp || '',
-      level: q.level,
-      ans:q.ans,
-      freqEvidence:getFrequencyEvidence(q),
-      difficultyEvidence:getDifficultyEvidence(q)
-    };
-  });
+  return shuffleArray(selected.length ? selected : all.slice());
 }
 
-function startIchimondou() {
-  ichiState.questions = buildIchiQuestions();
+function buildIchiItemFromBase(q) {
+  const isTrue = Math.random() < 0.5;
+  let optIdx, statement, correctAnswer;
+  if (isTrue) {
+    optIdx = q.ans;
+    statement = q.opts[q.ans];
+    correctAnswer = true;
+  } else {
+    const wrongIdxs = [0, 1, 2, 3].filter(i => i !== q.ans);
+    optIdx = wrongIdxs[Math.floor(Math.random() * wrongIdxs.length)];
+    statement = q.opts[optIdx];
+    correctAnswer = false;
+  }
+  const freqEvidence = getFrequencyEvidence(q);
+  return {
+    id: q.id,
+    field: q.field,
+    statement,
+    correctAnswer,
+    exp: q.exp || '',
+    level: q.level,
+    ans: q.ans,
+    freqEvidence
+  };
+}
+
+function ensureIchiQuestionAt(idx) {
+  const L = ichiState.sourcePool.length;
+  if (!L) return;
+  while (ichiState.questions.length <= idx) {
+    const base = ichiState.sourcePool[ichiState.questions.length % L];
+    ichiState.questions.push(buildIchiItemFromBase(base));
+  }
+}
+
+function updateIchiSessionHud() {
+  const n = ichiState.idx + 1;
+  document.getElementById('ichi-prog-label').textContent = '第 ' + n + ' 問';
+  const att = ichiState.attempts;
+  const el = document.getElementById('ichi-rate');
+  if (el) {
+    el.textContent = att > 0
+      ? '正答率 ' + Math.round((100 * ichiState.score) / att) + '%（' + ichiState.score + '/' + att + '）'
+      : '正答率 —';
+  }
+  const poolLen = Math.max(ichiState.sourcePool.length, 1);
+  const fill = document.getElementById('ichi-prog-fill');
+  if (fill) {
+    const cycle = ((ichiState.idx % poolLen) + poolLen) % poolLen;
+    fill.style.width = (cycle / poolLen * 100) + '%';
+  }
+}
+
+function beginIchimondouSession() {
+  const chip = document.querySelector('#ichi-field-chips .chip.on');
+  const raw = chip ? chip.getAttribute('data-field') : '';
+  const fieldFilter = raw === '' || raw == null ? null : raw;
+  const pool = buildIchiSourcePool(fieldFilter);
+  if (!pool.length) {
+    alert('この分野に問題データがありません。別の分野を選んでください。');
+    return;
+  }
+  ichiState.sourcePool = pool;
+  ichiState.questions = [];
   ichiState.idx = 0;
   ichiState.score = 0;
+  ichiState.attempts = 0;
   ichiState.answered = false;
-  gotoPage('ichimondou');
+  ichiState.fieldFilter = fieldFilter;
+  ichiState.active = true;
+  syncIchiPageVisibility();
+  document.body.classList.add('is-solving');
   showIchiQuestion();
 }
 
+function startIchimondou() {
+  ichiState.active = false;
+  ichiState.sourcePool = [];
+  ichiState.questions = [];
+  ichiState.idx = 0;
+  ichiState.score = 0;
+  ichiState.attempts = 0;
+  ichiState.answered = false;
+  gotoPage('ichimondou');
+  syncIchiPageVisibility();
+}
+
 function showIchiQuestion() {
+  ensureIchiQuestionAt(ichiState.idx);
   const q = ichiState.questions[ichiState.idx];
-  const n = ichiState.idx + 1;
-  document.getElementById('ichi-prog-label').textContent = n + ' / 10';
-  document.getElementById('ichi-prog-fill').style.width = ((n-1)/10*100) + '%';
   document.getElementById('ichi-field').textContent = FIELD_LABELS[q.field] || q.field;
   document.getElementById('ichi-statement').textContent = q.statement;
-  // メタ情報（根拠ベース）
-  const diff=q.difficultyEvidence || getDifficultyEvidence(q);
-  const freq=q.freqEvidence || getFrequencyEvidence(q);
+  const baseQ = getBaseQuestionById(q.id);
+  const diffQ = baseQ || q;
+  const diffEv = getDifficultyEvidence(diffQ);
+  const freq = q.freqEvidence || (baseQ ? getFrequencyEvidence(baseQ) : getFrequencyEvidence({ field: q.field||'', kaisetsu: {}, year: null }));
   document.getElementById('ichi-meta').innerHTML =
-    metaStarsHTML(diff.label, diff.stars, 5, diff.title) +
-    metaStarsHTML('頻出度', freq.stars, 5, `${freq.key || '論点'}：${freq.years.length ? freq.years.join('・') + '年' : '収録過去問で該当年なし'}`);
+    '<span class="ichi-meta-item ichi-diff-wrap">' + diffStarsHTML(diffEv) + '</span>' +
+    metaStarsHTML('頻出度', freq.stars, 5, freq.title || '');
   updateBookmarkButton(q, 'ichi-bookmark-btn');
   renderBookmarkNote(q, 'ichi-bookmark-note-wrap');
   document.getElementById('ichi-btn-maru').disabled = false;
@@ -3336,31 +3609,31 @@ function showIchiQuestion() {
   result.className = 'ichi-result';
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn';
   ichiState.answered = false;
+  updateIchiSessionHud();
 }
 
 function toggleIchiBookmark() {
   const q = ichiState.questions[ichiState.idx];
-  toggleBookmarkForQuestion(q, {btnId:'ichi-bookmark-btn', noteWrapId:'ichi-bookmark-note-wrap'});
+  toggleBookmarkForQuestion(q, { btnId: 'ichi-bookmark-btn', noteWrapId: 'ichi-bookmark-note-wrap' });
 }
 
 function answerIchi(userAnswer) {
-  if(ichiState.answered) return;
+  if (!ichiState.active || ichiState.answered) return;
   ichiState.answered = true;
   const q = ichiState.questions[ichiState.idx];
   const correct = userAnswer === q.correctAnswer;
-  if(correct) ichiState.score++;
-  // ボタン色変更
+  ichiState.attempts++;
+  if (correct) ichiState.score++;
   document.getElementById('ichi-btn-maru').disabled = true;
   document.getElementById('ichi-btn-batu').disabled = true;
   document.getElementById('ichi-btns')?.classList.add('answered');
-  if(q.correctAnswer === true) {
+  if (q.correctAnswer === true) {
     document.getElementById('ichi-btn-maru').className += ' correct-hl';
-    if(!correct) document.getElementById('ichi-btn-batu').className += ' wrong-hl';
+    if (!correct) document.getElementById('ichi-btn-batu').className += ' wrong-hl';
   } else {
     document.getElementById('ichi-btn-batu').className += ' correct-hl';
-    if(!correct) document.getElementById('ichi-btn-maru').className += ' wrong-hl';
+    if (!correct) document.getElementById('ichi-btn-maru').className += ' wrong-hl';
   }
-  // 結果表示
   const badge = document.getElementById('ichi-result-badge');
   const exp = document.getElementById('ichi-result-exp');
   badge.className = 'ichi-result-badge ' + (correct ? 'ok' : 'ng');
@@ -3370,35 +3643,50 @@ function answerIchi(userAnswer) {
   const resultBox = document.getElementById('ichi-result');
   resultBox.className = 'ichi-result show ' + (correct ? 'ok' : 'ng');
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn show';
+  updateIchiSessionHud();
 }
 
 function nextIchi() {
   ichiState.idx++;
-  if(ichiState.idx >= 10) {
-    document.getElementById('ichi-next-btn').className = 'ichi-next-btn';
-    showIchiScore();
-  } else {
-    window.scrollTo({top:0,behavior:'instant'});
-    showIchiQuestion();
-  }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  showIchiQuestion();
+}
+
+function endIchimondouSession() {
+  if (!ichiState.active) return;
+  if (ichiState.attempts === 0 && !confirm('まだ1問も解答していません。終了してよいですか？')) return;
+  showIchiScore();
 }
 
 function showIchiScore() {
+  ichiState.active = false;
   gotoPage('ichimondou-score');
   const s = ichiState.score;
+  const att = ichiState.attempts;
   document.getElementById('ichi-score-num').textContent = s;
+  const denom = document.getElementById('ichi-score-denom');
+  if (denom) denom.textContent = '/ ' + att + '問中';
+  const attEl = document.getElementById('ichi-score-attempts');
+  if (attEl) attEl.textContent = String(att);
+  const pctEl = document.getElementById('ichi-score-pct');
+  if (pctEl) pctEl.textContent = att > 0 ? Math.round(s / att * 100) + '%' : '—';
   const labels = ['まずは継続が大事！', '少しずつ定着してきています', '半分以上正解！', '良い調子です', 'かなり身についています！', '完璧です！'];
-  const li = Math.min(Math.floor(s/2), labels.length-1);
-  document.getElementById('ichi-score-label').textContent = labels[li];
+  const ratio = att > 0 ? s / att : 0;
+  const li = Math.min(Math.floor(ratio * (labels.length - 0.001)), labels.length - 1);
+  document.getElementById('ichi-score-label').textContent = labels[Math.max(0, li)];
+}
+function shareIchiResultToX(){
+  const s = ichiState.score;
+  const att = ichiState.attempts;
+  const pct = att > 0 ? Math.round(s / att * 100) : 0;
+  const text = buildXShareText(`宅建マスターで一問一答を解きました。\n正答率 ${pct}%（${s}/${att}問）\n宅建合格を目指して学習を続けています。`);
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
 }
 
 function gotoPage(id){
-  if(id==='ichimondou' && (!ichiState.questions || !ichiState.questions.length)){
-    startIchimondou();
-    return;
-  }
+  if(id==='ichimondou') syncIchiPageVisibility();
   if(id!=='quiz') showNextBtn(false, null);
-  document.body.classList.toggle('is-solving', id==='quiz' || id==='ichimondou');
+  document.body.classList.toggle('is-solving', id==='quiz' || (id==='ichimondou' && ichiState.active));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -3645,6 +3933,12 @@ function renderDashPeriodStats(){
   const dsEl=document.getElementById('d-day-streak');
   if(dsEl) dsEl.textContent=String(computeDayStreakForDash(u));
   document.getElementById('d-total').textContent=all.length;
+  const badgeMap=u.badges||{};
+  const earnedBadges=BADGE_DEFS.filter(b=>badgeMap[b.id]).length;
+  const de=document.getElementById('d-badge-earned');
+  if(de) de.textContent=String(earnedBadges);
+  const dbs=document.getElementById('d-badge-sub');
+  if(dbs) dbs.textContent=`/ ${BADGE_DEFS.length}種`;
   document.getElementById('d-rate').textContent=all.length>0?Math.round(ok.length/all.length*100)+'%':'—';
   document.getElementById('d-streak').textContent=String(computeAnswerStreakForDash(u));
   document.getElementById('d-review-cnt').textContent=wrong.length;
@@ -3899,6 +4193,7 @@ function selOrigCount(n){
 }
 
 function beginOrigQuiz(){
+  syncMissionPopupBaseline();
   if(typeof mockState!=='undefined'){ mockState.patternId=null; mockState.queue=[]; mockState.idx=0; clearInterval(mockState.timerInt); }
   if(origState.units.length === 0){
     alert('少なくとも1つの単元を選択してください。');
@@ -4073,6 +4368,7 @@ function showMockScore(){
 }
 
 function startOrigQuiz(level){
+  syncMissionPopupBaseline();
   const qs = ORIG_QUESTIONS[level];
   if(!qs||!qs.length) return;
   quizState.queue = [...qs];
@@ -4085,7 +4381,7 @@ function startOrigQuiz(level){
 }
 
 function beginQuiz(){
-  _missionWasAllDone = false;
+  syncMissionPopupBaseline();
   showNextBtn(false, null);
   if(typeof mockState!=='undefined'){ mockState.patternId=null; mockState.queue=[]; mockState.idx=0; clearInterval(mockState.timerInt); }
   const pool=QUESTIONS.filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
@@ -4194,14 +4490,14 @@ function renderQScoreReplay(sr){
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
   const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
-  const diffN=getDifficultyStars(q);
-  const freqN=getFreqStars(q);
+  const diffEv=getDifficultyEvidence(q);
+  const freqEv=getFrequencyEvidence(q);
   const sourceLabel=q.year?`${q.year}年`:'オリジナル';
   document.getElementById('q-meta').innerHTML=`
     <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
     <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>
-    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffN)}</span>
-    <span class="q-meta-item freq-item">${freqStarsHTML(freqN)}</span>`;
+    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffEv)}</span>
+    <span class="q-meta-item freq-item">${freqStarsHTML(freqEv)}</span>`;
   updateBookmarkButton(q);
   renderBookmarkNote(q);
   document.getElementById('q-body').textContent=q.text;
@@ -4231,6 +4527,7 @@ function renderQScoreReplay(sr){
   showNextBtn(true,null);
   if(timer)clearInterval(timer);
   timer=null;
+  updateScoreReplayBackBtn();
 }
 
 function openScoreQuestion(questionIndex){
@@ -4253,14 +4550,14 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
   const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
-  const diffN=getDifficultyStars(q);
-  const freqN=getFreqStars(q);
+  const diffEv=getDifficultyEvidence(q);
+  const freqEv=getFrequencyEvidence(q);
   const sourceLabel=q.year?`${q.year}年`:'オリジナル';
 	  document.getElementById('q-meta').innerHTML=`
 	    <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
 	    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>
-	    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffN)}</span>
-	    <span class="q-meta-item freq-item">${freqStarsHTML(freqN)}</span>`;
+	    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffEv)}</span>
+	    <span class="q-meta-item freq-item">${freqStarsHTML(freqEv)}</span>`;
 	  updateBookmarkButton(q);
 	  renderBookmarkNote(q);
 	  document.getElementById('q-body').textContent=q.text;
@@ -4271,6 +4568,7 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   quizState.startTime=Date.now();
   if(timer)clearInterval(timer);
   timer=setInterval(()=>{ /* elapsed tracked silently for answer recording */ },100);
+  updateScoreReplayBackBtn();
 }
 
 function pickOpt(i){
@@ -4336,6 +4634,17 @@ function buildDiagram(d){
 }
 
 
+function backToScoreFromReplay(){
+  if(!quizState.scoreReplayMode) return;
+  quizState.scoreReplayMode=false;
+  showNextBtn(false,null);
+  gotoPage('score');
+}
+function updateScoreReplayBackBtn(){
+  const b=document.getElementById('btn-back-to-score');
+  if(b) b.style.display=quizState.scoreReplayMode?'inline-flex':'none';
+}
+
 // ===== Floating Next Button =====
 let _nextFloatCallback = null;
 function showNextBtn(show, cb, label){
@@ -4397,7 +4706,20 @@ document.addEventListener('keydown', function(e){
 });
 
 // ===== MISSION COMPLETE POPUP =====
-let _missionWasAllDone = false; // セッション開始時の状態を記憶
+let _missionWasAllDone = false; // クイズ開始時点で今日のミッションがすべて達成済みなら true（そのセッションでは完了ポップアップを出さない）
+
+function missionsAllCompleteNow(){
+  const u=getUserData();
+  if(!u) return false;
+  const missions=getTodayMissions();
+  return missions.every(m=>{
+    const p=getMissionProgress(m,u);
+    return p.cur>=p.target;
+  });
+}
+function syncMissionPopupBaseline(){
+  _missionWasAllDone=missionsAllCompleteNow();
+}
 
 function checkMissionAllComplete(){
   const u = getUserData(); if(!u) return;
@@ -4407,8 +4729,8 @@ function checkMissionAllComplete(){
     return p.cur >= p.target;
   });
   if(allDone && !_missionWasAllDone){
+    showMissionPopup();
     _missionWasAllDone = true;
-    return;
   }
 }
 
@@ -4607,24 +4929,6 @@ const SUPPORT_LETTER_DEFS = [
     body:'今日は思うように正解できなかったかもしれません。\n\nでも、間違いが多い日は「自分に足りない場所」が見えた日でもあります。宅建は、そこを一つずつ埋める試験です。\n\n今日の不正解は、あなたを否定するものではありません。次に伸びる場所を教えてくれています。'
   },
   {
-    id:'rights_letter',
-    title:'権利関係に向き合ったあなたへ',
-    when:'権利関係を学習した日',
-    body:'権利関係に取り組みました。\n\n民法の問題は、最初は言い回しが難しく感じやすい分野です。でも、理由を追いかけるほど少しずつ見通しがよくなります。\n\n今日向き合った一問は、条文や判例への慣れを確実に増やしています。'
-  },
-  {
-    id:'law_letter',
-    title:'宅建業法を積み上げたあなたへ',
-    when:'宅建業法を学習した日',
-    body:'宅建業法に取り組みました。\n\n宅建業法は、努力が点数に結びつきやすい大事な分野です。細かい数字や手続きも、繰り返すほど味方になります。\n\n今日の一問は、本番で取りたい一点に近づく一問です。'
-  },
-  {
-    id:'limit_tax_letter',
-    title:'後回しにしがちな分野へ進んだあなたへ',
-    when:'法令制限・税その他を学習した日',
-    body:'法令制限や税その他の分野に触れました。\n\n後回しにしたくなる分野に手をつけられた日は、それだけで価値があります。苦手意識は、少し見る回数を増やすだけでも薄くなっていきます。\n\n今日の一問は、得点の穴を小さくする一歩です。'
-  },
-  {
     id:'perfect_letter',
     title:'全問正解できたあなたへ',
     when:'全問正解のセッションを達成した日',
@@ -4645,7 +4949,10 @@ const SUPPORT_LETTER_DEPRECATED_IDS = new Set([
   'hundred_answers',
   'bookmark_letter',
   'timer_letter',
-  'three_days'
+  'three_days',
+  'rights_letter',
+  'law_letter',
+  'limit_tax_letter'
 ]);
 
 function getLetterById(id){
@@ -4749,9 +5056,6 @@ function maybeSendSupportLetters(context){
   u.letters=u.letters||[];
   if(context.returnedAfterBreak) { if(addSupportLetter('return_letter',u)) return; }
   if(context.fromReview) { if(addSupportLetter('review_courage',u)) return; }
-  if(context.field==='rights') { if(addSupportLetter('rights_letter',u)) return; }
-  if(context.field==='law') { if(addSupportLetter('law_letter',u)) return; }
-  if(context.field==='limit'||context.field==='tax') { if(addSupportLetter('limit_tax_letter',u)) return; }
   if(context.sessionResults && context.sessionResults.length>=3 && context.sessionResults.every(r=>r.correct)){
     if(addSupportLetter('perfect_letter',u)) return;
   }
@@ -5344,6 +5648,7 @@ function buildRichExp(expText, opts, ans){
 function reviewQ(qid){
   const q=allPracticeQuestions().find(q=>q.id===qid);
   if(!q) return;
+  syncMissionPopupBaseline();
   awardBadgeById('review_action');
   const u=getUserData();
   quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.scoreReplayMode=false;quizState.fromReview=true;quizState.mode=q.unit?'orig':'past';gotoPage('quiz');renderQ();
@@ -5899,10 +6204,12 @@ loadDB();
   }
   if(session){
     const e=session.user.email;
-    const u=db[e]||{name:e,plan:'free',answers:{},sessions:[],streak:0};
+    const u=normalizeUserData(db[e]||{name:e,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0});
     if(!db[e]){db[e]=u;saveDB();}
     currentUser={id:session.user.id,email:e,name:u.name};
     await loadAnswersFromSupabase();
+    await loadMergeUserLearningSyncFromSupabase();
+    await syncUserLearningToSupabaseNow();
     enterApp();
   }
 })();
