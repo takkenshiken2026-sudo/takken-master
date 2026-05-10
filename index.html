@@ -1541,7 +1541,7 @@ body.is-solving .exam-banner{display:none}
         </ol>
       </nav>
       <div id="ichi-config" class="ichi-config">
-        <p class="ichi-config-lead">分野を選んで「開始」してください。連続で出題され、「終了」で結果が表示されます。</p>
+        <p class="ichi-config-lead">分野を選んで「開始」してください。記述が正しいときは○、誤りのときは×で答えます。</p>
         <div class="field-chips" id="ichi-field-chips">
           <button type="button" class="chip on" data-field="" onclick="selectIchiField(this)">全分野</button>
           <button type="button" class="chip" data-field="rights" onclick="selectIchiField(this)">権利関係</button>
@@ -3754,9 +3754,7 @@ function startIchimondou() {
 }
 
 function formatIchiStatementLead(statement) {
-  const body = (statement || '').trim();
-  if (!body) return '';
-  return '問題全体を読んだうえで、法令上その記述が正しいときは○（マル）、誤りのときは×（バツ）を選んでください。\n\n' + body;
+  return (statement || '').trim();
 }
 
 function showIchiQuestion() {
