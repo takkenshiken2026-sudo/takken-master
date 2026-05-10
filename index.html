@@ -147,8 +147,6 @@ body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:v
 .tip-box{display:none}
 #g-tooltip{position:fixed;background:var(--ink);color:#fff;font-size:12px;line-height:1.6;padding:7px 10px;border-radius:6px;white-space:normal;width:200px;pointer-events:none;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,0.22);display:none}
 
-.site-catchcopy{font-size:32px;font-weight:800;color:var(--text);margin-top:24px;margin-bottom:40px;line-height:1.45;letter-spacing:-0.03em}
-@media(max-width:700px){.site-catchcopy{font-size:16px;margin-top:10px;margin-bottom:22px;line-height:1.42}}
 
 /* ===== ORIG BANNER ===== */
 .orig-banner{display:flex;align-items:center;gap:16px;background:var(--ink);color:#fff;border-radius:var(--r2);padding:18px 20px;margin-bottom:10px;cursor:pointer;transition:opacity .15s;text-decoration:none}
@@ -607,6 +605,10 @@ details.rich-detail summary{display:none}
 .review-section-heading{font-size:var(--fs-title);font-weight:var(--fw-strong);margin:0 0 8px;line-height:1.3;color:var(--text)}
 .review-section-desc{font-size:var(--fs-sub);color:var(--text2);line-height:1.65;margin:0 0 18px}
 .review-section-empty{font-size:13px;color:var(--text3);line-height:1.65;padding:16px 14px;text-align:center;background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--r)}
+.review-rec-block{margin-bottom:16px}
+.review-rec-btn{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r);background:var(--bg3);color:var(--text);font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background .15s,border-color .15s}
+.review-rec-btn:hover:not(:disabled){background:var(--bg4)}
+.review-rec-btn:disabled{opacity:.45;cursor:not-allowed}
 .review-arrow{color:var(--text3);font-size:18px;flex-shrink:0;margin-top:2px}
 /* collapsible group */
 .review-group-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);margin:14px 0 6px;user-select:none;transition:background .15s}
@@ -735,6 +737,8 @@ details.rich-detail summary{display:none}
 .glos-static-summary{font-size:var(--fs-sub);color:var(--text3);margin-bottom:6px;font-weight:500}
 .glos-static-desc{font-size:var(--fs-sub);line-height:1.8;color:var(--text)}
 .glos-diagram-badge{font-size:var(--fs-caption);background:var(--bg3);color:var(--text3);padding:2px 7px;border-radius:4px;border:1px solid var(--border);margin-top:6px;display:inline-block}
+.glos-static-intro{font-size:var(--fs-sub);line-height:1.65;color:var(--text2);margin-bottom:14px;padding:12px 14px;background:var(--bg3);border-radius:var(--r);border:1px solid var(--border)}
+.glos-static-intro a{color:var(--sel);font-weight:600;text-decoration:underline}
 
 /* ===== GLOSSARY ===== */
 .glossary-toolbar{margin-bottom:18px}
@@ -750,7 +754,7 @@ details.rich-detail summary{display:none}
 .glos-tag{padding:2px 8px;border-radius:10px;font-size:12px;font-weight:500;letter-spacing:.02em;flex-shrink:0}
 .glos-term{font-size:var(--fs-body);font-weight:600;flex:1;font-family:var(--font)}
 .glos-reading{font-size:var(--fs-sub);color:var(--text3);margin-left:4px;font-weight:400}
-.glos-summary{font-size:14px;color:var(--text2);margin-left:auto;max-width:200px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.glos-summary{font-size:14px;color:var(--text2);margin-left:auto;max-width:200px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:none;padding:0}
 .glos-chevron{width:14px;height:14px;stroke:var(--text3);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s}
 .glos-card.open .glos-chevron{transform:rotate(180deg)}
 
@@ -766,8 +770,8 @@ details.rich-detail summary{display:none}
 .glos-flow-step{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:5px 10px;font-size:14px;text-align:center;line-height:1.4}
 .glos-flow-arrow{color:var(--text3);font-size:16px;font-weight:600}
 .glos-note{font-size:13px;color:var(--text3);margin-top:9px;padding:8px 11px;background:var(--bg3);border-radius:6px;line-height:1.6;border:1px solid var(--border)}
-.glos-article-link{display:inline-flex;align-items:center;margin-top:12px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;padding:5px 12px;border:1px solid var(--border2);border-radius:20px;transition:all .15s}
-.glos-article-link:hover{background:var(--bg3)}
+a.glos-article-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(51,51,51,.35);border:none;padding:0;background:none;transition:color .15s,text-decoration-color .15s}
+a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
 .glos-compare{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
 .glos-compare-col{background:var(--bg3);border-radius:var(--r);padding:11px 13px}
 .glos-compare-col h4{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text)}
@@ -1406,7 +1410,6 @@ body.is-solving .exam-banner{display:none}
           <li class="breadcrumb-item breadcrumb-current" aria-current="page">問題を解く</li>
         </ol>
       </nav>
-      <div class="site-catchcopy">宅建合格に必要な問題演習と詳細の解説を掲載<br>過去問・オリジナル問題1,000問以上収録</div>
       <h2 class="page-title">問題を解く</h2>
       <div class="page-sub">学習目的に合わせてモードを選んでください</div>
 
@@ -1608,7 +1611,7 @@ body.is-solving .exam-banner{display:none}
         </ol>
       </nav>
       <h2 class="page-title">復習</h2>
-      <div class="page-sub">おすすめのテーマ・不正解の問題から選んで再学習できます。</div>
+      <div class="page-sub">おすすめ・ブックマーク・不正解から選んで再学習できます。</div>
       <div id="review-list"></div>
     </div>
 
@@ -1806,6 +1809,7 @@ body.is-solving .exam-banner{display:none}
       <div id="glossary-list">
 <!-- SEO: 静的用語解説コンテンツ（JS実行前にクローラーが読める） -->
 <section class="glos-static-section" aria-label="用語解説一覧">
+<p class="glos-static-intro"><a href="https://takken-master.jp/glossary/">用語解説の全一覧（記事一覧）</a>を公開しています。JavaScript有効時は81件すべてを絞り込みできます。以下はクローラー向けに代表的な用語を静的に記載しています。</p>
 <div class="glos-cat-section" data-cat="rights">
 <h3 class="glos-cat-heading">権利関係</h3>
 <article class="glos-static-card" id="glos-static-buken" itemscope itemtype="https://schema.org/DefinedTerm">
@@ -2042,8 +2046,14 @@ body.is-solving .exam-banner{display:none}
 
 // ===== GLOSSARY UI（定数 GLOSSARY_DATA は takken-data-glossary.js）=====
 let glosActiveCat = 'all';
-let glosSpeaking = false;
-let glosSpeechUtt = null;
+
+const GLOS_ARTICLE_BASE = 'https://takken-master.jp/glossary/';
+function glosArticleHref(g){
+  if(!g) return '';
+  if(g.articleUrl) return g.articleUrl;
+  if(g.articleSlug) return GLOS_ARTICLE_BASE + encodeURIComponent(g.articleSlug) + '/';
+  return '';
+}
 
 function renderGlossary(){
   const staticSec = document.querySelector('.glos-static-section');
@@ -2054,6 +2064,7 @@ function renderGlossary(){
     {id:'law',label:'宅建業法'},
     {id:'limit',label:'法令制限'},
     {id:'tax',label:'税・その他'},
+    {id:'exam',label:'試験対策'},
   ];
   const catEl = document.getElementById('glos-cats');
   catEl.innerHTML = cats.map(c=>`<button class="gcat-btn${glosActiveCat===c.id?' active':''}" onclick="setGlosCat('${c.id}')">${c.label}</button>`).join('');
@@ -2073,7 +2084,7 @@ function filterGlossary(){
 
 function renderGlossaryList(){
   const q = (document.getElementById('glos-search')||{value:''}).value.trim().toLowerCase();
-  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
+  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他',exam:'試験対策'};
   const filtered = GLOSSARY_DATA.filter(g=>{
     if(glosActiveCat!=='all' && g.cat!==glosActiveCat) return false;
     if(q && !g.term.includes(q) && !g.reading.includes(q) && !g.summary.includes(q) && !g.desc.includes(q)) return false;
@@ -2087,13 +2098,11 @@ function renderGlossaryList(){
         <span class="glos-tag" style="background:var(--bg3);color:var(--text2)">${catNames[g.cat]}</span>
         <span class="glos-term">${g.term}<span class="glos-reading">（${g.reading}）</span></span>
         <span class="glos-summary">${g.summary}</span>
-        <button class="glos-audio-btn" id="aud-${g.id}" onclick="event.stopPropagation();speakGlos('${g.id}')" title="音声で読む">
-          <svg viewBox="0 0 16 16"><path d="M3 6H1v4h2l4 3V3L3 6z"/><path d="M11.5 4.5a5 5 0 0 1 0 7M9 6.5a2.5 2.5 0 0 1 0 3"/></svg>
-        </button>
         <svg class="glos-chevron" viewBox="0 0 14 14"><path d="M4 5l3 4 3-4"/></svg>
       </div>
       <div class="glos-body">
         <div class="glos-desc">${g.desc}</div>
+        ${glosArticleHref(g) ? `<a class="glos-article-link" href="${glosArticleHref(g)}" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>` : ''}
         ${g.diagram ? renderGlosDiagram(g.diagram) : ''}
       </div>
     </div>`).join('');
@@ -2121,30 +2130,6 @@ function renderGlosDiagram(d){
     </div></div>`;
   }
   return '';
-}
-
-function speakGlos(id){
-  const g = GLOSSARY_DATA.find(x=>x.id===id);
-  if(!g || !window.speechSynthesis) return;
-  const btn = document.getElementById('aud-'+id);
-  if(glosSpeaking && glosSpeechUtt){
-    window.speechSynthesis.cancel();
-    document.querySelectorAll('.glos-audio-btn').forEach(b=>b.classList.remove('playing'));
-    glosSpeaking = false;
-    glosSpeechUtt = null;
-    return;
-  }
-  const card = document.getElementById('gc-'+id);
-  if(!card.classList.contains('open')) card.classList.add('open');
-  const text = `${g.term}。${g.desc}`;
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'ja-JP';
-  utt.rate = 0.9;
-  utt.onstart = ()=>{ glosSpeaking=true; btn.classList.add('playing'); };
-  utt.onend = ()=>{ glosSpeaking=false; btn.classList.remove('playing'); glosSpeechUtt=null; };
-  utt.onerror = ()=>{ glosSpeaking=false; btn.classList.remove('playing'); glosSpeechUtt=null; };
-  glosSpeechUtt = utt;
-  window.speechSynthesis.speak(utt);
 }
 
 // ===== GAMIFICATION ENGINE =====
@@ -4054,7 +4039,7 @@ function pickOpt(i){
   });
   const diagramHTML = q.diagram ? buildDiagram(q.diagram) : '';
   const kaisetsuHTML = q.kaisetsu ? buildKaisetsu(q.kaisetsu, q) : '';
-  const isOrig = quizState.mode === 'orig';
+  const isOrig = !!q.unit;
   const expHTML = isOrig ? buildRichExp(q.exp, q.opts, q.ans) : `<div class="exp-text">${q.exp}</div>`;
   const yearHistHTML = (!isOrig && q.year) ? buildYearHistoryHTML(q) : '';
   // Answer feedback text
@@ -5099,6 +5084,115 @@ function showScore(){
     </div>`).join('');
 }
 
+// ===== REVIEW（自動おすすめ） =====
+function getReviewRecommendationFieldScores(u, allQ){
+  const bookmarkMap=u.bookmarks||{};
+  const answers=u.answers||{};
+  const srsFn=typeof window.takkenGetSrsDueQueue==='function'?window.takkenGetSrsDueQueue:null;
+  const srsQueue=srsFn?srsFn():[];
+  const srsByField={};
+  srsQueue.forEach(({q})=>{
+    srsByField[q.field]=(srsByField[q.field]||0)+1;
+  });
+  const wrongByField={};
+  const bmByField={};
+  const staleSumByField={};
+  allQ.forEach(q=>{
+    const fid=q.field;
+    if(bookmarkMap[q.id]) bmByField[fid]=(bmByField[fid]||0)+1;
+    const a=answers[q.id];
+    if(a&&a.ans!==q.ans){
+      wrongByField[fid]=(wrongByField[fid]||0)+1;
+      const days=a.date?(Date.now()-a.date)/864e5:0;
+      staleSumByField[fid]=(staleSumByField[fid]||0)+Math.min(days,120);
+    }
+  });
+  return FIELDS.map(f=>{
+    const fid=f.id;
+    const wrong=wrongByField[fid]||0;
+    const bm=bmByField[fid]||0;
+    const srs=srsByField[fid]||0;
+    const staleAvg=wrong?Math.min(40,(staleSumByField[fid]||0)/wrong):0;
+    const score=wrong*14+bm*9+srs*11+staleAvg;
+    return {fieldId:fid,fieldName:f.name,wrong,bm,srs,score};
+  }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
+}
+function buildRecommendedReviewQueue(u, allQ, fieldScores, limit){
+  const bookmarkMap=u.bookmarks||{};
+  const answers=u.answers||{};
+  const srsFn=typeof window.takkenGetSrsDueQueue==='function'?window.takkenGetSrsDueQueue:null;
+  const srsQueue=srsFn?srsFn():[];
+  const rankQ=q=>{
+    const srsEntry=srsQueue.find(s=>String(s.q.id)===String(q.id));
+    let s=0;
+    if(srsEntry) s+=95-(srsEntry.srs.level||0)*14;
+    const a=answers[q.id];
+    if(a&&a.ans!==q.ans){
+      s+=52;
+      const days=a.date?(Date.now()-a.date)/864e5:0;
+      s+=Math.min(28,days/3.5);
+    }
+    if(bookmarkMap[q.id]) s+=22;
+    return s;
+  };
+  const topFields=new Set((fieldScores.length?fieldScores:[]).slice(0,3).map(x=>x.fieldId));
+  if(topFields.size){
+    const pool=[];
+    const seen=new Set();
+    const push=q=>{
+      if(!q||seen.has(q.id)) return;
+      seen.add(q.id);
+      pool.push(q);
+    };
+    srsQueue.filter(({q})=>topFields.has(q.field)).forEach(({q})=>push(q));
+    allQ.filter(q=>topFields.has(q.field)&&answers[q.id]&&answers[q.id].ans!==q.ans).forEach(push);
+    allQ.filter(q=>topFields.has(q.field)&&bookmarkMap[q.id]).forEach(push);
+    pool.sort((a,b)=>rankQ(b)-rankQ(a));
+    if(pool.length) return pool.slice(0,limit);
+  }
+  const pool=[];
+  const seen=new Set();
+  srsQueue.forEach(({q})=>{
+    if(seen.has(q.id)) return;
+    seen.add(q.id);
+    pool.push(q);
+  });
+  allQ.filter(q=>answers[q.id]&&answers[q.id].ans!==q.ans).forEach(q=>{
+    if(seen.has(q.id)) return;
+    seen.add(q.id);
+    pool.push(q);
+  });
+  allQ.filter(q=>bookmarkMap[q.id]).forEach(q=>{
+    if(seen.has(q.id)) return;
+    seen.add(q.id);
+    pool.push(q);
+  });
+  pool.sort((a,b)=>rankQ(b)-rankQ(a));
+  return pool.slice(0,limit);
+}
+function buildReviewRecommendationHTML(scores, queueLen){
+  if(!queueLen) return '';
+  return `<div class="review-rec-block"><button type="button" class="review-rec-btn" id="btn-review-rec-start" onclick="startRecommendedReviewQuiz()">おすすめの${queueLen}問を解く</button></div>`;
+}
+function startRecommendedReviewQuiz(){
+  const ids=window.__reviewRecQueueIds;
+  if(!ids||!ids.length){
+    if(typeof showToast==='function') showToast('おすすめ対象の問題がありません','info',1600);
+    return;
+  }
+  const allQ=allPracticeQuestions();
+  const queue=ids.map(id=>allQ.find(q=>String(q.id)===String(id))).filter(Boolean);
+  if(!queue.length) return;
+  quizState.queue=queue;
+  quizState.idx=0;
+  quizState.sessionResults=[];
+  quizState.fromReview=true;
+  quizState.mode='recommended';
+  gotoPage('quiz');
+  renderQ();
+}
+window.startRecommendedReviewQuiz=startRecommendedReviewQuiz;
+
 // ===== REVIEW =====
 function toggleReviewGroup(id){
   const body=document.getElementById('rg-body-'+id);
@@ -5110,6 +5204,13 @@ function toggleReviewGroup(id){
 function renderReview(){
   const u=getUserData();
   const allQ=allPracticeQuestions();
+  if(typeof window.takkenInitSrsFromAnswers==='function') window.takkenInitSrsFromAnswers();
+
+  const recScores=getReviewRecommendationFieldScores(u, allQ);
+  const recQueue=buildRecommendedReviewQueue(u, allQ, recScores, 28);
+  window.__reviewRecQueueIds=recQueue.map(q=>q.id);
+  const htmlRec=buildReviewRecommendationHTML(recScores, recQueue.length);
+
   const wrongQs=allQ.filter(q=>u.answers[q.id]&&u.answers[q.id].ans!==q.ans);
 	  const bookmarkMap=u.bookmarks||{};
 		  const bookmarkedQs=allQ
@@ -5121,6 +5222,8 @@ function renderReview(){
 		      if(an.text&&bn.text) return (bn.updatedAt||0)-(an.updatedAt||0);
 		      return (bookmarkMap[b.id]||0)-(bookmarkMap[a.id]||0);
 		    });
+
+	  const fmt=d=>new Date(d).toLocaleDateString('ja',{month:'numeric',day:'numeric'});
 
 	  // カード生成
 		  function makeCard(q,isWrong,isBookmarkedCard=false,noteFocused=false){
@@ -5195,8 +5298,6 @@ function renderReview(){
 	  let htmlBookmarks='';
 	  if(bookmarkedQs.length){
 		    htmlBookmarks=renderGroup(bookmarkedQs,false,true,'bookmarks',true);
-	  } else {
-	    htmlBookmarks='<p class="review-section-empty" role="status">ブックマークした問題はまだありません。問題画面のブックマークアイコンから追加できます。</p>';
 	  }
 
 	  let htmlWrong='';
@@ -5206,16 +5307,28 @@ function renderReview(){
 	    htmlWrong='<p class="review-section-empty" role="status">いま不正解として記録されている問題はありません。</p>';
 	  }
 
-	  const reviewIntroRecommended='ブックマークした問題と、復習スケジュール（忘却曲線に基づく間隔反復）で、今日重点的に取り組むとよい内容をまとめています。';
+	  const reviewIntroRecommended='過去の学習履歴などから、復習すべきテーマを自動で抽出します。';
+
+	  const reviewIntroBookmark='問題画面でブックマークした問題の一覧です。';
+
 	  const reviewIntroWrong='一度誤答した問題です。解説を確認してから、もう一度チャレンジしましょう。';
+
+	  const htmlBookmarkSection=bookmarkedQs.length
+	    ? `<section class="review-page-section" aria-labelledby="review-head-bm">
+	      <h2 id="review-head-bm" class="review-section-heading">ブックマーク</h2>
+	      <p class="review-section-desc">${reviewIntroBookmark}</p>
+	      ${htmlBookmarks}
+	    </section>`
+	    : '';
 
 	  document.getElementById('review-list').innerHTML=`
 	    <section class="review-page-section" aria-labelledby="review-head-rec">
 	      <h2 id="review-head-rec" class="review-section-heading">おすすめの再学習テーマ</h2>
 	      <p class="review-section-desc">${reviewIntroRecommended}</p>
+	      ${htmlRec}
 	      <div id="srs-review-wrap"></div>
-	      ${htmlBookmarks}
 	    </section>
+	    ${htmlBookmarkSection}
 	    <section class="review-page-section" aria-labelledby="review-head-wrong">
 	      <h2 id="review-head-wrong" class="review-section-heading">不正解</h2>
 	      <p class="review-section-desc">${reviewIntroWrong}</p>
@@ -5710,6 +5823,7 @@ function getSrsDueQueue(){
   dueQs.sort((a,b)=>(a.srs.level||0)-(b.srs.level||0));
   return dueQs;
 }
+window.takkenGetSrsDueQueue=getSrsDueQueue;
 // 解答済みのすべての問題をSRSに登録（初回）
 function initSrsFromAnswers(){
   const data=getSrsData();
@@ -5726,6 +5840,7 @@ function initSrsFromAnswers(){
   });
   if(changed) saveSrsData(data);
 }
+window.takkenInitSrsFromAnswers=initSrsFromAnswers;
 
 // SRSレベル名
 const SRS_LEVEL_LABELS=['要復習','弱い','普通','強い','定着'];
