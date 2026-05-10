@@ -278,7 +278,7 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 
 /* ===== COMMON COMPONENTS ===== */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:20px;box-shadow:var(--sh)}
-.section-label, h2.section-label{font-size:12px;color:var(--text);letter-spacing:.04em;font-weight:700;margin-bottom:12px}
+.section-label, h2.section-label{font-size:14px;color:var(--text);letter-spacing:.04em;font-weight:700;margin-bottom:12px}
 .tag{display:inline-flex;align-items:center;font-size:12px;padding:2px 7px;border-radius:4px;font-weight:500;line-height:1.4}
 .tag-blue{background:var(--bg3);color:var(--text2)}
 .tag-red{background:var(--red-s);color:var(--red)}
@@ -306,7 +306,7 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-end-btn{font-size:12px;padding:6px 12px;margin-left:auto;flex-shrink:0}
 .ichi-prog-track{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .ichi-prog-fill{height:100%;background:var(--ink);border-radius:2px;transition:width .3s ease}
-.ichi-card{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:24px 20px;box-shadow:var(--sh);margin-bottom:20px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
+.ichi-card{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:24px 20px;box-shadow:var(--sh);margin-bottom:20px;min-height:140px;display:flex;flex-direction:column;justify-content:flex-start;gap:12px}
 .ichi-head{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin-bottom:10px}
 .ichi-head .bookmark-btn{margin-left:auto;flex-shrink:0}
 .ichi-meta{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
@@ -316,7 +316,7 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-meta-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.06em;white-space:nowrap}
 .ichi-field{font-size:10px;color:var(--text3);font-weight:700;letter-spacing:.06em;margin-bottom:12px}
 .ichi-head .ichi-field{margin-bottom:0;flex:1;min-width:0;line-height:1.2}
-.ichi-statement{font-size:var(--fs-body);color:var(--text);line-height:1.75;font-weight:var(--fw-normal)}
+.ichi-statement{font-size:var(--fs-body);color:var(--text);line-height:1.75;font-weight:var(--fw-normal);white-space:pre-line;overflow-wrap:anywhere;word-break:break-word;min-width:0;flex:1 1 auto}
 .ichi-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .ichi-btn{padding:20px 0;border-radius:var(--r2);font-size:28px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:#fff;font-family:var(--font);transition:all .18s;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
 .ichi-btn:hover{transform:translateY(-2px);box-shadow:var(--sh2)}
@@ -676,8 +676,15 @@ details.rich-detail summary{display:none}
 .study-cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px}
 .study-cal-weekday{text-align:center;font-size:10px;font-weight:700;color:var(--text3);font-family:var(--mono)}
 .study-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
-.study-cal-day{min-height:44px;border-radius:5px;border:1px solid var(--border);background:var(--bg2);padding:5px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between}
-.study-cal-day.empty{background:transparent;border-color:transparent}
+.study-cal-day{position:relative;min-height:44px;border-radius:5px;border:1px solid var(--border);background:var(--bg2);padding:5px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;cursor:pointer;transition:background .15s,border-color .15s}
+.study-cal-day:hover{background:var(--bg3)}
+.study-cal-day:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.study-cal-day.has-diary .study-cal-date{color:var(--ink)}
+.study-cal-day.has-diary::after{content:'';position:absolute;bottom:4px;left:6px;width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:.85}
+.study-cal-day.empty{background:transparent;border-color:transparent;cursor:default;pointer-events:none}
+.study-cal-day.empty:hover{background:transparent}
+.study-diary-textarea{width:100%;margin:10px 0 6px;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:14px;line-height:1.55;font-family:var(--font);resize:vertical;min-height:120px;box-sizing:border-box}
+.study-diary-textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 2px rgba(51,51,51,.12)}
 .study-cal-day.future{background:var(--bg3);color:var(--text3);opacity:.62}
 .study-cal-day.today{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .study-cal-day.studied{background:#f8f8f8}
@@ -686,6 +693,22 @@ details.rich-detail summary{display:none}
 .study-cal-day:not(.studied) .study-cal-count{display:none}
 .study-cal-summary{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:12px;color:var(--text3);line-height:1.55}
 .study-cal-summary strong{font-family:var(--mono);color:var(--text);font-size:13px}
+.study-cal-diary-hint{margin-top:8px;font-size:11px;color:var(--text3);line-height:1.45}
+.study-diary-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.study-diary-toolbar .section-label{margin-bottom:0}
+.study-diary-timeline-btn{font-size:12px;font-weight:600;padding:7px 12px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg3);color:var(--text2);cursor:pointer;font-family:var(--font);flex-shrink:0;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+.study-diary-timeline-btn:hover{background:var(--ink);color:var(--bg2);border-color:var(--ink)}
+.study-diary-timeline-popup{max-width:520px;text-align:left}
+.study-diary-timeline-list{max-height:min(62vh,520px);overflow-y:auto;margin:4px 0 8px;padding-right:4px;-webkit-overflow-scrolling:touch}
+.study-diary-tl-item{border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;background:var(--bg3);cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+.study-diary-tl-item:hover{background:var(--bg2);border-color:var(--text3)}
+.study-diary-tl-item:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.study-diary-tl-date{font-size:13px;font-weight:700;color:var(--text);font-family:var(--mono);margin-bottom:6px}
+.study-diary-tl-stats{font-size:12px;color:var(--text2);margin-bottom:8px;line-height:1.5}
+.study-diary-tl-memo{font-size:14px;line-height:1.65;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.study-diary-tl-memo.empty{font-size:13px;color:var(--text3);font-style:italic}
+.study-diary-tl-edit{font-size:12px;margin-top:8px;padding:0;border:none;background:none;color:var(--ink);cursor:pointer;text-decoration:underline;font-family:var(--font);display:block}
+.study-diary-tl-empty{font-size:13px;color:var(--text3);line-height:1.65;text-align:center;padding:20px 12px}
 .time-bars{display:flex;align-items:flex-end;gap:4px;height:70px}
 .time-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
 .time-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
@@ -802,7 +825,7 @@ details.rich-detail summary{display:none}
 
 .glos-body{display:none;padding:0 15px 15px;border-top:1px solid var(--border)}
 .glos-card.open .glos-body{display:block}
-.glos-desc{font-size:15px;line-height:1.8;color:var(--text);margin:12px 0}
+.glos-desc{font-size:15px;line-height:1.8;color:var(--text);margin:12px 0;white-space:pre-line}
 .glos-diagram{margin-top:10px}
 .glos-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
 .glos-table th{background:var(--bg3);padding:6px 10px;text-align:left;font-weight:600;border:1px solid var(--border2);color:var(--text2)}
@@ -838,7 +861,7 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .page.active{min-height:calc(100vh - 52px)}
   .page-title{font-size:var(--fs-title);font-weight:var(--fw-strong)}
   .page-sub{font-size:var(--fs-sub);line-height:1.6;margin-bottom:18px}
-  .section-label,h2.section-label{font-size:var(--fs-caption);letter-spacing:.04em}
+  .section-label,h2.section-label{font-size:13px;letter-spacing:.04em}
   .dash-title-row{align-items:flex-start;flex-direction:column;gap:8px;margin-bottom:6px}
   .dash-period-card{width:100%;justify-content:flex-start}
   .dash-period-card .count-btn{min-width:44px;height:26px;padding:0 8px;font-size:11px}
@@ -899,7 +922,7 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .ichi-meta-label{line-height:1.25;flex:0 0 auto}
   .ichi-meta .diff-stars,.ichi-meta .freq-stars{min-width:0;flex:0 0 auto}
   .ichi-field{margin-bottom:8px}
-  .ichi-statement{font-size:14px;line-height:1.7}
+  .ichi-statement{font-size:14px;line-height:1.7;white-space:pre-line}
   .ichi-btns:not(.answered){position:fixed;left:14px;right:14px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:44;gap:8px;margin-bottom:0}
   .ichi-btns.answered{gap:8px;margin-bottom:12px}
   .ichi-btn{padding:16px 0;font-size:24px}
@@ -1663,7 +1686,7 @@ body.is-solving .exam-banner{display:none}
         <div class="stat-card"><div class="stat-label">獲得バッジ <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">これまでに解放したバッジの種類数（全バッジ種類に対する割合）</span></span></div><div class="stat-val cv-blue" id="d-badge-earned">0</div><div class="stat-sub" id="d-badge-sub">/ 0種</div></div>
         <div class="stat-card"><div class="stat-label">全体正答率 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">全回答のうち正解した割合。高いほど定着度が高い</span></span></div><div class="stat-val cv-blue" id="d-rate">—</div></div>
         <div class="stat-card"><div class="stat-label">復習待ち <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">一度不正解だった問題の数。復習タブで再挑戦できる</span></span></div><div class="stat-val cv-red" id="d-review-cnt">0</div><div class="stat-sub">問</div><button onclick="gotoPage('review')" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:4px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:var(--font);display:block;width:100%;transition:all .15s" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='none'">復習を始める →</button></div>
-        <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">直近で何問連続して正解しているか。不正解でリセット</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問</div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
+        <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">大きい数字は「いまの連続正解数」。下段の最高は通算の記録で、一度伸ばすと不正解後も残ります。期間を絞ると、上段だけがその期間内の「直近からの連続」に切り替わります。</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問<span class="d-streak-best-line" style="display:block;font-size:11px;color:var(--text3);margin-top:6px;font-weight:500">最高 <span id="d-streak-best">0</span> 問</span></div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
       </div>
 
       <!-- 分野別・単元別正答率 -->
@@ -1684,7 +1707,10 @@ body.is-solving .exam-banner{display:none}
           <div id="radar-chart-container"></div>
         </div>
         <div class="card dash-radar-cal-item">
-          <h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2>
+          <div class="study-diary-toolbar">
+            <h2 class="section-label">学習日記<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">日付をタップするとその日のメモ（学習日記）を書けます。数字はその日に解答した問題数。左下の小さな点は日記を保存済みの日です。「時系列一覧」で過去のメモと解答数をまとめて確認できます。</span></span></h2>
+            <button type="button" class="study-diary-timeline-btn" onclick="openStudyDiaryTimeline()">時系列一覧</button>
+          </div>
           <div id="an-calendar"></div>
         </div>
       </div>
@@ -1903,7 +1929,7 @@ body.is-solving .exam-banner{display:none}
         </ol>
       </nav>
       <h2 class="page-title">言葉解説</h2>
-      <div class="page-sub">宅建の重要用語を図解でわかりやすく解説</div>
+      <div class="page-sub">宅建の重要用語を、定義のほか試験での押さえ方・学び方まで丁寧に解説します（図解つきの項目もあります）</div>
       <div class="glossary-toolbar">
         <input class="glossary-search" id="glos-search" type="text" placeholder="用語を検索..." oninput="filterGlossary()">
         <div class="glossary-cats" id="glos-cats"></div>
@@ -2101,7 +2127,7 @@ body.is-solving .exam-banner{display:none}
           <li><strong>オリジナル問題</strong>：権利関係・宅建業法・法令上の制限・税その他の単元別200問</li>
           <li><strong>模擬試験</strong>：本番形式50問・120分のオリジナル模試</li>
           <li><strong>用語解説</strong>：宅建重要用語を図解でわかりやすく解説</li>
-          <li><strong>学習分析</strong>：正答率・分野別成績・学習カレンダーで進捗を可視化</li>
+          <li><strong>学習分析</strong>：正答率・分野別成績・学習日記（カレンダー）で進捗を可視化</li>
         </ul>
         <h2>対応分野</h2>
         <ul>
@@ -2141,6 +2167,37 @@ body.is-solving .exam-banner{display:none}
 <script src="takken-data-glossary.js"></script>
 <script src="takken-data-original.js"></script>
 <script>
+
+(function enrichGlossaryPlaceholderDesc(){
+  const PLACEHOLDER_SNIPPET='宅建試験の頻出論点です。定義・比較表・具体例を公開サイトの解説記事で詳しく確認できます。';
+  const CAT_HINT={
+    rights:'分野の目安：権利関係（民法・借地借家法・区分所有法等）。物権と債権、登記の対抗力、解除・取消し・時効など「効果がいつ誰に及ぶか」を軸に整理すると取りこぼしが減ります。',
+    law:'分野の目安：宅建業法。免許・重要事項説明・書面交付・広告・報酬・罰則など、業務として何が義務かを数字・期限とセットで覚えるのが近道です。',
+    limit:'分野の目安：都市計画・建築基準・農地法等の法令制限。用途地域・建ぺい率・道路幅員など、数値条件が誤答肢になりやすいので「計算の型」を持ちましょう。',
+    tax:'分野の目安：税金・公示・鑑定評価など。取得時・保有時・譲渡時のどの段階の話かを切り分けると文章問題も読みやすくなります。',
+    exam:'学習の進め方・頻出の読み方に関するテーマです。肢の見せ方に慣れるほど得点効率が上がります。'
+  };
+  if(typeof GLOSSARY_DATA==='undefined') return;
+  GLOSSARY_DATA.forEach(g=>{
+    if(typeof g.desc!=='string'||!g.desc.includes(PLACEHOLDER_SNIPPET)) return;
+    const hint=CAT_HINT[g.cat]||'宅建の主要科目にまたがる用語です。定義だけでなく、よく似た概念との違いまで押さえましょう。';
+    const sum=g.summary&&String(g.summary).trim()&&g.summary!=='概要'?g.summary:'このテーマの基本理解';
+    g.desc=[
+      `「${g.term}」は、一覧の要約どおり「${sum}」として頻出です。`,
+      '',
+      '【この言葉の押さえ方】',
+      hint,
+      '',
+      '【試験で落としやすいパターン】',
+      '似た用語（解除・取消し・無効など）や、主語（誰が義務を負うか）・期限・効果が入れ替わった選択肢に注意してください。',
+      '',
+      '【暗記の順番（おすすめ）】',
+      '①一文で定義 ②典型例を一つ ③よく似た言葉との差を一つ、の順にすると長文にも応用しやすいです。',
+      '',
+      '※カードを開くと、データがある項目は表・比較・フローなどの図解が表示されます。'
+    ].join('\n');
+  });
+})();
 
 // ===== GLOSSARY UI（定数 GLOSSARY_DATA は takken-data-glossary.js）=====
 let glosActiveCat = 'all';
@@ -2962,7 +3019,20 @@ function normalizeUserData(u){
   u.visitMarks=u.visitMarks||{};
   u.badges=u.badges||{};
   u.streak=u.streak||0;
+  u.bestStreak=Math.max(0,Math.floor(Number(u.bestStreak))||0);
+  u.studyDiary=u.studyDiary||{};
+  const sdClean={};
+  Object.keys(u.studyDiary).forEach(k=>{
+    const cell=normalizeStudyDiaryCell(u.studyDiary[k]);
+    if(cell.text) sdClean[k]={text:cell.text,updatedAt:cell.updatedAt||0};
+  });
+  u.studyDiary=sdClean;
   return u;
+}
+function normalizeStudyDiaryCell(v){
+  if(v==null) return {text:'',updatedAt:0};
+  if(typeof v==='string') return {text:String(v).trim(),updatedAt:0};
+  return {text:String(v.text||'').trim(),updatedAt:Number(v.updatedAt)||0};
 }
 function getUserData(){ return currentUser?normalizeUserData(db[currentUser.email]):null }
 
@@ -3042,7 +3112,24 @@ function mergeLearningPayload(localUser, remotePayload){
   L.badges=mergeBadgesTs(L.badges, R.badges);
   L.visitMarks=mergeVisitMarksJoin(L.visitMarks, R.visitMarks);
   L.streak=Math.max(Number(L.streak)||0, Number(R.streak)||0);
+  L.bestStreak=Math.max(Number(L.bestStreak)||0, Number(R.bestStreak)||0);
+  L.studyDiary=mergeStudyDiary(L.studyDiary, R.studyDiary);
   return L;
+}
+function mergeStudyDiary(a,b){
+  const keys=new Set([...Object.keys(a||{}),...Object.keys(b||{})]);
+  const out={};
+  keys.forEach(k=>{
+    const ha=a&&Object.prototype.hasOwnProperty.call(a,k), hb=b&&Object.prototype.hasOwnProperty.call(b,k);
+    const na=normalizeStudyDiaryCell(ha?a[k]:null), nb=normalizeStudyDiaryCell(hb?b[k]:null);
+    if(!hb){ if(na.text) out[k]=na; }
+    else if(!ha){ if(nb.text) out[k]=nb; }
+    else{
+      const pick=na.updatedAt>=nb.updatedAt?na:nb;
+      if(pick.text) out[k]=pick;
+    }
+  });
+  return out;
 }
 function extractLearningSyncPayload(u){
   const n=normalizeUserData(u);
@@ -3053,7 +3140,9 @@ function extractLearningSyncPayload(u){
     letters:(n.letters||[]).slice(0,350),
     badges:n.badges||{},
     visitMarks:n.visitMarks||{},
-    streak:n.streak||0
+    streak:n.streak||0,
+    bestStreak:n.bestStreak||0,
+    studyDiary:n.studyDiary||{}
   };
 }
 function scheduleLearningSyncToSupabase(){
@@ -3230,7 +3319,7 @@ function demoLogin(){
     db[email]={name:'デモユーザー',plan:'free',answers:ans,bookmarks:{},
       sessions:[{date:now-5*day,correct:3,total:5,pct:60},{date:now-4*day,correct:4,total:5,pct:80},
                 {date:now-3*day,correct:5,total:5,pct:100},{date:now-2*day,correct:3,total:5,pct:60},
-                {date:now-1*day,correct:4,total:5,pct:80}],streak:3};
+                {date:now-1*day,correct:4,total:5,pct:80}],streak:3,bestStreak:3};
     saveDB();
   }
   currentUser={email,name:'デモユーザー'}; enterApp();
@@ -3292,7 +3381,7 @@ function openLoginModal(){
 function closeLoginModal(){
   document.getElementById('login-modal').style.display='none';
 }
-	function resetData(){ const u=getUserData();u.answers={};u.sessions=[];u.bookmarks={};u.bookmarkNotes={};u.streak=0;saveUser(u);gotoPage('quiz-start'); }
+	function resetData(){ const u=getUserData();u.answers={};u.sessions=[];u.bookmarks={};u.bookmarkNotes={};u.streak=0;u.bestStreak=0;saveUser(u);gotoPage('quiz-start'); }
 
 function enterApp(){
   document.getElementById('auth-screen').style.display='none';
@@ -3304,6 +3393,7 @@ function enterApp(){
   if(loginBtn) loginBtn.style.display = isGuest ? '' : 'none';
   if(logoutBtn) logoutBtn.style.display = isGuest ? 'none' : '';
   const u=getUserData();
+  syncBestStreakFromHistory(u);
   updateDayStreak(u);
   saveUser(u);
   document.getElementById('sb-avatar').textContent=currentUser.name.charAt(0);
@@ -3435,52 +3525,109 @@ function shuffleArray(arr) {
   return a;
 }
 
+function collectOriginalQuestionsFlat() {
+  if (typeof ORIG_QUESTIONS === 'undefined') return [];
+  const o = ORIG_QUESTIONS;
+  return [].concat(o[1] || [], o[2] || [], o[3] || []);
+}
+
+/** 過去問（BASE_QUESTIONS / QUESTIONS）とオリジナル問題を id で重複除去して合体（一問一答・ブックマーク等で共通利用） */
 function collectAllBaseQuestions() {
-  return (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : [])
-    .concat(typeof QUESTIONS !== 'undefined' ? QUESTIONS.filter(q => !BASE_QUESTIONS.find(b => b.id === q.id)) : []);
+  const seen = new Set();
+  const out = [];
+  function pushUnique(q) {
+    if (!q || q.id == null || seen.has(q.id)) return;
+    seen.add(q.id);
+    out.push(q);
+  }
+  (typeof BASE_QUESTIONS !== 'undefined' ? BASE_QUESTIONS : []).forEach(pushUnique);
+  if (typeof QUESTIONS !== 'undefined') {
+    QUESTIONS.forEach(pushUnique);
+  }
+  collectOriginalQuestionsFlat().forEach(pushUnique);
+  return out;
 }
 function getBaseQuestionById(id) {
   return collectAllBaseQuestions().find(b => b.id === id);
 }
 
-/** 出題用プール（頻出・バランスは従来どおり上位から組む） */
+/** 出題用プール：分野で絞ったうえで全件をシャッフル（セッション開始時・各周回の頭で順序を変える） */
 function buildIchiSourcePool(fieldFilter) {
-  const all = collectAllBaseQuestions().filter(q => !fieldFilter || q.field === fieldFilter);
-  const pool = all.map(q => ({
-    q,
-    freq: getFrequencyEvidence(q),
-    score: getFrequencyEvidence(q).stars * 100 + getFrequencyEvidence(q).count * 8 + (q.year ? Math.min(4, Math.max(0, q.year - 2020)) : 0) + Math.random()
-  })).sort((a, b) => b.score - a.score);
-  const topPool = pool.slice(0, Math.min(pool.length, 40));
-  const selected = [];
-  const usedFields = {};
-  topPool.forEach(item => {
-    if (selected.length >= 10) return;
-    const fieldCount = usedFields[item.q.field] || 0;
-    if (fieldCount < 4 || selected.length >= 8) {
-      selected.push(item.q);
-      usedFields[item.q.field] = fieldCount + 1;
-    }
+  const all = collectAllBaseQuestions().filter(q => {
+    if (fieldFilter && q.field !== fieldFilter) return false;
+    const opts = Array.isArray(q.opts) ? q.opts : [];
+    const a = Number(q.ans);
+    return opts.length >= 2 && Number.isFinite(a) && a >= 0 && a < opts.length;
   });
-  pool.forEach(item => {
-    if (selected.length < 10 && !selected.some(q => q.id === item.q.id)) selected.push(item.q);
-  });
-  return shuffleArray(selected.length ? selected : all.slice());
+  return shuffleArray(all.slice());
+}
+
+/** 過去問stemに残る「正しいものはどれか」等の4択指示を、○×の一問一答向けに取り除く */
+function adaptStemMcInstructionsForIchimondou(text){
+  if(!text||typeof text!=='string') return text;
+  let s=text;
+  const strips=[
+    /次の記述のうち[、,　\s]*誤りがあるものはどれか[。．]?/g,
+    /次の記述のうち[、,　\s]*誤っているものはどれか[。．]?/g,
+    /次の記述のうち[、,　\s]*正しいものはどれか[。．]?/g,
+    /次の記述について[、,　\s]*誤っているものはどれか[。．]?/g,
+    /次の記述について[、,　\s]*正しいものはどれか[。．]?/g,
+    /次の各記述のうち[、,　\s]*誤っているものはどれか[。．]?/g,
+    /次の各記述のうち[、,　\s]*正しいものはどれか[。．]?/g,
+    /次の各記述について[、,　\s]*正しいものはどれか[。．]?/g,
+    /次のうち[、,　\s]*誤っているものはどれか[。．]?/g,
+    /次のうち[、,　\s]*正しいものはどれか[。．]?/g,
+    /次の記述について[、,　\s]*適切なものはどれか[。．]?/g,
+    /誤っている記述はどれか[。．]?/g,
+    /誤りがあるものはどれか[。．]?/g,
+    /正しい記述はどれか[。．]?/g,
+    /誤っているものはどれか[。．]?/g,
+    /誤りのあるものはどれか[。．]?/g,
+    /適切なものはどれか[。．]?/g,
+    /妥当なものはどれか[。．]?/g,
+    /正しくないものはどれか[。．]?/g,
+    /正しいものはどれか[。．]?/g,
+  ];
+  strips.forEach(re=>{ s=s.replace(re,''); });
+  s=s.replace(/[、，]\s*$/gm,'').replace(/\n{3,}/g,'\n\n').replace(/([。．!?！？])\s*\1+/g,'$1').trim();
+  return s;
+}
+
+/** 一問一答：選択肢テキストだけでは文脈が欠けることがあるため、問題文（stem）と組み立てる */
+function composeIchiJudgementStatement(baseQ, optIdx){
+  const opt=(baseQ.opts&&baseQ.opts[optIdx]!=null)?String(baseQ.opts[optIdx]).trim():'';
+  const stemRaw=(baseQ.text||'').trim();
+  const stem=stemRaw?adaptStemMcInstructionsForIchimondou(formatExamQuestionBodyText(stemRaw)).trim():'';
+  if(!stem) return opt;
+  if(!opt) return stem;
+  const norm=s=>s.replace(/[\s　\r\n]+/g,'');
+  if(norm(stem).includes(norm(opt))) return stem;
+  return stem+'\n\n'+opt;
+}
+
+function getIchiAnswerTruthForBase(q) {
+  const stem = String(q && q.text ? q.text : '');
+  // 個数・組合せ問題は「その選択肢が結論として合っているか」を問うため、正解肢を○として扱う。
+  if (/組合せ|組み合わせ|いくつ|何個|個数/.test(stem)) return true;
+  // 「誤っているもの」「不適切なもの」系は、元問の正解肢そのものが誤文なので○×を反転する。
+  if (/誤っている|誤りがある|誤りのある|正しくない|不適切|妥当でない/.test(stem)) return false;
+  return true;
 }
 
 function buildIchiItemFromBase(q) {
-  const isTrue = Math.random() < 0.5;
-  let optIdx, statement, correctAnswer;
-  if (isTrue) {
-    optIdx = q.ans;
-    statement = q.opts[q.ans];
-    correctAnswer = true;
-  } else {
-    const wrongIdxs = [0, 1, 2, 3].filter(i => i !== q.ans);
+  const opts = Array.isArray(q.opts) ? q.opts : [];
+  const ansIdx = Number(q.ans);
+  const answerTruth = getIchiAnswerTruthForBase(q);
+  const wrongIdxs = opts.map((_, i) => i).filter(i => i !== ansIdx);
+  let optIdx, correctAnswer;
+  if (wrongIdxs.length && Math.random() < 0.5) {
     optIdx = wrongIdxs[Math.floor(Math.random() * wrongIdxs.length)];
-    statement = q.opts[optIdx];
-    correctAnswer = false;
+    correctAnswer = !answerTruth;
+  } else {
+    optIdx = ansIdx;
+    correctAnswer = answerTruth;
   }
+  const statement = composeIchiJudgementStatement(q, optIdx);
   const freqEvidence = getFrequencyEvidence(q);
   return {
     id: q.id,
@@ -3498,7 +3645,11 @@ function ensureIchiQuestionAt(idx) {
   const L = ichiState.sourcePool.length;
   if (!L) return;
   while (ichiState.questions.length <= idx) {
-    const base = ichiState.sourcePool[ichiState.questions.length % L];
+    const pos = ichiState.questions.length;
+    if (pos > 0 && pos % L === 0) {
+      ichiState.sourcePool = shuffleArray(ichiState.sourcePool.slice());
+    }
+    const base = ichiState.sourcePool[pos % L];
     ichiState.questions.push(buildIchiItemFromBase(base));
   }
 }
@@ -3555,11 +3706,17 @@ function startIchimondou() {
   syncIchiPageVisibility();
 }
 
+function formatIchiStatementLead(statement) {
+  const body = (statement || '').trim();
+  if (!body) return '';
+  return '問題全体を読んだうえで、法令上その記述が正しいときは○（マル）、誤りのときは×（バツ）を選んでください。\n\n' + body;
+}
+
 function showIchiQuestion() {
   ensureIchiQuestionAt(ichiState.idx);
   const q = ichiState.questions[ichiState.idx];
   document.getElementById('ichi-field').textContent = FIELD_LABELS[q.field] || q.field;
-  document.getElementById('ichi-statement').textContent = q.statement;
+  document.getElementById('ichi-statement').textContent = formatIchiStatementLead(q.statement);
   document.getElementById('ichi-meta').innerHTML = '';
   updateBookmarkButton(q, 'ichi-bookmark-btn');
   renderBookmarkNote(q, 'ichi-bookmark-note-wrap');
@@ -3583,14 +3740,16 @@ function toggleIchiBookmark() {
 /** 一問一答は○×のみ。4択比較や「誤りの〜」などのメタ文言は削除し、条文・論点の説明中心に整える */
 function adaptExplanationForIchimondou(text) {
   if (!text || typeof text !== 'string') return '';
-  const CUT = ''; // 比較・誤り指摘の短文は削除
+  const CUT = ''; // 番号・アイウエ除去などにのみ使用（「他の選択肢」を空にしない→主語欠落を防ぐ）
   let s = text;
   const pairs = [
     [/正解の選択肢/g, '論点として正しいこと'],
-    [/不正解の選択肢/g, CUT],
-    [/誤答選択肢/g, CUT],
-    [/誤りの選択肢/g, CUT],
-    [/他の選択肢/g, CUT],
+    [/不正解の選択肢/g, '誤りとされる記述'],
+    [/誤答選択肢/g, '誤りとされる記述'],
+    [/誤りの選択肢/g, '誤りとされる記述'],
+    [/他の選択肢/g, 'その他の記述'],
+    [/選択肢\s*[1-4１-４]\s*(?:番(?:目)?)?/g, 'この記述'],
+    [/選択肢\s*[０-９0-9]+\s*(?:番(?:目)?)?/g, 'この記述'],
     [/各選択肢について/g, 'この論点について'],
     [/各選択肢は/g, '要件として'],
     [/各選択肢を/g, '条文の趣旨として'],
@@ -3599,7 +3758,6 @@ function adaptExplanationForIchimondou(text) {
     [/各選択肢の/g, '要件ごとの'],
     [/各選択肢/g, '各要件'],
     [/選択肢のうち/g, '要件としては'],
-    [/選択肢\s*[0-9０-９]+/g, '別の文'],
     [/選択肢の/g, 'この文の'],
     [/選択肢を/g, '記述を'],
     [/選択肢は/g, 'この記述は'],
@@ -3650,6 +3808,17 @@ function adaptExplanationForIchimondou(text) {
     [/[（(]\s*([1-4１-４])\s*[）)]\s*(は|が)\s*誤り/g, CUT],
     [/[（(]\s*([1-4１-４])\s*[）)]\s*(は|が)\s*正しい/g, CUT],
   ].forEach(([re, rep]) => { s = s.replace(re, rep); });
+  // 旧「選択肢→別の文」由来の破綻文・孤立した番号を除去
+  s = s.replace(/正解は別の文[^。．\n]*[。．]?/g, '')
+    .replace(/不正解は別の文[^。．\n]*[。．]?/g, '')
+    .replace(/この記述\s*[1-4１-４](?:番(?:目)?)?/g, 'この記述');
+  // 「他の選択肢」を空に置換した際の残骸「は、主体・手続…」などを除去
+  let prevOrphan;
+  do {
+    prevOrphan = s;
+    s = s.replace(/^[、，。\s　]*(は|も|が)[、，][^。\n]{2,400}[。．]/u, '');
+    s = s.replace(/(^|[。．])\s*(は|も|が)[、，][^。\n]{2,400}[。．]/gu, '$1');
+  } while (prevOrphan !== s);
   s = s
     .replace(/[　 \t\r\n]{2,}/g, ' ')
     .replace(/、+/g, '、')
@@ -3659,7 +3828,6 @@ function adaptExplanationForIchimondou(text) {
     .replace(/(^|[。．])\s*、+/g, '$1')
     .replace(/^\s*[、，。\s．]+/, '')
     .replace(/[、，。\s]+$/, '')
-    .replace(/誤りの記述|不正解の記述/g, CUT)
     .trim();
   let prevParen;
   do {
@@ -3703,7 +3871,7 @@ function answerIchi(userAnswer) {
   const exp = document.getElementById('ichi-result-exp');
   badge.className = 'ichi-result-badge ' + (correct ? 'ok' : 'ng');
   badge.textContent = correct ? '✓ 正解' : '✗ 不正解';
-  badge.textContent += '　' + (q.correctAnswer ? '○が正解' : '×が正解');
+  badge.textContent += '　（' + (q.correctAnswer ? '正解は○' : '正解は×') + '）';
   exp.textContent = adaptExplanationForIchimondou(q.exp || '');
   const resultBox = document.getElementById('ichi-result');
   resultBox.className = 'ichi-result show ' + (correct ? 'ok' : 'ng');
@@ -3744,8 +3912,7 @@ function shareIchiResultToX(){
   const s = ichiState.score;
   const att = ichiState.attempts;
   const pct = att > 0 ? Math.round(s / att * 100) : 0;
-  const text = buildXShareText(`宅建マスターで一問一答を解きました。\n正答率 ${pct}%（${s}/${att}問）\n宅建合格を目指して学習を続けています。`);
-  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+  openTwitterShareIntent(`宅建マスターで一問一答を解きました。\n正答率 ${pct}%（${s}/${att}問）\n宅建合格を目指して学習を続けています。`);
 }
 
 function gotoPage(id){
@@ -3923,6 +4090,7 @@ let fieldTabMode = 'field'; // 'field' | 'unit'
 let analyticsCalendarMonth = null;
 let analyticsCalendarWeek = null;
 let analyticsCalendarMode = 'month';
+let studyDiaryEditingDate = null;
 function switchFieldTab(mode){
   fieldTabMode = mode;
   document.getElementById('ftab-field').classList.toggle('on', mode==='field');
@@ -4009,6 +4177,8 @@ function renderDashPeriodStats(){
   if(dbs) dbs.textContent=`/ ${BADGE_DEFS.length}種`;
   document.getElementById('d-rate').textContent=all.length>0?Math.round(ok.length/all.length*100)+'%':'—';
   document.getElementById('d-streak').textContent=String(computeAnswerStreakForDash(u));
+  const dsb=document.getElementById('d-streak-best');
+  if(dsb) dsb.textContent=String(Math.max(0,Number(u.bestStreak)||0));
   document.getElementById('d-review-cnt').textContent=wrong.length;
   renderFieldBarsWrap();
   if(typeof renderRadarChart==='function') renderRadarChart('radar-chart-container');
@@ -4467,6 +4637,31 @@ function allPracticeQuestions(){
   const allOrig=[...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
   return [...QUESTIONS,...allOrig];
 }
+/** 解答日時順で見たときの最大連続正解（既存データから bestStreak を補完するため） */
+function computeMaxHistoricStreakFromAnswers(u){
+  if(!u||!u.answers) return 0;
+  const qMap=new Map();
+  allPracticeQuestions().forEach(q=>{ if(q&&q.id!=null) qMap.set(String(q.id),q); });
+  const items=[];
+  Object.keys(u.answers).forEach(id=>{
+    const q=qMap.get(String(id));
+    const a=u.answers[id];
+    if(!q||!a||typeof a.ans==='undefined'||!a.date) return;
+    items.push({t:new Date(a.date).getTime(), ok:Number(a.ans)===Number(q.ans)});
+  });
+  items.sort((a,b)=>a.t-b.t);
+  let cur=0,max=0;
+  for(let i=0;i<items.length;i++){
+    if(items[i].ok){ cur++; if(cur>max) max=cur; }
+    else cur=0;
+  }
+  return max;
+}
+function syncBestStreakFromHistory(u){
+  if(!u||typeof computeMaxHistoricStreakFromAnswers!=='function') return;
+  const hm=computeMaxHistoricStreakFromAnswers(u);
+  if(hm>(u.bestStreak||0)) u.bestStreak=hm;
+}
 function escapeHTML(value){
   return String(value||'').replace(/[&<>"']/g, ch=>({
     '&':'&amp;',
@@ -4538,10 +4733,8 @@ function toggleBookmarkForQuestion(q, options={}){
   u.bookmarks=u.bookmarks||{};
   if(u.bookmarks[q.id]){
     delete u.bookmarks[q.id];
-    showToast('保存を解除しました','bookmark',1300);
   } else {
     u.bookmarks[q.id]=Date.now();
-    showToast('ブックマークに保存しました。メモを書けます','bookmark',1800);
     awardBadgeById('bookmark_action', u);
   }
   saveUser(u);
@@ -4661,7 +4854,12 @@ function pickOpt(i){
   const elapsed=(Date.now()-quizState.startTime)/1000, correct=i===q.ans;
   const u=getUserData();
   u.answers[q.id]={ans:i,time:elapsed,date:Date.now()};
-  if(correct)u.streak=(u.streak||0)+1; else u.streak=0;
+  if(correct){
+    u.streak=(u.streak||0)+1;
+    u.bestStreak=Math.max(u.bestStreak||0,u.streak);
+  }else{
+    u.streak=0;
+  }
   saveUser(u); quizState.sessionResults.push({q,picked:i,correct,time:elapsed});
   saveAnswerToSupabase(q,i,correct,elapsed);
   document.querySelectorAll('.opt').forEach((el,j)=>{
@@ -4964,28 +5162,31 @@ async function copyImageBlobToClipboard(blob){
 
 let currentBadgeShareId = null;
 const SHARE_URL = 'https://takken-master.jp';
-const SHARE_HASHTAGS = '#宅建 #宅建勉強 #宅建マスター';
-function buildXShareText(body){
-  return `${body.trim()}\n\n${SHARE_URL}\n\n${SHARE_HASHTAGS}`;
+const SHARE_TWITTER_HASHTAGS = '宅建,宅建勉強,宅建マスター';
+/** X Web Intent 用：本文・公式URL・ハッシュタグをパラメータで渡す（投稿欄に読み込まれる） */
+function openTwitterShareIntent(bodyCore){
+  const params=new URLSearchParams();
+  params.set('text', bodyCore.trim());
+  params.set('url', SHARE_URL);
+  params.set('hashtags', SHARE_TWITTER_HASHTAGS);
+  window.open(`https://twitter.com/intent/tweet?${params.toString()}`,'_blank','noopener,noreferrer');
 }
 let lastSessionShareData = null;
 function buildSessionShareText(data){
-  if(!data) return buildXShareText('宅建マスターで問題演習をしました。');
+  if(!data) return '宅建マスターで問題演習をしました。';
   const modeLabel = data.mode==='orig' ? 'オリジナル問題' : data.mode==='mock' ? '模試' : '過去問';
   const line = data.pct>=80
     ? 'この調子で宅建合格に向けて積み上げます。'
     : data.pct>=60
       ? '間違えた問題を復習して、次につなげます。'
       : '解説を読み直して、一問ずつ固めます。';
-  return buildXShareText(`宅建マスターで${modeLabel}を解きました。\n正答率 ${data.pct}%（${data.correct}/${data.total}問）\n${line}`);
+  return `宅建マスターで${modeLabel}を解きました。\n正答率 ${data.pct}%（${data.correct}/${data.total}問）\n${line}`;
 }
 function shareSessionResultToX(){
-  const text=buildSessionShareText(lastSessionShareData);
-  const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-  window.open(url,'_blank','noopener,noreferrer');
+  openTwitterShareIntent(buildSessionShareText(lastSessionShareData));
 }
 function getBadgeShareText(badge){
-  return buildXShareText(`宅建マスターで「${badge.name}」バッジを獲得しました。\n${badge.desc}\n宅建合格を目指して学習を続けています。`);
+  return `宅建マスターで「${badge.name}」バッジを獲得しました。\n${badge.desc}\n宅建合格を目指して学習を続けています。`;
 }
 function openBadgeShare(id){
   const u=getUserData();
@@ -4996,7 +5197,7 @@ function openBadgeShare(id){
   const title=document.getElementById('badge-share-title');
   const sub=document.getElementById('badge-share-sub');
   if(title) title.textContent=`${badge.name} バッジ獲得`;
-  if(sub) sub.textContent=`${badge.desc}。この達成をXに投稿できます。`;
+  if(sub) sub.textContent=`${badge.desc}。証明画像は保存できます。投稿文とリンクは「Xに投稿する」で投稿画面に入ります。`;
   document.getElementById('badge-share-overlay')?.classList.add('open');
   setTimeout(()=>drawBadgeShareCard(badge), 80);
 }
@@ -5446,7 +5647,7 @@ function drawBadgeShareCard(badge){
 let currentLevelUpShare=null;
 function getLevelUpShareText(lu){
   if(!lu) return '';
-  return buildXShareText(`宅建マスターでレベルアップしました！\nLv${lu.prevLv}「${lu.prevLabel}」→ Lv${lu.newLv}「${lu.newLabel}」\n累計${lu.totalAnswered}問の解答を重ねて、一歩ずつ前に進んでいます。宅建合格を目指して学習を続けています。`);
+  return `宅建マスターでレベルアップしました！\nLv${lu.prevLv}「${lu.prevLabel}」→ Lv${lu.newLv}「${lu.newLabel}」\n累計${lu.totalAnswered}問の解答を重ねて、一歩ずつ前に進んでいます。宅建合格を目指して学習を続けています。`;
 }
 function drawLevelUpShareCard(lu){
   const canvas=document.getElementById('level-up-share-canvas');
@@ -5513,102 +5714,52 @@ function closeLevelUpShare(e){
   const overlay=document.getElementById('level-up-share-overlay');
   if(!e || e.target===overlay) overlay?.classList.remove('open');
 }
-async function shareLevelUpToX(){
+function shareLevelUpToX(){
   const lu=currentLevelUpShare;
   if(!lu) return;
-  const text=getLevelUpShareText(lu);
-  const canvas=document.getElementById('level-up-share-canvas');
-  if(canvas) drawLevelUpShareCard(lu);
-  const blob=canvas ? await canvasToBlob(canvas) : null;
-  const file=blob ? new File([blob], `takken-master-levelup-Lv${lu.newLv}.png`, {type:'image/png'}) : null;
-  if(file && navigator.canShare && navigator.canShare({files:[file]})){
-    try{
-      await navigator.share({text, files:[file]});
-      return;
-    }catch(e){
-      if(e && e.name==='AbortError') return;
-    }
-  }
-  if(blob){
-    const a=document.createElement('a');
-    const objectUrl=URL.createObjectURL(blob);
-    a.download=`takken-master-levelup-Lv${lu.newLv}.png`;
-    a.href=objectUrl;
-    a.click();
-    setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
-    if(typeof showToast==='function') showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
-  }
-  const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
+  openTwitterShareIntent(getLevelUpShareText(lu));
 }
 window.openLevelUpShare=openLevelUpShare;
 window.closeLevelUpShare=closeLevelUpShare;
 window.shareLevelUpToX=shareLevelUpToX;
 
-async function shareBadgeToX(){
+function saveLevelUpShareImage(){
+  const lu=currentLevelUpShare;
+  if(!lu) return;
+  const canvas=document.getElementById('level-up-share-canvas');
+  if(!canvas) return;
+  drawLevelUpShareCard(lu);
+  const fname=`takken-master-levelup-Lv${lu.newLv}-${new Date().toISOString().slice(0,10)}.png`;
+  const a=document.createElement('a');
+  a.download=fname;
+  a.href=canvas.toDataURL('image/png');
+  a.click();
+}
+
+function shareBadgeToX(){
   const badge=BADGE_DEFS.find(b=>b.id===currentBadgeShareId);
   if(!badge) return;
-  const text=getBadgeShareText(badge);
+  openTwitterShareIntent(getBadgeShareText(badge));
+}
+
+function saveBadgeShareImage(){
+  const badge=BADGE_DEFS.find(b=>b.id===currentBadgeShareId);
+  if(!badge) return;
   const canvas=document.getElementById('badge-share-canvas');
-  if(canvas) drawBadgeShareCard(badge);
-  const blob=canvas ? await canvasToBlob(canvas) : null;
-  const file=blob ? new File([blob], `takken-master-badge-${badge.id}.png`, {type:'image/png'}) : null;
-  const tweetUrl=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-  if(file && navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
-    try{
-      await navigator.share({text, files:[file]});
-      return;
-    }catch(e){
-      if(e && e.name==='AbortError') return;
-    }
-  }
-  if(blob && await copyImageBlobToClipboard(blob)){
-    window.open(tweetUrl, '_blank', 'noopener,noreferrer');
-    if(typeof showToast==='function'){
-      showToast('バッジ画像をクリップボードにコピーしました。投稿欄で貼り付け（⌘V／Ctrl+V）すると画像も一緒に投稿できます','badge',4300);
-    }
-    return;
-  }
-  if(blob){
-    const a=document.createElement('a');
-    const objectUrl=URL.createObjectURL(blob);
-    a.download=`takken-master-badge-${badge.id}.png`;
-    a.href=objectUrl;
-    a.click();
-    setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
-    if(typeof showToast==='function') showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
-  }
-  window.open(tweetUrl, '_blank', 'noopener,noreferrer');
+  if(!canvas) return;
+  drawBadgeShareCard(badge);
+  const now=new Date();
+  const fname=`takken-master-badge-${badge.id}-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}.png`;
+  const a=document.createElement('a');
+  a.download=fname;
+  a.href=canvas.toDataURL('image/png');
+  a.click();
 }
 
 async function shareMissionToX(){
-  const canvas = document.getElementById('mission-cert-canvas');
-  if(!canvas) return;
-  drawMissionCert();
   const now = new Date();
   const dateStr = `${now.getMonth()+1}月${now.getDate()}日`;
-  const text = buildXShareText(`宅建マスターで今日のミッションをすべてクリアしました。\n${dateStr}も宅建合格を目指して学習を続けています。`);
-  const blob = await canvasToBlob(canvas);
-  const file = blob ? new File([blob], `takken-master-mission-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}.png`, {type:'image/png'}) : null;
-  if(file && navigator.canShare && navigator.canShare({files:[file]})){
-    try{
-      await navigator.share({text, files:[file]});
-      return;
-    }catch(e){
-      if(e && e.name === 'AbortError') return;
-    }
-  }
-  if(blob){
-    const a = document.createElement('a');
-    const objectUrl = URL.createObjectURL(blob);
-    a.download = file.name;
-    a.href = objectUrl;
-    a.click();
-    setTimeout(()=>URL.revokeObjectURL(objectUrl), 1000);
-    showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
-  }
-  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
+  openTwitterShareIntent(`宅建マスターで今日のミッションをすべてクリアしました。\n${dateStr}も宅建合格を目指して学習を続けています。`);
 }
 function buildKaisetsu(k, q){
   if(!k) return '';
@@ -6160,6 +6311,147 @@ function getDailyAnswerCounts(){
 function dateKey(d){
   return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
 }
+function studyDiaryHasEntry(isoKey){
+  const u=getUserData();
+  if(!u?.studyDiary?.[isoKey]) return false;
+  return normalizeStudyDiaryCell(u.studyDiary[isoKey]).text.length>0;
+}
+function openStudyDiaryModal(ev, isoDate){
+  if(ev && typeof ev.stopPropagation==='function') ev.stopPropagation();
+  if(!currentUser){
+    if(typeof showToast==='function') showToast('学習日記を使うにはログインしてください','badge',2800);
+    return;
+  }
+  studyDiaryEditingDate=isoDate;
+  const u=getUserData();
+  const cell=u?.studyDiary?.[isoDate] ? normalizeStudyDiaryCell(u.studyDiary[isoDate]) : {text:''};
+  const ta=document.getElementById('study-diary-text');
+  if(ta) ta.value=cell.text;
+  const [y,m,d]=isoDate.split('-').map(Number);
+  const wd=['日','月','火','水','木','金','土'][new Date(y,m-1,d).getDay()];
+  const dateEl=document.getElementById('study-diary-modal-date');
+  if(dateEl) dateEl.textContent=`${y}年${m}月${d}日（${wd}）`;
+  document.getElementById('study-diary-overlay')?.classList.add('open');
+  setTimeout(()=>{ try{ ta?.focus(); }catch(_){ } }, 80);
+}
+function closeStudyDiaryModal(e){
+  const overlay=document.getElementById('study-diary-overlay');
+  if(!e || e.target===overlay) overlay?.classList.remove('open');
+}
+function saveStudyDiary(){
+  const u=getUserData();
+  if(!u || !studyDiaryEditingDate) return;
+  const ta=document.getElementById('study-diary-text');
+  const text=(ta?.value||'').trim();
+  u.studyDiary=u.studyDiary||{};
+  if(!text) delete u.studyDiary[studyDiaryEditingDate];
+  else u.studyDiary[studyDiaryEditingDate]={text,updatedAt:Date.now()};
+  saveUser(u);
+  document.getElementById('study-diary-overlay')?.classList.remove('open');
+  renderStudyCalendar();
+  if(typeof showToast==='function') showToast('保存しました','badge',2200);
+  scheduleLearningSyncToSupabase();
+}
+/** 指定日（YYYY-MM-DD）に記録された解答の件数・正解数・正答率 */
+function getStudyDayAnswerStats(isoKey){
+  const u=getUserData();
+  const answers=u?.answers||{};
+  let answered=0,correct=0;
+  let qById=null;
+  try{
+    qById=new Map(allPracticeQuestions().map(q=>[String(q.id),q]));
+  }catch(_){ qById=new Map(); }
+  Object.entries(answers).forEach(([qid,a])=>{
+    if(!a||a.date==null) return;
+    const d=new Date(a.date);
+    if(Number.isNaN(d.getTime())) return;
+    const key=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+    if(key!==isoKey) return;
+    answered++;
+    const q=qById.get(String(qid));
+    if(q && Number(a.ans)===Number(q.ans)) correct++;
+  });
+  const pct=answered?Math.round(correct/answered*100):0;
+  return {answered,correct,pct};
+}
+function buildStudyDiaryShareText(isoKey){
+  let raw='';
+  const ta=document.getElementById('study-diary-text');
+  const overlay=document.getElementById('study-diary-overlay');
+  if(overlay?.classList.contains('open')&&studyDiaryEditingDate===isoKey&&ta){
+    raw=(ta.value||'').trim();
+  }else{
+    const u=getUserData();
+    raw=u?.studyDiary?.[isoKey]?normalizeStudyDiaryCell(u.studyDiary[isoKey]).text:'';
+  }
+  const {answered,correct,pct}=getStudyDayAnswerStats(isoKey);
+  const lines=[];
+  if(raw) lines.push(raw);
+  lines.push(`【宅建マスター｜この日の記録（${isoKey}）】`);
+  lines.push(`解答 ${answered}問／正解 ${correct}問／正答率 ${pct}%`);
+  lines.push('宅建合格を目指して学習を続けています。');
+  return lines.join('\n\n');
+}
+function shareStudyDiaryToX(){
+  if(!studyDiaryEditingDate) return;
+  openTwitterShareIntent(buildStudyDiaryShareText(studyDiaryEditingDate));
+}
+/** 解答または日記メモがある日付を収集し新しい順で返す */
+function getStudyDiaryTimelineDates(){
+  const u=getUserData();
+  if(!u) return [];
+  const counts=getDailyAnswerCounts();
+  const keySet=new Set();
+  Object.keys(counts||{}).forEach(k=>{ if((counts[k]||0)>0) keySet.add(k); });
+  Object.keys(u.studyDiary||{}).forEach(k=>{
+    if(normalizeStudyDiaryCell(u.studyDiary[k]).text) keySet.add(k);
+  });
+  return [...keySet].sort((a,b)=>b.localeCompare(a));
+}
+function renderStudyDiaryTimelineList(){
+  const container=document.getElementById('study-diary-timeline-list');
+  if(!container) return;
+  const dates=getStudyDiaryTimelineDates();
+  if(!dates.length){
+    container.innerHTML='<p class="study-diary-tl-empty">まだ記録がありません。カレンダーの日付をタップして解答やメモを残すと、ここに表示されます。</p>';
+    return;
+  }
+  const u=getUserData();
+  container.innerHTML=dates.map(iso=>{
+    const [y,m,d]=iso.split('-').map(Number);
+    const wd=['日','月','火','水','木','金','土'][new Date(y,m-1,d).getDay()];
+    const memo=u?.studyDiary?.[iso]?normalizeStudyDiaryCell(u.studyDiary[iso]).text:'';
+    const {answered,correct,pct}=getStudyDayAnswerStats(iso);
+    const memoBlock=memo
+      ? `<div class="study-diary-tl-memo">${escapeHTML(memo)}</div>`
+      : `<div class="study-diary-tl-memo empty">メモはまだありません（タップして追加できます）</div>`;
+    return `<div class="study-diary-tl-item" role="button" tabindex="0" onclick="editStudyDiaryFromTimeline('${iso}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();editStudyDiaryFromTimeline('${iso}');}">
+      <div class="study-diary-tl-date">${y}年${m}月${d}日（${wd}）</div>
+      <div class="study-diary-tl-stats">解答 ${answered}問 · 正解 ${correct}問 · 正答率 ${pct}%</div>
+      ${memoBlock}
+      <span class="study-diary-tl-edit" onclick="event.stopPropagation();editStudyDiaryFromTimeline('${iso}')">この日を編集 →</span>
+    </div>`;
+  }).join('');
+}
+function openStudyDiaryTimeline(){
+  if(!currentUser){
+    if(typeof showToast==='function') showToast('一覧を表示するにはログインしてください','badge',2600);
+    return;
+  }
+  renderStudyDiaryTimelineList();
+  document.getElementById('study-diary-timeline-overlay')?.classList.add('open');
+}
+function closeStudyDiaryTimeline(e){
+  const overlay=document.getElementById('study-diary-timeline-overlay');
+  if(!e||e.target===overlay) overlay?.classList.remove('open');
+}
+function editStudyDiaryFromTimeline(iso){
+  document.getElementById('study-diary-timeline-overlay')?.classList.remove('open');
+  openStudyDiaryModal(null, iso);
+}
+window.openStudyDiaryTimeline=openStudyDiaryTimeline;
+window.closeStudyDiaryTimeline=closeStudyDiaryTimeline;
+window.editStudyDiaryFromTimeline=editStudyDiaryFromTimeline;
 function startOfWeek(d){
   const day=new Date(d.getFullYear(),d.getMonth(),d.getDate());
   day.setDate(day.getDate()-day.getDay());
@@ -6168,15 +6460,18 @@ function startOfWeek(d){
 function makeStudyCalendarDay(d,counts,today){
   const key=dateKey(d);
   const cnt=counts[key]||0;
+  const hasDiary=studyDiaryHasEntry(key);
   const cls=[
     'study-cal-day',
     cnt>0?'studied':'',
     d.getTime()===today.getTime()?'today':'',
-    d.getTime()>today.getTime()?'future':''
+    d.getTime()>today.getTime()?'future':'',
+    hasDiary?'has-diary':''
   ].filter(Boolean).join(' ');
+  const diaryHint=hasDiary?'（日記あり）':'';
   return {
     cnt,
-    html:`<div class="${cls}" title="${d.toLocaleDateString('ja-JP')} ${cnt}問">
+    html:`<div class="${cls}" title="${d.toLocaleDateString('ja-JP')} ${cnt}問${diaryHint}" role="button" tabindex="0" onclick="openStudyDiaryModal(event,'${key}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openStudyDiaryModal(event,'${key}');}">
       <span class="study-cal-date">${d.getDate()}</span>
       <span class="study-cal-count">${cnt}</span>
     </div>`
@@ -6256,7 +6551,8 @@ function renderStudyCalendar(){
     </div>
     <div class="study-cal-weekdays">${weekLabels}</div>
     <div class="study-cal-grid">${gridHTML}</div>
-    <div class="study-cal-summary"><span>この${isWeek?'週':'月'}の学習日 <strong>${studiedDays}</strong>日</span><span>解答数 <strong>${total}</strong>問</span></div>`;
+    <div class="study-cal-summary"><span>この${isWeek?'週':'月'}の学習日 <strong>${studiedDays}</strong>日</span><span>解答数 <strong>${total}</strong>問</span></div>
+    <div class="study-cal-diary-hint">日付をタップしてメモを書けます。「時系列一覧」で過去を一覧できます。モーダルから解答数つきでXに投稿できます。</div>`;
 }
 
 function renderSupportLetterList(){
@@ -6394,11 +6690,12 @@ loadDB();
 <div class="mission-popup-overlay" id="level-up-share-overlay" onclick="closeLevelUpShare(event)">
   <div class="mission-popup">
     <div class="mission-popup-title" id="level-up-share-title">レベルアップ</div>
-    <div class="mission-popup-sub" id="level-up-share-sub">おめでとうございます。画像と本文をセットでXに投稿できます。</div>
+    <div class="mission-popup-sub" id="level-up-share-sub">おめでとうございます。証明画像は保存できます。投稿文とリンクは「Xに投稿する」で投稿画面に入ります。</div>
     <div class="mission-cert-canvas-wrap">
       <canvas id="level-up-share-canvas" width="1200" height="675"></canvas>
     </div>
     <div class="mission-popup-actions">
+      <button class="mission-popup-save" onclick="saveLevelUpShareImage()">画像として保存する</button>
       <button class="mission-popup-share" onclick="shareLevelUpToX()">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.749l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Xに投稿する
@@ -6411,17 +6708,42 @@ loadDB();
 <div class="mission-popup-overlay" id="badge-share-overlay" onclick="closeBadgeShare(event)">
   <div class="mission-popup">
     <div class="mission-popup-title" id="badge-share-title">バッジ獲得</div>
-    <div class="mission-popup-sub" id="badge-share-sub">学習の達成をシェアできます。</div>
+    <div class="mission-popup-sub" id="badge-share-sub">学習の達成をシェアできます。証明画像は保存できます。投稿文とリンクは「Xに投稿する」で投稿画面に入ります。</div>
     <div class="mission-cert-canvas-wrap">
       <canvas id="badge-share-canvas" width="1200" height="675"></canvas>
     </div>
     <div class="mission-popup-actions">
+      <button class="mission-popup-save" onclick="saveBadgeShareImage()">画像として保存する</button>
       <button class="mission-popup-share" onclick="shareBadgeToX()">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.749l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Xに投稿する
       </button>
     </div>
     <button class="mission-popup-close" onclick="document.getElementById('badge-share-overlay').classList.remove('open')">閉じる</button>
+  </div>
+</div>
+<!-- STUDY DIARY MODAL -->
+<div class="mission-popup-overlay" id="study-diary-overlay" onclick="closeStudyDiaryModal(event)">
+  <div class="mission-popup" onclick="event.stopPropagation()">
+    <div class="mission-popup-title" id="study-diary-modal-title">学習日記</div>
+    <div class="mission-popup-sub" id="study-diary-modal-date"></div>
+    <textarea id="study-diary-text" class="study-diary-textarea" maxlength="4000" placeholder="この日の振り返りやメモを残せます（保存すると端末／アカウントに記録されます）"></textarea>
+    <div class="mission-popup-actions">
+      <button class="mission-popup-save" onclick="saveStudyDiary()">保存する</button>
+      <button type="button" class="mission-popup-share" onclick="shareStudyDiaryToX()">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.749l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Xに投稿する
+      </button>
+    </div>
+    <button class="mission-popup-close" onclick="document.getElementById('study-diary-overlay').classList.remove('open')">閉じる</button>
+  </div>
+</div>
+<div class="mission-popup-overlay" id="study-diary-timeline-overlay" onclick="closeStudyDiaryTimeline(event)">
+  <div class="mission-popup study-diary-timeline-popup" onclick="event.stopPropagation()">
+    <div class="mission-popup-title">学習日記・時系列</div>
+    <div class="mission-popup-sub">新しい日付から順に表示します。各行にその日の解答数・正答率とメモがあります。タップで編集できます。</div>
+    <div id="study-diary-timeline-list" class="study-diary-timeline-list" role="list"></div>
+    <button type="button" class="mission-popup-close" onclick="document.getElementById('study-diary-timeline-overlay').classList.remove('open')">閉じる</button>
   </div>
 </div>
 <div id="g-tooltip"></div>
@@ -6504,7 +6826,7 @@ loadDB();
 
 /* ---- 2. レーダーチャート ---- */
 .radar-wrap{display:flex;justify-content:center;padding:4px 0 2px;width:100%}
-.radar-svg{overflow:visible;width:100%;max-width:340px;height:auto;display:block}
+.radar-svg{overflow:visible;width:100%;max-width:420px;height:auto;display:block}
 .radar-legend{display:flex;gap:20px;justify-content:center;margin-top:8px;flex-wrap:wrap}
 .radar-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2)}
 .radar-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
@@ -6800,9 +7122,9 @@ function renderRadarChart(containerId){
   const el=document.getElementById(containerId);
   if(!el) return;
   const stats=computeFieldStats();
-  const pad=36;
-  const size=256;
-  const cx=size/2, cy=size/2, r=94;
+  const pad=42;
+  const size=292;
+  const cx=size/2, cy=size/2, r=108;
   const fields=stats;
   const n=fields.length;
   const angles=fields.map((_,i)=>-Math.PI/2+(2*Math.PI/n)*i);
@@ -7013,7 +7335,7 @@ window.startWeakModeQuiz=startWeakModeQuiz;
 // ダッシュボードの拡張（レーダーチャート）
 // =====================================================================
 function injectDashEnhancements(){
-  // 理解度レーダー・学習カレンダーは #page-dash 内の .dash-radar-cal-row に静的配置
+  // 理解度レーダー・学習日記（カレンダー）は #page-dash 内の .dash-radar-cal-row に静的配置
 }
 
 // quiz-startページに弱点モード・SRSバナーを追加
