@@ -3552,9 +3552,20 @@ function getBaseQuestionById(id) {
 }
 
 /** 出題用プール：分野で絞ったうえで全件をシャッフル（セッション開始時・各周回の頭で順序を変える） */
+function isIchiConvertibleQuestion(q) {
+  const stem = String(q && q.text ? q.text : '');
+  const opts = Array.isArray(q && q.opts) ? q.opts.map(o => String(o || '').trim()) : [];
+  // 個数問題・組合せ問題は、選択肢が「正しい記述は二つ」等になり、○×の一文として成立しにくい。
+  if (/いくつあるか|何個|個数|組合せ|組み合わせ/.test(stem)) return false;
+  if (opts.length && opts.every(o => /^(?:正しい|誤っている|誤りのある|適切な|不適切な)?記述は(?:一|二|三|四|ない|[0-9０-９]+)つ/.test(o))) return false;
+  if (opts.length && opts.every(o => /^[アイウエオ](?:と[アイウエオ])*$/.test(o))) return false;
+  return true;
+}
+
 function buildIchiSourcePool(fieldFilter) {
   const all = collectAllBaseQuestions().filter(q => {
     if (fieldFilter && q.field !== fieldFilter) return false;
+    if (!isIchiConvertibleQuestion(q)) return false;
     const opts = Array.isArray(q.opts) ? q.opts : [];
     const a = Number(q.ans);
     return opts.length >= 2 && Number.isFinite(a) && a >= 0 && a < opts.length;
@@ -3589,6 +3600,19 @@ function adaptStemMcInstructionsForIchimondou(text){
     /正しいものはどれか[。．]?/g,
   ];
   strips.forEach(re=>{ s=s.replace(re,''); });
+  // 「〜を選びなさい」「〜はどれか」が残ると、一問一答で文が途切れるため追加除去する。
+  s=s
+    .replace(/以下の(?:1から4までの|１から４までの)?記述のうち[、,　\s]*[^。．]*(?:を選びなさい|はどれか|どれか)[。．]?/g,'')
+    .replace(/次の(?:1から4までの|１から４までの)?記述のうち[、,　\s]*[^。．]*(?:を選びなさい|はどれか|どれか)[。．]?/g,'')
+    .replace(/(?:正しい|誤っている|適切な|不適切な|妥当な|正しくない)もの(?:がいくつあるか)?(?:を選びなさい|はどれか|どれか)[。．]?/g,'')
+    .replace(/(?:正しい|誤っている|適切な|不適切な|妥当な|正しくない)記述(?:がいくつあるか)?(?:を選びなさい|はどれか|どれか)[。．]?/g,'')
+    .replace(/(?:誤り|誤りのある|誤りがある)もの(?:がいくつあるか)?(?:を選びなさい|はどれか|どれか)[。．]?/g,'')
+    .replace(/(?:組合せ|組み合わせ)(?:はどれか|を選びなさい)[。．]?/g,'')
+    .replace(/([^。．]+?)(?:もの|記述|項目|内容|の)はどれか[。．]?/g,'$1ものとして')
+    .replace(/([^。．]+?)に含まれるのはどれか[。．]?/g,'$1に含まれるものとして')
+    .replace(/([^。．]+?)はどれか[。．]?/g,'$1として')
+    .replace(/についての\s*$/g,'について')
+    .replace(/に関する\s*$/g,'に関して');
   s=s.replace(/[、，]\s*$/gm,'').replace(/\n{3,}/g,'\n\n').replace(/([。．!?！？])\s*\1+/g,'$1').trim();
   return s;
 }
@@ -3598,11 +3622,34 @@ function composeIchiJudgementStatement(baseQ, optIdx){
   const opt=(baseQ.opts&&baseQ.opts[optIdx]!=null)?String(baseQ.opts[optIdx]).trim():'';
   const stemRaw=(baseQ.text||'').trim();
   const stem=stemRaw?adaptStemMcInstructionsForIchimondou(formatExamQuestionBodyText(stemRaw)).trim():'';
-  if(!stem) return opt;
+  if(!stem) return normalizeIchiOptionAsSentence(opt);
   if(!opt) return stem;
   const norm=s=>s.replace(/[\s　\r\n]+/g,'');
-  if(norm(stem).includes(norm(opt))) return stem;
-  return stem+'\n\n'+opt;
+  if(norm(opt).length > 12 && norm(stem).includes(norm(opt))) return normalizeIchiOptionAsSentence(stem);
+  return buildIchiJudgementSentence(stem,opt);
+}
+
+function normalizeIchiOptionAsSentence(opt){
+  const body=String(opt||'').trim();
+  if(!body) return '';
+  if(/[。．!?！？]$/.test(body)) return body;
+  return body+'。';
+}
+
+function buildIchiJudgementSentence(stem,opt){
+  const s=String(stem||'').trim().replace(/[、，。．\s　]+$/,'');
+  const o=String(opt||'').trim().replace(/[。．\s　]+$/,'');
+  if(!s) return normalizeIchiOptionAsSentence(o);
+  if(!o) return normalizeIchiOptionAsSentence(s);
+  // 「〜として」「〜について」など、選択肢だけでは述語が欠ける見出し型のstemは判定文に包む。
+  if(/(として|について|に関して|に関する|の場合|において|に関する判例の立場として)$/.test(s)){
+    return s+'、「'+o+'」という記述は正しい。';
+  }
+  // 選択肢が名詞句・体言止めに近い場合も、○×判定できる一文にする。
+  if(!/[。．!?！？]$/.test(opt) && !/(である|できる|できない|必要がある|必要はない|該当する|該当しない|有効である|無効である|正しい|誤りである)$/.test(o)){
+    return s+'、「'+o+'」という記述は正しい。';
+  }
+  return s+'、「'+o+'」という記述は正しい。';
 }
 
 function getIchiAnswerTruthForBase(q) {
