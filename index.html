@@ -182,7 +182,7 @@ body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:v
 .focus-action.ghost{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
 .focus-section{border-top:1px solid var(--border);padding-top:12px}
 .focus-section-label{font-size:12px;font-weight:700;color:var(--text3);letter-spacing:.06em;margin-bottom:8px}
-.sound-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.sound-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
 .sound-btn{border:1px solid var(--border2);background:var(--bg2);color:var(--text2);border-radius:var(--r);padding:7px 0;font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer}
 .sound-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2)}
 .volume-row{display:flex;align-items:center;gap:8px}
@@ -542,11 +542,14 @@ details.rich-detail summary{display:none}
 .score-ring-pct{font-size:36px;font-weight:700;font-family:var(--mono);letter-spacing:-1px}
 .score-ring-sub{font-size:12px;color:var(--text3);margin-top:2px;letter-spacing:.04em}
 .score-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}
+.score-detail-grid--single{grid-template-columns:1fr;max-width:280px}
 .score-detail-card{background:var(--bg3);border-radius:var(--r);padding:12px 14px;border:1px solid var(--border)}
 .score-detail-label{font-size:12px;color:var(--text3);margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
 .score-detail-val{font-size:24px;font-weight:700;font-family:var(--mono);letter-spacing:-0.5px}
 .score-q-list{margin-bottom:20px}
 .score-q-item{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);font-size:16px}
+.score-q-item.score-q-click{cursor:pointer;border-radius:var(--r);margin:0 -6px;padding:9px 6px;transition:background .12s}
+.score-q-item.score-q-click:hover{background:var(--bg3)}
 .score-q-item:last-child{border-bottom:none}
 .score-q-icon{width:16px;text-align:center;flex-shrink:0;font-weight:700}
 .score-q-text{flex:1;color:var(--text2)}
@@ -588,32 +591,58 @@ details.rich-detail summary{display:none}
 .chart-area{height:220px}
 
 /* ===== REVIEW ===== */
-.review-grid{display:flex;flex-direction:column;gap:7px}
-.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:all .15s;box-shadow:var(--sh)}
+.review-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:7px;
+  align-items:stretch;
+}
+@media(min-width:640px){
+  .review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;display:flex;align-items:stretch;gap:12px;cursor:pointer;transition:all .15s;box-shadow:var(--sh);min-height:0;height:100%;box-sizing:border-box}
 .review-card:hover{box-shadow:var(--sh2);border-color:var(--border2)}
-.review-card.has-note{border-color:var(--grn-b);background:linear-gradient(135deg,var(--grn-s),#fff 62%)}
-.review-indicator{width:4px;border-radius:2px;align-self:stretch;flex-shrink:0}
-.review-body{flex:1;min-width:0}
-.review-q{font-size:15px;line-height:1.65;margin-bottom:8px;font-family:var(--font);white-space:normal;word-break:break-all}
-.review-meta{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
-.review-note-preview{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg3);font-size:12px;line-height:1.55;color:var(--text2);display:flex;gap:6px}
-.review-card.has-note .review-note-preview{background:#fff;border:1px solid var(--grn-b)}
+.review-card.has-note{border-color:var(--border2);background:var(--bg2)}
+.review-indicator{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;background:var(--bg4)}
+.review-body{flex:1;min-width:0;display:flex;flex-direction:column;min-height:0}
+.review-q{font-size:15px;line-height:1.65;margin-bottom:8px;font-family:var(--font);white-space:normal;word-break:break-all;flex:1 1 auto}
+.review-meta{display:flex;gap:5px;align-items:center;flex-wrap:wrap;flex-shrink:0}
+.review-note-preview{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg3);font-size:12px;line-height:1.55;color:var(--text2);display:flex;gap:6px;flex-shrink:0}
+.review-card.has-note .review-note-preview{background:var(--bg3);border:1px solid var(--border2)}
 .review-note-preview span:first-child{color:var(--text3);font-weight:700;white-space:nowrap}
 .review-section-meta{font-size:12px;color:var(--text3);font-weight:500;margin-left:6px}
 .review-page-section{margin-bottom:32px}
 .review-page-section:last-child{margin-bottom:0}
 .review-section-heading{font-size:var(--fs-title);font-weight:var(--fw-strong);margin:0 0 8px;line-height:1.3;color:var(--text)}
 .review-section-desc{font-size:var(--fs-sub);color:var(--text2);line-height:1.65;margin:0 0 18px}
-.review-section-empty{font-size:13px;color:var(--text3);line-height:1.65;padding:16px 14px;text-align:center;background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--r)}
+/* 復習ページ：ページ見出し・各セクション見出し／説明のサイズを同一トークンで固定 */
+#page-review .page-title,
+#page-review .review-section-heading{
+  font-size:var(--fs-title);
+  font-weight:var(--fw-strong);
+  line-height:1.3;
+  letter-spacing:0;
+  color:var(--text);
+  font-family:var(--font);
+}
+#page-review .page-sub,
+#page-review .review-section-desc{
+  font-size:var(--fs-sub);
+  font-weight:400;
+  line-height:1.65;
+  color:var(--text2);
+  font-family:var(--font);
+}
+.review-section-empty{font-size:var(--fs-sub);color:var(--text3);line-height:1.65;padding:16px 14px;text-align:center;background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--r)}
 .review-rec-block{margin-bottom:16px}
-.review-rec-btn{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r);background:var(--bg3);color:var(--text);font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background .15s,border-color .15s}
+.review-rec-btn{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r);background:var(--bg3);color:var(--text);font-size:var(--fs-sub);font-weight:700;cursor:pointer;font-family:var(--font);transition:background .15s,border-color .15s}
 .review-rec-btn:hover:not(:disabled){background:var(--bg4)}
 .review-rec-btn:disabled{opacity:.45;cursor:not-allowed}
-.review-arrow{color:var(--text3);font-size:18px;flex-shrink:0;margin-top:2px}
+.review-arrow{color:var(--text3);font-size:18px;flex-shrink:0;align-self:center;line-height:1}
 /* collapsible group */
 .review-group-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);margin:14px 0 6px;user-select:none;transition:background .15s}
 .review-group-header:hover{background:var(--bg4)}
-.review-group-header-left{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--text)}
+.review-group-header-left{display:flex;align-items:center;gap:8px;font-size:var(--fs-sub);font-weight:700;color:var(--text)}
 .review-group-chevron{font-size:12px;color:var(--text3);transition:transform .2s;display:inline-block}
 .review-group-chevron.open{transform:rotate(90deg)}
 .review-group-body{display:none}
@@ -776,6 +805,9 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
 .glos-compare-col{background:var(--bg3);border-radius:var(--r);padding:11px 13px}
 .glos-compare-col h4{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text)}
 .glos-compare-col p{font-size:14px;line-height:1.65;color:var(--text2)}
+/* dash: レーダー + カレンダー横並び（分析ページ） */
+.dash-radar-cal-row{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:13px;align-items:stretch}
+.dash-radar-cal-item{flex:1 1 300px;margin-bottom:0!important;min-width:0}
 @media(max-width:700px){
   /* nav */
   .topnav-links{display:none}
@@ -798,6 +830,11 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .dash-period-card{width:100%;justify-content:flex-start}
   .dash-period-card .count-btn{min-width:44px;height:26px;padding:0 8px;font-size:11px}
   .dash-period-custom{justify-content:flex-start;margin:-8px 0 12px}
+  /* 分野別正答率（モバイルでカテゴリ名を他の本文サイズに合わせる） */
+  .field-row-name{font-size:13px;font-weight:600;line-height:1.35}
+  .field-row-name .tag{font-size:9px;padding:1px 6px}
+  .field-row-pct{font-size:12px}
+  .field-row-head{margin-bottom:4px;align-items:flex-start}
   /* grids */
   .stat-row{grid-template-columns:repeat(2,1fr);gap:8px}
   .dash-grid{grid-template-columns:1fr}
@@ -873,6 +910,7 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   /* review */
   .review-card{padding:12px 12px}
   .review-q{font-size:14px;line-height:1.6}
+  .dash-radar-cal-item{flex:1 1 100%}
   /* calendar */
   .study-cal-head{align-items:flex-start}
   .study-cal-tools{flex-direction:column;align-items:flex-end;gap:6px}
@@ -885,14 +923,33 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .d-box{font-size:12px;padding:4px 7px}
   .d-table{font-size:12px}
   .d-table th,.d-table td{padding:4px 6px}
-  /* footer */
-  .site-footer{position:static}
-  .site-footer-copy{display:none}
-  .site-footer-inner{padding:10px 12px;gap:10px;flex-direction:row;align-items:center;flex-wrap:nowrap;white-space:nowrap}
-  .site-footer-logo{display:flex;gap:6px;min-width:0}
-  .site-footer-logo span{font-size:14px!important}
-  .site-footer-legal{gap:14px;flex-wrap:nowrap;flex-shrink:0}
-  .site-footer-legal a{font-size:12px;white-space:nowrap}
+  /* footer（1行・横スクロールでリンク閲覧） */
+  .site-footer{position:static;width:100%}
+  .site-footer-inner{
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px 10px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    text-align:left;
+  }
+  .site-footer-legal{
+    flex:1;
+    min-width:0;
+    flex-wrap:nowrap;
+    gap:8px 12px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .site-footer-legal::-webkit-scrollbar{display:none}
+  .site-footer-legal a{font-size:10px;line-height:1.35}
+  .site-footer-copy{
+    margin-left:0;
+    font-size:9px;
+    flex-shrink:0;
+  }
   /* exam banner */
   .exam-banner{padding:5px 14px;gap:6px;font-size:12px}
   .exam-banner-msg{display:none}
@@ -914,11 +971,11 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
 
 /* ===== ORIG UNIT SELECTOR ===== */
 .orig-cat-section{margin-bottom:8px;border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;background:#fff}
-.orig-cat-header{display:flex;align-items:center;gap:10px;padding:12px 15px;user-select:none;background:#f4f4f6;border-bottom:1px solid var(--border2)}
+.orig-cat-header{display:flex;align-items:center;gap:8px;padding:12px 15px;user-select:none;background:#f4f4f6;border-bottom:1px solid var(--border2);cursor:pointer}
 .orig-cat-header:hover{background:#ececef}
-.orig-cat-label{font-size:14px;font-weight:700;flex:1;color:var(--text);letter-spacing:.02em}
+.orig-cat-label{font-size:14px;font-weight:700;flex:1;min-width:0;color:var(--text);letter-spacing:.02em}
 .orig-cat-count{font-size:11px;font-family:var(--mono);color:var(--text2);background:#e4e4e8;padding:2px 8px;border-radius:4px;border:1px solid var(--border2)}
-.orig-cat-chevron{width:16px;height:16px;stroke:var(--text3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .2s}
+.orig-cat-chevron{width:16px;height:16px;flex-shrink:0;color:var(--text3);stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .orig-cat-chevron.open{transform:rotate(90deg)}
 .orig-unit-grid{display:flex;flex-direction:column;gap:4px;padding:10px 14px 14px;border-top:1px solid var(--border)}
 .orig-unit-grid.closed{display:none}
@@ -944,22 +1001,15 @@ body.is-solving .exam-banner{display:none}
 
 /* ===== FOOTER ===== */
 .site-footer{position:fixed;bottom:0;left:0;right:0;border-top:1px solid var(--border);background:var(--bg2);z-index:20}
-.site-footer-inner{max-width:960px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.site-footer-logo{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.site-footer-inner{max-width:960px;margin:0 auto;padding:8px 20px 10px;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:10px 16px;text-align:left}
 .site-footer-links{display:flex;gap:20px;flex:1;flex-wrap:wrap}
 .site-footer-links a{font-size:14px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none}
 .site-footer-links a:hover{color:var(--text2)}
-.site-footer-copy{font-size:14px;color:var(--text3);margin-left:auto;white-space:nowrap}
+.site-footer-copy{font-size:10px;color:var(--text3);margin-left:auto;white-space:nowrap;opacity:.88;flex-shrink:0}
 .site-footer-sep{width:1px;height:14px;background:var(--border2);flex-shrink:0}
-.site-footer-legal{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.site-footer-legal a{font-size:14px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none;white-space:nowrap}
+.site-footer-legal{display:flex;gap:10px 14px;flex-wrap:nowrap;align-items:center;justify-content:flex-start;flex:1;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.site-footer-legal a{font-size:11px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .site-footer-legal a:hover{color:var(--text2)}
-@media(max-width:700px){
-  .site-footer-inner{flex-direction:row;align-items:center;gap:10px;flex-wrap:nowrap;white-space:nowrap}
-  .site-footer-copy{margin-left:0}
-  .site-footer-sep{display:none}
-  .site-footer-legal{gap:14px;flex-wrap:nowrap}
-}
 
 /* ========== GAMIFICATION ==========
 /* Level + Streak 横並び */
@@ -1322,11 +1372,12 @@ body.is-solving .exam-banner{display:none}
       <button class="focus-action ghost" onclick="resetFocusTimer()">リセット</button>
     </div>
     <div class="focus-section">
-      <div class="focus-section-label">環境音</div>
+      <div class="focus-section-label">環境音・BGM</div>
       <div class="sound-row">
         <button class="sound-btn" id="sound-rain" onclick="toggleFocusSound('rain')">雨音</button>
         <button class="sound-btn" id="sound-wave" onclick="toggleFocusSound('wave')">波音</button>
         <button class="sound-btn" id="sound-white" onclick="toggleFocusSound('white')">ホワイト</button>
+        <button class="sound-btn" id="sound-cafe" onclick="toggleFocusSound('cafe')">カフェBGM</button>
         <button class="sound-btn" id="sound-off" onclick="toggleFocusSound('off')">OFF</button>
       </div>
       <div class="volume-row">
@@ -1589,7 +1640,16 @@ body.is-solving .exam-banner{display:none}
         <div id="field-bars-wrap"></div>
       </div>
 
-      <div class="card" style="margin-bottom:13px"><h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2><div id="an-calendar"></div></div>
+      <div class="dash-radar-cal-row">
+        <div class="card dash-radar-cal-item" id="radar-chart-card">
+          <div class="section-label" style="margin-bottom:10px">理解度レーダー</div>
+          <div id="radar-chart-container"></div>
+        </div>
+        <div class="card dash-radar-cal-item">
+          <h2 class="section-label">学習カレンダー<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">月ごとの学習記録。数字はその日に解いた問題数</span></span></h2>
+          <div id="an-calendar"></div>
+        </div>
+      </div>
 
       <h2 class="page-title" style="margin-top:22px">学習の歩み</h2>
       <div class="page-sub">レベルとバッジで、これまでの積み上げを確認できます</div>
@@ -1691,12 +1751,13 @@ body.is-solving .exam-banner{display:none}
       <div id="orig-category-area">
         <!-- 権利関係 -->
         <div class="orig-cat-section">
-          <div class="orig-cat-header">
+          <div class="orig-cat-header" onclick="toggleOrigCat('rights')" role="button" tabindex="0" aria-expanded="false">
+            <svg class="orig-cat-chevron" id="orig-chev-rights" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="orig-cat-label">権利関係</span>
             <span class="orig-cat-count" id="orig-cnt-rights"></span>
-            <button class="orig-cat-sel-all" id="orig-catbtn-rights" onclick="toggleAllOrigUnits('rights')">一括選択</button>
+            <button type="button" class="orig-cat-sel-all" id="orig-catbtn-rights" onclick="event.stopPropagation();toggleAllOrigUnits('rights')">一括選択</button>
           </div>
-          <div class="orig-unit-grid" id="orig-units-rights">
+          <div class="orig-unit-grid closed" id="orig-units-rights">
             <button class="orig-unit-btn" onclick="toggleOrigUnit('r_ishi')">意思表示・制限行為能力<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('r_dairi')">代理・無権代理・表見代理<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('r_jiko')">時効<span class="orig-unit-n"></span></button>
@@ -1715,12 +1776,13 @@ body.is-solving .exam-banner{display:none}
         </div>
         <!-- 宅建業法 -->
         <div class="orig-cat-section">
-          <div class="orig-cat-header">
+          <div class="orig-cat-header" onclick="toggleOrigCat('law')" role="button" tabindex="0" aria-expanded="false">
+            <svg class="orig-cat-chevron" id="orig-chev-law" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="orig-cat-label">宅建業法</span>
             <span class="orig-cat-count" id="orig-cnt-law"></span>
-            <button class="orig-cat-sel-all" id="orig-catbtn-law" onclick="toggleAllOrigUnits('law')">一括選択</button>
+            <button type="button" class="orig-cat-sel-all" id="orig-catbtn-law" onclick="event.stopPropagation();toggleAllOrigUnits('law')">一括選択</button>
           </div>
-          <div class="orig-unit-grid" id="orig-units-law">
+          <div class="orig-unit-grid closed" id="orig-units-law">
             <button class="orig-unit-btn" onclick="toggleOrigUnit('l_menkyo')">免許制度・欠格事由<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('l_takkenshi')">宅建士・登録・宅建士証<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('l_hosho')">営業保証金・保証協会<span class="orig-unit-n"></span></button>
@@ -1736,12 +1798,13 @@ body.is-solving .exam-banner{display:none}
         </div>
         <!-- 法令上の制限 -->
         <div class="orig-cat-section">
-          <div class="orig-cat-header">
+          <div class="orig-cat-header" onclick="toggleOrigCat('limit')" role="button" tabindex="0" aria-expanded="false">
+            <svg class="orig-cat-chevron" id="orig-chev-limit" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="orig-cat-label">法令上の制限</span>
             <span class="orig-cat-count" id="orig-cnt-limit"></span>
-            <button class="orig-cat-sel-all" id="orig-catbtn-limit" onclick="toggleAllOrigUnits('limit')">一括選択</button>
+            <button type="button" class="orig-cat-sel-all" id="orig-catbtn-limit" onclick="event.stopPropagation();toggleAllOrigUnits('limit')">一括選択</button>
           </div>
-          <div class="orig-unit-grid" id="orig-units-limit">
+          <div class="orig-unit-grid closed" id="orig-units-limit">
             <button class="orig-unit-btn" onclick="toggleOrigUnit('k_toshi')">都市計画法<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('k_kenchiku')">建築基準法<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('k_nochi')">農地法<span class="orig-unit-n"></span></button>
@@ -1753,12 +1816,13 @@ body.is-solving .exam-banner{display:none}
         </div>
         <!-- 税・その他 -->
         <div class="orig-cat-section">
-          <div class="orig-cat-header">
+          <div class="orig-cat-header" onclick="toggleOrigCat('tax')" role="button" tabindex="0" aria-expanded="false">
+            <svg class="orig-cat-chevron" id="orig-chev-tax" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="orig-cat-label">税・その他</span>
             <span class="orig-cat-count" id="orig-cnt-tax"></span>
-            <button class="orig-cat-sel-all" id="orig-catbtn-tax" onclick="toggleAllOrigUnits('tax')">一括選択</button>
+            <button type="button" class="orig-cat-sel-all" id="orig-catbtn-tax" onclick="event.stopPropagation();toggleAllOrigUnits('tax')">一括選択</button>
           </div>
-          <div class="orig-unit-grid" id="orig-units-tax">
+          <div class="orig-unit-grid closed" id="orig-units-tax">
             <button class="orig-unit-btn" onclick="toggleOrigUnit('t_joto')">所得税・譲渡所得<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('t_shutoku')">不動産取得税<span class="orig-unit-n"></span></button>
             <button class="orig-unit-btn" onclick="toggleOrigUnit('t_kotei')">固定資産税<span class="orig-unit-n"></span></button>
@@ -1809,55 +1873,63 @@ body.is-solving .exam-banner{display:none}
       <div id="glossary-list">
 <!-- SEO: 静的用語解説コンテンツ（JS実行前にクローラーが読める） -->
 <section class="glos-static-section" aria-label="用語解説一覧">
-<p class="glos-static-intro"><a href="https://takken-master.jp/glossary/">用語解説の全一覧（記事一覧）</a>を公開しています。JavaScript有効時は81件すべてを絞り込みできます。以下はクローラー向けに代表的な用語を静的に記載しています。</p>
+<p class="glos-static-intro"><a href="https://takken-master.jp/glossary/">用語解説の全一覧（記事一覧）</a>を公開しています。JavaScriptを有効にすると、アプリ内の用語データを検索・カテゴリで絞り込みできます。以下はクローラー向けに代表的な用語を静的に記載しています。</p>
 <div class="glos-cat-section" data-cat="rights">
 <h3 class="glos-cat-heading">権利関係</h3>
 <article class="glos-static-card" id="glos-static-buken" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">物権と債権<span class="glos-reading" itemprop="alternateName">（ぶっけんとさいけん）</span></h4>
   <p class="glos-static-summary" itemprop="description">権利の性質の違い</p>
   <p class="glos-static-desc">物権は「物に対する権利」で、誰に対しても主張できる（絶対性）。債権は「特定の人に何かを請求する権利」で、その人にしか主張できない。例えば土地の所有権（物権）は誰にでも「私の土地です」と言えるが、賃借権（債権）は原則として貸主にしか使えない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/bukken-saiken/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">比較あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-jiko" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">時効<span class="glos-reading" itemprop="alternateName">（じこう）</span></h4>
   <p class="glos-static-summary" itemprop="description">一定期間が経つと権利が変動する制度</p>
   <p class="glos-static-desc">①取得時効：他人の物を一定期間占有し続けると自分のものになる（善意・無過失なら10年、それ以外は20年）。②消滅時効：権利を使わないでいると権利が消える（債権は知った時から5年・客観的に行使できる時から10年）。時効の援用（「時効を使います」の意思表示）があってはじめて効力が生じる。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/jiko/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">フローあり</span>
 </article>
 <article class="glos-static-card" id="glos-static-mukohitokechi" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">無効と取消し<span class="glos-reading" itemprop="alternateName">（むこうととりけし）</span></h4>
   <p class="glos-static-summary" itemprop="description">契約の効力を否定する2つの方法</p>
   <p class="glos-static-desc">無効：最初から効力がない（通謀虚偽表示、公序良俗違反など）。追認しても有効にならない。取消し：一応有効だが、後から取り消せる（詐欺・強迫・錯誤・制限行為能力など）。取消しは取消権者が行使して初めて遡及的に無効になる。取消し後は追認できない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/muko-torikeshi/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-dairi" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">代理<span class="glos-reading" itemprop="alternateName">（だいり）</span></h4>
   <p class="glos-static-summary" itemprop="description">本人の代わりに法律行為をする制度</p>
   <p class="glos-static-desc">代理人が本人の名前で相手方と契約すると、その効果が直接本人に帰属する。「顕名（けんめい）」つまり「本人の代理として」と示すことが必要。任意代理（本人が選ぶ）と法定代理（未成年の親権者など）がある。無権代理（代理権がない）の場合、本人が追認しない限り本人に効果は帰属しない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/dairi/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">フローあり</span>
 </article>
 <article class="glos-static-card" id="glos-static-teito" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">抵当権<span class="glos-reading" itemprop="alternateName">（ていとうけん）</span></h4>
   <p class="glos-static-summary" itemprop="description">占有を移さずに不動産を担保にする権利</p>
   <p class="glos-static-desc">お金を貸した人（抵当権者）が、借りた人（設定者）の不動産に設定する担保権。設定者は住み続けながら担保に入れられる（非占有担保）。返済できなければ競売にかけて優先的に弁済を受けられる。登記が対抗要件（当事者間では登記なくても成立）。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/teito/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">比較あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-hoteichijoken" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">法定地上権<span class="glos-reading" itemprop="alternateName">（ほうていちじょうけん）</span></h4>
   <p class="glos-static-summary" itemprop="description">競売後に建物所有者が土地を使う権利</p>
   <p class="glos-static-desc">土地に抵当権を設定した時に建物が存在し、競売で土地と建物の所有者が別々になった場合、建物の所有者が土地を使える「地上権」が自動的（法定）に発生する。そうしないと建物を取り壊さなければならなくなるため。成立要件：①設定時に建物が存在、②土地・建物が同一所有者、③競売で所有者が分離。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/hoteichijoken/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">フローあり</span>
 </article>
 <article class="glos-static-card" id="glos-static-renzai" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">連帯保証<span class="glos-reading" itemprop="alternateName">（れんたいほしょう）</span></h4>
   <p class="glos-static-summary" itemprop="description">通常の保証より責任が重い保証形態</p>
   <p class="glos-static-desc">連帯保証人には「催告の抗弁権（まず主債務者に請求してください）」と「検索の抗弁権（主債務者に財産があります）」がない。つまり債権者はいきなり連帯保証人に全額請求できる。一方、通常の保証人にはこれらの権利がある。アパートの入居で保証人になる際はほぼ連帯保証。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/hosho-debt/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-souzoku" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">相続分と代襲相続<span class="glos-reading" itemprop="alternateName">（そうぞくぶんとだいしゅうそうぞく）</span></h4>
   <p class="glos-static-summary" itemprop="description">遺産を誰がどれだけ受け取るか</p>
   <p class="glos-static-desc">法定相続分：配偶者＋子なら配偶者1/2・子全体で1/2。子が先に死亡していて孫がいれば、孫が子の代わりに相続（代襲相続）。相続放棄した人の子は代襲できない（放棄すると最初から相続人でなかったことになる）。遺留分（最低限の相続分）を侵害されたら金銭請求できる。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/souzoku/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 </div>
@@ -1867,42 +1939,49 @@ body.is-solving .exam-banner{display:none}
   <h4 class="glos-static-term" itemprop="name">媒介契約の種類<span class="glos-reading" itemprop="alternateName">（ばいかいけいやくのしゅるい）</span></h4>
   <p class="glos-static-summary" itemprop="description">一般・専任・専属専任の3種類</p>
   <p class="glos-static-desc">一般媒介：複数業者に依頼OK。レインズ登録義務なし。専任媒介：1社のみ。自己発見の買主との直接取引OK。レインズ登録7日以内・報告2週間に1回。専属専任媒介：1社のみ。自己発見でも直接取引不可。レインズ登録5日以内・報告1週間に1回。いずれも有効期間は最長3か月。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/baikai-compare/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-jusetsu" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">重要事項説明（35条書面）<span class="glos-reading" itemprop="alternateName">（じゅうようじこうせつめい）</span></h4>
   <p class="glos-static-summary" itemprop="description">契約前に宅建士が必ず説明する書面</p>
   <p class="glos-static-desc">宅建士が宅建士証を提示し、契約前に説明する義務がある。買主・借主側に交付。記載内容は「登記情報・法令制限・代金以外の費用・建物の状況等」。IT重説（テレビ会議等）も認められる。相手方が宅建業者でも書面交付は必要（説明は省略可）。押印不要。相手方の承諾など所定の要件を満たせば電子書面での交付も可能（2022年5月施行）。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/jusetsu/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-coolingoff" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">クーリングオフ<span class="glos-reading" itemprop="alternateName">（くーりんぐおふ）</span></h4>
   <p class="glos-static-summary" itemprop="description">一定期間内に一方的に解除できる制度</p>
   <p class="glos-static-desc">宅建業者が自ら売主の場合、事務所等以外（喫茶店・買主自宅など）で申込みや契約をした買主は、告知を受けた日から8日以内に書面で解除できる。解除の効力は書面を発送した時点で生じる（発信主義）。解除後は全額返還が必要で、業者は違約金・損害賠償を請求できない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/cooling/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-hook" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">手付の種類<span class="glos-reading" itemprop="alternateName">（ておつのしゅるい）</span></h4>
   <p class="glos-static-summary" itemprop="description">契約時に支払う手付金の3つの意味</p>
   <p class="glos-static-desc">証約手付：契約が成立した証拠。違約手付：違約した場合に没収される罰。解約手付：買主は放棄、売主は倍返しで解除できる。宅建業者が自ら売主の場合、手付は解約手付として機能し、相手方が履行に着手するまでに行使しなければならない。手付額の上限は代金の20%。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/tetsuke/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">比較あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-hosho" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">営業保証金と弁済業務保証金<span class="glos-reading" itemprop="alternateName">（えいぎょうほしょうきんとべんさいぎょうむほしょうきん）</span></h4>
   <p class="glos-static-summary" itemprop="description">宅建業者が備える2つの補償制度</p>
   <p class="glos-static-desc">営業保証金：自分で法務局（供託所）に供託する。主たる事務所1000万円＋従たる事務所500万円/所。弁済業務保証金：保証協会に加入して分担金を納める。主たる事務所60万円＋従たる事務所30万円/所。保証協会加入なら営業保証金は不要。どちらも宅建業者以外の者だけが還付を受けられる。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/hosho/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-hachishu" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">8種制限<span class="glos-reading" itemprop="alternateName">（はっしゅせいげん）</span></h4>
   <p class="glos-static-summary" itemprop="description">自ら売主の宅建業者に課される8つの制限</p>
   <p class="glos-static-desc">宅建業者が自ら売主で買主が一般消費者（非業者）の場合に適用される消費者保護ルール。①損害賠償予定額の制限（上限20%）②手付金の制限（上限20%・保全措置）③クーリングオフ④他人物売買の制限⑤手付解除の特則⑥担保責任の特例⑦未完成物件の制限⑧解除・損害賠償の特則。業者間取引には適用されない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/hasshu-seigen/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-hoshu" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">報酬の計算（売買）<span class="glos-reading" itemprop="alternateName">（ほうしゅうのけいさん）</span></h4>
   <p class="glos-static-summary" itemprop="description">売買仲介でもらえる報酬の上限</p>
   <p class="glos-static-desc">売買代金に応じた速算式：200万円以下→5%、200万超400万以下→4%+2万円、400万超→3%+6万円（いずれも税別、一方の依頼者から）。例：1000万円の物件なら3%+6万=36万円が一方からの上限。低廉な空家等（代金800万円以下の宅地・建物）は、媒介契約時に説明し合意を得た範囲で、売主等から受ける報酬を税込33万円までとする特例がある（2024年7月1日施行）。依頼者の同意があっても告示の上限超過は不可。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/hoshu/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 </div>
@@ -1912,30 +1991,35 @@ body.is-solving .exam-banner{display:none}
   <h4 class="glos-static-term" itemprop="name">建ぺい率・容積率<span class="glos-reading" itemprop="alternateName">（けんぺいりつ・ようせきりつ）</span></h4>
   <p class="glos-static-summary" itemprop="description">敷地に対する建物の大きさの制限</p>
   <p class="glos-static-desc">建ぺい率：敷地面積に対する建築面積（1階の床面積）の割合。「この土地の何%まで建物を建てられるか」。容積率：敷地面積に対する延べ床面積の割合。「全フロア合計の床面積が敷地の何%まで」。前面道路が12m未満の場合、容積率は「指定容積率」と「道路幅員×0.4（住居系）」の小さい方。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/kenpei/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-yoto" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">用途地域13種類<span class="glos-reading" itemprop="alternateName">（ようとちいき）</span></h4>
   <p class="glos-static-summary" itemprop="description">土地の使い方を13種類に区分するルール</p>
   <p class="glos-static-desc">住居系（8種）：第一種低層から田園住居まで。商業系（2種）：近隣商業・商業。工業系（3種）：準工業・工業・工業専用。大原則：低層住居専用地域では大学・病院は建てられない。工業専用地域では住宅・病院・学校は建てられない（倉庫は可）。商業地域では大部分の建物が建てられるが風俗施設の規制あり。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/yoto/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-kaihatsu" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">開発許可<span class="glos-reading" itemprop="alternateName">（かいはつきょか）</span></h4>
   <p class="glos-static-summary" itemprop="description">宅地造成等の工事をするときの許可</p>
   <p class="glos-static-desc">「建物を建てる目的で土地の区画・形質を変える（造成等）」行為が開発行為。市街化区域では原則1000㎡以上の開発行為に知事等の許可が必要。市街化調整区域では原則全ての開発行為に許可が必要（例外：農林漁業者の農業用建物等）。工事完了公告後でなければ原則として建物を建てられない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/kaihatsu/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-nouchi" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">農地法3条・4条・5条<span class="glos-reading" itemprop="alternateName">（のうちほう）</span></h4>
   <p class="glos-static-summary" itemprop="description">農地の売買・転用に必要な許可</p>
   <p class="glos-static-desc">3条（権利移動）：農地を農地のまま売買・賃貸する→農業委員会の許可。4条（自己転用）：自分の農地を農地以外（宅地等）にする→都道府県知事等の許可（市街化区域は農業委員会への届出のみ）。5条（転用目的の権利移動）：農地を農地以外にする目的で売買→都道府県知事等の許可（市街化区域は届出）。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/nochi/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-chikunikeikaku" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">地区計画<span class="glos-reading" itemprop="alternateName">（ちくけいかく）</span></h4>
   <p class="glos-static-summary" itemprop="description">街区単位でのきめ細かい街づくりルール</p>
   <p class="glos-static-desc">用途地域より細かく、地域の特性に応じた街づくりのルール。用途地域内外を問わず定めることができる（市街化調整区域にも可）。地区計画の区域内で建築等の行為を行う場合は、着手の30日前までに市町村長に届け出る必要がある（許可ではなく届出）。市町村長は勧告はできるが強制はできない。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/chiku-keikaku/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">フローあり</span>
 </article>
 </div>
@@ -1945,30 +2029,35 @@ body.is-solving .exam-banner{display:none}
   <h4 class="glos-static-term" itemprop="name">不動産取得税<span class="glos-reading" itemprop="alternateName">（ふどうさんしゅとくぜい）</span></h4>
   <p class="glos-static-summary" itemprop="description">不動産を取得したときに一度だけかかる税</p>
   <p class="glos-static-desc">都道府県が課す地方税（国税ではない）。申告不要（都道府県から通知が来る普通徴収）。相続・合併による取得は非課税。標準税率は4%だが住宅・土地は特例で3%。新築住宅は評価額から最大1200万円を控除した額が課税標準になる特例あり（認定長期優良住宅は1300万円）。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/fudosantax/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-kotei" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">固定資産税<span class="glos-reading" itemprop="alternateName">（こていしさんぜい）</span></h4>
   <p class="glos-static-summary" itemprop="description">毎年1月1日の所有者に課税される税</p>
   <p class="glos-static-desc">市町村が課す地方税（東京23区は都）。毎年1月1日時点の所有者に課税される（賦課期日）。評価替えは3年に1度。標準税率1.4%（市町村条例で変更可）。住宅用地の特例：200㎡以下の小規模住宅用地は課税標準が6分の1、200㎡超の一般住宅用地は3分の1。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/kotei/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-joto" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">譲渡所得（長期・短期）<span class="glos-reading" itemprop="alternateName">（じょうとしょとく）</span></h4>
   <p class="glos-static-summary" itemprop="description">不動産を売ったときの利益に対する税</p>
   <p class="glos-static-desc">売却益（譲渡所得）は分離課税（他の収入と合算しない）。譲渡した年の1月1日時点で5年以下の保有は短期（所得税30%+住民税9%、復興特別所得税を含めると39.63%）、5年超は長期（所得税15%+住民税5%、復興特別所得税を含めると20.315%）。居住用財産の3000万円特別控除：住まなくなってから3年を経過する日の属する年末までの売却が対象（配偶者への売却は不可）。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/joto/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-torokumenkyozei" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">登録免許税<span class="glos-reading" itemprop="alternateName">（とうろくめんきょぜい）</span></h4>
   <p class="glos-static-summary" itemprop="description">登記を行うときに必要な国税</p>
   <p class="glos-static-desc">国税。登記の種類によって税率が異なる。所有権保存登記は評価額の0.4%、売買による所有権移転は2%、相続による移転は0.4%。住宅の特例（新築）：一定要件を満たす場合は軽減税率あり（保存登記0.15%、移転0.3%）。抵当権設定登記の課税標準は「不動産の価額」ではなく「債権（ローン）の金額」。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/toroku/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 <article class="glos-static-card" id="glos-static-insho" itemscope itemtype="https://schema.org/DefinedTerm">
   <h4 class="glos-static-term" itemprop="name">印紙税<span class="glos-reading" itemprop="alternateName">（いんしぜい）</span></h4>
   <p class="glos-static-summary" itemprop="description">契約書などの文書に課される国税</p>
   <p class="glos-static-desc">課税文書に収入印紙を貼付して納める国税。不動産の売買契約書・建物の賃貸借契約書・金銭消費貸借契約書などが課税対象。電子契約（電磁的記録）は「文書」ではないため印紙税は不要。1通ごとに課税されるため、原本2通を作成すれば各1通に印紙が必要。1万円未満の契約書は非課税。</p>
+  <a class="glos-article-link" href="https://takken-master.jp/glossary/inshi/" target="_blank" rel="noopener noreferrer">詳しい解説記事を読む</a>
   <span class="glos-diagram-badge">表あり</span>
 </article>
 </div>
@@ -1979,16 +2068,12 @@ body.is-solving .exam-banner{display:none}
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <div class="site-footer-logo">
-          <div class="topnav-logo-mark" style="width:22px;height:22px;font-size:10px;border-radius:5px;flex-shrink:0">宅建</div>
-          <span style="font-size:14px;font-weight:700;letter-spacing:-0.01em">宅建マスター</span>
-        </div>
         <nav class="site-footer-legal" aria-label="サイト情報・ポリシー">
-          <a href="/about/" onclick="event.preventDefault();window.location.href='about.html'">このサイトについて</a>
-          <a href="/privacy-terms/" onclick="event.preventDefault();window.location.href='privacy-terms.html'">利用規約</a>
+          <a href="about.html">このサイトについて</a>
+          <a href="privacy-terms.html">利用規約</a>
           <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener">お問い合わせ</a>
         </nav>
-        <div class="site-footer-copy">© 2025 宅建マスター</div>
+        <div class="site-footer-copy">© 2026 宅建マスター</div>
       </div>
     </footer>
 
@@ -2028,7 +2113,7 @@ body.is-solving .exam-banner{display:none}
 
       <!-- 準備中バナー -->
       <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r2);padding:48px 24px;text-align:center;">
-        <div style="font-size:40px;margin-bottom:16px;">🎧</div>
+        <div style="margin-bottom:16px;display:flex;justify-content:center;color:var(--text3);" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-7z"/><path d="M21 14h-3a2 2 0 00-2 2v3a2 2 0 002 2h1a2 2 0 002-2v-7z"/><path d="M3 10a12 12 0 0118 0"/></svg></div>
         <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;">準備中です</div>
         <div style="font-size:13px;color:var(--text2);line-height:1.8;">音声学習コンテンツを鋭意制作中です。<br>もうしばらくお待ちください。</div>
       </div>
@@ -2327,7 +2412,61 @@ const focusAudioSources={
   wave:'focus-waves.ogg',
   white:'focus-white-noise.ogg'
 };
-const focusState={duration:15*60,left:15*60,running:false,timer:null,sound:'off',player:null};
+const focusState={duration:15*60,left:15*60,running:false,timer:null,sound:'off',player:null,webAmb:null};
+function stopCafeWebAmbience(){
+  const w=focusState.webAmb;
+  if(!w) return;
+  focusState.webAmb=null;
+  try{
+    (w.nodes||[]).forEach(n=>{ try{ n.stop(); }catch(e){} try{ n.disconnect(); }catch(e){} });
+    if(w.ctx&&w.ctx.state!=='closed') w.ctx.close();
+  }catch(e){}
+}
+function playCafeSyntheticAmbience(vol){
+  const AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC){
+    showToast('この環境ではカフェBGMを再生できません','wrong',2000);
+    focusState.sound='off';
+    renderFocusSound();
+    return;
+  }
+  const ctx=new AC();
+  const master=ctx.createGain();
+  master.gain.value=Math.min(0.22,vol*0.32);
+  master.connect(ctx.destination);
+  const freqs=[196,246.94,293.66,349.23];
+  const nodes=[];
+  freqs.forEach(f=>{
+    const osc=ctx.createOscillator();
+    osc.type='sine';
+    osc.frequency.value=f;
+    const g=ctx.createGain();
+    g.gain.value=0.11;
+    osc.connect(g).connect(master);
+    osc.start();
+    nodes.push(osc);
+  });
+  focusState.webAmb={ctx,master,nodes};
+  ctx.resume().catch(()=>{});
+}
+function tryPlayCafeAmbience(){
+  const vol=Number(document.getElementById('focus-volume')?.value||35)/100;
+  const files=['focus-cafe.mp3','focus-cafe.ogg'];
+  function attempt(idx){
+    if(idx>=files.length){ playCafeSyntheticAmbience(vol); return; }
+    const player=new Audio(files[idx]);
+    player.loop=true;
+    player.volume=vol*0.9;
+    const fail=()=>{ try{ player.pause(); player.src=''; }catch(e){} attempt(idx+1); };
+    player.addEventListener('error',fail,{once:true});
+    player.addEventListener('canplaythrough',()=>{
+      focusState.player=player;
+      player.play().catch(fail);
+    },{once:true});
+    player.load();
+  }
+  attempt(0);
+}
 function fmtFocusTime(sec){
   const m=Math.floor(sec/60),s=sec%60;
   return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
@@ -2397,6 +2536,7 @@ function resetFocusTimer(){
   renderFocusTimer();
 }
 function clearFocusSound(){
+  stopCafeWebAmbience();
   if(focusState.player){
     focusState.player.pause();
     focusState.player.src='';
@@ -2406,6 +2546,10 @@ function clearFocusSound(){
 }
 function playFocusSound(kind){
   clearFocusSound();
+  if(kind==='cafe'){
+    tryPlayCafeAmbience();
+    return;
+  }
   const src=focusAudioSources[kind];
   if(!src){
     showToast('音源が見つかりません','wrong',1800);
@@ -2425,7 +2569,7 @@ function playFocusSound(kind){
   });
 }
 function renderFocusSound(){
-  ['rain','wave','white','off'].forEach(k=>{
+  ['rain','wave','white','cafe','off'].forEach(k=>{
     const el=document.getElementById('sound-'+k);
     if(el) el.classList.toggle('on',focusState.sound===k);
   });
@@ -2441,7 +2585,11 @@ function toggleFocusSound(kind){
   renderFocusSound();
 }
 function setFocusVolume(value){
-  if(focusState.player) focusState.player.volume=Number(value)/100;
+  const v=Number(value)/100;
+  if(focusState.player) focusState.player.volume=v;
+  if(focusState.webAmb&&focusState.webAmb.master){
+    focusState.webAmb.master.gain.value=Math.min(0.22,v*0.32);
+  }
 }
 
 // --- Feedback messages ---
@@ -2791,7 +2939,7 @@ function buildYearHistoryHTML(q){
 
 // ===== STATE =====
 let currentUser = null, db = {};
-let quizState = {mode:'past',fields:FIELDS.map(f=>f.id),years:[...YEARS],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[]};
+let quizState = {mode:'past',fields:FIELDS.map(f=>f.id),years:[...YEARS],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[],scoreReplayMode:false};
 
 // Storage: localStorage (works in real browsers / GitHub Pages)
 var _memStore = {};
@@ -3261,10 +3409,12 @@ function gotoPage(id){
   // topnav: orig / past / dash / review / glossary
   {
     const fromOrig = (id==='quiz'||id==='score') && quizState.mode==='orig';
-    const fromPastNav = !fromOrig && (id==='past-config'||id==='mock'||id==='mock-score'||(id==='quiz'&&quizState.mode==='past')||(id==='score'&&quizState.mode==='past'));
+    const inMockFlow = id==='mock'||id==='mock-score'||(id==='quiz'&&typeof mockState!=='undefined'&&mockState.patternId)||(id==='score'&&typeof mockState!=='undefined'&&mockState.patternId);
+    const fromPastNav = !fromOrig && !inMockFlow && (id==='past-config'||(id==='quiz'&&quizState.mode==='past')||(id==='score'&&quizState.mode==='past'));
     const map = {
       'orig':     id==='orig' || fromOrig,
       'past':     fromPastNav,
+      'mock':     inMockFlow,
       'ichimondou': id==='ichimondou' || id==='ichimondou-score',
       'dash':     id==='dash',
       'review':   id==='review',
@@ -3377,8 +3527,7 @@ function setDashPeriod(mode){
     document.getElementById('dash-period-'+m)?.classList.toggle('on',m===mode);
   });
   document.getElementById('dash-period-custom-row')?.classList.toggle('open',mode==='custom');
-  renderDash();
-  renderAnalytics();
+  if(typeof renderDashPeriodStats==='function') renderDashPeriodStats();
 }
 function answeredInPeriod(u,q){
   const a=u?.answers?.[q.id];
@@ -3454,22 +3603,60 @@ function renderFieldBarsWrap(){
     el.innerHTML = html || '<div style="font-size:13px;color:var(--text3)">データがありません</div>';
   }
 }
-function renderDash(){
+/** 期間フィルタ適用時の連続正解（最新から連続して正解した件数） */
+function computeAnswerStreakForDash(u){
+  if(!u||dashPeriodMode==='all') return u.streak||0;
+  const items=[];
+  allPracticeQuestions().forEach(q=>{
+    const a=u.answers[q.id];
+    if(!a||typeof a.ans==='undefined'||!a.date||!isInDashPeriod(a.date)) return;
+    items.push({t:new Date(a.date).getTime(), ok:a.ans===q.ans});
+  });
+  items.sort((a,b)=>b.t-a.t);
+  let streak=0;
+  for(let i=0;i<items.length;i++){
+    if(items[i].ok) streak++; else break;
+  }
+  return streak;
+}
+/** 期間フィルタ適用時の連続学習日数（直近から連続したカレンダー日） */
+function computeDayStreakForDash(u){
+  if(!u||dashPeriodMode==='all') return u.dayStreak||0;
+  const keys=[];
+  Object.values(u.answers||{}).forEach(a=>{
+    if(!a||!a.date||!isInDashPeriod(a.date)) return;
+    keys.push(localDateKey(new Date(a.date)));
+  });
+  const uniq=[...new Set(keys)].sort((a,b)=>b.localeCompare(a));
+  if(!uniq.length) return 0;
+  let streak=1;
+  for(let i=0;i<uniq.length-1;i++){
+    const cur=new Date(uniq[i]+'T12:00:00');
+    const nxt=new Date(uniq[i+1]+'T12:00:00');
+    if((cur-nxt)/(864e5)===1) streak++; else break;
+  }
+  return streak;
+}
+function renderDashPeriodStats(){
   const u=getUserData();
   const practiceQs=allPracticeQuestions();
   const all=practiceQs.filter(q=>answeredInPeriod(u,q)),ok=all.filter(q=>u.answers[q.id].ans===q.ans);
   const wrong=practiceQs.filter(q=>answeredInPeriod(u,q)&&u.answers[q.id].ans!==q.ans);
-  // day streak
   const dsEl=document.getElementById('d-day-streak');
-  if(dsEl) dsEl.textContent=u.dayStreak||0;
+  if(dsEl) dsEl.textContent=String(computeDayStreakForDash(u));
   document.getElementById('d-total').textContent=all.length;
   document.getElementById('d-rate').textContent=all.length>0?Math.round(ok.length/all.length*100)+'%':'—';
-  document.getElementById('d-streak').textContent=u.streak||0;
+  document.getElementById('d-streak').textContent=String(computeAnswerStreakForDash(u));
   document.getElementById('d-review-cnt').textContent=wrong.length;
+  renderFieldBarsWrap();
+  if(typeof renderRadarChart==='function') renderRadarChart('radar-chart-container');
+}
+function renderDash(){
+  const u=getUserData();
+  renderDashPeriodStats();
   const h=new Date().getHours();
   document.getElementById('dash-greeting').textContent=`${h<12?'おはようございます':'おかえりなさい'}、${currentUser.name}さん`;
   renderBadgeGrid('dash-badge-grid');
-  renderFieldBarsWrap();
 }
 function renderTrendChart(svgId,sessions){
   const svg=document.getElementById(svgId); if(!svg)return;
@@ -3712,6 +3899,7 @@ function selOrigCount(n){
 }
 
 function beginOrigQuiz(){
+  if(typeof mockState!=='undefined'){ mockState.patternId=null; mockState.queue=[]; mockState.idx=0; clearInterval(mockState.timerInt); }
   if(origState.units.length === 0){
     alert('少なくとも1つの単元を選択してください。');
     return;
@@ -3721,7 +3909,7 @@ function beginOrigQuiz(){
   if(!pool.length){alert('選択した単元に問題がありません。');return;}
   const shuffled = [...pool].sort(()=>Math.random()-.5);
   quizState.queue = origState.count===0 ? shuffled : shuffled.slice(0,origState.count);
-  quizState.idx=0; quizState.sessionResults=[];
+  quizState.idx=0; quizState.sessionResults=[]; quizState.scoreReplayMode=false;
   quizState.mode='orig';
   gotoPage('quiz'); renderQ();
 }
@@ -3890,6 +4078,7 @@ function startOrigQuiz(level){
   quizState.queue = [...qs];
   quizState.idx = 0;
   quizState.sessionResults = [];
+  quizState.scoreReplayMode = false;
   quizState.mode = 'orig';
   gotoPage('quiz');
   renderQ();
@@ -3898,11 +4087,12 @@ function startOrigQuiz(level){
 function beginQuiz(){
   _missionWasAllDone = false;
   showNextBtn(false, null);
+  if(typeof mockState!=='undefined'){ mockState.patternId=null; mockState.queue=[]; mockState.idx=0; clearInterval(mockState.timerInt); }
   const pool=QUESTIONS.filter(q=>quizState.fields.includes(q.field)&&quizState.years.includes(q.year));
   if(!pool.length){alert('選択された条件に該当する問題がありません。');return}
   const ordered = quizState.order==='rnd' ? [...pool].sort(()=>Math.random()-.5) : [...pool];
   quizState.queue=quizState.count===0?ordered:ordered.slice(0,quizState.count);
-  quizState.idx=0;quizState.sessionResults=[];
+  quizState.idx=0;quizState.sessionResults=[];quizState.scoreReplayMode=false;
   quizState.mode='past';
   gotoPage('quiz'); renderQ();
 }
@@ -3998,7 +4188,67 @@ function toggleCurrentBookmark(){
   const q=quizState.queue[quizState.idx];
   toggleBookmarkForQuestion(q);
 }
+function renderQScoreReplay(sr){
+  const q=sr.q,i=sr.picked,correct=sr.correct,elapsed=sr.time;
+  const total=quizState.queue.length,idx=quizState.idx;
+  document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
+  document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
+  const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
+  const diffN=getDifficultyStars(q);
+  const freqN=getFreqStars(q);
+  const sourceLabel=q.year?`${q.year}年`:'オリジナル';
+  document.getElementById('q-meta').innerHTML=`
+    <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
+    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>
+    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffN)}</span>
+    <span class="q-meta-item freq-item">${freqStarsHTML(freqN)}</span>`;
+  updateBookmarkButton(q);
+  renderBookmarkNote(q);
+  document.getElementById('q-body').textContent=q.text;
+  document.getElementById('opts').innerHTML=q.opts.map((o,j)=>
+    `<div class="opt disabled" id="opt${j}"><span class="opt-num">${j+1}</span><span>${o}</span></div>`).join('');
+  document.querySelectorAll('.opt').forEach((el,j)=>{
+    if(j===q.ans) el.classList.add('correct');
+    else if(j===i&&!correct) el.classList.add('wrong');
+  });
+  const diagramHTML=q.diagram?buildDiagram(q.diagram):'';
+  const kaisetsuHTML=q.kaisetsu?buildKaisetsu(q.kaisetsu,q):'';
+  const isOrig=!!q.unit;
+  const expHTML=isOrig?buildRichExp(q.exp,q.opts,q.ans):`<div class="exp-text">${q.exp}</div>`;
+  const yearHistHTML=(!isOrig&&q.year)?buildYearHistoryHTML(q):'';
+  const feedbackLabel=correct
+    ? `<div class="answer-feedback correct">正解</div>`
+    : `<div class="answer-feedback wrong">不正解</div>`;
+  document.getElementById('q-result').innerHTML=`
+    <div class="exp-box ${correct?'exp-correct':'exp-wrong'}">
+      ${feedbackLabel}
+      ${expHTML}
+      ${yearHistHTML}
+      ${diagramHTML}
+      <div class="exp-time">解答時間: ${elapsed.toFixed(1)}s</div>
+    </div>
+    ${kaisetsuHTML}`;
+  showNextBtn(true,null);
+  if(timer)clearInterval(timer);
+  timer=null;
+}
+
+function openScoreQuestion(questionIndex){
+  const res=quizState.sessionResults;
+  if(!res||questionIndex<0||questionIndex>=res.length)return;
+  if(!quizState.queue||!quizState.queue[questionIndex])return;
+  quizState.idx=questionIndex;
+  quizState.scoreReplayMode=true;
+  gotoPage('quiz');
+  renderQ();
+}
+window.openScoreQuestion=openScoreQuestion;
+
 function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
+  if(quizState.scoreReplayMode){
+    const sr=quizState.sessionResults[quizState.idx];
+    if(sr){ renderQScoreReplay(sr); return; }
+  }
   const q=quizState.queue[quizState.idx],total=quizState.queue.length,idx=quizState.idx;
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
@@ -4024,6 +4274,7 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
 }
 
 function pickOpt(i){
+  if(quizState.scoreReplayMode)return;
   if(document.getElementById('opt0').classList.contains('disabled'))return;
   clearInterval(timer);
   const q=quizState.queue[quizState.idx];
@@ -4111,7 +4362,23 @@ function handleNextFloat(){
     advanceQ();
   }
 }
-function advanceQ(){ showNextBtn(false,null); quizState.idx++; if(quizState.idx>=quizState.queue.length)showScore(); else { window.scrollTo({top:0,behavior:"instant"}); renderQ(); } }
+function advanceQ(){
+  showNextBtn(false,null);
+  if(quizState.scoreReplayMode){
+    quizState.idx++;
+    if(quizState.idx>=quizState.queue.length){
+      quizState.scoreReplayMode=false;
+      gotoPage('score');
+    }else{
+      window.scrollTo({top:0,behavior:'instant'});
+      renderQ();
+    }
+    return;
+  }
+  quizState.idx++;
+  if(quizState.idx>=quizState.queue.length)showScore();
+  else{ window.scrollTo({top:0,behavior:'instant'}); renderQ(); }
+}
 
 // ===== ENTER KEY NAVIGATION =====
 document.addEventListener('keydown', function(e){
@@ -4663,16 +4930,25 @@ function getBadgeShareColors(badge){
   const idx=Math.max(0, BADGE_DEFS.findIndex(b=>b.id===badge.id));
   return palette[idx % palette.length];
 }
+function ctxRoundRectPath(ctx,x,y,w,h,r){
+  const rr=Math.min(Math.max(0,r),w/2,h/2);
+  ctx.moveTo(x+rr,y);
+  ctx.arcTo(x+w,y,x+w,y+h,rr);
+  ctx.arcTo(x+w,y+h,x,y+h,rr);
+  ctx.arcTo(x,y+h,x,y,rr);
+  ctx.arcTo(x,y,x+w,y,rr);
+  ctx.closePath();
+}
 function drawCanvasBadgeIcon(ctx, icon, x, y, size, color){
   ctx.save();
-  ctx.translate(x, y);
+  const s=size/16;
+  ctx.translate(x,y);
+  ctx.scale(s,s);
   ctx.strokeStyle=color;
   ctx.fillStyle=color;
-  ctx.lineWidth=Math.max(5, size/9);
+  ctx.lineWidth=1.85;
   ctx.lineCap='round';
   ctx.lineJoin='round';
-  const s=size/16;
-  ctx.scale(s, s);
   ctx.beginPath();
   if(icon==='play'){
     ctx.moveTo(5,3.5); ctx.lineTo(12,8); ctx.lineTo(5,12.5); ctx.closePath(); ctx.fill();
@@ -4685,19 +4961,22 @@ function drawCanvasBadgeIcon(ctx, icon, x, y, size, color){
   }else if(icon==='zap'){
     ctx.moveTo(9,1.5); ctx.lineTo(4,9); ctx.lineTo(8,9); ctx.lineTo(7,14.5); ctx.lineTo(12,7); ctx.lineTo(8,7); ctx.closePath(); ctx.fill();
   }else if(icon==='calendar'){
-    ctx.roundRect(3,3.5,10,10,1.5); ctx.stroke(); ctx.beginPath(); ctx.moveTo(5.5,2); ctx.lineTo(5.5,5); ctx.moveTo(10.5,2); ctx.lineTo(10.5,5); ctx.moveTo(3,6.5); ctx.lineTo(13,6.5); ctx.stroke();
+    ctx.beginPath(); ctxRoundRectPath(ctx,3,3.5,10,10,1.5); ctx.stroke(); ctx.beginPath(); ctx.moveTo(5.5,2); ctx.lineTo(5.5,5); ctx.moveTo(10.5,2); ctx.lineTo(10.5,5); ctx.moveTo(3,6.5); ctx.lineTo(13,6.5); ctx.stroke();
   }else if(icon==='review'){
-    ctx.moveTo(3,4); ctx.lineTo(13,4); ctx.moveTo(3,8); ctx.lineTo(10,8); ctx.moveTo(3,12); ctx.lineTo(12,12); ctx.moveTo(12,7); ctx.lineTo(14,9); ctx.lineTo(12,11); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(3,4); ctx.lineTo(13,4); ctx.moveTo(3,8); ctx.lineTo(10,8); ctx.moveTo(3,12); ctx.lineTo(12,12); ctx.moveTo(12,7); ctx.lineTo(14,9); ctx.lineTo(12,11); ctx.stroke();
   }else if(icon==='bookmark'){
-    ctx.moveTo(4,2.5); ctx.lineTo(12,2.5); ctx.lineTo(12,13.5); ctx.lineTo(8,11); ctx.lineTo(4,13.5); ctx.closePath(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(4,2.5); ctx.lineTo(12,2.5); ctx.lineTo(12,13.5); ctx.lineTo(8,11); ctx.lineTo(4,13.5); ctx.closePath(); ctx.stroke();
   }else if(icon==='timer'){
-    ctx.arc(8,8.5,5.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(8,5.5); ctx.lineTo(8,8.5); ctx.lineTo(10,9.9); ctx.moveTo(6,1.5); ctx.lineTo(10,1.5); ctx.stroke();
+    ctx.beginPath(); ctx.arc(8,8.5,5.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(8,5.5); ctx.lineTo(8,8.5); ctx.lineTo(10,9.9); ctx.moveTo(6,1.5); ctx.lineTo(10,1.5); ctx.stroke();
   }else if(icon==='grid'){
-    [[3,3],[9,3],[3,9],[9,9]].forEach(([gx,gy])=>{ctx.beginPath(); ctx.roundRect(gx,gy,4,4,1); ctx.stroke();});
+    [[3,3],[9,3],[3,9],[9,9]].forEach(([gx,gy])=>{ctx.beginPath(); ctxRoundRectPath(ctx,gx,gy,4,4,1); ctx.stroke();});
   }else if(icon==='book'){
-    ctx.moveTo(4,2.5); ctx.lineTo(9,2.5); ctx.quadraticCurveTo(12,2.5,12,5.5); ctx.lineTo(12,13.5); ctx.lineTo(7,13.5); ctx.quadraticCurveTo(4,13.5,4,10.5); ctx.closePath(); ctx.stroke(); ctx.beginPath(); ctx.moveTo(4,2.5); ctx.lineTo(4,10.5); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(4,2.5); ctx.lineTo(9,2.5); ctx.quadraticCurveTo(12,2.5,12,5.5); ctx.lineTo(12,13.5); ctx.lineTo(7,13.5); ctx.quadraticCurveTo(4,13.5,4,10.5); ctx.closePath(); ctx.stroke(); ctx.beginPath(); ctx.moveTo(4,2.5); ctx.lineTo(4,10.5); ctx.stroke();
+  }else if(icon==='award'){
+    ctx.beginPath(); ctx.arc(8,6,3.5,0,Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(5.5,9); ctx.lineTo(4.5,14); ctx.lineTo(8,12); ctx.lineTo(11.5,14); ctx.lineTo(10.5,9); ctx.closePath(); ctx.stroke();
   }else{
-    ctx.arc(8,6,3.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(5.5,9); ctx.lineTo(4.5,14); ctx.lineTo(8,12); ctx.lineTo(11.5,14); ctx.lineTo(10.5,9); ctx.stroke();
+    ctx.beginPath(); ctx.arc(8,6,3.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(5.5,9); ctx.lineTo(4.5,14); ctx.lineTo(8,12); ctx.lineTo(11.5,14); ctx.lineTo(10.5,9); ctx.stroke();
   }
   ctx.restore();
 }
@@ -4731,7 +5010,7 @@ function drawBadgeShareCard(badge){
 
   ctx.fillStyle='#ffffff';
   ctx.beginPath();
-  ctx.roundRect(80,72,W-160,H-144,36);
+  ctxRoundRectPath(ctx,80,72,W-160,H-144,36);
   ctx.fill();
   ctx.strokeStyle='rgba(17,17,17,.10)';
   ctx.lineWidth=2;
@@ -4747,7 +5026,7 @@ function drawBadgeShareCard(badge){
 
   ctx.fillStyle=accent;
   ctx.beginPath();
-  ctx.roundRect(W/2-74,226,148,148,34);
+  ctxRoundRectPath(ctx,W/2-74,226,148,148,34);
   ctx.fill();
   drawCanvasBadgeIcon(ctx, badge.icon, W/2-45, 255, 90, '#ffffff');
 
@@ -4762,7 +5041,7 @@ function drawBadgeShareCard(badge){
   const total=Object.keys(u.answers||{}).length;
   ctx.fillStyle=soft;
   ctx.beginPath();
-  ctx.roundRect(W/2-238,570,476,52,26);
+  ctxRoundRectPath(ctx,W/2-238,570,476,52,26);
   ctx.fill();
   ctx.fillStyle='#333333';
   ctx.font='700 24px "Noto Sans JP", sans-serif';
@@ -4770,12 +5049,115 @@ function drawBadgeShareCard(badge){
   return canvas;
 }
 
+let currentLevelUpShare=null;
+function getLevelUpShareText(lu){
+  if(!lu) return '';
+  return buildXShareText(`宅建マスターでレベルアップしました！\nLv${lu.prevLv}「${lu.prevLabel}」→ Lv${lu.newLv}「${lu.newLabel}」\n累計${lu.totalAnswered}問の解答を重ねて、一歩ずつ前に進んでいます。宅建合格を目指して学習を続けています。`);
+}
+function drawLevelUpShareCard(lu){
+  const canvas=document.getElementById('level-up-share-canvas');
+  if(!canvas||!lu) return null;
+  const ctx=canvas.getContext('2d');
+  const W=1200,H=675;
+  const accent='#2f6f5e';
+  const soft='#edf8f3';
+  canvas.width=W; canvas.height=H;
+  ctx.fillStyle='#f6f7f8';
+  ctx.fillRect(0,0,W,H);
+  const grad=ctx.createLinearGradient(0,0,W,H);
+  grad.addColorStop(0, soft);
+  grad.addColorStop(0.62, '#ffffff');
+  grad.addColorStop(1, '#f4f4f5');
+  ctx.fillStyle=grad;
+  ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#ffffff';
+  ctx.beginPath();
+  ctxRoundRectPath(ctx,80,72,W-160,H-144,36);
+  ctx.fill();
+  ctx.strokeStyle='rgba(17,17,17,.10)';
+  ctx.lineWidth=2;
+  ctx.stroke();
+  ctx.textAlign='center';
+  ctx.fillStyle='#555555';
+  ctx.font='700 30px "Noto Sans JP", sans-serif';
+  ctx.fillText('宅建マスター', W/2, 138);
+  ctx.fillStyle=accent;
+  ctx.font='700 38px "Noto Sans JP", sans-serif';
+  ctx.fillText('レベルアップ', W/2, 192);
+  ctx.fillStyle='#111111';
+  ctx.font='700 48px "Noto Sans JP", sans-serif';
+  ctx.fillText(`Lv${lu.prevLv}  →  Lv${lu.newLv}`, W/2, 278);
+  ctx.fillStyle='#555555';
+  ctx.font='600 26px "Noto Sans JP", sans-serif';
+  drawWrappedCanvasText(ctx, `「${lu.prevLabel}」から「${lu.newLabel}」へ`, W/2, 322, 900, 32, 2);
+  ctx.fillStyle=accent;
+  ctx.font='800 56px "Noto Sans JP", sans-serif';
+  ctx.fillText(`Lv${lu.newLv}`, W/2, 408);
+  ctx.fillStyle='#444444';
+  ctx.font='600 28px "Noto Sans JP", sans-serif';
+  drawWrappedCanvasText(ctx, lu.newLabel, W/2, 458, 920, 34, 2);
+  ctx.fillStyle=soft;
+  ctx.beginPath();
+  ctxRoundRectPath(ctx,W/2-280,538,560,52,26);
+  ctx.fill();
+  ctx.fillStyle='#333333';
+  ctx.font='700 24px "Noto Sans JP", sans-serif';
+  ctx.fillText(`累計 ${lu.totalAnswered} 問解答`, W/2, 572);
+  return canvas;
+}
+function openLevelUpShare(lu){
+  if(!lu) return;
+  currentLevelUpShare=lu;
+  const title=document.getElementById('level-up-share-title');
+  const sub=document.getElementById('level-up-share-sub');
+  if(title) title.textContent=`レベルアップ！ Lv${lu.newLv}`;
+  if(sub) sub.textContent=`Lv${lu.prevLv}「${lu.prevLabel}」→ Lv${lu.newLv}「${lu.newLabel}」`;
+  document.getElementById('level-up-share-overlay')?.classList.add('open');
+  setTimeout(()=>drawLevelUpShareCard(lu), 80);
+}
+function closeLevelUpShare(e){
+  const overlay=document.getElementById('level-up-share-overlay');
+  if(!e || e.target===overlay) overlay?.classList.remove('open');
+}
+async function shareLevelUpToX(){
+  const lu=currentLevelUpShare;
+  if(!lu) return;
+  const text=getLevelUpShareText(lu);
+  const canvas=document.getElementById('level-up-share-canvas');
+  if(canvas) drawLevelUpShareCard(lu);
+  const blob=canvas ? await canvasToBlob(canvas) : null;
+  const file=blob ? new File([blob], `takken-master-levelup-Lv${lu.newLv}.png`, {type:'image/png'}) : null;
+  if(file && navigator.canShare && navigator.canShare({files:[file]})){
+    try{
+      await navigator.share({text, files:[file]});
+      return;
+    }catch(e){
+      if(e && e.name==='AbortError') return;
+    }
+  }
+  if(blob){
+    const a=document.createElement('a');
+    const objectUrl=URL.createObjectURL(blob);
+    a.download=`takken-master-levelup-Lv${lu.newLv}.png`;
+    a.href=objectUrl;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
+    if(typeof showToast==='function') showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
+  }
+  const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+window.openLevelUpShare=openLevelUpShare;
+window.closeLevelUpShare=closeLevelUpShare;
+window.shareLevelUpToX=shareLevelUpToX;
+
 async function shareBadgeToX(){
   const badge=BADGE_DEFS.find(b=>b.id===currentBadgeShareId);
   if(!badge) return;
   const text=getBadgeShareText(badge);
   const canvas=document.getElementById('badge-share-canvas');
-  const blob=canvas ? await canvasToBlob(drawBadgeShareCard(badge)) : null;
+  if(canvas) drawBadgeShareCard(badge);
+  const blob=canvas ? await canvasToBlob(canvas) : null;
   const file=blob ? new File([blob], `takken-master-badge-${badge.id}.png`, {type:'image/png'}) : null;
   if(file && navigator.canShare && navigator.canShare({files:[file]})){
     try{
@@ -4784,6 +5166,15 @@ async function shareBadgeToX(){
     }catch(e){
       if(e && e.name==='AbortError') return;
     }
+  }
+  if(blob){
+    const a=document.createElement('a');
+    const objectUrl=URL.createObjectURL(blob);
+    a.download=`takken-master-badge-${badge.id}.png`;
+    a.href=objectUrl;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
+    if(typeof showToast==='function') showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
   }
   const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank', 'noopener,noreferrer');
@@ -4955,7 +5346,7 @@ function reviewQ(qid){
   if(!q) return;
   awardBadgeById('review_action');
   const u=getUserData();
-  quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.fromReview=true;quizState.mode=q.unit?'orig':'past';gotoPage('quiz');renderQ();
+  quizState.queue=[q];quizState.idx=0;quizState.sessionResults=[];quizState.scoreReplayMode=false;quizState.fromReview=true;quizState.mode=q.unit?'orig':'past';gotoPage('quiz');renderQ();
 }
 
 // ===== SCORE =====
@@ -5027,13 +5418,23 @@ function getSessionFeedback(pct, total, res, u){
   const prevTotal = totalAnswered - total;
   const prevLv = getLevel(prevTotal);
   let lvUpNote = '';
-  if(lv.lv > prevLv.lv) lvUpNote = `Lv${prevLv.lv} → Lv${lv.lv}「${lv.label}」にレベルアップ！`;
+  let levelUp = null;
+  if(lv.lv > prevLv.lv){
+    lvUpNote = `Lv${prevLv.lv} → Lv${lv.lv}「${lv.label}」にレベルアップ！`;
+    levelUp = {
+      prevLv: prevLv.lv,
+      prevLabel: prevLv.label,
+      newLv: lv.lv,
+      newLabel: lv.label,
+      totalAnswered
+    };
+  }
 
-  return { msg, advice, streakNote, lvUpNote };
+  return { msg, advice, streakNote, lvUpNote, levelUp };
 }
 function showScore(){
   const res=quizState.sessionResults, correct=res.filter(r=>r.correct).length;
-  const pct=Math.round(correct/res.length*100), avgTime=(res.reduce((a,r)=>a+r.time,0)/res.length).toFixed(1);
+  const pct=Math.round(correct/res.length*100);
   lastSessionShareData={mode:quizState.mode,correct,total:res.length,pct};
   const u=getUserData(); u.sessions=u.sessions||[];u.sessions.push({date:Date.now(),correct,total:res.length,pct,mode:quizState.mode});saveUser(u);
   const endedFromReview=!!quizState.fromReview;
@@ -5064,25 +5465,26 @@ function showScore(){
         stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-pct/100)}" stroke-linecap="round"/>
     </svg>
     <div class="score-ring-label"><div class="score-ring-pct" style="color:${color}">${pct}%</div><div class="score-ring-sub">正答率</div></div></div>`;
-  const uu=getUserData();
-  const lvNow=getLevel(Object.keys(uu.answers||{}).length);
-  document.getElementById('score-details').innerHTML=`
-    <div class="score-detail-card"><div class="score-detail-label">正解数</div><div class="score-detail-val" style="color:var(--green)">${correct}/${res.length}</div></div>
-    <div class="score-detail-card"><div class="score-detail-label">平均解答時間</div><div class="score-detail-val">${avgTime}s</div></div>
-    <div class="score-detail-card"><div class="score-detail-label">連続正解記録</div><div class="score-detail-val">${uu.streak||0}<span style="font-size:14px;color:var(--text3);font-weight:400">問</span></div></div>
-    <div class="score-detail-card"><div class="score-detail-label">現在のレベル</div><div class="score-detail-val">Lv${lvNow.lv} ${lvNow.label}</div></div>`;
+  const det=document.getElementById('score-details');
+  if(det){
+    det.className='score-detail-grid score-detail-grid--single';
+    det.innerHTML=`<div class="score-detail-card"><div class="score-detail-label">正解数</div><div class="score-detail-val" style="color:var(--green)">${correct}/${res.length}</div></div>`;
+  }
   // Show newly earned badges
   const earnedEl=document.getElementById('score-badges-earned');
   if(earnedEl&&sessionNewBadges.length){
     earnedEl.innerHTML='<div class="section-label" style="margin-bottom:8px">バッジ獲得</div><div class="score-badges-row">'
       +sessionNewBadges.map(b=>`<div class="score-earned-badge"><span class="badge-icon" style="width:24px;height:24px;border-radius:6px">${badgeIconHTML(b.icon)}</span>${b.name}</div>`).join('')+'</div>';
-  }
-  document.getElementById('score-q-list').innerHTML=res.map(r=>`
-    <div class="score-q-item">
+  }else if(earnedEl){ earnedEl.innerHTML=''; }
+  document.getElementById('score-q-list').innerHTML=res.map((r,idx)=>`
+    <div class="score-q-item score-q-click" role="button" tabindex="0" onclick="openScoreQuestion(${idx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openScoreQuestion(${idx});}">
       <div class="score-q-icon" style="color:${r.correct?'var(--green)':'var(--red)'}">${r.correct?'○':'×'}</div>
       <div class="score-q-text">${r.q.text.slice(0,40)}…</div>
       <div class="score-q-time">${r.time.toFixed(1)}s</div>
     </div>`).join('');
+  if(fb.levelUp){
+    setTimeout(()=>openLevelUpShare(fb.levelUp), 380);
+  }
 }
 
 // ===== REVIEW（自動おすすめ） =====
@@ -5186,7 +5588,7 @@ function startRecommendedReviewQuiz(){
   if(!queue.length) return;
   quizState.queue=queue;
   quizState.idx=0;
-  quizState.sessionResults=[];
+  quizState.sessionResults=[]; quizState.scoreReplayMode=false;
   quizState.fromReview=true;
   quizState.mode='recommended';
   gotoPage('quiz');
@@ -5239,14 +5641,14 @@ function renderReview(){
 		      ?`<span class="tag tag-gray">オリジナル</span>`
 		      :`<span class="tag tag-gray">${q.year?q.year+'年':''}</span>`;
 		    return `<div class="review-card${note.text?' has-note':''}" onclick="reviewQ(${q.id})">
-		      <div class="review-indicator" style="background:${noteFocused&&note.text?'var(--green)':'var(--bg4)'}"></div>
+		      <div class="review-indicator" style="background:${noteFocused&&note.text?'var(--ink)':'var(--bg4)'}"></div>
 	      <div class="review-body">
 	        <div class="review-q">${q.text}</div>
 	        <div class="review-meta">
 	          ${sourceTag}
 	          ${isWrong?'<span class="tag tag-gray">不正解</span>':''}
 		          ${isBookmarkedCard?'<span class="tag tag-blue">ブックマーク</span>':''}
-		          ${note.text?'<span class="tag tag-green">メモあり</span>':''}
+		          ${note.text?'<span class="tag tag-gray">メモあり</span>':''}
 		          ${dateStr?`<span style="font-size:12px;color:var(--text3);margin-left:auto">${dateStr}</span>`:''}
 		        </div>
 		        ${notePreview}
@@ -5298,7 +5700,7 @@ function renderReview(){
 
 	  let htmlBookmarks='';
 	  if(bookmarkedQs.length){
-		    htmlBookmarks=renderGroup(bookmarkedQs,false,true,'bookmarks',true);
+		    htmlBookmarks=renderGroup(bookmarkedQs,false,true,'bookmarks',true,false);
 	  }
 
 	  let htmlWrong='';
@@ -5314,13 +5716,11 @@ function renderReview(){
 
 	  const reviewIntroWrong='一度誤答した問題です。解説を確認してから、もう一度チャレンジしましょう。';
 
-	  const htmlBookmarkSection=bookmarkedQs.length
-	    ? `<section class="review-page-section" aria-labelledby="review-head-bm">
+	  const htmlBookmarkSection=`<section class="review-page-section" aria-labelledby="review-head-bm">
 	      <h2 id="review-head-bm" class="review-section-heading">ブックマーク</h2>
 	      <p class="review-section-desc">${reviewIntroBookmark}</p>
-	      ${htmlBookmarks}
-	    </section>`
-	    : '';
+	      ${bookmarkedQs.length ? htmlBookmarks : '<p class="review-section-empty" role="status">ブックマークしている問題はありません。</p>'}
+	    </section>`;
 
 	  document.getElementById('review-list').innerHTML=`
 	    <section class="review-page-section" aria-labelledby="review-head-rec">
@@ -5586,6 +5986,23 @@ loadDB();
     <button class="mission-popup-close" onclick="document.getElementById('support-letter-overlay').classList.remove('open')">閉じる</button>
   </div>
 </div>
+<!-- LEVEL UP SHARE POPUP -->
+<div class="mission-popup-overlay" id="level-up-share-overlay" onclick="closeLevelUpShare(event)">
+  <div class="mission-popup">
+    <div class="mission-popup-title" id="level-up-share-title">レベルアップ</div>
+    <div class="mission-popup-sub" id="level-up-share-sub">おめでとうございます。画像と本文をセットでXに投稿できます。</div>
+    <div class="mission-cert-canvas-wrap">
+      <canvas id="level-up-share-canvas" width="1200" height="675"></canvas>
+    </div>
+    <div class="mission-popup-actions">
+      <button class="mission-popup-share" onclick="shareLevelUpToX()">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.749l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Xに投稿する
+      </button>
+    </div>
+    <button class="mission-popup-close" onclick="document.getElementById('level-up-share-overlay').classList.remove('open')">閉じる</button>
+  </div>
+</div>
 <!-- BADGE SHARE POPUP -->
 <div class="mission-popup-overlay" id="badge-share-overlay" onclick="closeBadgeShare(event)">
   <div class="mission-popup">
@@ -5682,8 +6099,8 @@ loadDB();
 .srs-queue-arrow{color:var(--text3);flex-shrink:0}
 
 /* ---- 2. レーダーチャート ---- */
-.radar-wrap{display:flex;justify-content:center;padding:8px 0}
-.radar-svg{overflow:visible}
+.radar-wrap{display:flex;justify-content:center;padding:4px 0 2px;width:100%}
+.radar-svg{overflow:visible;width:100%;max-width:340px;height:auto;display:block}
 .radar-legend{display:flex;gap:20px;justify-content:center;margin-top:8px;flex-wrap:wrap}
 .radar-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2)}
 .radar-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
@@ -5713,7 +6130,7 @@ loadDB();
 .srs-modal-desc{font-size:13px;color:var(--text2);margin:0 0 16px;line-height:1.65}
 
 @media(max-width:700px){
-  .radar-wrap svg{width:240px;height:240px}
+  .radar-wrap svg{max-width:min(100%,300px)}
   .weak-mode-card{padding:14px 14px}
 }
 </style>
@@ -5908,7 +6325,7 @@ function startSrsQuiz(){
   if(typeof quizState==='undefined') return;
   quizState.queue=queue.map(({q})=>q).slice(0,20);
   quizState.idx=0;
-  quizState.sessionResults=[];
+  quizState.sessionResults=[]; quizState.scoreReplayMode=false;
   quizState.fromReview=true;
   quizState.mode='srs';
   if(typeof gotoPage==='function') gotoPage('quiz');
@@ -5979,7 +6396,9 @@ function renderRadarChart(containerId){
   const el=document.getElementById(containerId);
   if(!el) return;
   const stats=computeFieldStats();
-  const size=220, cx=size/2, cy=size/2, r=80;
+  const pad=36;
+  const size=256;
+  const cx=size/2, cy=size/2, r=94;
   const fields=stats;
   const n=fields.length;
   const angles=fields.map((_,i)=>-Math.PI/2+(2*Math.PI/n)*i);
@@ -6002,7 +6421,7 @@ function renderRadarChart(containerId){
   const dataSVG=`<polygon points="${dataPts.map(p=>p.join(',')).join(' ')}" fill="rgba(51,51,51,.12)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
     ${dataPts.map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" fill="var(--ink)"/>`).join('')}`;
   // ラベル
-  const LABEL_OFFSET=18;
+  const LABEL_OFFSET=22;
   const labelsSVG=fields.map((f,i)=>{
     const[x,y]=pt(angles[i],r+LABEL_OFFSET);
     const anchor=x<cx-4?'end':x>cx+4?'start':'middle';
@@ -6016,11 +6435,12 @@ function renderRadarChart(containerId){
 
   el.innerHTML=`
   <div class="radar-wrap">
-    <svg class="radar-svg" width="${size+60}" height="${size+60}" viewBox="-30 -30 ${size+60} ${size+60}">
+    <svg class="radar-svg" width="${size+pad*2}" height="${size+pad*2}" viewBox="-${pad} -${pad} ${size+pad*2} ${size+pad*2}">
       ${gridSVG}${axesSVG}${dataSVG}${labelsSVG}${scaleSVG}
     </svg>
   </div>`;
 }
+window.renderRadarChart=renderRadarChart;
 
 // =====================================================================
 // 3. 弱点自動特定・優先出題
@@ -6177,7 +6597,7 @@ function startWeakModeQuiz(){
   if(typeof quizState==='undefined') return;
   quizState.queue=weakPool.slice(0,20);
   quizState.idx=0;
-  quizState.sessionResults=[];
+  quizState.sessionResults=[]; quizState.scoreReplayMode=false;
   quizState.fromReview=false;
   quizState.mode='weak';
   if(typeof gotoPage==='function') gotoPage('quiz');
@@ -6189,19 +6609,7 @@ window.startWeakModeQuiz=startWeakModeQuiz;
 // ダッシュボードの拡張（レーダーチャート）
 // =====================================================================
 function injectDashEnhancements(){
-  const dashEl=document.getElementById('page-dash');
-  if(!dashEl) return;
-
-  // レーダーチャートを分野別正答率カードの後に挿入
-  const fieldBarsCard=dashEl.querySelector('.card');
-  if(fieldBarsCard&&!document.getElementById('radar-chart-card')){
-    const radarCard=document.createElement('div');
-    radarCard.id='radar-chart-card';
-    radarCard.className='card';
-    radarCard.style.marginBottom='13px';
-    radarCard.innerHTML=`<div class="section-label" style="margin-bottom:10px">理解度レーダー</div><div id="radar-chart-container"></div>`;
-    fieldBarsCard.insertAdjacentElement('afterend',radarCard);
-  }
+  // 理解度レーダー・学習カレンダーは #page-dash 内の .dash-radar-cal-row に静的配置
 }
 
 // quiz-startページに弱点モード・SRSバナーを追加
@@ -6248,7 +6656,7 @@ function injectQuizStartEnhancements(){
         </div>
         <div class="mode-title-v2">弱点集中対策</div>
       </div>
-      <div class="mode-arrow-v2" style="color:var(--text3)">🔒</div>
+      <div class="mode-arrow-v2" style="color:var(--text3);display:flex;align-items:center;justify-content:center" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
     </div>`;
   }
   modeList.appendChild(weakCard);
@@ -6268,10 +6676,9 @@ function injectReviewEnhancements(){
 const _origRenderDash=window.renderDash;
 window.renderDash=function(){
   if(_origRenderDash) _origRenderDash.apply(this,arguments);
-  // 少し遅らせてDOM生成後に実行
+  // 少し遅らせてDOM生成後に実行（レーダーは renderDashPeriodStats 内で描画済み）
   setTimeout(()=>{
     injectDashEnhancements();
-    renderRadarChart('radar-chart-container');
   },50);
 };
 
@@ -6295,7 +6702,9 @@ window.gotoPage=function(id){
     }
     if(id==='dash'){
       injectDashEnhancements();
-      renderRadarChart('radar-chart-container');
+      if(typeof window.renderRadarChart==='function'){
+        window.renderRadarChart('radar-chart-container');
+      }
     }
   },80);
 };
@@ -6320,7 +6729,10 @@ function init(){
     const id=activePage.id.replace('page-','');
     if(id==='dash'){
       setTimeout(()=>{
-        renderRadarChart('radar-chart-container');
+        injectDashEnhancements();
+        if(typeof window.renderRadarChart==='function'){
+          window.renderRadarChart('radar-chart-container');
+        }
       },120);
     }
   }
