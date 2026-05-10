@@ -307,12 +307,15 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-prog-track{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .ichi-prog-fill{height:100%;background:var(--ink);border-radius:2px;transition:width .3s ease}
 .ichi-card{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:24px 20px;box-shadow:var(--sh);margin-bottom:20px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
-.ichi-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.ichi-head{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin-bottom:10px}
+.ichi-head .bookmark-btn{margin-left:auto;flex-shrink:0}
 .ichi-meta{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.ichi-meta:empty{display:none;margin:0;padding:0;border:none}
 .ichi-head .ichi-meta{margin-bottom:0;flex:1;min-width:0}
 .ichi-meta-item{display:inline-flex;align-items:center;gap:4px}
 .ichi-meta-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.06em;white-space:nowrap}
 .ichi-field{font-size:10px;color:var(--text3);font-weight:700;letter-spacing:.06em;margin-bottom:12px}
+.ichi-head .ichi-field{margin-bottom:0;flex:1;min-width:0;line-height:1.2}
 .ichi-statement{font-size:var(--fs-body);color:var(--text);line-height:1.75;font-weight:var(--fw-normal)}
 .ichi-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .ichi-btn{padding:20px 0;border-radius:var(--r2);font-size:28px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:#fff;font-family:var(--font);transition:all .18s;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
@@ -333,7 +336,7 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .ichi-result-badge{font-size:var(--fs-sub);font-weight:var(--fw-strong);margin-bottom:6px}
 .ichi-result-badge.ok{color:#1a7a40}
 .ichi-result-badge.ng{color:#c0392b}
-.ichi-result-exp{font-size:var(--fs-sub);color:var(--text2);line-height:1.75;overflow:visible;white-space:normal}
+.ichi-result-exp{font-size:var(--fs-body);color:var(--text2);line-height:1.75;overflow:visible;white-space:normal}
 .ichi-next-btn{width:100%;padding:13px;background:var(--ink);border:none;border-radius:var(--r);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);transition:opacity .15s;display:none}
 .ichi-next-btn.show{display:block}
 .ichi-next-btn:hover{opacity:.82}
@@ -395,14 +398,15 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .quiz-prog-track{height:2px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .quiz-prog-fill{height:100%;background:var(--ink);transition:width .4s cubic-bezier(.4,0,.2,1);border-radius:2px}
 .q-card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r2);padding:20px 22px;margin-bottom:10px;box-shadow:none}
-.q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
+.q-head{display:flex;align-items:flex-start;justify-content:flex-start;gap:10px;margin-bottom:12px}
+.q-head .bookmark-btn{margin-left:auto;align-self:flex-start}
 .q-meta{display:flex;align-items:center;gap:6px 10px;margin-bottom:12px;flex-wrap:wrap;overflow:visible}
 .q-head .q-meta{margin-bottom:0;flex:1;min-width:0}
 .q-meta-item{display:inline-flex;align-items:center;gap:4px;min-width:0;max-width:100%;height:18px}
 .q-meta-label{font-size:12px;color:var(--text3);font-weight:500;white-space:nowrap;line-height:1.2}
 .q-meta-value{font-size:12px;color:var(--text);font-weight:600;white-space:nowrap;line-height:1.2}
 .q-num{font-size:14px;font-family:var(--mono);color:var(--text3)}
-.q-text{font-size:16px;line-height:1.8;color:var(--text);font-family:var(--font)}
+.q-text{font-size:var(--fs-body);line-height:1.8;color:var(--text);font-family:var(--font);white-space:pre-line}
 .bookmark-btn{width:38px;height:38px;border-radius:var(--r);border:1.5px solid var(--border2);background:#fff;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh)}
 .bookmark-btn:hover{background:var(--bg3);border-color:var(--ink);color:var(--text);transform:translateY(-1px)}
 .bookmark-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg2);box-shadow:0 4px 14px rgba(0,0,0,.18)}
@@ -417,7 +421,7 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .bookmark-note-input:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(17,17,17,.06)}
 .bookmark-note-help{font-size:12px;color:var(--text3);line-height:1.5;margin-top:7px}
 .opts-list{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
-.opt{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;border-radius:var(--r);border:1.5px solid var(--border2);background:#ffffff;cursor:pointer;font-size:16px;line-height:1.75;transition:all .15s;box-shadow:var(--sh)}
+.opt{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;border-radius:var(--r);border:1.5px solid var(--border2);background:#ffffff;cursor:pointer;font-size:var(--fs-body);line-height:1.75;transition:all .15s;box-shadow:var(--sh)}
 .opt:hover:not(.disabled){background:var(--bg3);border-color:var(--text2)}
 .opt.correct{border-color:var(--green);background:var(--grn-s)}
 .opt.wrong{border-color:var(--red);background:var(--red-s)}
@@ -426,41 +430,41 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 .opt.wrong .opt-num{color:var(--red)}
 
 /* ===== EXPLANATION BOX ===== */
-.exp-box{border-radius:var(--r);padding:14px 16px;margin-bottom:12px;font-size:16px;line-height:1.8}
+.exp-box{border-radius:var(--r);padding:14px 16px;margin-bottom:12px;font-size:var(--fs-body);line-height:1.75}
 .exp-correct{background:var(--grn-s);border:1px solid var(--grn-b)}
 .exp-wrong{background:var(--red-s);border:1px solid var(--red-b)}
-.exp-verdict{font-weight:700;font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:7px;font-family:var(--font)}
+.exp-verdict{font-weight:700;font-size:var(--fs-body);margin-bottom:8px;display:flex;align-items:center;gap:7px;font-family:var(--font)}
 .exp-correct .exp-verdict{color:var(--green)}
 .exp-wrong   .exp-verdict{color:var(--red)}
 .exp-text{color:var(--text);margin-bottom:10px}
 .exp-time{font-size:14px;color:var(--text3);font-family:var(--mono)}
 /* ===== RICH EXPLANATION (オリジナル問題) ===== */
 .rich-exp{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
-.rich-correct-opt{font-size:16px;line-height:1.7;color:var(--text);padding:8px 12px;background:rgba(0,0,0,.04);border-radius:var(--r)}
+.rich-correct-opt{font-size:var(--fs-body);line-height:1.7;color:var(--text);padding:8px 12px;background:rgba(0,0,0,.04);border-radius:var(--r)}
 .rich-reason{background:rgba(0,0,0,.03);border-left:3px solid var(--ink);border-radius:0 var(--r) var(--r) 0;padding:10px 13px}
 .rich-label{font-size:12px;font-weight:700;color:var(--text3);letter-spacing:.07em;margin-bottom:5px;text-transform:uppercase}
-.rich-reason-text{font-size:16px;line-height:1.85;color:var(--text)}
+.rich-reason-text{font-size:var(--fs-body);line-height:1.85;color:var(--text)}
 .rich-law{display:inline-block;font-size:12px;background:var(--bg3);color:var(--text2);border:1px solid var(--border2);border-radius:4px;padding:0 5px;margin:0 2px;vertical-align:baseline;font-family:var(--mono);white-space:nowrap}
 .rich-num{color:var(--ink);font-weight:700;font-size:1em}
 .rich-caution{background:var(--amb-s);border:1px solid rgba(160,92,0,.18);border-radius:var(--r);padding:10px 13px}
 .rich-caution-label{font-size:12px;font-weight:700;color:var(--amber);letter-spacing:.05em;margin-bottom:6px}
 .rich-caution-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
-.rich-caution-list li{font-size:14px;line-height:1.75;color:var(--text)}
+.rich-caution-list li{font-size:var(--fs-body);line-height:1.75;color:var(--text)}
 .rich-detail{border:1px solid var(--border2);border-radius:var(--r)}
 details.rich-detail summary{display:none}
-.rich-detail-summary{display:flex;align-items:center;gap:6px;padding:9px 13px;font-size:14px;font-weight:600;color:var(--text2);cursor:pointer;user-select:none;list-style:none}
+.rich-detail-summary{display:flex;align-items:center;gap:6px;padding:9px 13px;font-size:var(--fs-sub);font-weight:600;color:var(--text2);cursor:pointer;user-select:none;list-style:none}
 .rich-detail-summary::-webkit-details-marker{display:none}
-.rich-detail-body{padding:10px 13px;font-size:14px;line-height:1.85;color:var(--text);border-top:1px solid var(--border)}
+.rich-detail-body{padding:10px 13px;font-size:var(--fs-body);line-height:1.85;color:var(--text);border-top:1px solid var(--border)}
 .diagram{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:14px;margin-top:12px;overflow-x:auto}
 .diagram-title{font-size:12px;font-weight:600;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
 .d-flow{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
-.d-box{padding:6px 12px;border-radius:6px;font-size:16px;font-weight:500;white-space:nowrap;line-height:1.4;text-align:center}
+.d-box{padding:6px 12px;border-radius:6px;font-size:var(--fs-body);font-weight:500;white-space:nowrap;line-height:1.4;text-align:center}
 .d-box-blue{background:var(--blue-s);color:var(--blue);border:1px solid var(--blue-b)}
 .d-box-gray{background:var(--bg3);color:var(--text2);border:1px solid var(--border2)}
 .d-box-red{background:var(--red-s);color:var(--red);border:1px solid var(--red-b)}
 .d-box-green{background:var(--grn-s);color:var(--green);border:1px solid var(--grn-b)}
-.d-arrow{color:var(--text3);font-size:16px;flex-shrink:0}
-.d-table{width:100%;border-collapse:collapse;font-size:16px}
+.d-arrow{color:var(--text3);font-size:var(--fs-body);flex-shrink:0}
+.d-table{width:100%;border-collapse:collapse;font-size:var(--fs-body)}
 .d-table th{background:var(--bg3);color:var(--text2);padding:6px 10px;text-align:center;font-weight:600;border:1px solid var(--border2)}
 .d-table td{padding:6px 10px;text-align:center;border:1px solid var(--border2);background:var(--bg2)}
 .d-table tr:nth-child(even) td{background:var(--bg3)}
@@ -507,21 +511,21 @@ details.rich-detail summary{display:none}
 .ks-title{font-size:14px;font-weight:700;color:var(--text);flex:1;letter-spacing:.01em}
 .ks-chevron{font-size:12px;color:var(--text3);transition:transform .2s;flex-shrink:0}
 .ks-section.collapsed>.ks-section-head>.ks-chevron{transform:rotate(-90deg)}
-.ks-body{padding:0 16px 16px;font-size:14px;line-height:1.9;color:var(--text)}
+.ks-body{padding:0 16px 16px;font-size:var(--fs-body);line-height:1.75;color:var(--text)}
 .ks-section.collapsed>.ks-body{display:none}
 /* 具体例ブロック */
-.ks-example{background:var(--bg3);border-left:3px solid var(--ink);border-radius:0 var(--r) var(--r) 0;padding:10px 13px;margin:10px 0;font-size:16px;line-height:1.85;color:var(--ink)}
+.ks-example{background:var(--bg3);border-left:3px solid var(--ink);border-radius:0 var(--r) var(--r) 0;padding:10px 13px;margin:10px 0;font-size:var(--fs-body);line-height:1.85;color:var(--ink)}
 .ks-example-label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--text3);margin-bottom:5px}
 /* 混同注意 */
-.ks-caution{background:var(--amb-s);border:1px solid rgba(160,92,0,.2);border-radius:var(--r);padding:10px 13px;margin-top:10px;font-size:16px;line-height:1.8;color:var(--text)}
+.ks-caution{background:var(--amb-s);border:1px solid rgba(160,92,0,.2);border-radius:var(--r);padding:10px 13px;margin-top:10px;font-size:var(--fs-body);line-height:1.8;color:var(--text)}
 .ks-caution-label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--amber);margin-bottom:5px}
 /* 選択肢ごとの解説 */
 .ks-choice{margin-bottom:14px}
 .ks-choice:last-child{margin-bottom:0}
 .ks-choice-q{font-size:14px;font-style:italic;color:var(--text2);padding:6px 10px;background:var(--bg3);border-radius:var(--r);margin-bottom:5px;line-height:1.6}
-.ks-choice-body{font-size:14px;line-height:1.85;color:var(--text);padding:0 2px}
+.ks-choice-body{font-size:var(--fs-body);line-height:1.85;color:var(--text);padding:0 2px}
 /* まとめ表 */
-.ks-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.ks-table{width:100%;border-collapse:collapse;font-size:var(--fs-body);margin-top:8px}
 .ks-table th{background:var(--bg4);color:var(--text2);padding:7px 10px;text-align:left;font-weight:700;border:1px solid var(--border2);font-size:14px;letter-spacing:.03em}
 .ks-table td{padding:7px 10px;border:1px solid var(--border2);background:var(--bg2);line-height:1.6;vertical-align:top}
 .ks-table tr:nth-child(even) td{background:var(--bg3)}
@@ -866,7 +870,7 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   /* quiz */
   .q-card{padding:12px 14px;margin-bottom:8px}
   .q-head{align-items:flex-start;gap:8px;margin-bottom:8px}
-  .q-head .q-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;width:100%;overflow:visible}
+  .q-head .q-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;flex:1;min-width:0;max-width:100%;overflow:visible}
   .q-meta-item{gap:3px;min-width:0;max-width:100%;padding:0;border:none;background:transparent}
   .q-meta-label,.q-meta-value{font-size:11px}
   .q-meta-label{white-space:normal;line-height:1.25}
@@ -882,10 +886,10 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .q-meta .freq-stars{width:49px;flex-basis:49px}
   .diff-star,.freq-star{width:9px;height:9px;flex:0 0 9px}
   .bookmark-btn{width:40px;height:40px}
-  .q-text{font-size:14px;line-height:1.65}
+  .q-text{line-height:1.65}
   .q-meta{margin-bottom:8px}
   .opts-list{gap:5px;margin-bottom:8px}
-  .opt{font-size:14px;padding:10px 12px;line-height:1.55;gap:10px}
+  .opt{padding:10px 12px;line-height:1.55;gap:10px}
   .btn-next-float.show{left:auto;right:14px;width:auto;min-width:112px;max-width:none;transform:none;bottom:calc(76px + env(safe-area-inset-bottom));border-radius:999px;padding:13px 18px}
   #page-ichimondou{padding-bottom:calc(180px + env(safe-area-inset-bottom))}
   .ichi-card{padding:16px 14px;margin-bottom:12px;min-height:0}
@@ -893,14 +897,14 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .ichi-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px;margin-bottom:8px}
   .ichi-meta-item{padding:0;border:none;background:transparent;flex-wrap:nowrap;max-width:100%;min-width:0}
   .ichi-meta-label{line-height:1.25;flex:0 0 auto}
-  .ichi-meta .diff-stars{min-width:0;flex:0 0 auto}
+  .ichi-meta .diff-stars,.ichi-meta .freq-stars{min-width:0;flex:0 0 auto}
   .ichi-field{margin-bottom:8px}
   .ichi-statement{font-size:14px;line-height:1.7}
   .ichi-btns:not(.answered){position:fixed;left:14px;right:14px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:44;gap:8px;margin-bottom:0}
   .ichi-btns.answered{gap:8px;margin-bottom:12px}
   .ichi-btn{padding:16px 0;font-size:24px}
   .ichi-result{padding:13px 14px;margin-bottom:86px;max-height:none;overflow:visible}
-  .ichi-result-exp{font-size:14px;line-height:1.8;max-height:none;overflow:visible}
+  .ichi-result-exp{line-height:1.8;max-height:none;overflow:visible}
   .ichi-next-btn.show{position:fixed;right:14px;left:auto;bottom:calc(76px + env(safe-area-inset-bottom));z-index:45;width:auto;min-width:112px;padding:13px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
   /* score */
   .score-btns{flex-direction:column}
@@ -1162,7 +1166,7 @@ body.is-solving .exam-banner{display:none}
 .exp-year-history{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:12px;color:var(--text3)}
 .exp-year-pill{display:inline-block;background:var(--bg3);color:var(--text2);border-radius:3px;padding:1px 6px;font-family:var(--mono);font-size:11px;margin:1px}
 /* Feedback badge on answer */
-.answer-feedback{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-body);font-weight:800;letter-spacing:.02em;margin-bottom:8px;padding:5px 14px;border-radius:20px}
+.answer-feedback{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-sub);font-weight:700;letter-spacing:.02em;margin-bottom:8px;padding:5px 14px;border-radius:20px}
 .answer-feedback.correct{color:var(--green);background:var(--grn-s);border:1.5px solid var(--grn-b)}
 .answer-feedback.wrong{color:var(--red);background:var(--red-s);border:1.5px solid var(--red-b)}
 /* Score badges row */
@@ -1536,11 +1540,11 @@ body.is-solving .exam-banner{display:none}
       <div class="ichi-card">
         <div class="ichi-head">
           <div class="ichi-meta" id="ichi-meta"></div>
+          <div class="ichi-field" id="ichi-field"></div>
           <button class="bookmark-btn" id="ichi-bookmark-btn" onclick="toggleIchiBookmark()" aria-label="ブックマークに追加">
             <svg viewBox="0 0 16 16"><path d="M4 2.5h8v11L8 11l-4 2.5z"/></svg>
           </button>
         </div>
-        <div class="ichi-field" id="ichi-field"></div>
         <div class="ichi-statement" id="ichi-statement"></div>
       </div>
       <div id="ichi-bookmark-note-wrap"></div>
@@ -1641,6 +1645,7 @@ body.is-solving .exam-banner{display:none}
         <div class="dash-period-card">
           <div class="dash-period-tabs" role="group" aria-label="分析期間">
             <button class="count-btn on" id="dash-period-all" onclick="setDashPeriod('all')">全期間</button>
+            <button class="count-btn" id="dash-period-today" onclick="setDashPeriod('today')">今日</button>
             <button class="count-btn" id="dash-period-month" onclick="setDashPeriod('month')">今月</button>
             <button class="count-btn" id="dash-period-week" onclick="setDashPeriod('week')">今週</button>
             <button class="count-btn" id="dash-period-custom" onclick="setDashPeriod('custom')">任意</button>
@@ -2831,10 +2836,11 @@ function clampStarRating(n){
   if(!isFinite(x)) return 3;
   return Math.min(5, Math.max(1, Math.round(x)));
 }
-function starIconsHTML(n, max){
+function starIconsHTML(n, max, variant){
   const cap=Math.max(1, Number(max)||5);
   const val=clampStarRating(n);
-  return Array.from({length:cap},(_,i)=>`<span class="diff-star ${i<val?'on':'off'}">★</span>`).join('');
+  const starClass=variant==='freq'?'freq-star':'diff-star';
+  return Array.from({length:cap},(_,i)=>`<span class="${starClass} ${i<val?'on':'off'}">★</span>`).join('');
 }
 /** 頻出集計用：分野＋解説トピックから年度表記等を除いたクラスタキー */
 function getFrequencyTopicKey(q){
@@ -2909,55 +2915,46 @@ function getFrequencyEvidence(q){
   };
 }
 function getDifficultyEvidence(q){
+  let stars=3;
+  let title='問題データに level がないため、5段階のうち標準の★3として表示しています（編集で level を入れると★1〜5に連動します）。';
   if(q.level!=null&&q.level!==''){
     const raw=Number(q.level);
     if(isFinite(raw)){
-      const lv=Math.round(raw);
-      // 難易度は5段階（1〜5）。★の個数＝level。旧データで1〜3のみのときは★が1・2・3個と並ぶ。
-      if(lv>=1&&lv<=5){
-        return {
-          label:'難易度',
-          stars:lv,
-          known:true,
-          title:`難易度は全5段階（level 1＝最易〜5＝最も難しい）です。★の数は level と同じです。過去に1〜3だけ入っていた問題も、level1→★1個・2→★2個・3→★3個になります。`
-        };
-      }
+      stars=clampStarRating(raw);
+      title=`難易度は全5段階（1＝最易〜5＝最も難しい）。編集データの level に基づき★は${stars}個です。過去に1〜3のみのデータも★1〜3に対応します。`;
     }
   }
   return {
     label:'難易度',
-    stars:null,
-    known:false,
-    title:'問題データに難易度（level：1〜5の整数）がないため、★による判定はできません。'
+    stars,
+    title
   };
 }
-function metaStarsHTML(label, n, max, title){
-  return `<span class="ichi-meta-item" title="${escapeAttr(title||'')}"><span class="ichi-meta-label">${label}</span><span class="diff-stars">${starIconsHTML(n,max||5)}</span></span>`;
+function metaStarsHTML(label, n, max, title, variant){
+  const isFreq=variant==='freq';
+  const wrapCls=isFreq?'freq-stars':'diff-stars';
+  const starVar=isFreq?'freq':'diff';
+  return `<span class="ichi-meta-item" title="${escapeAttr(title||'')}"><span class="ichi-meta-label">${label}</span><span class="${wrapCls}">${starIconsHTML(n,max||5,starVar)}</span></span>`;
 }
 function getFreqStars(q){
   return clampStarRating(getFrequencyEvidence(q).stars);
 }
 function freqStarsHTML(ev){
   if(typeof ev==='number'){
-    return `<span class="freq-wrap" title=""><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(ev,5)}</span></span>`;
+    return `<span class="freq-wrap" title=""><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(ev,5,'freq')}</span></span>`;
   }
   const n=clampStarRating(ev.stars);
-  return `<span class="freq-wrap" title="${escapeAttr(ev.title||'')}"><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(n,5)}</span></span>`;
+  return `<span class="freq-wrap" title="${escapeAttr(ev.title||'')}"><span class="q-meta-label">頻出度</span><span class="freq-stars">${starIconsHTML(n,5,'freq')}</span></span>`;
 }
 function getDifficultyStars(q){
-  const ev=getDifficultyEvidence(q);
-  if(ev.known===false||ev.stars==null) return null;
-  return clampStarRating(ev.stars);
+  return clampStarRating(getDifficultyEvidence(q).stars);
 }
 function diffStarsHTML(ev){
   if(typeof ev==='number'){
-    return `<span class="diff-inner" title=""><span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(ev,5)}</span></span>`;
-  }
-  if(ev && ev.known===false){
-    return `<span class="diff-inner" title="${escapeAttr(ev.title||'')}"><span class="diff-label">難易度</span><span class="diff-unknown">判定不可</span></span>`;
+    return `<span class="diff-inner" title=""><span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(ev,5,'diff')}</span></span>`;
   }
   const n=clampStarRating(ev.stars);
-  return `<span class="diff-inner" title="${escapeAttr(ev.title||'')}"><span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(n,5)}</span></span>`;
+  return `<span class="diff-inner" title="${escapeAttr(ev.title||'')}"><span class="diff-label">難易度</span><span class="diff-stars">${starIconsHTML(n,5,'diff')}</span></span>`;
 }
 
 // --- Past-question year history in exp ---
@@ -3591,13 +3588,7 @@ function showIchiQuestion() {
   const q = ichiState.questions[ichiState.idx];
   document.getElementById('ichi-field').textContent = FIELD_LABELS[q.field] || q.field;
   document.getElementById('ichi-statement').textContent = q.statement;
-  const baseQ = getBaseQuestionById(q.id);
-  const diffQ = baseQ || q;
-  const diffEv = getDifficultyEvidence(diffQ);
-  const freq = q.freqEvidence || (baseQ ? getFrequencyEvidence(baseQ) : getFrequencyEvidence({ field: q.field||'', kaisetsu: {}, year: null }));
-  document.getElementById('ichi-meta').innerHTML =
-    '<span class="ichi-meta-item ichi-diff-wrap">' + diffStarsHTML(diffEv) + '</span>' +
-    metaStarsHTML('頻出度', freq.stars, 5, freq.title || '');
+  document.getElementById('ichi-meta').innerHTML = '';
   updateBookmarkButton(q, 'ichi-bookmark-btn');
   renderBookmarkNote(q, 'ichi-bookmark-note-wrap');
   document.getElementById('ichi-btn-maru').disabled = false;
@@ -3615,6 +3606,108 @@ function showIchiQuestion() {
 function toggleIchiBookmark() {
   const q = ichiState.questions[ichiState.idx];
   toggleBookmarkForQuestion(q, { btnId: 'ichi-bookmark-btn', noteWrapId: 'ichi-bookmark-note-wrap' });
+}
+
+/** 一問一答は○×のみ。4択比較や「誤りの〜」などのメタ文言は削除し、条文・論点の説明中心に整える */
+function adaptExplanationForIchimondou(text) {
+  if (!text || typeof text !== 'string') return '';
+  const CUT = ''; // 比較・誤り指摘の短文は削除
+  let s = text;
+  const pairs = [
+    [/正解の選択肢/g, '論点として正しいこと'],
+    [/不正解の選択肢/g, CUT],
+    [/誤答選択肢/g, CUT],
+    [/誤りの選択肢/g, CUT],
+    [/他の選択肢/g, CUT],
+    [/各選択肢について/g, 'この論点について'],
+    [/各選択肢は/g, '要件として'],
+    [/各選択肢を/g, '条文の趣旨として'],
+    [/各選択肢が/g, '各要件が'],
+    [/各選択肢に/g, '各要件に'],
+    [/各選択肢の/g, '要件ごとの'],
+    [/各選択肢/g, '各要件'],
+    [/選択肢のうち/g, '要件としては'],
+    [/選択肢\s*[0-9０-９]+/g, '別の文'],
+    [/選択肢の/g, 'この文の'],
+    [/選択肢を/g, '記述を'],
+    [/選択肢は/g, 'この記述は'],
+    [/選択肢が/g, 'この記述が'],
+    [/選択肢に/g, 'この記述に'],
+    [/選択肢も/g, 'この記述も'],
+    [/選択肢や/g, 'この記述や'],
+    [/選択肢など/g, 'この記述など'],
+    [/選択肢と/g, 'この記述と'],
+    [/選択肢（/g, '記述（'],
+    [/選択肢/g, 'この記述'],
+  ];
+  for (let i = 0; i < pairs.length; i++) {
+    s = s.replace(pairs[i][0], pairs[i][1]);
+  }
+  // 元の4択の番号・アイウエ（「4は誤り」「正解は3」「イは正しい」等）を一問一答向けに除去
+  const nz = '(?<![0-9０-９])';
+  [
+    [/正解[：:]\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/正解[：:]\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/正解(は|が|も)[,，、]?\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/正解(は|が|も)[,，、]?\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/答え[：:]\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/答え[：:]\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/答え(は|が|も)[,，、]?\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/答え(は|が|も)[,，、]?\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/解答[：:]\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/解答[：:]\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/解答(は|が|も)[,，、]?\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/解答(は|が|も)[,，、]?\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/不正解[：:]\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/不正解[：:]\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/不正解(は|が|も)[,，、]?\s*([1-4１-４])(?:\s*番(?:目)?)?(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/不正解(は|が|も)[,，、]?\s*([アイウエオ])(?:\s*(?:のみ|だけ))?/g, CUT],
+    [/([アイウエオ])(は|が|も)\s*誤り/g, CUT],
+    [/([アイウエオ])(は|が|も)\s*正しい/g, CUT],
+    [/([アイウエオ])(は|が|も)\s*不正解/g, CUT],
+    [/([アイウエオ])(は|が|も)\s*正解(?=[。．、，：；\s\n\r）】〕]|$)/g, CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:番|問目)?\\s*(は|が|も)\\s*誤り', 'g'), CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:番|問目)?\\s*(は|が|も)\\s*正しい', 'g'), CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:番|問目)?\\s*(は|が|も)\\s*不正解', 'g'), CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:のみ|だけ)\\s*誤り', 'g'), CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:のみ|だけ)\\s*正しい', 'g'), CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:のみ|だけ)\\s*正解(?=[。．、，：；\\s\\n\\r）】〕]|$)', 'g'), CUT],
+    [new RegExp(nz + '([1-4１-４])\\s*(?:番|問目)?\\s*(は|が|も)\\s*正解(?=[。．、，：；\\s\\n\\r）】〕]|$)', 'g'), CUT],
+    [/「\s*([1-4１-４])\s*」(は|が)\s*誤り/g, CUT],
+    [/「\s*([1-4１-４])\s*」(は|が)\s*正しい/g, CUT],
+    [/[（(]\s*([1-4１-４])\s*[）)]\s*(は|が)\s*誤り/g, CUT],
+    [/[（(]\s*([1-4１-４])\s*[）)]\s*(は|が)\s*正しい/g, CUT],
+  ].forEach(([re, rep]) => { s = s.replace(re, rep); });
+  s = s
+    .replace(/[　 \t\r\n]{2,}/g, ' ')
+    .replace(/、+/g, '、')
+    .replace(/\s*、\s*、+/g, '、')
+    .replace(/、[。．]+/g, '。')
+    .replace(/。\s*。+/g, '。')
+    .replace(/(^|[。．])\s*、+/g, '$1')
+    .replace(/^\s*[、，。\s．]+/, '')
+    .replace(/[、，。\s]+$/, '')
+    .replace(/誤りの記述|不正解の記述/g, CUT)
+    .trim();
+  let prevParen;
+  do {
+    prevParen = s;
+    s = s
+      .replace(/（(?:[、。．・…\s　])*）/g, '')
+      .replace(/\((?:[,.\uff0e…\s]|　)*\)/g, '')
+      .replace(/[（(]\s*[）)]\s*/g, '');
+  } while (prevParen !== s);
+  s = s
+    .replace(/^[、，。．）】〕\s]+/, '')
+    .replace(/^[）】〕]\s+/g, '')
+    .replace(/[、，。\s　]+$/, '')
+    .replace(/\s*[、，]+\s*[、，。]+/g, '、')
+    .replace(/\s+/g, ' ')
+    .replace(/[（(]\s*$/g, '')
+    .replace(/^\s*[）)]/g, '')
+    .trim();
+  if (!s.replace(/[。．\s　]/g, '')) return '論点となる法令・条文の要件を確認し、問題文との対応を整理してください。';
+  return s;
 }
 
 function answerIchi(userAnswer) {
@@ -3639,7 +3732,7 @@ function answerIchi(userAnswer) {
   badge.className = 'ichi-result-badge ' + (correct ? 'ok' : 'ng');
   badge.textContent = correct ? '✓ 正解' : '✗ 不正解';
   badge.textContent += '　' + (q.correctAnswer ? '○が正解' : '×が正解');
-  exp.textContent = q.exp || '';
+  exp.textContent = adaptExplanationForIchimondou(q.exp || '');
   const resultBox = document.getElementById('ichi-result');
   resultBox.className = 'ichi-result show ' + (correct ? 'ok' : 'ng');
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn show';
@@ -3773,7 +3866,10 @@ let dashPeriodMode = 'all';
 function getDashPeriodRange(){
   const now=new Date();
   let from=null, to=null;
-  if(dashPeriodMode==='month'){
+  if(dashPeriodMode==='today'){
+    from=new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime();
+    to=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1).getTime();
+  }else if(dashPeriodMode==='month'){
     from=new Date(now.getFullYear(),now.getMonth(),1).getTime();
     to=new Date(now.getFullYear(),now.getMonth()+1,1).getTime();
   }else if(dashPeriodMode==='week'){
@@ -3811,7 +3907,7 @@ function setDashPeriod(mode){
       toEl.value=localDateKey(now);
     }
   }
-  ['all','month','week','custom'].forEach(m=>{
+  ['all','today','month','week','custom'].forEach(m=>{
     document.getElementById('dash-period-'+m)?.classList.toggle('on',m===mode);
   });
   document.getElementById('dash-period-custom-row')?.classList.toggle('open',mode==='custom');
@@ -4265,7 +4361,7 @@ function renderMockQ(){
   document.getElementById('qp-time').innerHTML = `<span class="quiz-countdown" id="mock-clock">--:--</span>`;
   document.getElementById('q-meta').innerHTML = `<span class="tag tag-gray">${{rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'}[q.field]}</span><span class="tag tag-blue">模試${mockState.patternId} 問${q.num}</span>`;
   updateBookmarkButton(null);
-  document.getElementById('q-body').textContent = q.text;
+  document.getElementById('q-body').textContent = formatExamQuestionBodyText(q.text||'');
   const opts = document.getElementById('opts');
   opts.innerHTML = q.opts.map((o,i)=>`<div class="opt" id="opt${i}" onclick="pickMockOpt(${i})">${i+1}. ${o}</div>`).join('');
   document.getElementById('q-result').innerHTML='';
@@ -4484,23 +4580,37 @@ function toggleCurrentBookmark(){
   const q=quizState.queue[quizState.idx];
   toggleBookmarkForQuestion(q);
 }
+/** 問題文にア〜オで列記された肢があるとき、見出しの前で改行（読み込みは textContent + pre-line） */
+function formatExamQuestionBodyText(raw){
+  if(!raw||typeof raw!=='string')return '';
+  let t=raw.replace(/\r/g,'').replace(/\u00a0/g,' ');
+  const afterMk='(?=[\\s\\u3000\\n]|[\\u4e00-\\u9fff\\u3040-\\u309f]|$)';
+  t=t.replace(new RegExp('([。．!?！？\\uFF1F])[ \\t\\u3000]*([アイウエオ])'+afterMk,'g'),'$1\n\n$2');
+  const reJ=/([\u4e00-\u9fff\u3040-\u309f\u3041-\u3096ー）」])\s*([アイウエオ])(?=[\s\u3000\n]|[\u4e00-\u9fff\u3040-\u309f]|$)/gu;
+  for(let g=0;g<15;g++){
+    const n=t.replace(reJ,'$1\n$2');
+    if(n===t)break;
+    t=n;
+  }
+  return t.replace(/\n{4,}/g,'\n\n').trim();
+}
 function renderQScoreReplay(sr){
   const q=sr.q,i=sr.picked,correct=sr.correct,elapsed=sr.time;
   const total=quizState.queue.length,idx=quizState.idx;
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
   const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
-  const diffEv=getDifficultyEvidence(q);
-  const freqEv=getFrequencyEvidence(q);
   const sourceLabel=q.year?`${q.year}年`:'オリジナル';
+  const showStars=!['past'].includes(quizState.mode);
+  const starsHTML=showStars?`
+    <span class="q-meta-item diff-wrap">${diffStarsHTML(getDifficultyEvidence(q))}</span>
+    <span class="q-meta-item freq-item">${freqStarsHTML(getFrequencyEvidence(q))}</span>`:'';
   document.getElementById('q-meta').innerHTML=`
     <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
-    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>
-    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffEv)}</span>
-    <span class="q-meta-item freq-item">${freqStarsHTML(freqEv)}</span>`;
+    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>${starsHTML}`;
   updateBookmarkButton(q);
   renderBookmarkNote(q);
-  document.getElementById('q-body').textContent=q.text;
+  document.getElementById('q-body').textContent=formatExamQuestionBodyText(q.text||'');
   document.getElementById('opts').innerHTML=q.opts.map((o,j)=>
     `<div class="opt disabled" id="opt${j}"><span class="opt-num">${j+1}</span><span>${o}</span></div>`).join('');
   document.querySelectorAll('.opt').forEach((el,j)=>{
@@ -4508,10 +4618,10 @@ function renderQScoreReplay(sr){
     else if(j===i&&!correct) el.classList.add('wrong');
   });
   const diagramHTML=q.diagram?buildDiagram(q.diagram):'';
-  const kaisetsuHTML=q.kaisetsu?buildKaisetsu(q.kaisetsu,q):'';
+  const kaisetsuHTML=(quizState.mode==='past'||!q.kaisetsu)?'':buildKaisetsu(q.kaisetsu,q);
   const isOrig=!!q.unit;
   const expHTML=isOrig?buildRichExp(q.exp,q.opts,q.ans):`<div class="exp-text">${q.exp}</div>`;
-  const yearHistHTML=(!isOrig&&q.year)?buildYearHistoryHTML(q):'';
+  const yearHistHTML=(quizState.mode!=='past'&&!isOrig&&q.year)?buildYearHistoryHTML(q):'';
   const feedbackLabel=correct
     ? `<div class="answer-feedback correct">正解</div>`
     : `<div class="answer-feedback wrong">不正解</div>`;
@@ -4550,17 +4660,17 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
   document.getElementById('qp-label').textContent=`${idx+1} / ${total}`;
   document.getElementById('qp-fill').style.width=Math.round(idx/total*100)+'%';
   const f=FIELDS.find(f=>f.id===q.field)||{name:'—'};
-  const diffEv=getDifficultyEvidence(q);
-  const freqEv=getFrequencyEvidence(q);
   const sourceLabel=q.year?`${q.year}年`:'オリジナル';
+  const showStars=!['past'].includes(quizState.mode);
+  const starsHTML=showStars?`
+	    <span class="q-meta-item diff-wrap">${diffStarsHTML(getDifficultyEvidence(q))}</span>
+	    <span class="q-meta-item freq-item">${freqStarsHTML(getFrequencyEvidence(q))}</span>`:'';
 	  document.getElementById('q-meta').innerHTML=`
 	    <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
-	    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>
-	    <span class="q-meta-item diff-wrap">${diffStarsHTML(diffEv)}</span>
-	    <span class="q-meta-item freq-item">${freqStarsHTML(freqEv)}</span>`;
+	    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>${starsHTML}`;
 	  updateBookmarkButton(q);
 	  renderBookmarkNote(q);
-	  document.getElementById('q-body').textContent=q.text;
+	  document.getElementById('q-body').textContent=formatExamQuestionBodyText(q.text||'');
   document.getElementById('opts').innerHTML=q.opts.map((o,i)=>
     `<div class="opt" id="opt${i}" onclick="pickOpt(${i})"><span class="opt-num">${i+1}</span><span>${o}</span></div>`).join('');
   document.getElementById('q-result').innerHTML='';
@@ -4588,10 +4698,10 @@ function pickOpt(i){
     else if(j===i&&!correct)el.classList.add('wrong');
   });
   const diagramHTML = q.diagram ? buildDiagram(q.diagram) : '';
-  const kaisetsuHTML = q.kaisetsu ? buildKaisetsu(q.kaisetsu, q) : '';
+  const kaisetsuHTML = (quizState.mode === 'past' || !q.kaisetsu) ? '' : buildKaisetsu(q.kaisetsu, q);
   const isOrig = !!q.unit;
   const expHTML = isOrig ? buildRichExp(q.exp, q.opts, q.ans) : `<div class="exp-text">${q.exp}</div>`;
-  const yearHistHTML = (!isOrig && q.year) ? buildYearHistoryHTML(q) : '';
+  const yearHistHTML = (quizState.mode !== 'past' && !isOrig && q.year) ? buildYearHistoryHTML(q) : '';
   // Answer feedback text
   const feedbackLabel = correct
     ? `<div class="answer-feedback correct">${STREAK_MSGS[u.streak||0]||'正解'}</div>`
@@ -4870,6 +4980,14 @@ function closeMissionPopup(e){
 
 function canvasToBlob(canvas){
   return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+}
+/** PNG をクリップボードへ（X Web の投稿欄へ ⌘V / Ctrl+V で画像添付できる環境向け） */
+async function copyImageBlobToClipboard(blob){
+  if(!blob||typeof ClipboardItem==='undefined'||!navigator.clipboard?.write)return false;
+  try{
+    await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+    return true;
+  }catch(_){ return false; }
 }
 
 let currentBadgeShareId = null;
@@ -5463,13 +5581,21 @@ async function shareBadgeToX(){
   if(canvas) drawBadgeShareCard(badge);
   const blob=canvas ? await canvasToBlob(canvas) : null;
   const file=blob ? new File([blob], `takken-master-badge-${badge.id}.png`, {type:'image/png'}) : null;
-  if(file && navigator.canShare && navigator.canShare({files:[file]})){
+  const tweetUrl=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+  if(file && navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
     try{
       await navigator.share({text, files:[file]});
       return;
     }catch(e){
       if(e && e.name==='AbortError') return;
     }
+  }
+  if(blob && await copyImageBlobToClipboard(blob)){
+    window.open(tweetUrl, '_blank', 'noopener,noreferrer');
+    if(typeof showToast==='function'){
+      showToast('バッジ画像をクリップボードにコピーしました。投稿欄で貼り付け（⌘V／Ctrl+V）すると画像も一緒に投稿できます','badge',4300);
+    }
+    return;
   }
   if(blob){
     const a=document.createElement('a');
@@ -5480,8 +5606,7 @@ async function shareBadgeToX(){
     setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
     if(typeof showToast==='function') showToast('画像を保存しました。X投稿画面で添付してください','badge',3200);
   }
-  const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
+  window.open(tweetUrl, '_blank', 'noopener,noreferrer');
 }
 
 async function shareMissionToX(){
