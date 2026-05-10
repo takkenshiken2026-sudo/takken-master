@@ -2058,13 +2058,13 @@ function glosArticleHref(g){
 function renderGlossary(){
   const staticSec = document.querySelector('.glos-static-section');
   if (staticSec) staticSec.remove();
+  if (glosActiveCat === 'exam') glosActiveCat = 'all';
   const cats = [
     {id:'all',label:'すべて'},
     {id:'rights',label:'権利関係'},
     {id:'law',label:'宅建業法'},
     {id:'limit',label:'法令制限'},
     {id:'tax',label:'税・その他'},
-    {id:'exam',label:'試験対策'},
   ];
   const catEl = document.getElementById('glos-cats');
   catEl.innerHTML = cats.map(c=>`<button class="gcat-btn${glosActiveCat===c.id?' active':''}" onclick="setGlosCat('${c.id}')">${c.label}</button>`).join('');
@@ -2084,8 +2084,9 @@ function filterGlossary(){
 
 function renderGlossaryList(){
   const q = (document.getElementById('glos-search')||{value:''}).value.trim().toLowerCase();
-  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他',exam:'試験対策'};
+  const catNames = {rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'};
   const filtered = GLOSSARY_DATA.filter(g=>{
+    if (g.cat === 'exam') return false;
     if(glosActiveCat!=='all' && g.cat!==glosActiveCat) return false;
     if(q && !g.term.includes(q) && !g.reading.includes(q) && !g.summary.includes(q) && !g.desc.includes(q)) return false;
     return true;
