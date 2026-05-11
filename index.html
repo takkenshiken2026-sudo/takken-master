@@ -6391,7 +6391,7 @@ function tryOpenStudyDiaryNudgePopup(){
     window._studyDiaryNudgeDate=todayKey;
     const answeredNow=getEffectiveDailyAnsweredCount(u,todayKey);
     const sub=document.getElementById('study-diary-nudge-sub');
-    if(sub) sub.textContent=`きょうすでに${answeredNow}回解答しています。一行でもよければ、この日の学習日記へ振り返りを残しますか？（※1日につき1回まで表示します／${threshold}回以上解答したとき）`;
+    if(sub) sub.textContent=`きょうすでに${answeredNow}回解答しています。一行でもよければ、この日の学習日記へ振り返りを残しますか？あとから記録・分析画面（学習カレンダー）からいつでも見返せます。（※1日につき1回まで表示します／${threshold}回以上解答したとき）`;
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden','false');
     /** モーダルが実際に開いた日以降だけ再通知しない（タイマーだけ先にロックして表示失敗すると当日は二度と出なかった不具合の修正） */
