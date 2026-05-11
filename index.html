@@ -279,6 +279,10 @@ h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
 /* ===== COMMON COMPONENTS ===== */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:20px;box-shadow:var(--sh)}
 .section-label, h2.section-label{font-size:14px;color:var(--text);letter-spacing:.04em;font-weight:700;margin-bottom:12px}
+.section-label .tip-wrap,
+h2.section-label .tip-wrap{display:inline-flex;align-items:center;line-height:1;vertical-align:middle}
+.section-label .tip-icon,
+h2.section-label .tip-icon{width:13px;height:13px;font-size:9px}
 .tag{display:inline-flex;align-items:center;font-size:12px;padding:2px 7px;border-radius:4px;font-weight:500;line-height:1.4}
 .tag-blue{background:var(--bg3);color:var(--text2)}
 .tag-red{background:var(--red-s);color:var(--red)}
@@ -698,15 +702,20 @@ details.rich-detail summary{display:none}
 .study-diary-toolbar .section-label{margin-bottom:0}
 .study-diary-timeline-btn{font-size:12px;font-weight:600;padding:7px 12px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg3);color:var(--text2);cursor:pointer;font-family:var(--font);flex-shrink:0;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
 .study-diary-timeline-btn:hover{background:var(--ink);color:var(--bg2);border-color:var(--ink)}
-.study-diary-timeline-popup{max-width:520px;text-align:left}
-.study-diary-timeline-list{max-height:min(62vh,520px);overflow-y:auto;margin:4px 0 8px;padding-right:4px;-webkit-overflow-scrolling:touch}
-.study-diary-tl-item{border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;background:var(--bg3);cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+/** 一覧を縦に広げ、スクロールはリスト内のみ。親に height が無いと flex:1 + min-height:0 でリスト高さ0に潰れるため min-height を必ず付与 */
+.study-diary-timeline-popup{text-align:left;max-width:560px;display:flex;flex-direction:column;max-height:min(92vh,920px)!important;overflow:hidden!important;padding-bottom:20px!important}
+.study-diary-timeline-popup .mission-popup-sub{flex-shrink:0;margin-bottom:8px;font-size:13px;line-height:1.45}
+.study-diary-timeline-popup .study-diary-timeline-list{
+  flex:1 1 auto;min-height:clamp(200px,52vh,420px);margin:2px 0 6px;padding-right:6px;-webkit-overflow-scrolling:touch;overflow-y:auto}
+.study-diary-timeline-list{margin:4px 0 8px;padding-right:4px;-webkit-overflow-scrolling:touch}
+.study-diary-tl-item{border:1px solid var(--border);border-radius:10px;padding:8px 10px;margin-bottom:6px;background:var(--bg3);cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
 .study-diary-tl-item:hover{background:var(--bg2);border-color:var(--text3)}
 .study-diary-tl-item:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.study-diary-tl-date{font-size:13px;font-weight:700;color:var(--text);font-family:var(--mono);margin-bottom:6px}
-.study-diary-tl-stats{font-size:12px;color:var(--text2);margin-bottom:8px;line-height:1.5}
-.study-diary-tl-memo{font-size:14px;line-height:1.65;color:var(--text);white-space:pre-wrap;word-break:break-word}
-.study-diary-tl-memo.empty{font-size:13px;color:var(--text3);font-style:italic}
+.study-diary-tl-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 10px;margin-bottom:2px}
+.study-diary-tl-date{font-size:12px;font-weight:700;color:var(--text);font-family:var(--mono);margin-bottom:0;letter-spacing:-.02em}
+.study-diary-tl-stats{font-size:11px;color:var(--text2);margin-bottom:0;line-height:1.35;font-family:var(--mono);flex-shrink:0;white-space:nowrap}
+.study-diary-tl-memo{font-size:12px;line-height:1.5;color:var(--text);word-break:break-word;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+.study-diary-tl-memo.empty{font-size:12px;color:var(--text3);font-style:italic;display:block;-webkit-line-clamp:none}
 .study-diary-tl-edit{font-size:12px;margin-top:8px;padding:0;border:none;background:none;color:var(--ink);cursor:pointer;text-decoration:underline;font-family:var(--font);display:block}
 .study-diary-tl-empty{font-size:13px;color:var(--text3);line-height:1.65;text-align:center;padding:20px 12px}
 .time-bars{display:flex;align-items:flex-end;gap:4px;height:70px}
@@ -844,6 +853,8 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
 /* dash: レーダー + カレンダー横並び（分析ページ） */
 .dash-radar-cal-row{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:13px;align-items:stretch}
 .dash-radar-cal-item{flex:1 1 300px;margin-bottom:0!important;min-width:0}
+.dash-diary-card-promo{border:1.5px solid color-mix(in srgb,var(--ink) 18%,var(--border));background:linear-gradient(180deg,#fff 0%,var(--bg3) 100%);box-shadow:var(--sh)}
+.dash-motivation-lead{color:var(--text2)}
 @media(max-width:700px){
   /* nav */
   .topnav-links{display:none}
@@ -938,7 +949,8 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .level-badge-wrap,.streak-bar{min-width:0}
   .level-badge-inner{padding:14px}
   .streak-bar-inner{padding:14px}
-  .level-badge-num{font-size:18px!important}
+  /* 分析ページのコンパクトLv行には効かせない（レベル見出し横の?とバランスが崩れるため） */
+  #daily-status-wrap .level-badge-num{font-size:18px!important}
   .streak-bar-num{font-size:18px}
   /* mission */
   .mission-card{padding:14px 16px}
@@ -1067,6 +1079,7 @@ body.is-solving .exam-banner{display:none}
 /* Badge */
 .badge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
 .badge-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+#page-dash #dash-badge-grid > .badge-card-head{margin-bottom:14px;align-items:flex-start}
 .badge-count{font-size:12px;color:var(--text3);font-family:var(--mono);white-space:nowrap}
 .badge-item{
   --badge-accent:#2f6f5e;
@@ -1092,9 +1105,16 @@ body.is-solving .exam-banner{display:none}
 .level-badge-wrap{display:flex;align-items:stretch;background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--r2);margin-bottom:0;box-shadow:var(--sh);overflow:hidden;min-width:0}
 .level-badge-inner{display:flex;flex-direction:column;padding:18px;flex:1}
 .level-badge-num{font-size:var(--fs-title);font-weight:700;font-family:var(--mono);color:var(--ink);line-height:1;margin:4px 0 2px}
+/* 記録・分析：Lv表記は「レベル」「獲得バッジ」見出しと同じトークン（--fs-sub）に */
+#page-dash #dash-level-bar .level-badge-num{font-size:var(--fs-sub);font-weight:700;line-height:1.2;margin:0}
 .level-badge-info{flex:1;min-width:0}
-.level-badge-title{font-size:12px;font-weight:700;color:var(--text);letter-spacing:.04em}
+.level-badge-title{font-size:14px;font-weight:700;color:var(--text);letter-spacing:.04em;line-height:1.35;display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px}
+.level-badge-title .tip-wrap{display:inline-flex;align-items:center;line-height:1}
+.level-badge-title .tip-icon{width:13px;height:13px;font-size:9px}
+.level-badge-title-sub{font-size:12px;color:var(--text3);font-weight:600;line-height:1.35}
 .level-badge-sub{font-size:12px;color:var(--text3);margin-top:3px}
+.mode-card-title .tip-wrap{align-items:center;line-height:1;vertical-align:middle}
+.mode-card-title .tip-icon{width:14px;height:14px;font-size:10px}
 /* Streak banner in quiz-start */
 .streak-bar{display:flex;align-items:stretch;background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--r2);margin-bottom:0;box-shadow:var(--sh);overflow:hidden}
 .streak-bar-inner{display:flex;flex-direction:column;padding:18px;flex:1}
@@ -1372,7 +1392,7 @@ body.is-solving .exam-banner{display:none}
           <svg viewBox="0 0 16 16"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>オリジナル模試
         </a>
         <a class="topnav-link" id="tnav-dash" href="/dashboard/" onclick="event.preventDefault();gotoPage('dash')">
-          <svg viewBox="0 0 16 16"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>分析
+          <svg viewBox="0 0 16 16"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>記録・分析
         </a>
         <a class="topnav-link" id="tnav-review" href="/review/" onclick="event.preventDefault();gotoPage('review')">
           <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
@@ -1458,7 +1478,7 @@ body.is-solving .exam-banner{display:none}
         <svg viewBox="0 0 16 16"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>オリジナル模試
       </a>
       <a class="mobile-nav-item" id="mnav-dash" href="/dashboard/" onclick="event.preventDefault();gotoPage('dash');closeMobileDrawer()">
-        <svg viewBox="0 0 16 16"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>分析
+        <svg viewBox="0 0 16 16"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>記録・分析
       </a>
       <a class="mobile-nav-item" id="mnav-review" href="/review/" onclick="event.preventDefault();gotoPage('review');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
@@ -1660,13 +1680,13 @@ body.is-solving .exam-banner{display:none}
       <nav class="breadcrumb" aria-label="パンくずリスト">
         <ol class="breadcrumb-list">
           <li class="breadcrumb-item"><a href="/" onclick="event.preventDefault();gotoPage('quiz-start')">宅建マスター</a></li>
-          <li class="breadcrumb-item breadcrumb-current" aria-current="page">分析</li>
+          <li class="breadcrumb-item breadcrumb-current" aria-current="page">記録・分析</li>
         </ol>
       </nav>
       <div class="dash-title-row">
-        <h2 class="page-title">分析</h2>
+        <h2 class="page-title">記録・分析</h2>
         <div class="dash-period-card">
-          <div class="dash-period-tabs" role="group" aria-label="分析期間">
+          <div class="dash-period-tabs" role="group" aria-label="記録・分析の表示期間">
             <button class="count-btn on" id="dash-period-all" onclick="setDashPeriod('all')">全期間</button>
             <button class="count-btn" id="dash-period-today" onclick="setDashPeriod('today')">今日</button>
             <button class="count-btn" id="dash-period-month" onclick="setDashPeriod('month')">今月</button>
@@ -1689,6 +1709,22 @@ body.is-solving .exam-banner{display:none}
         <div class="stat-card"><div class="stat-label">連続正解記録 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">大きい数字は「いまの連続正解数」。下段の最高は通算の記録で、一度伸ばすと不正解後も残ります。期間を絞ると、上段だけがその期間内の「直近からの連続」に切り替わります。</span></span></div><div class="stat-val cv-gray" id="d-streak">0</div><div class="stat-sub">問<span class="d-streak-best-line" style="display:block;font-size:11px;color:var(--text3);margin-top:6px;font-weight:500">最高 <span id="d-streak-best">0</span> 問</span></div></div><div class="stat-card"><div class="stat-label">連続学習日数 <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">何日連続で1問以上解いたか。学習習慣の継続指標</span></span></div><div class="stat-val cv-blue" id="d-day-streak">0</div><div class="stat-sub">日</div></div>
       </div>
 
+      <p class="dash-motivation-lead page-sub" style="margin-top:2px;margin-bottom:12px">学習日記で振り返りを残したり、バッジやレベルで習慣を確認したりできるのもこのページの役目です。</p>
+
+      <div class="dash-radar-cal-row">
+        <div class="card dash-radar-cal-item dash-diary-card-promo">
+          <div class="study-diary-toolbar">
+            <h2 class="section-label">学習日記<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">日付をタップするとその日のメモ（学習日記）を書けます。数字はその日に解答した問題数。左下の小さな点は日記を保存済みの日です。「時系列一覧」で過去のメモと解答数をまとめて確認できます。</span></span></h2>
+            <button type="button" class="study-diary-timeline-btn" onclick="openStudyDiaryTimeline()">時系列一覧</button>
+          </div>
+          <div id="an-calendar"></div>
+        </div>
+        <div class="card dash-radar-cal-item" id="radar-chart-card">
+          <div class="section-label" style="margin-bottom:10px">理解度レーダー</div>
+          <div id="radar-chart-container"></div>
+        </div>
+      </div>
+
       <!-- 分野別・単元別正答率 -->
       <div class="card" style="margin-bottom:13px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
@@ -1701,25 +1737,7 @@ body.is-solving .exam-banner{display:none}
         <div id="field-bars-wrap"></div>
       </div>
 
-      <div class="dash-radar-cal-row">
-        <div class="card dash-radar-cal-item" id="radar-chart-card">
-          <div class="section-label" style="margin-bottom:10px">理解度レーダー</div>
-          <div id="radar-chart-container"></div>
-        </div>
-        <div class="card dash-radar-cal-item">
-          <div class="study-diary-toolbar">
-            <h2 class="section-label">学習日記<span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">日付をタップするとその日のメモ（学習日記）を書けます。数字はその日に解答した問題数。左下の小さな点は日記を保存済みの日です。「時系列一覧」で過去のメモと解答数をまとめて確認できます。</span></span></h2>
-            <button type="button" class="study-diary-timeline-btn" onclick="openStudyDiaryTimeline()">時系列一覧</button>
-          </div>
-          <div id="an-calendar"></div>
-        </div>
-      </div>
-
-      <h2 class="page-title" style="margin-top:22px">学習の歩み</h2>
-      <div class="page-sub">レベルとバッジで、これまでの積み上げを確認できます</div>
       <div id="dash-level-bar"></div>
-
-      <!-- 獲得バッジ -->
       <div class="card" style="margin-bottom:13px">
         <div id="dash-badge-grid"></div>
       </div>
@@ -2127,7 +2145,7 @@ body.is-solving .exam-banner{display:none}
           <li><strong>オリジナル問題</strong>：権利関係・宅建業法・法令上の制限・税その他の単元別200問</li>
           <li><strong>模擬試験</strong>：本番形式50問・120分のオリジナル模試</li>
           <li><strong>用語解説</strong>：宅建重要用語を図解でわかりやすく解説</li>
-          <li><strong>学習分析</strong>：正答率・分野別成績・学習日記（カレンダー）で進捗を可視化</li>
+          <li><strong>記録・学習分析</strong>：学習日記・バッジ・レベルに加え、正答率や分野別成績で進捗を可視化</li>
         </ul>
         <h2>対応分野</h2>
         <ul>
@@ -2824,9 +2842,9 @@ function renderDashLevel(){
   const levelTip=`累計解答数に応じて上がる指標。全${LEVELS.length}段階（Lv1〜Lv${LEVELS.length}）で、現在はLv${lv.lv}です。`;
   el.innerHTML=`<div class="level-badge-wrap" style="margin-bottom:16px">
     <div class="level-badge-inner" style="flex-direction:row;align-items:center;gap:12px;padding:14px">
-      <div class="level-badge-num" style="font-size:12px;min-width:38px;text-align:center;letter-spacing:.04em">Lv${lv.lv}</div>
+      <div class="level-badge-num" style="min-width:42px;text-align:center;letter-spacing:.04em">Lv${lv.lv}</div>
       <div class="level-badge-info" style="flex:1;min-width:0">
-        <div class="level-badge-title">レベル ${tip(levelTip)} <span style="font-size:12px;color:var(--text3);font-weight:600;margin-left:6px">全${LEVELS.length}段階</span></div>
+        <div class="level-badge-title">レベル ${tip(levelTip)} <span class="level-badge-title-sub">全${LEVELS.length}段階</span></div>
         <div class="level-badge-sub" style="margin-top:2px;color:var(--text2);font-weight:600">${lv.label}</div>
         <div class="level-badge-sub">${next?`次のレベルまで ${next.min-total}問`:''} ／ 累計${total}問</div>
         <div class="level-bar-wrap" style="margin-top:6px"><div class="level-bar-fill" style="width:${pct}%"></div></div>
@@ -3403,7 +3421,7 @@ function enterApp(){
   handleDailyFirstVisit();
 }
 
-const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'分析','review':'復習','analytics':'分析','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果','audio':'音声学習'};
+const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'記録・分析','review':'復習','analytics':'記録・分析','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果','audio':'音声学習'};
 const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','glossary':'glossary','ichimondou':'ichimondou'};
 
 // ページごとのSEOメタ情報
@@ -3427,8 +3445,8 @@ const PAGE_SEO = {
     hash:  '#orig'
   },
   'dash': {
-    title: '学習分析｜宅建マスター',
-    desc:  '宅建学習の進捗を可視化。分野別正答率・年度別成績・学習カレンダー・正答率推移グラフで弱点を把握。',
+    title: '記録・学習分析｜宅建マスター',
+    desc:  '学習日記カレンダー・獲得バッジ・レベルや分野別正答率で、宅建勉強の振り返りと弱点把握ができます。',
     path:  '/dashboard/',
     hash:  '#dash'
   },
@@ -3548,7 +3566,9 @@ function collectAllBaseQuestions() {
   return out;
 }
 function getBaseQuestionById(id) {
-  return collectAllBaseQuestions().find(b => b.id === id);
+  if(id==null) return undefined;
+  const sid=String(id);
+  return collectAllBaseQuestions().find(b=>b!=null&&String(b.id)===sid);
 }
 
 /** 出題用プール：分野で絞ったうえで全件をシャッフル（セッション開始時・各周回の頭で順序を変える） */
@@ -3684,8 +3704,21 @@ function buildIchiItemFromBase(q) {
     exp: q.exp || '',
     level: q.level,
     ans: q.ans,
+    optIdx,
     freqEvidence
   };
+}
+
+/** ○×の合否から、既存の4択ログ（u.answers / バッジ / ミッション）と整合する選択肢インデックスを決める（正解なら本命肢、不正解ならそれ以外の肢） */
+function computeIchiStoredMcAnsIndex(ichiItem, userAnswer){
+  const baseQ=getBaseQuestionById(ichiItem.id);
+  if(!baseQ||baseQ.ans==null||baseQ.ans==='') return 0;
+  const correctIdx=Number(baseQ.ans);
+  const ok=userAnswer===ichiItem.correctAnswer;
+  if(ok) return correctIdx;
+  const opts=Array.isArray(baseQ.opts)?baseQ.opts:[];
+  for(let i=0;i<opts.length;i++) if(i!==correctIdx) return i;
+  return correctIdx===0?1:0;
 }
 
 function ensureIchiQuestionAt(idx) {
@@ -3764,7 +3797,6 @@ function showIchiQuestion() {
   document.getElementById('ichi-statement').textContent = formatIchiStatementLead(q.statement);
   document.getElementById('ichi-meta').innerHTML = '';
   updateBookmarkButton(q, 'ichi-bookmark-btn');
-  renderBookmarkNote(q, 'ichi-bookmark-note-wrap');
   document.getElementById('ichi-btn-maru').disabled = false;
   document.getElementById('ichi-btn-batu').disabled = false;
   document.getElementById('ichi-btn-maru').className = 'ichi-btn maru';
@@ -3774,7 +3806,9 @@ function showIchiQuestion() {
   result.className = 'ichi-result';
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn';
   ichiState.answered = false;
+  ichiState.qStarted = Date.now();
   updateIchiSessionHud();
+  renderBookmarkNote(q, 'ichi-bookmark-note-wrap', { onlyAfterPick: true });
 }
 
 function toggleIchiBookmark() {
@@ -3902,6 +3936,31 @@ function answerIchi(userAnswer) {
   const correct = userAnswer === q.correctAnswer;
   ichiState.attempts++;
   if (correct) ichiState.score++;
+  const baseQ = getBaseQuestionById(q.id);
+  const elapsed = ichiState.qStarted ? (Date.now() - ichiState.qStarted) / 1000 : 0;
+  const pickedIdx = computeIchiStoredMcAnsIndex(q, userAnswer);
+  const u = getUserData();
+  if (u) {
+    bumpDailyAnswerAttemptCount(u);
+  }
+  if (u && baseQ) {
+    u.answers = u.answers || {};
+    u.answers[q.id] = { ans: pickedIdx, time: elapsed, date: Date.now() };
+    if (correct) {
+      u.streak = (u.streak || 0) + 1;
+      u.bestStreak = Math.max(u.bestStreak || 0, u.streak);
+    } else {
+      u.streak = 0;
+    }
+    saveAnswerToSupabase(baseQ, pickedIdx, correct, elapsed);
+    const newBadges = checkAndAwardBadges({ correct, sessionResults: [], u });
+    if (newBadges.length) saveUser(u);
+    checkMissionAllComplete();
+  }
+  if (u) {
+    saveUser(u);
+    scheduleStudyDiaryNudgeCheck();
+  }
   document.getElementById('ichi-btn-maru').disabled = true;
   document.getElementById('ichi-btn-batu').disabled = true;
   document.getElementById('ichi-btns')?.classList.add('answered');
@@ -3922,6 +3981,7 @@ function answerIchi(userAnswer) {
   resultBox.className = 'ichi-result show ' + (correct ? 'ok' : 'ng');
   document.getElementById('ichi-next-btn').className = 'ichi-next-btn show';
   updateIchiSessionHud();
+  renderBookmarkNote(q, 'ichi-bookmark-note-wrap', { onlyAfterPick: true });
 }
 
 function nextIchi() {
@@ -4548,6 +4608,8 @@ function renderMockQ(){
   document.getElementById('qp-time').innerHTML = `<span class="quiz-countdown" id="mock-clock">--:--</span>`;
   document.getElementById('q-meta').innerHTML = `<span class="tag tag-gray">${{rights:'権利関係',law:'宅建業法',limit:'法令制限',tax:'税・その他'}[q.field]}</span><span class="tag tag-blue">模試${mockState.patternId} 問${q.num}</span>`;
   updateBookmarkButton(null);
+  const _bn=document.getElementById('bookmark-note-wrap');
+  if(_bn) _bn.innerHTML='';
   document.getElementById('q-body').textContent = formatExamQuestionBodyText(q.text||'');
   const opts = document.getElementById('opts');
   opts.innerHTML = q.opts.map((o,i)=>`<div class="opt" id="opt${i}" onclick="pickMockOpt(${i})">${i+1}. ${o}</div>`).join('');
@@ -4559,6 +4621,12 @@ function pickMockOpt(i){
   if(document.getElementById('opt0').classList.contains('disabled')) return;
   const q = mockState.queue[mockState.idx];
   const correct = i===q.ans;
+  const u=getUserData();
+  if(u){
+    bumpDailyAnswerAttemptCount(u);
+    saveUser(u);
+    scheduleStudyDiaryNudgeCheck();
+  }
   mockState.answers[mockState.idx] = {picked:i, correct, q};
   document.querySelectorAll('.opt').forEach((el,j)=>{
     el.classList.add('disabled');
@@ -4739,18 +4807,28 @@ function saveBookmarkNote(qid, text, inputEl){
   const status=inputEl?.closest('.bookmark-note-panel')?.querySelector('.bookmark-note-status') || document.querySelector('.bookmark-note-status');
   if(status) status.textContent=trimmed?'保存済み':'未入力';
 }
-function renderBookmarkNote(q, wrapId='bookmark-note-wrap'){
+function renderBookmarkNote(q, wrapId='bookmark-note-wrap', opts){
   const wrap=document.getElementById(wrapId);
   if(!wrap) return;
   if(!q?.id){
     wrap.innerHTML='';
     return;
   }
-  const note=getBookmarkNote(q.id);
   if(!isBookmarked(q.id)){
     wrap.innerHTML='';
     return;
   }
+  if(opts && opts.onlyAfterPick){
+    if(wrapId==='ichi-bookmark-note-wrap'){
+      if(typeof ichiState==='undefined' || !ichiState.answered){ wrap.innerHTML=''; return; }
+    }else{
+      const inSr=typeof quizState!=='undefined' && quizState.scoreReplayMode;
+      const opt0=document.getElementById('opt0');
+      const picked=inSr || (opt0 && opt0.classList.contains('disabled'));
+      if(!picked){ wrap.innerHTML=''; return; }
+    }
+  }
+  const note=getBookmarkNote(q.id);
   const hasNote=!!note.text;
   wrap.innerHTML=`<div class="bookmark-note-panel">
     <div class="bookmark-note-head">
@@ -4784,7 +4862,7 @@ function toggleBookmarkForQuestion(q, options={}){
   }
   saveUser(u);
   updateBookmarkButton(q, options.btnId || 'q-bookmark-btn');
-  renderBookmarkNote(q, options.noteWrapId || 'bookmark-note-wrap');
+  renderBookmarkNote(q, options.noteWrapId || 'bookmark-note-wrap', { onlyAfterPick: true });
 }
 function toggleCurrentBookmark(){
   const q=quizState.queue[quizState.idx];
@@ -4819,7 +4897,6 @@ function renderQScoreReplay(sr){
     <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
     <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>${starsHTML}`;
   updateBookmarkButton(q);
-  renderBookmarkNote(q);
   document.getElementById('q-body').textContent=formatExamQuestionBodyText(q.text||'');
   document.getElementById('opts').innerHTML=q.opts.map((o,j)=>
     `<div class="opt disabled" id="opt${j}"><span class="opt-num">${j+1}</span><span>${o}</span></div>`).join('');
@@ -4845,6 +4922,7 @@ function renderQScoreReplay(sr){
     </div>
     ${kaisetsuHTML}`;
   showNextBtn(true,null);
+  renderBookmarkNote(q, 'bookmark-note-wrap', { onlyAfterPick: true });
   if(timer)clearInterval(timer);
   timer=null;
   updateScoreReplayBackBtn();
@@ -4879,12 +4957,12 @@ function renderQ(){ window.scrollTo({top:0,behavior:"instant"});
 	    <span class="q-meta-item q-meta-field"><span class="q-meta-label">${f.name}</span></span>
 	    <span class="q-meta-item"><span class="q-meta-value">${sourceLabel}</span></span>${starsHTML}`;
 	  updateBookmarkButton(q);
-	  renderBookmarkNote(q);
 	  document.getElementById('q-body').textContent=formatExamQuestionBodyText(q.text||'');
   document.getElementById('opts').innerHTML=q.opts.map((o,i)=>
     `<div class="opt" id="opt${i}" onclick="pickOpt(${i})"><span class="opt-num">${i+1}</span><span>${o}</span></div>`).join('');
   document.getElementById('q-result').innerHTML='';
   showNextBtn(false, null);
+  renderBookmarkNote(q, 'bookmark-note-wrap', { onlyAfterPick: true });
   quizState.startTime=Date.now();
   if(timer)clearInterval(timer);
   timer=setInterval(()=>{ /* elapsed tracked silently for answer recording */ },100);
@@ -4905,7 +4983,9 @@ function pickOpt(i){
   }else{
     u.streak=0;
   }
+  bumpDailyAnswerAttemptCount(u);
   saveUser(u); quizState.sessionResults.push({q,picked:i,correct,time:elapsed});
+  scheduleStudyDiaryNudgeCheck();
   saveAnswerToSupabase(q,i,correct,elapsed);
   document.querySelectorAll('.opt').forEach((el,j)=>{
     el.classList.add('disabled');
@@ -4934,8 +5014,8 @@ function pickOpt(i){
   // Badge check (per-answer)
   const newBadges=checkAndAwardBadges({correct,sessionResults:quizState.sessionResults,u});
   if(newBadges.length) saveUser(u);
-  setTimeout(()=>maybeSendSupportLetters({u,correct,field:q.field,fromReview:!!quizState.fromReview}), 650);
   checkMissionAllComplete();
+  renderBookmarkNote(q, 'bookmark-note-wrap', { onlyAfterPick: true });
 }
 
 function buildDiagram(d){
@@ -5251,32 +5331,6 @@ function closeBadgeShare(e){
   if(!e || e.target===overlay) overlay?.classList.remove('open');
 }
 
-const SUPPORT_LETTER_DEFS = [
-  {
-    id:'review_courage',
-    title:'間違いに戻れる人へ',
-    when:'復習に取り組んだ日',
-    body:'復習に戻りました。\n\n間違えた問題をもう一度見るのは、少し面倒で、少し悔しいものです。でも、そこに戻れる人は強くなります。\n\n今日あなたが復習した論点は、次に出会った時には前より味方になっています。'
-  },
-  {
-    id:'hard_day',
-    title:'うまくいかなかった日へ',
-    when:'正答率が低かった日の学習後',
-    body:'今日は思うように正解できなかったかもしれません。\n\nでも、間違いが多い日は「自分に足りない場所」が見えた日でもあります。宅建は、そこを一つずつ埋める試験です。\n\n今日の不正解は、あなたを否定するものではありません。次に伸びる場所を教えてくれています。'
-  },
-  {
-    id:'perfect_letter',
-    title:'全問正解できたあなたへ',
-    when:'全問正解のセッションを達成した日',
-    body:'全問正解のセッションを達成しました。\n\nもちろん本番まで油断はできません。でも、今日はちゃんと「できた」と言っていい日です。\n\n積み上げてきた知識が、選択肢を選ぶ力として表れています。この手応えを次の学習にも持っていきましょう。'
-  },
-  {
-    id:'return_letter',
-    title:'また戻ってきたあなたへ',
-    when:'久しぶりに学習を再開した日',
-    body:'また学習に戻ってきました。\n\n少し間が空いたとしても、戻ってこられたなら大丈夫です。勉強は途切れたら終わりではなく、戻った日からまた続きになります。\n\n今日ここを開いたことは、立て直す力がある証拠です。'
-  }
-];
 const SUPPORT_LETTER_DEPRECATED_IDS = new Set([
   'first_step',
   'first_correct_letter',
@@ -5288,17 +5342,15 @@ const SUPPORT_LETTER_DEPRECATED_IDS = new Set([
   'three_days',
   'rights_letter',
   'law_letter',
-  'limit_tax_letter'
+  'limit_tax_letter',
+  'review_courage',
+  'hard_day',
+  'perfect_letter',
+  'return_letter'
 ]);
 
-function getLetterById(id){
-  if(SUPPORT_LETTER_DEPRECATED_IDS.has(id)) return null;
-  return SUPPORT_LETTER_DEFS.find(l=>l.id===id);
-}
 function getStoredLetterDef(letter){
   if(SUPPORT_LETTER_DEPRECATED_IDS.has(letter.id)) return null;
-  const def=getLetterById(letter.id);
-  if(def) return def;
   return {
     id:letter.id,
     title:letter.title||'今日の応援レター',
@@ -5307,10 +5359,7 @@ function getStoredLetterDef(letter){
   };
 }
 function getSupportLetterBody(def){
-  const extra='焦らなくて大丈夫です。今日の学習で見えたことを一つだけ持ち帰れれば、それは次に問題を解く時の小さな根拠になります。積み上げは、そういう静かな手応えから育っていきます。';
-  if(!def?.body) return '';
-  if(def.body.includes(extra)) return def.body;
-  return `${def.body}\n\n${extra}`;
+  return def?.body ? String(def.body) : '';
 }
 function formatLetterDate(ts){
   const d=new Date(ts||Date.now());
@@ -5318,12 +5367,6 @@ function formatLetterDate(ts){
 }
 
 const SUPPORT_LETTER_DAILY_AUTO_LIMIT = 2;
-const SUPPORT_LETTER_MIN_AUTO_INTERVAL = 20 * 60 * 1000;
-const SUPPORT_LETTER_RULES = {
-  dailyFirstVisitAlways: true,
-  dailyAutoLimit: SUPPORT_LETTER_DAILY_AUTO_LIMIT,
-  secondAutoMinInterval: SUPPORT_LETTER_MIN_AUTO_INTERVAL
-};
 
 function getSupportLetterAutoState(u){
   u.letterAutoState = u.letterAutoState || {};
@@ -5332,13 +5375,6 @@ function getSupportLetterAutoState(u){
     u.letterAutoState = {date:key, count:0, lastShownAt:0};
   }
   return u.letterAutoState;
-}
-function canAutoShowSupportLetter(u, options){
-  const state = getSupportLetterAutoState(u);
-  const now = Date.now();
-  if(state.count >= SUPPORT_LETTER_DAILY_AUTO_LIMIT) return false;
-  if(!options?.ignoreInterval && state.count > 0 && now - (state.lastShownAt || 0) < SUPPORT_LETTER_MIN_AUTO_INTERVAL) return false;
-  return true;
 }
 function forceShowDailyFirstVisitLetter(u, letterId){
   const state = getSupportLetterAutoState(u);
@@ -5353,26 +5389,11 @@ function markSupportLetterAutoShown(u){
   state.count += 1;
   state.lastShownAt = Date.now();
 }
-function addSupportLetter(id, u, options){
-  if(SUPPORT_LETTER_DEPRECATED_IDS.has(id)) return null;
-  const def=getLetterById(id);
-  if(!def) return null;
-  u=u||getUserData();
-  if(!u) return null;
-  u.letters=u.letters||[];
-  if(u.letters.some(l=>l.id===id)) return null;
-  const letter={id, date:Date.now()};
-  u.letters.unshift(letter);
-  const shouldShow = options?.silent ? false : canAutoShowSupportLetter(u, options);
-  if(shouldShow) markSupportLetterAutoShown(u);
-  saveUser(u);
-  if(shouldShow) showSupportLetter(id, true);
-  return letter;
-}
 function showSupportLetter(id, isNew){
   const u=getUserData();
   const stored=(u?.letters||[]).find(l=>l.id===id);
-  const def=stored?getStoredLetterDef(stored):getLetterById(id);
+  if(!stored) return;
+  const def=getStoredLetterDef(stored);
   if(!def) return;
   const title=document.getElementById('support-letter-title');
   const sub=document.getElementById('support-letter-sub');
@@ -5386,146 +5407,132 @@ function closeSupportLetter(e){
   const overlay=document.getElementById('support-letter-overlay');
   if(!e || e.target===overlay) overlay?.classList.remove('open');
 }
-function maybeSendSupportLetters(context){
-  const u=context.u||getUserData();
-  if(!u) return;
-  u.letters=u.letters||[];
-  if(context.returnedAfterBreak) { if(addSupportLetter('return_letter',u)) return; }
-  if(context.fromReview) { if(addSupportLetter('review_courage',u)) return; }
-  if(context.sessionResults && context.sessionResults.length>=3 && context.sessionResults.every(r=>r.correct)){
-    if(addSupportLetter('perfect_letter',u)) return;
-  }
-  if(context.sessionResults && context.sessionResults.length>=5){
-    const correct=context.sessionResults.filter(r=>r.correct).length;
-    if(correct/context.sessionResults.length<0.4) addSupportLetter('hard_day',u);
-  }
-}
 
 function buildDailyVisitLetter(){
   const variants=[
     {
-      title:'今日も来たあなたへ',
-      body:'今日ここを開いた時点で、もう学習は少し前に進んでいます。\n\nたくさん解ける日も、1問だけの日もあります。それでも、戻ってくる習慣は本番前の自分を支えてくれます。\n\n今日はまず、目の前の一問からいきましょう。'
+      title:'一問から始めましょう',
+      body:'今日ここを開いてくださった時点で、もう一歩前に進んでいますので、無理のない範囲でまず一問から、一緒にペースを作っていきましょう。'
     },
     {
-      title:'積み上げを続けるあなたへ',
-      body:'今日も、宅建に向き合うためにここへ来ました。\n\n昨日までの調子がどうであっても、今日の学習は今日から作れます。大きく進めなくても、問題文に触れるだけで気持ちは学習モードに戻っていきます。\n\n今日も小さく進めば十分です。'
+      title:'今日の分を積み重ねましょう',
+      body:'昨日の結果はいったん脇に置いて大丈夫ですので、今日は負担にならない量で問題に触れ、小さな前進を積み重ねていきましょう。'
     },
     {
-      title:'今日の自分を責めないために',
-      body:'勉強を始める前から、完璧な集中力はいりません。\n\n「少しだけやる」と決めて始める日があっていいです。宅建は、そういう小さな再開を重ねた人が最後に強くなります。\n\n今日の一歩を、ちゃんと一歩として扱いましょう。'
+      title:'始めた事実を大切にしましょう',
+      body:'学習は「始めた」ことが土台になりますので、短い時間でもよいので今日の分を残し、自分自身を励ましてあげましょう。'
     },
     {
-      title:'続いているあなたへ',
-      body:'続いている日も、少し間が空いた日も、今日ここへ戻ってこられたことには意味があります。\n\n勉強は、途切れたら終わりではありません。戻った瞬間から、また続きになります。\n\n今日は今日のペースで、落ち着いて始めましょう。'
+      title:'また続きから進めましょう',
+      body:'空きがあっても今日戻ってこれたこと自体が力になりますので、挽回に走らず、無理のない分量からまた歩みを再開しましょう。'
     },
     {
-      title:'一問だけの日にも価値があります',
-      body:'今日はたくさん進めなくても大丈夫です。\n\n一問だけでも、問題文を読み、選択肢に触れ、宅建の言葉を思い出す時間になります。\n\n少ない日を否定しない人ほど、長く続けられます。今日は小さく始めましょう。'
+      title:'無理のない量で続けましょう',
+      body:'量が少なくても解答と確認は確実に積み上がりますので、完璧を目指さず、今日も続けられるペースを一緒に保ちましょう。'
     },
     {
-      title:'未来の自分に渡す一問',
-      body:'今日解く一問は、未来の自分への小さな引き継ぎです。\n\n今すぐ完璧に覚えられなくても、次に見た時の理解が少し早くなります。学習は、その少し早くなる感覚を積み重ねるものです。\n\n今日の一問を、未来の自分に渡しておきましょう。'
+      title:'反復で慣れていきましょう',
+      body:'一度で覚えきれなくても自然なことですので、一問でも復習に回し、次に少し楽になる感覚を信じて積み重ねていきましょう。'
     },
     {
-      title:'焦らず、でも止まらず',
-      body:'焦る気持ちがある日は、それだけ本気で合格したいということでもあります。\n\nただ、焦りすぎると目の前の一問が雑になりやすいです。今日は速さより、ひとつ根拠を確認することを大切にしましょう。\n\n焦らず、でも止まらず。それで十分前に進めます。'
+      title:'根拠を一つずつ確認しましょう',
+      body:'焦りが出やすい日ほどスピードより「根拠を一つ」が味方になりますので、ゆっくりでも丁寧に、今日の問題を確かめ合いましょう。'
     },
     {
-      title:'昨日の続きではなく、今日の一歩',
-      body:'昨日うまくいったかどうかに関係なく、今日は今日の一歩を作れます。\n\n調子がいい日も、重い日も、アプリを開いて学習に戻った事実は同じように価値があります。\n\n今日の自分にできる分だけ、静かに進めていきましょう。'
+      title:'今日できる分を楽しみましょう',
+      body:'調子は日によりますが、開けてくださった今日の時間は貴重ですので、できる範囲の演習を前向きに進めていきましょう。'
     },
     {
-      title:'苦手な問題ほど、宝になる',
-      body:'今日も問題に向き合うあなたへ。\n\n何度解いても迷う問題があるとしたら、そこが本番で点差を生む場所かもしれません。苦手に感じる論点こそ、丁寧に向き合う価値があります。\n\n今日は一つ、根拠まで確認して解いてみましょう。'
+      title:'苦手を味方につけましょう',
+      body:'繰り返す論点ほど点数に効きやすく、後から強みにもなりますので、ひとつずつ解説込みで味方になるまで付き合いましょう。'
     },
     {
-      title:'試験日までの地図を持つあなたへ',
-      body:'宅建の試験は毎年10月。今日も、その日に向かって歩いています。\n\n一日の積み上げは小さく見えても、試験日の自分が手にできる知識は着実に増えています。\n\n今日の学習が、当日の自信の一部になります。'
+      title:'長い準備を一緒に進めましょう',
+      body:'試験は秋の一大イベントでも、準備は日々の積み重ねですので、今日このアプリでの演習も、応援しています。'
     },
     {
-      title:'解説を読む時間が、力になる',
-      body:'正解しても不正解でも、解説をきちんと読んだ問題は財産になります。\n\n「なぜ正解か」「なぜ不正解か」まで確認した一問は、似た問題が出たときに必ず役に立ちます。\n\n今日は答え合わせの先まで、丁寧に進めてみましょう。'
+      title:'解説まで味わいましょう',
+      body:'正解でも不正解でも、解説を読んだ分だけ定着しますので、「なぜか」をひとつ拾い上げて、自分のものにしていきましょう。'
     },
     {
-      title:'知識が「なじむ」まで待てる人へ',
-      body:'一度読んだだけでは覚えられない。それは普通のことです。\n\n宅建の知識は、何度も問題の中で出会うことで少しずつなじんでいきます。今日もその「出会い直し」をしに来たと思えば、重くなりません。\n\nじっくり、でも着実に進めていきましょう。'
+      title:'ゆっくり反復しましょう',
+      body:'完璧をその日に求めなくて大丈夫ですので、同じ論点に何度でも触れる前提で、焦らず信頼して続けていきましょう。'
     },
     {
-      title:'合格した自分を、少しだけ想像して',
-      body:'宅建士証を手にしたとき、どんな気持ちでしょうか。\n\n試験に合格した人は、特別な才能があったわけではありません。日々の学習を重ね、諦めずに試験日を迎えた人たちです。\n\n今日のあなたも、その道の上にいます。'
+      title:'続けられることを祝いましょう',
+      body:'資格への道は続けられること自体が武器になりますので、今日のセッションも自分の計画への励ましとして前向きに位置づけましょう。'
     },
     {
-      title:'迷った選択肢こそ、記録しておこう',
-      body:'「これかな、あれかな」と迷った問題は、記憶に残りやすいものです。\n\n迷いながら選ぶ経験が、論点の輪郭を鮮明にしていきます。間違えた問題も、迷いながら正解した問題も、どちらも学びです。\n\n今日も迷いながら進んでいきましょう。'
+      title:'迷いをメモに残しましょう',
+      body:'選べなかった問題ほど復習の宝になりますので、正誤にかかわらずひとことメモを残し、あとから笑い話にできるまで付き合いましょう。'
     },
     {
-      title:'数字は呪文、繰り返しで覚える',
-      body:'宅建には、期間や割合、人数など、覚えるべき数字がたくさんあります。\n\n最初は混乱しても、問題を解くたびに少しずつ体になじんでいきます。語呂合わせでも、繰り返しでも、自分に合う方法で構いません。\n\n今日も一つ、数字と仲良くなりましょう。'
+      title:'数字も仲良くしましょう',
+      body:'期間や割合は演習を重ねれば慣れてきますので、語呂や表でもよいので、自分に優しい復習の仕方で一緒になじませていきましょう。'
     },
     {
-      title:'本番に強い人の共通点',
-      body:'試験本番に強い人は、特別な才能がある人ではないことが多いです。\n\n「わからなくても最後まで解く」「見直しをきちんとする」「焦った時に立ち止まれる」——そういった習慣を持つ人が強い。\n\n今日の学習の中に、その習慣を少し混ぜてみましょう。'
+      title:'本番の作法を試しましょう',
+      body:'最後まで読む・一度止まる・見直しの型などは日々の癖になりますので、今日の問題でもひとつ試し、自分を応援しましょう。'
     },
     {
-      title:'休んだ日があっても、大丈夫',
-      body:'毎日完璧に続けられる人は、そう多くありません。\n\n大事なのは、休んだ翌日に戻ってこられることです。今日ここを開いたなら、それができています。\n\n昨日のことは置いておいて、今日の一問を始めましょう。'
+      title:'休んだあとも歓迎しましょう',
+      body:'毎日フル続けは無理でも普通のことですので、再開できたなら拍手です、今日は軽めの分量からまた歩調をあわせていきましょう。'
     },
     {
-      title:'問題文を「読む力」も鍛えられている',
-      body:'宅建の問題は、言葉の使い方が独特です。「原則として」「例外的に」「必ず」「場合がある」——こういった言葉を読み分ける力も、問題を解くたびに育っています。\n\n知識だけでなく、問題文を読む力も確実についています。今日もその力を磨きましょう。'
+      title:'問題文を味方につけましょう',
+      body:'キーフレーズには論点のヒントがありますので、「原則・例外」など言い換えに敏感になる練習を、今日も一問から励まし合いましょう。'
     },
     {
-      title:'分野を偏らせない日に',
-      body:'得意な分野ばかり解くと、点数が偏りがちになります。\n\n宅建は4分野まんべんなく得点することが、合格への近道です。今日は少し、普段後回しにしがちな分野にも触れてみませんか。\n\n苦手な場所に少し踏み込んだ日は、実は大きな前進です。'
+      title:'四分野バランスを整えましょう',
+      body:'得意に偏りすぎると試験日がブレやすくなりますので、後回し分野へ一問だけ手を伸ばす勇気を、今日は称えていきましょう。'
     },
     {
-      title:'過去問は「未来問」でもある',
-      body:'過去問を解くのは、過去を学ぶためだけではありません。\n\n宅建の試験は、繰り返し同じ論点が形を変えて出題されます。今日解いた過去問の論点が、本番に姿を変えて現れる可能性があります。\n\n今日の一問を、本番への準備として解いていきましょう。'
+      title:'過去問を味方につけましょう',
+      body:'頻出論点が形を変えて戻ってくる前提で復習できれば強いので、論点単位で振り返り、自分の応援団にしてあげましょう。'
     },
     {
-      title:'「なんとなく正解」を卒業する日',
-      body:'「なんとなく合ってた」という正解は、本番では頼りにくいものです。\n\n今日は一問だけでも、「なぜこれが正解か」を自分の言葉で言えるまで確認してみましょう。\n\nその積み重ねが、本番での確信ある一点につながります。'
+      title:'なぜかを話せるようにしましょう',
+      body:'感触だけの正答はモヤモヤになりがちですので、一問でも「なぜその肢か」を言葉にし、自分を安心させていきましょう。'
     },
     {
-      title:'学習の「質」を上げる一日に',
-      body:'今日は、学習の「質」を少しだけ上げる日にしてみましょう。\n\n速く進むより、ひとつ根拠を確認しながら解く。たったそれだけでも、知識は忘れにくくなります。\n\n丁寧に向き合った一問は、あとから必ず効いてきます。'
+      title:'今日は丁寧さを増やしましょう',
+      body:'処理より根拠のほうが覚えにくくなるのを遅らせますので、今日は丁寧さを一段プラスして、自分の努力を応援しましょう。'
     },
     {
-      title:'眠い日、疲れた日にも',
-      body:'疲れていても、ここを開いたのですね。\n\n そんな日は無理に長くやらなくていいです。問題文を一問読んで、選択肢を選ぶだけでも、脳は宅建の言葉を思い出そうとしています。\n\n今日は短くていい。でもゼロにしない。それだけで十分です。'
+      title:'短くてもゼロにしないでいきましょう',
+      body:'調子が重い日は時間を絞って構いませんので、一問でも解答まで伴走できればそれで勝ちです、今日もよく来てくださいました。'
     },
     {
-      title:'合格は「当日」ではなく「今日」作られる',
-      body:'試験当日に何かが劇的に変わることはありません。\n\n合格は、今日のような学習の日々の中で、少しずつ作られていくものです。今日ここを開いたあなたは、その作業をまた一日分進めています。\n\n地味でも、確実な一日にしましょう。'
+      title:'地道な日々を応援しましょう',
+      body:'試験日の奇跡より、事前の繰り返しが頼れる味方になりますので、今日の一枚も積み上げとして誇ってよいので、一息ついて続けていきましょう。'
     },
     {
-      title:'わからなくていい、今は',
-      body:'難しくて理解できない問題に出会うことがあります。\n\n今すぐ完璧に理解しなくてもいいです。「こういう問題がある」と知ることも、学習の一部です。何度か出会ううちに、少しずつ見えてくることがあります。\n\n今日は「出会うだけ」でも前に進んでいます。'
+      title:'わからない型も味方にしましょう',
+      body:'最初はモヤモヤでも型を覚えるだけで十分ですので、あとからの反復で晴れていきます、今日は焦らず「出会い」として受け止めましょう。'
     },
     {
-      title:'模試は「本番の練習」ではなく「弱点の地図」',
-      body:'模試で点数が低くても、落ち込まなくていいです。\n\n模試の役割は、まだ固まっていない論点を教えてくれることです。点数より、どこで間違えたかに注目しましょう。\n\n今日の間違いは、本番で正解するための地図になります。'
+      title:'模試を整地図にしましょう',
+      body:'点数は一時的でも、誤答位置は宝の地図になりますので、論点メモに落として次の味方に変え、前向きに次へ進みましょう。'
     },
     {
-      title:'宅建業法は、得点の柱にできる',
-      body:'宅建業法は、出題数が多く、繰り返し同じ論点が出やすい分野です。\n\n頑張った分だけ点数に直結しやすいので、積み上げがいのある分野でもあります。今日は業法の問題を一問でも多く解いてみましょう。\n\nここを固めると、合格がぐっと近くなります。'
+      title:'業法を柱に育てましょう',
+      body:'宅建業法は出題が厚く得点の土台になりやすいですので、今日は業法を多めに触れ、自信の柱を一緒に太らせていきましょう。'
     },
     {
-      title:'小さな達成を、ちゃんと数える',
-      body:'今日も学習に来ました。それだけで、一つの達成です。\n\n大きな節目だけを喜ぼうとすると、毎日が地味に感じてしまいます。「今日も来た」「一問解いた」「解説を読んだ」——小さな事実を、ちゃんと自分の前進として数えましょう。\n\n積み重ねは、小さな達成でできています。'
+      title:'小さな記録を残しましょう',
+      body:'一行メモでも継続の地図になりますので、今日やったことを短く残し、未来の自分へエールを送ってあげましょう。'
     },
     {
-      title:'試験まで、まだ時間がある',
-      body:'焦らなくていい時間がある今こそ、丁寧に学べます。\n\n直前になると、どうしても量をこなすことに追われがちです。今の時期に「根拠まで理解する」習慣をつけておくと、直前期の追い込みも効果的になります。\n\n今日は急がずに、一問一問を大切にしましょう。'
+      title:'今の余裕を活かしましょう',
+      body:'時間に余裕があるうちに根拠まで踏み込めると直前が楽になりますので、今日は理由の確認を厚めにして、未来の自分を助けてあげましょう。'
     },
     {
-      title:'あなたの学習スタイルで、いい',
-      body:'毎日同じ量をこなせる人ばかりではありません。\n\n忙しい日は少なく、余裕のある日は多く。そのバランスで続けていける人が、最後まで残ります。自分のペースを責めずに、今日できる分を積み重ねていきましょう。\n\nあなたのやり方で、合格は目指せます。'
+      title:'自分のペースを信じましょう',
+      body:'毎日同じ量でなくても続く人が多いですので、ムリのない自分専用リズムを尊重し、今日も励まし合いながら進みましょう。'
     },
     {
-      title:'今日という日は、一度しかない',
-      body:'今日の学習は、今日にしかできません。\n\n明日に回せる問題もありますが、今日解いた問題は今日の自分の経験になります。同じ一問でも、今日解くことで今日の記憶として残ります。\n\n今日という一日を、小さくでも使っていきましょう。'
+      title:'今日の更新を大切にしましょう',
+      body:'同じ問題でも「今日解いた」は記憶の更新になりますので、可能な範囲で本日の演習に含め、積み重ねを祝いましょう。'
     }
   ];
   const idx=(new Date().getDate()+new Date().getMonth()*3)%variants.length;
@@ -6035,11 +6042,9 @@ function showScore(){
   const pct=Math.round(correct/res.length*100);
   lastSessionShareData={mode:quizState.mode,correct,total:res.length,pct};
   const u=getUserData(); u.sessions=u.sessions||[];u.sessions.push({date:Date.now(),correct,total:res.length,pct,mode:quizState.mode});saveUser(u);
-  const endedFromReview=!!quizState.fromReview;
   // session-end badge check
   const sessionNewBadges=checkAndAwardBadges({correct,sessionResults:res,u});
   if(sessionNewBadges.length) saveUser(u);
-  setTimeout(()=>maybeSendSupportLetters({u,sessionResults:res,fromReview:endedFromReview}), endedFromReview?420:900);
   // 復習からの場合はスコア画面をスキップして復習リストに戻る
   if(quizState.fromReview){ quizState.fromReview=false; gotoPage('review'); return; }
   gotoPage('score');
@@ -6086,6 +6091,15 @@ function showScore(){
 }
 
 // ===== REVIEW（自動おすすめ） =====
+const RECOMMENDED_REVIEW_MAX=30;
+/** この件数以上の候補があるときのみ、下限〜最大の間でランダムに本数を決める（毎回同じ件数になりにくくする） */
+const RECOMMENDED_REVIEW_MIN_VARIED=20;
+function pickRecommendedReviewTakeCount(poolLen){
+  if(poolLen<=0) return 0;
+  if(poolLen<RECOMMENDED_REVIEW_MIN_VARIED) return poolLen;
+  const cap=Math.min(poolLen, RECOMMENDED_REVIEW_MAX);
+  return RECOMMENDED_REVIEW_MIN_VARIED+Math.floor(Math.random()*(cap-RECOMMENDED_REVIEW_MIN_VARIED+1));
+}
 function getReviewRecommendationFieldScores(u, allQ){
   const bookmarkMap=u.bookmarks||{};
   const answers=u.answers||{};
@@ -6118,7 +6132,7 @@ function getReviewRecommendationFieldScores(u, allQ){
     return {fieldId:fid,fieldName:f.name,wrong,bm,srs,score};
   }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
 }
-function buildRecommendedReviewQueue(u, allQ, fieldScores, limit){
+function buildRecommendedReviewQueue(u, allQ, fieldScores){
   const bookmarkMap=u.bookmarks||{};
   const answers=u.answers||{};
   const srsFn=typeof window.takkenGetSrsDueQueue==='function'?window.takkenGetSrsDueQueue:null;
@@ -6149,7 +6163,7 @@ function buildRecommendedReviewQueue(u, allQ, fieldScores, limit){
     allQ.filter(q=>topFields.has(q.field)&&answers[q.id]&&answers[q.id].ans!==q.ans).forEach(push);
     allQ.filter(q=>topFields.has(q.field)&&bookmarkMap[q.id]).forEach(push);
     pool.sort((a,b)=>rankQ(b)-rankQ(a));
-    if(pool.length) return pool.slice(0,limit);
+    if(pool.length) return pool.slice(0,pickRecommendedReviewTakeCount(pool.length));
   }
   const pool=[];
   const seen=new Set();
@@ -6169,7 +6183,7 @@ function buildRecommendedReviewQueue(u, allQ, fieldScores, limit){
     pool.push(q);
   });
   pool.sort((a,b)=>rankQ(b)-rankQ(a));
-  return pool.slice(0,limit);
+  return pool.slice(0,pickRecommendedReviewTakeCount(pool.length));
 }
 function buildReviewRecommendationHTML(scores, queueLen){
   if(!queueLen) return '';
@@ -6208,7 +6222,7 @@ function renderReview(){
   if(typeof window.takkenInitSrsFromAnswers==='function') window.takkenInitSrsFromAnswers();
 
   const recScores=getReviewRecommendationFieldScores(u, allQ);
-  const recQueue=buildRecommendedReviewQueue(u, allQ, recScores, 28);
+  const recQueue=buildRecommendedReviewQueue(u, allQ, recScores);
   window.__reviewRecQueueIds=recQueue.map(q=>q.id);
   const htmlRec=buildReviewRecommendationHTML(recScores, recQueue.length);
 
@@ -6338,6 +6352,80 @@ function renderReview(){
 }
 
 // ===== ANALYTICS =====
+/** 当日の解答がこの回数以上なら学習日記を促す（同一日はロックで1回のみ・ログイン済み・メモなし・ミュートなしのときのみ） */
+const STUDY_DIARY_NUDGE_MIN_ANSWERS_TODAY = 50;
+
+/** 通常クイズ・一問一答など、解答ボタン1回につき1増やす（同一問題のやり直しもカウント。学習日記のしきい値用） */
+function bumpDailyAnswerAttemptCount(u){
+  if(!u) return 0;
+  const k=localDateKey();
+  const m=u.dailyAnswerAttemptCountByDate=u.dailyAnswerAttemptCountByDate||{};
+  m[k]=(m[k]||0)+1;
+  return m[k];
+}
+/** 日別の解答「回数」と、履歴上のユニーク問題数の大きい方（移行直後も含め漏れにくくする） */
+function getEffectiveDailyAnsweredCount(u, isoDate){
+  const map=(u?.dailyAnswerAttemptCountByDate||{})[isoDate]||0;
+  const uniq=getStudyDayAnswerStats(isoDate).answered;
+  return Math.max(map, uniq);
+}
+
+/** 連続解答でタイマーが多重起動しないよう遅延し、表示直前に条件を再評価する */
+function scheduleStudyDiaryNudgeCheck(){
+  clearTimeout(window._studyDiaryNudgeDebounceTimer);
+  window._studyDiaryNudgeDebounceTimer=setTimeout(()=>tryOpenStudyDiaryNudgePopup(),500);
+}
+function tryOpenStudyDiaryNudgePopup(){
+  try{
+    if(!currentUser) return;
+    const u=getUserData();
+    if(!u) return;
+    const todayKey=localDateKey();
+    if((u.studyDiaryPromptMutedDate||'')===todayKey) return;
+    if((u.studyDiaryNudgeLastPromptDate||'')===todayKey) return;
+    const threshold=STUDY_DIARY_NUDGE_MIN_ANSWERS_TODAY;
+    if(getEffectiveDailyAnsweredCount(u,todayKey)<threshold) return;
+    if(studyDiaryHasEntry(todayKey)) return;
+    const overlay=document.getElementById('study-diary-nudge-overlay');
+    if(!overlay){ console.warn('[study-diary-nudge] overlay not found'); return; }
+    window._studyDiaryNudgeDate=todayKey;
+    const answeredNow=getEffectiveDailyAnsweredCount(u,todayKey);
+    const sub=document.getElementById('study-diary-nudge-sub');
+    if(sub) sub.textContent=`きょうすでに${answeredNow}回解答しています。一行でもよければ、この日の学習日記へ振り返りを残しますか？（※1日につき1回まで表示します／${threshold}回以上解答したとき）`;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    /** モーダルが実際に開いた日以降だけ再通知しない（タイマーだけ先にロックして表示失敗すると当日は二度と出なかった不具合の修正） */
+    u.studyDiaryNudgeLastPromptDate=todayKey;
+    saveUser(u);
+  }catch(err){
+    console.warn('[study-diary-nudge]',err);
+  }
+}
+function closeStudyDiaryNudgeOverlay(){
+  const el=document.getElementById('study-diary-nudge-overlay');
+  if(el){
+    el.classList.remove('open');
+    el.setAttribute('aria-hidden','true');
+  }
+}
+function studyDiaryNudgeBackdropClose(e){
+  if(e&&e.target!==e.currentTarget) return;
+  closeStudyDiaryNudgeOverlay();
+}
+function studyDiaryNudgeOpenEditor(){
+  const iso=window._studyDiaryNudgeDate||localDateKey();
+  closeStudyDiaryNudgeOverlay();
+  openStudyDiaryModal(null, iso);
+}
+function studyDiaryNudgeMuteRestOfToday(){
+  const u=getUserData();
+  if(u){
+    u.studyDiaryPromptMutedDate=localDateKey();
+    saveUser(u);
+  }
+  closeStudyDiaryNudgeOverlay();
+}
+
 function renderAnalytics(){
   renderStudyCalendar();
 }
@@ -6469,12 +6557,13 @@ function renderStudyDiaryTimelineList(){
     const {answered,correct,pct}=getStudyDayAnswerStats(iso);
     const memoBlock=memo
       ? `<div class="study-diary-tl-memo">${escapeHTML(memo)}</div>`
-      : `<div class="study-diary-tl-memo empty">メモはまだありません（タップして追加できます）</div>`;
-    return `<div class="study-diary-tl-item" role="button" tabindex="0" onclick="editStudyDiaryFromTimeline('${iso}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();editStudyDiaryFromTimeline('${iso}');}">
-      <div class="study-diary-tl-date">${y}年${m}月${d}日（${wd}）</div>
-      <div class="study-diary-tl-stats">解答 ${answered}問 · 正解 ${correct}問 · 正答率 ${pct}%</div>
+      : `<div class="study-diary-tl-memo empty">メモなし · タップで編集</div>`;
+    return `<div class="study-diary-tl-item" role="button" tabindex="0" onclick="editStudyDiaryFromTimeline('${iso}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();editStudyDiaryFromTimeline('${iso}');}" aria-label="${y}年${m}月${d}日の学習日記を開く">
+      <div class="study-diary-tl-head">
+        <span class="study-diary-tl-date">${y}年${m}月${d}日（${wd}）</span>
+        <span class="study-diary-tl-stats">解答${answered} · 正${correct} · ${pct}%</span>
+      </div>
       ${memoBlock}
-      <span class="study-diary-tl-edit" onclick="event.stopPropagation();editStudyDiaryFromTimeline('${iso}')">この日を編集 →</span>
     </div>`;
   }).join('');
 }
@@ -6767,6 +6856,18 @@ loadDB();
     <button class="mission-popup-close" onclick="document.getElementById('badge-share-overlay').classList.remove('open')">閉じる</button>
   </div>
 </div>
+<!-- STUDY DIARY NUDGE（当日解答50回以上・1日1回まで。回数は同一問題の再解答も含む） -->
+<div class="mission-popup-overlay" id="study-diary-nudge-overlay" onclick="studyDiaryNudgeBackdropClose(event)" aria-hidden="true">
+  <div class="mission-popup" onclick="event.stopPropagation()" role="dialog" aria-labelledby="study-diary-nudge-title" aria-describedby="study-diary-nudge-sub">
+    <div class="mission-popup-title" id="study-diary-nudge-title">学習日記をつけませんか？</div>
+    <div class="mission-popup-sub" id="study-diary-nudge-sub"></div>
+    <div class="mission-popup-actions" style="flex-direction:column;align-items:stretch;margin-top:8px">
+      <button type="button" class="mission-popup-save" onclick="studyDiaryNudgeOpenEditor()">学習日記を書く</button>
+      <button type="button" class="btn-ghost" style="width:100%;margin-top:4px;font-weight:600" onclick="studyDiaryNudgeMuteRestOfToday()">また今度（きょうは表示しない）</button>
+    </div>
+    <button type="button" class="mission-popup-close" onclick="studyDiaryNudgeBackdropClose()">閉じる</button>
+  </div>
+</div>
 <!-- STUDY DIARY MODAL -->
 <div class="mission-popup-overlay" id="study-diary-overlay" onclick="closeStudyDiaryModal(event)">
   <div class="mission-popup" onclick="event.stopPropagation()">
@@ -6786,7 +6887,7 @@ loadDB();
 <div class="mission-popup-overlay" id="study-diary-timeline-overlay" onclick="closeStudyDiaryTimeline(event)">
   <div class="mission-popup study-diary-timeline-popup" onclick="event.stopPropagation()">
     <div class="mission-popup-title">学習日記・時系列</div>
-    <div class="mission-popup-sub">新しい日付から順に表示します。各行にその日の解答数・正答率とメモがあります。タップで編集できます。</div>
+    <div class="mission-popup-sub">新しい日付から並びます。メモは一覧では2行まで（タップですべて編集）。</div>
     <div id="study-diary-timeline-list" class="study-diary-timeline-list" role="list"></div>
     <button type="button" class="mission-popup-close" onclick="document.getElementById('study-diary-timeline-overlay').classList.remove('open')">閉じる</button>
   </div>
