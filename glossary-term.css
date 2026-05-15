@@ -6,6 +6,17 @@
   line-break: strict;
   word-break: normal;
   overflow-wrap: break-word;
+  /* 用語ページ本文の共通タイポ（子のカードは背景だけ変え、フォントはここに揃える） */
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.term-rich-content strong {
+  font-weight: 700;
+  color: var(--text);
 }
 
 h1, h2, h3, h4 {
@@ -91,7 +102,7 @@ h1, h2, h3, h4 {
   color: var(--text2);
   margin-bottom: 36px;
   padding: 16px 20px;
-  background: var(--bg2);
+  background: var(--bg);
   border-radius: 0;
   border: 1px solid var(--border);
   box-shadow: var(--sh);
@@ -126,7 +137,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   margin: 20px 0 10px;
   padding: 8px 12px;
-  background: var(--bg3);
+  background: var(--bg);
   border: 1px solid var(--border2);
   border-radius: 0;
 }
@@ -137,7 +148,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
   color: var(--text);
   padding: 18px 20px;
-  background: var(--bg2);
+  background: var(--bg);
   border: 1px solid var(--border2);
   border-radius: 0;
   box-shadow: var(--sh);
@@ -164,8 +175,8 @@ h1, h2, h3, h4 {
   color: var(--text2);
   margin-top: 10px;
   padding: 10px 14px;
-  background: #f5f5f5;
-  border: 1px solid #ddd;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 0;
   line-height: 1.7;
   word-break: keep-all;
@@ -185,7 +196,7 @@ h1, h2, h3, h4 {
   min-width: 480px;
 }
 .diagram-table th {
-  background: var(--bg3);
+  background: var(--bg);
   padding: 9px 10px;
   text-align: center;
   font-weight: 700;
@@ -202,7 +213,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   text-align: left;
 }
-.diagram-table tr:nth-child(even) td { background: var(--bg3); }
+.diagram-table tr:nth-child(even) td { background: var(--bg); }
 .diagram-table .mark-ok { color: #111; font-weight: 700; }
 .diagram-table .mark-ng { color: #555; font-weight: 700; }
 .diagram-note {
@@ -220,20 +231,10 @@ h1, h2, h3, h4 {
   margin-top: 4px;
 }
 .type-card-body {
-  font-family: var(--font);
-  font-size: 16px;
-  line-height: 1.85;
-  font-weight: 500;
-  color: var(--text);
+  padding: 18px 20px;
 }
 .type-card-body p { margin-bottom: 6px; word-break: keep-all; overflow-wrap: break-word; }
 .type-card-body p:last-child { margin-bottom: 0; }
-/* 見出し（.term-h2）と同じ Noto の実ウェイト700で統一し、本文400とのコントラストは500ベースで調整 */
-.type-card-body strong {
-  color: var(--text);
-  font-weight: 700;
-  font-family: inherit;
-}
 
 .term-points {
   list-style: none;
@@ -248,7 +249,7 @@ h1, h2, h3, h4 {
   font-size: 14px;
   line-height: 1.8;
   padding: 12px 16px;
-  background: var(--bg2);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 0;
   box-shadow: var(--sh);
@@ -274,7 +275,7 @@ h1, h2, h3, h4 {
 .term-point-text strong { color: var(--text); font-weight: 700; }
 
 .quiz-box {
-  background: var(--bg2);
+  background: var(--bg);
   border: 2px solid var(--border2);
   border-radius: 0;
   padding: 18px 20px;
@@ -332,7 +333,7 @@ h1, h2, h3, h4 {
   line-height: 1.8;
   color: var(--text2);
   padding: 12px 14px;
-  background: var(--bg3);
+  background: var(--bg);
   border-radius: 0;
   margin-top: 4px;
   word-break: keep-all;
@@ -355,7 +356,7 @@ h1, h2, h3, h4 {
   text-decoration: none;
   color: var(--text);
   transition: all 0.15s;
-  background: var(--bg2);
+  background: var(--bg);
   box-shadow: var(--sh);
   min-width: 0;
   word-break: keep-all;
@@ -372,7 +373,7 @@ h1, h2, h3, h4 {
 .term-related-reading { font-size: 11px; color: var(--text3); }
 
 .term-cta-section {
-  background: var(--bg2);
+  background: var(--bg);
   border-radius: 0;
   padding: 24px 26px;
   border: 1px solid var(--border);
@@ -419,7 +420,7 @@ h1, h2, h3, h4 {
 .term-faq-item {
   border: 1px solid var(--border);
   border-radius: 0;
-  background: var(--bg2);
+  background: var(--bg);
   overflow: hidden;
 }
 .term-faq-q {
