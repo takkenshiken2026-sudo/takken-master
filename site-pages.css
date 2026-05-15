@@ -144,7 +144,7 @@ a:hover {
   color: var(--text2);
   background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 0;
   padding: 6px 10px;
 }
 .terms-idx-search {
@@ -157,7 +157,7 @@ a:hover {
 .terms-idx-search input {
   width: 100%;
   padding: 10px 12px;
-  border-radius: var(--r2);
+  border-radius: 0;
   border: 1.5px solid var(--border2);
   background: var(--bg);
   color: var(--text);
@@ -181,7 +181,7 @@ a:hover {
   background: var(--bg);
   color: var(--text2);
   padding: 7px 10px;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 13px;
   font-weight: 700;
   font-family: inherit;
@@ -200,7 +200,7 @@ a:hover {
 .terms-idx-panel {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: var(--r2);
+  border-radius: 0;
   box-shadow: var(--sh);
   padding: 18px 18px 14px;
   margin-top: 14px;
@@ -1008,7 +1008,7 @@ a:hover {
   font-size: 13px;
   color: var(--text3);
   background: var(--bg2);
-  border-radius: var(--r);
+  border-radius: 0;
   padding: 12px 14px;
   margin-top: 8px;
 }
