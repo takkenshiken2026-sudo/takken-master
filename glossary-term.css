@@ -212,16 +212,28 @@ h1, h2, h3, h4 {
 }
 
 .type-card {
-  background: var(--bg2);
+  background: var(--bg);
   border: 1px solid var(--border2);
   border-radius: 0;
   overflow: hidden;
   box-shadow: var(--sh);
   margin-top: 4px;
 }
+.type-card-body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.85;
+  font-weight: 500;
+  color: var(--text);
+}
 .type-card-body p { margin-bottom: 6px; word-break: keep-all; overflow-wrap: break-word; }
 .type-card-body p:last-child { margin-bottom: 0; }
-.type-card-body strong { color: var(--text); font-weight: 700; }
+/* 見出し（.term-h2）と同じ Noto の実ウェイト700で統一し、本文400とのコントラストは500ベースで調整 */
+.type-card-body strong {
+  color: var(--text);
+  font-weight: 700;
+  font-family: inherit;
+}
 
 .term-points {
   list-style: none;
