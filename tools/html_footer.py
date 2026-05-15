@@ -9,7 +9,7 @@ from pathlib import Path
 FORM_URL = "https://forms.gle/Rfovea3QJhVo24NYA"
 ROBOTS_INDEX_FOLLOW = '<meta name="robots" content="index, follow">'
 FOOTER_DISCLAIMER = "学習用のコンテンツです。出題・法令の正確な内容は公式情報で必ず確認してください。"
-SITE_COPYRIGHT = "© 2026 宅建マスター学習支援（非公式）・takken-master.jp"
+SITE_COPYRIGHT = "© 2026 宅建マスター学習支援・takken-master.jp"
 
 SITE_HEADER_NAV: list[tuple[str, str, str]] = [
     ("トップ", "index.html", "top"),
