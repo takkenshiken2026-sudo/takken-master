@@ -25,7 +25,7 @@ SITE_FOOTER_NAV: list[tuple[str, str, str]] = [
     ("このサイトについて", "about.html", "about"),
     ("過去問一覧", "q/index.html", "q"),
     ("用語集", "terms/index.html", "terms"),
-    ("試験ガイド", "takken/takken-to-wa/index.html", "articles"),
+    ("試験ガイド", "articles/index.html", "articles"),
     ("関連リンク", "related-sites.html", "related"),
     ("プライバシー", "privacy-terms.html", "privacy"),
     ("お問い合わせ", FORM_URL, "contact"),
@@ -103,7 +103,7 @@ def static_q_footer_block(rel_path: Path) -> str:
     <a href="{h("about.html")}">このサイトについて</a>
     <a href="{h("q/index.html")}">過去問一覧</a>
     <a href="{h("terms/index.html")}">用語集</a>
-    <a href="{h("takken/takken-to-wa/index.html")}">試験ガイド</a>
+    <a href="{h("articles/index.html")}">試験ガイド</a>
     <a href="{h("related-sites.html")}">関連リンク</a>
     <a href="{h("privacy-terms.html")}">プライバシー</a>
     <a href="{html.escape(FORM_URL)}" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
