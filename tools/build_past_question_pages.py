@@ -567,7 +567,7 @@ def main() -> int:
         f"{base}/about.html",
         f"{base}/privacy-terms.html",
         f"{base}/related-sites.html",
-        f"{base}/takken/takken-to-wa/index.html",
+        f"{base}/articles/index.html",
         f"{base}/q/index.html",
     ]
     urls += [f"{base}/{p['rel_path']}" for p in pages]
