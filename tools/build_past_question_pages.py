@@ -143,6 +143,77 @@ def parse_base_questions(js_path: Path) -> list[dict]:
     return data
 
 
+def infer_correct_from_exp_prefix(exp: str) -> int | None:
+    """exp 先頭の「正解は選択肢Nです／正解はN。」形式から正答を取る（テンプレ文言が信頼できるため ans より優先）。"""
+    s = (exp or "").lstrip()
+    m = re.match(r"正解は選択肢([1-4])です", s)
+    if m:
+        return int(m.group(1))
+    m = re.match(r"正解は選択肢([1-4])[。．]", s)
+    if m:
+        return int(m.group(1))
+    m = re.match(r"正解は([1-4])[。．]", s)
+    if m:
+        return int(m.group(1))
+    return None
+
+
+def infer_correct_from_exp_last_sentence(exp: str) -> int | None:
+    """本文末などにだけ現れる「正解は4。」形式を拾う（誤答検討や「3は誤り」の後に続く結論向け）。"""
+    if not exp:
+        return None
+    ms = list(re.finditer(r"正解は(?:選択肢)?([1-4])[。．]", exp))
+    if ms:
+        return int(ms[-1].group(1))
+    return None
+
+
+def infer_correct_from_kaisetsu_summary(q: dict) -> int | None:
+    ks = q.get("kaisetsu")
+    if not isinstance(ks, dict):
+        return None
+    summary = ks.get("summary")
+    if not isinstance(summary, dict):
+        return None
+    rows = summary.get("rows")
+    if not isinstance(rows, list):
+        return None
+    for row in rows:
+        if not isinstance(row, (list, tuple)) or len(row) < 2:
+            continue
+        if norm(str(row[0])) != "正解":
+            continue
+        cell = str(row[1])
+        m = re.search(r"選択肢([1-4])", cell)
+        if m:
+            return int(m.group(1))
+        if re.match(r"^[1-4]$", cell.strip()):
+            return int(cell.strip())
+    return None
+
+
+def master_question_correct(q: dict) -> int | None:
+    """JS の ans と矛盾しやすいため、解説テキスト・kaisetsu を優先して 1〜4 を決める。"""
+    exp = q.get("exp") or ""
+    ci = infer_correct_from_exp_prefix(exp)
+    if ci is not None:
+        return ci
+    ci = infer_correct_from_kaisetsu_summary(q)
+    if ci is not None:
+        return ci
+    ci = infer_correct_from_exp_last_sentence(exp)
+    if ci is not None:
+        return ci
+    cor = q.get("ans")
+    try:
+        n = int(cor)
+    except (TypeError, ValueError):
+        return None
+    if 1 <= n <= 4:
+        return n
+    return None
+
+
 def rows_from_master_js(js_path: Path) -> list[dict]:
     """takken-master-data.js の過去問を CSV 行形式に変換する。"""
     items = parse_base_questions(js_path)
@@ -154,11 +225,8 @@ def rows_from_master_js(js_path: Path) -> list[dict]:
             opts = q.get("opts") or []
             if len(opts) != 4:
                 continue
-            cor = q.get("ans")
-            if cor is None:
-                continue
-            ci = int(cor)
-            if not (1 <= ci <= 4):
+            ci = master_question_correct(q)
+            if ci is None:
                 continue
             field = norm(q.get("field"))
             rows.append(

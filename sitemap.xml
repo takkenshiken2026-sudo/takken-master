@@ -49,6 +49,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2013/q09/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2013/q10/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -58,6 +62,10 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2013/q12/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2013/q13/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -81,6 +89,14 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2013/q19/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2013/q20/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2013/q21/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -98,6 +114,14 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2013/q25/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2013/q26/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2013/q27/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -137,7 +161,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2013/q37/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2013/q38/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2013/q39/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -157,7 +189,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2013/q44/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2013/q45/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2013/q46/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -205,6 +245,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2014/q08/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2014/q09/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -221,7 +265,23 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2014/q13/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q14/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2014/q15/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q16/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q17/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -250,6 +310,14 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2014/q24/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q25/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q26/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -309,7 +377,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2014/q41/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q42/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2014/q43/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q44/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -322,6 +402,10 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2014/q47/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2014/q48/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -361,6 +445,14 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2015/q08/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2015/q09/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2015/q10/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -369,11 +461,23 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2015/q12/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2015/q13/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2015/q14/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2015/q15/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2015/q16/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -393,6 +497,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2015/q21/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2015/q22/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -402,6 +510,14 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2015/q24/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2015/q25/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2015/q26/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -441,6 +557,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2015/q36/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2015/q37/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -454,6 +574,10 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2015/q40/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2015/q41/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -489,6 +613,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2015/q50/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q01/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -517,11 +645,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2016/q08/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q09/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2016/q10/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2016/q11/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -533,7 +669,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2016/q14/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q15/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2016/q16/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -541,7 +685,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2016/q18/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q19/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2016/q20/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -565,6 +717,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2016/q26/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q27/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -582,6 +738,10 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2016/q31/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2016/q32/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -605,7 +765,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2016/q38/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q39/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2016/q40/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -637,7 +805,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2016/q48/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2016/q49/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2016/q50/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -677,6 +853,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2017/q10/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2017/q11/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -697,11 +877,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2017/q16/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2017/q17/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2017/q18/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2017/q19/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -713,11 +901,27 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2017/q22/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2017/q23/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2017/q24/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2017/q25/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2017/q26/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2017/q27/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -729,7 +933,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2017/q30/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2017/q31/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2017/q32/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -773,6 +985,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2017/q43/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2017/q44/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -797,6 +1013,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2017/q50/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q01/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -817,7 +1037,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2018/q06/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q07/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2018/q08/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -837,7 +1065,15 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2018/q13/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q14/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2018/q15/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -865,6 +1101,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2018/q22/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q23/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -873,11 +1113,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2018/q25/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q26/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2018/q27/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2018/q28/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -890,6 +1138,10 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2018/q31/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2018/q32/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -913,6 +1165,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2018/q38/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q39/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -929,11 +1185,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2018/q43/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2018/q44/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2018/q45/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2018/q46/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -1517,6 +1781,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/q/past/y2025/q07/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2025/q08/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -1586,6 +1854,10 @@
   </url>
   <url>
     <loc>https://takken-master.jp/q/past/y2025/q27/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/q/past/y2025/q28/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
