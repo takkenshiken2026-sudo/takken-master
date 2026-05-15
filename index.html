@@ -79,7 +79,7 @@
         {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://takken-master.jp/"},
         {"@type": "ListItem", "position": 2, "name": "過去問", "item": "https://takken-master.jp/#past"},
         {"@type": "ListItem", "position": 3, "name": "オリジナル問題", "item": "https://takken-master.jp/#orig"},
-        {"@type": "ListItem", "position": 4, "name": "用語解説", "item": "https://takken-master.jp/#glossary"}
+        {"@type": "ListItem", "position": 4, "name": "用語解説", "item": "https://takken-master.jp/terms/"}
       ]
     }
   ]
@@ -1411,7 +1411,7 @@ body.is-solving .site-footer{display:none!important}
         <a class="topnav-link" id="tnav-review" href="/review/" onclick="event.preventDefault();gotoPage('review')">
           <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
         </a>
-        <a class="topnav-link" id="tnav-glossary" href="/glossary/" onclick="event.preventDefault();gotoPage('glossary')">
+        <a class="topnav-link" id="tnav-glossary" href="terms/index.html">
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
         </a>
         <a class="topnav-link" id="tnav-audio" href="/audio/" onclick="event.preventDefault();gotoPage('audio')">
@@ -1497,7 +1497,7 @@ body.is-solving .site-footer{display:none!important}
       <a class="mobile-nav-item" id="mnav-review" href="/review/" onclick="event.preventDefault();gotoPage('review');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
       </a>
-      <a class="mobile-nav-item" id="mnav-glossary" href="/glossary/" onclick="event.preventDefault();gotoPage('glossary');closeMobileDrawer()">
+      <a class="mobile-nav-item" id="mnav-glossary" href="terms/index.html" onclick="closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
       </a>
       <a class="mobile-nav-item" id="mnav-audio" href="/audio/" onclick="event.preventDefault();gotoPage('audio');closeMobileDrawer()">
@@ -1969,7 +1969,7 @@ body.is-solving .site-footer{display:none!important}
       <div id="glossary-list">
 <!-- SEO: 静的用語解説コンテンツ（JS実行前にクローラーが読める） -->
 <section class="glos-static-section" aria-label="用語解説一覧">
-<p class="glos-static-intro">アプリ内に用語データを用意しています。JavaScriptを有効にすると検索・カテゴリで絞り込みできます。以下はクローラー向けに代表的な用語を静的に記載しています。</p>
+<p class="glos-static-intro"><strong><a href="terms/index.html">用語解説一覧（静的HTML）</a></strong>で全記事へリンクできます。下のインタラクティブ一覧は JavaScript で用語データを読み込みます。以下はクローラー向けの抜粋です。</p>
 <div class="glos-cat-section" data-cat="rights">
 <h3 class="glos-cat-heading">権利関係</h3>
 <article class="glos-static-card" id="glos-static-buken" itemscope itemtype="https://schema.org/DefinedTerm">
@@ -2156,7 +2156,7 @@ body.is-solving .site-footer{display:none!important}
           <li>法令上の制限（都市計画法・建築基準法など）</li>
           <li>税・その他（不動産取得税・固定資産税・地価公示法など）</li>
         </ul>
-        <p style="margin-top:24px;font-size:14px;line-height:2"><a href="about.html">このサイトについて</a> ・ <a href="index.html">過去問一覧</a> ・ <a href="glossary/index.html">用語集</a> ・ <a href="takken/takken-to-wa/index.html">試験ガイド</a> ・ <a href="related-sites.html">関連リンク</a> ・ <a href="privacy-terms.html">プライバシー</a> ・ <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener noreferrer">お問い合わせ</a></p>
+        <p style="margin-top:24px;font-size:14px;line-height:2"><a href="about.html">このサイトについて</a> ・ <a href="index.html">過去問一覧</a> ・ <a href="terms/index.html">用語集</a> ・ <a href="takken/takken-to-wa/index.html">試験ガイド</a> ・ <a href="related-sites.html">関連リンク</a> ・ <a href="privacy-terms.html">プライバシー</a> ・ <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener noreferrer">お問い合わせ</a></p>
       </div>
     </noscript>
 
@@ -2193,7 +2193,7 @@ body.is-solving .site-footer{display:none!important}
         <nav class="site-footer-legal" aria-label="サイト情報・ポリシー">
           <a href="about.html">このサイトについて</a>
           <a href="index.html">過去問一覧</a>
-          <a href="glossary/index.html">用語集</a>
+          <a href="terms/index.html">用語集</a>
           <a href="takken/takken-to-wa/index.html">試験ガイド</a>
           <a href="related-sites.html">関連リンク</a>
           <a href="privacy-terms.html">プライバシー</a>
@@ -3449,7 +3449,7 @@ function enterApp(){
 }
 
 const PAGE_TITLES={'quiz-start':'問題を解く','past-config':'過去問','quiz':'問題','score':'結果','dash':'記録・分析','review':'復習','analytics':'記録・分析','glossary':'用語解説','orig':'オリジナル問題','mock':'オリジナル模試','mock-score':'模試結果','ichimondou':'一問一答','ichimondou-score':'一問一答・結果','audio':'音声学習'};
-const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','glossary':'glossary','ichimondou':'ichimondou'};
+const NAV_PAGE_MAP = {'orig':'orig','quiz-start':'quiz-start','dash':'dash','review':'review','ichimondou':'ichimondou'};
 
 // ページごとのSEOメタ情報
 const PAGE_SEO = {
@@ -3482,12 +3482,6 @@ const PAGE_SEO = {
     desc:  '不正解・未解答の宅建問題を分野別にまとめて復習。弱点問題を集中的に解いて定着率を上げる。',
     path:  '/review/',
     hash:  '#review'
-  },
-  'glossary': {
-    title: '用語解説｜宅建マスター',
-    desc:  '宅建試験の重要用語を図解でわかりやすく解説。権利関係・宅建業法・法令上の制限の必須語句を網羅。',
-    path:  '/glossary/',
-    hash:  '#glossary'
   },
   'mock': {
     title: 'オリジナル模試｜宅建マスター',
@@ -3527,7 +3521,7 @@ function _updatePageMeta(id) {
   if (!['quiz','score','mock-score','ichimondou-score'].includes(id)) {
     try {
       const hash = seo.hash || '';
-      const url = location.pathname.replace(/\/(quiz|dashboard|review|glossary).*/, '/') + hash;
+      const url = location.pathname.replace(/\/(quiz|dashboard|review).*/, '/') + hash;
       history.pushState({ page: id }, seo.title, url);
     } catch(e) { /* file:// protocol など pushState できない環境では無視 */ }
   }
@@ -4070,7 +4064,6 @@ function gotoPage(id){
       'ichimondou': id==='ichimondou' || id==='ichimondou-score',
       'dash':     id==='dash',
       'review':   id==='review',
-      'glossary': id==='glossary',
       'audio':    id==='audio',
     };
     Object.entries(map).forEach(([k,active])=>{
@@ -4095,7 +4088,6 @@ function gotoPage(id){
   if(id==='orig')        renderOrigPage();
   if(id==='quiz-start')  { renderDailyStatus(); }
   if(id==='mock')        renderMockPage();
-  if(id==='glossary')    renderGlossary();
   if(id==='past-config') buildYearGrid();
   window.scrollTo(0,0);
 }
@@ -4113,13 +4105,21 @@ window.addEventListener('popstate', function(e) {
 
 // URLハッシュに基づいた初期ページ解決
 function _resolveInitialPage() {
+  // 旧 URL（/#glossary・/glossary/）を用語一覧の静的ページへ
+  if (typeof location !== 'undefined' && location.protocol !== 'file:') {
+    const pn = location.pathname;
+    const isGlossaryPath = pn === '/glossary/' || pn === '/glossary';
+    if (location.hash === '#glossary' || isGlossaryPath) {
+      try { location.replace('/terms/'); } catch (e) { /* noop */ }
+      return 'quiz-start';
+    }
+  }
   const pathMap = {
     '/quiz/past/':   'past-config',
     '/quiz/orig/':   'orig',
     '/quiz/ichimondou/': 'ichimondou',
     '/dashboard/':   'dash',
     '/review/':      'review',
-    '/glossary/':    'glossary',
     '/quiz/mock/':   'mock',
     '/account/':     'dash'
   };
@@ -4127,7 +4127,7 @@ function _resolveInitialPage() {
   const path = location.pathname;
   const hashMap = {
     '#past':'past-config','#orig':'orig','#ichimondou':'ichimondou','#dash':'dash',
-    '#review':'review','#glossary':'glossary','#mock':'mock','#account':'dash'
+    '#review':'review','#mock':'mock','#account':'dash'
   };
   return pathMap[path] || hashMap[location.hash] || 'quiz-start';
 }

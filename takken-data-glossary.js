@@ -1,6 +1,6 @@
 /* takken-data-glossary.js — GLOSSARY データのみ（UI は index.html 側）
- * articleSlug … 公開サイト https://takken-master.jp/glossary/{slug}/ と対応。
- * 一覧は takken-master-seo/glossary/index.html（170テーマ）と同期。詳細本文・図解がある項目は下記にそのまま保持。
+ * articleSlug … 公開サイト https://takken-master.jp/terms/{slug}/ と対応。
+ * 一覧は terms/index.html（静的HTML）と同期。詳細本文・図解がある項目は下記にそのまま保持。
  */
 
 // ===== GLOSSARY =====

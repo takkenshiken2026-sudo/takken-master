@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-glossary/*/index.html を賃管マスター型の site-pages デザインに差し替え、
-glossary/index.html（用語索引）を再生成する。
+terms/*/index.html を賃管マスター型の site-pages デザインに差し替え、
+terms/index.html（用語索引）を再生成する。
+旧 /glossary/ には terms/ へ誘導するリダイレクトを置く。
 """
 
 from __future__ import annotations
@@ -10,6 +11,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -25,7 +27,8 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_open,
 )
 
-GLOSSARY_DIR = ROOT / "glossary"
+TERMS_DIR = ROOT / "terms"
+GLOSSARY_DIR = ROOT / "glossary"  # 旧 URL・初回コピー元
 BASE_URL = "https://takken-master.jp"
 HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,9 +62,64 @@ function answerQuiz(q,el,ok){
 }
 </script>"""
 
+GLOSSARY_REDIRECT_INDEX = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://takken-master.jp/terms/">
+<meta http-equiv="refresh" content="0;url=/terms/">
+<script>location.replace('/terms/');</script>
+<title>用語解説一覧へ移動中…</title>
+</head>
+<body><p><a href="/terms/">用語解説一覧へ</a></p></body>
+</html>
+"""
+
+
+def glossary_redirect_slug(slug: str) -> str:
+    dest = f"/terms/{slug}/"
+    canon = public_url(BASE_URL, f"terms/{slug}/")
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="{html.escape(canon)}">
+<meta http-equiv="refresh" content="0;url={html.escape(dest)}">
+<script>location.replace({json.dumps(dest)});</script>
+<title>用語解説へ移動中…</title>
+</head>
+<body><p><a href="{html.escape(dest)}">用語解説へ</a></p></body>
+</html>
+"""
+
 
 def public_url(base: str, path: str) -> str:
     return base.rstrip("/") + "/" + path.lstrip("/")
+
+
+def fix_terms_html_paths(text: str) -> str:
+    text = text.replace("https://takken-master.jp/glossary/", "https://takken-master.jp/terms/")
+    text = text.replace('current="glossary"', 'current="terms"')
+    text = text.replace("glossary/index.html", "terms/index.html")
+    text = text.replace("../../index.html#glossary", "../../terms/index.html")
+    text = text.replace("../index.html#glossary", "../terms/index.html")
+    text = text.replace('href="/glossary/', 'href="/terms/')
+    return text
+
+
+def ensure_terms_from_glossary() -> None:
+    """初回のみ glossary/ を terms/ にコピーし、パスを terms 向けに直す。"""
+    if TERMS_DIR.is_dir() and any(TERMS_DIR.iterdir()):
+        return
+    if not GLOSSARY_DIR.is_dir():
+        return
+    shutil.copytree(GLOSSARY_DIR, TERMS_DIR)
+    for path in TERMS_DIR.rglob("*.html"):
+        raw = path.read_text(encoding="utf-8")
+        path.write_text(fix_terms_html_paths(raw), encoding="utf-8")
+    print(f"  migrated {GLOSSARY_DIR.name}/ -> {TERMS_DIR.name}/")
 
 
 def load_glossary_meta_by_slug() -> dict[str, dict]:
@@ -115,7 +173,7 @@ def short_label_from_html(raw: str, slug: str) -> str:
 def scan_glossary_entries(meta_by_slug: dict[str, dict] | None = None) -> list[dict]:
     meta_by_slug = meta_by_slug or load_glossary_meta_by_slug()
     entries: list[dict] = []
-    for d in sorted(GLOSSARY_DIR.iterdir()):
+    for d in sorted(TERMS_DIR.iterdir()):
         if not d.is_dir() or d.name.startswith("."):
             continue
         idx = d / "index.html"
@@ -188,7 +246,9 @@ def fix_extract_rich_content(raw: str) -> str:
     content = rest.strip()
     if content.endswith("</div>"):
         content = content[:-6].strip()
+    content = re.sub(r'href="/terms/([^"/]+)/"', r'href="../\1/"', content)
     content = re.sub(r'href="/glossary/([^"/]+)/"', r'href="../\1/"', content)
+    content = re.sub(r'href="/terms/"', r'href="../index.html"', content)
     content = re.sub(r'href="/glossary/"', r'href="../index.html"', content)
     content = re.sub(r'href="/"', r'href="../../index.html"', content)
     content = re.sub(r'href="/quiz/', r'href="../../index.html"', content)
@@ -208,22 +268,25 @@ def build_term_page(slug: str, raw: str, meta_by_slug: dict[str, dict] | None = 
     if len(content.strip()) < 200:
         raise ValueError(f"{slug}: 本文の抽出に失敗しました（page-wrap が見つからないか中身が空です）")
     meta_by_slug = meta_by_slug or load_glossary_meta_by_slug()
-    rel_path = Path("glossary") / slug / "index.html"
+    rel_path = Path("terms") / slug / "index.html"
     short = meta_by_slug.get(slug, {}).get("term")
     term_label = short or head["title"].split("｜")[0].strip() if head["title"] else slug
     crumb = [
         ("トップ", "index.html"),
-        ("用語解説一覧", "glossary/index.html"),
+        ("用語解説一覧", "terms/index.html"),
         (term_label, None),
     ]
-    page_header = site_page_header(rel_path, current="glossary", breadcrumb_items=crumb)
-    page_footer = site_page_footer(rel_path, current="glossary")
+    page_header = site_page_header(rel_path, current="terms", breadcrumb_items=crumb)
+    page_footer = site_page_footer(rel_path, current="terms")
     css_site = "../../site-pages.css?v=20260515"
     css_term = "../../glossary-term.css?v=20260515"
     json_ld_block = ""
     if head["json_ld"]:
-        json_ld_block = f'<script type="application/ld+json">\n{head["json_ld"]}\n</script>\n'
-    canonical = head["canonical"] or public_url(BASE_URL, f"glossary/{slug}/")
+        ld = head["json_ld"].replace("/glossary/", "/terms/")
+        json_ld_block = f'<script type="application/ld+json">\n{ld}\n</script>\n'
+    canonical = head["canonical"] or public_url(BASE_URL, f"terms/{slug}/")
+    if "/glossary/" in canonical:
+        canonical = canonical.replace("/glossary/", "/terms/")
     title = head["title"] or f"{term_label}｜宅建マスター"
     desc = head["description"] or f"{term_label}の意味と試験ポイントを宅建マスターで解説。"
     og_title = html.escape(title)
@@ -252,7 +315,7 @@ def build_term_page(slug: str, raw: str, meta_by_slug: dict[str, dict] | None = 
 <div class="term-rich-content">
 {content}
 </div>
-<p class="q-app-link"><a href="../../index.html#glossary">アプリで用語解説を開く</a></p>
+<p class="q-app-link"><a href="../../terms/index.html">用語解説一覧へ</a> ・ <a href="../../index.html">学習アプリ</a></p>
 </main>
 {page_footer}
 {site_page_wrap_close()}
@@ -324,7 +387,7 @@ def build_glossary_index(entries: list[dict]) -> str:
                     "@type": "ListItem",
                     "position": pos,
                     "name": e["term"],
-                    "item": public_url(BASE_URL, f"glossary/{e['href']}"),
+                    "item": public_url(BASE_URL, f"terms/{e['href']}"),
                 }
             )
             pos += 1
@@ -382,15 +445,15 @@ def build_glossary_index(entries: list[dict]) -> str:
 }})();
 </script>"""
 
-    idx_path = Path("glossary/index.html")
+    idx_path = Path("terms/index.html")
     terms_header = site_page_header(
         idx_path,
-        current="glossary",
+        current="terms",
         breadcrumb_items=[("トップ", "index.html"), ("用語解説一覧", None)],
         wide=True,
     )
-    terms_footer = site_page_footer(idx_path, current="glossary", wide=True)
-    canonical = public_url(BASE_URL, "glossary/")
+    terms_footer = site_page_footer(idx_path, current="terms", wide=True)
+    canonical = public_url(BASE_URL, "terms/")
     title = "用語解説一覧（全記事索引）｜宅建マスター（宅地建物取引士）"
     desc = (
         "宅地建物取引士試験の重要用語を一覧し、各用語の解説記事へリンクします。"
@@ -421,7 +484,7 @@ def build_glossary_index(entries: list[dict]) -> str:
 {terms_header}
 <main class="site-page-main terms-idx-main">
   <h1 class="terms-idx-page-title">用語解説一覧（全記事索引）</h1>
-  <p class="terms-idx-lead">宅地建物取引士試験で頻出の用語を分野別にまとめ、各用語の解説記事（静的HTML）へ直接リンクします。上の検索・分野フィルタで目的の用語に素早く到達できます。演習アプリ内の<strong><a href="../index.html#glossary">用語解説</a></strong>では検索や折りたたみカードも利用できます。</p>
+  <p class="terms-idx-lead">宅地建物取引士試験で頻出の用語を分野別にまとめ、各用語の解説記事（静的HTML）へ直接リンクします。上の検索・分野フィルタで目的の用語に素早く到達できます。学習アプリの<strong><a href="../index.html">トップ</a></strong>から過去問・復習も利用できます。</p>
 
   <div class="terms-idx-meta-row">
     <span class="terms-idx-pill">全 <span id="terms-idx-total">{n_terms}</span> 記事</span>
@@ -453,7 +516,7 @@ def build_glossary_index(entries: list[dict]) -> str:
 def refresh_term_breadcrumbs(entries: list[dict]) -> None:
     """既存の site-page シェルで、パンくずの現在地ラベルを短い用語名に揃える。"""
     for e in entries:
-        path = GLOSSARY_DIR / e["slug"] / "index.html"
+        path = TERMS_DIR / e["slug"] / "index.html"
         if not path.is_file():
             continue
         raw = path.read_text(encoding="utf-8")
@@ -470,10 +533,21 @@ def refresh_term_breadcrumbs(entries: list[dict]) -> None:
             path.write_text(new_raw, encoding="utf-8")
 
 
+def write_glossary_redirects(entries: list[dict]) -> None:
+    GLOSSARY_DIR.mkdir(exist_ok=True)
+    (GLOSSARY_DIR / "index.html").write_text(GLOSSARY_REDIRECT_INDEX, encoding="utf-8")
+    for e in entries:
+        slug = e["slug"]
+        dest = GLOSSARY_DIR / slug / "index.html"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_text(glossary_redirect_slug(slug), encoding="utf-8")
+    print(f"  redirects: {len(entries)} slugs + index -> {GLOSSARY_DIR}")
+
+
 def main() -> None:
     import argparse
 
-    parser = argparse.ArgumentParser(description="glossary 静的ページを生成・更新")
+    parser = argparse.ArgumentParser(description="terms 静的ページを生成・更新")
     parser.add_argument(
         "--index-only",
         action="store_true",
@@ -484,18 +558,24 @@ def main() -> None:
         action="store_true",
         help="個別用語ページのシェルも再生成（未変換の legacy のみ）",
     )
+    parser.add_argument(
+        "--no-redirects",
+        action="store_true",
+        help="glossary/ へのリダイレクト HTML を書かない",
+    )
     args = parser.parse_args()
 
+    ensure_terms_from_glossary()
     meta = load_glossary_meta_by_slug()
     entries = scan_glossary_entries(meta)
     if not entries:
-        raise SystemExit("glossary entries not found")
-    GLOSSARY_DIR.mkdir(exist_ok=True)
+        raise SystemExit("terms entries not found (run after glossary/ exists)")
+    TERMS_DIR.mkdir(exist_ok=True)
 
     if args.terms:
         for e in entries:
             slug = e["slug"]
-            path = GLOSSARY_DIR / slug / "index.html"
+            path = TERMS_DIR / slug / "index.html"
             raw = path.read_text(encoding="utf-8")
             if 'class="site-page-wrap"' in raw and 'class="page-wrap"' not in raw:
                 print(f"  skip (already new shell): {slug}")
@@ -503,10 +583,13 @@ def main() -> None:
             path.write_text(build_term_page(slug, raw, meta), encoding="utf-8")
             print(f"  term: {slug}")
 
-    index_path = GLOSSARY_DIR / "index.html"
+    index_path = TERMS_DIR / "index.html"
     index_path.write_text(build_glossary_index(entries), encoding="utf-8")
     refresh_term_breadcrumbs(entries)
     print(f"index: {len(entries)} terms -> {index_path} (JS meta: {len(meta)} slugs)")
+
+    if not args.no_redirects:
+        write_glossary_redirects(entries)
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ SITE_HEADER_NAV: list[tuple[str, str, str]] = [
     ("トップ", "index.html", "top"),
     ("このサイトについて", "about.html", "about"),
     ("過去問一覧", "index.html", "past"),
-    ("用語集", "glossary/index.html", "glossary"),
+    ("用語集", "terms/index.html", "terms"),
     ("関連リンク", "related-sites.html", "related"),
     ("プライバシー", "privacy-terms.html", "privacy"),
 ]
@@ -24,7 +24,7 @@ SITE_FOOTER_NAV: list[tuple[str, str, str]] = [
     ("トップ", "index.html", "top"),
     ("このサイトについて", "about.html", "about"),
     ("過去問一覧", "index.html", "past"),
-    ("用語集", "glossary/index.html", "glossary"),
+    ("用語集", "terms/index.html", "terms"),
     ("試験ガイド", "takken/takken-to-wa/index.html", "articles"),
     ("関連リンク", "related-sites.html", "related"),
     ("プライバシー", "privacy-terms.html", "privacy"),
@@ -36,10 +36,8 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     site_rel = site_rel.lstrip("/")
     parent = rel_path.parent
     parts = parent.parts
-    if site_rel == "glossary/index.html" and parts and parts[-1] == "glossary":
+    if site_rel == "terms/index.html" and parts and parts[-1] == "terms":
         return "index.html"
-    if parts and parts[-1] != "glossary" and "glossary" in parts and site_rel == "glossary/index.html":
-        return "../index.html"
     up = len(parts)
     prefix = "/".join([".."] * up)
     if not prefix:
