@@ -37,6 +37,22 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/takken/takken-gakusei/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-mikeiken-tenshoku/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-fudosan-gyokai/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-fukugyo-dokuritsu/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2013/q01/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>

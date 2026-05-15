@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""勉強計画まわりの宅建ガイド記事を生成する。"""
+"""宅建ガイド記事を生成する。"""
 
 from __future__ import annotations
 
@@ -201,6 +201,172 @@ ARTICLES = [
 <h3 class="article-h3">統計を古い数字で覚える</h3><p class="article-p">統計は年度により更新されます。古い教材の数字をそのまま信じず、直前期の最新情報で確認します。</p>
 <h3 class="article-h3">時間をかけすぎる</h3><p class="article-p">税・その他は大切ですが、宅建業法ほど配点は大きくありません。直前期の上積み分野として、過去問中心に効率よく進めます。</p>
 <div class="cta-section"><div class="cta-title">税・その他を短く確認する</div><p class="cta-desc">頻出テーマを押さえたら、過去問で出題の形に慣れましょう。</p><a class="cta-btn" href="/quiz/past/?field=tax">過去問を解く</a></div></section>
+""",
+    },
+    {
+        "slug": "takken-gakusei",
+        "title": "大学生・専門学生が宅建を取るメリット｜就活での活かし方と勉強計画",
+        "short_title": "大学生・専門学生が宅建を取るメリット",
+        "description": "大学生・専門学生が宅建を取得するメリット、就職活動での活かし方、学年別の勉強計画を解説。不動産・金融・建設志望の学生向けに、無理なく合格を狙う進め方をまとめます。",
+        "eyebrow": "宅建 学生向け",
+        "lead": "学生の宅建取得は、不動産業界だけでなく金融、建設、住宅、保険などの就職活動でも説明しやすい強みになります。時間を作りやすい一方で先延ばしもしやすいので、学年と就活時期に合わせた計画が大切です。",
+        "toc": [
+            ("merit", "学生が宅建を取るメリット"),
+            ("job", "就活でどう伝えるか"),
+            ("grade", "学年別の計画"),
+            ("study", "学生向けの勉強法"),
+            ("caution", "注意点"),
+        ],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="merit"><span class="article-h2-num">1</span>学生が宅建を取るメリット</h2>
+<p class="article-p">宅建は受験資格がなく、学生でも受けられる国家資格です。不動産取引、契約、民法、税金、法令制限の基礎を学べるため、就職前にビジネスの土台を作れる点が大きなメリットです。</p>
+<div class="highlight-box"><div class="highlight-box-title">学生にとっての主なメリット</div><ul class="highlight-list">
+<li class="highlight-item">就職活動で、継続して学習した実績を説明しやすい。</li>
+<li class="highlight-item">不動産・金融・建設・住宅業界への志望理由に具体性が出る。</li>
+<li class="highlight-item">契約や不動産広告を見る力がつき、社会人になってからも役立つ。</li>
+<li class="highlight-item">社会人よりまとまった勉強時間を取りやすい。</li>
+</ul></div></section>
+<section class="article-section"><h2 class="article-h2" id="job"><span class="article-h2-num">2</span>就活でどう伝えるか</h2>
+<p class="article-p">履歴書に資格名を書くことも大切ですが、面接では「なぜ取ったのか」「どう学んだのか」「仕事でどう活かすのか」まで話せると強くなります。</p>
+<div class="article-table-wrap"><table class="article-table"><thead><tr><th>志望業界</th><th>伝え方</th><th>つなげる知識</th></tr></thead><tbody>
+<tr><td>不動産仲介</td><td>重要事項説明や宅建業法への関心を伝える</td><td>35条書面、37条書面、媒介契約</td></tr>
+<tr><td>金融</td><td>担保不動産や住宅ローンへの理解を伝える</td><td>抵当権、税金、登記</td></tr>
+<tr><td>建設・住宅</td><td>土地利用や建築制限への関心を伝える</td><td>用途地域、建ぺい率、容積率</td></tr>
+</tbody></table></div></section>
+<section class="article-section"><h2 class="article-h2" id="grade"><span class="article-h2-num">3</span>学年別の計画</h2>
+<p class="article-p">就活で使いたいなら、できれば大学2〜3年生のうちに合格しておくと説明しやすくなります。4年生でも内定後や卒業前の学習として価値があります。</p>
+<div class="article-table-wrap"><table class="article-table"><thead><tr><th>学年</th><th>おすすめ方針</th><th>注意点</th></tr></thead><tbody>
+<tr><td>1〜2年生</td><td>余裕を持って6ヶ月〜1年計画</td><td>試験が遠く感じて中断しやすい</td></tr>
+<tr><td>3年生</td><td>就活前の合格を狙う</td><td>インターンや授業予定と重ならないようにする</td></tr>
+<tr><td>4年生</td><td>内定後・卒業前に集中</td><td>入社後に活かす業務イメージまで持つ</td></tr>
+</tbody></table></div></section>
+<section class="article-section"><h2 class="article-h2" id="study"><span class="article-h2-num">4</span>学生向けの勉強法</h2>
+<p class="article-p">学生は時間を確保しやすい反面、毎日の強制力が弱くなりがちです。授業の空きコマ、通学時間、図書館に行く曜日を固定すると続きます。</p>
+<h3 class="article-h3">夏休みを使う</h3><p class="article-p">7〜8月はまとまった演習に向いています。ここで宅建業法と過去問を大きく進めると、9月以降の直前期が安定します。</p>
+<h3 class="article-h3">友人と進捗を共有する</h3><p class="article-p">同じ資格を目指す友人がいれば、週1回だけ進捗を確認します。競争より、学習を止めない仕組みとして使うのがコツです。</p></section>
+<section class="article-section"><h2 class="article-h2" id="caution"><span class="article-h2-num">5</span>注意点</h2>
+<p class="article-p">宅建に合格しても、すぐ宅建士として働くには登録や宅建士証の交付など別の手続きが必要です。就活では「合格」と「宅建士証の保有」を区別して説明しましょう。</p>
+<div class="cta-section"><div class="cta-title">学生のうちに過去問へ慣れる</div><p class="cta-desc">まずは出題形式を知るところから始めましょう。</p><a class="cta-btn" href="/quiz/past/">過去問を解く</a></div></section>
+""",
+    },
+    {
+        "slug": "takken-mikeiken-tenshoku",
+        "title": "未経験から宅建で不動産業界へ転職する方法｜求人選びと準備の進め方",
+        "short_title": "未経験から宅建で不動産業界へ転職する方法",
+        "description": "未経験から宅建を活かして不動産業界へ転職する方法を解説。職種別の違い、求人の見方、面接での伝え方、入社前に準備しておきたい知識をまとめます。",
+        "eyebrow": "宅建 転職",
+        "lead": "宅建は未経験転職の入口として使いやすい資格です。ただし、資格だけで転職が決まるわけではありません。職種ごとの仕事内容を理解し、自分の経験と宅建知識をどうつなげるかを準備することが重要です。",
+        "toc": [
+            ("value", "未経験転職で宅建が評価される理由"),
+            ("jobs", "職種別の向き不向き"),
+            ("resume", "履歴書・面接での伝え方"),
+            ("prepare", "入社前の準備"),
+            ("avoid", "避けたい求人選び"),
+        ],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="value"><span class="article-h2-num">1</span>未経験転職で宅建が評価される理由</h2>
+<p class="article-p">不動産会社では、一定数の専任の宅建士が必要です。また、重要事項説明や契約書面など宅建業法に関わる場面が多いため、宅建合格者は基礎知識を持つ人材として評価されやすくなります。</p>
+<div class="point-box"><span class="point-box-label">現実的な見方：</span>宅建は強い材料ですが、営業力、接客経験、事務処理力、継続力などの職務経験と組み合わせて伝えることで評価が上がります。</div></section>
+<section class="article-section"><h2 class="article-h2" id="jobs"><span class="article-h2-num">2</span>職種別の向き不向き</h2>
+<div class="article-table-wrap"><table class="article-table"><thead><tr><th>職種</th><th>仕事内容</th><th>向いている人</th></tr></thead><tbody>
+<tr><td>売買仲介</td><td>物件提案、内見、契約、重要事項説明</td><td>提案営業や高額商材の営業に挑戦したい人</td></tr>
+<tr><td>賃貸仲介</td><td>部屋探し、内見、申込み、契約</td><td>接客経験を活かしたい人</td></tr>
+<tr><td>不動産管理</td><td>入居者対応、オーナー対応、修繕調整</td><td>調整力や事務処理力を活かしたい人</td></tr>
+<tr><td>不動産事務</td><td>契約書類、更新、重要事項説明の補助</td><td>正確な作業やサポート業務が得意な人</td></tr>
+</tbody></table></div></section>
+<section class="article-section"><h2 class="article-h2" id="resume"><span class="article-h2-num">3</span>履歴書・面接での伝え方</h2>
+<p class="article-p">未経験の場合は、資格名だけでなく「なぜ不動産業界に移りたいのか」「前職の経験がどう活きるのか」を具体化します。</p>
+<div class="highlight-box"><div class="highlight-box-title">面接で話しやすい材料</div><ul class="highlight-list">
+<li class="highlight-item">宅建業法を学び、契約の重要性を理解した。</li>
+<li class="highlight-item">前職の接客・営業・事務経験を、不動産の顧客対応に活かしたい。</li>
+<li class="highlight-item">入社後は重要事項説明や契約実務まで担当できる人材を目指したい。</li>
+</ul></div></section>
+<section class="article-section"><h2 class="article-h2" id="prepare"><span class="article-h2-num">4</span>入社前の準備</h2>
+<p class="article-p">合格後すぐ実務ができるわけではないので、入社前には仕事内容に近い知識を補強します。売買なら重要事項説明、賃貸なら借地借家法、管理なら設備や修繕の基本を確認します。</p>
+<h3 class="article-h3">実務用語に慣れる</h3><p class="article-p">媒介契約、レインズ、重説、37条書面、原状回復など、現場で使う言葉を早めに確認しておくと入社後の吸収が早くなります。</p></section>
+<section class="article-section"><h2 class="article-h2" id="avoid"><span class="article-h2-num">5</span>避けたい求人選び</h2>
+<p class="article-p">未経験歓迎だけで判断せず、教育体制、休日、歩合比率、担当範囲、宅建手当の条件を確認します。資格手当がある場合も、専任登録が条件かどうかを見ておきましょう。</p>
+<div class="warn-box"><span class="warn-box-label">注意：</span>高収入だけを見て応募すると、営業スタイルや勤務時間が合わないことがあります。仕事内容と生活リズムまで含めて選ぶのが現実的です。</div>
+<div class="cta-section"><div class="cta-title">転職前に知識を固める</div><p class="cta-desc">宅建業法と重要事項説明の基礎を、過去問で確認しましょう。</p><a class="cta-btn" href="/quiz/past/?field=law">過去問を解く</a></div></section>
+""",
+    },
+    {
+        "slug": "takken-fudosan-gyokai",
+        "title": "不動産業界で宅建をどう活かす？営業・管理・事務で役立つ場面",
+        "short_title": "不動産業界で宅建をどう活かす？",
+        "description": "不動産業界で宅建資格が役立つ場面を、売買仲介、賃貸仲介、管理、事務、開発・住宅会社に分けて解説。資格手当やキャリアアップの考え方もまとめます。",
+        "eyebrow": "宅建 キャリア",
+        "lead": "宅建は不動産業界で広く使える資格ですが、職種によって活かし方は違います。営業で信頼を得るために使う場合もあれば、管理や事務で契約書類を正確に扱うために使う場合もあります。",
+        "toc": [
+            ("scene", "宅建が役立つ場面"),
+            ("sales", "営業職での活かし方"),
+            ("manage", "管理・事務での活かし方"),
+            ("allowance", "資格手当と評価"),
+            ("next", "次に伸ばすスキル"),
+        ],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="scene"><span class="article-h2-num">1</span>宅建が役立つ場面</h2>
+<p class="article-p">宅建の知識は、物件調査、広告、契約、重要事項説明、顧客対応、トラブル予防で役立ちます。試験知識をそのまま読むだけでなく、実務の流れの中で使える形に変えることが大切です。</p>
+<div class="article-table-wrap"><table class="article-table"><thead><tr><th>場面</th><th>役立つ知識</th><th>実務での意味</th></tr></thead><tbody>
+<tr><td>物件調査</td><td>登記、法令上の制限</td><td>説明漏れや調査不足を防ぐ</td></tr>
+<tr><td>広告</td><td>宅建業法の広告規制</td><td>誇大広告や表示ミスを避ける</td></tr>
+<tr><td>契約</td><td>35条・37条、媒介契約</td><td>顧客に正確に説明できる</td></tr>
+<tr><td>顧客対応</td><td>民法、借地借家法</td><td>相談の背景を理解しやすくなる</td></tr>
+</tbody></table></div></section>
+<section class="article-section"><h2 class="article-h2" id="sales"><span class="article-h2-num">2</span>営業職での活かし方</h2>
+<p class="article-p">営業職では、宅建を持っていること自体より、説明の説得力が上がることが大きな価値です。重要事項説明の担当、契約前の注意点整理、買主・借主の不安解消に活かせます。</p>
+<h3 class="article-h3">売買仲介</h3><p class="article-p">権利関係、道路、用途地域、建ぺい率・容積率などを理解していると、物件のリスクを早めに確認できます。</p>
+<h3 class="article-h3">賃貸仲介</h3><p class="article-p">借地借家法、原状回復、契約更新、重要事項説明の基本を押さえることで、入居前後のトラブルを減らしやすくなります。</p></section>
+<section class="article-section"><h2 class="article-h2" id="manage"><span class="article-h2-num">3</span>管理・事務での活かし方</h2>
+<p class="article-p">管理や事務では、契約書類の正確性、更新・解約の手続き、オーナーや入居者への説明で宅建知識が役立ちます。営業ほど表に出ない場面でも、ミスを防ぐ力として評価されます。</p>
+<div class="point-box"><span class="point-box-label">強み：</span>宅建を持つ事務職は、単なる入力担当ではなく、契約の意味を理解して確認できる人材として見られやすくなります。</div></section>
+<section class="article-section"><h2 class="article-h2" id="allowance"><span class="article-h2-num">4</span>資格手当と評価</h2>
+<p class="article-p">宅建手当の有無や金額は会社によって異なります。合格だけで支給される場合もあれば、専任の宅建士として登録することが条件の会社もあります。</p>
+<div class="warn-box"><span class="warn-box-label">確認：</span>求人票では、宅建手当の金額だけでなく、支給条件、専任登録の有無、重要事項説明の担当範囲を確認しましょう。</div></section>
+<section class="article-section"><h2 class="article-h2" id="next"><span class="article-h2-num">5</span>次に伸ばすスキル</h2>
+<p class="article-p">宅建の次は、営業なら提案力と住宅ローン、管理なら賃貸管理と修繕、事務なら契約書類と法改正対応を伸ばすと実務で使いやすくなります。</p>
+<div class="cta-section"><div class="cta-title">宅建業法を実務目線で確認する</div><p class="cta-desc">まずは重要事項説明と契約書面の出題を復習しましょう。</p><a class="cta-btn" href="/quiz/past/?field=law">過去問を解く</a></div></section>
+""",
+    },
+    {
+        "slug": "takken-fukugyo-dokuritsu",
+        "title": "宅建は副業・独立に使える？開業前に知るべき現実と準備",
+        "short_title": "宅建は副業・独立に使える？",
+        "description": "宅建資格を副業や独立に活かせるかを解説。宅建業免許、専任の宅建士、保証協会、実務経験、集客、開業前に準備すべきことを現実的にまとめます。",
+        "eyebrow": "宅建 独立",
+        "lead": "宅建は副業や独立の可能性を広げる資格ですが、資格だけで不動産業を始められるわけではありません。宅建業免許、事務所、保証協会、集客、実務経験など、開業前に確認すべき現実があります。",
+        "toc": [
+            ("reality", "宅建だけで独立できるわけではない"),
+            ("side", "副業で活かす方法"),
+            ("open", "開業に必要な準備"),
+            ("risk", "独立前のリスク"),
+            ("roadmap", "現実的なロードマップ"),
+        ],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="reality"><span class="article-h2-num">1</span>宅建だけで独立できるわけではない</h2>
+<p class="article-p">宅建試験に合格しても、それだけで不動産仲介業を始められるわけではありません。不動産業として反復継続して取引を行うには、宅建業免許や事務所、営業保証金または保証協会加入などが必要です。</p>
+<div class="warn-box"><span class="warn-box-label">注意：</span>宅建士資格と宅建業免許は別物です。個人で不動産業を開業する場合は、免許制度と開業コストを確認する必要があります。</div></section>
+<section class="article-section"><h2 class="article-h2" id="side"><span class="article-h2-num">2</span>副業で活かす方法</h2>
+<p class="article-p">副業としては、いきなり仲介業を開業するより、不動産知識を活かした周辺業務から始めるほうが現実的です。</p>
+<div class="article-table-wrap"><table class="article-table"><thead><tr><th>活かし方</th><th>内容</th><th>注意点</th></tr></thead><tbody>
+<tr><td>不動産会社の補助</td><td>重要事項説明、契約補助、物件調査</td><td>勤務先や登録条件を確認する</td></tr>
+<tr><td>不動産ライティング</td><td>用語解説、物件・制度の記事作成</td><td>法令情報の正確性が必要</td></tr>
+<tr><td>不動産投資の自己判断</td><td>重説や法令制限の確認</td><td>投資判断は別の知識も必要</td></tr>
+</tbody></table></div></section>
+<section class="article-section"><h2 class="article-h2" id="open"><span class="article-h2-num">3</span>開業に必要な準備</h2>
+<p class="article-p">開業を考えるなら、宅建業免許、事務所要件、専任の宅建士、保証協会、帳簿・書類管理、広告規制、顧客対応の流れを確認します。</p>
+<div class="highlight-box"><div class="highlight-box-title">開業前に確認すること</div><ul class="highlight-list">
+<li class="highlight-item">宅建士登録と宅建士証の交付を済ませる。</li>
+<li class="highlight-item">宅建業免許の要件と費用を確認する。</li>
+<li class="highlight-item">保証協会加入や営業保証金の資金計画を作る。</li>
+<li class="highlight-item">集客方法と得意分野を決める。</li>
+</ul></div></section>
+<section class="article-section"><h2 class="article-h2" id="risk"><span class="article-h2-num">4</span>独立前のリスク</h2>
+<p class="article-p">不動産仲介は、契約金額が大きく、説明漏れや調査不足が大きなトラブルにつながります。資格知識だけでなく、実務経験と確認体制が重要です。</p>
+<h3 class="article-h3">集客が最大の課題</h3><p class="article-p">免許や資格があっても、顧客がいなければ事業は成り立ちません。地域、物件種別、ターゲットを絞り、どう相談を得るかを考える必要があります。</p></section>
+<section class="article-section"><h2 class="article-h2" id="roadmap"><span class="article-h2-num">5</span>現実的なロードマップ</h2>
+<p class="article-p">まず宅建に合格し、不動産会社で実務を経験し、契約と調査の流れを身につけます。その後、得意分野と集客経路が見えてから副業・独立を検討すると失敗しにくくなります。</p>
+<div class="cta-section"><div class="cta-title">独立前に基礎を固める</div><p class="cta-desc">宅建業法と重要事項説明の問題を復習し、実務の土台を作りましょう。</p><a class="cta-btn" href="/quiz/past/?field=law">過去問を解く</a></div></section>
 """,
     },
 ]
