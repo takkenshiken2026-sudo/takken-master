@@ -13,6 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../site-pages.css">
   <style>
+    .guide-main {
+      max-width: 1040px;
+    }
+    .guide-breadcrumb {
+      margin-bottom: 14px;
+    }
     .guide-hero {
       background: #fff;
       border: 1px solid var(--border);
@@ -230,7 +236,14 @@
       </div>
     </header>
 
-    <main class="site-page-main">
+    <main class="site-page-main guide-main">
+      <nav class="guide-breadcrumb" aria-label="パンくず">
+        <ol class="q-breadcrumb">
+          <li><a href="../index.html">宅建マスター</a></li>
+          <li aria-current="page">試験ガイド</li>
+        </ol>
+      </nav>
+
       <section class="guide-hero" aria-labelledby="guide-title">
         <span class="guide-eyebrow">TAKKEN EXAM GUIDE</span>
         <h1 id="guide-title">宅建試験ガイド</h1>
@@ -376,6 +389,18 @@
                 <td>新しい教材を増やし続けること。</td>
               </tr>
               <tr>
+                <td>必要時間を知りたい</td>
+                <td><a href="../takken/takken-benkyou-jikan/index.html">勉強時間の目安</a></td>
+                <td>残り期間から週あたりの学習量を逆算し、宅建業法と過去問の時間を先に確保します。</td>
+                <td>総時間だけを見て、分野別の配分を決めないこと。</td>
+              </tr>
+              <tr>
+                <td>合格ラインが不安</td>
+                <td><a href="../takken/takken-goukakuten/index.html">合格点の考え方</a></td>
+                <td>年度ごとの合格点予想より、36〜38点を安定して取る分野別設計を優先します。</td>
+                <td>予想点を追いかけて、復習の優先順位がぶれること。</td>
+              </tr>
+              <tr>
                 <td>再受験</td>
                 <td><a href="../takken/takken-ocita/index.html">不合格後の対策</a></td>
                 <td>前回の失点分野と学習ログを見直し、解ける問題を落とさない設計にします。</td>
@@ -412,13 +437,13 @@
                 <td>法令上の制限</td>
                 <td>整理すれば伸ばしやすい分野</td>
                 <td>用途地域、建ぺい率・容積率、開発許可、農地法を表で比較します。</td>
-                <td><a href="../takken/takken-shiken-hani/index.html">試験範囲と全体像</a></td>
+                <td><a href="../takken/takken-hooreijou-seigen-study/index.html">法令上の制限の勉強法</a></td>
               </tr>
               <tr>
                 <td>税・その他</td>
                 <td>直前期の上積み分野</td>
                 <td>税率・軽減措置・統計を直前に更新し、取りやすい問題を拾います。</td>
-                <td><a href="../terms/index.html">用語集で確認</a></td>
+                <td><a href="../takken/takken-zei-sonota-study/index.html">税・その他の勉強法</a></td>
               </tr>
             </tbody>
           </table>
@@ -439,6 +464,16 @@
             <span class="guide-card-title">宅建試験の合格スケジュール</span>
             <span class="guide-card-desc">いつから始めるか、月ごとに何をやるかを具体化します。</span>
           </a>
+          <a class="guide-card" href="../takken/takken-benkyou-jikan/index.html">
+            <span class="guide-card-kicker">勉強時間</span>
+            <span class="guide-card-title">宅建の勉強時間は何時間必要？</span>
+            <span class="guide-card-desc">初学者・社会人・再受験者別に、必要時間と週あたりの学習量を逆算します。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-goukakuten/index.html">
+            <span class="guide-card-kicker">合格点</span>
+            <span class="guide-card-title">宅建の合格点は何点？</span>
+            <span class="guide-card-desc">年度で変わる合格ラインの考え方と、36〜38点を狙う分野別設計を整理します。</span>
+          </a>
           <a class="guide-card" href="../takken/takken-dokugaku/index.html">
             <span class="guide-card-kicker">独学</span>
             <span class="guide-card-title">宅建を独学で合格する方法</span>
@@ -458,6 +493,16 @@
             <span class="guide-card-kicker">権利関係</span>
             <span class="guide-card-title">権利関係（民法）の勉強法</span>
             <span class="guide-card-desc">難しい理由、頻出テーマ、目標得点を押さえて深追いを防ぎます。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-hooreijou-seigen-study/index.html">
+            <span class="guide-card-kicker">法令上の制限</span>
+            <span class="guide-card-title">法令上の制限の勉強法</span>
+            <span class="guide-card-desc">用途地域、建ぺい率・容積率、開発許可を表で整理して得点源にします。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-zei-sonota-study/index.html">
+            <span class="guide-card-kicker">税・その他</span>
+            <span class="guide-card-title">税・その他の勉強法</span>
+            <span class="guide-card-desc">税金、統計、5問免除科目を直前期に効率よく上積みする方法です。</span>
           </a>
         </div>
       </section>

@@ -17,6 +17,26 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/articles/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-benkyou-jikan/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-goukakuten/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-hooreijou-seigen-study/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-zei-sonota-study/index.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/q/past/y2013/q01/index.html</loc>
     <changefreq>monthly</changefreq>
   </url>
