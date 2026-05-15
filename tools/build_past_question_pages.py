@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-data/past_questions.csv から静的問題ページ q/past/... と q/index.html を生成する。
-CSV が空のときはプレースホルダーの q/index.html のみ出力する。
+静的問題ページ q/past/... と q/index.html を生成する。
 
-CSV 形式は賃管マスター（chintaikanrishi-master）の past_questions と同一ヘッダーを想定。
+優先順位:
+1. data/past_questions.csv（賃管マスターと同一ヘッダー）
+2. CSV が空なら takken-master-data.js の BASE_QUESTIONS を自動利用（--no-js-fallback で無効化）
+
+データがどちらも無いときは q/index.html にプレースホルダーのみ出力する。
 """
 
 from __future__ import annotations
@@ -29,8 +32,16 @@ from tools.html_footer import (  # noqa: E402
 )
 
 DATA_CSV_DEFAULT = ROOT / "data" / "past_questions.csv"
+MASTER_JS_DEFAULT = ROOT / "takken-master-data.js"
 Q_ROOT = ROOT / "q"
 BASE_DEFAULT = "https://takken-master.jp"
+
+FIELD_LABELS_JS = {
+    "rights": "権利関係",
+    "law": "宅建業法",
+    "limit": "法令上の制限",
+    "tax": "税・その他",
+}
 
 LABELS = [("ア", "statement_a"), ("イ", "statement_b"), ("ウ", "statement_c"), ("エ", "statement_d")]
 
@@ -108,6 +119,76 @@ def load_rows(csv_path: Path) -> list[dict]:
     text = csv_path.read_text(encoding="utf-8-sig")
     rows = list(csv.DictReader(text.splitlines()))
     return [r for r in rows if any(norm(v) for v in r.values())]
+
+
+def wareki_label(year: int) -> str:
+    """試験年度の西暦から一覧見出し用の元号表記。"""
+    if year <= 2018:
+        return f"平成{year - 1988}年度"
+    return f"令和{year - 2018}年度"
+
+
+def parse_base_questions(js_path: Path) -> list[dict]:
+    text = js_path.read_text(encoding="utf-8")
+    m = re.search(r"let\s+BASE_QUESTIONS\s*=\s*", text)
+    if not m:
+        raise ValueError("BASE_QUESTIONS が見つかりません: " + str(js_path))
+    idx = m.end()
+    while idx < len(text) and text[idx] in " \t\n":
+        idx += 1
+    decoder = json.JSONDecoder()
+    data, _end = decoder.raw_decode(text, idx)
+    if not isinstance(data, list):
+        raise ValueError("BASE_QUESTIONS は配列である必要があります")
+    return data
+
+
+def rows_from_master_js(js_path: Path) -> list[dict]:
+    """takken-master-data.js の過去問を CSV 行形式に変換する。"""
+    items = parse_base_questions(js_path)
+    rows: list[dict] = []
+    for q in items:
+        try:
+            year = int(q["year"])
+            num = int(q["num"])
+            opts = q.get("opts") or []
+            if len(opts) != 4:
+                continue
+            cor = q.get("ans")
+            if cor is None:
+                continue
+            ci = int(cor)
+            if not (1 <= ci <= 4):
+                continue
+            field = norm(q.get("field"))
+            rows.append(
+                {
+                    "exam_year": str(year),
+                    "exam_wareki": wareki_label(year),
+                    "question_no": str(num),
+                    "type": "single",
+                    "category": FIELD_LABELS_JS.get(field, field or "その他"),
+                    "tags": "",
+                    "stem": q.get("text") or "",
+                    "preamble": "",
+                    "statement_a": "",
+                    "statement_b": "",
+                    "statement_c": "",
+                    "statement_d": "",
+                    "choice_1": str(opts[0]),
+                    "choice_2": str(opts[1]),
+                    "choice_3": str(opts[2]),
+                    "choice_4": str(opts[3]),
+                    "correct": str(ci),
+                    "is_exempt": "FALSE",
+                    "is_invalidated": "FALSE",
+                    "note": "",
+                    "explanation": q.get("exp") or "",
+                }
+            )
+        except (KeyError, TypeError, ValueError):
+            continue
+    return rows
 
 
 def page_dict(row: dict, line_no: int) -> dict:
@@ -367,17 +448,34 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="過去問静的ページを q/ に生成")
     ap.add_argument("--base-url", default=BASE_DEFAULT)
     ap.add_argument("--csv", type=Path, default=None, help="past_questions.csv のパス（既定: data/past_questions.csv）")
+    ap.add_argument(
+        "--no-js-fallback",
+        action="store_true",
+        help="CSV が空でも takken-master-data.js は読まない",
+    )
+    ap.add_argument(
+        "--master-js",
+        type=Path,
+        default=None,
+        help="BASE_QUESTIONS を含む JS（既定: takken-master-data.js）",
+    )
     args = ap.parse_args()
     base = args.base_url.rstrip("/")
     csv_path = Path(args.csv).resolve() if args.csv else DATA_CSV_DEFAULT
 
     rows = load_rows(csv_path)
+    data_source = "csv" if rows else ""
+    if not rows and not args.no_js_fallback:
+        mj = Path(args.master_js).resolve() if args.master_js else MASTER_JS_DEFAULT
+        if mj.is_file():
+            rows = rows_from_master_js(mj)
+            data_source = "js"
 
     if not rows:
         Q_ROOT.mkdir(parents=True, exist_ok=True)
         q_placeholder = Q_ROOT / "index.html"
         q_placeholder.write_text(build_q_index_placeholder(base), encoding="utf-8")
-        print(f"no CSV data -> placeholder only: {q_placeholder}")
+        print(f"no data (CSV / JS) -> placeholder only: {q_placeholder}")
         return 0
 
     pages = [page_dict(r, i) for i, r in enumerate(rows, start=2)]
@@ -421,7 +519,7 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    print(f"wrote {len(pages)} question pages + {q_index}")
+    print(f"wrote {len(pages)} question pages + {q_index} (source: {data_source})")
     return 0
 
 

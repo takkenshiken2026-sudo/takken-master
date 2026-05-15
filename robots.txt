@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://takken-master.jp/sitemap.xml
