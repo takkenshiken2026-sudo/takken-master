@@ -39,6 +39,15 @@ CAT_ORDER = (
     "試験対策",
 )
 
+FIELD_LABELS = {
+    "rights": "権利関係",
+    "law": "宅建業法",
+    "limit": "法令上の制限",
+    "tax": "税・その他",
+}
+
+GLOSSARY_JS = ROOT / "takken-data-glossary.js"
+
 QUIZ_SCRIPT = """<script>
 function answerQuiz(q,el,ok){
   var b=document.getElementById(q);
@@ -55,7 +64,56 @@ def public_url(base: str, path: str) -> str:
     return base.rstrip("/") + "/" + path.lstrip("/")
 
 
-def scan_glossary_entries() -> list[dict]:
+def load_glossary_meta_by_slug() -> dict[str, dict]:
+    """takken-data-glossary.js から articleSlug → {term, reading, category}。"""
+    if not GLOSSARY_JS.is_file():
+        return {}
+    text = GLOSSARY_JS.read_text(encoding="utf-8")
+    m = re.search(r"const\s+GLOSSARY_DATA\s*=\s*(\[.*\])\s*;", text, re.S)
+    if not m:
+        return {}
+    try:
+        data = json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return {}
+    out: dict[str, dict] = {}
+    for item in data:
+        slug = (item.get("articleSlug") or str(item.get("id", "")).replace("_", "-")).strip()
+        if not slug:
+            continue
+        cat_key = item.get("cat", "")
+        out[slug] = {
+            "term": str(item.get("term", slug)).strip(),
+            "reading": str(item.get("reading", "")).strip(),
+            "category": FIELD_LABELS.get(cat_key, "その他"),
+        }
+    return out
+
+
+def short_label_from_html(raw: str, slug: str) -> str:
+    """静的 HTML のみの項目（試験対策など）用の短い表示名。"""
+    h1_m = re.search(r'class="term-h1">(.+?)</h1>', raw, re.I | re.S)
+    if h1_m:
+        t = h1_m.group(1)
+        t = re.sub(r"<span[^>]*>.*?</span>", "", t, flags=re.S)
+        t = re.sub(r"<[^>]+>", "", t)
+        t = re.sub(r"【[^】]*】", "", t)
+        t = re.split(r"[｜|]", t, maxsplit=1)[0]
+        t = re.split(r"とは", t, maxsplit=1)[0].strip(" ？?・ ")
+        if t:
+            return t
+    title_m = re.search(r"<title>([^<|｜]+)", raw, re.I)
+    if title_m:
+        t = title_m.group(1).strip()
+        t = re.split(r"[｜|]", t, maxsplit=1)[0]
+        t = re.split(r"とは", t, maxsplit=1)[0].strip(" ？?")
+        if t:
+            return t
+    return slug.replace("-", " ")
+
+
+def scan_glossary_entries(meta_by_slug: dict[str, dict] | None = None) -> list[dict]:
+    meta_by_slug = meta_by_slug or load_glossary_meta_by_slug()
     entries: list[dict] = []
     for d in sorted(GLOSSARY_DIR.iterdir()):
         if not d.is_dir() or d.name.startswith("."):
@@ -63,20 +121,26 @@ def scan_glossary_entries() -> list[dict]:
         idx = d / "index.html"
         if not idx.is_file():
             continue
+        slug = d.name
         raw = idx.read_text(encoding="utf-8")
-        cat_m = re.search(r'class="term-category">([^<]+)<', raw)
-        h1_m = re.search(r'class="term-h1">([^<]+)<', raw)
-        read_m = re.search(r'class="term-reading">（([^）]+)）<', raw)
-        title_m = re.search(r"<title>([^<]+)</title>", raw)
-        term = (h1_m.group(1) if h1_m else title_m.group(1) if title_m else d.name).strip()
-        term = re.sub(r"【宅建】.*", "", term).strip()
+        js = meta_by_slug.get(slug)
+        if js:
+            term = js["term"]
+            reading = js["reading"]
+            category = js["category"]
+        else:
+            cat_m = re.search(r'class="term-category">([^<]+)<', raw)
+            read_m = re.search(r'class="term-reading">（([^）]+)）<', raw)
+            term = short_label_from_html(raw, slug)
+            reading = read_m.group(1) if read_m else ""
+            category = cat_m.group(1).strip() if cat_m else "その他"
         entries.append(
             {
-                "slug": d.name,
+                "slug": slug,
                 "term": term,
-                "reading": read_m.group(1) if read_m else "",
-                "category": cat_m.group(1).strip() if cat_m else "その他",
-                "href": f"{d.name}/index.html",
+                "reading": reading,
+                "category": category,
+                "href": f"{slug}/index.html",
             }
         )
     return entries
@@ -138,13 +202,15 @@ def fix_extract_rich_content(raw: str) -> str:
     return content
 
 
-def build_term_page(slug: str, raw: str) -> str:
+def build_term_page(slug: str, raw: str, meta_by_slug: dict[str, dict] | None = None) -> str:
     head = extract_head_bits(raw)
     content = fix_extract_rich_content(raw)
     if len(content.strip()) < 200:
         raise ValueError(f"{slug}: 本文の抽出に失敗しました（page-wrap が見つからないか中身が空です）")
+    meta_by_slug = meta_by_slug or load_glossary_meta_by_slug()
     rel_path = Path("glossary") / slug / "index.html"
-    term_label = head["title"].split("｜")[0].strip() if head["title"] else slug
+    short = meta_by_slug.get(slug, {}).get("term")
+    term_label = short or head["title"].split("｜")[0].strip() if head["title"] else slug
     crumb = [
         ("トップ", "index.html"),
         ("用語解説一覧", "glossary/index.html"),
@@ -214,10 +280,22 @@ def build_glossary_index(entries: list[dict]) -> str:
     cat_keys = ordered_categories(by_cat)
     body_sections: list[str] = []
     for i, cat in enumerate(cat_keys):
-        lis = [
-            f'    <li><a href="{html.escape(e["href"])}">{html.escape(e["term"])}</a></li>'
-            for e in by_cat[cat]
-        ]
+        lis = []
+        for e in by_cat[cat]:
+            reading_attr = (
+                f' data-reading="{html.escape(e["reading"], quote=True)}"'
+                if e.get("reading")
+                else ""
+            )
+            title_attr = (
+                f' title="{html.escape(e["reading"], quote=True)}"'
+                if e.get("reading")
+                else ""
+            )
+            lis.append(
+                f'    <li{reading_attr}><a href="{html.escape(e["href"])}"{title_attr}>'
+                f"{html.escape(e['term'])}</a></li>"
+            )
         hid = f"terms-idx-cat-{i}"
         body_sections.append(
             f'<section class="terms-idx-cat" aria-labelledby="{hid}">\n'
@@ -281,8 +359,8 @@ def build_glossary_index(entries: list[dict]) -> str:
       let anyInCat = 0;
       items.forEach((li) => {{
         const a = li.querySelector('a');
-        const t = norm(a?.textContent || '');
-        const ok = catOk && (!query || t.includes(query));
+        const hay = norm(a?.textContent || '') + ' ' + norm(li.getAttribute('data-reading') || '');
+        const ok = catOk && (!query || hay.includes(query));
         li.classList.toggle('hide', !ok);
         if (ok) {{ anyInCat++; shown++; }}
       }});
@@ -372,23 +450,63 @@ def build_glossary_index(entries: list[dict]) -> str:
 """
 
 
+def refresh_term_breadcrumbs(entries: list[dict]) -> None:
+    """既存の site-page シェルで、パンくずの現在地ラベルを短い用語名に揃える。"""
+    for e in entries:
+        path = GLOSSARY_DIR / e["slug"] / "index.html"
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8")
+        if 'class="site-page-wrap"' not in raw:
+            continue
+        label = e["term"]
+        new_raw, n = re.subn(
+            r'(<li aria-current="page">)([^<]*)(</li>)',
+            lambda m: m.group(1) + html.escape(label) + m.group(3),
+            raw,
+            count=1,
+        )
+        if n:
+            path.write_text(new_raw, encoding="utf-8")
+
+
 def main() -> None:
-    entries = scan_glossary_entries()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="glossary 静的ページを生成・更新")
+    parser.add_argument(
+        "--index-only",
+        action="store_true",
+        help="一覧 index.html のみ再生成（個別ページは触らない）",
+    )
+    parser.add_argument(
+        "--terms",
+        action="store_true",
+        help="個別用語ページのシェルも再生成（未変換の legacy のみ）",
+    )
+    args = parser.parse_args()
+
+    meta = load_glossary_meta_by_slug()
+    entries = scan_glossary_entries(meta)
     if not entries:
         raise SystemExit("glossary entries not found")
     GLOSSARY_DIR.mkdir(exist_ok=True)
-    for e in entries:
-        slug = e["slug"]
-        path = GLOSSARY_DIR / slug / "index.html"
-        raw = path.read_text(encoding="utf-8")
-        if 'class="site-page-wrap"' in raw and 'class="page-wrap"' not in raw:
-            print(f"  skip (already new shell): {slug}")
-            continue
-        path.write_text(build_term_page(slug, raw), encoding="utf-8")
-        print(f"  term: {slug}")
+
+    if args.terms:
+        for e in entries:
+            slug = e["slug"]
+            path = GLOSSARY_DIR / slug / "index.html"
+            raw = path.read_text(encoding="utf-8")
+            if 'class="site-page-wrap"' in raw and 'class="page-wrap"' not in raw:
+                print(f"  skip (already new shell): {slug}")
+                continue
+            path.write_text(build_term_page(slug, raw, meta), encoding="utf-8")
+            print(f"  term: {slug}")
+
     index_path = GLOSSARY_DIR / "index.html"
     index_path.write_text(build_glossary_index(entries), encoding="utf-8")
-    print(f"index: {len(entries)} terms -> {index_path}")
+    refresh_term_breadcrumbs(entries)
+    print(f"index: {len(entries)} terms -> {index_path} (JS meta: {len(meta)} slugs)")
 
 
 if __name__ == "__main__":
