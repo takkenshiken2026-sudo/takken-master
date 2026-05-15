@@ -14,7 +14,7 @@ SITE_COPYRIGHT = "© 2026 宅建マスター学習支援（非公式）・takken
 SITE_HEADER_NAV: list[tuple[str, str, str]] = [
     ("トップ", "index.html", "top"),
     ("このサイトについて", "about.html", "about"),
-    ("過去問一覧", "index.html", "past"),
+    ("過去問一覧", "q/index.html", "q"),
     ("用語集", "terms/index.html", "terms"),
     ("関連リンク", "related-sites.html", "related"),
     ("プライバシー", "privacy-terms.html", "privacy"),
@@ -23,7 +23,7 @@ SITE_HEADER_NAV: list[tuple[str, str, str]] = [
 SITE_FOOTER_NAV: list[tuple[str, str, str]] = [
     ("トップ", "index.html", "top"),
     ("このサイトについて", "about.html", "about"),
-    ("過去問一覧", "index.html", "past"),
+    ("過去問一覧", "q/index.html", "q"),
     ("用語集", "terms/index.html", "terms"),
     ("試験ガイド", "takken/takken-to-wa/index.html", "articles"),
     ("関連リンク", "related-sites.html", "related"),
@@ -36,13 +36,81 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     site_rel = site_rel.lstrip("/")
     parent = rel_path.parent
     parts = parent.parts
-    if site_rel == "terms/index.html" and parts and parts[-1] == "terms":
-        return "index.html"
+
+    # terms/<slug>/... → terms/index.html
+    if site_rel == "terms/index.html" and parts and parts[0] == "terms":
+        if parts == ("terms",):
+            return "index.html"
+        return "/".join([".."] * (len(parts) - 1)) + "/index.html"
+
+    # q/index.html（q 配下はカレントが q の index）
+    if site_rel == "q/index.html":
+        if not parts:
+            return "q/index.html"
+        if parts[0] == "q":
+            depth_under_q = len(parts) - 1
+            if depth_under_q <= 0:
+                return "index.html"
+            return "/".join([".."] * depth_under_q) + "/index.html"
+        up = len(parts)
+        prefix = "/".join([".."] * up)
+        return f"{prefix}/q/index.html" if prefix else "q/index.html"
+
+    # q/past/... からの相対（賃管マスター踏襲）
     up = len(parts)
+    if (
+        len(parts) >= 3
+        and parts[0] == "q"
+        and parts[1] == "past"
+        and site_rel.startswith("q/")
+        and site_rel.count("/") == 1
+    ):
+        up = len(parts) - 1
     prefix = "/".join([".."] * up)
     if not prefix:
         return site_rel
     return prefix + "/" + site_rel
+
+
+def static_q_site_header(*, root_href: str, breadcrumb_items: list[tuple[str, str | None]]) -> str:
+    """過去問一覧・個別問題ページ用の q-static ヘッダー。"""
+    lis: list[str] = []
+    for text, href in breadcrumb_items:
+        if href:
+            lis.append(f'<li><a href="{html.escape(href)}">{html.escape(text)}</a></li>')
+        else:
+            lis.append(f'<li aria-current="page">{html.escape(text)}</li>')
+    crumbs = "\n      ".join(lis)
+    return f"""<header class="q-static-header">
+  <p class="q-static-brand"><a href="{html.escape(root_href)}">宅建マスター</a>（宅地建物取引士）</p>
+  <nav aria-label="パンくず">
+    <ol class="q-breadcrumb">
+      {crumbs}
+    </ol>
+  </nav>
+</header>"""
+
+
+def static_q_footer_block(rel_path: Path) -> str:
+    """過去問静的ページ用フッター（GA は未設定のため省略）。"""
+
+    def h(dest: str) -> str:
+        return html.escape(footer_href(rel_path, dest))
+
+    return f"""<footer class="q-static-footer">
+  <nav class="q-static-footer-nav" aria-label="サイトの他ページ">
+    <a href="{h("index.html")}">トップ</a>
+    <a href="{h("about.html")}">このサイトについて</a>
+    <a href="{h("q/index.html")}">過去問一覧</a>
+    <a href="{h("terms/index.html")}">用語集</a>
+    <a href="{h("takken/takken-to-wa/index.html")}">試験ガイド</a>
+    <a href="{h("related-sites.html")}">関連リンク</a>
+    <a href="{h("privacy-terms.html")}">プライバシー</a>
+    <a href="{html.escape(FORM_URL)}" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+  </nav>
+  <p><small>{html.escape(FOOTER_DISCLAIMER)}</small></p>
+  <p><small>{html.escape(SITE_COPYRIGHT)}</small></p>
+</footer>"""
 
 
 def _breadcrumb_ol(rel_path: Path, items: list[tuple[str, str | None]]) -> str:
