@@ -226,16 +226,18 @@ body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:v
 /* ===== APP LAYOUT ===== */
 #app{display:block;min-height:100vh}
 /* ---- top header ---- */
-.topnav{position:sticky;top:0;z-index:30;background:#ffffff;border-bottom:1px solid var(--border)}
+.topnav{position:sticky;top:0;z-index:30;background:#ffffff;border-bottom:1px solid var(--border);box-shadow:var(--sh)}
 .topnav-inner{max-width:1080px;margin:0 auto;padding:0 20px;height:54px;display:flex;align-items:center;gap:0}
 .topnav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text);cursor:pointer;margin-right:28px;flex-shrink:0;pointer-events:auto}
 .topnav-logo-mark{width:28px;height:28px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--bg2);flex-shrink:0;font-family:var(--font)}
+.topnav-logo-stack{display:flex;flex-direction:column;align-items:flex-start;gap:1px;line-height:1.15;min-width:0}
 .topnav-logo-text{font-size:16px;font-weight:700;letter-spacing:-0.01em;white-space:nowrap}
+.topnav-logo-sub{font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0;line-height:1.25;white-space:normal;max-width:min(220px,52vw)}
 .topnav-links{display:flex;align-items:center;gap:2px;flex:1}
 .topnav-link{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:var(--r);cursor:pointer;font-size:14px;color:var(--text2);transition:all .15s;white-space:nowrap;border:none;background:none;font-family:var(--font);text-decoration:none}
 .topnav-link:hover{background:var(--bg3);color:var(--text)}
 .topnav-link.active{background:var(--bg3);color:var(--text);font-weight:600}
-#tnav-glossary.topnav-link,#tnav-audio.topnav-link{border-radius:0}
+#tnav-glossary.topnav-link{border-radius:0}
 .topnav-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 /* mobile hamburger */
 .topnav-login-btn{margin-left:auto;padding:6px 14px;border-radius:var(--r);border:1px solid var(--border2);background:var(--ink);color:var(--bg2);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font);white-space:nowrap;flex-shrink:0;transition:opacity .15s}
@@ -254,7 +256,7 @@ body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:v
 .mobile-nav-item{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:var(--r);cursor:pointer;font-size:14px;color:var(--text2);transition:all .15s;border:none;background:none;font-family:var(--font);width:100%;text-align:left;text-decoration:none}
 .mobile-nav-item:hover{background:var(--bg3);color:var(--text)}
 .mobile-nav-item.active{background:var(--ink);color:var(--bg2);font-weight:600}
-#mnav-glossary.mobile-nav-item,#mnav-audio.mobile-nav-item{border-radius:0}
+#mnav-glossary.mobile-nav-item{border-radius:0}
 .mobile-nav-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 /* legacy compat */
 .sidebar{display:none}
@@ -262,7 +264,8 @@ body{font-family:var(--font);font-size:var(--fs-body);background:#f0f0f1;color:v
 .main{min-height:calc(100vh - 54px);padding-bottom:68px}
 .topbar{display:none!important}
 .page{display:none;padding:28px 20px;max-width:960px;margin:0 auto}
-.page#page-quiz-start{max-width:1080px}
+.page#page-quiz-start{max-width:none}
+#page-quiz-start.page.active{background:#f0f0f1;min-height:calc(100vh - 54px - 40px);border-left:none;border-right:none}
 .page.active{background:#ffffff;min-height:calc(100vh - 54px - 40px);border-left:1px solid var(--border);border-right:1px solid var(--border)}
 .page.active{display:block}
 h1,h2{font-weight:inherit;font-size:inherit;margin:0;padding:0}
@@ -362,6 +365,27 @@ h2.section-label .tip-icon{width:13px;height:13px;font-size:9px}
 .mode-purpose-v2{font-size:12px;color:var(--text2);font-weight:500;margin-bottom:3px}
 .mode-title-v2{font-size:16px;font-weight:700;color:var(--text);line-height:1.3}
 .mode-arrow-v2{color:var(--text3);font-size:16px;flex-shrink:0}
+/* トップ（exam-site-shell / eisei1 系）：灰地に角なしセクション */
+.home-shell{width:100%;max-width:860px;margin:0 auto}
+.home-hero{margin-bottom:4px}
+.home-hero .page-title{margin-bottom:8px;letter-spacing:-0.02em}
+.home-hero .home-lead{font-size:15px;line-height:1.65;color:var(--text2);margin-bottom:26px}
+.home-section{background:var(--bg);border:1px solid var(--border);border-radius:0;padding:22px 22px 20px;margin-bottom:16px;box-shadow:var(--sh)}
+.home-section-head{font-size:1.05rem;font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);color:var(--ink);line-height:1.35}
+.home-section-lead{font-size:14px;color:var(--text2);line-height:1.65;margin:-4px 0 14px}
+.home-section-note{font-size:13px;color:var(--text3);line-height:1.6;margin:-4px 0 12px}
+.home-section .mode-list-v2{margin-bottom:0}
+.home-section-today .home-section-head{margin-bottom:14px}
+#page-quiz-start .mode-card-v2{background:#fff;border:1px solid var(--border);border-radius:0;box-shadow:none}
+#page-quiz-start .mode-card-v2:hover{border-color:var(--border2);box-shadow:var(--sh);transform:none;background:var(--bg3)}
+.home-quick-row{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.home-quick-item{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;font-size:13px;font-weight:700;color:var(--text);background:var(--bg2);border:1px solid var(--border2);border-radius:0;text-decoration:none;font-family:var(--font);transition:all .15s;cursor:pointer;box-shadow:none}
+.home-quick-item:hover{border-color:var(--text2);background:var(--bg3);box-shadow:none}
+.home-quick-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+#page-quiz-start .lv-streak-row{margin-bottom:16px}
+#page-quiz-start .level-badge-wrap,#page-quiz-start .streak-bar{border-radius:0;border-width:1px;border-color:var(--border)}
+#page-quiz-start .mission-card{border-radius:0;border-width:1px;border-color:var(--border);background:var(--bg2);box-shadow:none}
+#page-quiz-start .mission-card{margin-bottom:0}
 .mode-card{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:18px;cursor:pointer;transition:all .18s;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column}
 .mode-card:hover{box-shadow:var(--sh2);border-color:var(--text2);transform:translateY(-1px)}
 .mode-card.selected{border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0,0.06)}
@@ -865,6 +889,7 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .topnav-logo{margin-right:8px}
   .topnav-logo-mark{width:26px;height:26px;font-size:11px}
   .topnav-logo-text{font-size:15px}
+  .topnav-logo-sub{font-size:9px;max-width:min(200px,58vw)}
   .focus-btn{margin-left:auto;margin-right:6px;width:34px;height:34px}
   .topnav-login-btn,.topnav-logout-btn{margin-left:0;margin-right:6px;padding:6px 9px;font-size:12px;height:34px}
   .topnav-hamburger{margin-left:0;width:34px;height:34px}
@@ -895,6 +920,10 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
   .mode-purpose-v2{font-size:12px;margin-bottom:2px}
   .mode-title-v2{font-size:17px;line-height:1.25}
   .mode-arrow-v2{font-size:15px}
+  .home-quick-item{font-size:12px;padding:8px 10px;gap:6px}
+  .home-quick-item svg{width:13px;height:13px}
+  #page-quiz-start .home-section{padding:18px 16px 16px;margin-bottom:12px}
+  #page-quiz-start .home-section-head{font-size:1rem;margin-bottom:10px;padding-bottom:6px}
   .year-grid{grid-template-columns:repeat(3,1fr)}
   .analytics-grid{grid-template-columns:1fr}
   .account-grid{grid-template-columns:1fr}
@@ -1390,9 +1419,12 @@ body.is-solving .site-footer{display:none!important}
   <!-- TOP NAV -->
   <nav class="topnav">
     <div class="topnav-inner">
-      <a class="topnav-logo" href="/" onclick="event.preventDefault();gotoPage('quiz-start')" aria-label="宅建マスター トップページ">
-        <div class="topnav-logo-mark">宅建</div>
-        <span class="topnav-logo-text">宅建マスター</span>
+      <a class="topnav-logo" href="/" onclick="event.preventDefault();gotoPage('quiz-start')" aria-label="宅建マスター、宅地建物取引士試験対策のトップへ">
+        <div class="topnav-logo-mark" title="宅建マスターの略表記">宅建</div>
+        <span class="topnav-logo-stack">
+          <span class="topnav-logo-text">宅建マスター</span>
+          <span class="topnav-logo-sub">宅地建物取引士試験</span>
+        </span>
       </a>
       <nav class="topnav-links" aria-label="メインナビゲーション">
         <a class="topnav-link" id="tnav-ichimondou" href="/quiz/ichimondou/" onclick="event.preventDefault();startIchimondou()">
@@ -1404,20 +1436,14 @@ body.is-solving .site-footer{display:none!important}
         <a class="topnav-link" id="tnav-orig" href="/quiz/orig/" onclick="event.preventDefault();gotoPage('orig')">
           <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>オリジナル問題
         </a>
-        <a class="topnav-link" id="tnav-mock" href="/quiz/mock/" onclick="event.preventDefault();gotoPage('mock')">
-          <svg viewBox="0 0 16 16"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>オリジナル模試
-        </a>
-        <a class="topnav-link" id="tnav-dash" href="/dashboard/" onclick="event.preventDefault();gotoPage('dash')">
+        <a class="topnav-link" id="tnav-dash" href="#dash" onclick="event.preventDefault();gotoPage('dash')">
           <svg viewBox="0 0 16 16"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>記録・分析
         </a>
-        <a class="topnav-link" id="tnav-review" href="/review/" onclick="event.preventDefault();gotoPage('review')">
+        <a class="topnav-link" id="tnav-review" href="#review" onclick="event.preventDefault();gotoPage('review')">
           <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
         </a>
         <a class="topnav-link" id="tnav-glossary" href="terms/index.html">
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
-        </a>
-        <a class="topnav-link" id="tnav-audio" href="/audio/" onclick="event.preventDefault();gotoPage('audio')">
-          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><polygon points="6,5.5 6,10.5 11,8" fill="currentColor" stroke="none"/></svg>音声学習
         </a>
       </nav>
       <button class="focus-btn" id="focus-btn" onclick="toggleFocusPanel()" aria-label="集中タイマー">
@@ -1490,20 +1516,14 @@ body.is-solving .site-footer{display:none!important}
       <a class="mobile-nav-item" id="mnav-orig" href="/quiz/orig/" onclick="event.preventDefault();gotoPage('orig');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>オリジナル問題
       </a>
-      <a class="mobile-nav-item" id="mnav-mock" href="/quiz/mock/" onclick="event.preventDefault();gotoPage('mock');closeMobileDrawer()">
-        <svg viewBox="0 0 16 16"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>オリジナル模試
-      </a>
-      <a class="mobile-nav-item" id="mnav-dash" href="/dashboard/" onclick="event.preventDefault();gotoPage('dash');closeMobileDrawer()">
+      <a class="mobile-nav-item" id="mnav-dash" href="#dash" onclick="event.preventDefault();gotoPage('dash');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>記録・分析
       </a>
-      <a class="mobile-nav-item" id="mnav-review" href="/review/" onclick="event.preventDefault();gotoPage('review');closeMobileDrawer()">
+      <a class="mobile-nav-item" id="mnav-review" href="#review" onclick="event.preventDefault();gotoPage('review');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
       </a>
       <a class="mobile-nav-item" id="mnav-glossary" href="terms/index.html" onclick="closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
-      </a>
-      <a class="mobile-nav-item" id="mnav-audio" href="/audio/" onclick="event.preventDefault();gotoPage('audio');closeMobileDrawer()">
-        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><polygon points="6,5.5 6,10.5 11,8" fill="currentColor" stroke="none"/></svg>音声学習
       </a>
 
     </div>
@@ -1529,16 +1549,22 @@ body.is-solving .site-footer{display:none!important}
 
     <!-- QUIZ START -->
     <div class="page active" id="page-quiz-start">
+      <div class="home-shell">
       <nav class="breadcrumb" aria-label="パンくずリスト">
         <ol class="breadcrumb-list">
           <li class="breadcrumb-item"><a href="/" onclick="event.preventDefault();gotoPage('quiz-start')">宅建マスター</a></li>
           <li class="breadcrumb-item breadcrumb-current" aria-current="page">問題を解く</li>
         </ol>
       </nav>
-      <h2 class="page-title">問題を解く</h2>
-      <div class="page-sub">学習目的に合わせてモードを選んでください</div>
+      <header class="home-hero">
+        <h2 class="page-title">問題を解く</h2>
+        <p class="page-sub home-lead">過去問・オリジナル問題・一問一答から演習を始められます。解答は自動で記録され、<strong>記録・分析</strong>や<strong>復習</strong>で弱点把握に使えます。</p>
+      </header>
 
-      <div class="mode-list-v2">
+      <section class="home-section" aria-labelledby="home-sec-modes">
+        <h3 class="home-section-head" id="home-sec-modes">演習モード</h3>
+        <p class="home-section-lead">学習目的に合わせて選んでください。</p>
+        <div class="mode-list-v2">
         <div class="mode-card-v2" onclick="startIchimondou()">
           <div class="mode-num-v2">01</div>
           <div class="mode-body-v2">
@@ -1563,9 +1589,37 @@ body.is-solving .site-footer{display:none!important}
           </div>
           <div class="mode-arrow-v2">›</div>
         </div>
-      </div>
+        </div>
+      </section>
 
-      <div id="daily-status-wrap"></div>
+      <section class="home-section" aria-labelledby="home-sec-tools">
+        <h3 class="home-section-head" id="home-sec-tools">記録と復習</h3>
+        <p class="home-section-note">統計・おすすめ復習・用語はこちらから。</p>
+        <div class="home-quick-row" role="navigation" aria-label="記録・復習・用語へのショートカット">
+        <a class="home-quick-item" href="#dash" onclick="event.preventDefault();gotoPage('dash')">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>
+          記録・分析
+        </a>
+        <a class="home-quick-item" href="#review" onclick="event.preventDefault();gotoPage('review')">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h8M2 12h10"/></svg>
+          復習
+        </a>
+        <a class="home-quick-item" href="terms/index.html">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+          用語解説
+        </a>
+        <a class="home-quick-item" href="#past" onclick="event.preventDefault();gotoPage('past-config')">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2h10v12H3z"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>
+          過去問（年度・分野）
+        </a>
+        </div>
+      </section>
+
+      <section class="home-section home-section-today" aria-labelledby="home-sec-today">
+        <h3 class="home-section-head" id="home-sec-today">今日の進捗</h3>
+        <div id="daily-status-wrap"></div>
+      </section>
+      </div>
     </div>
 
     <!-- 一問一答 -->
@@ -1712,6 +1766,16 @@ body.is-solving .site-footer{display:none!important}
         </div>
       </div>
       <div class="page-sub" id="dash-greeting">おかえりなさい</div>
+      <div class="card dash-intro-panel" style="margin:0 0 14px;padding:16px 18px;font-size:14px;line-height:1.65;color:var(--text2)">
+        <p style="margin:0 0 8px;color:var(--text);font-weight:700">記録・分析でできること</p>
+        <ul style="margin:0 0 0 1.15em;padding:0">
+          <li style="margin-bottom:6px">期間タブで<strong>総解答数・全体正答率・連続正解・学習日数</strong>を切り替えて確認</li>
+          <li style="margin-bottom:6px"><strong>理解度レーダー</strong>と<strong>分野別／単元別のバー</strong>で、今の実力バランスと弱点を把握</li>
+          <li style="margin-bottom:6px"><strong>学習日記カレンダー</strong>にメモを残し、その日の解答数と振り返りをひも付け</li>
+          <li><strong>バッジ・レベル</strong>で継続学習の達成を可視化</li>
+        </ul>
+        <p style="margin:12px 0 0;margin-bottom:0">表示されるデータは、<strong>過去問・オリジナル問題・一問一答</strong>の解答から自動で溜まります。まずトップから演習を始めると、グラフと統計が育っていきます。</p>
+      </div>
       <div class="dash-period-custom" id="dash-period-custom-row">
         <input class="dash-period-input" type="date" id="dash-date-from" onchange="setDashPeriod('custom')" aria-label="開始日">
         <span class="dash-period-sep">〜</span>
@@ -1770,6 +1834,15 @@ body.is-solving .site-footer{display:none!important}
       </nav>
       <h2 class="page-title">復習</h2>
       <div class="page-sub">おすすめ・ブックマーク・不正解から選んで再学習できます。</div>
+      <div class="card review-intro-panel" style="margin-bottom:16px;padding:16px 18px;font-size:14px;line-height:1.65;color:var(--text2)">
+        <p style="margin:0 0 8px;color:var(--text);font-weight:700">復習の進め方</p>
+        <ol style="margin:0 0 0 1.15em;padding:0">
+          <li style="margin-bottom:6px"><strong>おすすめの再学習テーマ</strong>：解答履歴から苦手になりやすい分野を優先度付きで提案し、まとめて演習に進めます。</li>
+          <li style="margin-bottom:6px"><strong>ブックマーク</strong>：演習中に付けた「あとで見返す」問題とメモをまとめて開けます。</li>
+          <li><strong>不正解</strong>：一度でも誤答した問題を分野・年度（または単元）ごとに並べ、解説を踏まえて再チャレンジできます。</li>
+        </ol>
+        <p style="margin:12px 0 0;margin-bottom:0">各カードをタップするとその問題の演習へ進みます。記録の推移は<strong>記録・分析</strong>タブの統計・レーダーとあわせて使うと効果的です。</p>
+      </div>
       <div id="review-list"></div>
     </div>
 
@@ -2844,7 +2917,7 @@ function renderDailyStatus(){
   const calloutHTML = window._missionSpotlightPending
     ? `<div class="mission-callout"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v7"/><path d="M5 6l3 3 3-3"/><path d="M3 13h10"/></svg><span>今日のミッションはこれです。まず1つ、解いてみよう！</span></div>`
     : '';
-  wrap.innerHTML=`<div class="mission-card${spotlight}" id="today-mission-card">${calloutHTML}<div class="mode-card-header"><div class="mode-icon-wrap"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div><div class="mode-card-title">今日のミッション</div></div>${mHTML}</div>`;
+  wrap.innerHTML=`${statusHTML}<div class="mission-card${spotlight}" id="today-mission-card">${calloutHTML}<div class="mode-card-header"><div class="mode-icon-wrap"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div><div class="mode-card-title">今日のミッション</div></div>${mHTML}</div>`;
   if(window._missionSpotlightPending){
     window._missionSpotlightPending=false;
     setTimeout(()=>{
@@ -4062,11 +4135,9 @@ function gotoPage(id){
     const map = {
       'orig':     id==='orig' || fromOrig,
       'past':     fromPastNav,
-      'mock':     inMockFlow,
       'ichimondou': id==='ichimondou' || id==='ichimondou-score',
       'dash':     id==='dash',
       'review':   id==='review',
-      'audio':    id==='audio',
     };
     Object.entries(map).forEach(([k,active])=>{
       const tn = document.getElementById('tnav-'+k);
@@ -4321,7 +4392,9 @@ function renderDash(){
   const u=getUserData();
   renderDashPeriodStats();
   const h=new Date().getHours();
-  document.getElementById('dash-greeting').textContent=`${h<12?'おはようございます':'おかえりなさい'}、${currentUser.name}さん`;
+  const who=(currentUser&&currentUser.name)?currentUser.name:'ゲスト';
+  const greetEl=document.getElementById('dash-greeting');
+  if(greetEl) greetEl.textContent=`${h<12?'おはようございます':'おかえりなさい'}、${who}さん`;
   renderBadgeGrid('dash-badge-grid');
 }
 function renderTrendChart(svgId,sessions){
