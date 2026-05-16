@@ -13,6 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../site-pages.css">
   <style>
+    .guide-main {
+      max-width: 1040px;
+    }
+    .guide-breadcrumb {
+      margin-bottom: 14px;
+    }
     .guide-hero {
       background: #fff;
       border: 1px solid var(--border);
@@ -231,7 +237,14 @@
       </div>
     </header>
 
-    <main class="site-page-main">
+    <main class="site-page-main guide-main">
+      <nav class="guide-breadcrumb" aria-label="パンくず">
+        <ol class="q-breadcrumb">
+          <li><a href="../index.html">宅建マスター</a></li>
+          <li aria-current="page">試験ガイド</li>
+        </ol>
+      </nav>
+
       <section class="guide-hero" aria-labelledby="guide-title">
         <span class="guide-eyebrow">TAKKEN EXAM GUIDE</span>
         <h1 id="guide-title">宅建試験ガイド</h1>
@@ -377,6 +390,18 @@
                 <td>新しい教材を増やし続けること。</td>
               </tr>
               <tr>
+                <td>必要時間を知りたい</td>
+                <td><a href="../takken/takken-benkyou-jikan/index.html">勉強時間の目安</a></td>
+                <td>残り期間から週あたりの学習量を逆算し、宅建業法と過去問の時間を先に確保します。</td>
+                <td>総時間だけを見て、分野別の配分を決めないこと。</td>
+              </tr>
+              <tr>
+                <td>合格ラインが不安</td>
+                <td><a href="../takken/takken-goukakuten/index.html">合格点の考え方</a></td>
+                <td>年度ごとの合格点予想より、36〜38点を安定して取る分野別設計を優先します。</td>
+                <td>予想点を追いかけて、復習の優先順位がぶれること。</td>
+              </tr>
+              <tr>
                 <td>再受験</td>
                 <td><a href="../takken/takken-ocita/index.html">不合格後の対策</a></td>
                 <td>前回の失点分野と学習ログを見直し、解ける問題を落とさない設計にします。</td>
@@ -413,13 +438,13 @@
                 <td>法令上の制限</td>
                 <td>整理すれば伸ばしやすい分野</td>
                 <td>用途地域、建ぺい率・容積率、開発許可、農地法を表で比較します。</td>
-                <td><a href="../takken/takken-shiken-hani/index.html">試験範囲と全体像</a></td>
+                <td><a href="../takken/takken-hooreijou-seigen-study/index.html">法令上の制限の勉強法</a></td>
               </tr>
               <tr>
                 <td>税・その他</td>
                 <td>直前期の上積み分野</td>
                 <td>税率・軽減措置・統計を直前に更新し、取りやすい問題を拾います。</td>
-                <td><a href="../terms/index.html">用語集で確認</a></td>
+                <td><a href="../takken/takken-zei-sonota-study/index.html">税・その他の勉強法</a></td>
               </tr>
             </tbody>
           </table>
@@ -440,6 +465,16 @@
             <span class="guide-card-title">宅建試験の合格スケジュール</span>
             <span class="guide-card-desc">いつから始めるか、月ごとに何をやるかを具体化します。</span>
           </a>
+          <a class="guide-card" href="../takken/takken-benkyou-jikan/index.html">
+            <span class="guide-card-kicker">勉強時間</span>
+            <span class="guide-card-title">宅建の勉強時間は何時間必要？</span>
+            <span class="guide-card-desc">初学者・社会人・再受験者別に、必要時間と週あたりの学習量を逆算します。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-goukakuten/index.html">
+            <span class="guide-card-kicker">合格点</span>
+            <span class="guide-card-title">宅建の合格点は何点？</span>
+            <span class="guide-card-desc">年度で変わる合格ラインの考え方と、36〜38点を狙う分野別設計を整理します。</span>
+          </a>
           <a class="guide-card" href="../takken/takken-dokugaku/index.html">
             <span class="guide-card-kicker">独学</span>
             <span class="guide-card-title">宅建を独学で合格する方法</span>
@@ -459,6 +494,16 @@
             <span class="guide-card-kicker">権利関係</span>
             <span class="guide-card-title">権利関係（民法）の勉強法</span>
             <span class="guide-card-desc">難しい理由、頻出テーマ、目標得点を押さえて深追いを防ぎます。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-hooreijou-seigen-study/index.html">
+            <span class="guide-card-kicker">法令上の制限</span>
+            <span class="guide-card-title">法令上の制限の勉強法</span>
+            <span class="guide-card-desc">用途地域、建ぺい率・容積率、開発許可を表で整理して得点源にします。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-zei-sonota-study/index.html">
+            <span class="guide-card-kicker">税・その他</span>
+            <span class="guide-card-title">税・その他の勉強法</span>
+            <span class="guide-card-desc">税金、統計、5問免除科目を直前期に効率よく上積みする方法です。</span>
           </a>
         </div>
       </section>
@@ -492,16 +537,40 @@
                 <td>再就職、在宅学習からの資格取得、不動産知識の生活活用に向きます。</td>
               </tr>
               <tr>
+                <td>大学生・専門学生</td>
+                <td>就活までに資格をどう見せるか</td>
+                <td><a href="../takken/takken-gakusei/index.html">学生向け</a> → <a href="../takken/takken-plan/index.html">勉強計画</a> → <a href="../takken/takken-shigoto/index.html">仕事内容</a></td>
+                <td>不動産・金融・建設・住宅業界への志望理由を具体化しやすくなります。</td>
+              </tr>
+              <tr>
                 <td>40代・50代</td>
                 <td>覚え直しと学習習慣の再構築</td>
                 <td><a href="../takken/takken-40dai/index.html">40代・50代向け</a> → <a href="../takken/takken-plan/index.html">勉強計画</a> → <a href="../takken/takken-shigoto/index.html">仕事内容</a></td>
                 <td>転職だけでなく、定年後の働き方や独立準備にもつなげられます。</td>
               </tr>
               <tr>
+                <td>未経験で転職したい</td>
+                <td>職種選びと面接での伝え方</td>
+                <td><a href="../takken/takken-mikeiken-tenshoku/index.html">未経験転職</a> → <a href="../takken/takken-shigoto/index.html">仕事内容</a> → <a href="../takken/takken-nenshu/index.html">年収</a></td>
+                <td>資格だけでなく、前職経験と宅建知識を組み合わせて説明できます。</td>
+              </tr>
+              <tr>
                 <td>不動産・金融志望</td>
                 <td>資格をキャリアにどうつなげるか</td>
                 <td><a href="../takken/takken-shigoto/index.html">仕事内容</a> → <a href="../takken/takken-nenshu/index.html">年収</a> → <a href="../takken/takken-hikaku/index.html">資格比較</a></td>
                 <td>就職・転職時の説明材料として、宅建をどう使うか整理できます。</td>
+              </tr>
+              <tr>
+                <td>不動産業界で働く人</td>
+                <td>職種ごとの活かし方を知りたい</td>
+                <td><a href="../takken/takken-fudosan-gyokai/index.html">業界での活かし方</a> → <a href="../takken/takken-gyoho-study/index.html">宅建業法</a> → <a href="../takken/takken-nenshu/index.html">年収</a></td>
+                <td>営業・管理・事務で、資格を実務評価につなげやすくなります。</td>
+              </tr>
+              <tr>
+                <td>副業・独立を考える人</td>
+                <td>資格と開業条件の違いを知る</td>
+                <td><a href="../takken/takken-fukugyo-dokuritsu/index.html">副業・独立</a> → <a href="../takken/takken-goukaku-ato/index.html">合格後</a> → <a href="../takken/takken-fudosan-toshi/index.html">不動産投資</a></td>
+                <td>宅建士資格、宅建業免許、集客・実務経験の違いを整理できます。</td>
               </tr>
               <tr>
                 <td>不動産投資を考える人</td>
@@ -528,20 +597,40 @@
             <span class="guide-card-title">主婦・子育て中でも宅建に合格できる？</span>
             <span class="guide-card-desc">細切れ時間を使った学習法と、家事・育児と両立しやすい計画を紹介します。</span>
           </a>
+          <a class="guide-card" href="../takken/takken-gakusei/index.html">
+            <span class="guide-card-kicker">学生</span>
+            <span class="guide-card-title">大学生・専門学生が宅建を取るメリット</span>
+            <span class="guide-card-desc">就活での見せ方、学年別の勉強計画、不動産・金融志望での活かし方を整理します。</span>
+          </a>
           <a class="guide-card" href="../takken/takken-40dai/index.html">
             <span class="guide-card-kicker">40代・50代</span>
             <span class="guide-card-title">40代・50代から宅建を取得する方法</span>
             <span class="guide-card-desc">転職、キャリアチェンジ、定年後の独立も含めて資格活用を考えます。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-mikeiken-tenshoku/index.html">
+            <span class="guide-card-kicker">未経験転職</span>
+            <span class="guide-card-title">未経験から宅建で不動産業界へ転職する方法</span>
+            <span class="guide-card-desc">職種別の違い、求人の見方、面接で宅建をどう伝えるかをまとめています。</span>
           </a>
           <a class="guide-card" href="../takken/takken-shigoto/index.html">
             <span class="guide-card-kicker">仕事</span>
             <span class="guide-card-title">宅建士の仕事内容とは？</span>
             <span class="guide-card-desc">独占業務、活躍できる職場、キャリアパスを確認できます。</span>
           </a>
+          <a class="guide-card" href="../takken/takken-fudosan-gyokai/index.html">
+            <span class="guide-card-kicker">業界活用</span>
+            <span class="guide-card-title">不動産業界で宅建をどう活かす？</span>
+            <span class="guide-card-desc">営業・管理・事務それぞれで資格が役立つ場面と、評価につなげる考え方です。</span>
+          </a>
           <a class="guide-card" href="../takken/takken-nenshu/index.html">
             <span class="guide-card-kicker">年収</span>
             <span class="guide-card-title">宅建士の年収・給与は？</span>
             <span class="guide-card-desc">資格手当、転職時の収入アップ、独立した場合の収益を数字で見ます。</span>
+          </a>
+          <a class="guide-card" href="../takken/takken-fukugyo-dokuritsu/index.html">
+            <span class="guide-card-kicker">副業・独立</span>
+            <span class="guide-card-title">宅建は副業・独立に使える？</span>
+            <span class="guide-card-desc">宅建業免許、専任の宅建士、保証協会、集客など開業前の現実を整理します。</span>
           </a>
           <a class="guide-card" href="../takken/takken-fudosan-toshi/index.html">
             <span class="guide-card-kicker">不動産投資</span>
