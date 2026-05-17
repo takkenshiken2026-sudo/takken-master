@@ -1096,6 +1096,19 @@ body.is-solving .site-footer{display:none!important}
 .site-footer-legal a{font-size:11px;color:var(--text3);cursor:pointer;transition:color .15s;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .site-footer-legal a:hover{color:var(--text2)}
 .site-footer-copy{font-size:10px;color:var(--text3);opacity:.92;flex:0 0 auto;white-space:nowrap;line-height:1.2;margin-left:auto}
+@media(max-width:700px){
+  .main{padding-bottom:0}
+  .site-footer{position:static;width:100%;max-width:100%;z-index:auto}
+  .site-footer-inner{
+    gap:8px 10px;
+    padding:7px max(12px,env(safe-area-inset-right,0px)) calc(9px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));
+  }
+  .topnav-logo-mark{width:32px;height:26px;font-size:10px;letter-spacing:-0.06em}
+  .site-footer-logo-mark{width:28px;height:20px;font-size:9px;letter-spacing:-0.06em}
+  #page-quiz-start.page.active{min-height:auto}
+  #page-quiz-start .mode-card-v2{min-height:88px;padding:15px 14px}
+  #page-quiz-start .home-section{box-shadow:var(--sh)}
+}
 
 /* ========== GAMIFICATION ==========
 /* Level + Streak 横並び */
