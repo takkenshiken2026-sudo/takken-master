@@ -358,26 +358,26 @@ h2.section-label .tip-icon{width:13px;height:13px;font-size:9px}
 .mode-purpose-v2{font-size:12px;color:var(--text2);font-weight:500;margin-bottom:3px}
 .mode-title-v2{font-size:16px;font-weight:700;color:var(--text);line-height:1.3}
 .mode-arrow-v2{color:var(--text3);font-size:16px;flex-shrink:0}
-/* トップ（exam-site-shell / eisei1 系）：灰地に角なしセクション */
-.home-shell{width:100%;max-width:860px;margin:0 auto}
+/* トップ（exam-site-shell / eisei1 系） */
+.home-shell{width:100%;max-width:1040px;margin:0 auto}
 .home-hero{margin-bottom:4px}
 .home-hero .page-title{margin-bottom:8px;letter-spacing:-0.02em}
 .home-hero .home-lead{font-size:15px;line-height:1.65;color:var(--text2);margin-bottom:26px}
-.home-section{background:var(--bg);border:1px solid var(--border);border-radius:0;padding:22px 22px 20px;margin-bottom:16px;box-shadow:var(--sh)}
+.home-section{background:var(--bg);border:1px solid var(--border);border-radius:var(--r2);padding:22px 22px 20px;margin-bottom:16px;box-shadow:var(--sh)}
 .home-section-head{font-size:1.05rem;font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);color:var(--ink);line-height:1.35}
 .home-section-lead{font-size:14px;color:var(--text2);line-height:1.65;margin:-4px 0 14px}
 .home-section-note{font-size:13px;color:var(--text3);line-height:1.6;margin:-4px 0 12px}
 .home-section .mode-list-v2{margin-bottom:0}
 .home-section-today .home-section-head{margin-bottom:14px}
-#page-quiz-start .mode-card-v2{background:#fff;border:1px solid var(--border);border-radius:0;box-shadow:none}
+#page-quiz-start .mode-card-v2{background:#fff;border:1px solid var(--border);border-radius:var(--r2);box-shadow:none}
 #page-quiz-start .mode-card-v2:hover{border-color:var(--border2);box-shadow:var(--sh);transform:none;background:var(--bg3)}
 .home-quick-row{display:flex;flex-wrap:wrap;gap:8px;margin:0}
-.home-quick-item{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;font-size:13px;font-weight:700;color:var(--text);background:var(--bg2);border:1px solid var(--border2);border-radius:0;text-decoration:none;font-family:var(--font);transition:all .15s;cursor:pointer;box-shadow:none}
+.home-quick-item{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;font-size:13px;font-weight:700;color:var(--text);background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);text-decoration:none;font-family:var(--font);transition:all .15s;cursor:pointer;box-shadow:none}
 .home-quick-item:hover{border-color:var(--text2);background:var(--bg3);box-shadow:none}
 .home-quick-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 #page-quiz-start .lv-streak-row{margin-bottom:16px}
-#page-quiz-start .level-badge-wrap,#page-quiz-start .streak-bar{border-radius:0;border-width:1px;border-color:var(--border)}
-#page-quiz-start .mission-card{border-radius:0;border-width:1px;border-color:var(--border);background:var(--bg2);box-shadow:none}
+#page-quiz-start .level-badge-wrap,#page-quiz-start .streak-bar{border-radius:var(--r2);border-width:1px;border-color:var(--border)}
+#page-quiz-start .mission-card{border-radius:var(--r2);border-width:1px;border-color:var(--border);background:var(--bg2);box-shadow:none}
 #page-quiz-start .mission-card{margin-bottom:0}
 .mode-card{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r2);padding:18px;cursor:pointer;transition:all .18s;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column}
 .mode-card:hover{box-shadow:var(--sh2);border-color:var(--text2);transform:translateY(-1px)}
@@ -1596,29 +1596,6 @@ body.is-solving .site-footer{display:none!important}
           </div>
           <div class="mode-arrow-v2">›</div>
         </div>
-        </div>
-      </section>
-
-      <section class="home-section" aria-labelledby="home-sec-tools">
-        <h3 class="home-section-head" id="home-sec-tools">記録と復習</h3>
-        <p class="home-section-note">統計・おすすめ復習・用語はこちらから。</p>
-        <div class="home-quick-row" role="navigation" aria-label="記録・復習・用語へのショートカット">
-        <a class="home-quick-item" href="#dash" onclick="event.preventDefault();gotoPage('dash')">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 13L5 8l3 2 3-5 3 2"/></svg>
-          記録・分析
-        </a>
-        <a class="home-quick-item" href="#review" onclick="event.preventDefault();gotoPage('review')">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h8M2 12h10"/></svg>
-          復習
-        </a>
-        <a class="home-quick-item" href="terms/index.html">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
-          用語解説
-        </a>
-        <a class="home-quick-item" href="#past" onclick="event.preventDefault();gotoPage('past-config')">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2h10v12H3z"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>
-          過去問（年度・分野）
-        </a>
         </div>
       </section>
 
