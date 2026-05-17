@@ -30,11 +30,12 @@ from tools.html_footer import (  # noqa: E402
     static_q_footer_block,
     static_q_site_header,
 )
+from tools.site_config import brand_name, clean_origin, exam_name  # noqa: E402
 
 DATA_CSV_DEFAULT = ROOT / "data" / "past_questions.csv"
 MASTER_JS_DEFAULT = ROOT / "takken-master-data.js"
 Q_ROOT = ROOT / "q"
-BASE_DEFAULT = "https://takken-master.jp"
+BASE_DEFAULT = clean_origin()
 
 FIELD_LABELS_JS = {
     "rights": "権利関係",
@@ -295,7 +296,7 @@ def page_dict(row: dict, line_no: int) -> dict:
 
 def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
     title_mid = f"{page['wareki']} 第{page['qno']}問・{page['category']}"
-    title = f"{title_mid}｜宅建マスター（宅地建物取引士）"
+    title = f"{title_mid}｜{brand_name()}（{exam_name()}）"
     desc = meta_description(page["stem_plain"] or page["category"])
     canonical = public_url(base_url, page["rel_path"])
     root_idx = rel_to_root(rel_path)
@@ -441,8 +442,8 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>過去問一覧｜宅建マスター（宅地建物取引士）</title>
-<meta name="description" content="宅地建物取引士試験の過去問を年度別に一覧するページです。">
+<title>過去問一覧｜{html.escape(brand_name())}（{html.escape(exam_name())}）</title>
+<meta name="description" content="{html.escape(exam_name())}の過去問を年度別に一覧するページです。">
 {ROBOTS_INDEX_FOLLOW}
 <link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
 <link rel="stylesheet" href="../site-pages.css">
@@ -473,8 +474,8 @@ def build_q_index_placeholder(base_url: str) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>過去問一覧｜宅建マスター（宅地建物取引士）</title>
-<meta name="description" content="宅地建物取引士試験の過去問を年度別に一覧するページです。">
+<title>過去問一覧｜{html.escape(brand_name())}（{html.escape(exam_name())}）</title>
+<meta name="description" content="{html.escape(exam_name())}の過去問を年度別に一覧するページです。">
 {ROBOTS_INDEX_FOLLOW}
 <link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
 <link rel="stylesheet" href="../site-pages.css">

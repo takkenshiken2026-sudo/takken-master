@@ -26,10 +26,11 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.site_config import brand_name, clean_origin, exam_name, field_labels  # noqa: E402
 
 TERMS_DIR = ROOT / "terms"
 GLOSSARY_DIR = ROOT / "glossary"  # 旧 URL・初回コピー元
-BASE_URL = "https://takken-master.jp"
+BASE_URL = clean_origin()
 HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
@@ -42,12 +43,7 @@ CAT_ORDER = (
     "試験対策",
 )
 
-FIELD_LABELS = {
-    "rights": "権利関係",
-    "law": "宅建業法",
-    "limit": "法令上の制限",
-    "tax": "税・その他",
-}
+FIELD_LABELS = field_labels()
 
 GLOSSARY_JS = ROOT / "takken-data-glossary.js"
 
@@ -62,12 +58,12 @@ function answerQuiz(q,el,ok){
 }
 </script>"""
 
-GLOSSARY_REDIRECT_INDEX = """<!DOCTYPE html>
+GLOSSARY_REDIRECT_INDEX = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://takken-master.jp/terms/">
+<link rel="canonical" href="{BASE_URL}/terms/">
 <meta http-equiv="refresh" content="0;url=/terms/">
 <script>location.replace('/terms/');</script>
 <title>用語解説一覧へ移動中…</title>
@@ -100,7 +96,8 @@ def public_url(base: str, path: str) -> str:
 
 
 def fix_terms_html_paths(text: str) -> str:
-    text = text.replace("https://takken-master.jp/glossary/", "https://takken-master.jp/terms/")
+    text = text.replace(f"{BASE_URL}/glossary/", f"{BASE_URL}/terms/")
+    text = text.replace("https://takken-master.jp/glossary/", f"{BASE_URL}/terms/")
     text = text.replace('current="glossary"', 'current="terms"')
     text = text.replace("glossary/index.html", "terms/index.html")
     text = text.replace("../../index.html#glossary", "../../terms/index.html")
@@ -287,8 +284,8 @@ def build_term_page(slug: str, raw: str, meta_by_slug: dict[str, dict] | None = 
     canonical = head["canonical"] or public_url(BASE_URL, f"terms/{slug}/")
     if "/glossary/" in canonical:
         canonical = canonical.replace("/glossary/", "/terms/")
-    title = head["title"] or f"{term_label}｜宅建マスター"
-    desc = head["description"] or f"{term_label}の意味と試験ポイントを宅建マスターで解説。"
+    title = head["title"] or f"{term_label}｜{brand_name()}"
+    desc = head["description"] or f"{term_label}の意味と試験ポイントを{brand_name()}で解説。"
     og_title = html.escape(title)
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -395,7 +392,7 @@ def build_glossary_index(entries: list[dict]) -> str:
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "宅建試験 用語解説一覧",
-        "description": "宅地建物取引士試験で出やすい用語ごとの解説記事への索引です。",
+        "description": f"{exam_name()}で出やすい用語ごとの解説記事への索引です。",
         "numberOfItems": n_terms,
         "itemListElement": list_items_ld,
     }
@@ -454,9 +451,9 @@ def build_glossary_index(entries: list[dict]) -> str:
     )
     terms_footer = site_page_footer(idx_path, current="terms", wide=True)
     canonical = public_url(BASE_URL, "terms/")
-    title = "用語解説一覧（全記事索引）｜宅建マスター（宅地建物取引士）"
+    title = f"用語解説一覧（全記事索引）｜{brand_name()}（{exam_name()}）"
     desc = (
-        "宅地建物取引士試験の重要用語を一覧し、各用語の解説記事へリンクします。"
+        f"{exam_name()}の重要用語を一覧し、各用語の解説記事へリンクします。"
         "権利関係・宅建業法・法令上の制限・税その他などの語句を整理しています。"
     )
     return f"""<!DOCTYPE html>
@@ -484,7 +481,7 @@ def build_glossary_index(entries: list[dict]) -> str:
 {terms_header}
 <main class="site-page-main terms-idx-main">
   <h1 class="terms-idx-page-title">用語解説一覧（全記事索引）</h1>
-  <p class="terms-idx-lead">宅地建物取引士試験で頻出の用語を分野別にまとめ、各用語の解説記事（静的HTML）へ直接リンクします。上の検索・分野フィルタで目的の用語に素早く到達できます。学習アプリの<strong><a href="../index.html">トップ</a></strong>から過去問・復習も利用できます。</p>
+  <p class="terms-idx-lead">{html.escape(exam_name())}で頻出の用語を分野別にまとめ、各用語の解説記事（静的HTML）へ直接リンクします。上の検索・分野フィルタで目的の用語に素早く到達できます。学習アプリの<strong><a href="../index.html">トップ</a></strong>から過去問・復習も利用できます。</p>
 
   <div class="terms-idx-meta-row">
     <span class="terms-idx-pill">全 <span id="terms-idx-total">{n_terms}</span> 記事</span>

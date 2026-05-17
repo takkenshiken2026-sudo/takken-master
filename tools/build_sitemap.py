@@ -11,7 +11,12 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_URL = "https://takken-master.jp"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.site_config import clean_origin  # noqa: E402
+
+BASE_URL = clean_origin()
 SITEMAP = ROOT / "sitemap.xml"
 
 EXCLUDED_DIRS = {

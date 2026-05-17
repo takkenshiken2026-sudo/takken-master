@@ -1,36 +1,30 @@
 # -*- coding: utf-8 -*-
-"""宅建マスター静的 HTML 用ヘッダー・フッター（相対パス付き）。"""
+"""静的 HTML 用ヘッダー・フッター（相対パス付き）と GA4 共通タグ。"""
 
 from __future__ import annotations
 
 import html
 from pathlib import Path
 
-FORM_URL = "https://forms.gle/Rfovea3QJhVo24NYA"
+from tools.site_config import (
+    brand_mark,
+    brand_name,
+    contact_url,
+    copyright_text,
+    exam_name,
+    footer_disclaimer,
+    ga4_measurement_id,
+    navigation_items,
+)
+
+FORM_URL = contact_url()
 ROBOTS_INDEX_FOLLOW = '<meta name="robots" content="index, follow">'
-FOOTER_DISCLAIMER = "学習用のコンテンツです。出題・法令の正確な内容は公式情報で必ず確認してください。"
-SITE_COPYRIGHT = "© 2026 宅建マスター学習支援・takken-master.jp"
+GA4_MEASUREMENT_ID = ga4_measurement_id()
+FOOTER_DISCLAIMER = footer_disclaimer()
+SITE_COPYRIGHT = copyright_text()
 
-SITE_HEADER_NAV: list[tuple[str, str, str]] = [
-    ("トップ", "index.html", "top"),
-    ("このサイトについて", "about.html", "about"),
-    ("過去問一覧", "q/index.html", "q"),
-    ("用語集", "terms/index.html", "terms"),
-    ("試験ガイド", "articles/index.html", "articles"),
-    ("関連リンク", "related-sites.html", "related"),
-    ("プライバシー", "privacy-terms.html", "privacy"),
-]
-
-SITE_FOOTER_NAV: list[tuple[str, str, str]] = [
-    ("トップ", "index.html", "top"),
-    ("このサイトについて", "about.html", "about"),
-    ("過去問一覧", "q/index.html", "q"),
-    ("用語集", "terms/index.html", "terms"),
-    ("試験ガイド", "articles/index.html", "articles"),
-    ("関連リンク", "related-sites.html", "related"),
-    ("プライバシー", "privacy-terms.html", "privacy"),
-    ("お問い合わせ", FORM_URL, "contact"),
-]
+SITE_HEADER_NAV: list[tuple[str, str, str]] = navigation_items("header")
+SITE_FOOTER_NAV: list[tuple[str, str, str]] = navigation_items("footer")
 
 
 def footer_href(rel_path: Path, site_rel: str) -> str:
@@ -73,6 +67,17 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     return prefix + "/" + site_rel
 
 
+def analytics_snippet(rel_path: Path) -> str:
+    """全静的ページ共通: フッター直後（</body> 直前想定）に置く GA4 タグ。"""
+    src = html.escape(footer_href(rel_path, "site-analytics.js"))
+    mid = html.escape(GA4_MEASUREMENT_ID)
+    return (
+        "<!-- GA4: tools/html_footer.analytics_snippet（測定IDは GA4_MEASUREMENT_ID） -->\n"
+        f'<script>window.__GA4_MEASUREMENT_ID__="{mid}";</script>\n'
+        f'<script defer src="{src}"></script>'
+    )
+
+
 def static_q_site_header(*, root_href: str, breadcrumb_items: list[tuple[str, str | None]]) -> str:
     """過去問一覧・個別問題ページ用の q-static ヘッダー。"""
     lis: list[str] = []
@@ -83,7 +88,7 @@ def static_q_site_header(*, root_href: str, breadcrumb_items: list[tuple[str, st
             lis.append(f'<li aria-current="page">{html.escape(text)}</li>')
     crumbs = "\n      ".join(lis)
     return f"""<header class="q-static-header">
-  <p class="q-static-brand"><a href="{html.escape(root_href)}">宅建マスター</a>（宅地建物取引士）</p>
+  <p class="q-static-brand"><a href="{html.escape(root_href)}">{html.escape(brand_name())}</a>（{html.escape(exam_name())}）</p>
   <nav aria-label="パンくず">
     <ol class="q-breadcrumb">
       {crumbs}
@@ -93,7 +98,7 @@ def static_q_site_header(*, root_href: str, breadcrumb_items: list[tuple[str, st
 
 
 def static_q_footer_block(rel_path: Path) -> str:
-    """過去問静的ページ用フッター（GA は未設定のため省略）。"""
+    """過去問静的ページ用フッター + GA4。"""
 
     def h(dest: str) -> str:
         return html.escape(footer_href(rel_path, dest))
@@ -111,7 +116,8 @@ def static_q_footer_block(rel_path: Path) -> str:
   </nav>
   <p><small>{html.escape(FOOTER_DISCLAIMER)}</small></p>
   <p><small>{html.escape(SITE_COPYRIGHT)}</small></p>
-</footer>"""
+</footer>
+{analytics_snippet(rel_path)}"""
 
 
 def _breadcrumb_ol(rel_path: Path, items: list[tuple[str, str | None]]) -> str:
@@ -157,10 +163,10 @@ def site_page_header(
     return f"""<header class="{header_class}">
       <div class="site-page-header-inner">
         <a class="site-page-brand" href="{root}">
-          <span class="site-page-mark" title="宅建マスターの略表記">宅建</span>
+          <span class="site-page-mark" title="サービス略称">{html.escape(brand_mark())}</span>
           <span class="site-page-brand-text">
-            <span class="site-page-brand-name">宅建マスター</span>
-            <span class="site-page-brand-sub">宅地建物取引士試験</span>
+            <span class="site-page-brand-name">{html.escape(brand_name())}</span>
+            <span class="site-page-brand-sub">{html.escape(exam_name())}</span>
           </span>
         </a>
         <nav class="site-page-nav" aria-label="サイト内ナビゲーション">
@@ -192,7 +198,8 @@ def site_page_footer(rel_path: Path, *, current: str | None = None, wide: bool =
         <span class="site-page-footer-sep" aria-hidden="true"></span>
         <span class="site-page-footer-copy">{html.escape(SITE_COPYRIGHT)}</span>
       </div>
-    </footer>"""
+    </footer>
+{analytics_snippet(rel_path)}"""
 
 
 def site_page_wrap_open() -> str:
@@ -201,3 +208,7 @@ def site_page_wrap_open() -> str:
 
 def site_page_wrap_close() -> str:
     return "</div>"
+
+
+def breadcrumb_html(rel_path: Path, items: list[tuple[str, str | None]]) -> str:
+    return _breadcrumb_ol(rel_path, items)
