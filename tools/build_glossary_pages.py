@@ -34,6 +34,7 @@ BASE_URL = clean_origin()
 HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
+GENERATED_TERM_MARKER = "<!-- generated: glossary-data-term -->"
 
 CAT_ORDER = (
     "権利関係",
@@ -95,6 +96,10 @@ def public_url(base: str, path: str) -> str:
     return base.rstrip("/") + "/" + path.lstrip("/")
 
 
+def slug_for_item(item: dict) -> str:
+    return (item.get("articleSlug") or str(item.get("id", "")).replace("_", "-")).strip()
+
+
 def fix_terms_html_paths(text: str) -> str:
     text = text.replace(f"{BASE_URL}/glossary/", f"{BASE_URL}/terms/")
     text = text.replace("https://takken-master.jp/glossary/", f"{BASE_URL}/terms/")
@@ -143,6 +148,289 @@ def load_glossary_meta_by_slug() -> dict[str, dict]:
             "category": FIELD_LABELS.get(cat_key, "その他"),
         }
     return out
+
+
+def load_glossary_items() -> list[dict]:
+    """takken-data-glossary.js から詳細ページ生成に使う用語データを読む。"""
+    if not GLOSSARY_JS.is_file():
+        return []
+    text = GLOSSARY_JS.read_text(encoding="utf-8")
+    m = re.search(r"const\s+GLOSSARY_DATA\s*=\s*(\[.*\])\s*;", text, re.S)
+    if not m:
+        return []
+    try:
+        data = json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return []
+    return [item for item in data if slug_for_item(item)]
+
+
+def text_excerpt(value: str, limit: int = 96) -> str:
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip("、。") + "…"
+
+
+def is_generic_summary(term: str, summary: str) -> bool:
+    clean = str(summary or "").strip()
+    return not clean or clean in {f"{term}の概要", "概要"} or clean.endswith("の概要")
+
+
+def split_desc(desc: str) -> list[str]:
+    parts = re.split(r"(?<=。)", str(desc or "").strip())
+    parts = [p.strip() for p in parts if p.strip()]
+    return parts or [str(desc or "").strip()]
+
+
+def build_data_diagram(diagram: dict | None) -> str:
+    if not isinstance(diagram, dict):
+        return ""
+    dtype = diagram.get("type")
+    if dtype == "table":
+        head = diagram.get("head") or []
+        rows = diagram.get("rows") or []
+        if not head or not rows:
+            return ""
+        ths = "".join(f"<th>{html.escape(str(h))}</th>" for h in head)
+        trs = []
+        for row in rows:
+            cells = "".join(f"<td>{html.escape(str(c))}</td>" for c in row)
+            trs.append(f"<tr>{cells}</tr>")
+        return (
+            '<div class="diagram-table-wrap"><table class="diagram-table">'
+            f"<thead><tr>{ths}</tr></thead><tbody>{''.join(trs)}</tbody></table></div>"
+        )
+    if dtype == "compare":
+        left = diagram.get("left") or {}
+        right = diagram.get("right") or {}
+        cards = []
+        for side in (left, right):
+            title = html.escape(str(side.get("title") or "比較"))
+            items = "".join(
+                f"<li>{html.escape(str(i))}</li>" for i in (side.get("items") or [])
+            )
+            cards.append(
+                f'<div class="type-card"><div class="type-card-body"><h3>{title}</h3><ul>{items}</ul></div></div>'
+            )
+        return '<div class="term-compare-grid">' + "".join(cards) + "</div>"
+    if dtype == "flow":
+        steps = diagram.get("steps") or []
+        if not steps:
+            return ""
+        lis = "".join(
+            f'<li class="term-point-item"><span class="term-point-num">{i}</span>'
+            f'<span class="term-point-text">{html.escape(str(step))}</span></li>'
+            for i, step in enumerate(steps, 1)
+        )
+        return f'<ul class="term-points">{lis}</ul>'
+    return ""
+
+
+def related_items_for(item: dict, items: list[dict], limit: int = 4) -> list[dict]:
+    slug = slug_for_item(item)
+    cat = item.get("cat")
+    out: list[dict] = []
+    seen = {slug}
+    for cand in items:
+        cslug = slug_for_item(cand)
+        if not cslug or cslug in seen or cand.get("cat") != cat:
+            continue
+        out.append(cand)
+        seen.add(cslug)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def build_generated_term_page(item: dict, all_items: list[dict]) -> str:
+    slug = slug_for_item(item)
+    term = str(item.get("term") or slug).strip()
+    reading = str(item.get("reading") or "").strip()
+    summary = str(item.get("summary") or f"{term}の概要").strip()
+    desc = str(item.get("desc") or summary).strip()
+    display_summary = text_excerpt(desc, 140) if is_generic_summary(term, summary) else summary
+    cat_label = FIELD_LABELS.get(item.get("cat", ""), "その他")
+    rel_path = Path("terms") / slug / "index.html"
+    canonical = public_url(BASE_URL, f"terms/{slug}/")
+    title = f"{term}とは？意味・試験ポイントをわかりやすく解説｜{brand_name()}"
+    meta_desc = text_excerpt(f"{term}（{reading}）の意味・定義と宅建試験で問われやすいポイントを整理。{display_summary}", 118)
+    crumb = [("トップ", "index.html"), ("用語解説一覧", "terms/index.html"), (term, None)]
+
+    definition_paras = "\n".join(
+        f"<p>{html.escape(p)}</p>" for p in split_desc(desc)[:3]
+    )
+    diagram_html = build_data_diagram(item.get("diagram"))
+    if diagram_html:
+        diagram_html = (
+            '<section class="term-section" id="diagram">'
+            '<h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12"/></svg>図解・比較</h2>'
+            + diagram_html
+            + "</section>"
+        )
+
+    point_source = split_desc(desc)
+    points = []
+    for idx, p in enumerate(point_source[:4], 1):
+        points.append(
+            f'<li class="term-point-item"><span class="term-point-num">{idx}</span>'
+            f'<span class="term-point-text">{html.escape(p)}</span></li>'
+        )
+    points_html = "\n".join(points)
+
+    rels = related_items_for(item, all_items)
+    related_cards = []
+    for rel in rels:
+        rslug = slug_for_item(rel)
+        rterm = html.escape(str(rel.get("term") or rslug))
+        rreading = str(rel.get("reading") or "").strip()
+        reading_html = (
+            f'<span class="term-related-reading">（{html.escape(rreading)}）</span>'
+            if rreading
+            else ""
+        )
+        related_cards.append(
+            f'<a href="../{html.escape(rslug)}/" class="term-related-card">'
+            f'<span class="term-related-name">{rterm}とは</span>{reading_html}</a>'
+        )
+    related_html = ""
+    if related_cards:
+        related_html = (
+            '<section class="term-section" id="related">'
+            '<h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><circle cx="4" cy="8" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="12" cy="12" r="2"/><path d="M6 8h2M10 5l-2 2M10 11l-2-2"/></svg>関連用語</h2>'
+            '<nav class="term-related-grid">'
+            + "".join(related_cards)
+            + "</nav></section>"
+        )
+
+    faq_items = [
+        (
+            f"{term}とは何ですか？",
+            f"{display_summary} 宅建試験では定義だけでなく、事例への当てはめや関連制度との違いまで確認しておくと得点につながります。",
+        ),
+        (
+            f"{term}はどの分野で出題されますか？",
+            f"主に「{cat_label}」で扱います。同じ分野の用語と比較し、数字・要件・手続の違いを押さえましょう。",
+        ),
+        (
+            f"{term}の学習で注意する点は？",
+            text_excerpt(desc, 150),
+        ),
+    ]
+    faq_html = "".join(
+        '<div class="term-faq-item">'
+        f'<p class="term-faq-q"><span class="term-faq-q-badge">Q</span>{html.escape(q)}</p>'
+        f'<p class="term-faq-a">{html.escape(a)}</p></div>'
+        for q, a in faq_items
+    )
+
+    ld = [
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": brand_name(), "item": public_url(BASE_URL, "/")},
+                {"@type": "ListItem", "position": 2, "name": "用語解説", "item": public_url(BASE_URL, "terms/")},
+                {"@type": "ListItem", "position": 3, "name": f"{term}とは", "item": canonical},
+            ],
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "DefinedTerm",
+            "name": term,
+            "description": text_excerpt(desc, 180),
+            "inDefinedTermSet": {
+                "@type": "DefinedTermSet",
+                "name": f"{brand_name()} 用語解説",
+                "url": public_url(BASE_URL, "terms/"),
+            },
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": q,
+                    "acceptedAnswer": {"@type": "Answer", "text": a},
+                }
+                for q, a in faq_items
+            ],
+        },
+    ]
+    ld_json = json.dumps(ld, ensure_ascii=False, separators=(",", ":"))
+
+    content = f"""<div class="term-eyebrow"><span class="term-category">{html.escape(cat_label)}</span></div>
+<h1 class="term-h1">{html.escape(term)}とは？意味・試験ポイントをわかりやすく解説<span class="term-h1-badge">【宅建】</span></h1>
+<p class="term-reading">（{html.escape(reading)}）</p>
+<p class="term-summary">{html.escape(display_summary)}</p>
+
+<section class="term-section" id="definition">
+<h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5"/><circle cx="8" cy="11" r=".5" fill="currentColor" stroke="none"/></svg>{html.escape(term)}とは</h2>
+<div class="term-definition-box">{definition_paras}</div>
+</section>
+
+{diagram_html}
+
+<section class="term-section" id="points">
+<h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><path d="M3 4h10M3 8h7M3 12h5"/></svg>試験ポイント</h2>
+<ul class="term-points">
+{points_html}
+</ul>
+<p class="term-note"><span class="term-note-label">覚え方：</span>まず「誰に」「いつ」「どの効果が生じるか」を分け、数字や期限がある用語は表にして比較すると定着しやすくなります。</p>
+</section>
+
+<section class="term-section term-cta-section" id="practice">
+<h2 class="term-h2" style="justify-content:center;border-bottom:none;margin-bottom:10px">この用語が出る問題を解く</h2>
+<p class="term-cta-desc">用語を理解したら、同じ分野の問題で定着を確認しましょう。解説を読みながら、要件と例外をセットで復習できます。</p>
+<a href="../../index.html" class="term-cta-btn">
+<svg viewBox="0 0 16 16"><path d="M3 2h10v12H3z"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>
+学習アプリで問題を解く
+</a>
+</section>
+
+<section class="term-section" id="faq">
+<h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M6.5 6.5C6.5 5.7 7.2 5 8 5s1.5.7 1.5 1.5c0 1-1.5 1.5-1.5 2.5"/><circle cx="8" cy="11.5" r=".5" fill="currentColor" stroke="none"/></svg>よくある質問</h2>
+<div class="term-faq-list">{faq_html}</div>
+</section>
+{related_html}"""
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{html.escape(title)}</title>
+<meta name="description" content="{html.escape(meta_desc)}">
+{ROBOTS_INDEX_FOLLOW}
+<link rel="canonical" href="{html.escape(canonical)}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{html.escape(title)}">
+<meta property="og:description" content="{html.escape(meta_desc)}">
+<meta property="og:url" content="{html.escape(canonical)}">
+<meta name="twitter:card" content="summary">
+{HEAD_FONTS}
+<link rel="stylesheet" href="../../site-pages.css?v=20260515">
+<link rel="stylesheet" href="../../glossary-term.css?v=20260515">
+<script type="application/ld+json">
+{ld_json}
+</script>
+</head>
+<body>
+{GENERATED_TERM_MARKER}
+{site_page_wrap_open()}
+{site_page_header(rel_path, current="terms", breadcrumb_items=crumb)}
+<main class="site-page-main term-page-main">
+<div class="term-rich-content">
+{content}
+</div>
+<p class="q-app-link"><a href="../../terms/index.html">用語解説一覧へ</a> ・ <a href="../../index.html">学習アプリ</a></p>
+</main>
+{site_page_footer(rel_path, current="terms")}
+{site_page_wrap_close()}
+</body>
+</html>
+"""
 
 
 def short_label_from_html(raw: str, slug: str) -> str:
@@ -556,6 +844,16 @@ def main() -> None:
         help="個別用語ページのシェルも再生成（未変換の legacy のみ）",
     )
     parser.add_argument(
+        "--create-missing",
+        action="store_true",
+        help="takken-data-glossary.js にある未作成の個別用語ページを生成",
+    )
+    parser.add_argument(
+        "--refresh-generated",
+        action="store_true",
+        help="このスクリプトで自動生成した個別用語ページを再生成",
+    )
+    parser.add_argument(
         "--no-redirects",
         action="store_true",
         help="glossary/ へのリダイレクト HTML を書かない",
@@ -568,6 +866,41 @@ def main() -> None:
     if not entries:
         raise SystemExit("terms entries not found (run after glossary/ exists)")
     TERMS_DIR.mkdir(exist_ok=True)
+
+    if args.create_missing or args.refresh_generated:
+        items = load_glossary_items()
+        created = 0
+        refreshed = 0
+        seen_slugs: set[str] = set()
+        for item in items:
+            slug = slug_for_item(item)
+            if not slug or slug in seen_slugs:
+                continue
+            seen_slugs.add(slug)
+            path = TERMS_DIR / slug / "index.html"
+            if path.is_file():
+                if not args.refresh_generated:
+                    continue
+                raw = path.read_text(encoding="utf-8")
+                old_generated_title = (
+                    f"<title>{html.escape(str(item.get('term') or slug))}"
+                    "とは？意味・試験ポイントをわかりやすく解説｜"
+                    f"{html.escape(brand_name())}</title>"
+                )
+                if GENERATED_TERM_MARKER not in raw and old_generated_title not in raw:
+                    continue
+                path.write_text(build_generated_term_page(item, items), encoding="utf-8")
+                refreshed += 1
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(build_generated_term_page(item, items), encoding="utf-8")
+            created += 1
+            print(f"  created: {slug}")
+        if created or refreshed:
+            meta = load_glossary_meta_by_slug()
+            entries = scan_glossary_entries(meta)
+        print(f"created missing term pages: {created}")
+        print(f"refreshed generated term pages: {refreshed}")
 
     if args.terms:
         for e in entries:

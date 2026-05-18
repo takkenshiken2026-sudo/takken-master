@@ -2167,5 +2167,914 @@ const GLOSSARY_DATA = [
     "summary": "償却資産税（概要）の概要",
     "desc": "償却資産税：事業用償却資産の課税（市町村）。耐用年数・残存価額想定。住宅用の家屋は固定資産税側で処理が主。",
     "articleSlug": "shisan-jojo-kisan"
+  },
+  {
+    "id": "keiyaku_seiritsu",
+    "cat": "rights",
+    "term": "契約の成立",
+    "reading": "けいやくのせいりつ",
+    "summary": "申込みと承諾が合致して契約が成立する仕組み",
+    "desc": "契約の成立は、申込みと承諾の意思表示が合致した時点で発生します。宅建では売買契約の成立時期、書面作成との違い、撤回・取消しとの関係が問われます。",
+    "articleSlug": "keiyaku-seiritsu"
+  },
+  {
+    "id": "keiyaku_kaijo",
+    "cat": "rights",
+    "term": "契約解除",
+    "reading": "けいやくかいじょ",
+    "summary": "有効に成立した契約を後から解消する制度",
+    "desc": "契約解除は、債務不履行や解除権の発生により契約関係を解消する制度です。催告解除・無催告解除・解除後の原状回復を、手付解除や取消しと区別します。",
+    "articleSlug": "keiyaku-kaijo"
+  },
+  {
+    "id": "genjo_kaifuku",
+    "cat": "rights",
+    "term": "原状回復義務",
+    "reading": "げんじょうかいふくぎむ",
+    "summary": "契約終了後に元の状態へ戻す義務",
+    "desc": "原状回復義務は、解除や賃貸借終了時に当事者が受け取ったものを返す義務です。賃貸借では通常損耗・経年劣化を借主負担にできるかが頻出です。",
+    "articleSlug": "genjo-kaifuku"
+  },
+  {
+    "id": "songai_baisho",
+    "cat": "rights",
+    "term": "損害賠償",
+    "reading": "そんがいばいしょう",
+    "summary": "債務不履行や不法行為により生じた損害を補填する制度",
+    "desc": "損害賠償は、債務不履行・不法行為により生じた損害を金銭で填補する制度です。帰責事由、因果関係、損害額、過失相殺の有無を分けて判断します。",
+    "articleSlug": "songai-baisho"
+  },
+  {
+    "id": "kajitsu",
+    "cat": "rights",
+    "term": "果実",
+    "reading": "かじつ",
+    "summary": "物から生じる収益や産出物",
+    "desc": "果実には天然果実と法定果実があり、不動産では賃料が法定果実の代表例です。抵当権の効力が果実に及ぶ時期や、占有者の果実取得と絡めて出題されます。",
+    "articleSlug": "kajitsu"
+  },
+  {
+    "id": "shoyuken",
+    "cat": "rights",
+    "term": "所有権",
+    "reading": "しょゆうけん",
+    "summary": "物を全面的に支配できる物権",
+    "desc": "所有権は、法令の制限内で物を使用・収益・処分できる権利です。取得時効、共有、相隣関係、区分所有との関連で、所有権の制限が問われます。",
+    "articleSlug": "shoyuken"
+  },
+  {
+    "id": "senyu",
+    "cat": "rights",
+    "term": "占有",
+    "reading": "せんゆう",
+    "summary": "物を事実上支配している状態",
+    "desc": "占有は、物を事実上支配する状態です。取得時効では所有の意思、平穏・公然、善意無過失などが問題になり、所有権や登記とは別に整理します。",
+    "articleSlug": "senyu"
+  },
+  {
+    "id": "senyu_kaishu",
+    "cat": "rights",
+    "term": "占有回収の訴え",
+    "reading": "せんゆうかいしゅうのうったえ",
+    "summary": "奪われた占有を回復するための占有訴権",
+    "desc": "占有回収の訴えは、占有を奪われた者が返還を求める制度です。本権の有無ではなく占有状態の保護が中心で、所有権に基づく返還請求と区別します。",
+    "articleSlug": "senyu-kaishu"
+  },
+  {
+    "id": "toubutsu_seikyu",
+    "cat": "rights",
+    "term": "物権的請求権",
+    "reading": "ぶっけんてきせいきゅうけん",
+    "summary": "物権を妨げる状態の排除を求める権利",
+    "desc": "物権的請求権は、返還請求・妨害排除請求・妨害予防請求に整理されます。所有権や地役権の侵害事例で、損害賠償とは別に効果を判断します。",
+    "articleSlug": "bukkenteki-seikyu"
+  },
+  {
+    "id": "seiyaku_teito",
+    "cat": "rights",
+    "term": "抵当権設定契約",
+    "reading": "ていとうけんせっていけいやく",
+    "summary": "債権を担保するため抵当権を設定する契約",
+    "desc": "抵当権設定契約は、債権担保のため不動産に抵当権を設定する契約です。成立は契約、第三者対抗は登記という二段構造を押さえます。",
+    "articleSlug": "teito-settei-keiyaku"
+  },
+  {
+    "id": "butsujo_hosho",
+    "cat": "rights",
+    "term": "物上保証人",
+    "reading": "ぶつじょうほしょうにん",
+    "summary": "他人の債務のため自己の物を担保に出す人",
+    "desc": "物上保証人は、自分の財産に抵当権などを設定して他人の債務を担保する人です。保証人のように債務全体を負うわけではなく、担保物の価値の範囲で責任を負います。",
+    "articleSlug": "butsujo-hosho"
+  },
+  {
+    "id": "houtei_tsuiseki",
+    "cat": "rights",
+    "term": "追及効",
+    "reading": "ついきゅうこう",
+    "summary": "物が移転しても物権の効力が追いかける性質",
+    "desc": "追及効は、目的物が第三者に移転しても物権の効力が及ぶ性質です。抵当権や所有権の対抗関係では、登記などの対抗要件とセットで考えます。",
+    "articleSlug": "tsuikyuko"
+  },
+  {
+    "id": "yusensai_ben",
+    "cat": "rights",
+    "term": "優先弁済権",
+    "reading": "ゆうせんべんさいけん",
+    "summary": "他の債権者に先立って弁済を受ける権利",
+    "desc": "優先弁済権は、担保物権者が競売代金などから他の債権者より先に弁済を受ける権利です。抵当権・質権・先取特権の共通点として問われます。",
+    "articleSlug": "yusen-bensai"
+  },
+  {
+    "id": "kiken_futan",
+    "cat": "rights",
+    "term": "危険負担",
+    "reading": "きけんふたん",
+    "summary": "契約後に目的物が滅失した場合のリスク分担",
+    "desc": "危険負担は、売買契約後に目的物が当事者の責任なく滅失した場合の代金支払義務を考える制度です。履行不能、解除、契約不適合責任との区別が重要です。",
+    "articleSlug": "kiken-futan"
+  },
+  {
+    "id": "douji_riko",
+    "cat": "rights",
+    "term": "同時履行の抗弁権",
+    "reading": "どうじりこうのこうべんけん",
+    "summary": "相手の履行まで自分の履行を拒める権利",
+    "desc": "同時履行の抗弁権は、双務契約で相手が履行を提供するまで自己の履行を拒める権利です。売買の代金支払と引渡し、解除後の原状回復で頻出です。",
+    "articleSlug": "douji-riko"
+  },
+  {
+    "id": "daibutsu_bensai",
+    "cat": "rights",
+    "term": "第三者弁済",
+    "reading": "だいさんしゃべんさい",
+    "summary": "債務者以外の者が債務を弁済すること",
+    "desc": "第三者弁済は、債務者以外の者が債務を弁済する制度です。利害関係の有無、債務者の意思、弁済後の求償・代位を分けて押さえます。",
+    "articleSlug": "daisansha-bensai"
+  },
+  {
+    "id": "saimu_hikiuke",
+    "cat": "rights",
+    "term": "債務引受",
+    "reading": "さいむひきうけ",
+    "summary": "債務を第三者が引き受ける制度",
+    "desc": "債務引受は、債務を第三者が負担する制度です。免責的債務引受と併存的債務引受を区別し、債権者の関与や担保の扱いに注意します。",
+    "articleSlug": "saimu-hikiuke"
+  },
+  {
+    "id": "saiken_joto",
+    "cat": "rights",
+    "term": "債権譲渡",
+    "reading": "さいけんじょうと",
+    "summary": "債権者が債権を第三者へ移転すること",
+    "desc": "債権譲渡は、債権者が有する債権を第三者に移転する制度です。債務者対抗要件、第三者対抗要件、譲渡制限特約の扱いを比較します。",
+    "articleSlug": "saiken-joto"
+  },
+  {
+    "id": "kojinteki_tanpo",
+    "cat": "rights",
+    "term": "人的担保",
+    "reading": "じんてきたんぽ",
+    "summary": "人の信用を担保にする制度",
+    "desc": "人的担保は、保証や連帯保証のように人の責任財産を担保にする制度です。物的担保との違い、催告・検索の抗弁権、分別の利益を比較します。",
+    "articleSlug": "jinteki-tanpo"
+  },
+  {
+    "id": "butteki_tanpo",
+    "cat": "rights",
+    "term": "物的担保",
+    "reading": "ぶってきたんぽ",
+    "summary": "物の価値を担保にする制度",
+    "desc": "物的担保は、抵当権・質権・先取特権など物の交換価値を担保にする制度です。優先弁済、対抗要件、目的物の範囲を横断的に整理します。",
+    "articleSlug": "butteki-tanpo"
+  },
+  {
+    "id": "menkyo_koshin",
+    "cat": "law",
+    "term": "免許の更新",
+    "reading": "めんきょのこうしん",
+    "summary": "宅建業免許を継続するための更新手続",
+    "desc": "免許の更新は、有効期間満了後も宅建業を続けるための手続です。更新申請期間、更新中の効力、免許換えとの違いを整理します。",
+    "articleSlug": "menkyo-koshin"
+  },
+  {
+    "id": "menkyo_kae",
+    "cat": "law",
+    "term": "免許換え",
+    "reading": "めんきょがえ",
+    "summary": "事務所所在地の変化に応じて免許権者を変える手続",
+    "desc": "免許換えは、事務所の設置状況が変わり大臣免許・知事免許の区分が変わる場合の手続です。変更届では足りないケースを判別します。",
+    "articleSlug": "menkyo-gae"
+  },
+  {
+    "id": "haigyo_todoke",
+    "cat": "law",
+    "term": "廃業等の届出",
+    "reading": "はいぎょうとうのとどけで",
+    "summary": "宅建業をやめた場合などに必要な届出",
+    "desc": "廃業等の届出は、宅建業者が死亡・合併・破産・解散・廃止した場合に行う届出です。届出義務者と届出期限を事由ごとに整理します。",
+    "articleSlug": "haigyo-todoke"
+  },
+  {
+    "id": "meibo_toroku",
+    "cat": "law",
+    "term": "宅建士資格登録簿",
+    "reading": "たっけんししかくとうろくぼ",
+    "summary": "宅建士の登録事項を管理する帳簿",
+    "desc": "宅建士資格登録簿は、宅建士の氏名・住所・本籍・勤務先など登録事項を管理するものです。変更登録、死亡等の届出、宅建士証との関係が問われます。",
+    "articleSlug": "meibo-toroku"
+  },
+  {
+    "id": "toroku_iten",
+    "cat": "law",
+    "term": "登録の移転",
+    "reading": "とうろくのいてん",
+    "summary": "勤務先の都道府県へ宅建士登録を移す制度",
+    "desc": "登録の移転は、宅建士が別の都道府県の宅建業者に従事する場合に登録先を移す制度です。任意制度である点と、宅建士証の書換え・交付を区別します。",
+    "articleSlug": "toroku-iten"
+  },
+  {
+    "id": "jimusho_hani",
+    "cat": "law",
+    "term": "事務所の範囲",
+    "reading": "じむしょのはんい",
+    "summary": "宅建業法上の事務所に当たる場所の判断",
+    "desc": "事務所の範囲は、継続的に契約締結権限を持つ場所かどうかで判断します。案内所との違い、専任宅建士や標識設置義務の有無を比較します。",
+    "articleSlug": "jimusho-hani"
+  },
+  {
+    "id": "annaisho_todoke",
+    "cat": "law",
+    "term": "案内所の届出",
+    "reading": "あんないしょのとどけで",
+    "summary": "一定の案内所を設ける場合の届出義務",
+    "desc": "案内所の届出は、契約行為等を行う案内所・展示場を設ける場合に必要です。届出時期、専任宅建士の設置、標識掲示とセットで覚えます。",
+    "articleSlug": "annaisho-todoke"
+  },
+  {
+    "id": "hyoshiki_keiji",
+    "cat": "law",
+    "term": "標識の掲示",
+    "reading": "ひょうしきのけいじ",
+    "summary": "事務所や案内所に標識を掲げる義務",
+    "desc": "標識の掲示は、宅建業者が事務所や一定の案内所に免許番号などを示す義務です。帳簿・従業者名簿・報酬額掲示との違いを比較します。",
+    "articleSlug": "hyoshiki-keiji"
+  },
+  {
+    "id": "jugyosha_meibo",
+    "cat": "law",
+    "term": "従業者名簿",
+    "reading": "じゅうぎょうしゃめいぼ",
+    "summary": "事務所ごとに備える従業者の名簿",
+    "desc": "従業者名簿は、宅建業者が事務所ごとに備え付ける名簿です。保存期間、閲覧対象、従業者証明書との違いを数字付きで整理します。",
+    "articleSlug": "jugyosha-meibo"
+  },
+  {
+    "id": "torihiki_daicho",
+    "cat": "law",
+    "term": "取引台帳",
+    "reading": "とりひきだいちょう",
+    "summary": "宅建業者が取引内容を記録する帳簿",
+    "desc": "取引台帳は、宅建業者が取引の年月日・物件・代金などを記録する帳簿です。事務所ごとの備付け、保存期間、記載事項が出題されます。",
+    "articleSlug": "torihiki-daicho"
+  },
+  {
+    "id": "hoshu_keiji",
+    "cat": "law",
+    "term": "報酬額の掲示",
+    "reading": "ほうしゅうがくのけいじ",
+    "summary": "事務所ごとに報酬額表を掲示する義務",
+    "desc": "報酬額の掲示は、宅建業者が事務所ごとに報酬額を掲げる義務です。媒介契約書への記載や実際の報酬上限計算と連動して問われます。",
+    "articleSlug": "hoshu-keiji"
+  },
+  {
+    "id": "meigi_kashi",
+    "cat": "law",
+    "term": "名義貸しの禁止",
+    "reading": "めいぎがしのきんし",
+    "summary": "免許や宅建士名義を他人に使わせることの禁止",
+    "desc": "名義貸しの禁止は、宅建業免許や宅建士の名義を他人に利用させる行為を禁じる規制です。無免許営業、名義貸し、従業者証明書の不正使用を区別します。",
+    "articleSlug": "meigi-kashi"
+  },
+  {
+    "id": "himitsu_hoji",
+    "cat": "law",
+    "term": "秘密保持義務",
+    "reading": "ひみつほじぎむ",
+    "summary": "業務上知った秘密を漏らしてはならない義務",
+    "desc": "秘密保持義務は、宅建業者や宅建士が業務上知った秘密を漏らしてはならない義務です。退職後も続く点、正当な理由がある場合との区別が問われます。",
+    "articleSlug": "himitsu-hoji"
+  },
+  {
+    "id": "shuyo_jikou_fukumei",
+    "cat": "law",
+    "term": "重要事項の不告知",
+    "reading": "じゅうようじこうのふこくち",
+    "summary": "重要事項を故意に告げない行為",
+    "desc": "重要事項の不告知は、取引判断に重要な事項を故意に告げない行為です。虚偽告知、不実告知、断定的判断の提供と並べて業務規制を整理します。",
+    "articleSlug": "juuyou-fukokuchi"
+  },
+  {
+    "id": "fujitsu_kokuchi",
+    "cat": "law",
+    "term": "不実告知",
+    "reading": "ふじつこくち",
+    "summary": "事実と異なることを告げる禁止行為",
+    "desc": "不実告知は、取引相手に事実と異なる説明をする禁止行為です。重要事項説明の誤り、広告規制、損害賠償責任との接続が問われます。",
+    "articleSlug": "fujitsu-kokuchi"
+  },
+  {
+    "id": "danteiteki_handan",
+    "cat": "law",
+    "term": "断定的判断の提供",
+    "reading": "だんていてきはんだんのていきょう",
+    "summary": "将来利益などを断定的に告げる禁止行為",
+    "desc": "断定的判断の提供は、将来の値上がりや収益を確実であるかのように告げる行為です。投資用不動産の勧誘規制や誇大広告と関連して出題されます。",
+    "articleSlug": "danteiteki-handan"
+  },
+  {
+    "id": "shiteki_dokusen",
+    "cat": "law",
+    "term": "手付金等の保全措置",
+    "reading": "てつけきんとうのほぜんそち",
+    "summary": "一定額を超える手付金等を保全する制度",
+    "desc": "手付金等の保全措置は、宅建業者が自ら売主となる取引で買主の支払金を保護する制度です。未完成物件と完成物件の基準、保全方法を比較します。",
+    "articleSlug": "tetsukekin-hozen"
+  },
+  {
+    "id": "sonbai_yotei",
+    "cat": "law",
+    "term": "損害賠償額の予定等の制限",
+    "reading": "そんがいばいしょうがくのよていとうのせいげん",
+    "summary": "自ら売主の宅建業者に対する20%制限",
+    "desc": "損害賠償額の予定等の制限は、宅建業者が自ら売主の場合に損害賠償予定額と違約金の合計を代金の20%以下にする規制です。8種制限の一つとして出題されます。",
+    "articleSlug": "sonbai-yotei"
+  },
+  {
+    "id": "kashi_tanpo_tokuyaku",
+    "cat": "law",
+    "term": "契約不適合責任の特約制限",
+    "reading": "けいやくふてきごうせきにんのとくやくせいげん",
+    "summary": "買主に不利な契約不適合責任特約の制限",
+    "desc": "契約不適合責任の特約制限は、宅建業者が自ら売主となる場合に買主へ不利な特約を制限する制度です。通知期間を引渡しから2年以上とする特約の扱いが頻出です。",
+    "articleSlug": "futekigo-tokuyaku-seigen"
+  },
+  {
+    "id": "kaijo_seigen",
+    "cat": "law",
+    "term": "解除等の制限",
+    "reading": "かいじょとうのせいげん",
+    "summary": "買主に不利な解除条項を制限する規制",
+    "desc": "解除等の制限は、宅建業者が自ら売主となる取引で買主に不利な解除条項を制限する規制です。8種制限の横断整理で、手付解除・損害賠償予定と比較します。",
+    "articleSlug": "kaijo-seigen"
+  },
+  {
+    "id": "chukai_tesuryo",
+    "cat": "law",
+    "term": "仲介手数料",
+    "reading": "ちゅうかいてすうりょう",
+    "summary": "媒介・代理で受け取れる報酬",
+    "desc": "仲介手数料は、媒介・代理により宅建業者が受け取れる報酬です。売買・交換・賃貸借で計算式が異なり、消費税の扱いも問われます。",
+    "articleSlug": "chukai-tesuryo"
+  },
+  {
+    "id": "baikai_keiyakusho",
+    "cat": "law",
+    "term": "媒介契約書",
+    "reading": "ばいかいけいやくしょ",
+    "summary": "媒介契約締結時に作成・交付する書面",
+    "desc": "媒介契約書は、宅建業者が媒介契約を締結したときに依頼者へ交付する書面です。記載事項、有効期間、レインズ登録、報告義務を一体で整理します。",
+    "articleSlug": "baikai-keiyakusho"
+  },
+  {
+    "id": "ippan_baikai",
+    "cat": "law",
+    "term": "一般媒介契約",
+    "reading": "いっぱんばいかいけいやく",
+    "summary": "複数業者へ依頼できる媒介契約",
+    "desc": "一般媒介契約は、依頼者が複数の宅建業者に媒介を依頼できる契約です。明示型・非明示型、レインズ登録義務の有無、報告義務の違いを比較します。",
+    "articleSlug": "ippan-baikai"
+  },
+  {
+    "id": "sennin_baikai",
+    "cat": "law",
+    "term": "専任媒介契約",
+    "reading": "せんにんばいかいけいやく",
+    "summary": "一社にだけ媒介を依頼する契約",
+    "desc": "専任媒介契約は、依頼先を一社に限定する媒介契約です。自己発見取引の可否、レインズ登録期限、業務処理状況の報告頻度が頻出です。",
+    "articleSlug": "sennin-baikai"
+  },
+  {
+    "id": "senzoku_sennin_baikai",
+    "cat": "law",
+    "term": "専属専任媒介契約",
+    "reading": "せんぞくせんにんばいかいけいやく",
+    "summary": "自己発見取引も制限される媒介契約",
+    "desc": "専属専任媒介契約は、依頼先を一社に限定し、依頼者自身が見つけた相手との取引も制限される契約です。専任媒介との数字比較が重要です。",
+    "articleSlug": "senzoku-sennin-baikai"
+  },
+  {
+    "id": "it_jusetsu_yoken",
+    "cat": "law",
+    "term": "IT重説の実施要件",
+    "reading": "あいてぃーじゅうせつのじっしようけん",
+    "summary": "オンラインで重要事項説明を行うための要件",
+    "desc": "IT重説の実施要件は、双方向通信、相手方の承諾、書面確認、宅建士証提示などを整理します。対面重説と省略できない事項を比較します。",
+    "articleSlug": "it-jusetsu-yoken"
+  },
+  {
+    "id": "denshi_kofu",
+    "cat": "law",
+    "term": "書面の電磁的方法による交付",
+    "reading": "しょめんのでんじてきほうほうによるこうふ",
+    "summary": "35条・37条書面を電子的に交付する制度",
+    "desc": "書面の電磁的方法による交付は、相手方の承諾を得て重要事項説明書や37条書面を電子交付する制度です。承諾、保存、見読性を確認します。",
+    "articleSlug": "denshi-kofu"
+  },
+  {
+    "id": "toshi_keikaku_kettei",
+    "cat": "limit",
+    "term": "都市計画決定",
+    "reading": "としけいかくけってい",
+    "summary": "都市計画を定める行政手続",
+    "desc": "都市計画決定は、区域区分・用途地域・都市施設などを定める手続です。決定権者、公告・縦覧、建築制限の発生時期が問われます。",
+    "articleSlug": "toshi-keikaku-kettei"
+  },
+  {
+    "id": "toshishisetsu",
+    "cat": "limit",
+    "term": "都市施設",
+    "reading": "とししせつ",
+    "summary": "道路・公園・下水道など都市計画に定める施設",
+    "desc": "都市施設は、道路・公園・上下水道など都市の機能に必要な施設です。都市計画施設区域内の建築制限や事業認可後の制限と関連します。",
+    "articleSlug": "toshishisetsu"
+  },
+  {
+    "id": "toshikeikaku_jigyo",
+    "cat": "limit",
+    "term": "都市計画事業",
+    "reading": "としけいかくじぎょう",
+    "summary": "都市計画施設などを実施する事業",
+    "desc": "都市計画事業は、都市計画施設や市街地開発事業を実施する事業です。認可・承認後の建築制限、土地収用との関係が出題されます。",
+    "articleSlug": "toshikeikaku-jigyo"
+  },
+  {
+    "id": "kaihatsu_kyoka_fuyo",
+    "cat": "limit",
+    "term": "開発許可が不要な開発行為",
+    "reading": "かいはつきょかがふようなかいはつこうい",
+    "summary": "一定の場合に開発許可が不要となる類型",
+    "desc": "開発許可が不要な開発行為は、公益上必要な建築物、農林漁業用施設、非常災害時の応急措置などです。区域と規模要件をセットで整理します。",
+    "articleSlug": "kaihatsu-kyoka-fuyo"
+  },
+  {
+    "id": "kaihatsu_henko",
+    "cat": "limit",
+    "term": "開発許可の変更許可",
+    "reading": "かいはつきょかのへんこうきょか",
+    "summary": "許可後に設計などを変更する場合の手続",
+    "desc": "開発許可の変更許可は、許可後に設計・用途・区域などを変更する場合に必要です。軽微な変更の届出との違いを押さえます。",
+    "articleSlug": "kaihatsu-henko"
+  },
+  {
+    "id": "kofuku_kensa",
+    "cat": "limit",
+    "term": "開発行為の完了検査",
+    "reading": "かいはつこういのかんりょうけんさ",
+    "summary": "開発工事完了後に受ける検査",
+    "desc": "開発行為の完了検査は、工事が許可内容に適合しているか確認する手続です。検査済証、公告、建築制限の解除時期が問われます。",
+    "articleSlug": "kaihatsu-kanryou-kensa"
+  },
+  {
+    "id": "yoto_chiiki_shurui",
+    "cat": "limit",
+    "term": "用途地域の種類",
+    "reading": "ようとちいきのしゅるい",
+    "summary": "住居・商業・工業など13種類の用途地域",
+    "desc": "用途地域の種類は、住居系・商業系・工業系に大別されます。建築できる用途、建ぺい率・容積率、防火規制との組合せで問われます。",
+    "articleSlug": "yoto-chiiki-shurui"
+  },
+  {
+    "id": "tokubetsu_yoto_chiku",
+    "cat": "limit",
+    "term": "特別用途地区",
+    "reading": "とくべつようとちく",
+    "summary": "用途地域を補完して用途制限を強化・緩和する地区",
+    "desc": "特別用途地区は、用途地域内で地域特性に応じて用途制限を細かく調整する地区です。条例による制限内容と用途地域との関係を整理します。",
+    "articleSlug": "tokubetsu-yoto-chiku"
+  },
+  {
+    "id": "tokutei_yoto_seigen",
+    "cat": "limit",
+    "term": "特定用途制限地域",
+    "reading": "とくていようとせいげんちいき",
+    "summary": "用途地域外で特定用途を制限する地域",
+    "desc": "特定用途制限地域は、用途地域が定められていない区域で一定の建築物の用途を制限する地域です。非線引き区域・準都市計画区域との関係を押さえます。",
+    "articleSlug": "tokutei-yoto-seigen"
+  },
+  {
+    "id": "koudo_chiku",
+    "cat": "limit",
+    "term": "高度地区",
+    "reading": "こうどちく",
+    "summary": "建築物の高さを制限または誘導する地区",
+    "desc": "高度地区は、建築物の高さの最高限度・最低限度を定める地区です。高度利用地区や斜線制限との違いを比較して覚えます。",
+    "articleSlug": "koudo-chiku"
+  },
+  {
+    "id": "koudo_riyou_chiku",
+    "cat": "limit",
+    "term": "高度利用地区",
+    "reading": "こうどりようちく",
+    "summary": "土地の合理的かつ健全な高度利用を図る地区",
+    "desc": "高度利用地区は、市街地の高度利用と都市機能更新を目的に、容積率・建ぺい率・壁面位置などを定める地区です。高度地区と名称が似ているため注意します。",
+    "articleSlug": "koudo-riyou-chiku-detail"
+  },
+  {
+    "id": "tokutei_gaiku",
+    "cat": "limit",
+    "term": "特定街区",
+    "reading": "とくていがいく",
+    "summary": "街区単位で容積率や高さを定める制度",
+    "desc": "特定街区は、街区全体の整備改善を図るため容積率・高さ・壁面位置を都市計画で定める制度です。総合設計制度との違いも整理します。",
+    "articleSlug": "tokutei-gaiku"
+  },
+  {
+    "id": "bika_chiku",
+    "cat": "limit",
+    "term": "風致地区",
+    "reading": "ふうちちく",
+    "summary": "都市の自然的景観を維持する地区",
+    "desc": "風致地区は、都市の風致を維持するため建築・宅地造成・木竹伐採などを規制する地区です。条例による許可制と景観地区との違いが問われます。",
+    "articleSlug": "fuchi-chiku"
+  },
+  {
+    "id": "keikan_chiku",
+    "cat": "limit",
+    "term": "景観地区",
+    "reading": "けいかんちく",
+    "summary": "良好な景観形成のため建築物の形態意匠などを制限する地区",
+    "desc": "景観地区は、建築物の形態意匠、高さ、壁面位置などを制限して良好な景観を形成する地区です。景観計画区域との違いを比較します。",
+    "articleSlug": "keikan-chiku"
+  },
+  {
+    "id": "rekishi_fuchi",
+    "cat": "limit",
+    "term": "歴史的風致維持向上地区計画",
+    "reading": "れきしてきふうちいじこうじょうちくけいかく",
+    "summary": "歴史的な街並みの維持向上を目的とする地区計画",
+    "desc": "歴史的風致維持向上地区計画は、歴史的建造物や伝統的活動と一体となった市街地環境を守る制度です。地区計画の一類型として位置づけを押さえます。",
+    "articleSlug": "rekishi-fuchi"
+  },
+  {
+    "id": "kenchiku_butsu",
+    "cat": "limit",
+    "term": "建築物",
+    "reading": "けんちくぶつ",
+    "summary": "土地に定着する工作物のうち建築基準法上の対象",
+    "desc": "建築物は、土地に定着する工作物のうち屋根・柱・壁を有するものなどを指します。建築、大規模修繕、用途変更、工作物との違いが問われます。",
+    "articleSlug": "kenchikubutsu"
+  },
+  {
+    "id": "kenchiku_koui",
+    "cat": "limit",
+    "term": "建築",
+    "reading": "けんちく",
+    "summary": "新築・増築・改築・移転を含む行為",
+    "desc": "建築は、新築・増築・改築・移転を含む概念です。大規模修繕・大規模模様替えとの違い、建築確認が必要となる場面を整理します。",
+    "articleSlug": "kenchiku-koui"
+  },
+  {
+    "id": "daikibo_shuzen",
+    "cat": "limit",
+    "term": "大規模修繕・大規模模様替",
+    "reading": "だいきぼしゅうぜん・だいきぼもようがえ",
+    "summary": "主要構造部の過半を修繕・模様替えする行為",
+    "desc": "大規模修繕・大規模模様替は、主要構造部の一種以上について過半を修繕・模様替えする行為です。建築確認の要否と建築との違いが問われます。",
+    "articleSlug": "daikibo-shuzen"
+  },
+  {
+    "id": "yoto_henko",
+    "cat": "limit",
+    "term": "用途変更",
+    "reading": "ようとへんこう",
+    "summary": "建築物の用途を他の用途に変えること",
+    "desc": "用途変更は、建築物の使い方を別の用途へ変える行為です。特殊建築物への用途変更では建築確認が必要となる場合があり、用途地域制限とも関係します。",
+    "articleSlug": "yoto-henko"
+  },
+  {
+    "id": "tokushu_kenchikubutsu",
+    "cat": "limit",
+    "term": "特殊建築物",
+    "reading": "とくしゅけんちくぶつ",
+    "summary": "多数利用や防災上の配慮が必要な建築物",
+    "desc": "特殊建築物は、学校・病院・劇場・共同住宅など多数利用や防災上の配慮が必要な建築物です。用途変更、定期報告、避難規定と関連します。",
+    "articleSlug": "tokushu-kenchikubutsu"
+  },
+  {
+    "id": "douro_teigi",
+    "cat": "limit",
+    "term": "建築基準法上の道路",
+    "reading": "けんちくきじゅんほうじょうのどうろ",
+    "summary": "建築基準法が接道義務の前提とする道路",
+    "desc": "建築基準法上の道路は、幅員4m以上の道路など一定の要件を満たすものです。2項道路、道路位置指定、接道義務との関係が頻出です。",
+    "articleSlug": "douro-teigi"
+  },
+  {
+    "id": "nikou_douro",
+    "cat": "limit",
+    "term": "2項道路",
+    "reading": "にこうどうろ",
+    "summary": "幅員4m未満でも道路とみなされる道",
+    "desc": "2項道路は、建築基準法施行時から建築物が立ち並ぶ幅員4m未満の道で、特定行政庁が指定したものです。中心線からのセットバックを押さえます。",
+    "articleSlug": "nikou-douro"
+  },
+  {
+    "id": "douro_ichi_shitei",
+    "cat": "limit",
+    "term": "道路位置指定",
+    "reading": "どうろいちしてい",
+    "summary": "私道を建築基準法上の道路として指定する制度",
+    "desc": "道路位置指定は、一定の私道について特定行政庁から道路としての指定を受ける制度です。開発許可との関係、接道義務の充足で問われます。",
+    "articleSlug": "douro-ichi-shitei"
+  },
+  {
+    "id": "setsubi_kenchiku",
+    "cat": "limit",
+    "term": "建築設備",
+    "reading": "けんちくせつび",
+    "summary": "建築物に設ける電気・ガス・給排水・昇降機など",
+    "desc": "建築設備は、建築物に設ける電気・ガス・給排水・換気・昇降機などです。建築物との一体性、定期検査、重要事項説明の設備項目と関連します。",
+    "articleSlug": "kenchiku-setsubi"
+  },
+  {
+    "id": "taika_kenchikubutsu",
+    "cat": "limit",
+    "term": "耐火建築物",
+    "reading": "たいかけんちくぶつ",
+    "summary": "主要構造部などが耐火性能を満たす建築物",
+    "desc": "耐火建築物は、主要構造部や開口部が一定の耐火性能を満たす建築物です。防火地域・準防火地域で必要となる建築物の種類を比較します。",
+    "articleSlug": "taika-kenchikubutsu"
+  },
+  {
+    "id": "jun_taika_kenchikubutsu",
+    "cat": "limit",
+    "term": "準耐火建築物",
+    "reading": "じゅんたいかけんちくぶつ",
+    "summary": "耐火建築物に準ずる耐火性能を持つ建築物",
+    "desc": "準耐火建築物は、耐火建築物に準じた防火性能を備える建築物です。防火地域・準防火地域の規制で、階数・延べ面積との組合せが出題されます。",
+    "articleSlug": "jun-taika-kenchikubutsu"
+  },
+  {
+    "id": "kenchiku_shido",
+    "cat": "limit",
+    "term": "建築協定",
+    "reading": "けんちくきょうてい",
+    "summary": "土地所有者等が建築物の基準を定める協定",
+    "desc": "建築協定は、土地所有者等が区域内の建築物の敷地・位置・構造・用途などを定める協定です。認可、効力、借地権者の扱いが問われます。",
+    "articleSlug": "kenchiku-kyotei-detail"
+  },
+  {
+    "id": "kokudo_todokede",
+    "cat": "limit",
+    "term": "国土利用計画法の届出",
+    "reading": "こくどりようけいかくほうのとどけで",
+    "summary": "一定面積以上の土地取引後に行う届出",
+    "desc": "国土利用計画法の届出は、一定面積以上の土地売買等について契約後に行う届出です。市街化区域・その他都市計画区域・都市計画区域外の面積基準を比較します。",
+    "articleSlug": "kokudo-todokede"
+  },
+  {
+    "id": "nochi_tenyo",
+    "cat": "limit",
+    "term": "農地転用",
+    "reading": "のうちてんよう",
+    "summary": "農地を農地以外の用途に変えること",
+    "desc": "農地転用は、農地を宅地や駐車場など農地以外の用途に変更する行為です。農地法3条・4条・5条の違い、市街化区域内の届出特例を整理します。",
+    "articleSlug": "nochi-tenyo"
+  },
+  {
+    "id": "takuchi_zosei_kuiki",
+    "cat": "limit",
+    "term": "宅地造成等工事規制区域",
+    "reading": "たくちぞうせいとうこうじきせいくいき",
+    "summary": "宅地造成等の災害防止のため指定される区域",
+    "desc": "宅地造成等工事規制区域は、宅地造成等に伴う災害を防ぐため指定される区域です。許可対象工事、造成主・工事施行者の責任、検査済証を整理します。",
+    "articleSlug": "takuchi-zosei-kuiki"
+  },
+  {
+    "id": "tokutei_morido",
+    "cat": "limit",
+    "term": "特定盛土等規制区域",
+    "reading": "とくていもりどとうきせいくいき",
+    "summary": "盛土等による災害を防ぐため規制する区域",
+    "desc": "特定盛土等規制区域は、盛土・切土・土石の堆積による災害を防止するための区域です。宅地造成等工事規制区域との違い、許可・届出を整理します。",
+    "articleSlug": "tokutei-morido"
+  },
+  {
+    "id": "shisan_hyoka_gaku",
+    "cat": "tax",
+    "term": "固定資産評価額",
+    "reading": "こていしさんひょうかがく",
+    "summary": "固定資産税などの基礎となる評価額",
+    "desc": "固定資産評価額は、市町村が固定資産課税台帳に登録する評価額です。固定資産税、不動産取得税、登録免許税の課税標準との関係で問われます。",
+    "articleSlug": "kotei-hyokagaku"
+  },
+  {
+    "id": "kotei_shisan_kazei_daicho",
+    "cat": "tax",
+    "term": "固定資産課税台帳",
+    "reading": "こていしさんかぜいだいちょう",
+    "summary": "固定資産税の課税対象を登録する台帳",
+    "desc": "固定資産課税台帳は、土地・家屋・償却資産の所有者や評価額を登録する台帳です。閲覧、縦覧、評価証明書との違いを整理します。",
+    "articleSlug": "kotei-kazei-daicho"
+  },
+  {
+    "id": "kotei_shisan_juuran",
+    "cat": "tax",
+    "term": "固定資産税の縦覧",
+    "reading": "こていしさんぜいのじゅうらん",
+    "summary": "納税者が他の土地家屋の評価額と比較できる制度",
+    "desc": "固定資産税の縦覧は、納税者が自己の固定資産評価額を他の土地家屋と比較できる制度です。閲覧制度との違い、期間、対象者を整理します。",
+    "articleSlug": "kotei-juuran"
+  },
+  {
+    "id": "fudosan_shutoku_kazei_hyojun",
+    "cat": "tax",
+    "term": "不動産取得税の課税標準",
+    "reading": "ふどうさんしゅとくぜいのかぜいひょうじゅん",
+    "summary": "不動産取得税の税額計算の基礎",
+    "desc": "不動産取得税の課税標準は、原則として固定資産課税台帳の価格です。住宅・住宅用土地の軽減、宅建試験で問われる取得の範囲と合わせて整理します。",
+    "articleSlug": "fudosan-shutoku-kazei-hyojun"
+  },
+  {
+    "id": "fudosan_shutoku_menkyo",
+    "cat": "tax",
+    "term": "不動産取得税の免税点",
+    "reading": "ふどうさんしゅとくぜいのめんぜいてん",
+    "summary": "一定額未満なら不動産取得税が課されない基準",
+    "desc": "不動産取得税の免税点は、課税標準額が一定額未満の場合に課税されない基準です。土地・家屋の取得区分ごとの金額を比較して覚えます。",
+    "articleSlug": "fudosan-shutoku-menzeiten"
+  },
+  {
+    "id": "toroku_menkyo_kazei_hyojun",
+    "cat": "tax",
+    "term": "登録免許税の課税標準",
+    "reading": "とうろくめんきょぜいのかぜいひょうじゅん",
+    "summary": "登記にかかる登録免許税の計算基礎",
+    "desc": "登録免許税の課税標準は、所有権移転登記では不動産の価額、抵当権設定登記では債権金額などです。税率と課税標準をセットで覚えます。",
+    "articleSlug": "toroku-menkyo-kazei-hyojun"
+  },
+  {
+    "id": "toroku_menkyo_keigen",
+    "cat": "tax",
+    "term": "登録免許税の軽減税率",
+    "reading": "とうろくめんきょぜいのけいげんぜいりつ",
+    "summary": "住宅用家屋などに適用される軽減税率",
+    "desc": "登録免許税の軽減税率は、一定の住宅用家屋の所有権保存・移転・抵当権設定登記などで適用されます。適用期限や床面積要件は改正に注意します。",
+    "articleSlug": "toroku-menkyo-keigen"
+  },
+  {
+    "id": "inshi_zei_kazei_bunsho",
+    "cat": "tax",
+    "term": "印紙税の課税文書",
+    "reading": "いんしぜいのかぜいぶんしょ",
+    "summary": "印紙税が課される契約書や領収書",
+    "desc": "印紙税の課税文書は、不動産売買契約書、請負契約書、領収書などです。電子契約では課税文書に当たらない扱いとの比較が出題されます。",
+    "articleSlug": "inshi-kazei-bunsho"
+  },
+  {
+    "id": "inshi_zei_funo",
+    "cat": "tax",
+    "term": "印紙税の納付方法",
+    "reading": "いんしぜいののうふほうほう",
+    "summary": "収入印紙の貼付と消印による納付",
+    "desc": "印紙税の納付は、原則として課税文書に収入印紙を貼り消印して行います。貼り忘れや消印漏れの過怠税、電子文書との違いを整理します。",
+    "articleSlug": "inshi-nofu"
+  },
+  {
+    "id": "shotokuzei_bunri",
+    "cat": "tax",
+    "term": "分離課税",
+    "reading": "ぶんりかぜい",
+    "summary": "他の所得と分けて税額を計算する課税方式",
+    "desc": "分離課税は、譲渡所得などを他の所得と分けて税額計算する方式です。不動産譲渡所得では長期・短期の区分と税率が重要です。",
+    "articleSlug": "bunri-kazei"
+  },
+  {
+    "id": "sogo_kazei",
+    "cat": "tax",
+    "term": "総合課税",
+    "reading": "そうごうかぜい",
+    "summary": "複数の所得を合算して税額を計算する方式",
+    "desc": "総合課税は、給与所得や不動産所得などを合算して税額を計算する方式です。譲渡所得の分離課税、不動産所得の必要経費との違いを整理します。",
+    "articleSlug": "sogo-kazei"
+  },
+  {
+    "id": "fudosan_shotoku",
+    "cat": "tax",
+    "term": "不動産所得",
+    "reading": "ふどうさんしょとく",
+    "summary": "不動産の貸付けから生じる所得",
+    "desc": "不動産所得は、土地・建物の貸付けによる所得です。必要経費、減価償却、事業的規模、譲渡所得との違いを確認します。",
+    "articleSlug": "fudosan-shotoku"
+  },
+  {
+    "id": "genka_shokyaku",
+    "cat": "tax",
+    "term": "減価償却",
+    "reading": "げんかしょうきゃく",
+    "summary": "建物などの取得費を期間配分する会計・税務処理",
+    "desc": "減価償却は、建物など長期間使う資産の取得費を耐用年数に応じて費用化する処理です。不動産所得や譲渡所得の取得費計算で問われます。",
+    "articleSlug": "genka-shokyaku"
+  },
+  {
+    "id": "shutokuhi",
+    "cat": "tax",
+    "term": "取得費",
+    "reading": "しゅとくひ",
+    "summary": "譲渡所得計算で控除する取得に要した費用",
+    "desc": "取得費は、譲渡所得の計算で譲渡価額から控除する費用です。購入代金、取得時の手数料、概算取得費、建物の減価償却を整理します。",
+    "articleSlug": "shutokuhi"
+  },
+  {
+    "id": "joto_hiyo",
+    "cat": "tax",
+    "term": "譲渡費用",
+    "reading": "じょうとひよう",
+    "summary": "資産を売るために直接かかった費用",
+    "desc": "譲渡費用は、不動産を売却するために直接要した仲介手数料、測量費、契約書印紙代などです。維持管理費や固定資産税との区別が問われます。",
+    "articleSlug": "joto-hiyo"
+  },
+  {
+    "id": "gaisan_shutokuhi",
+    "cat": "tax",
+    "term": "概算取得費",
+    "reading": "がいさんしゅとくひ",
+    "summary": "取得費不明時に譲渡価額の一定割合を取得費とする扱い",
+    "desc": "概算取得費は、実際の取得費が不明な場合に譲渡価額の5%を取得費とする扱いです。実額取得費との選択、古い不動産の売却で頻出です。",
+    "articleSlug": "gaisan-shutokuhi"
+  },
+  {
+    "id": "joto_choki_tanki",
+    "cat": "tax",
+    "term": "長期譲渡所得・短期譲渡所得",
+    "reading": "ちょうきじょうとしょとく・たんきじょうとしょとく",
+    "summary": "所有期間により税率が異なる譲渡所得の区分",
+    "desc": "長期譲渡所得・短期譲渡所得は、譲渡年の1月1日時点の所有期間で判定します。5年超か5年以下か、税率差、取得日・譲渡日の読み取りが重要です。",
+    "articleSlug": "joto-choki-tanki"
+  },
+  {
+    "id": "sanzenman_kojo",
+    "cat": "tax",
+    "term": "居住用財産の3,000万円特別控除",
+    "reading": "きょじゅうようざいさんのさんぜんまんえんとくべつこうじょ",
+    "summary": "マイホーム売却時に譲渡所得から控除できる特例",
+    "desc": "居住用財産の3,000万円特別控除は、一定のマイホーム売却時に譲渡所得から最高3,000万円を控除する特例です。適用除外、親族間譲渡、他特例との選択関係を確認します。",
+    "articleSlug": "sanzenman-kojo"
+  },
+  {
+    "id": "keigen_zeiritsu_10nen",
+    "cat": "tax",
+    "term": "所有期間10年超の軽減税率",
+    "reading": "しょゆうきかんじゅうねんちょうのけいげんぜいりつ",
+    "summary": "長期所有の居住用財産譲渡に使える軽減税率",
+    "desc": "所有期間10年超の軽減税率は、一定の居住用財産を長期所有後に譲渡した場合の税率軽減です。3,000万円特別控除との併用可否や所有期間判定を押さえます。",
+    "articleSlug": "keigen-zeiritsu-10nen"
+  },
+  {
+    "id": "souzoku_kiso_kojo",
+    "cat": "tax",
+    "term": "相続税の基礎控除",
+    "reading": "そうぞくぜいのきそこうじょ",
+    "summary": "相続税計算で遺産総額から差し引く控除",
+    "desc": "相続税の基礎控除は、3,000万円＋600万円×法定相続人の数で計算します。法定相続人の数、相続放棄、養子の扱いが問われます。",
+    "articleSlug": "souzoku-kiso-kojo"
+  },
+  {
+    "id": "shouki_souzoku",
+    "cat": "tax",
+    "term": "小規模宅地等の特例",
+    "reading": "しょうきぼたくちとうのとくれい",
+    "summary": "相続税評価額を大きく減額できる宅地特例",
+    "desc": "小規模宅地等の特例は、居住用・事業用・貸付事業用の宅地について相続税評価額を減額する制度です。用途区分、限度面積、同居親族要件を整理します。",
+    "articleSlug": "shokibo-takuchi"
+  },
+  {
+    "id": "zoyo_rekinen",
+    "cat": "tax",
+    "term": "暦年課税",
+    "reading": "れきねんかぜい",
+    "summary": "1年間の贈与額を基に贈与税を計算する方式",
+    "desc": "暦年課税は、1月1日から12月31日までの贈与額を基に贈与税を計算する方式です。基礎控除、相続時精算課税との違いを整理します。",
+    "articleSlug": "rekinen-kazei"
+  },
+  {
+    "id": "souzokuji_seisan",
+    "cat": "tax",
+    "term": "相続時精算課税",
+    "reading": "そうぞくじせいさんかぜい",
+    "summary": "贈与時に課税を精算し相続時にまとめて調整する制度",
+    "desc": "相続時精算課税は、一定の贈与について贈与時に申告し、相続時に贈与財産を加算して精算する制度です。暦年課税との選択と年齢要件を確認します。",
+    "articleSlug": "souzokuji-seisan"
   }
 ];
