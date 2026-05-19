@@ -416,7 +416,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
     for p in pages:
         by_year.setdefault(p["year"], []).append(p)
     for y in by_year:
-        by_year[y].sort(key=lambda x: x["qno"])
+        by_year[y].sort(key=lambda x: int(x["qno"]))
 
     field_chips = []
     for fid, meta in (

@@ -206,7 +206,7 @@ def q_list_table_html(items: list[dict], href_for) -> str:
 
 
 def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str, exam: str) -> str:
-    year_pages = sorted([p for p in pages if p["year"] == year], key=lambda x: x["qno"])
+    year_pages = sorted([p for p in pages if p["year"] == year], key=lambda x: int(x["qno"]))
     if not year_pages:
         return ""
     wareki = year_pages[0]["wareki"]
@@ -214,23 +214,13 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
     canonical = f"{base_url.rstrip('/')}/{rel_path}"
     title = f"宅建 {year}年 過去問一覧（無料）｜{wareki}・全{len(year_pages)}問｜{brand}"
     desc = (
-        f"宅建 {year}年（{wareki}）の過去問を無料で演習。全{len(year_pages)}問を分野別に掲載し、"
+        f"宅建 {year}年（{wareki}）の過去問を無料で演習。全{len(year_pages)}問を問番号順に掲載し、"
         "各問に正答・解説・関連用語リンク付き。宅建士試験の過去問対策に。"
     )
 
-    by_field: dict[str, list[dict]] = {}
-    for p in year_pages:
-        by_field.setdefault(p["category"], []).append(p)
-
-    field_sections = []
-    for cat in sorted(by_field.keys()):
-        table = q_list_table_html(
-            by_field[cat], lambda p: f"q{int(p['qno']):02d}/index.html"
-        )
-        field_sections.append(
-            f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{html.escape(cat)}</h2>'
-            f"{table}</section>"
-        )
+    question_table = q_list_table_html(
+        year_pages, lambda p: f"q{int(p['qno']):02d}/index.html"
+    )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
     body = f"""<!DOCTYPE html>
@@ -258,7 +248,7 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
   <p class="q-meta">全 {len(year_pages)} 問 · 無料 · 解説・関連用語リンク付き</p>
   <p class="glos-static-intro">宅建・宅建士試験の<strong>{html.escape(str(year))}年 過去問</strong>を<strong>無料</strong>で解けます。各問では正答・解説のほか、<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。<a href="../../index.html">全年度の過去問一覧</a>から他の年度へも移動できます。</p>
   {trust}
-  {"".join(field_sections)}
+  {question_table}
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
 </main>
 </body>
