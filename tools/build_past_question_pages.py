@@ -460,13 +460,38 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 
     total_line = f"<p class=\"q-meta\">全 {len(pages)} 問</p>" if pages else ""
 
+    recent_years = sorted(by_year.keys(), reverse=True)[:5]
+    quick_year_links = []
+    for y in recent_years:
+        ys = by_year[y]
+        wareki = ys[0]["wareki"]
+        n = len(ys)
+        quick_year_links.append(
+            f'<a class="terms-idx-chip" href="past/y{y}/index.html">'
+            f"宅建 {html.escape(str(y))}年 過去問（{html.escape(wareki)}・{n}問）</a>"
+        )
+    quick_years_nav = ""
+    if quick_year_links:
+        quick_years_nav = (
+            '<nav class="q-index-quick-years" aria-label="年度別過去問（人気）">'
+            '<p class="q-index-quick-label">年度別に見る</p>'
+            + "".join(quick_year_links)
+            + "</nav>"
+        )
+
+    index_title = f"宅建 過去問一覧（無料）｜年度別・解説付き｜{brand_name()}"
+    index_desc = (
+        f"宅建・宅建士試験の過去問を無料で年度別に演習。全{len(pages)}問に正答・解説・関連用語リンク付き。"
+        "2025年度・2024年度から各問へ。分野別の絞り込みもできます。"
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>過去問一覧｜{html.escape(brand_name())}（{html.escape(exam_name())}）</title>
-<meta name="description" content="{html.escape(exam_name())}の過去問を年度別・分野別に一覧。解説・関連用語リンク付きの静的ページです。">
+<title>{html.escape(index_title)}</title>
+<meta name="description" content="{html.escape(index_desc)}">
 {ROBOTS_INDEX_FOLLOW}
 <link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
 <link rel="stylesheet" href="../site-pages.css">
@@ -474,9 +499,10 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <body class="q-static-body">
 {q_header}
 <main class="q-static-main">
-  <h1 class="q-h1">過去問一覧</h1>
+  <h1 class="q-h1">宅建の過去問一覧（無料・年度別）</h1>
   {total_line}
-  <p class="glos-static-intro q-index-intro">年度別・分野別の静的ページです。各問には<strong>解説</strong>と<strong>関連用語</strong>へのリンクがあります。<strong><a href="../index.html#past">アプリで過去問</a></strong>では絞り込みや学習記録も使えます。</p>
+  <p class="glos-static-intro q-index-intro">宅建・宅建士試験の<strong>過去問</strong>を<strong>無料</strong>で<strong>年度別</strong>に解けます。各問ページには<strong>解説</strong>と<strong>関連用語</strong>へのリンクがあります。<strong><a href="../index.html#past">アプリで過去問</a></strong>では絞り込みや学習記録も使えます。</p>
+  {quick_years_nav}
   {field_nav}
   {"".join(year_blocks)}
   <p class="q-app-link"><a href="../index.html#past">アプリで過去問を開く</a></p>
@@ -498,8 +524,8 @@ def build_q_index_placeholder(base_url: str) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>過去問一覧｜{html.escape(brand_name())}（{html.escape(exam_name())}）</title>
-<meta name="description" content="{html.escape(exam_name())}の過去問を年度別に一覧するページです。">
+<title>宅建 過去問一覧（無料）｜年度別｜{html.escape(brand_name())}</title>
+<meta name="description" content="宅建・宅建士試験の過去問を無料で年度別に一覧。解説・関連用語リンク付きで演習できます。">
 {ROBOTS_INDEX_FOLLOW}
 <link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
 <link rel="stylesheet" href="../site-pages.css">
@@ -507,7 +533,7 @@ def build_q_index_placeholder(base_url: str) -> str:
 <body class="q-static-body">
 {q_header}
 <main class="q-static-main">
-  <h1 class="q-h1">過去問一覧</h1>
+  <h1 class="q-h1">宅建の過去問一覧（無料・年度別）</h1>
   <p class="glos-static-intro q-index-intro">
     静的な問題ページは <code>data/past_questions.csv</code> を用意したうえで、リポジトリ直下で
     <code>python3 tools/build_past_question_pages.py</code> を実行すると生成されます。

@@ -404,29 +404,63 @@ a:hover {
   font-size: var(--fs-sub);
   color: var(--ink);
 }
+/* 年度ハブ・分野ハブ：分野内の問一覧を2列カードで表示 */
+.glos-cat-section .q-year-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+.glos-cat-section .q-year-list li {
+  min-width: 0;
+}
+.glos-cat-section .q-year-list a,
+.q-year-section .q-year-list a {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+  box-shadow: var(--sh);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.glos-cat-section .q-year-list a:hover,
+.q-year-section .q-year-list a:hover {
+  border-color: var(--border2);
+  background: var(--bg2);
+}
+@media (max-width: 520px) {
+  .glos-cat-section .q-year-list {
+    grid-template-columns: 1fr;
+  }
+}
 .q-year-section .q-year-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 8px 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
 }
-.q-year-section .q-year-list a {
-  display: block;
-  padding: 8px 12px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  box-shadow: var(--sh);
+.q-year-section .q-year-list li {
+  min-width: 0;
 }
-.q-year-section .q-year-list a:hover {
-  border-color: var(--border2);
-  background: var(--bg2);
+@media (max-width: 520px) {
+  .q-year-section .q-year-list {
+    grid-template-columns: 1fr;
+  }
 }
 .q-index-intro {
   margin-top: 4px;
@@ -437,7 +471,7 @@ a:hover {
   color: var(--text2);
   margin-bottom: 14px;
   padding: 12px 14px;
-  background: var(--bg3);
+  background: #fff;
   border-radius: var(--r);
   border: 1px solid var(--border);
 }
@@ -1154,12 +1188,48 @@ a:hover {
 .term-trust-section {
   margin: 20px 0 28px;
   padding: 16px 18px;
-  background: var(--bg2);
+  background: #fff;
   border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.term-trust-section .q-h2,
+.term-trust-section .term-h2 {
+  margin-top: 0;
 }
 .term-trust-note {
   margin: 10px 0 0;
   color: var(--text3);
+}
+.article-table-wrap {
+  overflow-x: auto;
+  margin-top: 4px;
+}
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.55;
+  background: #fff;
+}
+.article-table th,
+.article-table td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  vertical-align: top;
+  text-align: left;
+}
+.article-table th {
+  background: var(--bg3);
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.article-table td {
+  color: var(--text);
+}
+.article-table a {
+  color: var(--sel);
+  text-decoration: underline;
 }
 .term-priority-badge {
   display: inline-block;
@@ -1191,6 +1261,22 @@ a:hover {
 .q-related-list {
   margin: 0;
   padding-left: 1.2em;
+}
+.q-index-quick-years {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+.q-index-quick-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text2);
+}
+.q-index-quick-years .terms-idx-chip {
+  text-decoration: none;
+  margin: 0 6px 6px 0;
 }
 .q-field-nav {
   display: flex;
@@ -1236,6 +1322,6 @@ a:hover {
   margin-right: 6px;
 }
 .trust-table th {
-  width: 130px;
-  vertical-align: top;
+  width: 8.5em;
+  min-width: 8.5em;
 }

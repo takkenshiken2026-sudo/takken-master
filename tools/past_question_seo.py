@@ -53,11 +53,15 @@ def page_title_mid(page: dict) -> str:
 def page_meta_description(page: dict, limit: int = 155) -> str:
     theme = page.get("theme") or ""
     stem = (page.get("stem_plain") or "").strip()
-    prefix = f"{page['wareki']}第{page['qno']}問"
+    prefix = f"宅建 {page['wareki']}第{page['qno']}問"
     if theme:
         prefix += f"「{theme}」"
     body = stem or page.get("category") or ""
-    one = re.sub(r"\s+", " ", f"{prefix}。{body} 正答・解説・関連用語リンク付き。宅建マスターで無料演習。").strip()
+    one = re.sub(
+        r"\s+",
+        " ",
+        f"{prefix}。{body} 正答・解説・関連用語リンク付き。宅建の過去問を無料で演習できます。",
+    ).strip()
     if len(one) <= limit:
         return one
     return one[: limit - 1] + "…"
@@ -179,8 +183,11 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
     wareki = year_pages[0]["wareki"]
     rel_path = f"q/past/y{year}/index.html"
     canonical = f"{base_url.rstrip('/')}/{rel_path}"
-    title = f"{wareki} 宅建過去問まとめ（全{len(year_pages)}問）｜{brand}（{exam}）"
-    desc = f"{wareki}（{year}年）の宅建試験過去問を第1問から掲載。分野別のリンク・解説・関連用語付きで無料演習できます。"
+    title = f"宅建 {year}年 過去問一覧（無料）｜{wareki}・全{len(year_pages)}問｜{brand}"
+    desc = (
+        f"宅建 {year}年（{wareki}）の過去問を無料で演習。全{len(year_pages)}問を分野別に掲載し、"
+        "各問に正答・解説・関連用語リンク付き。宅建士試験の過去問対策に。"
+    )
 
     by_field: dict[str, list[dict]] = {}
     for p in year_pages:
@@ -222,9 +229,9 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
   </ol></nav>
 </header>
 <main class="q-static-main">
-  <h1 class="q-h1">{html.escape(wareki)} 過去問まとめ</h1>
-  <p class="q-meta">全 {len(year_pages)} 問 · 解説・関連用語リンク付き</p>
-  <p class="glos-static-intro">各問のページでは正答・解説のほか、問題文に関連する<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。</p>
+  <h1 class="q-h1">宅建 {year}年の過去問（{html.escape(wareki)}）</h1>
+  <p class="q-meta">全 {len(year_pages)} 問 · 無料 · 解説・関連用語リンク付き</p>
+  <p class="glos-static-intro">宅建・宅建士試験の<strong>{html.escape(str(year))}年 過去問</strong>を<strong>無料</strong>で解けます。各問では正答・解説のほか、<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。<a href="../../index.html">全年度の過去問一覧</a>から他の年度へも移動できます。</p>
   {trust}
   {"".join(field_sections)}
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
