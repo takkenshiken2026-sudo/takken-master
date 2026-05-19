@@ -66,6 +66,12 @@
       "name": "税・その他",
       "aliases": ["税・その他", "税その他", "その他"],
       "legacyGlossaryCat": "tax"
+    },
+    {
+      "id": "guide",
+      "name": "試験対策",
+      "aliases": ["試験対策"],
+      "legacyGlossaryCat": "guide"
     }
   ],
   "externalLinks": [

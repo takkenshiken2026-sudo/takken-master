@@ -11,8 +11,33 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/takken/takken-35jou-gyakushu/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/takken/takken-40dai/</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-4gatsu-start/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-8shu-seigen/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-baikai-keiyaku/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-baisho/</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -28,6 +53,11 @@
   <url>
     <loc>https://takken-master.jp/takken/takken-dokugaku/</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-douga-kyozai/</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -81,8 +111,33 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/takken/takken-hoshokin/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-jikan-haibun/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-jitsumu-koshu/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-jukenhi/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/takken/takken-kakomon/</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-kenpei-yoseki/</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -91,7 +146,22 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/takken/takken-kyozai/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-machigai-note/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/takken/takken-mikeiken-tenshoku/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-moshi/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -118,6 +188,11 @@
   <url>
     <loc>https://takken-master.jp/takken/takken-plan/</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-saishuken/</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -151,13 +226,38 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/takken/takken-sozoku-minpo/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/takken/takken-to-wa/</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/takken/takken-tokkuten/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/takken/takken-toujitsu/</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-toukei-mondai/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-tsushin-hikaku/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/takken/takken-yoto-chiiki/</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -252,6 +352,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/bunri-kazei/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/butsujo-daii/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -426,6 +531,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/terms/gentei-shonin/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/terms/gomen-menjo/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -467,6 +577,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/hisen-yuki-kuiki/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/hon-toki/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -522,6 +637,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/ijou-kenchiku/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/inochi-ken/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -611,6 +731,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/terms/johiki-kikan/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/terms/joken-kigen/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -622,6 +747,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/joto-hiyo/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/joto-tanpo/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -732,6 +862,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/kantoktosho/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/kari-toki/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -1176,12 +1311,22 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/terms/shakuchiken/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/terms/shichi-sakidori/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://takken-master.jp/terms/shigaichi-kuiki/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/shiin-zoyo/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -1202,6 +1347,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/shinetsei-seiri/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/shintaku/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -1227,6 +1377,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/shisanzei-kojogaku/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/shiyou-taishaku/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -1382,6 +1537,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/takuchi-zosei-kuiki/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/tanjun-shonin/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -1576,6 +1736,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/terms/yigon/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/terms/yoseki/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -1622,6 +1787,11 @@
   </url>
   <url>
     <loc>https://takken-master.jp/terms/zosaku-kaitori/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/zoyo-minpo/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
