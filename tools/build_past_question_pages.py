@@ -438,12 +438,18 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
         ys = by_year[y]
         wareki = ys[0]["wareki"]
         count = len(ys)
+        links = []
+        for p in ys:
+            rel = p["rel_path"]
+            href = rel[2:] if rel.startswith("q/") else rel
+            label = f"第{p['qno']}問"
+            links.append(f'<li><a href="{html.escape(href)}">{html.escape(label)}</a></li>')
         year_blocks.append(
             f'<section class="glos-cat-section q-year-section">'
             f'<h2 class="glos-cat-heading glos-cat-heading--ja">'
             f'<a href="past/y{y}/index.html">{html.escape(str(y))}年（{html.escape(wareki)}）</a>'
-            f' <span class="q-meta">全{count}問</span></h2>'
-            f'<p class="q-year-hub-link"><a href="past/y{y}/index.html">{html.escape(wareki)}の過去問まとめを見る</a></p>'
+            f' <span class="q-meta">{count}問</span></h2>'
+            f'<ol class="q-year-list">{"".join(links)}</ol>'
             "</section>"
         )
 
