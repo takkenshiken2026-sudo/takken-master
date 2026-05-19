@@ -15,6 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.site_config import clean_origin  # noqa: E402
+from tools.seo_common import file_lastmod_iso  # noqa: E402
 
 BASE_URL = clean_origin()
 SITEMAP = ROOT / "sitemap.xml"
@@ -79,8 +80,9 @@ def sitemap_priority(url: str) -> tuple[int, str]:
     return (5, path)
 
 
-def collect_urls() -> list[str]:
-    urls: set[str] = set()
+def collect_url_entries() -> list[tuple[str, str]]:
+    """(canonical_url, lastmod YYYY-MM-DD)"""
+    entries: dict[str, str] = {}
     errors: list[str] = []
 
     for path in sorted(ROOT.rglob("*.html")):
@@ -101,23 +103,25 @@ def collect_urls() -> list[str]:
             if canonical_path is None:
                 errors.append(f"Canonical does not map to a local file: {path.relative_to(ROOT)} -> {canonical}")
             else:
-                urls.add(canonical)
+                entries[canonical] = file_lastmod_iso(canonical_path)
         else:
-            urls.add(local_url)
+            entries[local_url] = file_lastmod_iso(path)
 
     if errors:
         for error in errors:
             print(error, file=sys.stderr)
         raise SystemExit("Sitemap generation aborted because canonical URLs are invalid.")
 
-    return sorted(urls, key=sitemap_priority)
+    return sorted(entries.items(), key=lambda x: sitemap_priority(x[0]))
 
 
-def render(urls: list[str]) -> str:
+def render(url_entries: list[tuple[str, str]]) -> str:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for url in urls:
+    for url, lastmod in url_entries:
         lines.append("  <url>")
         lines.append(f"    <loc>{html.escape(url, quote=False)}</loc>")
+        lines.append(f"    <lastmod>{html.escape(lastmod, quote=False)}</lastmod>")
+        lines.append("    <changefreq>monthly</changefreq>")
         lines.append("  </url>")
     lines.append("</urlset>")
     lines.append("")
@@ -125,9 +129,9 @@ def render(urls: list[str]) -> str:
 
 
 def main() -> None:
-    urls = collect_urls()
-    SITEMAP.write_text(render(urls), encoding="utf-8")
-    print(f"Wrote {SITEMAP.relative_to(ROOT)} with {len(urls)} URLs.")
+    url_entries = collect_url_entries()
+    SITEMAP.write_text(render(url_entries), encoding="utf-8")
+    print(f"Wrote {SITEMAP.relative_to(ROOT)} with {len(url_entries)} URLs.")
 
 
 if __name__ == "__main__":

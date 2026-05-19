@@ -296,7 +296,7 @@ const GLOSSARY_DATA = [
         ]
       ]
     },
-    "articleSlug": "hosho-debt"
+    "articleSlug": "renzai"
   },
   {
     "id": "saimu_furikoh",

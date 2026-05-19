@@ -1149,3 +1149,93 @@ a:hover {
   border-bottom-color: color-mix(in srgb, var(--text) 40%, transparent);
   opacity: 1;
 }
+
+/* SEO: 信頼性表・過去問ナビ・ハブ */
+.term-trust-section {
+  margin: 20px 0 28px;
+  padding: 16px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+}
+.term-trust-note {
+  margin: 10px 0 0;
+  color: var(--text3);
+}
+.term-priority-badge {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+}
+.term-field-hub {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.term-article-links {
+  list-style: disc;
+  padding-left: 1.2em;
+  margin: 0;
+}
+.term-article-links a {
+  color: var(--ink);
+}
+.q-hub-links,
+.q-adj-nav {
+  font-size: 14px;
+  margin: 12px 0 20px;
+  line-height: 1.7;
+}
+.q-related-list {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.q-field-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+.q-field-nav .terms-idx-chip {
+  text-decoration: none;
+}
+.q-year-hub-link {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+.terms-idx-featured {
+  margin: 18px 0;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+.terms-idx-featured h2 {
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+.terms-idx-featured-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.terms-idx-featured-list a {
+  font-weight: 600;
+  color: var(--ink);
+}
+.terms-idx-field-hubs {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.terms-idx-field-label {
+  font-weight: 700;
+  margin-right: 6px;
+}
+.trust-table th {
+  width: 130px;
+  vertical-align: top;
+}

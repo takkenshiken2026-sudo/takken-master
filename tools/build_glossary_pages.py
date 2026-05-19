@@ -26,6 +26,12 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.seo_common import (  # noqa: E402
+    article_title_for_slug,
+    field_id_for_category,
+    load_seo_config,
+    trust_table_html,
+)
 from tools.site_config import brand_name, clean_origin, exam_name, field_labels  # noqa: E402
 
 TERMS_DIR = ROOT / "terms"
@@ -227,6 +233,39 @@ def build_data_diagram(diagram: dict | None) -> str:
     return ""
 
 
+def related_articles_html(slug: str) -> str:
+    cfg = load_seo_config()
+    rel_slugs = (cfg.get("termRelatedArticles") or {}).get(slug) or []
+    if not rel_slugs:
+        return ""
+    links = []
+    for a_slug in rel_slugs[:4]:
+        title = article_title_for_slug(a_slug)
+        links.append(
+            f'<li><a href="../../takken/{html.escape(a_slug)}/">{html.escape(title)}</a></li>'
+        )
+    return (
+        '<section class="term-section" id="related-articles">'
+        '<h2 class="term-h2">関連する試験ガイド</h2>'
+        f'<ul class="term-article-links">{"".join(links)}</ul></section>'
+    )
+
+
+def field_hub_link_html(item: dict) -> str:
+    cat_label = FIELD_LABELS.get(item.get("cat", ""), "その他")
+    fid = field_id_for_category(cat_label)
+    if not fid:
+        return ""
+    name = {"rights": "権利関係", "law": "宅建業法", "limit": "法令上の制限", "tax": "税・その他"}.get(
+        fid, cat_label
+    )
+    return (
+        '<p class="term-field-hub">'
+        f'同分野の過去問：<a href="../../q/field/{html.escape(fid)}/index.html">'
+        f'{html.escape(name)}の過去問一覧</a></p>'
+    )
+
+
 def related_items_for(item: dict, items: list[dict], limit: int = 4) -> list[dict]:
     slug = slug_for_item(item)
     cat = item.get("cat")
@@ -302,6 +341,16 @@ def build_generated_term_page(item: dict, all_items: list[dict]) -> str:
             + "".join(related_cards)
             + "</nav></section>"
         )
+    trust = trust_table_html(anchor_id="trust")
+    articles_block = related_articles_html(slug)
+    field_hub = field_hub_link_html(item)
+    cfg = load_seo_config()
+    priority = slug in set(cfg.get("priorityTerms") or [])
+    priority_note = ""
+    if priority:
+        priority_note = (
+            '<p class="term-priority-badge">頻出用語 — 試験本番でも押さえたい重要語句です。</p>'
+        )
 
     faq_items = [
         (
@@ -364,6 +413,9 @@ def build_generated_term_page(item: dict, all_items: list[dict]) -> str:
 <h1 class="term-h1">{html.escape(term)}とは？意味・試験ポイントをわかりやすく解説<span class="term-h1-badge">【宅建】</span></h1>
 <p class="term-reading">（{html.escape(reading)}）</p>
 <p class="term-summary">{html.escape(display_summary)}</p>
+{priority_note}
+{trust}
+{field_hub}
 
 <section class="term-section" id="definition">
 <h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5"/><circle cx="8" cy="11" r=".5" fill="currentColor" stroke="none"/></svg>{html.escape(term)}とは</h2>
@@ -393,7 +445,8 @@ def build_generated_term_page(item: dict, all_items: list[dict]) -> str:
 <h2 class="term-h2"><svg class="term-h2-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M6.5 6.5C6.5 5.7 7.2 5 8 5s1.5.7 1.5 1.5c0 1-1.5 1.5-1.5 2.5"/><circle cx="8" cy="11.5" r=".5" fill="currentColor" stroke="none"/></svg>よくある質問</h2>
 <div class="term-faq-list">{faq_html}</div>
 </section>
-{related_html}"""
+{related_html}
+{articles_block}"""
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -654,6 +707,36 @@ def build_glossary_index(entries: list[dict]) -> str:
         )
     body_html = "\n".join(body_sections)
 
+    cfg = load_seo_config()
+    priority_slugs = cfg.get("priorityTerms") or []
+    by_slug = {e["slug"]: e for e in entries}
+    featured_lis = []
+    for slug in priority_slugs[:12]:
+        e = by_slug.get(slug)
+        if not e:
+            continue
+        featured_lis.append(
+            f'<li><a href="{html.escape(e["href"])}">{html.escape(e["term"])}</a></li>'
+        )
+    featured_html = ""
+    if featured_lis:
+        featured_html = (
+            '<section class="terms-idx-featured" aria-label="頻出用語">'
+            "<h2>頻出用語（優先して押さえたい語句）</h2>"
+            f'<ul class="terms-idx-featured-list">{"".join(featured_lis)}</ul>'
+            "</section>"
+        )
+
+    field_hub_html = (
+        '<nav class="terms-idx-field-hubs" aria-label="分野別過去問">'
+        '<span class="terms-idx-field-label">分野別過去問：</span>'
+        '<a href="../q/field/rights/index.html">権利関係</a> · '
+        '<a href="../q/field/law/index.html">宅建業法</a> · '
+        '<a href="../q/field/limit/index.html">法令上の制限</a> · '
+        '<a href="../q/field/tax/index.html">税・その他</a>'
+        "</nav>"
+    )
+
     chips = ['    <button type="button" class="terms-idx-chip on" data-cat="all">すべて</button>']
     for cat in cat_keys:
         chips.append(
@@ -778,6 +861,9 @@ def build_glossary_index(entries: list[dict]) -> str:
     </div>
   </div>
 
+  {featured_html}
+  {field_hub_html}
+
   <div class="terms-idx-chips" aria-label="分野フィルタ">
 {chips_html}
   </div>
@@ -796,6 +882,32 @@ def build_glossary_index(entries: list[dict]) -> str:
 </body>
 </html>
 """
+
+
+def inject_trust_into_handcrafted_terms(entries: list[dict]) -> int:
+    """手書き用語ページ（generated 以外）に信頼性表がなければ挿入。"""
+    trust = trust_table_html(anchor_id="trust")
+    updated = 0
+    for e in entries:
+        path = TERMS_DIR / e["slug"] / "index.html"
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8")
+        if "信頼性について" in raw or GENERATED_TERM_MARKER in raw:
+            continue
+        if 'class="term-summary">' not in raw:
+            continue
+        new_raw, n = re.subn(
+            r'(<p class="term-summary">.*?</p>)',
+            r"\1\n" + trust,
+            raw,
+            count=1,
+            flags=re.S,
+        )
+        if n:
+            path.write_text(new_raw, encoding="utf-8")
+            updated += 1
+    return updated
 
 
 def refresh_term_breadcrumbs(entries: list[dict]) -> None:
@@ -915,8 +1027,11 @@ def main() -> None:
 
     index_path = TERMS_DIR / "index.html"
     index_path.write_text(build_glossary_index(entries), encoding="utf-8")
+    trust_injected = inject_trust_into_handcrafted_terms(entries)
     refresh_term_breadcrumbs(entries)
     print(f"index: {len(entries)} terms -> {index_path} (JS meta: {len(meta)} slugs)")
+    if trust_injected:
+        print(f"  injected trust block into {trust_injected} handcrafted term pages")
 
     if not args.no_redirects:
         write_glossary_redirects(entries)

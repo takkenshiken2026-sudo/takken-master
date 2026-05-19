@@ -37,7 +37,15 @@
       "url": "https://takken-master.jp/",
       "name": "宅建マスター",
       "description": "宅地建物取引士（宅建）試験の過去問・オリジナル問題・模擬試験・用語解説を網羅した無料学習プラットフォーム",
-      "inLanguage": "ja"
+      "inLanguage": "ja",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://takken-master.jp/terms/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "EducationalApplication",

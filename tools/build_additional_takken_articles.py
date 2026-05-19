@@ -377,6 +377,73 @@ ARTICLES = [
 <div class="cta-section"><div class="cta-title">独立前に基礎を固める</div><p class="cta-desc">宅建業法と重要事項説明の問題を復習し、実務の土台を作りましょう。</p><a class="cta-btn" href="/quiz/past/?field=law">過去問を解く</a></div></section>
 """,
     },
+    {
+        "slug": "takken-chokuzen",
+        "title": "宅建試験の直前対策｜1ヶ月・1週間・前日でやること",
+        "short_title": "宅建試験の直前対策",
+        "description": "宅建試験の直前期（1ヶ月・1週間・前日）にやるべきことを整理。過去問と間違いノートで得点を固める進め方を解説します。",
+        "eyebrow": "宅建 直前対策",
+        "lead": "直前期は落とした問題を減らすことが最優先です。宅建業法と法令上の制限を中心に、時間配分と見直し手順を固定しましょう。",
+        "toc": [("month", "試験1ヶ月前"), ("week", "試験1週間前"), ("day", "試験前日"), ("avoid", "避けること"), ("check", "当日の確認")],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="month"><span class="article-h2-num">1</span>試験1ヶ月前</h2>
+<p class="article-p">過去問を本番形式で解き、分野別の失点を記録します。権利関係の難問より、宅建業法・法令上の制限の取りこぼしを優先します。</p></section>
+<section class="article-section"><h2 class="article-h2" id="week"><span class="article-h2-num">2</span>試験1週間前</h2>
+<p class="article-p">新しいテキストは閉じ、間違いノートと数字の表だけを回します。</p></section>
+<section class="article-section"><h2 class="article-h2" id="day"><span class="article-h2-num">3</span>試験前日</h2>
+<p class="article-p">会場・交通・持ち物を確認し、長時間演習は避けます。</p></section>
+<section class="article-section"><h2 class="article-h2" id="avoid"><span class="article-h2-num">4</span>避けること</h2>
+<p class="article-p">未読の参考書の追加や徹夜での範囲拡大は得点につながりにくいです。</p></section>
+<section class="article-section"><h2 class="article-h2" id="check"><span class="article-h2-num">5</span>当日の確認</h2>
+<p class="article-p">マークの仕方と見直し順を紙上で一度シミュレーションします。</p>
+<div class="cta-section"><div class="cta-title">過去問で手を慣らす</div><p class="cta-desc">最新年度から演習できます。</p><a class="cta-btn" href="/q/index.html">過去問一覧</a></div></section>
+""",
+    },
+    {
+        "slug": "takken-gokaku-ritsu",
+        "title": "宅建の合格率は？年度別の傾向と合格ラインの読み方",
+        "short_title": "宅建の合格率は？",
+        "description": "宅建試験の合格率・合格ラインの読み方を解説。数字に一喜一憂せず、学習計画に活かす考え方をまとめます。",
+        "eyebrow": "宅建 合格率",
+        "lead": "合格率は参考指標です。自分が安定して取れる点数と、落としやすい分野を把握することが大切です。",
+        "toc": [("rate", "合格率の見方"), ("line", "合格ライン"), ("use", "活かし方"), ("myth", "誤解"), ("next", "次にやること")],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="rate"><span class="article-h2-num">1</span>合格率の見方</h2>
+<p class="article-p">受験者数や難易度で変動します。年度比較は取るべき問題を考える材料に留めます。</p></section>
+<section class="article-section"><h2 class="article-h2" id="line"><span class="article-h2-num">2</span>合格ライン</h2>
+<p class="article-p">学習中は36〜38点を安定して出す設計を目標にします。</p></section>
+<section class="article-section"><h2 class="article-h2" id="use"><span class="article-h2-num">3</span>活かし方</h2>
+<p class="article-p">模試の点数で次の2週間に直す分野を決めます。</p></section>
+<section class="article-section"><h2 class="article-h2" id="myth"><span class="article-h2-num">4</span>誤解</h2>
+<p class="article-p">合格率だけで勉強量を増減しないでください。</p></section>
+<section class="article-section"><h2 class="article-h2" id="next"><span class="article-h2-num">5</span>次にやること</h2>
+<p class="article-p">過去問に戻り、説明できる正解を増やします。</p>
+<div class="cta-section"><div class="cta-title">過去問で確認</div><p class="cta-desc">年度別ページから演習できます。</p><a class="cta-btn" href="/q/index.html">過去問一覧</a></div></section>
+""",
+    },
+    {
+        "slug": "takken-shiken-schedule-2026",
+        "title": "2026年度 宅建試験日程・申込み・合格発表スケジュール",
+        "short_title": "2026年度 宅建試験日程",
+        "description": "2026年度宅建試験の予定日程と学習計画への落とし込み方。公式情報の確認先も整理します。",
+        "eyebrow": "宅建 2026年度",
+        "lead": "試験日程はRETIOの公式サイトで最新情報を確認してください。本記事は学習カレンダー用の整理です。",
+        "toc": [("schedule", "主な日程"), ("apply", "申込み"), ("study", "逆算"), ("official", "公式確認"), ("link", "関連")],
+        "body": """
+<section class="article-section"><h2 class="article-h2" id="schedule"><span class="article-h2-num">1</span>主な日程</h2>
+<p class="article-p">実施公告・申込み・試験・合格発表は公式サイトで確認してください。</p>
+<div class="warn-box"><span class="warn-box-label">重要：</span>締切・会場・受験票は必ず公式案内で確認してください。</div></section>
+<section class="article-section"><h2 class="article-h2" id="apply"><span class="article-h2-num">2</span>申込み</h2>
+<p class="article-p">最終日は混みやすいため早めの手続きが無難です。</p></section>
+<section class="article-section"><h2 class="article-h2" id="study"><span class="article-h2-num">3</span>逆算</h2>
+<p class="article-p">6ヶ月前なら週10時間、3ヶ月前なら週20時間前後が目安です。</p></section>
+<section class="article-section"><h2 class="article-h2" id="official"><span class="article-h2-num">4</span>公式確認</h2>
+<p class="article-p">RETIOの宅建試験ページで要項・過去問・合格発表を確認します。</p></section>
+<section class="article-section"><h2 class="article-h2" id="link"><span class="article-h2-num">5</span>関連</h2>
+<p class="article-p"><a href="../takken-moshikomi/index.html">申込みガイド</a>・<a href="../takken-toujitsu/index.html">当日の注意</a>も参照してください。</p>
+<div class="cta-section"><div class="cta-title">試験ガイドへ</div><p class="cta-desc">分野別の勉強法も確認しましょう。</p><a class="cta-btn" href="/articles/">一覧</a></div></section>
+""",
+    },
 ]
 
 

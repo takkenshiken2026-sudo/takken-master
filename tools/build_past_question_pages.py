@@ -30,7 +30,19 @@ from tools.html_footer import (  # noqa: E402
     static_q_footer_block,
     static_q_site_header,
 )
+from tools.past_question_seo import (  # noqa: E402
+    build_field_hub_html,
+    build_year_hub_html,
+    enrich_pages,
+    hub_links_html,
+    nav_adjacent_html,
+    page_meta_description,
+    page_title_mid,
+    question_json_ld,
+    related_terms_html,
+)
 from tools.site_config import brand_name, clean_origin, exam_name  # noqa: E402
+from tools.seo_common import trust_table_html  # noqa: E402
 
 DATA_CSV_DEFAULT = ROOT / "data" / "past_questions.csv"
 MASTER_JS_DEFAULT = ROOT / "takken-master-data.js"
@@ -295,9 +307,9 @@ def page_dict(row: dict, line_no: int) -> dict:
 
 
 def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
-    title_mid = f"{page['wareki']} 第{page['qno']}問・{page['category']}"
-    title = f"{title_mid}｜{brand_name()}（{exam_name()}）"
-    desc = meta_description(page["stem_plain"] or page["category"])
+    title_mid = page_title_mid(page)
+    title = f"{title_mid}｜解説付き｜{brand_name()}（{exam_name()}）"
+    desc = page_meta_description(page)
     canonical = public_url(base_url, page["rel_path"])
     root_idx = rel_to_root(rel_path)
     css_href = rel_css(rel_path)
@@ -324,34 +336,19 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
     badge_html = ('<p class="q-badges">' + " ".join(badges) + "</p>") if badges else ""
 
     exp_html = html.escape(page["exp"]).replace("\n", "<br>\n")
-
-    json_ld = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebPage",
-                "@id": canonical + "#webpage",
-                "url": canonical,
-                "name": title,
-                "description": desc,
-                "inLanguage": "ja-JP",
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "トップ", "item": public_url(base_url, "index.html")},
-                    {"@type": "ListItem", "position": 2, "name": "過去問一覧", "item": public_url(base_url, "q/index.html")},
-                    {"@type": "ListItem", "position": 3, "name": title_mid, "item": canonical},
-                ],
-            },
-        ],
-    }
+    json_ld = question_json_ld(page, canonical, title, desc)
+    trust = trust_table_html(anchor_id="trust", compact=True)
+    related = related_terms_html(page, rel_path)
+    adj = nav_adjacent_html(page, rel_path)
+    hubs = hub_links_html(page, rel_path)
+    year_crumb_href = "/".join([".."] * (len(rel_path.parent.parts) - 1)) + "/index.html"
 
     header = static_q_site_header(
         root_href=root_idx,
         breadcrumb_items=[
             ("トップ", root_idx),
             ("過去問一覧", rel_to_q_index(rel_path)),
+            (page["wareki"], year_crumb_href),
             (title_mid, None),
         ],
     )
@@ -383,6 +380,8 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
   <p class="q-meta"><span class="q-id">ID: <code>{html.escape(page["id"])}</code></span> · <span>{html.escape(page["category"])}</span> · <span>{html.escape(page["type"])}</span></p>
   {badge_html}
   <h1 class="q-h1">{html.escape(title_mid)}</h1>
+  {hubs}
+  {trust}
   <section class="q-block" aria-labelledby="q-stem-h">
     <h2 id="q-stem-h" class="q-h2">問題</h2>
     <div class="q-stem">{page["stem_html"]}</div>
@@ -401,6 +400,8 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
     <h2 id="q-exp-h" class="q-h2">解説</h2>
     <div class="q-exp">{exp_html}</div>
   </section>
+  {related}
+  {adj}
   <p class="q-app-link"><a href="{app_href}">アプリで過去問を開く</a></p>
 </main>
 {static_q_footer_block(rel_path)}
@@ -416,18 +417,34 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
     for y in by_year:
         by_year[y].sort(key=lambda x: x["qno"])
 
+    field_chips = []
+    for fid, meta in (
+        ("rights", "権利関係"),
+        ("law", "宅建業法"),
+        ("limit", "法令上の制限"),
+        ("tax", "税・その他"),
+    ):
+        field_chips.append(
+            f'<a class="terms-idx-chip" href="field/{html.escape(fid)}/index.html">{html.escape(meta)}</a>'
+        )
+    field_nav = (
+        '<nav class="q-field-nav" aria-label="分野別過去問">'
+        + "".join(field_chips)
+        + "</nav>"
+    )
+
     year_blocks = []
-    for y in sorted(by_year.keys()):
-        links = []
-        for p in by_year[y]:
-            rel = p["rel_path"]
-            href = rel[2:] if rel.startswith("q/") else rel
-            label = f"第{p['qno']}問"
-            links.append(f'<li><a href="{html.escape(href)}">{html.escape(label)}</a></li>')
-        heading = f"{y}年（{by_year[y][0]['wareki']}）"
+    for y in sorted(by_year.keys(), reverse=True):
+        ys = by_year[y]
+        wareki = ys[0]["wareki"]
+        count = len(ys)
         year_blocks.append(
-            f'<section class="glos-cat-section q-year-section"><h2 class="glos-cat-heading glos-cat-heading--ja">{html.escape(heading)}</h2>'
-            f'<ol class="q-year-list">{"".join(links)}</ol></section>'
+            f'<section class="glos-cat-section q-year-section">'
+            f'<h2 class="glos-cat-heading glos-cat-heading--ja">'
+            f'<a href="past/y{y}/index.html">{html.escape(str(y))}年（{html.escape(wareki)}）</a>'
+            f' <span class="q-meta">全{count}問</span></h2>'
+            f'<p class="q-year-hub-link"><a href="past/y{y}/index.html">{html.escape(wareki)}の過去問まとめを見る</a></p>'
+            "</section>"
         )
 
     q_header = static_q_site_header(
@@ -443,7 +460,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>過去問一覧｜{html.escape(brand_name())}（{html.escape(exam_name())}）</title>
-<meta name="description" content="{html.escape(exam_name())}の過去問を年度別に一覧するページです。">
+<meta name="description" content="{html.escape(exam_name())}の過去問を年度別・分野別に一覧。解説・関連用語リンク付きの静的ページです。">
 {ROBOTS_INDEX_FOLLOW}
 <link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
 <link rel="stylesheet" href="../site-pages.css">
@@ -453,7 +470,8 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <main class="q-static-main">
   <h1 class="q-h1">過去問一覧</h1>
   {total_line}
-  <p class="glos-static-intro q-index-intro">年度別の静的ページです。<strong><a href="../index.html#past">アプリで過去問</a></strong>では年度・分野の絞り込みや学習記録が使えます。</p>
+  <p class="glos-static-intro q-index-intro">年度別・分野別の静的ページです。各問には<strong>解説</strong>と<strong>関連用語</strong>へのリンクがあります。<strong><a href="../index.html#past">アプリで過去問</a></strong>では絞り込みや学習記録も使えます。</p>
+  {field_nav}
   {"".join(year_blocks)}
   <p class="q-app-link"><a href="../index.html#past">アプリで過去問を開く</a></p>
 </main>
@@ -548,6 +566,7 @@ def main() -> int:
         return 0
 
     pages = [page_dict(r, i) for i, r in enumerate(rows, start=2)]
+    enrich_pages(pages)
 
     if Q_ROOT.exists():
         shutil.rmtree(Q_ROOT)
@@ -563,32 +582,25 @@ def main() -> int:
     q_index.parent.mkdir(parents=True, exist_ok=True)
     q_index.write_text(build_q_index(pages, base), encoding="utf-8")
 
-    urls = [
-        f"{base}/",
-        f"{base}/about.html",
-        f"{base}/privacy-terms.html",
-        f"{base}/related-sites.html",
-        f"{base}/articles/index.html",
-        f"{base}/q/index.html",
-    ]
-    urls += [f"{base}/{p['rel_path']}" for p in pages]
-    terms_dir = ROOT / "terms"
-    if (terms_dir / "index.html").is_file():
-        urls.append(f"{base}/terms/")
-        urls.append(f"{base}/terms/index.html")
-    if terms_dir.is_dir():
-        for idx in sorted(terms_dir.glob("*/index.html")):
-            urls.append(f"{base}/{idx.relative_to(ROOT).as_posix()}")
+    brand = brand_name()
+    exam = exam_name()
+    years = sorted({p["year"] for p in pages})
+    for y in years:
+        hub_path = Q_ROOT / "past" / f"y{y}" / "index.html"
+        hub_path.parent.mkdir(parents=True, exist_ok=True)
+        hub_path.write_text(build_year_hub_html(y, pages, base, brand, exam), encoding="utf-8")
 
-    write_sitemap(urls, ROOT / "sitemap.xml")
+    for fid in ("rights", "law", "limit", "tax"):
+        hub_path = Q_ROOT / "field" / fid / "index.html"
+        hub_path.parent.mkdir(parents=True, exist_ok=True)
+        hub_html = build_field_hub_html(fid, pages, base, brand, exam)
+        if hub_html:
+            hub_path.write_text(hub_html, encoding="utf-8")
 
-    robots = ROOT / "robots.txt"
-    robots.write_text(
-        "User-agent: *\nAllow: /\n\nSitemap: " + f"{base}/sitemap.xml\n",
-        encoding="utf-8",
+    print(
+        f"wrote {len(pages)} question pages + {len(years)} year hubs + field hubs + {q_index} "
+        f"(source: {data_source})"
     )
-
-    print(f"wrote {len(pages)} question pages + {q_index} (source: {data_source})")
     return 0
 
 

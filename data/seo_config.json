@@ -1,0 +1,56 @@
+{
+  "updatedLabel": "2026年5月19日",
+  "priorityTerms": [
+    "teito", "jusetsu", "hyogen-dairi", "muken-dairi", "joto", "chintaishaku",
+    "takkenshi", "toroku", "menkyo", "35jou", "37jou", "baikai-keiyaku",
+    "yoto-chiiki", "kenpei-ritsu", "yoseki-ritsu", "tatemono-kiroku",
+    "fudosan-shutoku-zei", "kotei-shisan-zei", "juyo-jiko-setsumei",
+    "hosho-debt", "renzai", "isei", "dairi", "shakkan-hoshou", "ne-tate",
+    "hotei-chijouken", "jiko", "bunkatsubun", "kyoyu", "shoyu",
+    "takuchi-tatemono", "takken-gyoho", "reins", "cooling-off",
+    "shiho-shoshi", "tochi-kenri", "chinshaku-ken", "saimu-furikoh",
+    "keiyaku-muko", "koji", "zochiku", "baibai", "chintaishaku-ho",
+    "takken-menkyo", "loan-control", "seigen", "zei-sonota"
+  ],
+  "featuredArticles": [
+    {"slug": "exam-overview", "title": "試験概要"},
+    {"slug": "study-plan", "title": "学習計画"},
+    {"slug": "takken-kakomon", "title": "過去問の使い方"},
+    {"slug": "takken-benkyou-jikan", "title": "勉強時間の目安"},
+    {"slug": "takken-goukakuten", "title": "合格点の考え方"},
+    {"slug": "takken-schedule", "title": "2026年度試験日程"},
+    {"slug": "takken-dokugaku", "title": "独学の進め方"},
+    {"slug": "takken-chokuzen", "title": "直前対策"}
+  ],
+  "termRelatedArticles": {
+    "teito": ["takken-kenri-kankei", "takken-kakomon"],
+    "jusetsu": ["takken-gyoho-study", "takken-mikeiken-tenshoku"],
+    "yoto-chiiki": ["takken-hooreijou-seigen-study"],
+    "35jou": ["takken-gyoho-study"],
+    "hyogen-dairi": ["takken-kenri-kankei"]
+  },
+  "articlePhases": [
+    {
+      "id": "start",
+      "title": "はじめに",
+      "slugs": ["takken-to-wa", "takken-schedule", "takken-moshikomi", "takken-plan", "takken-dokugaku"]
+    },
+    {
+      "id": "study",
+      "title": "学習・対策",
+      "slugs": [
+        "takken-benkyou-jikan", "takken-goukakuten", "takken-kakomon",
+        "takken-kenri-kankei", "takken-gyoho-study",
+        "takken-hooreijou-seigen-study", "takken-zei-sonota-study", "takken-chokuzen"
+      ]
+    },
+    {
+      "id": "career",
+      "title": "合格後・キャリア",
+      "slugs": [
+        "takken-gakusei", "takken-mikeiken-tenshoku", "takken-fudosan-gyokai",
+        "takken-fukugyo-dokuritsu", "takken-gokaku-ritsu"
+      ]
+    }
+  ]
+}
