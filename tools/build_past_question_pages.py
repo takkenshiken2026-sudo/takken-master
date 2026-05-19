@@ -39,6 +39,7 @@ from tools.past_question_seo import (  # noqa: E402
     page_meta_description,
     page_title_mid,
     q_list_table_html,
+    q_year_index_summary_html,
     question_json_ld,
     related_terms_html,
 )
@@ -434,24 +435,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
         + "</nav>"
     )
 
-    year_blocks = []
-    for y in sorted(by_year.keys(), reverse=True):
-        ys = by_year[y]
-        wareki = ys[0]["wareki"]
-        count = len(ys)
-        def href_for(p: dict, _y: int = y) -> str:
-            rel = p["rel_path"]
-            return rel[2:] if rel.startswith("q/") else rel
-
-        table = q_list_table_html(ys, href_for)
-        year_blocks.append(
-            f'<section class="glos-cat-section q-year-section">'
-            f'<h2 class="glos-cat-heading glos-cat-heading--ja">'
-            f'<a href="past/y{y}/index.html">{html.escape(str(y))}年（{html.escape(wareki)}）</a>'
-            f' <span class="q-meta">{count}問</span></h2>'
-            f"{table}"
-            "</section>"
-        )
+    year_summary = q_year_index_summary_html(by_year)
 
     q_header = static_q_site_header(
         root_href="../index.html",
@@ -466,9 +450,11 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
         ys = by_year[y]
         wareki = ys[0]["wareki"]
         n = len(ys)
+        total = 50
+        label = f"{n}/{total}問" if n < total else f"全{n}問"
         quick_year_links.append(
             f'<a class="terms-idx-chip" href="past/y{y}/index.html">'
-            f"宅建 {html.escape(str(y))}年 過去問（{html.escape(wareki)}・{n}問）</a>"
+            f"宅建 {html.escape(str(y))}年 過去問（{html.escape(wareki)}・{label}）</a>"
         )
     quick_years_nav = ""
     if quick_year_links:
@@ -505,7 +491,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
   {trust_table_html(anchor_id="trust", compact=True)}
   {quick_years_nav}
   {field_nav}
-  {"".join(year_blocks)}
+  {year_summary}
   <p class="q-app-link"><a href="../index.html#past">アプリで過去問を開く</a></p>
 </main>
 {static_q_footer_block(Path("q/index.html"))}

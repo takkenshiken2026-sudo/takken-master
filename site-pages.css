@@ -449,6 +449,52 @@ a:hover {
   color: var(--sel);
   text-decoration: underline;
 }
+.q-year-table-cat {
+  width: 7.5em;
+  font-size: 13px;
+  color: var(--text2);
+  white-space: nowrap;
+}
+.q-year-table-missing td {
+  background: var(--bg2);
+  color: var(--text3);
+  font-size: 13px;
+}
+.q-year-table-missing .q-year-table-num {
+  font-weight: 600;
+}
+.q-coverage-note {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  font-size: var(--fs-sub);
+  line-height: 1.6;
+  color: var(--text2);
+  background: #fffbeb;
+  border: 1px solid #e8d48a;
+  border-radius: var(--r);
+}
+.q-year-index-section {
+  margin: 24px 0 28px;
+}
+.q-year-index-lead {
+  margin: 0 0 12px;
+  font-size: var(--fs-sub);
+  color: var(--text2);
+  line-height: 1.6;
+}
+.q-year-index-table .q-year-index-count {
+  width: 6.5em;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.q-year-index-partial .q-year-index-count {
+  color: #9a6700;
+}
+.q-year-index-link {
+  width: 7em;
+  text-align: right;
+  white-space: nowrap;
+}
 @media (max-width: 520px) {
   .q-year-table-num {
     width: 4.5em;

@@ -30,12 +30,14 @@ def enrich_pages(pages: list[dict]) -> None:
     for p in pages:
         by_year.setdefault(p["year"], []).append(p)
     for y in by_year:
-        by_year[y].sort(key=lambda x: x["qno"])
+        by_year[y].sort(key=lambda x: int(x["qno"]))
         for i, p in enumerate(by_year[y]):
             p["prev"] = by_year[y][i - 1] if i > 0 else None
             p["next"] = by_year[y][i + 1] if i < len(by_year[y]) - 1 else None
     for p in pages:
-        theme = extract_theme_label(p.get("stem_plain") or "")
+        theme = extract_theme_label(
+            p.get("stem_plain") or "", category=p.get("category") or ""
+        )
         p["theme"] = theme
         p["field_id"] = field_id_for_category(p.get("category") or "")
         hay = (p.get("stem_plain") or "") + " " + (p.get("exp") or "")
@@ -176,32 +178,105 @@ def question_json_ld(page: dict, canonical: str, title: str, desc: str) -> dict:
     return {"@context": "https://schema.org", "@graph": graph}
 
 
-def q_list_table_html(items: list[dict], href_for) -> str:
-    """分野・年度内の問一覧を2列の表で返す。href_for(page) -> 相対URL。"""
+EXAM_QUESTIONS_PER_YEAR = 50
+
+
+def coverage_note_html(published: int, total: int = EXAM_QUESTIONS_PER_YEAR) -> str:
+    if published >= total:
+        return ""
+    missing = total - published
+    return (
+        f'<p class="q-coverage-note">'
+        f"本試験は全<strong>{total}問</strong>です。"
+        f"当ページでは<strong>{published}問</strong>を掲載しています"
+        f"（未掲載 <strong>{missing}問</strong> は順次追加予定）。"
+        f"表の「未掲載」はデータ準備中の問番です。"
+        f"</p>"
+    )
+
+
+def q_list_table_html(
+    items: list[dict],
+    href_for,
+    *,
+    qno_min: int = 1,
+    qno_max: int | None = EXAM_QUESTIONS_PER_YEAR,
+    show_missing: bool = False,
+    show_category: bool = False,
+) -> str:
+    """問一覧の表。show_missing 時は第1問〜qno_max まで欠番行を表示。"""
+    by_qno = {int(p["qno"]): p for p in items}
+    if not by_qno:
+        return ""
+
+    qnos = sorted(by_qno.keys()) if qno_max is None else list(range(qno_min, qno_max + 1))
+    head = '<th scope="col">問</th>'
+    if show_category:
+        head += '<th scope="col">分野</th>'
+    head += '<th scope="col">テーマ</th>'
+
     rows: list[str] = []
-    for p in sorted(items, key=lambda x: int(x["qno"])):
-        qno = int(p["qno"])
-        theme = (p.get("theme") or "").strip()
-        href = html.escape(href_for(p))
-        num_cell = f'<a href="{href}">第{qno}問</a>'
-        if theme:
-            theme_cell = f'<a href="{href}">{html.escape(theme)}</a>'
-        else:
-            theme_cell = f'<a href="{href}">解説を見る</a>'
-        rows.append(
-            "<tr>"
-            f'<td class="q-year-table-num">{num_cell}</td>'
-            f'<td class="q-year-table-theme">{theme_cell}</td>'
-            "</tr>"
-        )
+    for qno in qnos:
+        p = by_qno.get(qno)
+        if p:
+            theme = (p.get("theme") or p.get("category") or "").strip()
+            href = html.escape(href_for(p))
+            num_cell = f'<a href="{href}">第{qno}問</a>'
+            theme_cell = (
+                f'<a href="{href}">{html.escape(theme)}</a>'
+                if theme
+                else f'<a href="{href}">解説を見る</a>'
+            )
+            row = f'<tr><td class="q-year-table-num">{num_cell}</td>'
+            if show_category:
+                row += f'<td class="q-year-table-cat">{html.escape((p.get("category") or "").strip())}</td>'
+            row += f'<td class="q-year-table-theme">{theme_cell}</td></tr>'
+            rows.append(row)
+        elif show_missing and qno_max is not None:
+            row = f'<tr class="q-year-table-missing"><td class="q-year-table-num">第{qno}問</td>'
+            if show_category:
+                row += '<td class="q-year-table-cat">—</td>'
+            row += '<td class="q-year-table-theme">未掲載</td></tr>'
+            rows.append(row)
+
     if not rows:
         return ""
     return (
         '<div class="q-year-table-wrap">'
         '<table class="q-year-table">'
-        '<thead><tr><th scope="col">問</th><th scope="col">テーマ</th></tr></thead>'
+        f"<thead><tr>{head}</tr></thead>"
         f"<tbody>{''.join(rows)}</tbody>"
         "</table></div>"
+    )
+
+
+def q_year_index_summary_html(by_year: dict[int, list[dict]]) -> str:
+    rows: list[str] = []
+    for y in sorted(by_year.keys(), reverse=True):
+        ys = by_year[y]
+        n = len(ys)
+        wareki = ys[0]["wareki"]
+        total = EXAM_QUESTIONS_PER_YEAR
+        count_label = f"全{total}問" if n >= total else f"{n}/{total}問"
+        row_class = "q-year-index-complete" if n >= total else "q-year-index-partial"
+        rows.append(
+            f'<tr class="{row_class}">'
+            f'<td class="q-year-index-year">'
+            f'<a href="past/y{y}/index.html">{html.escape(str(y))}年（{html.escape(wareki)}）</a></td>'
+            f'<td class="q-year-index-count">{html.escape(count_label)}</td>'
+            f'<td class="q-year-index-link"><a href="past/y{y}/index.html">一覧を見る</a></td>'
+            "</tr>"
+        )
+    if not rows:
+        return ""
+    return (
+        '<section class="q-year-index-section" aria-labelledby="q-year-index">'
+        '<h2 class="q-h2" id="q-year-index">年度別一覧</h2>'
+        '<p class="q-year-index-lead">各年度ページで第1問から順に確認できます。掲載数が50問未満の年度は追加準備中です。</p>'
+        '<div class="q-year-table-wrap"><table class="q-year-table q-year-index-table">'
+        '<thead><tr><th scope="col">試験年度</th><th scope="col">掲載</th><th scope="col"></th></tr></thead>'
+        f"<tbody>{''.join(rows)}</tbody></table></div>"
+        "</section>"
     )
 
 
@@ -212,14 +287,20 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
     wareki = year_pages[0]["wareki"]
     rel_path = f"q/past/y{year}/index.html"
     canonical = f"{base_url.rstrip('/')}/{rel_path}"
-    title = f"宅建 {year}年 過去問一覧（無料）｜{wareki}・全{len(year_pages)}問｜{brand}"
+    published = len(year_pages)
+    total = 50
+    title = f"宅建 {year}年 過去問一覧（無料）｜{wareki}・{published}問｜{brand}"
     desc = (
-        f"宅建 {year}年（{wareki}）の過去問を無料で演習。全{len(year_pages)}問を問番号順に掲載し、"
+        f"宅建 {year}年（{wareki}）の過去問を無料で演習。第1問から問番号順に{published}問掲載。"
         "各問に正答・解説・関連用語リンク付き。宅建士試験の過去問対策に。"
     )
 
+    coverage = coverage_note_html(published, total)
     question_table = q_list_table_html(
-        year_pages, lambda p: f"q{int(p['qno']):02d}/index.html"
+        year_pages,
+        lambda p: f"q{int(p['qno']):02d}/index.html",
+        show_missing=True,
+        show_category=True,
     )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
@@ -245,9 +326,10 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
 </header>
 <main class="q-static-main">
   <h1 class="q-h1">宅建 {year}年の過去問（{html.escape(wareki)}）</h1>
-  <p class="q-meta">全 {len(year_pages)} 問 · 無料 · 解説・関連用語リンク付き</p>
-  <p class="glos-static-intro">宅建・宅建士試験の<strong>{html.escape(str(year))}年 過去問</strong>を<strong>無料</strong>で解けます。各問では正答・解説のほか、<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。<a href="../../index.html">全年度の過去問一覧</a>から他の年度へも移動できます。</p>
+  <p class="q-meta">掲載 {published}/{total} 問 · 無料 · 解説・関連用語リンク付き</p>
+  <p class="glos-static-intro">宅建・宅建士試験の<strong>{html.escape(str(year))}年 過去問</strong>を<strong>無料</strong>で解けます。<strong>第1問から問番号順</strong>の表で確認でき、各問では正答・解説のほか、<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。<a href="../../index.html">全年度の過去問一覧</a>から他の年度へも移動できます。</p>
   {trust}
+  {coverage}
   {question_table}
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
 </main>
@@ -275,7 +357,11 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
         ys = sorted(by_year[y], key=lambda x: x["qno"])
         wareki = ys[0]["wareki"]
         table = q_list_table_html(
-            ys, lambda p, year=y: f"../../past/y{year}/q{int(p['qno']):02d}/index.html"
+            ys,
+            lambda p, year=y: f"../../past/y{year}/q{int(p['qno']):02d}/index.html",
+            qno_max=None,
+            show_missing=False,
+            show_category=True,
         )
         year_sections.append(
             f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{y}年（{html.escape(wareki)}）</h2>'

@@ -147,11 +147,33 @@ def match_terms_in_text(
     return found
 
 
-def extract_theme_label(stem: str, limit: int = 18) -> str:
+def extract_theme_label(stem: str, category: str = "", limit: int = 36) -> str:
+    """問題文から一覧用の短いテーマを抽出（宅建の「〜に関する次の記述」形式を優先）。"""
     s = re.sub(r"\s+", " ", (stem or "").strip())
     if not s:
-        return ""
-    for sep in ("、", "。", "，", "．", "について", "に関する"):
+        return (category or "").strip()
+
+    for pat in (
+        r"(.+?)に関する次の記述",
+        r"(.+?)についての以下の記述",
+        r"(.+?)に関する以下の記述",
+        r"(.+?)に規定する[^、。]{0,24}に関する",
+    ):
+        m = re.search(pat, s)
+        if m:
+            label = m.group(1).strip(" 　、。")
+            if len(label) >= 3 and not re.fullmatch(r"[A-ZＡ-Ｚ][A-Za-zＡ-Ｚａ-ｚ]?", label):
+                if len(label) > limit:
+                    return label[:limit].rstrip("、。 ") + "…"
+                return label
+
+    cat = (category or "").strip()
+    if len(s) <= 10 or re.match(r"^[A-ZＡ-Ｚ][A-Za-zＡ-Ｚａ-ｚ0-9]*が", s):
+        return cat or s
+    if cat and len(s) < 20:
+        return cat
+
+    for sep in ("、", "。", "，", "．"):
         if sep in s:
             s = s.split(sep)[0]
             break
