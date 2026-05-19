@@ -176,6 +176,35 @@ def question_json_ld(page: dict, canonical: str, title: str, desc: str) -> dict:
     return {"@context": "https://schema.org", "@graph": graph}
 
 
+def q_list_table_html(items: list[dict], href_for) -> str:
+    """分野・年度内の問一覧を2列の表で返す。href_for(page) -> 相対URL。"""
+    rows: list[str] = []
+    for p in sorted(items, key=lambda x: int(x["qno"])):
+        qno = int(p["qno"])
+        theme = (p.get("theme") or "").strip()
+        href = html.escape(href_for(p))
+        num_cell = f'<a href="{href}">第{qno}問</a>'
+        if theme:
+            theme_cell = f'<a href="{href}">{html.escape(theme)}</a>'
+        else:
+            theme_cell = f'<a href="{href}">解説を見る</a>'
+        rows.append(
+            "<tr>"
+            f'<td class="q-year-table-num">{num_cell}</td>'
+            f'<td class="q-year-table-theme">{theme_cell}</td>'
+            "</tr>"
+        )
+    if not rows:
+        return ""
+    return (
+        '<div class="q-year-table-wrap">'
+        '<table class="q-year-table">'
+        '<thead><tr><th scope="col">問</th><th scope="col">テーマ</th></tr></thead>'
+        f"<tbody>{''.join(rows)}</tbody>"
+        "</table></div>"
+    )
+
+
 def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str, exam: str) -> str:
     year_pages = sorted([p for p in pages if p["year"] == year], key=lambda x: x["qno"])
     if not year_pages:
@@ -195,16 +224,12 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
 
     field_sections = []
     for cat in sorted(by_field.keys()):
-        lis = []
-        for p in by_field[cat]:
-            theme = p.get("theme") or ""
-            label = f"第{p['qno']}問"
-            if theme:
-                label += f"（{theme}）"
-            lis.append(f'<li><a href="q{p["qno"]:02d}/index.html">{html.escape(label)}</a></li>')
+        table = q_list_table_html(
+            by_field[cat], lambda p: f"q{int(p['qno']):02d}/index.html"
+        )
         field_sections.append(
             f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{html.escape(cat)}</h2>'
-            f'<ol class="q-year-list">{"".join(lis)}</ol></section>'
+            f"{table}</section>"
         )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
@@ -259,15 +284,12 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
     for y in sorted(by_year.keys(), reverse=True):
         ys = sorted(by_year[y], key=lambda x: x["qno"])
         wareki = ys[0]["wareki"]
-        lis = []
-        for p in ys:
-            lis.append(
-                f'<li><a href="../../past/y{y}/q{p["qno"]:02d}/index.html">'
-                f'{html.escape(wareki)} 第{p["qno"]}問</a></li>'
-            )
+        table = q_list_table_html(
+            ys, lambda p, year=y: f"../../past/y{year}/q{int(p['qno']):02d}/index.html"
+        )
         year_sections.append(
             f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{y}年（{html.escape(wareki)}）</h2>'
-            f'<ol class="q-year-list">{"".join(lis)}</ol></section>'
+            f"{table}</section>"
         )
 
     trust = trust_table_html(anchor_id="trust", compact=True)

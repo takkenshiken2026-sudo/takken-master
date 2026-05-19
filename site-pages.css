@@ -404,62 +404,59 @@ a:hover {
   font-size: var(--fs-sub);
   color: var(--ink);
 }
-/* 年度ハブ・分野ハブ：分野内の問一覧を2列カードで表示 */
-.glos-cat-section .q-year-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 12px;
+/* 年度ハブ・分野ハブ・過去問トップ：問一覧テーブル */
+.q-year-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 4px;
 }
-.glos-cat-section .q-year-list li {
-  min-width: 0;
-}
-.glos-cat-section .q-year-list a,
-.q-year-section .q-year-list a {
-  box-sizing: border-box;
+.q-year-table {
   width: 100%;
-  padding: 10px 12px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
   background: #fff;
+}
+.q-year-table th,
+.q-year-table td {
   border: 1px solid var(--border);
-  border-radius: var(--r);
-  text-decoration: none;
+  padding: 9px 12px;
+  vertical-align: top;
+  text-align: left;
+}
+.q-year-table thead th {
+  background: var(--bg3);
   font-size: 13px;
-  font-weight: 600;
-  line-height: 1.45;
+  font-weight: 700;
   color: var(--ink);
-  box-shadow: var(--sh);
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
 }
-.glos-cat-section .q-year-list a:hover,
-.q-year-section .q-year-list a:hover {
-  border-color: var(--border2);
-  background: var(--bg2);
+.q-year-section.glos-cat-section {
+  padding: 0 0 4px;
+}
+.q-year-table-num {
+  width: 5.5em;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.q-year-table-theme {
+  color: var(--text2);
+}
+.q-year-table a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.q-year-table a:hover {
+  color: var(--sel);
+  text-decoration: underline;
 }
 @media (max-width: 520px) {
-  .glos-cat-section .q-year-list {
-    grid-template-columns: 1fr;
+  .q-year-table-num {
+    width: 4.5em;
   }
-}
-.q-year-section .q-year-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 12px;
-}
-.q-year-section .q-year-list li {
-  min-width: 0;
-}
-@media (max-width: 520px) {
-  .q-year-section .q-year-list {
-    grid-template-columns: 1fr;
+  .q-year-table th,
+  .q-year-table td {
+    padding: 8px 10px;
+    font-size: 13px;
   }
 }
 .q-index-intro {
@@ -1266,7 +1263,8 @@ a:hover {
   margin: 0 0 20px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  background: var(--bg2);
+  border-radius: var(--r);
+  background: #fff;
 }
 .q-index-quick-label {
   margin: 0 0 10px;
