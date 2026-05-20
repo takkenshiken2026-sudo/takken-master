@@ -3048,6 +3048,25 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   border: 1px solid var(--table-border);
   border-radius: var(--r2);
 }
+.terms-index-panel .terms-idx-table {
+  table-layout: fixed;
+}
+.terms-index-panel .terms-idx-table .terms-idx-th-term,
+.terms-index-panel .terms-idx-table .terms-idx-td-term {
+  width: 22%;
+}
+.terms-index-panel .terms-idx-table .terms-idx-th-cat,
+.terms-index-panel .terms-idx-table .terms-idx-td-cat {
+  width: 14%;
+  white-space: nowrap;
+}
+.terms-index-panel .terms-idx-table .terms-idx-th-def,
+.terms-index-panel .terms-idx-table .terms-idx-td-snippet {
+  width: auto;
+}
+.terms-index-panel .terms-idx-table [data-entry-href].is-entry-hover {
+  background: color-mix(in srgb, var(--accent-soft) 28%, var(--bg2)) !important;
+}
 
 /* 過去問一覧 q/index.html（試験ガイド・用語一覧と同型） */
 .past-index-panel {

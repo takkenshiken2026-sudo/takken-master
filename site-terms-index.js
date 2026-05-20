@@ -1,11 +1,9 @@
 /**
- * 用語集一覧 terms/index.html — 表形式の絞り込み
+ * 用語集一覧 terms/index.html — 表形式の絞り込み（全件表示・ページネーションなし）
  * 再生成: python3 tools/build_glossary_pages.py
  */
 (() => {
   'use strict';
-
-  const PAGE_SIZE = 80;
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -22,11 +20,9 @@
   const activeFilters = document.getElementById('terms-idx-active-filters');
   const toolbar = document.querySelector('.terms-index-tools');
   const topBtn = document.getElementById('terms-idx-top');
-  const pagBar = document.getElementById('terms-idx-pagination');
   const flatBody = document.getElementById('terms-idx-flat-body');
 
   let activeCat = 'all';
-  let page = 1;
   let urlSyncTimer = null;
 
   const norm = (s) => (s || '').toString().trim().toLowerCase();
@@ -111,26 +107,16 @@
     });
   }
 
-  const TERMS_PER_ROW = 2;
-
-  function flatTermCells(item, query, slot) {
-    const slotCls = `terms-idx-slot-${slot}`;
-    if (!item) {
-      return `<td class="terms-idx-td-term ${slotCls} terms-idx-cell-empty" aria-hidden="true"></td>
-<td class="terms-idx-td-cat ${slotCls} terms-idx-cell-empty" aria-hidden="true"></td>
-<td class="terms-idx-td-snippet ${slotCls} terms-idx-cell-empty" aria-hidden="true"></td>`;
-    }
+  function rowHtml(item, query) {
     const hrefAttr = ` data-entry-href="${escapeHtml(item.href)}"`;
     const reading = item.reading
       ? `<span class="terms-idx-reading">${highlightText(item.reading, query)}</span>`
       : '';
-    return `<td class="terms-idx-td-term ${slotCls}" data-label="用語（よみ）"${hrefAttr} tabindex="0"><div class="terms-idx-term-cell"><a href="${escapeHtml(item.href)}">${highlightText(item.term, query)}</a>${reading}</div></td>
-<td class="terms-idx-td-cat ${slotCls}" data-label="分野"${hrefAttr}>${escapeHtml(item.category)}</td>
-<td class="terms-idx-td-snippet ${slotCls}" data-label="定義（抜粋）"${hrefAttr}>${item.shortDef ? highlightText(item.shortDef, query) : ''}</td>`;
-  }
-
-  function flatRowHtml(left, right, query) {
-    return `<tr class="terms-idx-table-row">${flatTermCells(left, query, 'a')}${flatTermCells(right, query, 'b')}</tr>`;
+    return `<tr class="terms-idx-table-row">
+<td class="terms-idx-td-term" data-label="用語（よみ）"${hrefAttr} tabindex="0"><div class="terms-idx-term-cell"><a href="${escapeHtml(item.href)}">${highlightText(item.term, query)}</a>${reading}</div></td>
+<td class="terms-idx-td-cat" data-label="分野"${hrefAttr}>${escapeHtml(item.category)}</td>
+<td class="terms-idx-td-snippet" data-label="定義（抜粋）"${hrefAttr}>${item.shortDef ? highlightText(item.shortDef, query) : ''}</td>
+</tr>`;
   }
 
   function bindRows() {
@@ -207,7 +193,6 @@
       const query = (q?.value || '').trim();
       if (query) params.set('q', query);
       if (activeCat !== 'all') params.set('cat', activeCat);
-      if (page > 1) params.set('page', String(page));
       const qs = params.toString();
       const next = qs ? `${location.pathname}?${qs}` : location.pathname;
       history.replaceState(null, '', next);
@@ -218,7 +203,6 @@
     const params = new URLSearchParams(location.search);
     if (params.has('q') && q) q.value = params.get('q') || '';
     activeCat = params.get('cat') || 'all';
-    page = Math.max(1, parseInt(params.get('page') || '1', 10) || 1);
     chips.forEach((b) => b.classList.toggle('on', (b.dataset.cat || 'all') === activeCat));
   }
 
@@ -226,46 +210,9 @@
     return sortItems(ITEMS.filter(itemVisible));
   }
 
-  function paginate(list) {
-    const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
-    if (page > totalPages) page = totalPages;
-    const start = (page - 1) * PAGE_SIZE;
-    return { slice: list.slice(start, start + PAGE_SIZE), totalPages, total: list.length };
-  }
-
-  function renderPagination(total, totalPages) {
-    if (!pagBar) return;
-    if (total <= PAGE_SIZE) {
-      pagBar.classList.add('hide');
-      pagBar.innerHTML = '';
-      return;
-    }
-    pagBar.classList.remove('hide');
-    const prev = page > 1 ? page - 1 : null;
-    const next = page < totalPages ? page + 1 : null;
-    pagBar.innerHTML = `
-<button type="button" class="terms-idx-page-btn" data-page="${prev || ''}" ${prev ? '' : 'disabled'}>前へ</button>
-<span class="terms-idx-page-info">${page} / ${totalPages} ページ（${total}語）</span>
-<button type="button" class="terms-idx-page-btn" data-page="${next || ''}" ${next ? '' : 'disabled'}>次へ</button>`;
-    pagBar.querySelectorAll('[data-page]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const p = parseInt(btn.dataset.page, 10);
-        if (!p) return;
-        page = p;
-        apply(false);
-        toolbar?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-
   function renderTable(visible, query) {
     if (!flatBody) return;
-    const { slice } = paginate(visible);
-    const rows = [];
-    for (let i = 0; i < slice.length; i += TERMS_PER_ROW) {
-      rows.push(flatRowHtml(slice[i], slice[i + 1] || null, query));
-    }
-    flatBody.innerHTML = rows.join('');
+    flatBody.innerHTML = visible.map((item) => rowHtml(item, query)).join('');
     bindRows();
   }
 
@@ -284,7 +231,6 @@
       if (hideEmpty) empty.setAttribute('hidden', '');
       else empty.removeAttribute('hidden');
     }
-    renderPagination(shown, Math.max(1, Math.ceil(shown / PAGE_SIZE)));
     renderActiveFilters();
     syncReset();
     if (syncUrlFlag) syncUrl();
@@ -302,7 +248,6 @@
   function resetAll() {
     if (q) q.value = '';
     activeCat = 'all';
-    page = 1;
     chips.forEach((b) => b.classList.toggle('on', (b.dataset.cat || 'all') === 'all'));
     syncClear();
     apply();
@@ -314,14 +259,12 @@
   }
 
   q?.addEventListener('input', () => {
-    page = 1;
     syncClear();
     apply();
   });
   clearBtn?.addEventListener('click', () => {
     if (!q) return;
     q.value = '';
-    page = 1;
     syncClear();
     apply();
     q.focus();
@@ -334,7 +277,6 @@
       chips.forEach((b) => b.classList.remove('on'));
       btn.classList.add('on');
       activeCat = btn.dataset.cat || 'all';
-      page = 1;
       apply();
     });
   });
@@ -350,7 +292,6 @@
     if (e.key !== 'Escape' || typing) return;
     if (document.activeElement === q && q?.value) {
       q.value = '';
-      page = 1;
       syncClear();
       apply();
       return;

@@ -195,10 +195,8 @@ def split_semicolon(s: str) -> list[str]:
     return [x.strip() for x in (s or "").split(";") if x.strip()]
 
 
-TERMS_INDEX_CSS_VER = "20260521-terms-ui"
-TERMS_INDEX_JS_VER = "20260521-terms-ui"
-TERMS_INDEX_PAGE_SIZE = 80
-TERMS_INDEX_PER_ROW = 2
+TERMS_INDEX_CSS_VER = "20260521-terms-table"
+TERMS_INDEX_JS_VER = "20260521-terms-table"
 
 
 def parse_term_tags(raw: str) -> list[str]:
@@ -215,19 +213,12 @@ def sort_terms_index_entries(entries: list[dict]) -> list[dict]:
     )
 
 
-def render_terms_index_tbody(entries: list[dict], limit: int = TERMS_INDEX_PAGE_SIZE) -> str:
-    """JS 未実行時も一覧が見えるよう、初期表示分の tbody をサーバー側で生成する。"""
-    items = sort_terms_index_entries(entries)[:limit]
+def render_terms_index_tbody(entries: list[dict]) -> str:
+    """JS 未実行時も一覧が見えるよう、全件の tbody をサーバー側で生成する（1語1行・3列）。"""
+    items = sort_terms_index_entries(entries)
     rows: list[str] = []
 
-    def flat_cells(item, slot: str) -> str:
-        slot_cls = f"terms-idx-slot-{slot}"
-        if not item:
-            return (
-                f'<td class="terms-idx-td-term {slot_cls} terms-idx-cell-empty" aria-hidden="true"></td>'
-                f'<td class="terms-idx-td-cat {slot_cls} terms-idx-cell-empty" aria-hidden="true"></td>'
-                f'<td class="terms-idx-td-snippet {slot_cls} terms-idx-cell-empty" aria-hidden="true"></td>'
-            )
+    for item in items:
         href = html.escape(item["slug_file"])
         href_attr = f' data-entry-href="{href}"'
         reading = item.get("reading") or ""
@@ -237,22 +228,15 @@ def render_terms_index_tbody(entries: list[dict], limit: int = TERMS_INDEX_PAGE_
             else ""
         )
         short_def = html.escape(item.get("short_def") or "")
-        return (
-            f'<td class="terms-idx-td-term {slot_cls}" data-label="用語（よみ）"{href_attr} tabindex="0">'
-            f'<div class="terms-idx-term-cell"><a href="{href}">{html.escape(item["term"])}</a>'
-            f"{reading_html}</div></td>"
-            f'<td class="terms-idx-td-cat {slot_cls}" data-label="分野"{href_attr}>'
-            f'{html.escape(item.get("category") or "")}</td>'
-            f'<td class="terms-idx-td-snippet {slot_cls}" data-label="定義（抜粋）"{href_attr}>'
-            f"{short_def}</td>"
-        )
-
-    for i in range(0, len(items), TERMS_INDEX_PER_ROW):
-        left = items[i]
-        right = items[i + 1] if i + 1 < len(items) else None
         rows.append(
             "<tr class=\"terms-idx-table-row\">"
-            f"{flat_cells(left, 'a')}{flat_cells(right, 'b')}"
+            f'<td class="terms-idx-td-term" data-label="用語（よみ）"{href_attr} tabindex="0">'
+            f'<div class="terms-idx-term-cell"><a href="{href}">{html.escape(item["term"])}</a>'
+            f"{reading_html}</div></td>"
+            f'<td class="terms-idx-td-cat" data-label="分野"{href_attr}>'
+            f'{html.escape(item.get("category") or "")}</td>'
+            f'<td class="terms-idx-td-snippet" data-label="定義（抜粋）"{href_attr}>'
+            f"{short_def}</td>"
             "</tr>"
         )
     return "\n".join(rows)
@@ -1109,21 +1093,17 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
     </div>
     <div class="terms-idx-layout" aria-label="用語一覧">
       <div class="terms-idx-table-wrap">
-        <table class="terms-idx-table terms-idx-table-duo">
+        <table class="terms-idx-table">
           <thead><tr>
-            <th scope="col" class="terms-idx-th-term terms-idx-slot-a">用語（よみ）</th>
-            <th scope="col" class="terms-idx-th-cat terms-idx-slot-a">分野</th>
-            <th scope="col" class="terms-idx-th-def terms-idx-slot-a">定義（抜粋）</th>
-            <th scope="col" class="terms-idx-th-term terms-idx-slot-b">用語（よみ）</th>
-            <th scope="col" class="terms-idx-th-cat terms-idx-slot-b">分野</th>
-            <th scope="col" class="terms-idx-th-def terms-idx-slot-b">定義（抜粋）</th>
+            <th scope="col" class="terms-idx-th-term">用語（よみ）</th>
+            <th scope="col" class="terms-idx-th-cat">分野</th>
+            <th scope="col" class="terms-idx-th-def">定義（抜粋）</th>
           </tr></thead>
           <tbody id="terms-idx-flat-body">
 {tbody_html}
           </tbody>
         </table>
       </div>
-      <nav class="terms-idx-pagination hide" id="terms-idx-pagination" aria-label="ページ送り"></nav>
       <div class="terms-idx-seo-fallback" aria-hidden="true" hidden>
 {seo_html}
       </div>
