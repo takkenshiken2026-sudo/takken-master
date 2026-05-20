@@ -1,138 +1,99 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate sitemap.xml from indexable local HTML files."""
+"""Build sitemap.xml with lastmod for all public HTML pages."""
 
 from __future__ import annotations
 
-import html
-import re
+import csv
 import sys
 from pathlib import Path
-from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.site_config import clean_origin  # noqa: E402
-from tools.seo_common import file_lastmod_iso  # noqa: E402
+from tools.sitemap_utils import SitemapEntry, iso_date, iso_from_mtime, write_sitemap  # noqa: E402
 
-BASE_URL = clean_origin()
-SITEMAP = ROOT / "sitemap.xml"
-
-EXCLUDED_DIRS = {
-    ".git",
-    "glossary",  # legacy redirect pages to /terms/
-    "tools",  # build scripts and snippets, not public pages
-}
-
-CANONICAL_RE = re.compile(
-    r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)["\']',
-    re.IGNORECASE,
-)
-ROBOTS_RE = re.compile(
-    r'<meta[^>]+name=["\']robots["\'][^>]+content=["\']([^"\']+)["\']',
-    re.IGNORECASE,
-)
-REFRESH_RE = re.compile(r'<meta[^>]+http-equiv=["\']refresh["\']', re.IGNORECASE)
+GUIDE_CSV = ROOT / "data" / "guide_articles.csv"
 
 
-def is_excluded(path: Path) -> bool:
-    parts = set(path.relative_to(ROOT).parts)
-    return bool(parts & EXCLUDED_DIRS)
-
-
-def local_url_for(path: Path) -> str:
-    rel = path.relative_to(ROOT).as_posix()
-    if rel == "index.html":
-        return f"{BASE_URL}/"
-    if rel.endswith("/index.html"):
-        return f"{BASE_URL}/{rel[:-10]}/"
-    return f"{BASE_URL}/{rel}"
-
-
-def canonical_to_local_path(url: str) -> Path | None:
-    parsed = urlparse(url)
-    if f"{parsed.scheme}://{parsed.netloc}" != BASE_URL:
-        return None
-    request_path = parsed.path
-    if request_path == "/":
-        candidate = ROOT / "index.html"
-    elif request_path.endswith("/"):
-        candidate = ROOT / request_path.lstrip("/") / "index.html"
-    else:
-        candidate = ROOT / request_path.lstrip("/")
-    return candidate if candidate.exists() else None
-
-
-def sitemap_priority(url: str) -> tuple[int, str]:
-    path = urlparse(url).path
-    if path == "/":
-        return (0, path)
-    if path.startswith("/articles/"):
-        return (1, path)
-    if path.startswith("/takken/"):
-        return (2, path)
-    if path.startswith("/terms/"):
-        return (3, path)
-    if path.startswith("/q/"):
-        return (4, path)
-    return (5, path)
-
-
-def collect_url_entries() -> list[tuple[str, str]]:
-    """(canonical_url, lastmod YYYY-MM-DD)"""
-    entries: dict[str, str] = {}
-    errors: list[str] = []
-
-    for path in sorted(ROOT.rglob("*.html")):
-        if is_excluded(path):
+def guide_lastmod_by_slug() -> dict[str, str]:
+    out: dict[str, str] = {}
+    if not GUIDE_CSV.is_file():
+        return out
+    text = GUIDE_CSV.read_text(encoding="utf-8-sig")
+    for row in csv.DictReader(text.splitlines()):
+        slug = (row.get("slug") or "").strip()
+        if not slug:
             continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        if REFRESH_RE.search(text):
-            continue
-        robots_match = ROBOTS_RE.search(text)
-        if robots_match and "noindex" in robots_match.group(1).lower():
-            continue
-
-        local_url = local_url_for(path)
-        canonical_match = CANONICAL_RE.search(text)
-        if canonical_match:
-            canonical = canonical_match.group(1)
-            canonical_path = canonical_to_local_path(canonical)
-            if canonical_path is None:
-                errors.append(f"Canonical does not map to a local file: {path.relative_to(ROOT)} -> {canonical}")
-            else:
-                entries[canonical] = file_lastmod_iso(canonical_path)
-        else:
-            entries[local_url] = file_lastmod_iso(path)
-
-    if errors:
-        for error in errors:
-            print(error, file=sys.stderr)
-        raise SystemExit("Sitemap generation aborted because canonical URLs are invalid.")
-
-    return sorted(entries.items(), key=lambda x: sitemap_priority(x[0]))
+        for col in ("fact_checked_at", "last_reviewed_at", "source_checked_at"):
+            d = iso_date(row.get(col))
+            if d:
+                out[slug] = d
+                break
+    return out
 
 
-def render(url_entries: list[tuple[str, str]]) -> str:
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for url, lastmod in url_entries:
-        lines.append("  <url>")
-        lines.append(f"    <loc>{html.escape(url, quote=False)}</loc>")
-        lines.append(f"    <lastmod>{html.escape(lastmod, quote=False)}</lastmod>")
-        lines.append("    <changefreq>monthly</changefreq>")
-        lines.append("  </url>")
-    lines.append("</urlset>")
-    lines.append("")
-    return "\n".join(lines)
+def add_file(entries: list[SitemapEntry], base: str, rel: str, lastmod: str | None = None) -> None:
+    path = ROOT / rel
+    if not path.is_file():
+        return
+    mod = lastmod or iso_from_mtime(path)
+    entries.append(SitemapEntry(loc=f"{base}/{rel.replace(chr(92), '/')}", lastmod=mod))
 
 
-def main() -> None:
-    url_entries = collect_url_entries()
-    SITEMAP.write_text(render(url_entries), encoding="utf-8")
-    print(f"Wrote {SITEMAP.relative_to(ROOT)} with {len(url_entries)} URLs.")
+def collect_entries(base: str) -> list[SitemapEntry]:
+    entries: list[SitemapEntry] = []
+    guide_dates = guide_lastmod_by_slug()
+
+    static_pages = ["index.html", "about.html", "privacy.html", "related-sites.html"]
+    for rel in static_pages:
+        add_file(entries, base, rel)
+
+    articles_root = ROOT / "articles"
+    if articles_root.is_dir():
+        add_file(entries, base, "articles/index.html")
+        for article_dir in sorted(articles_root.iterdir()):
+            if not article_dir.is_dir():
+                continue
+            rel = article_dir.relative_to(ROOT).as_posix() + "/index.html"
+            slug = article_dir.name
+            add_file(entries, base, rel, guide_dates.get(slug))
+
+    qroot = ROOT / "q"
+    if qroot.is_dir():
+        add_file(entries, base, "q/index.html")
+        for path in sorted(qroot.rglob("index.html")):
+            if path == qroot / "index.html":
+                continue
+            add_file(entries, base, path.relative_to(ROOT).as_posix())
+
+    terms_root = ROOT / "terms"
+    if terms_root.is_dir():
+        add_file(entries, base, "terms/index.html")
+        for path in sorted(terms_root.glob("g-*.html")):
+            add_file(entries, base, path.relative_to(ROOT).as_posix())
+        for path in sorted(terms_root.glob("field-*/index.html")):
+            add_file(entries, base, path.relative_to(ROOT).as_posix())
+
+    return entries
+
+
+def main() -> int:
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--base-url", default=clean_origin())
+    args = ap.parse_args()
+    base = args.base_url.rstrip("/")
+    entries = collect_entries(base)
+    out = ROOT / "sitemap.xml"
+    write_sitemap(entries, out)
+    with_lastmod = sum(1 for e in entries if e.lastmod)
+    print(f"Wrote {out} ({len(entries)} URLs, {with_lastmod} with lastmod)")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -1,800 +1,1213 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="宅建試験の概要、2026年度の予定、申込み、試験範囲、勉強計画、合格後の手続きまで、宅建マスター内の試験ガイド記事をまとめた入口です。">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#111111">
-  <link rel="canonical" href="https://takken-master.jp/articles/">
-  <title>試験ガイド｜宅建マスター（宅地建物取引士）</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../site-pages.css">
-  <style>
-    .guide-main {
-      max-width: 1040px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>試験ガイド｜宅建マスター（宅地建物取引士試験）</title>
+<meta name="description" content="宅地建物取引士試験の試験概要、受験・申込、学習計画、過去問活用、用語整理などの記事一覧です。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://takken-master.jp/articles/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="試験ガイド｜宅建マスター（宅地建物取引士試験）">
+<meta property="og:description" content="宅地建物取引士試験の試験概要、受験・申込、学習計画、過去問活用、用語整理などの記事一覧です。">
+<meta property="og:url" content="https://takken-master.jp/articles/index.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "宅地建物取引士試験 試験ガイド",
+  "numberOfItems": 179,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "宅地建物取引士試験の公式情報の確認先と見る順番",
+      "item": "https://takken-master.jp/articles/official-info-sources/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "宅建マスターの使い方（過去問・用語・記録）",
+      "item": "https://takken-master.jp/articles/learning-app-guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "宅地建物取引士試験の目的と宅建士としてのキャリア",
+      "item": "https://takken-master.jp/articles/exam-purpose-and-career/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "宅地建物取引士試験を初めて受ける人向けガイド",
+      "item": "https://takken-master.jp/articles/first-time-exam-guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "宅建と類似資格の違い・併願の考え方",
+      "item": "https://takken-master.jp/articles/compare-similar-qualifications/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "大学生・専門学生が宅建を取るメリット｜就活での活かし方と勉強計画",
+      "item": "https://takken-master.jp/articles/takken-gakusei/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "未経験から宅建で不動産業界へ転職する方法｜求人選びと準備の進め方",
+      "item": "https://takken-master.jp/articles/takken-mikeiken-tenshoku/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "不動産業界で宅建をどう活かす？営業・管理・事務で役立つ場面",
+      "item": "https://takken-master.jp/articles/takken-fudosan-gyokai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "宅建は副業・独立に使える？開業前に知るべき現実と準備",
+      "item": "https://takken-master.jp/articles/takken-fukugyo-dokuritsu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "宅建の教材の選び方｜テキスト・問題集・通信講座を比較",
+      "item": "https://takken-master.jp/articles/takken-kyozai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "宅建の模擬試験の活用法｜何回受ける？点数の見方",
+      "item": "https://takken-master.jp/articles/takken-moshi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "宅建の頻出論点まとめ｜分野別・絶対暗記の数字一覧",
+      "item": "https://takken-master.jp/articles/takken-tokkuten/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "宅建の間違いノートの作り方｜復習で得点を伸ばす方法",
+      "item": "https://takken-master.jp/articles/takken-machigai-note/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "name": "宅建の通信講座・独学・通学の比較｜自分に合う学習スタイル",
+      "item": "https://takken-master.jp/articles/takken-tsushin-hikaku/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "name": "宅建の35条重説・37条書面の攻略法｜宅建業法の核心",
+      "item": "https://takken-master.jp/articles/takken-35jou-gyakushu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "name": "宅建の統計問題の攻略法｜問46〜50と5問免除",
+      "item": "https://takken-master.jp/articles/takken-toukei-mondai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "name": "宅建の報酬額・速算式の攻略法｜計算問題を落とさない",
+      "item": "https://takken-master.jp/articles/takken-baisho/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "name": "宅建の媒介契約3種類の違い｜一般・専任・専属専任を整理",
+      "item": "https://takken-master.jp/articles/takken-baikai-keiyaku/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "name": "宅建の8種制限の攻略法｜手付金・クーリングオフを整理",
+      "item": "https://takken-master.jp/articles/takken-8shu-seigen/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "name": "宅建の用途地域の覚え方｜13種類を試験向けに整理",
+      "item": "https://takken-master.jp/articles/takken-yoto-chiiki/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "name": "宅建の建ぺい率・容積率の計算｜道路幅員・防火地域の緩和",
+      "item": "https://takken-master.jp/articles/takken-kenpei-yoseki/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "name": "宅建試験の時間配分｜50問・2時間を落とさない解き方",
+      "item": "https://takken-master.jp/articles/takken-jikan-haibun/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "name": "宅建の動画・YouTube教材の活用法｜独学での使いどころ",
+      "item": "https://takken-master.jp/articles/takken-douga-kyozai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "name": "宅建の相続・遺留分の攻略法｜権利関係の頻出テーマ",
+      "item": "https://takken-master.jp/articles/takken-sozoku-minpo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "name": "宅建の登録実務講習ガイド｜合格後の手続きと費用",
+      "item": "https://takken-master.jp/articles/takken-jitsumu-koshu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "name": "宅建の営業保証金・保証協会の攻略｜供託と分担金",
+      "item": "https://takken-master.jp/articles/takken-hoshokin/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "name": "40代・50代から宅建を取得する方法",
+      "item": "https://takken-master.jp/articles/takken-40dai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "name": "宅建の知識は不動産投資に使えるか？資格活用の具体的な方法",
+      "item": "https://takken-master.jp/articles/takken-fudosan-toshi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "name": "宅建とFP・マンション管理士・行政書士の違い",
+      "item": "https://takken-master.jp/articles/takken-hikaku/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 30,
+      "name": "宅建の難易度は？合格率・他資格との比較で徹底分析",
+      "item": "https://takken-master.jp/articles/takken-nanido/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
+      "name": "宅建士の年収・給与は？資格手当・転職・独立でいくら稼げるか",
+      "item": "https://takken-master.jp/articles/takken-nenshu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 32,
+      "name": "宅建に落ちた・不合格だった場合の対策と再受験の進め方",
+      "item": "https://takken-master.jp/articles/takken-ocita/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 33,
+      "name": "社会人が仕事しながら宅建に合格する方法",
+      "item": "https://takken-master.jp/articles/takken-shakaijin/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 34,
+      "name": "宅建士の仕事内容とは？独占業務・活躍できる職場を徹底解説",
+      "item": "https://takken-master.jp/articles/takken-shigoto/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 35,
+      "name": "宅建試験の範囲と全体像",
+      "item": "https://takken-master.jp/articles/takken-shiken-hani/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 36,
+      "name": "主婦・子育て中でも宅建に合格できる？スキマ時間活用法を解説",
+      "item": "https://takken-master.jp/articles/takken-shufu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
+      "name": "宅建とは？難易度・メリット・取得後の仕事を徹底解説",
+      "item": "https://takken-master.jp/articles/takken-to-wa/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 38,
+      "name": "宅建試験 当日の注意点・持ち物チェックリスト完全版",
+      "item": "https://takken-master.jp/articles/takken-toujitsu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 39,
+      "name": "宅地建物取引士試験の受験資格と確認方法",
+      "item": "https://takken-master.jp/articles/exam-eligibility/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 40,
+      "name": "宅建の5問免除制度の要件と手続き",
+      "item": "https://takken-master.jp/articles/exemption-system/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 41,
+      "name": "実務経験と受験資格の関係",
+      "item": "https://takken-master.jp/articles/work-experience-requirement/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 42,
+      "name": "学歴要件と受験資格の読み方",
+      "item": "https://takken-master.jp/articles/education-requirement/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 43,
+      "name": "宅建と他資格の同日受験・併願の注意点",
+      "item": "https://takken-master.jp/articles/concurrent-exam-rules/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 44,
+      "name": "宅地建物取引士試験の年間日程と学習計画への組み込み",
+      "item": "https://takken-master.jp/articles/exam-schedule/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 45,
+      "name": "宅地建物取引士試験の受験手数料と支払いの注意点",
+      "item": "https://takken-master.jp/articles/exam-fees/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 46,
+      "name": "宅地建物取引士試験の申込手順（RETIO）",
+      "item": "https://takken-master.jp/articles/exam-application-flow/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 47,
+      "name": "申込締切前に確認するチェックリスト",
+      "item": "https://takken-master.jp/articles/application-deadline-checklist/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 48,
+      "name": "受験地・地域と会場情報の確認",
+      "item": "https://takken-master.jp/articles/exam-venue-and-region/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 49,
+      "name": "欠席・再受験時の手続きと学習の立て直し",
+      "item": "https://takken-master.jp/articles/reschedule-and-absence/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 50,
+      "name": "2026年度 宅建試験日程・申込み・合格発表スケジュール",
+      "item": "https://takken-master.jp/articles/takken-shiken-schedule-2026/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 51,
+      "name": "宅建試験の受験費用・合格後の費用まとめ",
+      "item": "https://takken-master.jp/articles/takken-jukenhi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 52,
+      "name": "宅建試験の申込み方法・流れ",
+      "item": "https://takken-master.jp/articles/takken-moshikomi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 53,
+      "name": "宅建試験の合格スケジュール",
+      "item": "https://takken-master.jp/articles/takken-schedule/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 54,
+      "name": "宅建の合格点は何点？合格ラインの考え方と目標点の作り方",
+      "item": "https://takken-master.jp/articles/takken-goukakuten/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 55,
+      "name": "宅地建物取引士試験の合格率の読み方",
+      "item": "https://takken-master.jp/articles/pass-rate/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 56,
+      "name": "宅地建物取引士試験の難易度と必要な学習量",
+      "item": "https://takken-master.jp/articles/exam-difficulty/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 57,
+      "name": "宅地建物取引士試験の合格点（合格基準点）の考え方",
+      "item": "https://takken-master.jp/articles/pass-score/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 58,
+      "name": "合格率・統計の公式情報の見方",
+      "item": "https://takken-master.jp/articles/pass-rate-how-to-read/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 59,
+      "name": "初学者がつまずきやすいポイント",
+      "item": "https://takken-master.jp/articles/difficulty-for-beginners/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 60,
+      "name": "宅建の合格率は？年度別の傾向と合格ラインの読み方",
+      "item": "https://takken-master.jp/articles/takken-gokaku-ritsu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 61,
+      "name": "宅建合格後にやること",
+      "item": "https://takken-master.jp/articles/takken-goukaku-ato/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 62,
+      "name": "宅地建物取引士試験の出題形式（50問・四肢択一）",
+      "item": "https://takken-master.jp/articles/exam-format-overview/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 63,
+      "name": "宅建4分野の配点と出題の傾向",
+      "item": "https://takken-master.jp/articles/subject-breakdown/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 64,
+      "name": "CBT・マークシート試験の対策の違い",
+      "item": "https://takken-master.jp/articles/cbt-computer-exam/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 65,
+      "name": "2時間50問の時間配分戦略",
+      "item": "https://takken-master.jp/articles/time-limit-strategy/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 66,
+      "name": "宅地建物取引士試験の出題範囲の全体像",
+      "item": "https://takken-master.jp/articles/exam-scope-overview/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 67,
+      "name": "試験要項・シラバスの読み方",
+      "item": "https://takken-master.jp/articles/syllabus-how-to-read/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 68,
+      "name": "出題範囲の改定と学習への影響",
+      "item": "https://takken-master.jp/articles/scope-revision-history/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 69,
+      "name": "分野別の配点感と優先順位",
+      "item": "https://takken-master.jp/articles/weight-by-topic/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 70,
+      "name": "近年の出題トレンドと法令改正",
+      "item": "https://takken-master.jp/articles/new-topics-trend/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 71,
+      "name": "出題範囲と過去問の対応の見方",
+      "item": "https://takken-master.jp/articles/scope-vs-past-questions/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 72,
+      "name": "宅建の勉強時間は何時間必要？初学者・社会人・再受験者別の目安",
+      "item": "https://takken-master.jp/articles/takken-benkyou-jikan/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 73,
+      "name": "宅建を3ヶ月で仕上げる学習計画",
+      "item": "https://takken-master.jp/articles/study-plan-3months/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 74,
+      "name": "宅建を6ヶ月で仕上げる学習計画",
+      "item": "https://takken-master.jp/articles/study-plan-6months/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 75,
+      "name": "宅建を1年かけて合格を目指す計画",
+      "item": "https://takken-master.jp/articles/study-plan-1year/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 76,
+      "name": "働きながら宅建に合格する週間スケジュール",
+      "item": "https://takken-master.jp/articles/study-plan-working/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 77,
+      "name": "法律初学者の宅建学習ロードマップ",
+      "item": "https://takken-master.jp/articles/study-plan-beginner/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 78,
+      "name": "宅建学習の最初の30日でやること",
+      "item": "https://takken-master.jp/articles/first-30-days-plan/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 79,
+      "name": "仕事と宅建勉強の両立のコツ",
+      "item": "https://takken-master.jp/articles/balance-work-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 80,
+      "name": "宅建勉強の時間管理と習慣化",
+      "item": "https://takken-master.jp/articles/time-management/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 81,
+      "name": "宅建を4月・1月スタートで合格する｜月別学習カレンダー",
+      "item": "https://takken-master.jp/articles/takken-4gatsu-start/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 82,
+      "name": "宅建の勉強計画の立て方",
+      "item": "https://takken-master.jp/articles/takken-plan/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 83,
+      "name": "宅建を独学で始める手順",
+      "item": "https://takken-master.jp/articles/self-study-start/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 84,
+      "name": "独学の週間・月間スケジュール例",
+      "item": "https://takken-master.jp/articles/self-study-schedule/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 85,
+      "name": "宅建独学でよくある失敗と回避策",
+      "item": "https://takken-master.jp/articles/self-study-mistakes/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 86,
+      "name": "独学に向いた環境づくり",
+      "item": "https://takken-master.jp/articles/self-study-environment/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 87,
+      "name": "長期独学のモチベーション維持",
+      "item": "https://takken-master.jp/articles/self-study-motivation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 88,
+      "name": "資格学校なしで宅建に合格するには",
+      "item": "https://takken-master.jp/articles/self-study-without-school/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 89,
+      "name": "宅建テキストの選び方",
+      "item": "https://takken-master.jp/articles/textbook-selection/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 90,
+      "name": "問題集・一問一答の選び方",
+      "item": "https://takken-master.jp/articles/problem-book-selection/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 91,
+      "name": "通信講座と独学の組み合わせ",
+      "item": "https://takken-master.jp/articles/correspondence-course-guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 92,
+      "name": "無料教材と公式情報の活用",
+      "item": "https://takken-master.jp/articles/free-materials-online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 93,
+      "name": "テキストと過去問、どちらを優先するか",
+      "item": "https://takken-master.jp/articles/textbook-vs-past-questions/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 94,
+      "name": "教材の版・年度更新への対応",
+      "item": "https://takken-master.jp/articles/material-update-cycle/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 95,
+      "name": "宅建過去問を年度別に解く順番",
+      "item": "https://takken-master.jp/articles/past-questions-by-year/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 96,
+      "name": "分野別に過去問を解くメリット",
+      "item": "https://takken-master.jp/articles/past-questions-by-field/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 97,
+      "name": "過去問の解き直しサイクル",
+      "item": "https://takken-master.jp/articles/past-questions-review-cycle/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 98,
+      "name": "過去問の点数分析と弱点把握",
+      "item": "https://takken-master.jp/articles/past-questions-score-analysis/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 99,
+      "name": "ブックマーク・復習リストの使い方",
+      "item": "https://takken-master.jp/articles/bookmark-review-method/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 100,
+      "name": "過去問1周目の正しい解き方",
+      "item": "https://takken-master.jp/articles/past-questions-first-attempt/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 101,
+      "name": "間違い理由の分類と復習",
+      "item": "https://takken-master.jp/articles/past-questions-wrong-reasons/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 102,
+      "name": "直近年度の過去問の扱い",
+      "item": "https://takken-master.jp/articles/past-questions-latest-year/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 103,
+      "name": "宅建模試の活用法",
+      "item": "https://takken-master.jp/articles/mock-exam-how-to/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 104,
+      "name": "一問一答と過去問の組み合わせ",
+      "item": "https://takken-master.jp/articles/ichimon-practice/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 105,
+      "name": "演習量の目安（何問解くか）",
+      "item": "https://takken-master.jp/articles/drill-volume-guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 106,
+      "name": "本番形式の時間計測演習",
+      "item": "https://takken-master.jp/articles/timed-practice/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 107,
+      "name": "模試を組み込んだ直前スケジュール",
+      "item": "https://takken-master.jp/articles/simulation-exam-schedule/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 108,
+      "name": "宅建を独学で合格する方法",
+      "item": "https://takken-master.jp/articles/takken-dokugaku/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 109,
+      "name": "宅建業法の勉強法・完全攻略",
+      "item": "https://takken-master.jp/articles/takken-gyoho-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 110,
+      "name": "宅建の過去問の使い方・効果的な解き方を解説",
+      "item": "https://takken-master.jp/articles/takken-kakomon/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 111,
+      "name": "宅建の権利関係（民法）の勉強法",
+      "item": "https://takken-master.jp/articles/takken-kenri-kankei/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 112,
+      "name": "宅建の法令上の制限の勉強法｜用途地域・建ぺい率・開発許可の攻略",
+      "item": "https://takken-master.jp/articles/takken-hooreijou-seigen-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 113,
+      "name": "宅建の税・その他の勉強法｜直前期に得点を上積みする攻略法",
+      "item": "https://takken-master.jp/articles/takken-zei-sonota-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 114,
+      "name": "宅建・宅建業法の基礎の押さえ方",
+      "item": "https://takken-master.jp/articles/field-law-basics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 115,
+      "name": "宅建・宅建業法の頻出論点",
+      "item": "https://takken-master.jp/articles/field-law-frequent-topics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 116,
+      "name": "宅建・宅建業法の計算・数字対策",
+      "item": "https://takken-master.jp/articles/field-law-calculation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 117,
+      "name": "宅建・宅建業法の事例問題の解き方",
+      "item": "https://takken-master.jp/articles/field-law-case-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 118,
+      "name": "宅建・宅建業法の過去問での出方",
+      "item": "https://takken-master.jp/articles/field-law-past-question-focus/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 119,
+      "name": "宅建・権利関係の基礎の押さえ方",
+      "item": "https://takken-master.jp/articles/field-rights-basics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 120,
+      "name": "宅建・権利関係の頻出論点",
+      "item": "https://takken-master.jp/articles/field-rights-frequent-topics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 121,
+      "name": "宅建・権利関係の計算・数字対策",
+      "item": "https://takken-master.jp/articles/field-rights-calculation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 122,
+      "name": "宅建・権利関係の事例問題の解き方",
+      "item": "https://takken-master.jp/articles/field-rights-case-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 123,
+      "name": "宅建・権利関係の過去問での出方",
+      "item": "https://takken-master.jp/articles/field-rights-past-question-focus/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 124,
+      "name": "宅建・法令上の制限の基礎の押さえ方",
+      "item": "https://takken-master.jp/articles/field-limit-basics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 125,
+      "name": "宅建・法令上の制限の頻出論点",
+      "item": "https://takken-master.jp/articles/field-limit-frequent-topics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 126,
+      "name": "宅建・法令上の制限の計算・数字対策",
+      "item": "https://takken-master.jp/articles/field-limit-calculation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 127,
+      "name": "宅建・法令上の制限の事例問題の解き方",
+      "item": "https://takken-master.jp/articles/field-limit-case-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 128,
+      "name": "宅建・法令上の制限の過去問での出方",
+      "item": "https://takken-master.jp/articles/field-limit-past-question-focus/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 129,
+      "name": "宅建・税・その他の基礎の押さえ方",
+      "item": "https://takken-master.jp/articles/field-tax-basics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 130,
+      "name": "宅建・税・その他の頻出論点",
+      "item": "https://takken-master.jp/articles/field-tax-frequent-topics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 131,
+      "name": "宅建・税・その他の計算・数字対策",
+      "item": "https://takken-master.jp/articles/field-tax-calculation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 132,
+      "name": "宅建・税・その他の事例問題の解き方",
+      "item": "https://takken-master.jp/articles/field-tax-case-study/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 133,
+      "name": "宅建・税・その他の過去問での出方",
+      "item": "https://takken-master.jp/articles/field-tax-past-question-focus/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 134,
+      "name": "宅建用語集の効率的な使い方",
+      "item": "https://takken-master.jp/articles/glossary-study-method/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 135,
+      "name": "宅建で押さえる重要用語の探し方",
+      "item": "https://takken-master.jp/articles/important-terms-list/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 136,
+      "name": "混同しやすい用語の整理術",
+      "item": "https://takken-master.jp/articles/confusing-terms/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 137,
+      "name": "関連用語リンクで知識を広げる",
+      "item": "https://takken-master.jp/articles/related-terms-navigation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 138,
+      "name": "過去問と用語解説の往復学習",
+      "item": "https://takken-master.jp/articles/terms-with-past-questions/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 139,
+      "name": "重要度の見方と優先順位",
+      "item": "https://takken-master.jp/articles/terms-importance-levels/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 140,
+      "name": "宅建で出る数字・期限のまとめ方",
+      "item": "https://takken-master.jp/articles/numbers-and-deadlines/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 141,
+      "name": "計算・公式の暗記のコツ",
+      "item": "https://takken-master.jp/articles/formula-memorization/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 142,
+      "name": "計算問題の反復ドリル",
+      "item": "https://takken-master.jp/articles/calculation-drill/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 143,
+      "name": "割合・率の問題の解き方",
+      "item": "https://takken-master.jp/articles/rate-and-percentage/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 144,
+      "name": "数字問題の引っかけ選択肢",
+      "item": "https://takken-master.jp/articles/numeric-trap-choices/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 145,
+      "name": "間隔を空けた復習（スペースド）",
+      "item": "https://takken-master.jp/articles/review-cycle-spaced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 146,
+      "name": "間違いノートの作り方",
+      "item": "https://takken-master.jp/articles/mistake-notebook/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 147,
+      "name": "苦手分野の立て直し手順",
+      "item": "https://takken-master.jp/articles/weak-field-recovery/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 148,
+      "name": "宅建勉強のノートの取り方",
+      "item": "https://takken-master.jp/articles/note-taking-method/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 149,
+      "name": "惜しい間違いの見直し方",
+      "item": "https://takken-master.jp/articles/almost-correct-review/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 150,
+      "name": "伸び悩みの突破策",
+      "item": "https://takken-master.jp/articles/plateau-breakthrough/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 151,
+      "name": "宅建直前1週間の学習",
+      "item": "https://takken-master.jp/articles/final-week-prep/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 152,
+      "name": "試験前日のチェックリスト",
+      "item": "https://takken-master.jp/articles/final-day-checklist/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 153,
+      "name": "直前期の範囲の絞り込み",
+      "item": "https://takken-master.jp/articles/final-scope-narrowing/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 154,
+      "name": "直前期の睡眠と体調",
+      "item": "https://takken-master.jp/articles/final-sleep-and-health/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 155,
+      "name": "直前模試の使い方",
+      "item": "https://takken-master.jp/articles/final-mock-last-run/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 156,
+      "name": "試験当日の持ち物",
+      "item": "https://takken-master.jp/articles/exam-day-items/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 157,
+      "name": "試験当日の流れ",
+      "item": "https://takken-master.jp/articles/exam-day-flow/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 158,
+      "name": "試験中の時間配分",
+      "item": "https://takken-master.jp/articles/exam-day-time-allocation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 159,
+      "name": "本番のメンタル対策",
+      "item": "https://takken-master.jp/articles/mental-prep-exam-day/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 160,
+      "name": "当日のトラブル対処",
+      "item": "https://takken-master.jp/articles/exam-day-troubleshooting/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 161,
+      "name": "宅建試験の直前対策｜1ヶ月・1週間・前日でやること",
+      "item": "https://takken-master.jp/articles/takken-chokuzen/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 162,
+      "name": "合格後の手続き",
+      "item": "https://takken-master.jp/articles/after-pass-procedure/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 163,
+      "name": "合格発表の確認方法",
+      "item": "https://takken-master.jp/articles/pass-announcement-guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 164,
+      "name": "宅建士登録の流れ",
+      "item": "https://takken-master.jp/articles/registration-after-pass/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 165,
+      "name": "合格後のキャリア選択",
+      "item": "https://takken-master.jp/articles/career-after-qualification/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 166,
+      "name": "不合格からの再受験計画",
+      "item": "https://takken-master.jp/articles/fail-retry-plan/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 167,
+      "name": "再受験の戦略",
+      "item": "https://takken-master.jp/articles/retake-strategy/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 168,
+      "name": "再受験時のスケジュール調整",
+      "item": "https://takken-master.jp/articles/retake-schedule-adjustment/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 169,
+      "name": "得点差の分析",
+      "item": "https://takken-master.jp/articles/score-gap-analysis/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 170,
+      "name": "試験制度の変更点",
+      "item": "https://takken-master.jp/articles/exam-changes/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 171,
+      "name": "法令改正の学習への影響",
+      "item": "https://takken-master.jp/articles/legal-revision-impact/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 172,
+      "name": "シラバス更新の追跡",
+      "item": "https://takken-master.jp/articles/syllabus-update-tracker/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 173,
+      "name": "公式情報の確認習慣",
+      "item": "https://takken-master.jp/articles/official-info-update-habits/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 174,
+      "name": "宅建のよくある誤解",
+      "item": "https://takken-master.jp/articles/common-misconceptions/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 175,
+      "name": "過去問だけ神話への注意",
+      "item": "https://takken-master.jp/articles/pass-only-past-questions-myth/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 176,
+      "name": "勉強時間の神話",
+      "item": "https://takken-master.jp/articles/study-hours-myth/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 177,
+      "name": "受験資格の誤解",
+      "item": "https://takken-master.jp/articles/eligibility-myths/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 178,
+      "name": "難易度の誤解",
+      "item": "https://takken-master.jp/articles/difficulty-myths/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 179,
+      "name": "宅建の再受験の勉強法｜失点分析から合格へのロードマップ",
+      "item": "https://takken-master.jp/articles/takken-saishuken/"
     }
-    .guide-breadcrumb {
-      margin-bottom: 14px;
-    }
-    .guide-hero {
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: var(--sh);
-      padding: 24px;
-      margin-bottom: 16px;
-    }
-    .guide-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      color: var(--text2);
-      margin-bottom: 8px;
-    }
-    .guide-hero h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      line-height: 1.35;
-      margin: 0 0 10px;
-    }
-    .guide-hero p {
-      color: var(--text2);
-      font-size: 15px;
-      line-height: 1.8;
-      margin: 0;
-    }
-    .guide-quick {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-    .guide-quick-item {
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      padding: 12px;
-    }
-    .guide-quick-label {
-      display: block;
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--text3);
-      margin-bottom: 4px;
-    }
-    .guide-quick-value {
-      display: block;
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.45;
-    }
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .guide-card {
-      display: block;
-      height: 100%;
-      padding: 16px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: inherit;
-      text-decoration: none;
-    }
-    .guide-card:hover {
-      opacity: 1;
-      border-color: var(--border2);
-    }
-    .guide-card-kicker {
-      display: block;
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--text3);
-      margin-bottom: 6px;
-    }
-    .guide-card-title {
-      display: block;
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.5;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .guide-card-desc {
-      display: block;
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--text2);
-    }
-    .guide-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-    .guide-table th,
-    .guide-table td {
-      border: 1px solid var(--border);
-      padding: 10px 12px;
-      text-align: left;
-      vertical-align: top;
-    }
-    .guide-table th {
-      width: 32%;
-      background: var(--bg2);
-      font-weight: 800;
-      color: var(--text);
-    }
-    .guide-subhead {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--text);
-      margin: 18px 0 8px;
-    }
-    .guide-plain-panel {
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      padding: 14px 16px;
-      margin: 12px 0;
-    }
-    .guide-plain-panel p {
-      margin-bottom: 8px;
-    }
-    .guide-plain-panel p:last-child {
-      margin-bottom: 0;
-    }
-    .guide-matrix {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin: 10px 0 14px;
-    }
-    .guide-matrix th,
-    .guide-matrix td {
-      border: 1px solid var(--border);
-      padding: 9px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-    .guide-matrix th {
-      background: var(--bg2);
-      font-weight: 800;
-      color: var(--text);
-    }
-    .guide-matrix td {
-      color: var(--text2);
-      background: var(--bg);
-    }
-    .guide-flow {
-      list-style: none;
-      margin-left: 0 !important;
-      display: grid;
-      gap: 8px;
-    }
-    .guide-flow li {
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      padding: 12px 14px;
-    }
-    .guide-flow strong {
-      color: var(--text);
-    }
-    /* 演習トップの mode-card 等と揃えず、ガイド系カードは直角 */
-    .site-page-main .guide-hero,
-    .site-page-main .guide-quick-item,
-    .site-page-main .guide-card,
-    .site-page-main .guide-flow li,
-    .site-page-main .site-page-section,
-    .site-page-main .site-page-note {
-      border-radius: 0;
-    }
-    @media (max-width: 760px) {
-      .guide-quick,
-      .guide-grid {
-        grid-template-columns: 1fr;
-      }
-      .guide-hero {
-        padding: 20px;
-      }
-      .guide-hero h1 {
-        font-size: 1.45rem;
-      }
-      .guide-matrix {
-        min-width: 640px;
-      }
-      .guide-table-wrap {
-        overflow-x: auto;
-      }
-    }
-  </style>
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site-pages.css">
+<link rel="stylesheet" href="../site-theme.css">
 </head>
 <body>
-  <div class="site-page-wrap">
-    <header class="site-page-header">
+<div class="site-page-wrap">
+<header class="site-page-header">
       <div class="site-page-header-inner">
         <a class="site-page-brand" href="../index.html">
-          <span class="site-page-mark" title="宅建マスター">宅建</span>
+          <span class="site-page-mark" title="サービス略称">宅建</span>
           <span class="site-page-brand-text">
             <span class="site-page-brand-name">宅建マスター</span>
             <span class="site-page-brand-sub">宅地建物取引士試験</span>
           </span>
         </a>
-        <nav class="site-page-nav" aria-label="ページ内の他文書">
+        <nav class="site-page-nav" aria-label="サイト内ナビゲーション">
           <a href="../index.html">トップ</a>
           <a href="../about.html">このサイトについて</a>
           <a href="../q/index.html">過去問一覧</a>
-          <a href="../terms/index.html">用語集</a>
-          <a href="index.html" aria-current="page">試験ガイド</a>
+          <a href="../terms/index.html">用語解説</a>
+          <a href="../articles/index.html" aria-current="page">試験ガイド</a>
           <a href="../related-sites.html">関連リンク</a>
           <a href="../privacy-terms.html">プライバシー</a>
         </nav>
       </div>
     </header>
-
-    <main class="site-page-main guide-main">
-      <nav class="guide-breadcrumb" aria-label="パンくず">
-        <ol class="q-breadcrumb">
-          <li><a href="../index.html">宅建マスター</a></li>
-          <li aria-current="page">試験ガイド</li>
-        </ol>
-      </nav>
-
-      <section class="guide-hero" aria-labelledby="guide-title">
-        <span class="guide-eyebrow">TAKKEN EXAM GUIDE</span>
-        <h1 id="guide-title">宅建試験ガイド</h1>
-        <p>
-          宅建試験の全体像、申込み、出題範囲、学習計画、合格後の手続きまでをまとめました。まず公式情報で年度ごとの最新日程を確認し、その後に自分の状況に合うガイドを選んでください。
-        </p>
-        <div class="guide-quick" aria-label="2026年度試験予定の要点">
-          <div class="guide-quick-item">
-            <span class="guide-quick-label">2026年度試験日</span>
-            <span class="guide-quick-value">10月18日（日）予定</span>
-          </div>
-          <div class="guide-quick-item">
-            <span class="guide-quick-label">インターネット申込</span>
-            <span class="guide-quick-value">7月1日〜7月31日予定</span>
-          </div>
-          <div class="guide-quick-item">
-            <span class="guide-quick-label">試験形式</span>
-            <span class="guide-quick-value">四肢択一・50問</span>
-          </div>
-          <div class="guide-quick-item">
-            <span class="guide-quick-label">受験手数料</span>
-            <span class="guide-quick-value">8,200円予定</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-official">
-        <h2 id="sec-official">まず見る公式情報</h2>
-        <p>
-          試験日程・申込期間・受験票・合格発表日は年度ごとに更新されます。申込み前には必ず不動産適正取引推進機構（RETIO）の公式ページを確認してください。
-        </p>
-        <ul>
-          <li><a href="https://www.retio.or.jp/exam/exam/" target="_blank" rel="noopener noreferrer">RETIO 宅建試験</a> … 申込み、合格発表、FAQ、過去問などの入口です。</li>
-          <li><a href="https://www.retio.or.jp/exam/schedule/" target="_blank" rel="noopener noreferrer">RETIO 宅建試験のスケジュール</a> … 2026年度の予定日程を確認できます。</li>
-          <li><a href="https://www.retio.or.jp/exam/exam_detail/" target="_blank" rel="noopener noreferrer">RETIO 宅建試験の概要</a> … 試験内容、受験資格、試験時間、手数料の基本情報です。</li>
-        </ul>
-        <p class="site-page-note">このページの2026年度日程は、2026年5月時点でRETIOが「予定」として公表している内容に基づきます。</p>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-overview">
-        <h2 id="sec-overview">試験概要を一気に確認</h2>
-        <table class="guide-table">
-          <tbody>
-            <tr><th>受験資格</th><td>日本国内に居住していれば、年齢・学歴などに関係なく受験できます。合格後の資格登録には別途条件があります。</td></tr>
-            <tr><th>試験時間</th><td>13時〜15時の2時間。登録講習修了者は13時10分〜15時の1時間50分です。</td></tr>
-            <tr><th>出題形式</th><td>四肢択一式の筆記試験。通常は50問、登録講習修了者は45問です。</td></tr>
-            <tr><th>主な範囲</th><td>権利関係、宅建業法、法令上の制限、税・その他。年度の4月1日現在施行の法令が基準です。</td></tr>
-            <tr><th>学習の軸</th><td>宅建業法で得点を固め、権利関係を取りこぼしすぎず、法令上の制限と税・その他を直前期に整理します。</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-start">
-        <h2 id="sec-start">初めての人向け</h2>
-        <div class="guide-grid">
-          <a class="guide-card" href="../takken/takken-to-wa/index.html">
-            <span class="guide-card-kicker">基本</span>
-            <span class="guide-card-title">宅建とは？難易度・メリット・取得後の仕事</span>
-            <span class="guide-card-desc">宅建の全体像、合格率、取得メリット、資格の使い道をまとめて確認できます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-nanido/index.html">
-            <span class="guide-card-kicker">難易度</span>
-            <span class="guide-card-title">宅建の難易度は？合格率・他資格との比較</span>
-            <span class="guide-card-desc">合格率や勉強時間の目安から、どれくらい本気で準備すべきかを整理します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-shiken-hani/index.html">
-            <span class="guide-card-kicker">範囲</span>
-            <span class="guide-card-title">宅建試験の範囲と4分野の全体像</span>
-            <span class="guide-card-desc">権利関係・宅建業法・法令上の制限・税その他の出題内容と優先度を確認できます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-hikaku/index.html">
-            <span class="guide-card-kicker">比較</span>
-            <span class="guide-card-title">宅建とFP・マンション管理士・行政書士の違い</span>
-            <span class="guide-card-desc">ダブルライセンスや次に取る資格を考える人向けの比較ガイドです。</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-apply">
-        <h2 id="sec-apply">申込みから当日まで</h2>
-        <ol class="guide-flow">
-          <li><strong>6月上旬</strong>：公式の実施公告・試験案内を確認します。</li>
-          <li><strong>7月</strong>：インターネットまたは郵送で申込みます。最終日付近は混みやすいため早めの手続きが無難です。</li>
-          <li><strong>10月初旬</strong>：受験票と試験会場を確認し、交通手段と集合時刻を決めます。</li>
-          <li><strong>試験当日</strong>：持ち物、着席時刻、時間配分、マークミス対策を確認して臨みます。</li>
-        </ol>
-        <div class="guide-grid">
-          <a class="guide-card" href="../takken/takken-moshikomi/index.html">
-            <span class="guide-card-kicker">申込み</span>
-            <span class="guide-card-title">宅建試験の申込み方法・流れ</span>
-            <span class="guide-card-desc">受験資格、申込期間、費用、注意点を手続きの順番で確認できます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-toujitsu/index.html">
-            <span class="guide-card-kicker">当日</span>
-            <span class="guide-card-title">宅建試験 当日の注意点・持ち物チェックリスト</span>
-            <span class="guide-card-desc">会場で慌てないための持ち物、時間配分、マークシート対策を整理しています。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-goukaku-ato/index.html">
-            <span class="guide-card-kicker">合格後</span>
-            <span class="guide-card-title">宅建合格後にやること</span>
-            <span class="guide-card-desc">登録実務講習、資格登録、宅建士証交付までの流れを確認できます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-ocita/index.html">
-            <span class="guide-card-kicker">再挑戦</span>
-            <span class="guide-card-title">宅建に落ちた・不合格だった場合の対策</span>
-            <span class="guide-card-desc">原因分析、再受験の学習戦略、モチベーション維持の方法をまとめています。</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-study">
-        <h2 id="sec-study">勉強計画・分野別攻略</h2>
-        <p>
-          宅建は「全範囲を均等に読む」より、得点源を先に作ってから弱点を潰すほうが安定します。最初に学習期間を決め、次に過去問の回転数、最後に分野別の目標点を決めると計画が崩れにくくなります。
-        </p>
-        <div class="guide-table-wrap">
-          <table class="guide-matrix">
-            <thead>
-              <tr>
-                <th>状況</th>
-                <th>最初に読む記事</th>
-                <th>学習の軸</th>
-                <th>避けたい進め方</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>試験まで1年以上</td>
-                <td><a href="../takken/takken-plan/index.html">勉強計画</a></td>
-                <td>権利関係の基礎を早めに作り、宅建業法は忘れない程度に反復します。</td>
-                <td>最初から細かい数字暗記に寄せすぎること。</td>
-              </tr>
-              <tr>
-                <td>6ヶ月前後</td>
-                <td><a href="../takken/takken-schedule/index.html">合格スケジュール</a></td>
-                <td>インプットと過去問を並行し、月ごとに分野を区切って進めます。</td>
-                <td>テキストを1周し終えるまで問題演習を始めないこと。</td>
-              </tr>
-              <tr>
-                <td>3ヶ月以内</td>
-                <td><a href="../takken/takken-kakomon/index.html">過去問の使い方</a></td>
-                <td>過去問中心に切り替え、正解できない理由を用語・条文レベルで戻って確認します。</td>
-                <td>新しい教材を増やし続けること。</td>
-              </tr>
-              <tr>
-                <td>必要時間を知りたい</td>
-                <td><a href="../takken/takken-benkyou-jikan/index.html">勉強時間の目安</a></td>
-                <td>残り期間から週あたりの学習量を逆算し、宅建業法と過去問の時間を先に確保します。</td>
-                <td>総時間だけを見て、分野別の配分を決めないこと。</td>
-              </tr>
-              <tr>
-                <td>合格ラインが不安</td>
-                <td><a href="../takken/takken-goukakuten/index.html">合格点の考え方</a></td>
-                <td>年度ごとの合格点予想より、36〜38点を安定して取る分野別設計を優先します。</td>
-                <td>予想点を追いかけて、復習の優先順位がぶれること。</td>
-              </tr>
-              <tr>
-                <td>再受験</td>
-                <td><a href="../takken/takken-ocita/index.html">不合格後の対策</a></td>
-                <td>前回の失点分野と学習ログを見直し、解ける問題を落とさない設計にします。</td>
-                <td>前回と同じ教材・同じ順番をそのまま繰り返すこと。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3 class="guide-subhead">分野別の優先順位</h3>
-        <div class="guide-table-wrap">
-          <table class="guide-matrix">
-            <thead>
-              <tr>
-                <th>分野</th>
-                <th>位置づけ</th>
-                <th>攻略の目安</th>
-                <th>関連ガイド</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>宅建業法</td>
-                <td>最重要の得点源</td>
-                <td>数字・手続き・業者規制を反復し、満点近くを狙います。</td>
-                <td><a href="../takken/takken-gyoho-study/index.html">宅建業法の勉強法</a></td>
-              </tr>
-              <tr>
-                <td>権利関係</td>
-                <td>差がつきやすい分野</td>
-                <td>民法を深追いしすぎず、頻出テーマと事例問題への慣れを優先します。</td>
-                <td><a href="../takken/takken-kenri-kankei/index.html">権利関係の勉強法</a></td>
-              </tr>
-              <tr>
-                <td>法令上の制限</td>
-                <td>整理すれば伸ばしやすい分野</td>
-                <td>用途地域、建ぺい率・容積率、開発許可、農地法を表で比較します。</td>
-                <td><a href="../takken/takken-hooreijou-seigen-study/index.html">法令上の制限の勉強法</a></td>
-              </tr>
-              <tr>
-                <td>税・その他</td>
-                <td>直前期の上積み分野</td>
-                <td>税率・軽減措置・統計を直前に更新し、取りやすい問題を拾います。</td>
-                <td><a href="../takken/takken-zei-sonota-study/index.html">税・その他の勉強法</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3 class="guide-subhead">1週間の回し方</h3>
-        <div class="guide-plain-panel">
-          <p><strong>平日</strong>は短い問題演習を積み上げ、間違えた問題だけ用語集に戻ります。疲れている日は新しい範囲へ進むより、宅建業法の数字や過去問の解き直しに寄せると続きます。</p>
-          <p><strong>休日</strong>はまとまった時間で権利関係や法令上の制限を処理し、週末の最後に「今週できるようになったこと」を1つだけ記録します。</p>
-        </div>
-        <div class="guide-grid">
-          <a class="guide-card" href="../takken/takken-plan/index.html">
-            <span class="guide-card-kicker">計画</span>
-            <span class="guide-card-title">宅建の勉強計画の立て方</span>
-            <span class="guide-card-desc">3ヶ月・6ヶ月・1年プランで、残り期間に応じた進め方を選べます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-schedule/index.html">
-            <span class="guide-card-kicker">スケジュール</span>
-            <span class="guide-card-title">宅建試験の合格スケジュール</span>
-            <span class="guide-card-desc">いつから始めるか、月ごとに何をやるかを具体化します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-benkyou-jikan/index.html">
-            <span class="guide-card-kicker">勉強時間</span>
-            <span class="guide-card-title">宅建の勉強時間は何時間必要？</span>
-            <span class="guide-card-desc">初学者・社会人・再受験者別に、必要時間と週あたりの学習量を逆算します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-goukakuten/index.html">
-            <span class="guide-card-kicker">合格点</span>
-            <span class="guide-card-title">宅建の合格点は何点？</span>
-            <span class="guide-card-desc">年度で変わる合格ラインの考え方と、36〜38点を狙う分野別設計を整理します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-gokaku-ritsu/index.html">
-            <span class="guide-card-kicker">合格率</span>
-            <span class="guide-card-title">宅建の合格率は？</span>
-            <span class="guide-card-desc">合格率の見方と合格ラインの関係、学習への活かし方を解説します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-chokuzen/index.html">
-            <span class="guide-card-kicker">直前</span>
-            <span class="guide-card-title">宅建試験の直前対策</span>
-            <span class="guide-card-desc">1ヶ月前・1週間前・前日にやることを整理します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-shiken-schedule-2026/index.html">
-            <span class="guide-card-kicker">2026年度</span>
-            <span class="guide-card-title">2026年度 試験日程</span>
-            <span class="guide-card-desc">予定日程と学習計画への落とし込み方。公式確認先も記載。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-dokugaku/index.html">
-            <span class="guide-card-kicker">独学</span>
-            <span class="guide-card-title">宅建を独学で合格する方法</span>
-            <span class="guide-card-desc">教材選び、勉強法、独学で起きやすい失敗と対策をまとめています。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-kakomon/index.html">
-            <span class="guide-card-kicker">過去問</span>
-            <span class="guide-card-title">宅建の過去問の使い方</span>
-            <span class="guide-card-desc">何年分解くか、何周するか、間違えた問題をどう復習するかを解説します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-gyoho-study/index.html">
-            <span class="guide-card-kicker">宅建業法</span>
-            <span class="guide-card-title">宅建業法の勉強法・完全攻略</span>
-            <span class="guide-card-desc">20問中の得点源にするため、頻出テーマと覚える数字を整理します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-kenri-kankei/index.html">
-            <span class="guide-card-kicker">権利関係</span>
-            <span class="guide-card-title">権利関係（民法）の勉強法</span>
-            <span class="guide-card-desc">難しい理由、頻出テーマ、目標得点を押さえて深追いを防ぎます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-hooreijou-seigen-study/index.html">
-            <span class="guide-card-kicker">法令上の制限</span>
-            <span class="guide-card-title">法令上の制限の勉強法</span>
-            <span class="guide-card-desc">用途地域、建ぺい率・容積率、開発許可を表で整理して得点源にします。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-zei-sonota-study/index.html">
-            <span class="guide-card-kicker">税・その他</span>
-            <span class="guide-card-title">税・その他の勉強法</span>
-            <span class="guide-card-desc">税金、統計、5問免除科目を直前期に効率よく上積みする方法です。</span>
-          </a>
-        </div>
-        <h3 class="guide-subhead">学習の進め方・実務ガイド（追加10本）</h3>
-        <div class="guide-grid">
-          <a class="guide-card" href="../takken/takken-kyozai/index.html">
-            <span class="guide-card-kicker">教材</span>
-            <span class="guide-card-title">宅建の教材の選び方</span>
-            <span class="guide-card-desc">テキスト・一問一答・過去問・通信講座の組み合わせと、増やしすぎないコツ。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-moshi/index.html">
-            <span class="guide-card-kicker">模試</span>
-            <span class="guide-card-title">模擬試験の活用法</span>
-            <span class="guide-card-desc">何回受けるか、点数の見方、模試後2週間の復習の組み方。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-tokkuten/index.html">
-            <span class="guide-card-kicker">頻出</span>
-            <span class="guide-card-title">頻出論点・必須数字まとめ</span>
-            <span class="guide-card-desc">4分野の頻出テーマと直前期チェックリスト。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-machigai-note/index.html">
-            <span class="guide-card-kicker">復習</span>
-            <span class="guide-card-title">間違いノートの作り方</span>
-            <span class="guide-card-desc">過去問の記録・再挑戦サイクルで得点を伸ばす方法。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-tsushin-hikaku/index.html">
-            <span class="guide-card-kicker">スタイル</span>
-            <span class="guide-card-title">通信講座・独学・通学の比較</span>
-            <span class="guide-card-desc">自分に合う学習スタイルの選び方。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-35jou-gyakushu/index.html">
-            <span class="guide-card-kicker">宅建業法</span>
-            <span class="guide-card-title">35条重説・37条書面の攻略</span>
-            <span class="guide-card-desc">宅建業法の核心論点と試験の引っ掛け。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-saishuken/index.html">
-            <span class="guide-card-kicker">再受験</span>
-            <span class="guide-card-title">再受験の勉強法</span>
-            <span class="guide-card-desc">失点分析から合格へのロードマップ。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-4gatsu-start/index.html">
-            <span class="guide-card-kicker">カレンダー</span>
-            <span class="guide-card-title">4月・1月スタートの月別計画</span>
-            <span class="guide-card-desc">開始月別の6ヶ月・9ヶ月プラン。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-toukei-mondai/index.html">
-            <span class="guide-card-kicker">統計</span>
-            <span class="guide-card-title">統計問題（問46〜50）攻略</span>
-            <span class="guide-card-desc">5問免除と直前期の資料の読み方。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-jukenhi/index.html">
-            <span class="guide-card-kicker">費用</span>
-            <span class="guide-card-title">受験費用・合格後の費用</span>
-            <span class="guide-card-desc">受験から登録までにかかる費用の目安。</span>
-          </a>
-        </div>
-        <h3 class="guide-subhead">分野別深掘りガイド（追加10本）</h3>
-        <div class="guide-grid">
-          <a class="guide-card" href="../takken/takken-baisho/index.html">
-            <span class="guide-card-kicker">報酬</span>
-            <span class="guide-card-title">報酬額・速算式の攻略</span>
-            <span class="guide-card-desc">計算問題を落とさない型と練習法。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-baikai-keiyaku/index.html">
-            <span class="guide-card-kicker">媒介</span>
-            <span class="guide-card-title">媒介契約3種類の違い</span>
-            <span class="guide-card-desc">レインズ・報告義務・自己発見取引を整理。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-8shu-seigen/index.html">
-            <span class="guide-card-kicker">8種制限</span>
-            <span class="guide-card-title">8種制限の攻略法</span>
-            <span class="guide-card-desc">手付金保全・クーリングオフなど。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-yoto-chiiki/index.html">
-            <span class="guide-card-kicker">用途地域</span>
-            <span class="guide-card-title">用途地域の覚え方</span>
-            <span class="guide-card-desc">13種類を試験向けに3グループで整理。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-kenpei-yoseki/index.html">
-            <span class="guide-card-kicker">計算</span>
-            <span class="guide-card-title">建ぺい率・容積率の計算</span>
-            <span class="guide-card-desc">道路幅員・防火地域の緩和まで。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-jikan-haibun/index.html">
-            <span class="guide-card-kicker">本番</span>
-            <span class="guide-card-title">試験の時間配分</span>
-            <span class="guide-card-desc">50問・2時間を落とさない解き方。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-douga-kyozai/index.html">
-            <span class="guide-card-kicker">動画</span>
-            <span class="guide-card-title">動画・YouTube教材の活用法</span>
-            <span class="guide-card-desc">インプット偏重を防ぐ進め方。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-sozoku-minpo/index.html">
-            <span class="guide-card-kicker">相続</span>
-            <span class="guide-card-title">相続・遺留分の攻略</span>
-            <span class="guide-card-desc">権利関係の頻出テーマを整理。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-jitsumu-koshu/index.html">
-            <span class="guide-card-kicker">合格後</span>
-            <span class="guide-card-title">登録実務講習ガイド</span>
-            <span class="guide-card-desc">合格後の手続きと費用の流れ。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-hoshokin/index.html">
-            <span class="guide-card-kicker">保証金</span>
-            <span class="guide-card-title">営業保証金・保証協会</span>
-            <span class="guide-card-desc">供託・分担金・充当金2週間。</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-person">
-        <h2 id="sec-person">属性・キャリア別ガイド</h2>
-        <p>
-          同じ宅建でも、使える時間・目的・合格後の活かし方で読むべき順番が変わります。自分に近い入口から入り、必要な記事だけを横断してください。
-        </p>
-        <div class="guide-table-wrap">
-          <table class="guide-matrix">
-            <thead>
-              <tr>
-                <th>タイプ</th>
-                <th>最初の課題</th>
-                <th>読む順番</th>
-                <th>合格後の見通し</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>忙しい社会人</td>
-                <td>学習時間を固定しにくい</td>
-                <td><a href="../takken/takken-shakaijin/index.html">社会人向け</a> → <a href="../takken/takken-schedule/index.html">スケジュール</a> → <a href="../takken/takken-kakomon/index.html">過去問</a></td>
-                <td>資格手当、転職、社内での担当領域拡大を狙いやすくなります。</td>
-              </tr>
-              <tr>
-                <td>主婦・子育て中</td>
-                <td>細切れ時間になりやすい</td>
-                <td><a href="../takken/takken-shufu/index.html">主婦・子育て向け</a> → <a href="../takken/takken-dokugaku/index.html">独学</a> → <a href="../terms/index.html">用語集</a></td>
-                <td>再就職、在宅学習からの資格取得、不動産知識の生活活用に向きます。</td>
-              </tr>
-              <tr>
-                <td>大学生・専門学生</td>
-                <td>就活までに資格をどう見せるか</td>
-                <td><a href="../takken/takken-gakusei/index.html">学生向け</a> → <a href="../takken/takken-plan/index.html">勉強計画</a> → <a href="../takken/takken-shigoto/index.html">仕事内容</a></td>
-                <td>不動産・金融・建設・住宅業界への志望理由を具体化しやすくなります。</td>
-              </tr>
-              <tr>
-                <td>40代・50代</td>
-                <td>覚え直しと学習習慣の再構築</td>
-                <td><a href="../takken/takken-40dai/index.html">40代・50代向け</a> → <a href="../takken/takken-plan/index.html">勉強計画</a> → <a href="../takken/takken-shigoto/index.html">仕事内容</a></td>
-                <td>転職だけでなく、定年後の働き方や独立準備にもつなげられます。</td>
-              </tr>
-              <tr>
-                <td>未経験で転職したい</td>
-                <td>職種選びと面接での伝え方</td>
-                <td><a href="../takken/takken-mikeiken-tenshoku/index.html">未経験転職</a> → <a href="../takken/takken-shigoto/index.html">仕事内容</a> → <a href="../takken/takken-nenshu/index.html">年収</a></td>
-                <td>資格だけでなく、前職経験と宅建知識を組み合わせて説明できます。</td>
-              </tr>
-              <tr>
-                <td>不動産・金融志望</td>
-                <td>資格をキャリアにどうつなげるか</td>
-                <td><a href="../takken/takken-shigoto/index.html">仕事内容</a> → <a href="../takken/takken-nenshu/index.html">年収</a> → <a href="../takken/takken-hikaku/index.html">資格比較</a></td>
-                <td>就職・転職時の説明材料として、宅建をどう使うか整理できます。</td>
-              </tr>
-              <tr>
-                <td>不動産業界で働く人</td>
-                <td>職種ごとの活かし方を知りたい</td>
-                <td><a href="../takken/takken-fudosan-gyokai/index.html">業界での活かし方</a> → <a href="../takken/takken-gyoho-study/index.html">宅建業法</a> → <a href="../takken/takken-nenshu/index.html">年収</a></td>
-                <td>営業・管理・事務で、資格を実務評価につなげやすくなります。</td>
-              </tr>
-              <tr>
-                <td>副業・独立を考える人</td>
-                <td>資格と開業条件の違いを知る</td>
-                <td><a href="../takken/takken-fukugyo-dokuritsu/index.html">副業・独立</a> → <a href="../takken/takken-goukaku-ato/index.html">合格後</a> → <a href="../takken/takken-fudosan-toshi/index.html">不動産投資</a></td>
-                <td>宅建士資格、宅建業免許、集客・実務経験の違いを整理できます。</td>
-              </tr>
-              <tr>
-                <td>不動産投資を考える人</td>
-                <td>資格知識と投資判断の切り分け</td>
-                <td><a href="../takken/takken-fudosan-toshi/index.html">不動産投資</a> → <a href="../terms/index.html">用語集</a> → <a href="../takken/takken-hikaku/index.html">資格比較</a></td>
-                <td>重要事項説明・法令制限・税金を読む力はつきますが、収益分析は別途学習が必要です。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3 class="guide-subhead">目的別の使い方</h3>
-        <div class="guide-plain-panel">
-          <p><strong>合格を最優先する人</strong>は、属性別の記事を読んだあと、すぐに過去問と宅建業法へ進みます。読み物で安心するより、解ける問題を増やすほうが得点に直結します。</p>
-          <p><strong>キャリア活用まで考える人</strong>は、仕事内容・年収・資格比較の記事を先に読んで、合格後にどの手続きを進めるかまで決めておくと学習の目的がぶれません。</p>
-        </div>
-        <div class="guide-grid">
-          <a class="guide-card" href="../takken/takken-shakaijin/index.html">
-            <span class="guide-card-kicker">社会人</span>
-            <span class="guide-card-title">仕事しながら宅建に合格する方法</span>
-            <span class="guide-card-desc">通勤、昼休み、疲れている日の学習など、現実的な時間の作り方を扱います。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-shufu/index.html">
-            <span class="guide-card-kicker">主婦・子育て</span>
-            <span class="guide-card-title">主婦・子育て中でも宅建に合格できる？</span>
-            <span class="guide-card-desc">細切れ時間を使った学習法と、家事・育児と両立しやすい計画を紹介します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-gakusei/index.html">
-            <span class="guide-card-kicker">学生</span>
-            <span class="guide-card-title">大学生・専門学生が宅建を取るメリット</span>
-            <span class="guide-card-desc">就活での見せ方、学年別の勉強計画、不動産・金融志望での活かし方を整理します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-40dai/index.html">
-            <span class="guide-card-kicker">40代・50代</span>
-            <span class="guide-card-title">40代・50代から宅建を取得する方法</span>
-            <span class="guide-card-desc">転職、キャリアチェンジ、定年後の独立も含めて資格活用を考えます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-mikeiken-tenshoku/index.html">
-            <span class="guide-card-kicker">未経験転職</span>
-            <span class="guide-card-title">未経験から宅建で不動産業界へ転職する方法</span>
-            <span class="guide-card-desc">職種別の違い、求人の見方、面接で宅建をどう伝えるかをまとめています。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-shigoto/index.html">
-            <span class="guide-card-kicker">仕事</span>
-            <span class="guide-card-title">宅建士の仕事内容とは？</span>
-            <span class="guide-card-desc">独占業務、活躍できる職場、キャリアパスを確認できます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-fudosan-gyokai/index.html">
-            <span class="guide-card-kicker">業界活用</span>
-            <span class="guide-card-title">不動産業界で宅建をどう活かす？</span>
-            <span class="guide-card-desc">営業・管理・事務それぞれで資格が役立つ場面と、評価につなげる考え方です。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-nenshu/index.html">
-            <span class="guide-card-kicker">年収</span>
-            <span class="guide-card-title">宅建士の年収・給与は？</span>
-            <span class="guide-card-desc">資格手当、転職時の収入アップ、独立した場合の収益を数字で見ます。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-fukugyo-dokuritsu/index.html">
-            <span class="guide-card-kicker">副業・独立</span>
-            <span class="guide-card-title">宅建は副業・独立に使える？</span>
-            <span class="guide-card-desc">宅建業免許、専任の宅建士、保証協会、集客など開業前の現実を整理します。</span>
-          </a>
-          <a class="guide-card" href="../takken/takken-fudosan-toshi/index.html">
-            <span class="guide-card-kicker">不動産投資</span>
-            <span class="guide-card-title">宅建の知識は不動産投資に使えるか？</span>
-            <span class="guide-card-desc">重要事項説明、法令制限、税金知識など投資判断に役立つ場面を解説します。</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-site">
-        <h2 id="sec-site">このサイトで学習する順番</h2>
-        <ol>
-          <li><strong>全体像を確認</strong>：このページと「宅建とは」「試験範囲」を読んで、必要な勉強量を把握します。</li>
-          <li><strong>問題を解く</strong>：<a href="../index.html">トップページ</a>の一問一答・過去問・オリジナル問題で、早めに出題形式へ慣れます。</li>
-          <li><strong>用語で補強</strong>：分からない言葉は<a href="../terms/index.html">用語集</a>で確認し、知識を点ではなく線でつなげます。</li>
-          <li><strong>記録を見直す</strong>：正答率や復習待ちを見ながら、弱い分野を重点的に回します。</li>
-        </ol>
-      </section>
-
-      <section class="site-page-section" aria-labelledby="sec-disclaimer">
-        <h2 id="sec-disclaimer">免責のお願い</h2>
-        <p>
-          宅建マスターは学習支援サイトであり、試験主催者・国の機関とは関係ありません。問題・解説・記事は学習補助として作成しており、出題や採点の公式見解ではありません。
-        </p>
-        <p class="site-page-note">法令改正や年度ごとの試験案内により内容が変わることがあります。申込み・受験・登録に関する判断は、必ず公式情報で確認してください。</p>
-      </section>
-    </main>
-
-    <footer class="site-page-footer">
+<main class="site-page-main">
+  <nav class="site-page-header-crumb" aria-label="パンくず">
+      <ol class="q-breadcrumb">
+        <li><a href="../index.html">トップ</a></li>
+        <li aria-current="page">試験ガイド</li>
+      </ol>
+    </nav>
+  <h1>試験ガイド</h1>
+  <p class="site-page-lead">宅地建物取引士試験の制度理解から学習計画・演習・直前対策まで、受験フェーズ別の記事をまとめています。検索とジャンル絞り込みで目的の記事を探せます。</p>
+  <section class="article-index-panel" aria-labelledby="article-index-heading">
+    <div class="article-index-head">
+      <div>
+        <h2 id="article-index-heading">記事一覧</h2>
+        <p>全179記事。キーワード検索とジャンルで絞り込めます。</p>
+      </div>
+      <span id="article-index-hit" class="article-index-hit">179 / 179 記事</span>
+    </div>
+    <div class="article-index-tools">
+      <label class="article-index-search" for="article-index-q">
+        <span>記事検索</span>
+        <input id="article-index-q" type="search" inputmode="search" autocomplete="off" placeholder="例：独学、過去問、申込、用語…">
+      </label>
+      <div class="article-index-chips" aria-label="ジャンル絞り込み">
+        <button type="button" class="article-index-chip on" data-genre="all">すべて</button><button type="button" class="article-index-chip" data-genre="試験概要" data-genre-style="overview">試験概要<span>38</span></button><button type="button" class="article-index-chip" data-genre="受験・申込" data-genre-style="institution">受験・申込<span>15</span></button><button type="button" class="article-index-chip" data-genre="合格・難易度" data-genre-style="institution">合格・難易度<span>8</span></button><button type="button" class="article-index-chip" data-genre="出題・形式" data-genre-style="institution">出題・形式<span>10</span></button><button type="button" class="article-index-chip" data-genre="学習計画" data-genre-style="study">学習計画<span>11</span></button><button type="button" class="article-index-chip" data-genre="独学対策" data-genre-style="study">独学対策<span>12</span></button><button type="button" class="article-index-chip" data-genre="過去問活用" data-genre-style="practice">過去問活用<span>17</span></button><button type="button" class="article-index-chip" data-genre="分野別対策" data-genre-style="practice">分野別対策<span>22</span></button><button type="button" class="article-index-chip" data-genre="用語整理" data-genre-style="practice">用語整理<span>11</span></button><button type="button" class="article-index-chip" data-genre="復習・苦手克服" data-genre-style="practice">復習・苦手克服<span>6</span></button><button type="button" class="article-index-chip" data-genre="直前・当日" data-genre-style="final">直前・当日<span>11</span></button><button type="button" class="article-index-chip" data-genre="注意点・更新" data-genre-style="meta">注意点・更新<span>18</span></button>
+      </div>
+    </div>
+    <div class="article-index-grid" aria-label="記事一覧">
+      <article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅地建物取引士試験の公式情報の確認先と見る順番 宅地建物取引士試験の公式情報の確認先と見る順番 試験概要 試験概要 / 公式情報 宅地建物取引士試験の公式情報の確認先と見る順番について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="official-info-sources/"><span class="article-index-card-genre">試験概要</span><h2>宅地建物取引士試験の公式情報の確認先と見る順番</h2><p>宅地建物取引士試験の公式情報の確認先と見る順番</p><div class="article-index-card-tags">試験概要 / 公式情報</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建マスターの使い方（過去問・用語・記録） 宅建マスターの使い方（過去問・用語・記録） 試験概要 試験概要 / 公式情報 宅建マスターの使い方（過去問・用語・記録）について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="learning-app-guide/"><span class="article-index-card-genre">試験概要</span><h2>宅建マスターの使い方（過去問・用語・記録）</h2><p>宅建マスターの使い方（過去問・用語・記録）</p><div class="article-index-card-tags">試験概要 / 公式情報</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅地建物取引士試験の目的と宅建士としてのキャリア 宅地建物取引士試験の目的と宅建士としてのキャリア 試験概要 試験概要 / 公式情報 宅地建物取引士試験の目的と宅建士としてのキャリアについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-purpose-and-career/"><span class="article-index-card-genre">試験概要</span><h2>宅地建物取引士試験の目的と宅建士としてのキャリア</h2><p>宅地建物取引士試験の目的と宅建士としてのキャリア</p><div class="article-index-card-tags">試験概要 / 公式情報</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅地建物取引士試験を初めて受ける人向けガイド 宅地建物取引士試験を初めて受ける人向けガイド 試験概要 試験概要 / 公式情報 宅地建物取引士試験を初めて受ける人向けガイドについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="first-time-exam-guide/"><span class="article-index-card-genre">試験概要</span><h2>宅地建物取引士試験を初めて受ける人向けガイド</h2><p>宅地建物取引士試験を初めて受ける人向けガイド</p><div class="article-index-card-tags">試験概要 / 公式情報</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建と類似資格の違い・併願の考え方 宅建と類似資格の違い・併願の考え方 試験概要 試験概要 / 公式情報 宅建と類似資格の違い・併願の考え方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="compare-similar-qualifications/"><span class="article-index-card-genre">試験概要</span><h2>宅建と類似資格の違い・併願の考え方</h2><p>宅建と類似資格の違い・併願の考え方</p><div class="article-index-card-tags">試験概要 / 公式情報</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="大学生・専門学生が宅建を取るメリット｜就活での活かし方と勉強計画 大学生・専門学生が宅建を取得するメリット、就職活動での活かし方、学年別の勉強計画を解説。不動産・金融・建設志望の学生向けに、無理なく合格を狙う進め方をまとめます。 試験概要 学生向け 学生の宅建取得は、不動産業界だけでなく金融、建設、住宅、保険などの就職活動でも説明しやすい強みになります。時間を作りやすい一方で先延ばしもしやすいので、学年と就活時期に合わせた計画が大切です。"><a class="article-index-card-link" href="takken-gakusei/"><span class="article-index-card-genre">試験概要</span><h2>大学生・専門学生が宅建を取るメリット｜就活での活かし方と勉強計画</h2><p>大学生・専門学生が宅建を取得するメリット、就職活動での活かし方、学年別の勉強計画を解説。不動産・金融・建設志望の学生向けに、無理なく合格を狙う進め方をまとめます。</p><div class="article-index-card-tags">学生向け</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="未経験から宅建で不動産業界へ転職する方法｜求人選びと準備の進め方 未経験から宅建を活かして不動産業界へ転職する方法を解説。職種別の違い、求人の見方、面接での伝え方、入社前に準備しておきたい知識をまとめます。 試験概要 転職 宅建は未経験転職の入口として使いやすい資格です。ただし、資格だけで転職が決まるわけではありません。職種ごとの仕事内容を理解し、自分の経験と宅建知識をどうつなげるかを準備することが重要です。"><a class="article-index-card-link" href="takken-mikeiken-tenshoku/"><span class="article-index-card-genre">試験概要</span><h2>未経験から宅建で不動産業界へ転職する方法｜求人選びと準備の進め方</h2><p>未経験から宅建を活かして不動産業界へ転職する方法を解説。職種別の違い、求人の見方、面接での伝え方、入社前に準備しておきたい知識をまとめます。</p><div class="article-index-card-tags">転職</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="不動産業界で宅建をどう活かす？営業・管理・事務で役立つ場面 不動産業界で宅建資格が役立つ場面を、売買仲介、賃貸仲介、管理、事務、開発・住宅会社に分けて解説。資格手当やキャリアアップの考え方もまとめます。 試験概要 キャリア 宅建は不動産業界で広く使える資格ですが、職種によって活かし方は違います。営業で信頼を得るために使う場合もあれば、管理や事務で契約書類を正確に扱うために使う場合もあります。"><a class="article-index-card-link" href="takken-fudosan-gyokai/"><span class="article-index-card-genre">試験概要</span><h2>不動産業界で宅建をどう活かす？営業・管理・事務で役立つ場面</h2><p>不動産業界で宅建資格が役立つ場面を、売買仲介、賃貸仲介、管理、事務、開発・住宅会社に分けて解説。資格手当やキャリアアップの考え方もまとめます。</p><div class="article-index-card-tags">キャリア</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建は副業・独立に使える？開業前に知るべき現実と準備 宅建資格を副業や独立に活かせるかを解説。宅建業免許、専任の宅建士、保証協会、実務経験、集客、開業前に準備すべきことを現実的にまとめます。 試験概要 独立 宅建は副業や独立の可能性を広げる資格ですが、資格だけで不動産業を始められるわけではありません。宅建業免許、事務所、保証協会、集客、実務経験など、開業前に確認すべき現実があります。"><a class="article-index-card-link" href="takken-fukugyo-dokuritsu/"><span class="article-index-card-genre">試験概要</span><h2>宅建は副業・独立に使える？開業前に知るべき現実と準備</h2><p>宅建資格を副業や独立に活かせるかを解説。宅建業免許、専任の宅建士、保証協会、実務経験、集客、開業前に準備すべきことを現実的にまとめます。</p><div class="article-index-card-tags">独立</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の教材の選び方｜テキスト・問題集・通信講座を比較 宅建試験のテキスト・一問一答・過去問集・通信講座の選び方を解説。初学者・社会人・再受験者別の組み合わせと、教材を増やしすぎないコツをまとめます。 試験概要 教材選び 合格は「教材を1セットに決め、過去問まで届くか」で決まります。テキストを3冊買っても進まない人より、1冊を3周した人のほうが得点が伸びます。"><a class="article-index-card-link" href="takken-kyozai/"><span class="article-index-card-genre">試験概要</span><h2>宅建の教材の選び方｜テキスト・問題集・通信講座を比較</h2><p>宅建試験のテキスト・一問一答・過去問集・通信講座の選び方を解説。初学者・社会人・再受験者別の組み合わせと、教材を増やしすぎないコツをまとめます。</p><div class="article-index-card-tags">教材選び</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の模擬試験の活用法｜何回受ける？点数の見方 宅建の模擬試験を何回受けるべきか、点数の見方、本番との違い、模試後2週間の復習の組み方を解説します。 試験概要 模擬試験 模試は合格予想のためではなく、本番前に弱点を洗い出す診断です。回数より、間違えた理由を分野別に戻れるかが重要です。"><a class="article-index-card-link" href="takken-moshi/"><span class="article-index-card-genre">試験概要</span><h2>宅建の模擬試験の活用法｜何回受ける？点数の見方</h2><p>宅建の模擬試験を何回受けるべきか、点数の見方、本番との違い、模試後2週間の復習の組み方を解説します。</p><div class="article-index-card-tags">模擬試験</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の頻出論点まとめ｜分野別・絶対暗記の数字一覧 宅建試験の頻出論点と必須数字を4分野別に整理。直前期の総復習チェックリストとして使える一覧です。 試験概要 頻出論点 宅建は毎年似た論点が繰り返されます。全範囲を均等にやるより、頻出と数字を先に固めるほうが合格ラインに届きやすくなります。"><a class="article-index-card-link" href="takken-tokkuten/"><span class="article-index-card-genre">試験概要</span><h2>宅建の頻出論点まとめ｜分野別・絶対暗記の数字一覧</h2><p>宅建試験の頻出論点と必須数字を4分野別に整理。直前期の総復習チェックリストとして使える一覧です。</p><div class="article-index-card-tags">頻出論点</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の間違いノートの作り方｜復習で得点を伸ばす方法 宅建試験の間違いノート・復習ノートの作り方を解説。過去問の記録の付け方、再挑戦のタイミング、スマホ活用のコツをまとめます。 試験概要 復習法 同じ過去問を3周する価値は、1周目の間違いを2周目で潰せるかにあります。間違いノートは「問題番号のリスト」ではなく「原因の記録」です。"><a class="article-index-card-link" href="takken-machigai-note/"><span class="article-index-card-genre">試験概要</span><h2>宅建の間違いノートの作り方｜復習で得点を伸ばす方法</h2><p>宅建試験の間違いノート・復習ノートの作り方を解説。過去問の記録の付け方、再挑戦のタイミング、スマホ活用のコツをまとめます。</p><div class="article-index-card-tags">復習法</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の通信講座・独学・通学の比較｜自分に合う学習スタイル 宅建試験の通信講座・独学・通学スクールのメリット・デメリットを比較。社会人・主婦・学生別の選び方を解説します。 試験概要 学習スタイル 合格する方法は1つではありません。大切なのは、自分の生活リズムに合う学習スタイルを選び、途中でスタイルごと教材を増やさないことです。"><a class="article-index-card-link" href="takken-tsushin-hikaku/"><span class="article-index-card-genre">試験概要</span><h2>宅建の通信講座・独学・通学の比較｜自分に合う学習スタイル</h2><p>宅建試験の通信講座・独学・通学スクールのメリット・デメリットを比較。社会人・主婦・学生別の選び方を解説します。</p><div class="article-index-card-tags">学習スタイル</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の35条重説・37条書面の攻略法｜宅建業法の核心 重要事項説明（35条）と37条書面の試験攻略法を解説。記載事項、IT重説、押印廃止後の記名、試験頻出の引っ掛けを整理します。 試験概要 宅建業法 宅建業法20問のうち、35条・37条関連だけで毎年数問が出ます。条文丸暗記より、「誰が・いつ・何を・どう交付するか」の型で覚えると安定します。"><a class="article-index-card-link" href="takken-35jou-gyakushu/"><span class="article-index-card-genre">試験概要</span><h2>宅建の35条重説・37条書面の攻略法｜宅建業法の核心</h2><p>重要事項説明（35条）と37条書面の試験攻略法を解説。記載事項、IT重説、押印廃止後の記名、試験頻出の引っ掛けを整理します。</p><div class="article-index-card-tags">宅建業法</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の統計問題の攻略法｜問46〜50と5問免除 宅建試験の統計・法令改正等（問46〜50）の攻略法を解説。5問免除制度、直前期の暗記の仕方、資料の読み方をまとめます。 試験概要 統計問題 問46〜50は登録講習修了者は免除されますが、一般受験者は直前期の得点源にできます。深い統計学より、資料の読み取りと最新数字の確認が中心です。"><a class="article-index-card-link" href="takken-toukei-mondai/"><span class="article-index-card-genre">試験概要</span><h2>宅建の統計問題の攻略法｜問46〜50と5問免除</h2><p>宅建試験の統計・法令改正等（問46〜50）の攻略法を解説。5問免除制度、直前期の暗記の仕方、資料の読み方をまとめます。</p><div class="article-index-card-tags">統計問題</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の報酬額・速算式の攻略法｜計算問題を落とさない 宅建試験の報酬額計算・速算式（3%＋6万円）・賃貸の上限・消費税の扱いを解説。毎年出る計算問題を確実に得点する方法です。 試験概要 報酬額 報酬額は宅建業法で毎年1問以上出ます。速算式と賃貸の上限をセットで覚え、計算の型を固定するとケアレスミスが減ります。"><a class="article-index-card-link" href="takken-baisho/"><span class="article-index-card-genre">試験概要</span><h2>宅建の報酬額・速算式の攻略法｜計算問題を落とさない</h2><p>宅建試験の報酬額計算・速算式（3%＋6万円）・賃貸の上限・消費税の扱いを解説。毎年出る計算問題を確実に得点する方法です。</p><div class="article-index-card-tags">報酬額</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の媒介契約3種類の違い｜一般・専任・専属専任を整理 一般媒介・専任媒介・専属専任媒介の違い、レインズ登録期限、報告義務、自己発見取引を表で整理。宅建業法の頻出論点を攻略します。 試験概要 媒介契約 媒介契約は毎年2〜3問出ます。3種類を表1枚にまとめ、数字（5営業日・7営業日・2週間・3か月）とセットで覚えましょう。"><a class="article-index-card-link" href="takken-baikai-keiyaku/"><span class="article-index-card-genre">試験概要</span><h2>宅建の媒介契約3種類の違い｜一般・専任・専属専任を整理</h2><p>一般媒介・専任媒介・専属専任媒介の違い、レインズ登録期限、報告義務、自己発見取引を表で整理。宅建業法の頻出論点を攻略します。</p><div class="article-index-card-tags">媒介契約</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の8種制限の攻略法｜手付金・クーリングオフを整理 宅建業法の8種制限（手付金保全、クーリングオフ、自己所有外物件の制限など）を消費者保護の観点で整理。試験の引っ掛けと数字を解説します。 試験概要 8種制限 8種制限は「宅建業者が売主・買主が一般消費者」の場面で問われます。業者間取引には適用されない点から入ると整理しやすくなります。"><a class="article-index-card-link" href="takken-8shu-seigen/"><span class="article-index-card-genre">試験概要</span><h2>宅建の8種制限の攻略法｜手付金・クーリングオフを整理</h2><p>宅建業法の8種制限（手付金保全、クーリングオフ、自己所有外物件の制限など）を消費者保護の観点で整理。試験の引っ掛けと数字を解説します。</p><div class="article-index-card-tags">8種制限</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の用途地域の覚え方｜13種類を試験向けに整理 用途地域13種類の覚え方・建築できる建物・試験の引っ掛けを解説。法令上の制限で毎年出る用途地域を表で攻略します。 試験概要 用途地域 用途地域は名前の丸暗記より「何が建てられるか・何が制限されるか」で覚えると応用が効きます。住居系・商業系・工業系に分類して整理しましょう。"><a class="article-index-card-link" href="takken-yoto-chiiki/"><span class="article-index-card-genre">試験概要</span><h2>宅建の用途地域の覚え方｜13種類を試験向けに整理</h2><p>用途地域13種類の覚え方・建築できる建物・試験の引っ掛けを解説。法令上の制限で毎年出る用途地域を表で攻略します。</p><div class="article-index-card-tags">用途地域</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の建ぺい率・容積率の計算｜道路幅員・防火地域の緩和 建ぺい率・容積率の計算問題の解き方。前面道路幅員による制限、角地緩和、防火地域・準防火地域の緩和を例題形式で解説します。 試験概要 建ぺい率・容積率 法令上の制限では計算問題が毎年出ます。公式を覚えるより、「制限の種類→適用条件→計算」の順で読む訓練が効きます。"><a class="article-index-card-link" href="takken-kenpei-yoseki/"><span class="article-index-card-genre">試験概要</span><h2>宅建の建ぺい率・容積率の計算｜道路幅員・防火地域の緩和</h2><p>建ぺい率・容積率の計算問題の解き方。前面道路幅員による制限、角地緩和、防火地域・準防火地域の緩和を例題形式で解説します。</p><div class="article-index-card-tags">建ぺい率・容積率</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建試験の時間配分｜50問・2時間を落とさない解き方 宅建試験50問・2時間の時間配分、マークシートのミス防止、見直しの取り方を解説。本番で時間切れにならない戦略です。 試験概要 時間配分 2時間で50問は、1問平均2.4分です。全部解くより「取れる問題を先に確実に」が基本。時間配分を本番前に固定しておきましょう。"><a class="article-index-card-link" href="takken-jikan-haibun/"><span class="article-index-card-genre">試験概要</span><h2>宅建試験の時間配分｜50問・2時間を落とさない解き方</h2><p>宅建試験50問・2時間の時間配分、マークシートのミス防止、見直しの取り方を解説。本番で時間切れにならない戦略です。</p><div class="article-index-card-tags">時間配分</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の動画・YouTube教材の活用法｜独学での使いどころ 宅建試験の動画講義・YouTube・無料コンテンツの活用法。テキストとの併用、インプット偏重を防ぐ進め方を解説します。 試験概要 動画学習 動画は理解の加速に向きますが、視聴だけでは得点になりません。動画→一問一答→過去問の順でアウトプットを必ず挟みましょう。"><a class="article-index-card-link" href="takken-douga-kyozai/"><span class="article-index-card-genre">試験概要</span><h2>宅建の動画・YouTube教材の活用法｜独学での使いどころ</h2><p>宅建試験の動画講義・YouTube・無料コンテンツの活用法。テキストとの併用、インプット偏重を防ぐ進め方を解説します。</p><div class="article-index-card-tags">動画学習</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の相続・遺留分の攻略法｜権利関係の頻出テーマ 宅建試験の権利関係で出る相続・遺留分・遺言・相続放棄を整理。民法の頻出論点を深追いしすぎず得点する方法です。 試験概要 相続 相続は権利関係の中でも出題が安定しています。全民法を学ぶより、相続人の範囲・遺留分・遺言の方式に絞ると効率的です。"><a class="article-index-card-link" href="takken-sozoku-minpo/"><span class="article-index-card-genre">試験概要</span><h2>宅建の相続・遺留分の攻略法｜権利関係の頻出テーマ</h2><p>宅建試験の権利関係で出る相続・遺留分・遺言・相続放棄を整理。民法の頻出論点を深追いしすぎず得点する方法です。</p><div class="article-index-card-tags">相続</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の登録実務講習ガイド｜合格後の手続きと費用 宅建試験合格後の登録実務講習・宅建士登録・登録免許税の流れと費用目安を解説。合格発表後に何をすればよいかを整理します。 試験概要 合格後 試験合格はゴールではなく、宅建士になるまでの中間点です。合格証明の期限、講習の予約、登録申請の順番を早めに把握しておきましょう。"><a class="article-index-card-link" href="takken-jitsumu-koshu/"><span class="article-index-card-genre">試験概要</span><h2>宅建の登録実務講習ガイド｜合格後の手続きと費用</h2><p>宅建試験合格後の登録実務講習・宅建士登録・登録免許税の流れと費用目安を解説。合格発表後に何をすればよいかを整理します。</p><div class="article-index-card-tags">合格後</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の営業保証金・保証協会の攻略｜供託と分担金 営業保証金・弁済業務保証金、保証協会への加入、供託・分担金、充当金2週間など宅建業法の頻出数字を解説します。 試験概要 保証金 保証金と保証協会は数字と手続きの問題が多く、過去問を繰り返すと安定して得点できます。営業保証金と弁済業務保証金の違いから入りましょう。"><a class="article-index-card-link" href="takken-hoshokin/"><span class="article-index-card-genre">試験概要</span><h2>宅建の営業保証金・保証協会の攻略｜供託と分担金</h2><p>営業保証金・弁済業務保証金、保証協会への加入、供託・分担金、充当金2週間など宅建業法の頻出数字を解説します。</p><div class="article-index-card-tags">保証金</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="40代・50代から宅建を取得する方法 40代・50代から宅建試験に合格する方法・中高年が宅建を取るメリット（転職・資格手当・定年後の独立）・年代別の効率的な学習法・6ヶ月学習計画を詳しく解説します。社会人経験が活きる宅建試験の攻略法を紹介。 試験概要 ターゲット別 「40代・50代でも宅建に合格できるのか？」という疑問をお持ちの方へ。結論として、中高年の合格者は多く存在し、社会人経験が逆にアドバンテージになる場面もあります。この記事では40代・50代が宅建を取得する具体的な方法と活用法を解説します。"><a class="article-index-card-link" href="takken-40dai/"><span class="article-index-card-genre">試験概要</span><h2>40代・50代から宅建を取得する方法</h2><p>40代・50代から宅建試験に合格する方法・中高年が宅建を取るメリット（転職・資格手当・定年後の独立）・年代別の効率的な学習法・6ヶ月学習計画を詳しく解説します。社会人経験が活きる宅建試験の攻略法を紹介。</p><div class="article-index-card-tags">ターゲット別</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の知識は不動産投資に使えるか？資格活用の具体的な方法 宅建の知識・資格が不動産投資にどう役立つかを解説。重要事項説明の理解・法令制限の自己確認・税金知識・宅建業者化のメリット・デメリットを詳しく紹介します。 試験概要 不動産投資 不動産投資を考えている方、または不動産投資家として宅建取得を検討している方へ。宅建の知識・資格が不動産投資にどう役立つか、また注意すべき点を解説します。"><a class="article-index-card-link" href="takken-fudosan-toshi/"><span class="article-index-card-genre">試験概要</span><h2>宅建の知識は不動産投資に使えるか？資格活用の具体的な方法</h2><p>宅建の知識・資格が不動産投資にどう役立つかを解説。重要事項説明の理解・法令制限の自己確認・税金知識・宅建業者化のメリット・デメリットを詳しく紹介します。</p><div class="article-index-card-tags">不動産投資</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建とFP・マンション管理士・行政書士の違い 宅建とFP・マンション管理士・行政書士・司法書士の難易度・収入・相性を徹底比較。ダブルライセンスのおすすめ組み合わせと資格取得のロードマップも解説します。 試験概要 資格比較 宅建を目指すか、別の資格を取るか迷っている方のために、FP・マンション管理士・行政書士・司法書士との違いを徹底比較します。それぞれの難易度・収入・相性・おすすめの組み合わせを解説します。"><a class="article-index-card-link" href="takken-hikaku/"><span class="article-index-card-genre">試験概要</span><h2>宅建とFP・マンション管理士・行政書士の違い</h2><p>宅建とFP・マンション管理士・行政書士・司法書士の難易度・収入・相性を徹底比較。ダブルライセンスのおすすめ組み合わせと資格取得のロードマップも解説します。</p><div class="article-index-card-tags">資格比較</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建の難易度は？合格率・他資格との比較で徹底分析 宅建試験の難易度を合格率・勉強時間・出題傾向のデータから客観的に分析。行政書士・FP・マンション管理士との比較と効果的な学習戦略も解説します。 試験概要 難易度・合格率 宅建試験は「難しい」「簡単」どちらのイメージを持っていますか？実際の難易度を合格率・勉強時間・出題傾向のデータから客観的に分析します。また行政書士・FP・マンション管理士等との難易度比較も行います。"><a class="article-index-card-link" href="takken-nanido/"><span class="article-index-card-genre">試験概要</span><h2>宅建の難易度は？合格率・他資格との比較で徹底分析</h2><p>宅建試験の難易度を合格率・勉強時間・出題傾向のデータから客観的に分析。行政書士・FP・マンション管理士との比較と効果的な学習戦略も解説します。</p><div class="article-index-card-tags">難易度・合格率</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建士の年収・給与は？資格手当・転職・独立でいくら稼げるか 宅建士の年収・資格手当の相場・転職時の収入アップ・独立した場合の収益を徹底解説。宅建取得の費用対効果と収入アップの可能性を数字で確認できます。 試験概要 年収・給与 宅建士の資格を持つことで、どれくらい収入が変わるのか？この記事では資格手当の相場・職種別の年収目安・転職・独立した場合の収入まで、リアルな数字をもとに解説します。"><a class="article-index-card-link" href="takken-nenshu/"><span class="article-index-card-genre">試験概要</span><h2>宅建士の年収・給与は？資格手当・転職・独立でいくら稼げるか</h2><p>宅建士の年収・資格手当の相場・転職時の収入アップ・独立した場合の収益を徹底解説。宅建取得の費用対効果と収入アップの可能性を数字で確認できます。</p><div class="article-index-card-tags">年収・給与</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建に落ちた・不合格だった場合の対策と再受験の進め方 宅建試験に不合格だった場合の原因分析・落ちる人の4パターン・再受験の学習戦略・モチベーション維持の方法を解説。次こそ合格するための完全ガイドです。 試験概要 再受験 宅建試験の合格率は15〜17%。多くの受験生が一度は不合格を経験します。大切なのは「なぜ落ちたか」を正確に分析し、次の受験で合格することです。この記事では不合格後の正しい分析方法と再受験の戦略を解説します。"><a class="article-index-card-link" href="takken-ocita/"><span class="article-index-card-genre">試験概要</span><h2>宅建に落ちた・不合格だった場合の対策と再受験の進め方</h2><p>宅建試験に不合格だった場合の原因分析・落ちる人の4パターン・再受験の学習戦略・モチベーション維持の方法を解説。次こそ合格するための完全ガイドです。</p><div class="article-index-card-tags">再受験</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="社会人が仕事しながら宅建に合格する方法 忙しい社会人が仕事しながら宅建に合格するための現実的な学習時間・通勤電車や昼休みを使った隙間時間の活用法・疲れていてもできる学習法・6ヶ月計画の具体例を徹底解説します。残業があっても合格できます。 試験概要 社会人・働きながら 忙しい社会人でも宅建に合格している人は多くいます。「残業で勉強時間が確保できない」「疲れて帰宅後に勉強できない」という悩みを持つ社会人向けに、現実的な学習法を解説します。"><a class="article-index-card-link" href="takken-shakaijin/"><span class="article-index-card-genre">試験概要</span><h2>社会人が仕事しながら宅建に合格する方法</h2><p>忙しい社会人が仕事しながら宅建に合格するための現実的な学習時間・通勤電車や昼休みを使った隙間時間の活用法・疲れていてもできる学習法・6ヶ月計画の具体例を徹底解説します。残業があっても合格できます。</p><div class="article-index-card-tags">社会人・働きながら</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建士の仕事内容とは？独占業務・活躍できる職場を徹底解説 宅建士（宅地建物取引士）の3つの独占業務・活躍できる職場・キャリアパスを徹底解説。不動産仲介・ハウスメーカー・金融機関など幅広い職場で活躍できます。 試験概要 仕事・キャリア 宅建士（宅地建物取引士）には、法律で定められた3つの独占業務があります。この記事では宅建士の具体的な仕事内容・働ける職場・キャリアパスを詳しく解説します。宅建取得を検討している方の参考になれば幸いです。"><a class="article-index-card-link" href="takken-shigoto/"><span class="article-index-card-genre">試験概要</span><h2>宅建士の仕事内容とは？独占業務・活躍できる職場を徹底解説</h2><p>宅建士（宅地建物取引士）の3つの独占業務・活躍できる職場・キャリアパスを徹底解説。不動産仲介・ハウスメーカー・金融機関など幅広い職場で活躍できます。</p><div class="article-index-card-tags">仕事・キャリア</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建試験の範囲と全体像 宅建試験の4分野（権利関係・宅建業法・法令上の制限・税その他）の出題数・内容・難易度・学習優先度を詳しく解説。効率的な学習計画の立て方も紹介します。 試験概要 試験概要 宅建試験は4つの分野から全50問出題されます。各分野の出題数・内容・難易度・学習の優先度を正確に把握することで、効率的な学習計画が立てられます。この記事では試験範囲の全体像を分野別に解説します。"><a class="article-index-card-link" href="takken-shiken-hani/"><span class="article-index-card-genre">試験概要</span><h2>宅建試験の範囲と全体像</h2><p>宅建試験の4分野（権利関係・宅建業法・法令上の制限・税その他）の出題数・内容・難易度・学習優先度を詳しく解説。効率的な学習計画の立て方も紹介します。</p><div class="article-index-card-tags">試験概要</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="主婦・子育て中でも宅建に合格できる？スキマ時間活用法を解説 子育て中・主婦でも宅建に合格するためのスキマ時間活用法・効率的な学習法・月別スケジュールを解説。スマホアプリを活用した細切れ学習法も紹介します。 試験概要 主婦・子育て 「子育て中でも宅建を取れるか」「主婦でも勉強する時間が作れるか」という疑問に答えます。実際に子育てしながら宅建に合格した方の実例をもとに、スキマ時間を最大活用する勉強法を解説します。"><a class="article-index-card-link" href="takken-shufu/"><span class="article-index-card-genre">試験概要</span><h2>主婦・子育て中でも宅建に合格できる？スキマ時間活用法を解説</h2><p>子育て中・主婦でも宅建に合格するためのスキマ時間活用法・効率的な学習法・月別スケジュールを解説。スマホアプリを活用した細切れ学習法も紹介します。</p><div class="article-index-card-tags">主婦・子育て</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建とは？難易度・メリット・取得後の仕事を徹底解説 宅建（宅地建物取引士）の基本情報・試験概要（合格率17%・年間22万人受験）・取得メリット・合格の難易度・取得後の仕事内容を徹底解説。年収アップ・就職転職・独立開業に役立つ国家資格の全体像がわかります。 試験概要 基礎知識 宅建（宅地建物取引士）は不動産取引の国家資格で、毎年20万人以上が受験する日本最大級の資格試験です。この記事では「宅建って何？」という基本から、取得のメリット・難易度・どんな仕事に活かせるかまでを網羅的に解説します。"><a class="article-index-card-link" href="takken-to-wa/"><span class="article-index-card-genre">試験概要</span><h2>宅建とは？難易度・メリット・取得後の仕事を徹底解説</h2><p>宅建（宅地建物取引士）の基本情報・試験概要（合格率17%・年間22万人受験）・取得メリット・合格の難易度・取得後の仕事内容を徹底解説。年収アップ・就職転職・独立開業に役立つ国家資格の全体像がわかります。</p><div class="article-index-card-tags">基礎知識</div></a></article><article class="article-index-card" data-genre="試験概要" data-genre-style="overview" data-search="宅建試験 当日の注意点・持ち物チェックリスト完全版 宅建試験当日の持ち物チェックリスト・試験会場での注意点・時間配分の戦略（宅建業法から解く順番）・マークシートのズレ防止法・試験後の流れを完全解説。当日の朝に読み返せる実践的なガイドです。 試験概要 試験当日 宅建試験当日に慌てないために、持ち物・試験会場での注意点・時間配分・よくあるミスをまとめました。当日の朝に読み返せる完全チェックリストです。"><a class="article-index-card-link" href="takken-toujitsu/"><span class="article-index-card-genre">試験概要</span><h2>宅建試験 当日の注意点・持ち物チェックリスト完全版</h2><p>宅建試験当日の持ち物チェックリスト・試験会場での注意点・時間配分の戦略（宅建業法から解く順番）・マークシートのズレ防止法・試験後の流れを完全解説。当日の朝に読み返せる実践的なガイドです。</p><div class="article-index-card-tags">試験当日</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅地建物取引士試験の受験資格と確認方法 宅地建物取引士試験の受験資格と確認方法 受験・申込 受験資格 / 申込 / 公式情報 宅地建物取引士試験の受験資格と確認方法について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-eligibility/"><span class="article-index-card-genre">受験・申込</span><h2>宅地建物取引士試験の受験資格と確認方法</h2><p>宅地建物取引士試験の受験資格と確認方法</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅建の5問免除制度の要件と手続き 宅建の5問免除制度の要件と手続き 受験・申込 受験資格 / 申込 / 公式情報 宅建の5問免除制度の要件と手続きについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exemption-system/"><span class="article-index-card-genre">受験・申込</span><h2>宅建の5問免除制度の要件と手続き</h2><p>宅建の5問免除制度の要件と手続き</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="実務経験と受験資格の関係 実務経験と受験資格の関係 受験・申込 受験資格 / 申込 / 公式情報 実務経験と受験資格の関係について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="work-experience-requirement/"><span class="article-index-card-genre">受験・申込</span><h2>実務経験と受験資格の関係</h2><p>実務経験と受験資格の関係</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="学歴要件と受験資格の読み方 学歴要件と受験資格の読み方 受験・申込 受験資格 / 申込 / 公式情報 学歴要件と受験資格の読み方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="education-requirement/"><span class="article-index-card-genre">受験・申込</span><h2>学歴要件と受験資格の読み方</h2><p>学歴要件と受験資格の読み方</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅建と他資格の同日受験・併願の注意点 宅建と他資格の同日受験・併願の注意点 受験・申込 受験資格 / 申込 / 公式情報 宅建と他資格の同日受験・併願の注意点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="concurrent-exam-rules/"><span class="article-index-card-genre">受験・申込</span><h2>宅建と他資格の同日受験・併願の注意点</h2><p>宅建と他資格の同日受験・併願の注意点</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅地建物取引士試験の年間日程と学習計画への組み込み 宅地建物取引士試験の年間日程と学習計画への組み込み 受験・申込 受験資格 / 申込 / 公式情報 宅地建物取引士試験の年間日程と学習計画への組み込みについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-schedule/"><span class="article-index-card-genre">受験・申込</span><h2>宅地建物取引士試験の年間日程と学習計画への組み込み</h2><p>宅地建物取引士試験の年間日程と学習計画への組み込み</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅地建物取引士試験の受験手数料と支払いの注意点 宅地建物取引士試験の受験手数料と支払いの注意点 受験・申込 受験資格 / 申込 / 公式情報 宅地建物取引士試験の受験手数料と支払いの注意点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-fees/"><span class="article-index-card-genre">受験・申込</span><h2>宅地建物取引士試験の受験手数料と支払いの注意点</h2><p>宅地建物取引士試験の受験手数料と支払いの注意点</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅地建物取引士試験の申込手順（RETIO） 宅地建物取引士試験の申込手順（RETIO） 受験・申込 受験資格 / 申込 / 公式情報 宅地建物取引士試験の申込手順（RETIO）について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-application-flow/"><span class="article-index-card-genre">受験・申込</span><h2>宅地建物取引士試験の申込手順（RETIO）</h2><p>宅地建物取引士試験の申込手順（RETIO）</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="申込締切前に確認するチェックリスト 申込締切前に確認するチェックリスト 受験・申込 受験資格 / 申込 / 公式情報 申込締切前に確認するチェックリストについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="application-deadline-checklist/"><span class="article-index-card-genre">受験・申込</span><h2>申込締切前に確認するチェックリスト</h2><p>申込締切前に確認するチェックリスト</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="受験地・地域と会場情報の確認 受験地・地域と会場情報の確認 受験・申込 受験資格 / 申込 / 公式情報 受験地・地域と会場情報の確認について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-venue-and-region/"><span class="article-index-card-genre">受験・申込</span><h2>受験地・地域と会場情報の確認</h2><p>受験地・地域と会場情報の確認</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="欠席・再受験時の手続きと学習の立て直し 欠席・再受験時の手続きと学習の立て直し 受験・申込 受験資格 / 申込 / 公式情報 欠席・再受験時の手続きと学習の立て直しについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="reschedule-and-absence/"><span class="article-index-card-genre">受験・申込</span><h2>欠席・再受験時の手続きと学習の立て直し</h2><p>欠席・再受験時の手続きと学習の立て直し</p><div class="article-index-card-tags">受験資格 / 申込 / 公式情報</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="2026年度 宅建試験日程・申込み・合格発表スケジュール 2026年度宅建試験の予定日程と学習計画への落とし込み方。公式情報の確認先も整理します。 受験・申込 2026年度 試験日程はRETIOの公式サイトで最新情報を確認してください。本記事は学習カレンダー用の整理です。"><a class="article-index-card-link" href="takken-shiken-schedule-2026/"><span class="article-index-card-genre">受験・申込</span><h2>2026年度 宅建試験日程・申込み・合格発表スケジュール</h2><p>2026年度宅建試験の予定日程と学習計画への落とし込み方。公式情報の確認先も整理します。</p><div class="article-index-card-tags">2026年度</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅建試験の受験費用・合格後の費用まとめ 宅建試験の受験手数料、教材費、模試代、合格後の登録実務講習・登録免許税など、取得までにかかる費用の目安を解説します。 受験・申込 費用 宅建取得の費用は受験料だけではありません。合格後の講習・登録費も含めて事前に把握しておくと、計画が立てやすくなります。"><a class="article-index-card-link" href="takken-jukenhi/"><span class="article-index-card-genre">受験・申込</span><h2>宅建試験の受験費用・合格後の費用まとめ</h2><p>宅建試験の受験手数料、教材費、模試代、合格後の登録実務講習・登録免許税など、取得までにかかる費用の目安を解説します。</p><div class="article-index-card-tags">費用</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅建試験の申込み方法・流れ 宅建試験（宅地建物取引士試験）の申込み方法・受験資格・申込み期間・受験料・注意点を詳しく解説。申込み忘れや手続き誤りを防ぐための完全ガイドです。 受験・申込 試験申込み 宅建試験の受験を決めたら、まず申込み手続きを理解しましょう。受験資格・申込期間・費用・申込方法を順を追って解説します。申込み忘れや手続きの誤りに注意が必要です。"><a class="article-index-card-link" href="takken-moshikomi/"><span class="article-index-card-genre">受験・申込</span><h2>宅建試験の申込み方法・流れ</h2><p>宅建試験（宅地建物取引士試験）の申込み方法・受験資格・申込み期間・受験料・注意点を詳しく解説。申込み忘れや手続き誤りを防ぐための完全ガイドです。</p><div class="article-index-card-tags">試験申込み</div></a></article><article class="article-index-card" data-genre="受験・申込" data-genre-style="institution" data-search="宅建試験の合格スケジュール 宅建試験の合格スケジュールを解説。法律初学者から再受験者まで属性別の学習開始時期・月別スケジュール・1日の勉強時間の目安を詳しく紹介します。 受験・申込 合格戦略 宅建試験は毎年10月第3日曜日に実施されます。「いつから勉強を始めればいいか」「何ヶ月必要か」は多くの受験生の悩みです。この記事では属性別の学習開始時期・月別スケジュール・勉強時間の目安を具体的に解説します。"><a class="article-index-card-link" href="takken-schedule/"><span class="article-index-card-genre">受験・申込</span><h2>宅建試験の合格スケジュール</h2><p>宅建試験の合格スケジュールを解説。法律初学者から再受験者まで属性別の学習開始時期・月別スケジュール・1日の勉強時間の目安を詳しく紹介します。</p><div class="article-index-card-tags">合格戦略</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="宅建の合格点は何点？合格ラインの考え方と目標点の作り方 宅建試験の合格点・合格ラインの考え方を解説。年度ごとに点数が変わる理由、目標点の作り方、模試や過去問の点数をどう判断するかをまとめます。 合格・難易度 合格ライン 宅建の合格点は年度ごとに変動します。固定の満点基準ではなく、問題の難易度や受験者全体の出来を踏まえて決まるため、学習段階では36〜38点を安定して取る設計を目標にします。"><a class="article-index-card-link" href="takken-goukakuten/"><span class="article-index-card-genre">合格・難易度</span><h2>宅建の合格点は何点？合格ラインの考え方と目標点の作り方</h2><p>宅建試験の合格点・合格ラインの考え方を解説。年度ごとに点数が変わる理由、目標点の作り方、模試や過去問の点数をどう判断するかをまとめます。</p><div class="article-index-card-tags">合格ライン</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="宅地建物取引士試験の合格率の読み方 宅地建物取引士試験の合格率の読み方 合格・難易度 合格率 / 難易度 宅地建物取引士試験の合格率の読み方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="pass-rate/"><span class="article-index-card-genre">合格・難易度</span><h2>宅地建物取引士試験の合格率の読み方</h2><p>宅地建物取引士試験の合格率の読み方</p><div class="article-index-card-tags">合格率 / 難易度</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="宅地建物取引士試験の難易度と必要な学習量 宅地建物取引士試験の難易度と必要な学習量 合格・難易度 合格率 / 難易度 宅地建物取引士試験の難易度と必要な学習量について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-difficulty/"><span class="article-index-card-genre">合格・難易度</span><h2>宅地建物取引士試験の難易度と必要な学習量</h2><p>宅地建物取引士試験の難易度と必要な学習量</p><div class="article-index-card-tags">合格率 / 難易度</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="宅地建物取引士試験の合格点（合格基準点）の考え方 宅地建物取引士試験の合格点（合格基準点）の考え方 合格・難易度 合格率 / 難易度 宅地建物取引士試験の合格点（合格基準点）の考え方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="pass-score/"><span class="article-index-card-genre">合格・難易度</span><h2>宅地建物取引士試験の合格点（合格基準点）の考え方</h2><p>宅地建物取引士試験の合格点（合格基準点）の考え方</p><div class="article-index-card-tags">合格率 / 難易度</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="合格率・統計の公式情報の見方 合格率・統計の公式情報の見方 合格・難易度 合格率 / 難易度 合格率・統計の公式情報の見方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="pass-rate-how-to-read/"><span class="article-index-card-genre">合格・難易度</span><h2>合格率・統計の公式情報の見方</h2><p>合格率・統計の公式情報の見方</p><div class="article-index-card-tags">合格率 / 難易度</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="初学者がつまずきやすいポイント 初学者がつまずきやすいポイント 合格・難易度 合格率 / 難易度 初学者がつまずきやすいポイントについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="difficulty-for-beginners/"><span class="article-index-card-genre">合格・難易度</span><h2>初学者がつまずきやすいポイント</h2><p>初学者がつまずきやすいポイント</p><div class="article-index-card-tags">合格率 / 難易度</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="宅建の合格率は？年度別の傾向と合格ラインの読み方 宅建試験の合格率・合格ラインの読み方を解説。数字に一喜一憂せず、学習計画に活かす考え方をまとめます。 合格・難易度 合格率 合格率は参考指標です。自分が安定して取れる点数と、落としやすい分野を把握することが大切です。"><a class="article-index-card-link" href="takken-gokaku-ritsu/"><span class="article-index-card-genre">合格・難易度</span><h2>宅建の合格率は？年度別の傾向と合格ラインの読み方</h2><p>宅建試験の合格率・合格ラインの読み方を解説。数字に一喜一憂せず、学習計画に活かす考え方をまとめます。</p><div class="article-index-card-tags">合格率</div></a></article><article class="article-index-card" data-genre="合格・難易度" data-genre-style="institution" data-search="宅建合格後にやること 宅建試験合格後の手続きを完全解説。実務経験2年以上の確認・登録実務講習の受講・都道府県知事への登録申請（手数料37,000円）・宅建士証の交付申請（有効期間5年）まで、ステップ別に詳しく説明します。 合格・難易度 合格後の手続き 宅建試験に合格しただけでは「宅建士」として業務はできません。都道府県知事への登録・宅建士証の交付申請という手続きが必要です。この記事では合格後の手続きを順を追って解説します。"><a class="article-index-card-link" href="takken-goukaku-ato/"><span class="article-index-card-genre">合格・難易度</span><h2>宅建合格後にやること</h2><p>宅建試験合格後の手続きを完全解説。実務経験2年以上の確認・登録実務講習の受講・都道府県知事への登録申請（手数料37,000円）・宅建士証の交付申請（有効期間5年）まで、ステップ別に詳しく説明します。</p><div class="article-index-card-tags">合格後の手続き</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="宅地建物取引士試験の出題形式（50問・四肢択一） 宅地建物取引士試験の出題形式（50問・四肢択一） 出題・形式 出題範囲 / 試験形式 宅地建物取引士試験の出題形式（50問・四肢択一）について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-format-overview/"><span class="article-index-card-genre">出題・形式</span><h2>宅地建物取引士試験の出題形式（50問・四肢択一）</h2><p>宅地建物取引士試験の出題形式（50問・四肢択一）</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="宅建4分野の配点と出題の傾向 宅建4分野の配点と出題の傾向 出題・形式 出題範囲 / 試験形式 宅建4分野の配点と出題の傾向について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="subject-breakdown/"><span class="article-index-card-genre">出題・形式</span><h2>宅建4分野の配点と出題の傾向</h2><p>宅建4分野の配点と出題の傾向</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="CBT・マークシート試験の対策の違い CBT・マークシート試験の対策の違い 出題・形式 出題範囲 / 試験形式 CBT・マークシート試験の対策の違いについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="cbt-computer-exam/"><span class="article-index-card-genre">出題・形式</span><h2>CBT・マークシート試験の対策の違い</h2><p>CBT・マークシート試験の対策の違い</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="2時間50問の時間配分戦略 2時間50問の時間配分戦略 出題・形式 出題範囲 / 試験形式 2時間50問の時間配分戦略について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="time-limit-strategy/"><span class="article-index-card-genre">出題・形式</span><h2>2時間50問の時間配分戦略</h2><p>2時間50問の時間配分戦略</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="宅地建物取引士試験の出題範囲の全体像 宅地建物取引士試験の出題範囲の全体像 出題・形式 出題範囲 / 試験形式 宅地建物取引士試験の出題範囲の全体像について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-scope-overview/"><span class="article-index-card-genre">出題・形式</span><h2>宅地建物取引士試験の出題範囲の全体像</h2><p>宅地建物取引士試験の出題範囲の全体像</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="試験要項・シラバスの読み方 試験要項・シラバスの読み方 出題・形式 出題範囲 / 試験形式 試験要項・シラバスの読み方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="syllabus-how-to-read/"><span class="article-index-card-genre">出題・形式</span><h2>試験要項・シラバスの読み方</h2><p>試験要項・シラバスの読み方</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="出題範囲の改定と学習への影響 出題範囲の改定と学習への影響 出題・形式 出題範囲 / 試験形式 出題範囲の改定と学習への影響について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="scope-revision-history/"><span class="article-index-card-genre">出題・形式</span><h2>出題範囲の改定と学習への影響</h2><p>出題範囲の改定と学習への影響</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="分野別の配点感と優先順位 分野別の配点感と優先順位 出題・形式 出題範囲 / 試験形式 分野別の配点感と優先順位について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="weight-by-topic/"><span class="article-index-card-genre">出題・形式</span><h2>分野別の配点感と優先順位</h2><p>分野別の配点感と優先順位</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="近年の出題トレンドと法令改正 近年の出題トレンドと法令改正 出題・形式 出題範囲 / 試験形式 近年の出題トレンドと法令改正について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="new-topics-trend/"><span class="article-index-card-genre">出題・形式</span><h2>近年の出題トレンドと法令改正</h2><p>近年の出題トレンドと法令改正</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="出題・形式" data-genre-style="institution" data-search="出題範囲と過去問の対応の見方 出題範囲と過去問の対応の見方 出題・形式 出題範囲 / 試験形式 出題範囲と過去問の対応の見方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="scope-vs-past-questions/"><span class="article-index-card-genre">出題・形式</span><h2>出題範囲と過去問の対応の見方</h2><p>出題範囲と過去問の対応の見方</p><div class="article-index-card-tags">出題範囲 / 試験形式</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建の勉強時間は何時間必要？初学者・社会人・再受験者別の目安 宅建試験に必要な勉強時間を、初学者・社会人・再受験者・不動産業界経験者に分けて解説。残り期間から逆算する学習量と、時間不足を防ぐ進め方もまとめます。 学習計画 学習計画 宅建の勉強時間は、知識ゼロなら300〜400時間、学習経験や業界経験がある人なら200〜300時間がひとつの目安です。ただし大事なのは総時間そのものより、宅建業法・過去問演習・復習にどれだけ時間を配分できるかです。"><a class="article-index-card-link" href="takken-benkyou-jikan/"><span class="article-index-card-genre">学習計画</span><h2>宅建の勉強時間は何時間必要？初学者・社会人・再受験者別の目安</h2><p>宅建試験に必要な勉強時間を、初学者・社会人・再受験者・不動産業界経験者に分けて解説。残り期間から逆算する学習量と、時間不足を防ぐ進め方もまとめます。</p><div class="article-index-card-tags">学習計画</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建を3ヶ月で仕上げる学習計画 宅建を3ヶ月で仕上げる学習計画 学習計画 学習計画 / 試験対策 宅建を3ヶ月で仕上げる学習計画について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="study-plan-3months/"><span class="article-index-card-genre">学習計画</span><h2>宅建を3ヶ月で仕上げる学習計画</h2><p>宅建を3ヶ月で仕上げる学習計画</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建を6ヶ月で仕上げる学習計画 宅建を6ヶ月で仕上げる学習計画 学習計画 学習計画 / 試験対策 宅建を6ヶ月で仕上げる学習計画について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="study-plan-6months/"><span class="article-index-card-genre">学習計画</span><h2>宅建を6ヶ月で仕上げる学習計画</h2><p>宅建を6ヶ月で仕上げる学習計画</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建を1年かけて合格を目指す計画 宅建を1年かけて合格を目指す計画 学習計画 学習計画 / 試験対策 宅建を1年かけて合格を目指す計画について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="study-plan-1year/"><span class="article-index-card-genre">学習計画</span><h2>宅建を1年かけて合格を目指す計画</h2><p>宅建を1年かけて合格を目指す計画</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="働きながら宅建に合格する週間スケジュール 働きながら宅建に合格する週間スケジュール 学習計画 学習計画 / 試験対策 働きながら宅建に合格する週間スケジュールについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="study-plan-working/"><span class="article-index-card-genre">学習計画</span><h2>働きながら宅建に合格する週間スケジュール</h2><p>働きながら宅建に合格する週間スケジュール</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="法律初学者の宅建学習ロードマップ 法律初学者の宅建学習ロードマップ 学習計画 学習計画 / 試験対策 法律初学者の宅建学習ロードマップについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="study-plan-beginner/"><span class="article-index-card-genre">学習計画</span><h2>法律初学者の宅建学習ロードマップ</h2><p>法律初学者の宅建学習ロードマップ</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建学習の最初の30日でやること 宅建学習の最初の30日でやること 学習計画 学習計画 / 試験対策 宅建学習の最初の30日でやることについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="first-30-days-plan/"><span class="article-index-card-genre">学習計画</span><h2>宅建学習の最初の30日でやること</h2><p>宅建学習の最初の30日でやること</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="仕事と宅建勉強の両立のコツ 仕事と宅建勉強の両立のコツ 学習計画 学習計画 / 試験対策 仕事と宅建勉強の両立のコツについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="balance-work-study/"><span class="article-index-card-genre">学習計画</span><h2>仕事と宅建勉強の両立のコツ</h2><p>仕事と宅建勉強の両立のコツ</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建勉強の時間管理と習慣化 宅建勉強の時間管理と習慣化 学習計画 学習計画 / 試験対策 宅建勉強の時間管理と習慣化について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="time-management/"><span class="article-index-card-genre">学習計画</span><h2>宅建勉強の時間管理と習慣化</h2><p>宅建勉強の時間管理と習慣化</p><div class="article-index-card-tags">学習計画 / 試験対策</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建を4月・1月スタートで合格する｜月別学習カレンダー 宅建試験を4月または1月から始める場合の月別学習カレンダー。6ヶ月・9ヶ月プランで何をいつやるかを具体化します。 学習計画 学習計画 10月試験に合わせるなら、4月スタートは6ヶ月、1月スタートは9ヶ月の余裕があります。開始月で「通読に使える期間」が変わるため、最初の3ヶ月の設計が重要です。"><a class="article-index-card-link" href="takken-4gatsu-start/"><span class="article-index-card-genre">学習計画</span><h2>宅建を4月・1月スタートで合格する｜月別学習カレンダー</h2><p>宅建試験を4月または1月から始める場合の月別学習カレンダー。6ヶ月・9ヶ月プランで何をいつやるかを具体化します。</p><div class="article-index-card-tags">学習計画</div></a></article><article class="article-index-card" data-genre="学習計画" data-genre-style="study" data-search="宅建の勉強計画の立て方 宅建試験の勉強計画を残り期間別（3ヶ月・6ヶ月・1年プラン）に解説。法律初学者から再受験者まで属性別の最適なスケジュールを紹介。社会人・学生それぞれの学習スタイルと継続するコツも具体的に解説します。 学習計画 学習計画 宅建試験の合格には計画的な学習が不可欠です。この記事では残り期間別（3ヶ月・6ヶ月・1年）の勉強計画と、社会人・学生それぞれに適した学習スタイルを具体的に解説します。"><a class="article-index-card-link" href="takken-plan/"><span class="article-index-card-genre">学習計画</span><h2>宅建の勉強計画の立て方</h2><p>宅建試験の勉強計画を残り期間別（3ヶ月・6ヶ月・1年プラン）に解説。法律初学者から再受験者まで属性別の最適なスケジュールを紹介。社会人・学生それぞれの学習スタイルと継続するコツも具体的に解説します。</p><div class="article-index-card-tags">学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="宅建を独学で始める手順 宅建を独学で始める手順 独学対策 独学 / 教材 / 学習計画 宅建を独学で始める手順について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="self-study-start/"><span class="article-index-card-genre">独学対策</span><h2>宅建を独学で始める手順</h2><p>宅建を独学で始める手順</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="独学の週間・月間スケジュール例 独学の週間・月間スケジュール例 独学対策 独学 / 教材 / 学習計画 独学の週間・月間スケジュール例について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="self-study-schedule/"><span class="article-index-card-genre">独学対策</span><h2>独学の週間・月間スケジュール例</h2><p>独学の週間・月間スケジュール例</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="宅建独学でよくある失敗と回避策 宅建独学でよくある失敗と回避策 独学対策 独学 / 教材 / 学習計画 宅建独学でよくある失敗と回避策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="self-study-mistakes/"><span class="article-index-card-genre">独学対策</span><h2>宅建独学でよくある失敗と回避策</h2><p>宅建独学でよくある失敗と回避策</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="独学に向いた環境づくり 独学に向いた環境づくり 独学対策 独学 / 教材 / 学習計画 独学に向いた環境づくりについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="self-study-environment/"><span class="article-index-card-genre">独学対策</span><h2>独学に向いた環境づくり</h2><p>独学に向いた環境づくり</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="長期独学のモチベーション維持 長期独学のモチベーション維持 独学対策 独学 / 教材 / 学習計画 長期独学のモチベーション維持について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="self-study-motivation/"><span class="article-index-card-genre">独学対策</span><h2>長期独学のモチベーション維持</h2><p>長期独学のモチベーション維持</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="資格学校なしで宅建に合格するには 資格学校なしで宅建に合格するには 独学対策 独学 / 教材 / 学習計画 資格学校なしで宅建に合格するにはについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="self-study-without-school/"><span class="article-index-card-genre">独学対策</span><h2>資格学校なしで宅建に合格するには</h2><p>資格学校なしで宅建に合格するには</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="宅建テキストの選び方 宅建テキストの選び方 独学対策 独学 / 教材 / 学習計画 宅建テキストの選び方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="textbook-selection/"><span class="article-index-card-genre">独学対策</span><h2>宅建テキストの選び方</h2><p>宅建テキストの選び方</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="問題集・一問一答の選び方 問題集・一問一答の選び方 独学対策 独学 / 教材 / 学習計画 問題集・一問一答の選び方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="problem-book-selection/"><span class="article-index-card-genre">独学対策</span><h2>問題集・一問一答の選び方</h2><p>問題集・一問一答の選び方</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="通信講座と独学の組み合わせ 通信講座と独学の組み合わせ 独学対策 独学 / 教材 / 学習計画 通信講座と独学の組み合わせについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="correspondence-course-guide/"><span class="article-index-card-genre">独学対策</span><h2>通信講座と独学の組み合わせ</h2><p>通信講座と独学の組み合わせ</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="無料教材と公式情報の活用 無料教材と公式情報の活用 独学対策 独学 / 教材 / 学習計画 無料教材と公式情報の活用について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="free-materials-online/"><span class="article-index-card-genre">独学対策</span><h2>無料教材と公式情報の活用</h2><p>無料教材と公式情報の活用</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="テキストと過去問、どちらを優先するか テキストと過去問、どちらを優先するか 独学対策 独学 / 教材 / 学習計画 テキストと過去問、どちらを優先するかについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="textbook-vs-past-questions/"><span class="article-index-card-genre">独学対策</span><h2>テキストと過去問、どちらを優先するか</h2><p>テキストと過去問、どちらを優先するか</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="独学対策" data-genre-style="study" data-search="教材の版・年度更新への対応 教材の版・年度更新への対応 独学対策 独学 / 教材 / 学習計画 教材の版・年度更新への対応について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="material-update-cycle/"><span class="article-index-card-genre">独学対策</span><h2>教材の版・年度更新への対応</h2><p>教材の版・年度更新への対応</p><div class="article-index-card-tags">独学 / 教材 / 学習計画</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="宅建過去問を年度別に解く順番 宅建過去問を年度別に解く順番 過去問活用 過去問 / 模試 / 復習 宅建過去問を年度別に解く順番について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-by-year/"><span class="article-index-card-genre">過去問活用</span><h2>宅建過去問を年度別に解く順番</h2><p>宅建過去問を年度別に解く順番</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="分野別に過去問を解くメリット 分野別に過去問を解くメリット 過去問活用 過去問 / 模試 / 復習 分野別に過去問を解くメリットについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-by-field/"><span class="article-index-card-genre">過去問活用</span><h2>分野別に過去問を解くメリット</h2><p>分野別に過去問を解くメリット</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="過去問の解き直しサイクル 過去問の解き直しサイクル 過去問活用 過去問 / 模試 / 復習 過去問の解き直しサイクルについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-review-cycle/"><span class="article-index-card-genre">過去問活用</span><h2>過去問の解き直しサイクル</h2><p>過去問の解き直しサイクル</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="過去問の点数分析と弱点把握 過去問の点数分析と弱点把握 過去問活用 過去問 / 模試 / 復習 過去問の点数分析と弱点把握について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-score-analysis/"><span class="article-index-card-genre">過去問活用</span><h2>過去問の点数分析と弱点把握</h2><p>過去問の点数分析と弱点把握</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="ブックマーク・復習リストの使い方 ブックマーク・復習リストの使い方 過去問活用 過去問 / 模試 / 復習 ブックマーク・復習リストの使い方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="bookmark-review-method/"><span class="article-index-card-genre">過去問活用</span><h2>ブックマーク・復習リストの使い方</h2><p>ブックマーク・復習リストの使い方</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="過去問1周目の正しい解き方 過去問1周目の正しい解き方 過去問活用 過去問 / 模試 / 復習 過去問1周目の正しい解き方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-first-attempt/"><span class="article-index-card-genre">過去問活用</span><h2>過去問1周目の正しい解き方</h2><p>過去問1周目の正しい解き方</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="間違い理由の分類と復習 間違い理由の分類と復習 過去問活用 過去問 / 模試 / 復習 間違い理由の分類と復習について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-wrong-reasons/"><span class="article-index-card-genre">過去問活用</span><h2>間違い理由の分類と復習</h2><p>間違い理由の分類と復習</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="直近年度の過去問の扱い 直近年度の過去問の扱い 過去問活用 過去問 / 模試 / 復習 直近年度の過去問の扱いについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="past-questions-latest-year/"><span class="article-index-card-genre">過去問活用</span><h2>直近年度の過去問の扱い</h2><p>直近年度の過去問の扱い</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="宅建模試の活用法 宅建模試の活用法 過去問活用 過去問 / 模試 / 復習 宅建模試の活用法について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="mock-exam-how-to/"><span class="article-index-card-genre">過去問活用</span><h2>宅建模試の活用法</h2><p>宅建模試の活用法</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="一問一答と過去問の組み合わせ 一問一答と過去問の組み合わせ 過去問活用 過去問 / 模試 / 復習 一問一答と過去問の組み合わせについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="ichimon-practice/"><span class="article-index-card-genre">過去問活用</span><h2>一問一答と過去問の組み合わせ</h2><p>一問一答と過去問の組み合わせ</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="演習量の目安（何問解くか） 演習量の目安（何問解くか） 過去問活用 過去問 / 模試 / 復習 演習量の目安（何問解くか）について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="drill-volume-guide/"><span class="article-index-card-genre">過去問活用</span><h2>演習量の目安（何問解くか）</h2><p>演習量の目安（何問解くか）</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="本番形式の時間計測演習 本番形式の時間計測演習 過去問活用 過去問 / 模試 / 復習 本番形式の時間計測演習について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="timed-practice/"><span class="article-index-card-genre">過去問活用</span><h2>本番形式の時間計測演習</h2><p>本番形式の時間計測演習</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="模試を組み込んだ直前スケジュール 模試を組み込んだ直前スケジュール 過去問活用 過去問 / 模試 / 復習 模試を組み込んだ直前スケジュールについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="simulation-exam-schedule/"><span class="article-index-card-genre">過去問活用</span><h2>模試を組み込んだ直前スケジュール</h2><p>模試を組み込んだ直前スケジュール</p><div class="article-index-card-tags">過去問 / 模試 / 復習</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="宅建を独学で合格する方法 宅建試験を独学で合格するための教材の選び方・効率的な勉強法・よくある失敗と対策を解説。スマホ活用で隙間時間を学習に変えて合格を目指しましょう。 過去問活用 勉強法 宅建試験は独学でも合格できる試験です。実際に合格者の多くは独学か市販テキストを使った自己学習で合格しています。この記事では独学で合格するための教材選び・効果的な勉強法・よくある失敗を解説します。"><a class="article-index-card-link" href="takken-dokugaku/"><span class="article-index-card-genre">過去問活用</span><h2>宅建を独学で合格する方法</h2><p>宅建試験を独学で合格するための教材の選び方・効率的な勉強法・よくある失敗と対策を解説。スマホ活用で隙間時間を学習に変えて合格を目指しましょう。</p><div class="article-index-card-tags">勉強法</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="宅建業法の勉強法・完全攻略 宅建業法（全50問中20問）の頻出テーマ・正しい勉強法・絶対覚える数字（5営業日・7営業日・8日・2週間等）・分野別の攻略ポイントを徹底解説。宅建業法で高得点を取るための戦略がわかります。 過去問活用 勉強法 宅建業法は全50問中20問（40%）を占める最重要分野です。暗記中心で得点しやすく、満点近くを狙える分野でもあります。この記事では宅建業法の頻出テーマ・正しい勉強法・数字の暗記法を徹底解説します。"><a class="article-index-card-link" href="takken-gyoho-study/"><span class="article-index-card-genre">過去問活用</span><h2>宅建業法の勉強法・完全攻略</h2><p>宅建業法（全50問中20問）の頻出テーマ・正しい勉強法・絶対覚える数字（5営業日・7営業日・8日・2週間等）・分野別の攻略ポイントを徹底解説。宅建業法で高得点を取るための戦略がわかります。</p><div class="article-index-card-tags">勉強法</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="宅建の過去問の使い方・効果的な解き方を解説 宅建試験の過去問の正しい使い方・効果的な解き方・繰り返しの方法・何年分解けばいいかを詳しく解説。間違えた問題の活用法・スマホアプリとの効率的な組み合わせ方も紹介します。合格への最短ルートを確認しましょう。 過去問活用 勉強法 過去問は宅建合格の最強ツールです。しかし「ただ解くだけ」では効果が半減します。この記事では過去問の正しい使い方・解く順番・解説の読み方・繰り返し方を具体的に解説します。"><a class="article-index-card-link" href="takken-kakomon/"><span class="article-index-card-genre">過去問活用</span><h2>宅建の過去問の使い方・効果的な解き方を解説</h2><p>宅建試験の過去問の正しい使い方・効果的な解き方・繰り返しの方法・何年分解けばいいかを詳しく解説。間違えた問題の活用法・スマホアプリとの効率的な組み合わせ方も紹介します。合格への最短ルートを確認しましょう。</p><div class="article-index-card-tags">勉強法</div></a></article><article class="article-index-card" data-genre="過去問活用" data-genre-style="practice" data-search="宅建の権利関係（民法）の勉強法 宅建試験の権利関係（民法・借地借家法等）が難しい理由・頻出テーマ・2020年改正民法の変更点・分野別の攻略ポイント・目標得点（14問中8〜10点）を詳しく解説します。正しい攻略法で合格を目指しましょう。 過去問活用 勉強法 権利関係（民法・借地借家法等）は宅建試験で最も難しいと感じる受験生が多い分野です。しかし正しい攻略法で取り組めば、14問中8〜10点は確実に取れます。この記事では権利関係が難しい理由と、効率的な攻略法を解説します。"><a class="article-index-card-link" href="takken-kenri-kankei/"><span class="article-index-card-genre">過去問活用</span><h2>宅建の権利関係（民法）の勉強法</h2><p>宅建試験の権利関係（民法・借地借家法等）が難しい理由・頻出テーマ・2020年改正民法の変更点・分野別の攻略ポイント・目標得点（14問中8〜10点）を詳しく解説します。正しい攻略法で合格を目指しましょう。</p><div class="article-index-card-tags">勉強法</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建の法令上の制限の勉強法｜用途地域・建ぺい率・開発許可の攻略 宅建試験の法令上の制限を効率よく学ぶ方法を解説。都市計画法、建築基準法、国土利用計画法、農地法、宅地造成等規制法の優先順位と覚え方をまとめます。 分野別対策 分野別攻略 法令上の制限は、制度名と数字が多くて苦手に感じやすい分野です。ただし出題範囲は比較的整理しやすく、表で違いを押さえれば得点源にできます。"><a class="article-index-card-link" href="takken-hooreijou-seigen-study/"><span class="article-index-card-genre">分野別対策</span><h2>宅建の法令上の制限の勉強法｜用途地域・建ぺい率・開発許可の攻略</h2><p>宅建試験の法令上の制限を効率よく学ぶ方法を解説。都市計画法、建築基準法、国土利用計画法、農地法、宅地造成等規制法の優先順位と覚え方をまとめます。</p><div class="article-index-card-tags">分野別攻略</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建の税・その他の勉強法｜直前期に得点を上積みする攻略法 宅建試験の税・その他を効率よく学ぶ方法を解説。不動産取得税、固定資産税、登録免許税、統計、5問免除科目の優先順位と直前期の勉強法をまとめます。 分野別対策 分野別攻略 税・その他は出題数こそ多くありませんが、直前期の確認で点数を上積みしやすい分野です。細かい税率を最初から完璧にするより、頻出テーマと更新情報を押さえることが大切です。"><a class="article-index-card-link" href="takken-zei-sonota-study/"><span class="article-index-card-genre">分野別対策</span><h2>宅建の税・その他の勉強法｜直前期に得点を上積みする攻略法</h2><p>宅建試験の税・その他を効率よく学ぶ方法を解説。不動産取得税、固定資産税、登録免許税、統計、5問免除科目の優先順位と直前期の勉強法をまとめます。</p><div class="article-index-card-tags">分野別攻略</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・宅建業法の基礎の押さえ方 宅建・宅建業法の基礎の押さえ方 分野別対策 分野別 / 試験対策 宅建・宅建業法の基礎の押さえ方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-law-basics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・宅建業法の基礎の押さえ方</h2><p>宅建・宅建業法の基礎の押さえ方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・宅建業法の頻出論点 宅建・宅建業法の頻出論点 分野別対策 分野別 / 試験対策 宅建・宅建業法の頻出論点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-law-frequent-topics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・宅建業法の頻出論点</h2><p>宅建・宅建業法の頻出論点</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・宅建業法の計算・数字対策 宅建・宅建業法の計算・数字対策 分野別対策 分野別 / 試験対策 宅建・宅建業法の計算・数字対策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-law-calculation/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・宅建業法の計算・数字対策</h2><p>宅建・宅建業法の計算・数字対策</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・宅建業法の事例問題の解き方 宅建・宅建業法の事例問題の解き方 分野別対策 分野別 / 試験対策 宅建・宅建業法の事例問題の解き方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-law-case-study/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・宅建業法の事例問題の解き方</h2><p>宅建・宅建業法の事例問題の解き方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・宅建業法の過去問での出方 宅建・宅建業法の過去問での出方 分野別対策 分野別 / 試験対策 宅建・宅建業法の過去問での出方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-law-past-question-focus/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・宅建業法の過去問での出方</h2><p>宅建・宅建業法の過去問での出方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・権利関係の基礎の押さえ方 宅建・権利関係の基礎の押さえ方 分野別対策 分野別 / 試験対策 宅建・権利関係の基礎の押さえ方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-rights-basics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・権利関係の基礎の押さえ方</h2><p>宅建・権利関係の基礎の押さえ方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・権利関係の頻出論点 宅建・権利関係の頻出論点 分野別対策 分野別 / 試験対策 宅建・権利関係の頻出論点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-rights-frequent-topics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・権利関係の頻出論点</h2><p>宅建・権利関係の頻出論点</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・権利関係の計算・数字対策 宅建・権利関係の計算・数字対策 分野別対策 分野別 / 試験対策 宅建・権利関係の計算・数字対策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-rights-calculation/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・権利関係の計算・数字対策</h2><p>宅建・権利関係の計算・数字対策</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・権利関係の事例問題の解き方 宅建・権利関係の事例問題の解き方 分野別対策 分野別 / 試験対策 宅建・権利関係の事例問題の解き方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-rights-case-study/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・権利関係の事例問題の解き方</h2><p>宅建・権利関係の事例問題の解き方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・権利関係の過去問での出方 宅建・権利関係の過去問での出方 分野別対策 分野別 / 試験対策 宅建・権利関係の過去問での出方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-rights-past-question-focus/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・権利関係の過去問での出方</h2><p>宅建・権利関係の過去問での出方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・法令上の制限の基礎の押さえ方 宅建・法令上の制限の基礎の押さえ方 分野別対策 分野別 / 試験対策 宅建・法令上の制限の基礎の押さえ方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-limit-basics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・法令上の制限の基礎の押さえ方</h2><p>宅建・法令上の制限の基礎の押さえ方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・法令上の制限の頻出論点 宅建・法令上の制限の頻出論点 分野別対策 分野別 / 試験対策 宅建・法令上の制限の頻出論点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-limit-frequent-topics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・法令上の制限の頻出論点</h2><p>宅建・法令上の制限の頻出論点</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・法令上の制限の計算・数字対策 宅建・法令上の制限の計算・数字対策 分野別対策 分野別 / 試験対策 宅建・法令上の制限の計算・数字対策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-limit-calculation/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・法令上の制限の計算・数字対策</h2><p>宅建・法令上の制限の計算・数字対策</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・法令上の制限の事例問題の解き方 宅建・法令上の制限の事例問題の解き方 分野別対策 分野別 / 試験対策 宅建・法令上の制限の事例問題の解き方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-limit-case-study/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・法令上の制限の事例問題の解き方</h2><p>宅建・法令上の制限の事例問題の解き方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・法令上の制限の過去問での出方 宅建・法令上の制限の過去問での出方 分野別対策 分野別 / 試験対策 宅建・法令上の制限の過去問での出方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-limit-past-question-focus/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・法令上の制限の過去問での出方</h2><p>宅建・法令上の制限の過去問での出方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・税・その他の基礎の押さえ方 宅建・税・その他の基礎の押さえ方 分野別対策 分野別 / 試験対策 宅建・税・その他の基礎の押さえ方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-tax-basics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・税・その他の基礎の押さえ方</h2><p>宅建・税・その他の基礎の押さえ方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・税・その他の頻出論点 宅建・税・その他の頻出論点 分野別対策 分野別 / 試験対策 宅建・税・その他の頻出論点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-tax-frequent-topics/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・税・その他の頻出論点</h2><p>宅建・税・その他の頻出論点</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・税・その他の計算・数字対策 宅建・税・その他の計算・数字対策 分野別対策 分野別 / 試験対策 宅建・税・その他の計算・数字対策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-tax-calculation/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・税・その他の計算・数字対策</h2><p>宅建・税・その他の計算・数字対策</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・税・その他の事例問題の解き方 宅建・税・その他の事例問題の解き方 分野別対策 分野別 / 試験対策 宅建・税・その他の事例問題の解き方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-tax-case-study/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・税・その他の事例問題の解き方</h2><p>宅建・税・その他の事例問題の解き方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="分野別対策" data-genre-style="practice" data-search="宅建・税・その他の過去問での出方 宅建・税・その他の過去問での出方 分野別対策 分野別 / 試験対策 宅建・税・その他の過去問での出方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="field-tax-past-question-focus/"><span class="article-index-card-genre">分野別対策</span><h2>宅建・税・その他の過去問での出方</h2><p>宅建・税・その他の過去問での出方</p><div class="article-index-card-tags">分野別 / 試験対策</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="宅建用語集の効率的な使い方 宅建用語集の効率的な使い方 用語整理 用語集 / 知識整理 宅建用語集の効率的な使い方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="glossary-study-method/"><span class="article-index-card-genre">用語整理</span><h2>宅建用語集の効率的な使い方</h2><p>宅建用語集の効率的な使い方</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="宅建で押さえる重要用語の探し方 宅建で押さえる重要用語の探し方 用語整理 用語集 / 知識整理 宅建で押さえる重要用語の探し方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="important-terms-list/"><span class="article-index-card-genre">用語整理</span><h2>宅建で押さえる重要用語の探し方</h2><p>宅建で押さえる重要用語の探し方</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="混同しやすい用語の整理術 混同しやすい用語の整理術 用語整理 用語集 / 知識整理 混同しやすい用語の整理術について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="confusing-terms/"><span class="article-index-card-genre">用語整理</span><h2>混同しやすい用語の整理術</h2><p>混同しやすい用語の整理術</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="関連用語リンクで知識を広げる 関連用語リンクで知識を広げる 用語整理 用語集 / 知識整理 関連用語リンクで知識を広げるについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="related-terms-navigation/"><span class="article-index-card-genre">用語整理</span><h2>関連用語リンクで知識を広げる</h2><p>関連用語リンクで知識を広げる</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="過去問と用語解説の往復学習 過去問と用語解説の往復学習 用語整理 用語集 / 知識整理 過去問と用語解説の往復学習について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="terms-with-past-questions/"><span class="article-index-card-genre">用語整理</span><h2>過去問と用語解説の往復学習</h2><p>過去問と用語解説の往復学習</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="重要度の見方と優先順位 重要度の見方と優先順位 用語整理 用語集 / 知識整理 重要度の見方と優先順位について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="terms-importance-levels/"><span class="article-index-card-genre">用語整理</span><h2>重要度の見方と優先順位</h2><p>重要度の見方と優先順位</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="宅建で出る数字・期限のまとめ方 宅建で出る数字・期限のまとめ方 用語整理 用語集 / 知識整理 宅建で出る数字・期限のまとめ方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="numbers-and-deadlines/"><span class="article-index-card-genre">用語整理</span><h2>宅建で出る数字・期限のまとめ方</h2><p>宅建で出る数字・期限のまとめ方</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="計算・公式の暗記のコツ 計算・公式の暗記のコツ 用語整理 用語集 / 知識整理 計算・公式の暗記のコツについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="formula-memorization/"><span class="article-index-card-genre">用語整理</span><h2>計算・公式の暗記のコツ</h2><p>計算・公式の暗記のコツ</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="計算問題の反復ドリル 計算問題の反復ドリル 用語整理 用語集 / 知識整理 計算問題の反復ドリルについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="calculation-drill/"><span class="article-index-card-genre">用語整理</span><h2>計算問題の反復ドリル</h2><p>計算問題の反復ドリル</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="割合・率の問題の解き方 割合・率の問題の解き方 用語整理 用語集 / 知識整理 割合・率の問題の解き方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="rate-and-percentage/"><span class="article-index-card-genre">用語整理</span><h2>割合・率の問題の解き方</h2><p>割合・率の問題の解き方</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="用語整理" data-genre-style="practice" data-search="数字問題の引っかけ選択肢 数字問題の引っかけ選択肢 用語整理 用語集 / 知識整理 数字問題の引っかけ選択肢について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="numeric-trap-choices/"><span class="article-index-card-genre">用語整理</span><h2>数字問題の引っかけ選択肢</h2><p>数字問題の引っかけ選択肢</p><div class="article-index-card-tags">用語集 / 知識整理</div></a></article><article class="article-index-card" data-genre="復習・苦手克服" data-genre-style="practice" data-search="間隔を空けた復習（スペースド） 間隔を空けた復習（スペースド） 復習・苦手克服 復習 / 苦手克服 間隔を空けた復習（スペースド）について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="review-cycle-spaced/"><span class="article-index-card-genre">復習・苦手克服</span><h2>間隔を空けた復習（スペースド）</h2><p>間隔を空けた復習（スペースド）</p><div class="article-index-card-tags">復習 / 苦手克服</div></a></article><article class="article-index-card" data-genre="復習・苦手克服" data-genre-style="practice" data-search="間違いノートの作り方 間違いノートの作り方 復習・苦手克服 復習 / 苦手克服 間違いノートの作り方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="mistake-notebook/"><span class="article-index-card-genre">復習・苦手克服</span><h2>間違いノートの作り方</h2><p>間違いノートの作り方</p><div class="article-index-card-tags">復習 / 苦手克服</div></a></article><article class="article-index-card" data-genre="復習・苦手克服" data-genre-style="practice" data-search="苦手分野の立て直し手順 苦手分野の立て直し手順 復習・苦手克服 復習 / 苦手克服 苦手分野の立て直し手順について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="weak-field-recovery/"><span class="article-index-card-genre">復習・苦手克服</span><h2>苦手分野の立て直し手順</h2><p>苦手分野の立て直し手順</p><div class="article-index-card-tags">復習 / 苦手克服</div></a></article><article class="article-index-card" data-genre="復習・苦手克服" data-genre-style="practice" data-search="宅建勉強のノートの取り方 宅建勉強のノートの取り方 復習・苦手克服 復習 / 苦手克服 宅建勉強のノートの取り方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="note-taking-method/"><span class="article-index-card-genre">復習・苦手克服</span><h2>宅建勉強のノートの取り方</h2><p>宅建勉強のノートの取り方</p><div class="article-index-card-tags">復習 / 苦手克服</div></a></article><article class="article-index-card" data-genre="復習・苦手克服" data-genre-style="practice" data-search="惜しい間違いの見直し方 惜しい間違いの見直し方 復習・苦手克服 復習 / 苦手克服 惜しい間違いの見直し方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="almost-correct-review/"><span class="article-index-card-genre">復習・苦手克服</span><h2>惜しい間違いの見直し方</h2><p>惜しい間違いの見直し方</p><div class="article-index-card-tags">復習 / 苦手克服</div></a></article><article class="article-index-card" data-genre="復習・苦手克服" data-genre-style="practice" data-search="伸び悩みの突破策 伸び悩みの突破策 復習・苦手克服 復習 / 苦手克服 伸び悩みの突破策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="plateau-breakthrough/"><span class="article-index-card-genre">復習・苦手克服</span><h2>伸び悩みの突破策</h2><p>伸び悩みの突破策</p><div class="article-index-card-tags">復習 / 苦手克服</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="宅建直前1週間の学習 宅建直前1週間の学習 直前・当日 直前対策 / 試験当日 宅建直前1週間の学習について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="final-week-prep/"><span class="article-index-card-genre">直前・当日</span><h2>宅建直前1週間の学習</h2><p>宅建直前1週間の学習</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="試験前日のチェックリスト 試験前日のチェックリスト 直前・当日 直前対策 / 試験当日 試験前日のチェックリストについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="final-day-checklist/"><span class="article-index-card-genre">直前・当日</span><h2>試験前日のチェックリスト</h2><p>試験前日のチェックリスト</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="直前期の範囲の絞り込み 直前期の範囲の絞り込み 直前・当日 直前対策 / 試験当日 直前期の範囲の絞り込みについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="final-scope-narrowing/"><span class="article-index-card-genre">直前・当日</span><h2>直前期の範囲の絞り込み</h2><p>直前期の範囲の絞り込み</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="直前期の睡眠と体調 直前期の睡眠と体調 直前・当日 直前対策 / 試験当日 直前期の睡眠と体調について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="final-sleep-and-health/"><span class="article-index-card-genre">直前・当日</span><h2>直前期の睡眠と体調</h2><p>直前期の睡眠と体調</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="直前模試の使い方 直前模試の使い方 直前・当日 直前対策 / 試験当日 直前模試の使い方について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="final-mock-last-run/"><span class="article-index-card-genre">直前・当日</span><h2>直前模試の使い方</h2><p>直前模試の使い方</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="試験当日の持ち物 試験当日の持ち物 直前・当日 直前対策 / 試験当日 試験当日の持ち物について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-day-items/"><span class="article-index-card-genre">直前・当日</span><h2>試験当日の持ち物</h2><p>試験当日の持ち物</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="試験当日の流れ 試験当日の流れ 直前・当日 直前対策 / 試験当日 試験当日の流れについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-day-flow/"><span class="article-index-card-genre">直前・当日</span><h2>試験当日の流れ</h2><p>試験当日の流れ</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="試験中の時間配分 試験中の時間配分 直前・当日 直前対策 / 試験当日 試験中の時間配分について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-day-time-allocation/"><span class="article-index-card-genre">直前・当日</span><h2>試験中の時間配分</h2><p>試験中の時間配分</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="本番のメンタル対策 本番のメンタル対策 直前・当日 直前対策 / 試験当日 本番のメンタル対策について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="mental-prep-exam-day/"><span class="article-index-card-genre">直前・当日</span><h2>本番のメンタル対策</h2><p>本番のメンタル対策</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="当日のトラブル対処 当日のトラブル対処 直前・当日 直前対策 / 試験当日 当日のトラブル対処について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-day-troubleshooting/"><span class="article-index-card-genre">直前・当日</span><h2>当日のトラブル対処</h2><p>当日のトラブル対処</p><div class="article-index-card-tags">直前対策 / 試験当日</div></a></article><article class="article-index-card" data-genre="直前・当日" data-genre-style="final" data-search="宅建試験の直前対策｜1ヶ月・1週間・前日でやること 宅建試験の直前期（1ヶ月・1週間・前日）にやるべきことを整理。過去問と間違いノートで得点を固める進め方を解説します。 直前・当日 直前対策 直前期は落とした問題を減らすことが最優先です。宅建業法と法令上の制限を中心に、時間配分と見直し手順を固定しましょう。"><a class="article-index-card-link" href="takken-chokuzen/"><span class="article-index-card-genre">直前・当日</span><h2>宅建試験の直前対策｜1ヶ月・1週間・前日でやること</h2><p>宅建試験の直前期（1ヶ月・1週間・前日）にやるべきことを整理。過去問と間違いノートで得点を固める進め方を解説します。</p><div class="article-index-card-tags">直前対策</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="合格後の手続き 合格後の手続き 注意点・更新 誤解 / 制度変更 / 合格後 合格後の手続きについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="after-pass-procedure/"><span class="article-index-card-genre">注意点・更新</span><h2>合格後の手続き</h2><p>合格後の手続き</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="合格発表の確認方法 合格発表の確認方法 注意点・更新 誤解 / 制度変更 / 合格後 合格発表の確認方法について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="pass-announcement-guide/"><span class="article-index-card-genre">注意点・更新</span><h2>合格発表の確認方法</h2><p>合格発表の確認方法</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="宅建士登録の流れ 宅建士登録の流れ 注意点・更新 誤解 / 制度変更 / 合格後 宅建士登録の流れについて、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="registration-after-pass/"><span class="article-index-card-genre">注意点・更新</span><h2>宅建士登録の流れ</h2><p>宅建士登録の流れ</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="合格後のキャリア選択 合格後のキャリア選択 注意点・更新 誤解 / 制度変更 / 合格後 合格後のキャリア選択について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="career-after-qualification/"><span class="article-index-card-genre">注意点・更新</span><h2>合格後のキャリア選択</h2><p>合格後のキャリア選択</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="不合格からの再受験計画 不合格からの再受験計画 注意点・更新 誤解 / 制度変更 / 合格後 不合格からの再受験計画について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="fail-retry-plan/"><span class="article-index-card-genre">注意点・更新</span><h2>不合格からの再受験計画</h2><p>不合格からの再受験計画</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="再受験の戦略 再受験の戦略 注意点・更新 誤解 / 制度変更 / 合格後 再受験の戦略について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="retake-strategy/"><span class="article-index-card-genre">注意点・更新</span><h2>再受験の戦略</h2><p>再受験の戦略</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="再受験時のスケジュール調整 再受験時のスケジュール調整 注意点・更新 誤解 / 制度変更 / 合格後 再受験時のスケジュール調整について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="retake-schedule-adjustment/"><span class="article-index-card-genre">注意点・更新</span><h2>再受験時のスケジュール調整</h2><p>再受験時のスケジュール調整</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="得点差の分析 得点差の分析 注意点・更新 誤解 / 制度変更 / 合格後 得点差の分析について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="score-gap-analysis/"><span class="article-index-card-genre">注意点・更新</span><h2>得点差の分析</h2><p>得点差の分析</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="試験制度の変更点 試験制度の変更点 注意点・更新 誤解 / 制度変更 / 合格後 試験制度の変更点について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="exam-changes/"><span class="article-index-card-genre">注意点・更新</span><h2>試験制度の変更点</h2><p>試験制度の変更点</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="法令改正の学習への影響 法令改正の学習への影響 注意点・更新 誤解 / 制度変更 / 合格後 法令改正の学習への影響について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="legal-revision-impact/"><span class="article-index-card-genre">注意点・更新</span><h2>法令改正の学習への影響</h2><p>法令改正の学習への影響</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="シラバス更新の追跡 シラバス更新の追跡 注意点・更新 誤解 / 制度変更 / 合格後 シラバス更新の追跡について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="syllabus-update-tracker/"><span class="article-index-card-genre">注意点・更新</span><h2>シラバス更新の追跡</h2><p>シラバス更新の追跡</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="公式情報の確認習慣 公式情報の確認習慣 注意点・更新 誤解 / 制度変更 / 合格後 公式情報の確認習慣について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="official-info-update-habits/"><span class="article-index-card-genre">注意点・更新</span><h2>公式情報の確認習慣</h2><p>公式情報の確認習慣</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="宅建のよくある誤解 宅建のよくある誤解 注意点・更新 誤解 / 制度変更 / 合格後 宅建のよくある誤解について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="common-misconceptions/"><span class="article-index-card-genre">注意点・更新</span><h2>宅建のよくある誤解</h2><p>宅建のよくある誤解</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="過去問だけ神話への注意 過去問だけ神話への注意 注意点・更新 誤解 / 制度変更 / 合格後 過去問だけ神話への注意について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="pass-only-past-questions-myth/"><span class="article-index-card-genre">注意点・更新</span><h2>過去問だけ神話への注意</h2><p>過去問だけ神話への注意</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="勉強時間の神話 勉強時間の神話 注意点・更新 誤解 / 制度変更 / 合格後 勉強時間の神話について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="study-hours-myth/"><span class="article-index-card-genre">注意点・更新</span><h2>勉強時間の神話</h2><p>勉強時間の神話</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="受験資格の誤解 受験資格の誤解 注意点・更新 誤解 / 制度変更 / 合格後 受験資格の誤解について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="eligibility-myths/"><span class="article-index-card-genre">注意点・更新</span><h2>受験資格の誤解</h2><p>受験資格の誤解</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="難易度の誤解 難易度の誤解 注意点・更新 誤解 / 制度変更 / 合格後 難易度の誤解について、公式情報を確認しながら学習を進めるためのガイドです。"><a class="article-index-card-link" href="difficulty-myths/"><span class="article-index-card-genre">注意点・更新</span><h2>難易度の誤解</h2><p>難易度の誤解</p><div class="article-index-card-tags">誤解 / 制度変更 / 合格後</div></a></article><article class="article-index-card" data-genre="注意点・更新" data-genre-style="meta" data-search="宅建の再受験の勉強法｜失点分析から合格へのロードマップ 宅建試験の再受験者向けに、失点分析のやり方、学習計画の立て直し、同じ失敗を繰り返さないコツを解説します。 注意点・更新 再受験 再受験は「やり直し」ではなく「設計の修正」です。前回と同じ順番・同じ教材で進めると、同じ失点パターンが再現されやすくなります。"><a class="article-index-card-link" href="takken-saishuken/"><span class="article-index-card-genre">注意点・更新</span><h2>宅建の再受験の勉強法｜失点分析から合格へのロードマップ</h2><p>宅建試験の再受験者向けに、失点分析のやり方、学習計画の立て直し、同じ失敗を繰り返さないコツを解説します。</p><div class="article-index-card-tags">再受験</div></a></article>
+    </div>
+    <p id="article-index-empty" class="article-index-empty hide">条件に合う記事がありません。検索語を短くするか、ジャンルを「すべて」に戻してください。</p>
+  </section>
+</main>
+<footer class="site-page-footer">
       <div class="site-page-footer-inner">
         <div class="site-page-footer-links">
           <a href="../index.html">トップ</a>
           <a href="../about.html">このサイトについて</a>
           <a href="../q/index.html">過去問一覧</a>
-          <a href="../terms/index.html">用語集</a>
-          <a href="index.html" aria-current="page">試験ガイド</a>
+          <a href="../terms/index.html">用語解説</a>
+          <a href="../articles/index.html" aria-current="page">試験ガイド</a>
           <a href="../related-sites.html">関連リンク</a>
-          <a href="../privacy-terms.html">プライバシー</a>
+          <a href="../privacy.html">プライバシー</a>
           <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
         </div>
-        <span class="site-page-footer-copy">© 2026 宅建マスター学習支援（非公式）・takken-master.jp</span>
+        <span class="site-page-footer-sep" aria-hidden="true"></span>
+        <span class="site-page-footer-copy">© 2026 宅建マスター学習支援・takken-master.jp</span>
       </div>
     </footer>
-  </div>
+<!-- GA4: tools/html_footer.analytics_snippet（測定IDは GA4_MEASUREMENT_ID） -->
+<script>window.__GA4_MEASUREMENT_ID__="G-3F5HESVZ9C";</script>
+<script defer src="../site-analytics.js"></script>
+</div>
+<script>
+(() => {
+  const q = document.getElementById('article-index-q');
+  const chips = Array.from(document.querySelectorAll('.article-index-chip[data-genre]'));
+  const cards = Array.from(document.querySelectorAll('.article-index-card'));
+  const hit = document.getElementById('article-index-hit');
+  const empty = document.getElementById('article-index-empty');
+  let activeGenre = 'all';
+  const norm = (s) => (s || '').toString().trim().toLowerCase();
+  function apply() {
+    const query = norm(q?.value || '');
+    let shown = 0;
+    cards.forEach((card) => {
+      const genreOk = activeGenre === 'all' || card.dataset.genre === activeGenre;
+      const textOk = !query || norm(card.dataset.search).includes(query);
+      const ok = genreOk && textOk;
+      card.classList.toggle('hide', !ok);
+      if (ok) shown++;
+    });
+    if (hit) hit.textContent = `${shown} / ${cards.length} 記事`;
+    if (empty) empty.classList.toggle('hide', shown !== 0);
+  }
+  q?.addEventListener('input', apply);
+  chips.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      chips.forEach((b) => b.classList.remove('on'));
+      btn.classList.add('on');
+      activeGenre = btn.dataset.genre || 'all';
+      apply();
+    });
+  });
+  apply();
+})();
+</script>
 </body>
 </html>

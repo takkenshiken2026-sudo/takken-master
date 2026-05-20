@@ -36,7 +36,7 @@ window.SITE_CONFIG = {
         "key": "q"
       },
       {
-        "label": "用語集",
+        "label": "用語解説",
         "href": "terms/index.html",
         "key": "terms"
       },
@@ -73,7 +73,7 @@ window.SITE_CONFIG = {
         "key": "q"
       },
       {
-        "label": "用語集",
+        "label": "用語解説",
         "href": "terms/index.html",
         "key": "terms"
       },
@@ -89,7 +89,7 @@ window.SITE_CONFIG = {
       },
       {
         "label": "プライバシー",
-        "href": "privacy-terms.html",
+        "href": "privacy.html",
         "key": "privacy"
       },
       {
@@ -136,6 +136,14 @@ window.SITE_CONFIG = {
         "その他"
       ],
       "legacyGlossaryCat": "tax"
+    },
+    {
+      "id": "guide",
+      "name": "試験対策",
+      "aliases": [
+        "試験対策"
+      ],
+      "legacyGlossaryCat": "guide"
     }
   ]
 };

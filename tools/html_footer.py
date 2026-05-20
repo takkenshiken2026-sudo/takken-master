@@ -32,11 +32,15 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     parent = rel_path.parent
     parts = parent.parts
 
-    # terms/<slug>/... → terms/index.html
+    # terms/index.html（用語索引）
     if site_rel == "terms/index.html" and parts and parts[0] == "terms":
         if parts == ("terms",):
             return "index.html"
         return "/".join([".."] * (len(parts) - 1)) + "/index.html"
+
+    # terms/ 直下の g-*.html から field-* ハブへ
+    if parts == ("terms",) and site_rel.startswith("field-"):
+        return site_rel
 
     # q/index.html（q 配下はカレントが q の index）
     if site_rel == "q/index.html":

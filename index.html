@@ -2275,9 +2275,32 @@ body.is-solving .site-footer{display:none!important}
 </div>
 
 
-<script src="takken-master-data.js"></script>
+<script>
+function applyCsvImportedQuestions() {
+  if (typeof CSV_IMPORTED_QUESTIONS === 'undefined' || !Array.isArray(CSV_IMPORTED_QUESTIONS)) return;
+  var rows = CSV_IMPORTED_QUESTIONS;
+  BASE_QUESTIONS = rows.filter(function (q) {
+    return q && q.year != null && q.year !== '';
+  });
+  QUESTIONS = rows.slice();
+  var yset = new Set();
+  BASE_QUESTIONS.forEach(function (q) {
+    if (q.year != null && q.year !== '') yset.add(q.year);
+  });
+  YEARS = Array.from(yset).sort(function (a, b) { return b - a; });
+  if (typeof SIMPLE_EXP !== 'undefined') {
+    BASE_QUESTIONS.forEach(function (q) {
+      if (SIMPLE_EXP[q.id]) q.exp = SIMPLE_EXP[q.id];
+    });
+    QUESTIONS = BASE_QUESTIONS.slice();
+  }
+}
+</script>
+<script src="takken-master-data-core.js"></script>
+<script src="takken-master-data-past.js"></script>
 <script src="takken-data-glossary.js"></script>
 <script src="takken-data-original.js"></script>
+<script src="exam-site-data-ichimondou.js"></script>
 <script>
 
 (function enrichGlossaryPlaceholderDesc(){

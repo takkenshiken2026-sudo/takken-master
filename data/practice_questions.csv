@@ -1,0 +1,2 @@
+question_no,type,category,tags,stem,preamble,statement_a,statement_b,statement_c,statement_d,choice_1,choice_2,choice_3,choice_4,correct,explanation
+1,single,宅建業法,確認,学習データの更新に関する次の記述のうち、正しいものはどれか。,,,,,,data/*.csv を編集して build_all.py を実行する。,生成済み HTML だけを直接編集し続ける。,CSV の列名は自由に変えてよい。,site-config.json は不要である。,1,正解は1です。問題・用語・試験ガイドは CSV を正本とし、tools/build_all.py で静的ページを再生成します。

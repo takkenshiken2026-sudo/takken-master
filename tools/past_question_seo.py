@@ -16,6 +16,7 @@ from tools.seo_common import (
     build_term_match_index,
     extract_theme_label,
     field_id_for_category,
+    glossary_term_file_by_legacy_slug,
     load_glossary_items_from_js,
     match_terms_in_text,
     primary_source_links_html,
@@ -72,12 +73,14 @@ def related_terms_html(page: dict, rel_path: Path) -> str:
     by_slug = {
         (i.get("articleSlug") or str(i.get("id", "")).replace("_", "-")).strip(): i for i in items
     }
+    href_by_slug = glossary_term_file_by_legacy_slug()
     links = []
     for slug in slugs:
         item = by_slug.get(slug)
         label = str(item.get("term") if item else slug)
+        term_file = href_by_slug.get(slug) or f"{slug}/index.html"
         links.append(
-            f'<li><a href="{html.escape(root_up)}/terms/{html.escape(slug)}/">{html.escape(label)}</a></li>'
+            f'<li><a href="{html.escape(root_up)}/terms/{html.escape(term_file)}">{html.escape(label)}</a></li>'
         )
     return (
         '<section class="q-block q-related" aria-labelledby="q-terms-h">'
@@ -264,6 +267,9 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
         )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
+    depth = len(Path(rel_path).parent.parts)
+    to_root = "/".join([".."] * depth)
+    to_q = "/".join([".."] * (depth - 1))
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -273,14 +279,14 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
 <meta name="description" content="{html.escape(desc)}">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{html.escape(canonical)}">
-<link rel="stylesheet" href="../../site-pages.css">
+<link rel="stylesheet" href="{to_root}/site-pages.css">
 </head>
 <body class="q-static-body">
 <header class="q-static-header">
-  <p class="q-static-brand"><a href="../../index.html">{html.escape(brand)}</a>（{html.escape(exam)}）</p>
+  <p class="q-static-brand"><a href="{to_root}/index.html">{html.escape(brand)}</a>（{html.escape(exam)}）</p>
   <nav aria-label="パンくず"><ol class="q-breadcrumb">
-    <li><a href="../../index.html">トップ</a></li>
-    <li><a href="../index.html">過去問一覧</a></li>
+    <li><a href="{to_root}/index.html">トップ</a></li>
+    <li><a href="{to_q}/index.html">過去問一覧</a></li>
     <li aria-current="page">{html.escape(meta["name"])}</li>
   </ol></nav>
 </header>
@@ -289,7 +295,7 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
   <p class="q-meta">掲載 {len(field_pages)} 問</p>
   {trust}
   {"".join(year_sections)}
-  <p class="q-hub-links"><a href="../../terms/index.html">用語解説一覧</a> · <a href="../../articles/index.html">試験ガイド</a></p>
+  <p class="q-hub-links"><a href="{to_root}/terms/index.html">用語解説一覧</a> · <a href="{to_root}/articles/index.html">試験ガイド</a></p>
 </main>
 </body>
 </html>"""

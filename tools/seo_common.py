@@ -164,6 +164,165 @@ def field_id_for_category(category: str) -> str | None:
     return CATEGORY_TO_FIELD.get((category or "").strip())
 
 
+_LEGACY_HEX_SLUG = re.compile(r"^[0-9a-f]{16}$")
+
+
+def normalize_extracted_term(term: str | None) -> str | None:
+    if not term:
+        return None
+    t = term.strip()
+    if t.endswith("とは"):
+        t = t[:-2].strip()
+    return t or None
+
+
+def _term_match_key(s: str) -> str:
+    return (
+        s.replace(" ", "")
+        .replace("　", "")
+        .replace("・", "")
+        .replace("と", "")
+        .replace("の", "")
+    )
+
+
+# 旧静的ページの用語名 → 現行 glossary_terms.csv の用語名
+# 旧ディレクトリ名 → 用語名（build_readable_term_slug_targets 用）
+LEGACY_READABLE_DIR_TERMS: dict[str, str] = {
+    "baikai": "媒介契約の種類",
+    "baikai-compare": "媒介契約の種類",
+    "reins": "レインズ",
+}
+
+LEGACY_TERM_ALIASES: dict[str, str] = {
+    "報酬限度額": "報酬の計算（売買）",
+    "自己所有に属しない物件の制限": "自己所有外物件の制限",
+    "手付金・保全措置": "手付金等の保全措置",
+    "営業保証金・弁済業務保証金": "営業保証金と弁済業務保証金",
+    "宅建 直前対策": "宅建の直前対策",
+}
+
+
+def lookup_term_file(term: str | None, term_to_file: dict[str, str]) -> str | None:
+    """用語名から terms/g-*.html を解決（旧ページ表記のゆれを許容）。"""
+    t = normalize_extracted_term(term)
+    if not t:
+        return None
+    t = LEGACY_TERM_ALIASES.get(t, t)
+    if t in term_to_file:
+        return term_to_file[t]
+    compact = _term_match_key(t)
+    best_key = ""
+    best_file: str | None = None
+    for key, file in term_to_file.items():
+        key_compact = _term_match_key(key)
+        if key_compact == compact:
+            return file
+        if key in t or t in key:
+            if len(key) > len(best_key):
+                best_key = key
+                best_file = file
+    if best_file:
+        return best_file
+    # 旧タイトル略称（例: 宅建 直前対策 → 宅建の直前対策）
+    for key, file in term_to_file.items():
+        if _term_match_key(key) in compact or compact in _term_match_key(key):
+            if len(key) > len(best_key):
+                best_key = key
+                best_file = file
+    return best_file
+
+
+def extract_term_name_from_legacy_term_html(html: str) -> str | None:
+    """旧 terms/{readable-slug}/ の HTML から用語名を抽出。"""
+    m = re.search(
+        r'"@type"\s*:\s*"DefinedTerm"[^}]*?"name"\s*:\s*"((?:\\.|[^"\\])*)"',
+        html,
+        re.S,
+    )
+    if m:
+        return normalize_extracted_term(m.group(1).replace("\\/", "/"))
+    m = re.search(r'<h1 class="term-h1">([^<]+)', html)
+    if m:
+        title = m.group(1).strip()
+        if "とは" in title:
+            title = title.split("とは", 1)[0].strip()
+        return normalize_extracted_term(title)
+    return None
+
+
+def glossary_term_file_by_term_name() -> dict[str, str]:
+    """用語名 → terms/g-*.html（CSV と build_glossary_pages と同一）。"""
+    from tools.build_glossary_pages import load_glossary_rows, norm, term_slug  # noqa: WPS433
+
+    used: dict[str, str] = {}
+    out: dict[str, str] = {}
+    for row in load_glossary_rows():
+        term = norm(row.get("term"))
+        if not term:
+            continue
+        reading = norm(row.get("reading"))
+        out[term] = term_slug(term, reading, used) + ".html"
+    return out
+
+
+def build_readable_term_slug_targets() -> dict[str, str]:
+    """旧 terms/{readable-slug}/ のディレクトリ名 → /terms/g-*.html。"""
+    term_to_file = glossary_term_file_by_term_name()
+    targets: dict[str, str] = {}
+    terms_dir = ROOT / "terms"
+    if not terms_dir.is_dir():
+        return targets
+    for slug_dir in terms_dir.iterdir():
+        if not slug_dir.is_dir():
+            continue
+        name = slug_dir.name
+        if name.startswith("field-") or _LEGACY_HEX_SLUG.fullmatch(name):
+            continue
+        index = slug_dir / "index.html"
+        if not index.is_file():
+            continue
+        text = index.read_text(encoding="utf-8", errors="replace")
+        if name in LEGACY_READABLE_DIR_TERMS:
+            term = LEGACY_READABLE_DIR_TERMS[name]
+        else:
+            refresh = re.search(r'content="0;url=([^"]+)"', text)
+            if refresh:
+                target = refresh.group(1)
+                if "#" not in target.split("/")[-1]:
+                    targets[name] = target
+                    continue
+            term = extract_term_name_from_legacy_term_html(text)
+        term_file = lookup_term_file(term, term_to_file)
+        if term_file:
+            targets[name] = f"/terms/{term_file}"
+    return targets
+
+
+def glossary_term_file_by_legacy_slug() -> dict[str, str]:
+    """旧 articleSlug → terms/g-*.html（CSV と同一ロジック）。"""
+    from tools.build_glossary_pages import load_glossary_rows, norm, term_slug  # noqa: WPS433
+
+    js_items = load_glossary_items_from_js()
+    slug_to_term = {
+        (i.get("articleSlug") or str(i.get("id", "")).replace("_", "-")).strip(): str(i.get("term") or "")
+        for i in js_items
+    }
+    used: dict[str, str] = {}
+    term_to_file: dict[str, str] = {}
+    for row in load_glossary_rows():
+        term = norm(row.get("term"))
+        if not term:
+            continue
+        reading = norm(row.get("reading"))
+        term_to_file[term] = term_slug(term, reading, used) + ".html"
+    out: dict[str, str] = {}
+    for leg, term in slug_to_term.items():
+        if leg and term in term_to_file:
+            out[leg] = term_to_file[term]
+    return out
+
+
 def load_glossary_items_from_js() -> list[dict]:
     js_path = ROOT / "takken-data-glossary.js"
     if not js_path.is_file():

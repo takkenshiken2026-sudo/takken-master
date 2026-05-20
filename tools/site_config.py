@@ -104,7 +104,7 @@ DEFAULT_HEADER_NAV = [
     {"label": "用語集", "href": "terms/index.html", "key": "terms"},
     {"label": "試験ガイド", "href": "articles/index.html", "key": "articles"},
     {"label": "関連リンク", "href": "related-sites.html", "key": "related"},
-    {"label": "プライバシー", "href": "privacy-terms.html", "key": "privacy"},
+    {"label": "プライバシー", "href": "privacy.html", "key": "privacy"},
 ]
 
 DEFAULT_FOOTER_NAV = [
@@ -154,11 +154,18 @@ def theme() -> dict[str, str]:
 
 def write_site_theme_css() -> None:
     t = theme()
+    accent = t["accent"]
     css = f""":root {{
-  --ink: {t["accent"]};
-  --sel: {t["accent"]};
-  --accent: {t["accent"]};
+  --sel: {accent};
+  --accent: {accent};
   --accent-text: {t["accentText"]};
+  --accent-soft: color-mix(in srgb, {accent} 11%, #ffffff);
+  --accent-soft-mid: color-mix(in srgb, {accent} 18%, #ffffff);
+  --accent-border: color-mix(in srgb, {accent} 26%, #ffffff);
+  --accent-emphasis: color-mix(in srgb, {accent} 42%, #333333);
+  --accent-hover-surface: color-mix(in srgb, {accent} 7%, #ffffff);
+  --accent-hover-border: color-mix(in srgb, {accent} 30%, #e4e4e6);
+  --accent-shadow: color-mix(in srgb, {accent} 12%, transparent);
   --bg: {t["surface"]};
   --bg2: {t["surfaceAlt"]};
   --page-bg: {t["background"]};
@@ -168,19 +175,74 @@ def write_site_theme_css() -> None:
   --r2: {t["radius"]};
   --site-nav-w: {t["navWidth"]};
   --site-content-w: {t["contentWidth"]};
-  --site-readable-w: min(960px, {t["contentWidth"]});
+  --site-readable-w: min(860px, {t["contentWidth"]});
 }}
 body {{
   background: var(--page-bg);
 }}
-.site-page-mark,
-.terms-idx-chip.on,
-.gcat-btn.active {{
+.site-page-mark {{
   background: var(--accent);
   color: var(--accent-text);
 }}
+.terms-idx-chip.on,
+.gcat-btn.active {{
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent-emphasis);
+}}
 """
     (ROOT / "site-theme.css").write_text(css, encoding="utf-8")
+
+
+DEFAULT_GUIDE_ARTICLE_GENRES: list[dict[str, str]] = [
+    {"id": "overview", "label": "試験概要", "phase": "制度を知る", "style": "overview", "hint": ""},
+    {"id": "application", "label": "受験・申込", "phase": "制度を知る", "style": "institution", "hint": ""},
+    {"id": "pass-stats", "label": "合格・難易度", "phase": "制度を知る", "style": "institution", "hint": ""},
+    {"id": "exam-scope", "label": "出題・形式", "phase": "制度を知る", "style": "institution", "hint": ""},
+    {"id": "study-plan", "label": "学習計画", "phase": "学習を設計する", "style": "study", "hint": ""},
+    {"id": "self-study", "label": "独学対策", "phase": "学習を設計する", "style": "study", "hint": ""},
+    {"id": "past-questions", "label": "過去問活用", "phase": "演習と定着", "style": "practice", "hint": ""},
+    {"id": "field-study", "label": "分野別対策", "phase": "演習と定着", "style": "practice", "hint": ""},
+    {"id": "glossary-study", "label": "用語整理", "phase": "演習と定着", "style": "practice", "hint": ""},
+    {"id": "review-weak", "label": "復習・苦手克服", "phase": "演習と定着", "style": "practice", "hint": ""},
+    {"id": "final-prep", "label": "直前・当日", "phase": "直前と当日", "style": "final", "hint": ""},
+    {"id": "cautions", "label": "注意点・更新", "phase": "横断", "style": "meta", "hint": ""},
+]
+
+
+def guide_article_genres() -> list[dict[str, str]]:
+    raw = CONFIG.get("guideArticleGenres")
+    if not isinstance(raw, list) or not raw:
+        return [dict(g) for g in DEFAULT_GUIDE_ARTICLE_GENRES]
+    out: list[dict[str, str]] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label") or "").strip()
+        if not label:
+            continue
+        out.append(
+            {
+                "id": str(item.get("id") or label),
+                "label": label,
+                "phase": str(item.get("phase") or "").strip(),
+                "style": str(item.get("style") or "meta").strip() or "meta",
+                "hint": str(item.get("hint") or "").strip(),
+            }
+        )
+    return out or [dict(g) for g in DEFAULT_GUIDE_ARTICLE_GENRES]
+
+
+def guide_genre_labels() -> list[str]:
+    return [g["label"] for g in guide_article_genres()]
+
+
+def guide_genre_order_index() -> dict[str, int]:
+    return {label: i for i, label in enumerate(guide_genre_labels())}
+
+
+def guide_genre_style_by_label() -> dict[str, str]:
+    return {g["label"]: g["style"] for g in guide_article_genres()}
 
 
 def fields() -> list[dict[str, Any]]:
@@ -188,6 +250,10 @@ def fields() -> list[dict[str, Any]]:
     if not isinstance(out, list) or not out:
         raise ValueError("site-config.json の fields は1件以上の配列にしてください")
     return out
+
+
+def field_ids() -> list[str]:
+    return [str(f["id"]) for f in fields()]
 
 
 def field_labels() -> dict[str, str]:
@@ -217,7 +283,7 @@ def category_order() -> list[str]:
 def legacy_glossary_cat(category: str) -> str:
     fid = category_to_field_map().get(category)
     if not fid:
-        return "tax"
+        return "limit"
     for f in fields():
         if str(f["id"]) == fid:
             return str(f.get("legacyGlossaryCat") or fid)
@@ -256,16 +322,38 @@ def write_site_config_js() -> None:
             {
                 "id": str(f["id"]),
                 "name": str(f.get("name") or f["id"]),
-                "aliases": [str(x) for x in (f.get("aliases") or [])],
+                "aliases": [str(a) for a in (f.get("aliases") or [])],
                 "legacyGlossaryCat": str(f.get("legacyGlossaryCat") or f["id"]),
             }
             for f in fields()
         ],
     }
-    text = "window.SITE_CONFIG = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n"
-    (ROOT / "site-config.js").write_text(text, encoding="utf-8")
+    (ROOT / "site-config.js").write_text(
+        "window.SITE_CONFIG = "
+        + json.dumps(payload, ensure_ascii=False, indent=2)
+        + ";\n",
+        encoding="utf-8",
+    )
+
+
+def write_crawler_files() -> None:
+    origin = clean_origin()
+    host = origin.replace("https://", "").replace("http://", "").strip("/")
+    (ROOT / "CNAME").write_text(host + "\n", encoding="utf-8")
+    (ROOT / "robots.txt").write_text(
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        f"Sitemap: {origin}/sitemap.xml\n",
+        encoding="utf-8",
+    )
 
 
 def sync_config_files() -> None:
     write_site_config_js()
     write_site_theme_css()
+    write_crawler_files()
+
+
+if __name__ == "__main__":
+    sync_config_files()
+    print("Synced site-config.js, CNAME, robots.txt from site-config.json")
