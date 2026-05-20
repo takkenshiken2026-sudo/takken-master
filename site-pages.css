@@ -2323,7 +2323,8 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 @media (min-width: 960px) {
   .terms-idx-table-duo {
-    min-width: 920px;
+    min-width: 1080px;
+    width: 100%;
   }
 }
 .terms-idx-table thead th {
@@ -2338,14 +2339,27 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   font-weight: 700;
   white-space: nowrap;
 }
-.terms-idx-table-duo .terms-idx-th-term {
-  width: 11%;
+.terms-idx-table-duo thead th {
+  white-space: normal;
 }
-.terms-idx-table-duo .terms-idx-th-cat {
-  width: 7%;
+.terms-idx-table-duo .terms-idx-th-term,
+.terms-idx-table-duo .terms-idx-td-term {
+  width: 16%;
 }
-.terms-idx-table-duo .terms-idx-th-def {
-  width: 15%;
+.terms-idx-table-duo .terms-idx-th-cat,
+.terms-idx-table-duo .terms-idx-td-cat {
+  width: 10%;
+}
+.terms-idx-table-duo .terms-idx-th-def,
+.terms-idx-table-duo .terms-idx-td-snippet {
+  width: 24%;
+}
+.terms-idx-table-duo .terms-idx-td-term,
+.terms-idx-table-duo .terms-idx-td-cat,
+.terms-idx-table-duo .terms-idx-td-snippet {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  box-sizing: border-box;
 }
 .terms-idx-table-duo .terms-idx-slot-b.terms-idx-th-term,
 .terms-idx-table-duo .terms-idx-slot-b.terms-idx-td-term {
