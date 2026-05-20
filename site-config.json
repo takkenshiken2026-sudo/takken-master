@@ -29,7 +29,7 @@
       {"label": "用語解説", "href": "terms/index.html", "key": "terms"},
       {"label": "試験ガイド", "href": "articles/index.html", "key": "articles"},
       {"label": "関連リンク", "href": "related-sites.html", "key": "related"},
-      {"label": "プライバシー", "href": "privacy-terms.html", "key": "privacy"}
+      {"label": "プライバシー", "href": "privacy.html", "key": "privacy"}
     ],
     "footer": [
       {"label": "トップ", "href": "index.html", "key": "top"},

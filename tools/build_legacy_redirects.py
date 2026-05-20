@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""旧 URL（takken/*, terms/{slug}/, glossary/*）から新 URL へリダイレクト HTML を置く。"""
+"""旧 URL 向けリダイレクト HTML を生成（data/legacy_url_redirects.csv + articles/）。"""
 
 from __future__ import annotations
 
+import csv
 import html
-import re
 import sys
 from pathlib import Path
 
@@ -13,10 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.seo_common import (  # noqa: E402
-    build_readable_term_slug_targets,
-    glossary_term_file_by_legacy_slug,
-)
+LEGACY_CSV = ROOT / "data" / "legacy_url_redirects.csv"
 
 REDIRECT_HTML = """<!DOCTYPE html>
 <html lang="ja">
@@ -44,45 +41,32 @@ def write_redirect(path: Path, target: str) -> None:
     )
 
 
-def redirect_terms_legacy() -> int:
-    href_map = glossary_term_file_by_legacy_slug()
-    count = 0
-    for slug, term_file in href_map.items():
-        old = ROOT / "terms" / slug / "index.html"
-        target = f"/terms/{term_file}"
-        write_redirect(old, target)
-        count += 1
-    return count
+def load_legacy_rows() -> list[dict[str, str]]:
+    if not LEGACY_CSV.is_file():
+        print(f"Missing {LEGACY_CSV}", file=sys.stderr)
+        return []
+    with LEGACY_CSV.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
 
 
-def redirect_terms_readable(readable_targets: dict[str, str]) -> int:
-    """旧 terms/{読みやすいslug}/ → terms/g-*.html"""
-    count = 0
-    for slug, target in readable_targets.items():
-        write_redirect(ROOT / "terms" / slug / "index.html", target)
-        count += 1
-    return count
-
-
-def redirect_glossary_legacy(readable_targets: dict[str, str]) -> int:
-    href_map = glossary_term_file_by_legacy_slug()
-    count = 0
-    glossary_dir = ROOT / "glossary"
-    if not glossary_dir.is_dir():
-        return 0
-    for slug_dir in glossary_dir.iterdir():
-        if not slug_dir.is_dir():
+def redirect_from_csv(rows: list[dict[str, str]]) -> tuple[int, int, int]:
+    n_readable = n_hash = n_glossary = 0
+    for row in rows:
+        kind = (row.get("legacy_kind") or "").strip()
+        slug = (row.get("legacy_slug") or "").strip()
+        target = (row.get("target_url") or "").strip()
+        if not slug or not target:
             continue
-        slug = slug_dir.name
-        if slug in readable_targets:
-            target = readable_targets[slug]
-        elif slug in href_map:
-            target = f"/terms/{href_map[slug]}"
-        else:
-            continue
-        write_redirect(slug_dir / "index.html", target)
-        count += 1
-    return count
+        if kind == "terms_readable":
+            write_redirect(ROOT / "terms" / slug / "index.html", target)
+            n_readable += 1
+        elif kind == "terms_hash":
+            write_redirect(ROOT / "terms" / slug / "index.html", target)
+            n_hash += 1
+        elif kind == "glossary":
+            write_redirect(ROOT / "glossary" / slug / "index.html", target)
+            n_glossary += 1
+    return n_readable, n_hash, n_glossary
 
 
 def redirect_takken_articles() -> int:
@@ -90,17 +74,16 @@ def redirect_takken_articles() -> int:
     if not articles_dir.is_dir():
         return 0
     count = 0
-    takken_dir = ROOT / "takken"
-    if not takken_dir.is_dir():
-        return 0
-    for slug_dir in takken_dir.iterdir():
-        if not slug_dir.is_dir():
+    for slug_dir in sorted(articles_dir.iterdir()):
+        if not slug_dir.is_dir() or slug_dir.name.startswith("."):
             continue
         slug = slug_dir.name
-        new_path = articles_dir / slug / "index.html"
-        if not new_path.is_file():
+        # 旧 takken/ 配下にあった slug のみ（takken- 接頭辞の移行記事）
+        if not slug.startswith("takken-"):
             continue
-        write_redirect(slug_dir / "index.html", f"/articles/{slug}/")
+        if not (slug_dir / "index.html").is_file():
+            continue
+        write_redirect(ROOT / "takken" / slug / "index.html", f"/articles/{slug}/")
         count += 1
     return count
 
@@ -110,29 +93,16 @@ def redirect_privacy() -> None:
 
 
 def main() -> int:
-    readable_targets = build_readable_term_slug_targets()
-    n_readable = redirect_terms_readable(readable_targets)
-    n_terms = redirect_terms_legacy()
-    n_glossary = redirect_glossary_legacy(readable_targets)
+    rows = load_legacy_rows()
+    n_readable, n_hash, n_glossary = redirect_from_csv(rows)
     n_takken = redirect_takken_articles()
     redirect_privacy()
     print(
-        f"legacy redirects: terms-readable/{n_readable}, terms-hash/{n_terms}, "
+        f"legacy redirects: terms-readable/{n_readable}, terms-hash/{n_hash}, "
         f"glossary/{n_glossary}, takken/{n_takken}, privacy-terms.html"
     )
-    missing = sum(
-        1
-        for d in (ROOT / "terms").iterdir()
-        if d.is_dir()
-        and not d.name.startswith("field-")
-        and not re.fullmatch(r"^[0-9a-f]{16}$", d.name)
-        and d.name not in readable_targets
-    )
-    if missing:
-        print(
-            f"  (warn) readable term dirs without redirect target: {missing}",
-            file=sys.stderr,
-        )
+    if not rows:
+        return 1
     return 0
 
 

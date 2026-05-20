@@ -52,7 +52,7 @@ window.SITE_CONFIG = {
       },
       {
         "label": "プライバシー",
-        "href": "privacy-terms.html",
+        "href": "privacy.html",
         "key": "privacy"
       }
     ],

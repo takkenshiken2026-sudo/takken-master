@@ -26,7 +26,7 @@ TEXT_TARGETS = [
     ROOT / "index.html",
     ROOT / "about.html",
     ROOT / "related-sites.html",
-    ROOT / "privacy-terms.html",
+    ROOT / "privacy.html",
     ROOT / "site-analytics.js",
 ]
 

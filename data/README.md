@@ -18,5 +18,5 @@ exam_year,exam_wareki,question_no,type,category,tags,stem,preamble,statement_a,s
 
 このファイルを **`data/past_questions.csv`** に保存するか、`python3 tools/build_past_question_pages.py --csv /path/to/past_questions.csv` でパスを指定してください。
 
-`past_questions.csv` が無い、または空のときは、リポジトリ直下の **`takken-master-data.js`** の `BASE_QUESTIONS` を自動的に読み込んで静的ページを生成します（`--no-js-fallback` で無効化）。
+`past_questions.csv` が無い、または空のときは、`takken-master-data-past.js` をフォールバックに使えます（`--no-js-fallback` で無効化）。
 

@@ -43,8 +43,6 @@ python3 -m http.server 8765
 
 `applyCsvImportedQuestions()` で過去問を SPA に反映します。静的 `q/past/` も同じ CSV から生成されます。
 
-レガシー単体ファイル `takken-master-data.js` は参照用に残している場合がありますが、トップでは使いません。
-
 ## 設定
 
 - `site-config.json` … サイト名・分野・`guideArticleGenres`（12区分）・ナビ・テーマ
@@ -62,4 +60,4 @@ python3 -m http.server 8765
 | `glossary/{slug}/` | 上記と同じ `g-*.html` |
 | `privacy-terms.html` | `/privacy.html` |
 
-旧ディレクトリ本体（記事 HTML など）は残る場合があります。公開環境ではリダイレクトを有効にし、整理後に不要ファイルを削除してください。
+リダイレクト先は `data/legacy_url_redirects.csv` と `articles/` の slug から `build_legacy_redirects.py` が再生成します（`takken/`・`glossary/`・旧 `terms/{slug}/` はリダイレクト用スタブのみ）。

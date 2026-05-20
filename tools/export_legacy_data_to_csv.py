@@ -290,11 +290,8 @@ def genre_for_slug(slug: str, eyebrow: str = "") -> str:
 
 
 def batch_articles() -> list[dict]:
-    from tools.build_additional_takken_articles import ARTICLES as a1  # noqa: WPS433
-    from tools.articles_batch10 import BATCH_ARTICLES as a2  # noqa: WPS433
-    from tools.articles_batch20 import BATCH_ARTICLES as a3  # noqa: WPS433
-
-    return list(a1) + list(a2) + list(a3)
+    """旧バッチ生成は廃止。再エクスポート時は takken/ または articles/ の HTML を利用。"""
+    return []
 
 
 def guide_row_from_batch(article: dict, priority: int) -> dict[str, str]:

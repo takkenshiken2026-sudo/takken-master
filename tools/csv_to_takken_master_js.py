@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import csv
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -22,43 +21,9 @@ from tools.csv_to_exam_site_past_js import (  # noqa: E402
 )
 from tools.site_config import category_to_field_map
 
-MASTER_JS = ROOT / "takken-master-data.js"
+CORE_JS = ROOT / "takken-master-data-core.js"
 OUT_PAST_JS = ROOT / "takken-master-data-past.js"
 OUT_PRACTICE_JS = ROOT / "exam-site-data-practice.js"
-
-CATEGORY_TO_FIELD = category_to_field_map()
-
-
-def extract_block(text: str, name: str) -> str:
-    """const NAME = ...; を丸ごと抜く（配列・オブジェクト対応）。"""
-    m = re.search(
-        rf"(const\s+{re.escape(name)}\s*=\s*(?:\{{|\[).*?;\n)",
-        text,
-        re.DOTALL,
-    )
-    return m.group(1) if m else ""
-
-
-def write_core_js(text: str) -> None:
-    fields = extract_block(text, "FIELDS")
-    simple = extract_block(text, "SIMPLE_EXP")
-    lines = [
-        "/* takken-master-data-core.js — FIELDS / SIMPLE_EXP（手編集可） */",
-        "/* 過去問本体は takken-master-data-past.js（data/past_questions.csv から生成） */",
-        "",
-        fields or "const FIELDS = [];\n",
-        "",
-        simple or "const SIMPLE_EXP = {};\n",
-        "",
-        "let BASE_QUESTIONS = [];",
-        "let QUESTIONS = [];",
-        "let YEARS = [];",
-        "",
-    ]
-    core_path = ROOT / "takken-master-data-core.js"
-    core_path.write_text("\n".join(lines), encoding="utf-8")
-    print(f"Wrote {core_path}")
-
 
 def write_past_js(objs: list[dict], year_labels: dict[int, str]) -> None:
     lines = [
@@ -83,12 +48,12 @@ def main() -> int:
     if not DATA_CSV.is_file():
         print(f"Missing {DATA_CSV}", file=sys.stderr)
         return 1
-    if not MASTER_JS.is_file():
-        print(f"Missing {MASTER_JS}", file=sys.stderr)
+    if not CORE_JS.is_file():
+        print(
+            f"Missing {CORE_JS}. FIELDS/SIMPLE_EXP は core に保持し、過去問のみ CSV から生成します。",
+            file=sys.stderr,
+        )
         return 1
-
-    legacy = MASTER_JS.read_text(encoding="utf-8")
-    write_core_js(legacy)
 
     text = DATA_CSV.read_text(encoding="utf-8-sig")
     rows = list(csv.DictReader(text.splitlines()))
