@@ -2195,6 +2195,9 @@ a.site-page-brand:hover {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
+html.js .terms-idx-seo-fallback {
+  display: none !important;
+}
 html:not(.js) .terms-idx-empty-panel {
   display: none;
 }

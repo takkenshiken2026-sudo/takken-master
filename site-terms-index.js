@@ -1,9 +1,11 @@
 /**
- * 用語集一覧 terms/index.html — 表形式の絞り込み（全件表示・ページネーションなし）
- * 再生成: python3 tools/build_glossary_pages.py
+ * 用語集一覧 terms/index.html — 表形式の絞り込み（常に全件表示、ページネーションなし）
+ * 件数が増えても分割表示しない。再生成: python3 tools/build_glossary_pages.py
  */
 (() => {
   'use strict';
+
+  document.documentElement.classList.add('js');
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -107,16 +109,26 @@
     });
   }
 
-  function rowHtml(item, query) {
+  function entryCells(item, query, slot) {
     const hrefAttr = ` data-entry-href="${escapeHtml(item.href)}"`;
     const reading = item.reading
       ? `<span class="terms-idx-reading">${highlightText(item.reading, query)}</span>`
       : '';
-    return `<tr class="terms-idx-table-row">
-<td class="terms-idx-td-term" data-label="用語（よみ）"${hrefAttr} tabindex="0"><div class="terms-idx-term-cell"><a href="${escapeHtml(item.href)}">${highlightText(item.term, query)}</a>${reading}</div></td>
-<td class="terms-idx-td-cat" data-label="分野"${hrefAttr}>${escapeHtml(item.category)}</td>
-<td class="terms-idx-td-snippet" data-label="定義（抜粋）"${hrefAttr}>${item.shortDef ? highlightText(item.shortDef, query) : ''}</td>
-</tr>`;
+    return `<td class="terms-idx-td-term terms-idx-slot-${slot}" data-label="用語（よみ）"${hrefAttr} tabindex="0"><div class="terms-idx-term-cell"><a href="${escapeHtml(item.href)}">${highlightText(item.term, query)}</a>${reading}</div></td>
+<td class="terms-idx-td-cat terms-idx-slot-${slot}" data-label="分野"${hrefAttr}>${escapeHtml(item.category)}</td>
+<td class="terms-idx-td-snippet terms-idx-slot-${slot}" data-label="定義（抜粋）"${hrefAttr}>${item.shortDef ? highlightText(item.shortDef, query) : ''}</td>`;
+  }
+
+  function emptyEntryCells(slot) {
+    return `<td class="terms-idx-td-term terms-idx-slot-${slot} terms-idx-cell-empty" aria-hidden="true"></td>
+<td class="terms-idx-td-cat terms-idx-slot-${slot} terms-idx-cell-empty" aria-hidden="true"></td>
+<td class="terms-idx-td-snippet terms-idx-slot-${slot} terms-idx-cell-empty" aria-hidden="true"></td>`;
+  }
+
+  function duoRowHtml(itemA, itemB, query) {
+    const left = entryCells(itemA, query, 'a');
+    const right = itemB ? entryCells(itemB, query, 'b') : emptyEntryCells('b');
+    return `<tr class="terms-idx-table-row">${left}${right}</tr>`;
   }
 
   function bindRows() {
@@ -212,7 +224,11 @@
 
   function renderTable(visible, query) {
     if (!flatBody) return;
-    flatBody.innerHTML = visible.map((item) => rowHtml(item, query)).join('');
+    const rows = [];
+    for (let i = 0; i < visible.length; i += 2) {
+      rows.push(duoRowHtml(visible[i], visible[i + 1] || null, query));
+    }
+    flatBody.innerHTML = rows.join('');
     bindRows();
   }
 
