@@ -278,7 +278,12 @@
     renderTable(visible, query);
 
     if (hit) hit.textContent = `${shown} / ${total} 語`;
-    if (empty) empty.classList.toggle('hide', shown !== 0);
+    if (empty) {
+      const hideEmpty = shown !== 0;
+      empty.classList.toggle('hide', hideEmpty);
+      if (hideEmpty) empty.setAttribute('hidden', '');
+      else empty.removeAttribute('hidden');
+    }
     renderPagination(shown, Math.max(1, Math.ceil(shown / PAGE_SIZE)));
     renderActiveFilters();
     syncReset();

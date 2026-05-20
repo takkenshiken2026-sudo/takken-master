@@ -195,11 +195,67 @@ def split_semicolon(s: str) -> list[str]:
     return [x.strip() for x in (s or "").split(";") if x.strip()]
 
 
-TERMS_INDEX_CSS_VER = "20260521-index-layout"
+TERMS_INDEX_CSS_VER = "20260521-terms-ui"
+TERMS_INDEX_JS_VER = "20260521-terms-ui"
+TERMS_INDEX_PAGE_SIZE = 80
+TERMS_INDEX_PER_ROW = 2
 
 
 def parse_term_tags(raw: str) -> list[str]:
     return [t.strip() for t in re.split(r"[,、/|]", raw or "") if t.strip()]
+
+
+def sort_terms_index_entries(entries: list[dict]) -> list[dict]:
+    return sorted(
+        entries,
+        key=lambda e: (
+            e.get("category") or "",
+            e.get("reading") or e.get("term") or "",
+        ),
+    )
+
+
+def render_terms_index_tbody(entries: list[dict], limit: int = TERMS_INDEX_PAGE_SIZE) -> str:
+    """JS 未実行時も一覧が見えるよう、初期表示分の tbody をサーバー側で生成する。"""
+    items = sort_terms_index_entries(entries)[:limit]
+    rows: list[str] = []
+
+    def flat_cells(item, slot: str) -> str:
+        slot_cls = f"terms-idx-slot-{slot}"
+        if not item:
+            return (
+                f'<td class="terms-idx-td-term {slot_cls} terms-idx-cell-empty" aria-hidden="true"></td>'
+                f'<td class="terms-idx-td-cat {slot_cls} terms-idx-cell-empty" aria-hidden="true"></td>'
+                f'<td class="terms-idx-td-snippet {slot_cls} terms-idx-cell-empty" aria-hidden="true"></td>'
+            )
+        href = html.escape(item["slug_file"])
+        href_attr = f' data-entry-href="{href}"'
+        reading = item.get("reading") or ""
+        reading_html = (
+            f'<span class="terms-idx-reading">{html.escape(reading)}</span>'
+            if reading
+            else ""
+        )
+        short_def = html.escape(item.get("short_def") or "")
+        return (
+            f'<td class="terms-idx-td-term {slot_cls}" data-label="用語（よみ）"{href_attr} tabindex="0">'
+            f'<div class="terms-idx-term-cell"><a href="{href}">{html.escape(item["term"])}</a>'
+            f"{reading_html}</div></td>"
+            f'<td class="terms-idx-td-cat {slot_cls}" data-label="分野"{href_attr}>'
+            f'{html.escape(item.get("category") or "")}</td>'
+            f'<td class="terms-idx-td-snippet {slot_cls}" data-label="定義（抜粋）"{href_attr}>'
+            f"{short_def}</td>"
+        )
+
+    for i in range(0, len(items), TERMS_INDEX_PER_ROW):
+        left = items[i]
+        right = items[i + 1] if i + 1 < len(items) else None
+        rows.append(
+            "<tr class=\"terms-idx-table-row\">"
+            f"{flat_cells(left, 'a')}{flat_cells(right, 'b')}"
+            "</tr>"
+        )
+    return "\n".join(rows)
 
 
 def terms_index_item_dict(entry: dict) -> dict:
@@ -981,6 +1037,7 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
     json_data = json.dumps(
         [terms_index_item_dict(e) for e in entries], ensure_ascii=False
     )
+    tbody_html = render_terms_index_tbody(entries)
 
     idx_path = Path("terms/index.html")
     terms_header = site_page_header(idx_path, current="terms", wide=True)
@@ -1017,6 +1074,7 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
 {HEAD_FONTS}
 <link rel="stylesheet" href="../site-pages.css?v={TERMS_INDEX_CSS_VER}">
 <link rel="stylesheet" href="../site-theme.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="terms-index-page" data-terms-total="{n_terms}">
 {site_page_wrap_open()}
@@ -1044,7 +1102,7 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
       <button type="button" class="terms-idx-reset hide" id="terms-idx-reset">条件をクリア</button>
       <div class="terms-idx-active-filters hide" id="terms-idx-active-filters" aria-live="polite"></div>
     </div>
-    <div class="terms-idx-empty-panel hide" id="terms-idx-empty" role="status">
+    <div class="terms-idx-empty-panel hide" id="terms-idx-empty" role="status" hidden>
       <p class="terms-idx-empty-title">条件に一致する用語がありません</p>
       <p class="terms-idx-empty-hint">検索語を短くするか、分野を「すべて」に戻してお試しください。</p>
       <button type="button" class="terms-idx-reset" id="terms-idx-empty-reset">条件をクリア</button>
@@ -1060,7 +1118,9 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
             <th scope="col" class="terms-idx-th-cat terms-idx-slot-b">分野</th>
             <th scope="col" class="terms-idx-th-def terms-idx-slot-b">定義（抜粋）</th>
           </tr></thead>
-          <tbody id="terms-idx-flat-body"></tbody>
+          <tbody id="terms-idx-flat-body">
+{tbody_html}
+          </tbody>
         </table>
       </div>
       <nav class="terms-idx-pagination hide" id="terms-idx-pagination" aria-label="ページ送り"></nav>
@@ -1074,7 +1134,7 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
 {site_page_wrap_close()}
 <button type="button" class="terms-idx-top" id="terms-idx-top" aria-label="ページ上部へ">↑</button>
 <script type="application/json" id="terms-index-data">{json_data}</script>
-<script defer src="../site-terms-index.js"></script>
+<script defer src="../site-terms-index.js?v={TERMS_INDEX_JS_VER}"></script>
 </body>
 </html>
 """

@@ -1892,6 +1892,7 @@ a.site-page-brand:hover {
 .terms-idx-cat.hide,
 .terms-idx-list li.hide,
 .terms-idx-continue.hide,
+.terms-idx-empty-panel[hidden],
 .terms-idx-empty-panel.hide,
 .terms-idx-search-clear.hide,
 .terms-idx-reset.hide,
@@ -2193,6 +2194,35 @@ a.site-page-brand:hover {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
+}
+html:not(.js) .terms-idx-empty-panel {
+  display: none;
+}
+html:not(.js) .terms-idx-seo-fallback {
+  display: block !important;
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  padding: 16px;
+}
+html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
 }
 .terms-idx-item-main {
   display: flex;
@@ -3470,12 +3500,16 @@ a.site-page-brand:hover {
   .site-page-main,
   .seo-article-main,
   .q-static-main,
-  .terms-idx-main {
+  .terms-idx-main,
+  .terms-index-page .site-page-main {
     padding: 14px 0 36px;
   }
   .site-page-main > .site-page-header-crumb,
   .site-page-main > h1,
   .site-page-main > .site-page-lead,
+  .terms-index-page .site-page-main > .site-page-header-crumb,
+  .terms-index-page .site-page-main > h1,
+  .terms-index-page .site-page-main > .site-page-lead,
   .seo-article-main > .site-page-header-crumb,
   .q-static-main > .site-page-header-crumb,
   .q-static-main > .q-meta-line,
