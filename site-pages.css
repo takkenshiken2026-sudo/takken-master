@@ -404,29 +404,106 @@ a:hover {
   font-size: var(--fs-sub);
   color: var(--ink);
 }
-.q-year-section .q-year-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 8px 14px;
+/* 年度ハブ・分野ハブ・過去問トップ：問一覧テーブル */
+.q-year-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 4px;
 }
-.q-year-section .q-year-list a {
-  display: block;
-  padding: 8px 12px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  text-decoration: none;
+.q-year-table {
+  width: 100%;
+  border-collapse: collapse;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  box-shadow: var(--sh);
+  line-height: 1.5;
+  background: #fff;
 }
-.q-year-section .q-year-list a:hover {
-  border-color: var(--border2);
+.q-year-table th,
+.q-year-table td {
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  vertical-align: top;
+  text-align: left;
+}
+.q-year-table thead th {
+  background: var(--bg3);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.q-year-section.glos-cat-section {
+  padding: 0 0 4px;
+}
+.q-year-table-num {
+  width: 5.5em;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.q-year-table-theme {
+  color: var(--text2);
+}
+.q-year-table a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.q-year-table a:hover {
+  color: var(--sel);
+  text-decoration: underline;
+}
+.q-year-table-cat {
+  width: 7.5em;
+  font-size: 13px;
+  color: var(--text2);
+  white-space: nowrap;
+}
+.q-year-table-missing td {
   background: var(--bg2);
+  color: var(--text3);
+  font-size: 13px;
+}
+.q-year-table-missing .q-year-table-num {
+  font-weight: 600;
+}
+.q-coverage-note {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  font-size: var(--fs-sub);
+  line-height: 1.6;
+  color: var(--text2);
+  background: #fffbeb;
+  border: 1px solid #e8d48a;
+  border-radius: var(--r);
+}
+.q-year-index-section {
+  margin: 24px 0 28px;
+}
+.q-year-index-lead {
+  margin: 0 0 12px;
+  font-size: var(--fs-sub);
+  color: var(--text2);
+  line-height: 1.6;
+}
+.q-year-index-table .q-year-index-count {
+  width: 6.5em;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.q-year-index-partial .q-year-index-count {
+  color: #9a6700;
+}
+.q-year-index-link {
+  width: 7em;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 520px) {
+  .q-year-table-num {
+    width: 4.5em;
+  }
+  .q-year-table th,
+  .q-year-table td {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
 }
 .q-index-intro {
   margin-top: 4px;
@@ -437,7 +514,7 @@ a:hover {
   color: var(--text2);
   margin-bottom: 14px;
   padding: 12px 14px;
-  background: var(--bg3);
+  background: #fff;
   border-radius: var(--r);
   border: 1px solid var(--border);
 }
@@ -1154,12 +1231,48 @@ a:hover {
 .term-trust-section {
   margin: 20px 0 28px;
   padding: 16px 18px;
-  background: var(--bg2);
+  background: #fff;
   border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.term-trust-section .q-h2,
+.term-trust-section .term-h2 {
+  margin-top: 0;
 }
 .term-trust-note {
   margin: 10px 0 0;
   color: var(--text3);
+}
+.article-table-wrap {
+  overflow-x: auto;
+  margin-top: 4px;
+}
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.55;
+  background: #fff;
+}
+.article-table th,
+.article-table td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  vertical-align: top;
+  text-align: left;
+}
+.article-table th {
+  background: var(--bg3);
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.article-table td {
+  color: var(--text);
+}
+.article-table a {
+  color: var(--sel);
+  text-decoration: underline;
 }
 .term-priority-badge {
   display: inline-block;
@@ -1191,6 +1304,23 @@ a:hover {
 .q-related-list {
   margin: 0;
   padding-left: 1.2em;
+}
+.q-index-quick-years {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: #fff;
+}
+.q-index-quick-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text2);
+}
+.q-index-quick-years .terms-idx-chip {
+  text-decoration: none;
+  margin: 0 6px 6px 0;
 }
 .q-field-nav {
   display: flex;
@@ -1236,6 +1366,6 @@ a:hover {
   margin-right: 6px;
 }
 .trust-table th {
-  width: 130px;
-  vertical-align: top;
+  width: 8.5em;
+  min-width: 8.5em;
 }
