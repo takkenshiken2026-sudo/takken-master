@@ -197,7 +197,7 @@ def split_semicolon(s: str) -> list[str]:
     return [x.strip() for x in (s or "").split(";") if x.strip()]
 
 
-TERMS_INDEX_CSS_VER = "20260521-terms-3col"
+TERMS_INDEX_CSS_VER = "20260521-terms-tools-fix"
 TERMS_INDEX_JS_VER = "20260521-terms-3col"
 
 

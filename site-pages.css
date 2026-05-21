@@ -3039,12 +3039,16 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   display: grid;
   gap: 12px;
   margin-bottom: 18px;
-  padding: 14px;
+  padding: 14px 14px 20px;
+  overflow: visible;
   background: color-mix(in srgb, var(--bg) 94%, transparent);
   border: 1px solid var(--border);
   border-radius: var(--r2);
   box-shadow: var(--sh);
   backdrop-filter: blur(8px);
+}
+.terms-index-tools .terms-idx-chip {
+  box-shadow: none;
 }
 .terms-index-tools.is-scrolled {
   box-shadow: var(--sh2, var(--sh));
@@ -3741,11 +3745,12 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   .terms-index-tools,
   .past-index-tools {
     top: var(--site-sticky-top);
-    padding: 14px 0;
+    padding: 12px 16px 20px;
     margin-bottom: 14px;
     border-radius: 0;
     border-left: none;
     border-right: none;
+    overflow: visible;
   }
   .article-index-grid {
     grid-template-columns: 1fr;
