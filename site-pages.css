@@ -1560,6 +1560,13 @@ body.q-question-page {
 .q-year-table-no a:hover {
   text-decoration: underline;
 }
+.q-year-table-no .q-year-table-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 .q-year-table-cat {
   white-space: nowrap;
   width: 1%;
@@ -3170,16 +3177,23 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .terms-index-panel .terms-idx-table .terms-idx-th-term,
 .terms-index-panel .terms-idx-table .terms-idx-td-term {
-  width: 28%;
+  width: 22%;
 }
 .terms-index-panel .terms-idx-table .terms-idx-th-cat,
 .terms-index-panel .terms-idx-table .terms-idx-td-cat {
-  width: 14%;
+  width: 12%;
   white-space: nowrap;
 }
 .terms-index-panel .terms-idx-table .terms-idx-th-def,
 .terms-index-panel .terms-idx-table .terms-idx-td-snippet {
   width: auto;
+}
+.terms-index-panel .terms-idx-td-snippet {
+  line-height: 1.65;
+  overflow: visible;
+  display: table-cell;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
 }
 .terms-index-panel .terms-idx-table [data-entry-href].is-entry-hover {
   background: color-mix(in srgb, var(--accent-soft) 28%, var(--bg2)) !important;
@@ -4088,16 +4102,10 @@ a.related-link.related-link-card {
   }
 }
 
-/* 過去問一覧 — タブレット: 補助列を隠し横スクロール */
+/* 過去問一覧 — タブレット */
 @media (max-width: 960px) and (min-width: 761px) {
-  .q-year-table th:nth-child(5),
-  .q-year-table th:nth-child(6),
-  .q-year-table-gloss,
-  .q-year-table-note {
-    display: none;
-  }
   .q-year-table {
-    min-width: 560px;
+    min-width: 0;
   }
   .q-year-table-desc {
     min-width: 120px;
@@ -4629,6 +4637,9 @@ a.related-link.related-link-card {
   }
   .q-year-table-no a {
     font-size: var(--fs-sub);
+  }
+  .q-year-table-no .q-year-table-badges {
+    margin-left: 0;
   }
   .q-year-table-desc {
     min-width: 0;

@@ -69,7 +69,7 @@ HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
 
-Q_INDEX_CSS_VER = "20260521-q-related"
+Q_INDEX_CSS_VER = "20260521-q-index-slim"
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 
 
@@ -218,6 +218,17 @@ def index_item_dict(page: dict) -> dict:
     }
 
 
+def index_row_status_badges(page: dict) -> str:
+    badges = []
+    if page.get("is_exempt"):
+        badges.append('<span class="q-year-table-badge">免除</span>')
+    if page.get("is_invalidated"):
+        badges.append('<span class="q-year-table-badge q-year-table-badge-warn">無効</span>')
+    if not badges:
+        return ""
+    return f'<span class="q-year-table-badges">{"".join(badges)}</span>'
+
+
 def build_index_table_row(page: dict) -> str:
     href = html.escape(page["href_rel"])
     label = f"第{page['qno']}問"
@@ -227,42 +238,30 @@ def build_index_table_row(page: dict) -> str:
         if preview
         else '<span class="q-year-table-desc--empty">問題文は各ページで確認できます</span>'
     )
-    tag_html = "".join(
-        f'<span class="q-tag-badge">{html.escape(t)}</span>' for t in (page.get("tags") or [])
-    )
-    gloss = page.get("glossary_links") or []
-    gloss_html = (
-        " ".join(
-            f'<a class="q-glossary-link" href="{html.escape(g["href"])}" onclick="event.stopPropagation()">'
-            f"{html.escape(g['label'])}</a>"
-            for g in gloss
-        )
-        if gloss
-        else "—"
-    )
-    badges = []
-    if page.get("is_exempt"):
-        badges.append('<span class="q-year-table-badge">免除</span>')
-    if page.get("is_invalidated"):
-        badges.append('<span class="q-year-table-badge q-year-table-badge-warn">無効</span>')
-    note_cell = "".join(badges) if badges else "—"
+    badges_html = index_row_status_badges(page)
     app_href = html.escape(f"../index.html#past-play-{page['app_id']}")
     return (
         '<tr class="q-year-table-row" tabindex="0"'
         f' data-app-id="{page["app_id"]}"'
         f' data-href="{html.escape(page["href_rel"], quote=True)}"'
         f' data-category="{html.escape(page["category"], quote=True)}">'
-        f'<td class="q-year-table-no" data-label="問"><a href="{href}">{html.escape(label)}</a></td>'
+        f'<td class="q-year-table-no" data-label="問">'
+        f'<a href="{href}">{html.escape(label)}</a>{badges_html}</td>'
         f'<td class="q-year-table-cat" data-label="分野">{html.escape(page["category"])}</td>'
-        f'<td class="q-year-table-tags" data-label="タグ">{tag_html or "—"}</td>'
         f'<td class="q-year-table-desc" data-label="問題文">{preview_cell}</td>'
-        f'<td class="q-year-table-gloss" data-label="用語">{gloss_html}</td>'
-        f'<td class="q-year-table-note" data-label="備考">{note_cell}</td>'
         f'<td class="q-year-table-action" data-label="操作">'
         f'<a class="q-row-link" href="{href}">解説</a> '
         f'<a class="q-row-link q-row-link-app" href="{app_href}">演習</a>'
         "</td></tr>"
     )
+
+
+INDEX_TABLE_HEAD = (
+    "<thead><tr>"
+    '<th scope="col">問</th><th scope="col">分野</th>'
+    '<th scope="col">問題文（抜粋）</th><th scope="col">操作</th>'
+    "</tr></thead>"
+)
 
 
 def rel_to_root(rel_file: Path) -> str:
@@ -641,10 +640,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
             f"</div>"
             f'<div class="q-year-table-wrap" id="year-body-{y}">'
             f'<table class="q-year-table" aria-labelledby="year-{y}-heading">'
-            "<thead><tr>"
-            '<th scope="col">問</th><th scope="col">分野</th><th scope="col">タグ</th>'
-            '<th scope="col">問題文（抜粋）</th><th scope="col">用語</th><th scope="col">備考</th><th scope="col">操作</th>'
-            "</tr></thead>"
+            f"{INDEX_TABLE_HEAD}"
             f"<tbody>{rows_html}</tbody>"
             "</table></div></section>"
         )
@@ -749,10 +745,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
         <section class="q-index-view-panel hide" id="q-index-view-flat" aria-label="過去問一覧">
           <div class="q-year-table-wrap">
             <table class="q-year-table">
-              <thead><tr>
-                <th scope="col">問</th><th scope="col">分野</th><th scope="col">タグ</th>
-                <th scope="col">問題文（抜粋）</th><th scope="col">用語</th><th scope="col">備考</th><th scope="col">操作</th>
-              </tr></thead>
+              {INDEX_TABLE_HEAD}
               <tbody id="q-index-flat-body"></tbody>
             </table>
           </div>

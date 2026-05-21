@@ -197,12 +197,21 @@ def split_semicolon(s: str) -> list[str]:
     return [x.strip() for x in (s or "").split(";") if x.strip()]
 
 
-TERMS_INDEX_CSS_VER = "20260521-terms-no-yomi"
-TERMS_INDEX_JS_VER = "20260521-terms-no-yomi"
+TERMS_INDEX_CSS_VER = "20260521-terms-definition"
+TERMS_INDEX_JS_VER = "20260521-terms-definition"
 
 
 def parse_term_tags(raw: str) -> list[str]:
     return [t.strip() for t in re.split(r"[,、/|]", raw or "") if t.strip()]
+
+
+def terms_index_definition(entry: dict) -> str:
+    """一覧の定義列。short_def（概要）より definition（本文）を優先する。"""
+    for key in ("definition", "explanation", "short_def"):
+        text = (entry.get(key) or "").strip()
+        if text:
+            return text
+    return ""
 
 
 def sort_terms_index_entries(entries: list[dict]) -> list[dict]:
@@ -223,15 +232,15 @@ def render_terms_index_tbody(entries: list[dict]) -> str:
     for item in items:
         href = html.escape(item["slug_file"])
         href_attr = f' data-entry-href="{href}"'
-        short_def = html.escape(item.get("short_def") or "")
+        def_text = html.escape(terms_index_definition(item))
         rows.append(
             "<tr class=\"terms-idx-table-row\">"
             f'<td class="terms-idx-td-term" data-label="用語"{href_attr} tabindex="0">'
             f'<div class="terms-idx-term-cell"><a href="{href}">{html.escape(item["term"])}</a></div></td>'
             f'<td class="terms-idx-td-cat" data-label="分野"{href_attr}>'
             f'{html.escape(item.get("category") or "")}</td>'
-            f'<td class="terms-idx-td-snippet" data-label="定義（抜粋）"{href_attr}>'
-            f"{short_def}</td>"
+            f'<td class="terms-idx-td-snippet" data-label="定義"{href_attr}>'
+            f"{def_text}</td>"
             "</tr>"
         )
     return "\n".join(rows)
@@ -239,10 +248,12 @@ def render_terms_index_tbody(entries: list[dict]) -> str:
 
 def terms_index_item_dict(entry: dict) -> dict:
     tags = parse_term_tags(entry.get("tags") or "")
+    def_text = terms_index_definition(entry)
     search_bits = [
         entry["term"],
         entry.get("reading") or "",
         entry.get("category") or "",
+        def_text,
         entry.get("short_def") or "",
         *tags,
     ]
@@ -251,7 +262,7 @@ def terms_index_item_dict(entry: dict) -> dict:
         "reading": entry.get("reading") or "",
         "category": entry.get("category") or "",
         "tags": tags,
-        "shortDef": entry.get("short_def") or "",
+        "definition": def_text,
         "href": entry["slug_file"],
         "fieldHub": entry.get("field_hub") or "",
         "search": " ".join(x for x in search_bits if x),
@@ -261,7 +272,7 @@ def terms_index_item_dict(entry: dict) -> dict:
 def build_terms_list_item(entry: dict) -> str:
     href = html.escape(entry["slug_file"])
     term = html.escape(entry["term"])
-    snippet = html.escape(entry.get("short_def") or "")
+    snippet = html.escape(terms_index_definition(entry))
     snippet_html = (
         f'<span class="terms-idx-snippet">{snippet}</span>' if snippet else ""
     )
@@ -1088,7 +1099,7 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
           <thead><tr>
             <th scope="col" class="terms-idx-th-term">用語</th>
             <th scope="col" class="terms-idx-th-cat">分野</th>
-            <th scope="col" class="terms-idx-th-def">定義（抜粋）</th>
+            <th scope="col" class="terms-idx-th-def">定義</th>
           </tr></thead>
           <tbody id="terms-idx-flat-body">
 {tbody_html}

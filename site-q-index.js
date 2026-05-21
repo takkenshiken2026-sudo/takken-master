@@ -149,29 +149,12 @@
       .join('');
   }
 
-  function noteCell(item) {
+  function statusBadges(item) {
     const badges = [];
     if (item.exempt) badges.push('<span class="q-year-table-badge">免除</span>');
     if (item.invalidated)
       badges.push('<span class="q-year-table-badge q-year-table-badge-warn">無効</span>');
-    return badges.length ? badges.join('') : '—';
-  }
-
-  function glossaryCell(item) {
-    const links = item.glossary || [];
-    if (!links.length) return '—';
-    return links
-      .map(
-        (g) =>
-          `<a class="q-glossary-link" href="${escapeHtml(g.href)}" onclick="event.stopPropagation()">${escapeHtml(g.label)}</a>`
-      )
-      .join(' ');
-  }
-
-  function tagBadges(item) {
-    return (item.tags || [])
-      .map((t) => `<span class="q-tag-badge">${escapeHtml(t)}</span>`)
-      .join('');
+    return badges.length ? `<span class="q-year-table-badges">${badges.join('')}</span>` : '';
   }
 
   function rowHtml(item, query) {
@@ -180,12 +163,9 @@
       : '<span class="q-year-table-desc--empty">問題文は各ページで確認できます</span>';
     const appHref = `../index.html#past-play-${item.appId}`;
     return `<tr class="q-year-table-row" tabindex="0" data-app-id="${item.appId}" data-href="${escapeHtml(item.href)}" data-category="${escapeHtml(item.category)}">
-<td class="q-year-table-no" data-label="問"><a href="${escapeHtml(item.href)}" onclick="event.stopPropagation()">第${item.qno}問</a></td>
+<td class="q-year-table-no" data-label="問"><a href="${escapeHtml(item.href)}" onclick="event.stopPropagation()">第${item.qno}問</a>${statusBadges(item)}</td>
 <td class="q-year-table-cat" data-label="分野">${escapeHtml(item.category)}</td>
-<td class="q-year-table-tags" data-label="タグ">${tagBadges(item) || '—'}</td>
 <td class="q-year-table-desc" data-label="問題文">${preview}</td>
-<td class="q-year-table-gloss" data-label="用語">${glossaryCell(item)}</td>
-<td class="q-year-table-note" data-label="備考">${noteCell(item)}</td>
 <td class="q-year-table-action" data-label="操作">
 <a class="q-row-link" href="${escapeHtml(item.href)}" onclick="event.stopPropagation()">解説</a>
 <a class="q-row-link q-row-link-app" href="${escapeHtml(appHref)}" onclick="event.stopPropagation()">演習</a>
@@ -194,8 +174,8 @@
 
   function tableHead() {
     return `<thead><tr>
-<th scope="col">問</th><th scope="col">分野</th><th scope="col">タグ</th>
-<th scope="col">問題文（抜粋）</th><th scope="col">用語</th><th scope="col">備考</th><th scope="col">操作</th>
+<th scope="col">問</th><th scope="col">分野</th>
+<th scope="col">問題文（抜粋）</th><th scope="col">操作</th>
 </tr></thead>`;
   }
 
