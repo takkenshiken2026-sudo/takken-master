@@ -25,6 +25,14 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.articles_self_study_hard import (  # noqa: E402
+    SELF_STUDY_HARD_CSV_ROW,
+    SELF_STUDY_HARD_SLUG,
+    affiliate_pr_notice_html,
+    self_study_hard_toc_html,
+    self_study_hero_html,
+    self_study_sections_html,
+)
 from tools.articles_textbook_osusume import (  # noqa: E402
     TEXTBOOK_OSUSUME_SLUG,
     TEXTBOOK_OSUSUME_CSV_ROW,
@@ -310,11 +318,19 @@ def quality_panel_html(article: dict[str, str]) -> str:
             else:
                 source_items.append(f"<li>{label}</li>")
         rows.append(f'<tr><th>主な参照元</th><td><ul class="quality-source-list">{"".join(source_items)}</ul></td></tr>')
-    if norm(article.get("affiliate_disclosure", "")):
+    disclosure = norm(article.get("affiliate_disclosure", ""))
+    if disclosure == "amazon":
         rows.append(
             "<tr><th>広告表記</th><td>"
             "当記事内のAmazonリンクはアソシエイト・プログラムに参加しています。"
             "リンク先の価格・在庫はAmazonの表示に準じます。"
+            "</td></tr>"
+        )
+    elif disclosure in ("a8", "affiliate"):
+        rows.append(
+            "<tr><th>広告表記</th><td>"
+            "当記事には広告・PR（アフィリエイト）を含みます。"
+            "リンク先の料金・サービス内容・キャンペーンは各事業者の表示に準じます。"
             "</td></tr>"
         )
     if not rows:
@@ -392,11 +408,24 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
     genre = apply_vars(article.get("genre", "試験ガイド"))
     tags = split_semicolon(apply_vars(article.get("tags", "")))
     is_textbook = slug == TEXTBOOK_OSUSUME_SLUG
-    hero = textbook_hero_html() if is_textbook else ""
-    sections = textbook_sections_html() if is_textbook else sections_html(article)
+    is_self_study_hard = slug == SELF_STUDY_HARD_SLUG
+    pr_notice = affiliate_pr_notice_html() if is_self_study_hard else ""
+    if is_textbook:
+        hero = textbook_hero_html()
+        sections = textbook_sections_html()
+        toc = textbook_toc_html(bool(faq_items(article)))
+    elif is_self_study_hard:
+        hero = self_study_hero_html()
+        sections = self_study_sections_html()
+        toc = self_study_hard_toc_html(bool(faq_items(article)))
+    else:
+        hero = ""
+        sections = sections_html(article)
+        toc = toc_html(article, bool(faq_items(article)))
+    lead_extras_parts = [part for part in (pr_notice, hero) if part]
+    lead_extras = ("\n    " + "\n    ".join(lead_extras_parts)) if lead_extras_parts else ""
     faqs = faq_items(article)
     faq_section = faq_html(faqs)
-    toc = textbook_toc_html(bool(faqs)) if is_textbook else toc_html(article, bool(faqs))
     related = parse_related_links(article.get("related_links", ""), by_slug, article)
     quality_panel = quality_panel_html(article)
     action_box = action_box_html(article)
@@ -490,8 +519,7 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
       <span class="meta-updated">更新日：{html.escape(updated)}</span>
     </div>
     <h1 class="article-title">{html.escape(title)}</h1>
-    <p class="article-lead">{html.escape(apply_vars(article.get("lead", "")))}</p>
-    {hero}
+    <p class="article-lead">{html.escape(apply_vars(article.get("lead", "")))}</p>{lead_extras}
     {toc}
     {quality_panel}
     {action_box}
@@ -671,6 +699,8 @@ def load_articles() -> list[dict[str, str]]:
     slugs = {norm(row.get("slug")) for row in rows}
     if TEXTBOOK_OSUSUME_SLUG not in slugs:
         rows.append(TEXTBOOK_OSUSUME_CSV_ROW)
+    if SELF_STUDY_HARD_SLUG not in slugs:
+        rows.append(SELF_STUDY_HARD_CSV_ROW)
     return sorted(rows, key=lambda x: int(norm(x.get("priority")) or 9999))
 
 
