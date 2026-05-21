@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import html
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -130,26 +131,48 @@ TEXTBOOK_PRODUCTS: list[dict[str, str]] = [
 ]
 
 
-def resolve_textbook_image(product_id: str, alt_label: str) -> tuple[str, str]:
-    """記事ページからの相対パスと alt 文言を返す。"""
-    for ext in (".webp", ".jpg", ".jpeg", ".png", ".svg"):
+def resolve_textbook_image_src(product_id: str) -> str | None:
+    """WebP/JPG/PNG があれば相対パスを返す。なければ None（CSSプレースホルダー用）。"""
+    for ext in (".webp", ".jpg", ".jpeg", ".png"):
         path = TEXTBOOK_IMAGE_DIR / f"takken-{product_id}-2026{ext}"
         if path.is_file():
-            return f"{TEXTBOOK_IMAGE_REL}{path.name}", f"{alt_label}の表紙画像"
-    fallback = f"{TEXTBOOK_IMAGE_REL}takken-{product_id}-2026.svg"
-    return fallback, f"{alt_label}の表紙（イメージ）"
+            return f"{TEXTBOOK_IMAGE_REL}{path.name}"
+    return None
 
 
 def _affiliate_attrs() -> str:
     return 'target="_blank" rel="nofollow sponsored noopener noreferrer"'
 
 
-def _product_image_html(product_id: str, alt_label: str, *, thumb: bool = False) -> str:
-    src, alt = resolve_textbook_image(product_id, alt_label)
-    css = "affiliate-table-thumb" if thumb else "affiliate-product-card-image"
+def _product_cover_html(
+    product: dict[str, str],
+    alt_label: str,
+    *,
+    thumb: bool = False,
+) -> str:
+    """表紙画像（ファイル）または CSS プレースホルダー。"""
+    alt = html.escape(f"{alt_label}の表紙")
+    src = resolve_textbook_image_src(product["id"])
+    if src:
+        css = "affiliate-table-thumb" if thumb else "affiliate-product-card-image"
+        return (
+            f'<img class="{css}" src="{html.escape(src)}" alt="{alt}" width="320" height="448" '
+            f'loading="lazy" decoding="async">'
+        )
+    size = "affiliate-cover-placeholder--thumb" if thumb else "affiliate-cover-placeholder--card"
+    brand = html.escape(product["publisher"])
+    if thumb:
+        inner = f'<span class="affiliate-cover-placeholder-brand">{brand}</span>'
+    else:
+        title = html.escape(product["title"])
+        inner = (
+            f'<span class="affiliate-cover-placeholder-brand">{brand}</span>'
+            f'<span class="affiliate-cover-placeholder-title">{title}</span>'
+            f'<span class="affiliate-cover-placeholder-year">2026年度版</span>'
+        )
     return (
-        f'<img class="{css}" src="{src}" alt="{alt}" width="320" height="448" '
-        f'loading="lazy" decoding="async">'
+        f'<div class="affiliate-cover-placeholder affiliate-cover-placeholder--{product["id"]} {size}" '
+        f'role="img" aria-label="{alt}">{inner}</div>'
     )
 
 
@@ -163,7 +186,7 @@ def _affiliate_product_card(
     attrs = _affiliate_attrs()
     display_title = title or product["title"]
     display_audience = audience or product["audience"]
-    image = _product_image_html(product["id"], display_title)
+    image = _product_cover_html(product, display_title)
     card = f"""<a class="affiliate-product-card" href="{product['href']}" {attrs}>
 <div class="affiliate-product-card-media">{image}</div>
 <div class="affiliate-product-card-body">
@@ -183,7 +206,7 @@ def _affiliate_table_row(product: dict[str, str]) -> str:
     attrs = _affiliate_attrs()
     href = product["href"]
     title = product["title"]
-    thumb = _product_image_html(product["id"], title, thumb=True)
+    thumb = _product_cover_html(product, title, thumb=True)
     link = f'<a href="{href}" class="affiliate-table-cell-link affiliate-table-cell-link--thumb" {attrs}>'
     end = "</a>"
     return f"""<tr class="affiliate-table-row">
@@ -200,7 +223,7 @@ def _affiliate_table_row(product: dict[str, str]) -> str:
 
 def _affiliate_workbook_card(product: dict[str, str]) -> str:
     attrs = _affiliate_attrs()
-    thumb = _product_image_html(product["id"], product["workbook_title"], thumb=False)
+    thumb = _product_cover_html(product, product["workbook_title"])
     return f"""<a class="affiliate-product-card affiliate-product-card--workbook" href="{product['href']}" {attrs}>
 <div class="affiliate-product-card-media">{thumb}</div>
 <div class="affiliate-product-card-body">
