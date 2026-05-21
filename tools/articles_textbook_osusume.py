@@ -155,9 +155,15 @@ def _product_cover_html(
     src = resolve_textbook_image_src(product["id"])
     if src:
         css = "affiliate-table-thumb" if thumb else "affiliate-product-card-image"
+        sizes = (
+            "(max-width: 480px) min(100vw, 400px), "
+            "(max-width: 760px) min(100vw, 400px), "
+            "(max-width: 960px) 50vw, "
+            "280px"
+        )
         return (
             f'<img class="{css}" src="{html.escape(src)}" alt="{alt}" width="320" height="448" '
-            f'loading="lazy" decoding="async">'
+            f'sizes="{sizes}" loading="lazy" decoding="async">'
         )
     size = "affiliate-cover-placeholder--thumb" if thumb else "affiliate-cover-placeholder--card"
     brand = html.escape(product["publisher"])
