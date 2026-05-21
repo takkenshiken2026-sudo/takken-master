@@ -154,23 +154,40 @@ def _product_cover_html(
     *,
     thumb: bool = False,
     workbook: bool = False,
+    hero: bool = False,
+    eager: bool = False,
 ) -> str:
     """表紙画像（ファイル）または CSS プレースホルダー。"""
     alt = html.escape(f"{alt_label}の表紙")
     src = resolve_textbook_image_src(product["id"], workbook=workbook)
     if src:
-        css = "affiliate-table-thumb" if thumb else "affiliate-product-card-image"
-        sizes = (
-            "(max-width: 480px) min(100vw, 400px), "
-            "(max-width: 760px) min(100vw, 400px), "
-            "(max-width: 960px) 50vw, "
-            "280px"
-        )
+        if hero:
+            css = "textbook-hero-image"
+            sizes = "(max-width: 760px) 42vw, 200px"
+        elif thumb:
+            css = "affiliate-table-thumb"
+            sizes = "64px"
+        else:
+            css = "affiliate-product-card-image"
+            sizes = (
+                "(max-width: 480px) min(100vw, 400px), "
+                "(max-width: 760px) min(100vw, 400px), "
+                "(max-width: 960px) 50vw, "
+                "280px"
+            )
+        loading = "eager" if eager else "lazy"
+        priority = ' fetchpriority="high"' if eager else ""
         return (
             f'<img class="{css}" src="{html.escape(src)}" alt="{alt}" width="320" height="448" '
-            f'sizes="{sizes}" loading="lazy" decoding="async">'
+            f'sizes="{sizes}" loading="{loading}" decoding="async"{priority}>'
         )
-    size = "affiliate-cover-placeholder--thumb" if thumb else "affiliate-cover-placeholder--card"
+    size = (
+        "affiliate-cover-placeholder--thumb"
+        if thumb
+        else "textbook-hero-placeholder"
+        if hero
+        else "affiliate-cover-placeholder--card"
+    )
     brand = html.escape(product["publisher"])
     if thumb:
         inner = f'<span class="affiliate-cover-placeholder-brand">{brand}</span>'
@@ -185,6 +202,35 @@ def _product_cover_html(
         f'<div class="affiliate-cover-placeholder affiliate-cover-placeholder--{product["id"]} {size}" '
         f'role="img" aria-label="{alt}">{inner}</div>'
     )
+
+
+def textbook_hero_html() -> str:
+    """リード直下用：3冊の表紙とおすすめをひと目で示すヒーロー。"""
+    attrs = _affiliate_attrs()
+    items: list[str] = []
+    for index, product in enumerate(TEXTBOOK_PRODUCTS):
+        cover = _product_cover_html(
+            product,
+            product["title"],
+            hero=True,
+            eager=index == 0,
+        )
+        items.append(
+            f"""<a class="textbook-hero-item" href="{product['href']}" {attrs}>
+<span class="textbook-hero-rank">{product['rank']}</span>
+<div class="textbook-hero-cover">{cover}</div>
+<span class="textbook-hero-title">{html.escape(product['title'])}</span>
+<span class="textbook-hero-tag">{html.escape(product['audience_short'])}</span>
+</a>"""
+        )
+    grid = "".join(items)
+    return f"""
+<section class="textbook-hero" id="textbook-hero" aria-labelledby="textbook-hero-title">
+<h2 id="textbook-hero-title" class="textbook-hero-heading">2026年度版 おすすめテキスト3冊</h2>
+<p class="textbook-hero-note">表紙をタップするとAmazonの商品ページを開けます。</p>
+<div class="textbook-hero-grid" role="list">{grid}</div>
+<p class="textbook-hero-foot"><a href="#compare">比較表・価格・詳細はこちら</a></p>
+</section>""".strip()
 
 
 def _affiliate_product_card(

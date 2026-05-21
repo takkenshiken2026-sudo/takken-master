@@ -29,6 +29,7 @@ from tools.articles_textbook_osusume import (  # noqa: E402
     TEXTBOOK_OSUSUME_SLUG,
     TEXTBOOK_OSUSUME_CSV_ROW,
     TEXTBOOK_TOC_EXTRA,
+    textbook_hero_html,
     textbook_sections_html,
 )
 from tools.site_config import (  # noqa: E402
@@ -391,6 +392,7 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
     genre = apply_vars(article.get("genre", "試験ガイド"))
     tags = split_semicolon(apply_vars(article.get("tags", "")))
     is_textbook = slug == TEXTBOOK_OSUSUME_SLUG
+    hero = textbook_hero_html() if is_textbook else ""
     sections = textbook_sections_html() if is_textbook else sections_html(article)
     faqs = faq_items(article)
     faq_section = faq_html(faqs)
@@ -489,6 +491,7 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
     </div>
     <h1 class="article-title">{html.escape(title)}</h1>
     <p class="article-lead">{html.escape(apply_vars(article.get("lead", "")))}</p>
+    {hero}
     {toc}
     {quality_panel}
     {action_box}
