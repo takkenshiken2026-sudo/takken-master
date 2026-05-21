@@ -55,6 +55,17 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
         prefix = "/".join([".."] * up)
         return f"{prefix}/q/index.html" if prefix else "q/index.html"
 
+    # q/past/y20xx/... から年度ハブ（past/y2023/index.html）
+    if (
+        len(parts) >= 4
+        and parts[0] == "q"
+        and parts[1] == "past"
+        and site_rel.startswith("past/y")
+        and site_rel.endswith("/index.html")
+    ):
+        up = len(parts) - 3
+        return ("/".join([".."] * up) + "/index.html") if up else "index.html"
+
     # q/past/... からの相対（賃管マスター踏襲）
     up = len(parts)
     if (

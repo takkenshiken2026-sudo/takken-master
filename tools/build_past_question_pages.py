@@ -69,7 +69,7 @@ HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
 
-Q_INDEX_CSS_VER = "20260521-index-layout"
+Q_INDEX_CSS_VER = "20260521-q-page"
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 
 
@@ -281,6 +281,18 @@ def rel_css(rel_file: Path) -> str:
     return "/".join([".."] * depth) + f"/site-pages.css?v={Q_INDEX_CSS_VER}"
 
 
+def rel_theme_css(rel_file: Path) -> str:
+    depth = len(rel_file.parent.parts)
+    return "/".join([".."] * depth) + "/site-theme.css"
+
+
+def rel_href(rel_file: Path, target: str) -> str:
+    depth = len(rel_file.parent.parts)
+    prefix = "/".join([".."] * depth)
+    target = target.lstrip("/")
+    return f"{prefix}/{target}" if prefix else target
+
+
 def public_url(base: str, rel_path: str) -> str:
     return f"{base.rstrip('/')}/{rel_path.lstrip('/')}"
 
@@ -472,8 +484,11 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
     title = f"{title_mid}｜解説付き｜{brand_name()}（{exam_name()}）"
     desc = page_meta_description(page)
     canonical = public_url(base_url, page["rel_path"])
-    root_idx = rel_to_root(rel_path)
     css_href = rel_css(rel_path)
+    theme_href = rel_theme_css(rel_path)
+    context_line = f"{page['wareki']} · {page['category']}"
+    lead = norm(page.get("stem_plain"))
+    lead_html = f'<p class="q-page-lead">{html.escape(lead)}</p>' if lead else ""
 
     opts_html = "".join(
         f'<li class="q-opt"><span class="q-opt-num">（{i}）</span> {html.escape(o)}</li>'
@@ -502,19 +517,19 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
     related = related_terms_html(page, rel_path)
     adj = nav_adjacent_html(page, rel_path)
     hubs = hub_links_html(page, rel_path)
-    year_crumb_href = "/".join([".."] * (len(rel_path.parent.parts) - 1)) + "/index.html"
 
-    header = static_q_site_header(
-        root_href=root_idx,
-        breadcrumb_items=[
-            ("トップ", root_idx),
-            ("過去問一覧", rel_to_q_index(rel_path)),
-            (page["wareki"], year_crumb_href),
+    site_header = site_page_header(rel_path, current="q")
+    site_breadcrumb = breadcrumb_html(
+        rel_path,
+        [
+            ("トップ", "index.html"),
+            ("過去問一覧", "q/index.html"),
+            (page["wareki"], f"past/y{page['year']}/index.html"),
             (title_mid, None),
         ],
     )
-
-    app_href = html.escape(root_idx + "#past")
+    site_footer = site_page_footer(rel_path, current="q")
+    app_href = html.escape(rel_href(rel_path, f"index.html#past-play-{page['app_id']}"))
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -530,17 +545,22 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{html.escape(canonical)}">
 <meta name="twitter:card" content="summary">
+{HEAD_FONTS}
 <link rel="stylesheet" href="{html.escape(css_href)}">
+<link rel="stylesheet" href="{html.escape(theme_href)}">
 <script type="application/ld+json">
 {json.dumps(json_ld, ensure_ascii=False, indent=2)}
 </script>
 </head>
-<body class="q-static-body">
-{header}
+<body class="q-question-page">
+{site_page_wrap_open()}
+{site_header}
 <main class="q-static-main">
-  <p class="q-meta"><span class="q-id">ID: <code>{html.escape(page["id"])}</code></span> · <span>{html.escape(page["category"])}</span> · <span>{html.escape(page["type"])}</span></p>
+  {site_breadcrumb}
+  <p class="q-meta-line">{html.escape(context_line)}</p>
   {badge_html}
   <h1 class="q-h1">{html.escape(title_mid)}</h1>
+  {lead_html}
   {hubs}
   {trust}
   <section class="q-block" aria-labelledby="q-stem-h">
@@ -563,9 +583,10 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
   </section>
   {related}
   {adj}
-  <p class="q-app-link"><a href="{app_href}">アプリで過去問を開く</a></p>
+  <p class="q-app-link"><a href="{app_href}">アプリで演習する</a></p>
 </main>
-{static_q_footer_block(rel_path)}
+{site_footer}
+{site_page_wrap_close()}
 </body>
 </html>
 """
