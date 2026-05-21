@@ -3554,7 +3554,9 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   width: 100%;
   height: auto;
   aspect-ratio: 5 / 7;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center top;
+  background: #fff;
 }
 .affiliate-product-card-body {
   display: flex;
@@ -3648,12 +3650,23 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+  text-align: left;
 }
-.related-link-card {
+a.related-link.related-link-card {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 4px;
   padding: 14px 16px;
+  width: 100%;
+  text-align: left;
+}
+.related-link-card-title,
+.related-link-card-desc {
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 .related-link-card-title {
   font-size: 14px;
@@ -3675,6 +3688,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   width: 100%;
   max-width: 860px;
   margin: 32px auto 0;
+  text-align: left;
 }
 .related-box-title {
   font-size: var(--fs-small);
@@ -3682,15 +3696,18 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   color: var(--text3);
   letter-spacing: 0.06em;
   margin-bottom: 12px;
+  text-align: left;
 }
 .related-links {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: left;
 }
 .related-link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 8px;
   padding: 10px 14px;
   background: var(--bg2);
@@ -3700,6 +3717,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   font-size: var(--fs-sub);
   border: 1px solid var(--border);
   transition: background 0.15s, border-color 0.15s;
+  text-align: left;
 }
 .related-link:hover {
   background: var(--accent-hover-surface);

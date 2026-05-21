@@ -200,7 +200,7 @@ def _affiliate_table_row(product: dict[str, str]) -> str:
 
 def _affiliate_workbook_card(product: dict[str, str]) -> str:
     attrs = _affiliate_attrs()
-    thumb = _product_image_html(product["id"], product["workbook_title"], thumb=True)
+    thumb = _product_image_html(product["id"], product["workbook_title"], thumb=False)
     return f"""<a class="affiliate-product-card affiliate-product-card--workbook" href="{product['href']}" {attrs}>
 <div class="affiliate-product-card-media">{thumb}</div>
 <div class="affiliate-product-card-body">
