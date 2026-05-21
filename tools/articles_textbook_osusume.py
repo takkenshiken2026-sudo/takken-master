@@ -59,10 +59,10 @@ TEXTBOOK_OSUSUME_CSV_ROW = {
         "ただし試験本番は紙の問題なので、紙のテキストに慣れておくことも大切です。"
     ),
     "related_links": (
-        "takken-gokaku-ritsu;"
-        "takken-benkyou-jikan;"
-        "https://takken-master.jp/q/index.html:過去問を解いてみる（無料）;"
-        "takken-kyozai"
+        "takken-gokaku-ritsu:宅建の合格率・難易度はこちら;"
+        "takken-benkyou-jikan:宅建の勉強時間・スケジュールはこちら;"
+        "../../q/index.html:過去問を解いてみる（無料）;"
+        "takken-kyozai:宅建の教材の選び方"
     ),
 }
 
@@ -76,11 +76,52 @@ TEXTBOOK_TOC_EXTRA = [
 ]
 
 
-def _affiliate_link(href: str, label: str) -> str:
-    return (
-        f'<a class="affiliate-btn" href="{href}" target="_blank" '
-        f'rel="nofollow sponsored noopener noreferrer">{label}</a>'
-    )
+def _affiliate_attrs() -> str:
+    return 'target="_blank" rel="nofollow sponsored noopener noreferrer"'
+
+
+def _affiliate_product_card(
+    href: str,
+    rank: str,
+    title: str,
+    publisher: str,
+    price: str,
+    pages: str,
+    color: str,
+    audience: str,
+    cta: str,
+) -> str:
+    attrs = _affiliate_attrs()
+    return f"""<a class="affiliate-product-card" href="{href}" {attrs}>
+<span class="affiliate-product-card-rank">{rank}</span>
+<span class="affiliate-product-card-title">{title}</span>
+<span class="affiliate-product-card-meta">{publisher} · {price} · {pages} · {color}</span>
+<span class="affiliate-product-card-audience">{audience}</span>
+<span class="affiliate-product-card-cta">{cta}</span>
+</a>"""
+
+
+def _affiliate_table_row(
+    href: str,
+    title: str,
+    publisher: str,
+    price: str,
+    pages: str,
+    color: str,
+    audience: str,
+) -> str:
+    attrs = _affiliate_attrs()
+    link = f'<a href="{href}" class="affiliate-table-cell-link" {attrs}>'
+    end = "</a>"
+    return f"""<tr class="affiliate-table-row">
+<td>{link}<span class="affiliate-table-title">{title}</span>{end}</td>
+<td>{link}{publisher}{end}</td>
+<td>{link}{price}{end}</td>
+<td>{link}{pages}{end}</td>
+<td>{link}{color}{end}</td>
+<td>{link}{audience}{end}</td>
+<td class="affiliate-table-action">{link}<span class="affiliate-table-btn">Amazonで見る</span>{end}</td>
+</tr>"""
 
 
 def textbook_sections_html() -> str:
@@ -99,12 +140,18 @@ def textbook_sections_html() -> str:
 </section>
 <section class="seo-article-section" aria-labelledby="compare">
 <h2 id="compare"><span class="section-heading-num">2</span>おすすめテキスト比較表</h2>
-<table class="seo-info-table">
-<thead><tr><th>テキスト</th><th>出版社</th><th>価格（税込）</th><th>ページ数</th><th>カラー</th><th>向いている人</th></tr></thead>
+<p>表の各項目をタップするとAmazonの商品ページを開けます。スマホでは下のカードからも選べます。</p>
+<div class="affiliate-product-grid" role="list">
+{_affiliate_product_card(amzn_minna, "1位", "みんなが欲しかった！宅建士の教科書", "TAC出版", "3,300円", "約700ページ", "フルカラー", "初学者・図解で理解したい人", "Amazonで確認する")}
+{_affiliate_product_card(amzn_tori, "2位", "宅建士 合格のトリセツ 基本テキスト", "LEC", "3,300円", "644ページ", "フルカラー", "コンパクトに学びたい人", "Amazonで確認する")}
+{_affiliate_product_card(amzn_raku, "3位", "らくらく宅建塾 基本テキスト", "宅建学院", "3,300円", "538ページ", "2色刷り", "再受験者・知識がある人", "Amazonで確認する")}
+</div>
+<table class="seo-info-table affiliate-compare-table">
+<thead><tr><th>テキスト</th><th>出版社</th><th>価格（税込）</th><th>ページ数</th><th>カラー</th><th>向いている人</th><th></th></tr></thead>
 <tbody>
-<tr><td>みんなが欲しかった！宅建士の教科書</td><td>TAC出版</td><td>3,300円</td><td>約700ページ</td><td>フルカラー</td><td><strong>初学者・図解で理解したい人</strong></td></tr>
-<tr><td>宅建士 合格のトリセツ 基本テキスト</td><td>LEC</td><td>3,300円</td><td>644ページ</td><td>フルカラー</td><td><strong>コンパクトに学びたい人</strong></td></tr>
-<tr><td>らくらく宅建塾 基本テキスト</td><td>宅建学院</td><td>3,300円</td><td>538ページ</td><td>2色刷り</td><td><strong>再受験者・知識がある人</strong></td></tr>
+{_affiliate_table_row(amzn_minna, "みんなが欲しかった！宅建士の教科書", "TAC出版", "3,300円", "約700ページ", "フルカラー", "<strong>初学者・図解で理解したい人</strong>")}
+{_affiliate_table_row(amzn_tori, "宅建士 合格のトリセツ 基本テキスト", "LEC", "3,300円", "644ページ", "フルカラー", "<strong>コンパクトに学びたい人</strong>")}
+{_affiliate_table_row(amzn_raku, "らくらく宅建塾 基本テキスト", "宅建学院", "3,300円", "538ページ", "2色刷り", "<strong>再受験者・知識がある人</strong>")}
 </tbody>
 </table>
 </section>
@@ -122,7 +169,9 @@ def textbook_sections_html() -> str:
 <ul class="term-point-list"><li>宅建の勉強が初めて</li><li>法律用語に慣れていない</li><li>視覚的に理解したい</li></ul>
 <h3>こんな人には向かない</h3>
 <ul class="term-point-list"><li>法律の知識がある（内容がやや丁寧すぎる場合がある）</li><li>薄いテキストでサクサク進めたい</li></ul>
-<p>{_affiliate_link(amzn_minna, "Amazonで確認する（みんなが欲しかった！宅建士の教科書 2026年度版）")}</p>
+<div class="affiliate-product-grid affiliate-product-grid--single" role="list">
+{_affiliate_product_card(amzn_minna, "1位", "みんなが欲しかった！宅建士の教科書 2026年度版", "TAC出版", "3,300円", "約700ページ", "フルカラー", "初学者に最もおすすめ", "Amazonで確認する")}
+</div>
 </section>
 <section class="seo-article-section" aria-labelledby="rank2">
 <h2 id="rank2"><span class="section-heading-num">4</span>2位：宅建士 合格のトリセツ 基本テキスト（LEC）</h2>
@@ -138,7 +187,9 @@ def textbook_sections_html() -> str:
 <ul class="term-point-list"><li>短期集中で合格したい（3〜4ヶ月）</li><li>スマホ・アプリ学習を組み合わせたい</li><li>講義動画との併用を考えている</li></ul>
 <h3>こんな人には向かない</h3>
 <ul class="term-point-list"><li>じっくり読み込むスタイルが好き</li><li>問題数をできるだけ多くこなしたい</li></ul>
-<p>{_affiliate_link(amzn_tori, "Amazonで確認する（宅建士 合格のトリセツ 2026年版）")}</p>
+<div class="affiliate-product-grid affiliate-product-grid--single" role="list">
+{_affiliate_product_card(amzn_tori, "2位", "宅建士 合格のトリセツ 2026年版", "LEC", "3,300円", "644ページ", "フルカラー", "効率重視の学習に最適", "Amazonで確認する")}
+</div>
 </section>
 <section class="seo-article-section" aria-labelledby="rank3">
 <h2 id="rank3"><span class="section-heading-num">5</span>3位：らくらく宅建塾 基本テキスト（宅建学院）</h2>
@@ -154,7 +205,9 @@ def textbook_sections_html() -> str:
 <ul class="term-point-list"><li>再受験者（一度宅建の勉強をしたことがある）</li><li>語呂合わせで暗記したい</li><li>シンプルなテキストが好き</li></ul>
 <h3>こんな人には向かない</h3>
 <ul class="term-point-list"><li>初学者（説明が簡潔すぎる場合がある）</li><li>フルカラーで視覚的に学びたい</li></ul>
-<p>{_affiliate_link(amzn_raku, "Amazonで確認する（らくらく宅建塾 2026年版）")}</p>
+<div class="affiliate-product-grid affiliate-product-grid--single" role="list">
+{_affiliate_product_card(amzn_raku, "3位", "らくらく宅建塾 2026年版", "宅建学院", "3,300円", "538ページ", "2色刷り", "語呂合わせ暗記が得意な人向け", "Amazonで確認する")}
+</div>
 </section>
 <section class="seo-article-section" aria-labelledby="workbook">
 <h2 id="workbook"><span class="section-heading-num">6</span>テキストと合わせて買うべき問題集</h2>
@@ -167,11 +220,23 @@ def textbook_sections_html() -> str:
 <tr><td>らくらく宅建塾</td><td>過去問宅建塾</td></tr>
 </tbody>
 </table>
-<p>各シリーズの問題集もAmazonで確認できます。</p>
-<ul class="term-point-list">
-<li><a href="{amzn_minna}" target="_blank" rel="nofollow sponsored noopener noreferrer">みんなが欲しかった！宅建士の問題集 2026年度版</a>（テキストと同シリーズ）</li>
-<li><a href="{amzn_tori}" target="_blank" rel="nofollow sponsored noopener noreferrer">合格のトリセツ 厳選分野別過去問題集 2026年版</a>（テキストと同シリーズ）</li>
-<li><a href="{amzn_raku}" target="_blank" rel="nofollow sponsored noopener noreferrer">過去問宅建塾 2026年版</a>（らくらく宅建塾と同シリーズ）</li>
-</ul>
+<p>各シリーズの問題集もAmazonで確認できます（テキストと同じシリーズを選んでください）。</p>
+<div class="affiliate-product-grid" role="list">
+<a class="affiliate-product-card affiliate-product-card--workbook" href="{amzn_minna}" {_affiliate_attrs()}>
+<span class="affiliate-product-card-title">みんなが欲しかった！宅建士の問題集 2026年度版</span>
+<span class="affiliate-product-card-meta">みんなが欲しかった！教科書と同シリーズ</span>
+<span class="affiliate-product-card-cta">Amazonで確認する</span>
+</a>
+<a class="affiliate-product-card affiliate-product-card--workbook" href="{amzn_tori}" {_affiliate_attrs()}>
+<span class="affiliate-product-card-title">合格のトリセツ 厳選分野別過去問題集 2026年版</span>
+<span class="affiliate-product-card-meta">合格のトリセツと同シリーズ</span>
+<span class="affiliate-product-card-cta">Amazonで確認する</span>
+</a>
+<a class="affiliate-product-card affiliate-product-card--workbook" href="{amzn_raku}" {_affiliate_attrs()}>
+<span class="affiliate-product-card-title">過去問宅建塾 2026年版</span>
+<span class="affiliate-product-card-meta">らくらく宅建塾と同シリーズ</span>
+<span class="affiliate-product-card-cta">Amazonで確認する</span>
+</a>
+</div>
 </section>
 """.strip()

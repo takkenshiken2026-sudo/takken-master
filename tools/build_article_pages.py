@@ -178,7 +178,8 @@ def parse_related_links(
     links: list[str] = []
     seen: set[str] = set()
     for item in split_semicolon(value):
-        target, label = item, item
+        target = item.strip()
+        label = ""
         if ":" in item:
             target, label = [x.strip() for x in item.split(":", 1)]
         if not target:
@@ -186,12 +187,24 @@ def parse_related_links(
         if target in by_slug and target not in seen:
             seen.add(target)
             href = f"../{html.escape(target)}/"
-            text_label = label or by_slug[target]["title"]
-            links.append(f'<a class="related-link" href="{href}">{html.escape(apply_vars(text_label))}</a>')
-        elif target.startswith(("http://", "https://")):
-            text_label = label or target
+            text_label = label or apply_vars(by_slug[target].get("title", target))
+            desc = meta_description(
+                apply_vars(by_slug[target].get("meta_description") or by_slug[target].get("lead") or text_label)
+            )
             links.append(
-                f'<a class="related-link" href="{html.escape(target)}" target="_blank" rel="noopener noreferrer">{html.escape(apply_vars(text_label))}</a>'
+                f'<a class="related-link related-link-card" href="{href}">'
+                f'<span class="related-link-card-title">{html.escape(text_label)}</span>'
+                f'<span class="related-link-card-desc">{html.escape(desc)}</span>'
+                f"</a>"
+            )
+        elif target.startswith(("http://", "https://", "../", "./")):
+            text_label = label or target
+            external = target.startswith(("http://", "https://"))
+            extra = ' target="_blank" rel="noopener noreferrer"' if external else ""
+            links.append(
+                f'<a class="related-link related-link-card" href="{html.escape(target)}"{extra}>'
+                f'<span class="related-link-card-title">{html.escape(apply_vars(text_label))}</span>'
+                f"</a>"
             )
     if len(links) < 2 and article:
         genre = apply_vars(article.get("genre", ""))
@@ -219,9 +232,13 @@ def parse_related_links(
             if slug in seen:
                 continue
             seen.add(slug)
+            title_text = apply_vars(other["title"])
+            desc = meta_description(apply_vars(other.get("meta_description") or other.get("lead") or title_text))
             links.append(
-                f'<a class="related-link" href="../{html.escape(slug)}/">'
-                f"{html.escape(apply_vars(other['title']))}</a>"
+                f'<a class="related-link related-link-card" href="../{html.escape(slug)}/">'
+                f'<span class="related-link-card-title">{html.escape(title_text)}</span>'
+                f'<span class="related-link-card-desc">{html.escape(desc)}</span>'
+                f"</a>"
             )
             if len(links) >= 2:
                 break
@@ -230,14 +247,20 @@ def parse_related_links(
                 break
             if slug in by_slug and slug not in seen and slug != current_slug:
                 seen.add(slug)
+                title_text = apply_vars(by_slug[slug]["title"])
+                desc = meta_description(
+                    apply_vars(by_slug[slug].get("meta_description") or by_slug[slug].get("lead") or title_text)
+                )
                 links.append(
-                    f'<a class="related-link" href="../{html.escape(slug)}/">'
-                    f"{html.escape(apply_vars(by_slug[slug]['title']))}</a>"
+                    f'<a class="related-link related-link-card" href="../{html.escape(slug)}/">'
+                    f'<span class="related-link-card-title">{html.escape(title_text)}</span>'
+                    f'<span class="related-link-card-desc">{html.escape(desc)}</span>'
+                    f"</a>"
                 )
     if not links:
         return ""
     return (
-        '<div class="related-box"><div class="related-box-title">関連記事</div><div class="related-links">'
+        '<div class="related-box"><div class="related-box-title">関連記事</div><div class="related-links related-links-cards">'
         + "".join(links)
         + "</div></div>"
     )
