@@ -752,6 +752,90 @@ body.q-question-page {
   margin-top: 8px;
   font-size: var(--fs-body);
 }
+/* 個別過去問：関連用語・バッジ・ハブ・前後ナビ */
+.q-related .related-box {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: none;
+  width: 100%;
+}
+.q-related .related-links,
+.q-related-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.q-related-list li {
+  margin: 0;
+  padding: 0;
+}
+.q-related-list a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg2);
+  border-radius: var(--r);
+  text-decoration: none;
+  color: var(--text);
+  font-size: var(--fs-sub);
+  border: 1px solid var(--border);
+  transition: background 0.15s, border-color 0.15s;
+}
+.q-related-list a:hover {
+  background: var(--accent-hover-surface);
+  border-color: var(--accent);
+}
+.q-hub-links {
+  font-size: var(--fs-small);
+  color: var(--text2);
+  line-height: 1.6;
+}
+.q-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.q-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  border-radius: var(--r);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+}
+.q-badge-warn {
+  border-color: color-mix(in srgb, #c45c00 40%, var(--border));
+  background: color-mix(in srgb, #c45c00 10%, var(--bg2));
+  color: var(--text);
+}
+.q-adj-nav {
+  margin: 4px 0 16px;
+  padding: 14px 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  text-align: center;
+}
+.q-adj-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+.q-adj-nav a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
 .q-static-footer {
   border-top: 1px solid var(--border);
   background: var(--bg);

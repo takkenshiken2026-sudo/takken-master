@@ -69,7 +69,7 @@ HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
 
-Q_INDEX_CSS_VER = "20260521-q-page"
+Q_INDEX_CSS_VER = "20260521-q-related"
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 
 

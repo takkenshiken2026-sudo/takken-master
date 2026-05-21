@@ -9,6 +9,7 @@ import json
 import re
 from pathlib import Path
 
+from tools.html_footer import footer_href
 from tools.seo_common import (
     AUTHOR_LABEL,
     FIELD_HUB_META,
@@ -31,14 +32,12 @@ def enrich_pages(pages: list[dict]) -> None:
     for p in pages:
         by_year.setdefault(p["year"], []).append(p)
     for y in by_year:
-        by_year[y].sort(key=lambda x: int(x["qno"]))
+        by_year[y].sort(key=lambda x: x["qno"])
         for i, p in enumerate(by_year[y]):
             p["prev"] = by_year[y][i - 1] if i > 0 else None
             p["next"] = by_year[y][i + 1] if i < len(by_year[y]) - 1 else None
     for p in pages:
-        theme = extract_theme_label(
-            p.get("stem_plain") or "", category=p.get("category") or ""
-        )
+        theme = extract_theme_label(p.get("stem_plain") or "")
         p["theme"] = theme
         p["field_id"] = field_id_for_category(p.get("category") or "")
         hay = (p.get("stem_plain") or "") + " " + (p.get("exp") or "")
@@ -56,15 +55,11 @@ def page_title_mid(page: dict) -> str:
 def page_meta_description(page: dict, limit: int = 155) -> str:
     theme = page.get("theme") or ""
     stem = (page.get("stem_plain") or "").strip()
-    prefix = f"宅建 {page['wareki']}第{page['qno']}問"
+    prefix = f"{page['wareki']}第{page['qno']}問"
     if theme:
         prefix += f"「{theme}」"
     body = stem or page.get("category") or ""
-    one = re.sub(
-        r"\s+",
-        " ",
-        f"{prefix}。{body} 正答・解説・関連用語リンク付き。宅建の過去問を無料で演習できます。",
-    ).strip()
+    one = re.sub(r"\s+", " ", f"{prefix}。{body} 正答・解説・関連用語リンク付き。宅建マスターで無料演習。").strip()
     if len(one) <= limit:
         return one
     return one[: limit - 1] + "…"
@@ -74,7 +69,6 @@ def related_terms_html(page: dict, rel_path: Path) -> str:
     slugs = page.get("related_terms") or []
     if not slugs:
         return ""
-    root_up = "/".join([".."] * len(rel_path.parent.parts))
     items = load_glossary_items_from_js()
     by_slug = {
         (i.get("articleSlug") or str(i.get("id", "")).replace("_", "-")).strip(): i for i in items
@@ -85,13 +79,17 @@ def related_terms_html(page: dict, rel_path: Path) -> str:
         item = by_slug.get(slug)
         label = str(item.get("term") if item else slug)
         term_file = href_by_slug.get(slug) or f"{slug}/index.html"
+        href = footer_href(rel_path, f"terms/{term_file}")
         links.append(
-            f'<li><a href="{html.escape(root_up)}/terms/{html.escape(term_file)}">{html.escape(label)}</a></li>'
+            f'<a class="related-link" href="{html.escape(href)}">{html.escape(label)}</a>'
         )
     return (
         '<section class="q-block q-related" aria-labelledby="q-terms-h">'
         '<h2 id="q-terms-h" class="q-h2">関連する用語解説</h2>'
-        f'<ul class="q-related-list">{"".join(links)}</ul></section>'
+        '<div class="related-box">'
+        '<div class="related-links q-related-links">'
+        f'{"".join(links)}'
+        "</div></div></section>"
     )
 
 
@@ -284,27 +282,32 @@ def q_year_index_summary_html(by_year: dict[int, list[dict]]) -> str:
 
 
 def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str, exam: str) -> str:
-    year_pages = sorted([p for p in pages if p["year"] == year], key=lambda x: int(x["qno"]))
+    year_pages = sorted([p for p in pages if p["year"] == year], key=lambda x: x["qno"])
     if not year_pages:
         return ""
     wareki = year_pages[0]["wareki"]
     rel_path = f"q/past/y{year}/index.html"
     canonical = f"{base_url.rstrip('/')}/{rel_path}"
-    published = len(year_pages)
-    total = 50
-    title = f"宅建 {year}年 過去問一覧（無料）｜{wareki}・{published}問｜{brand}"
-    desc = (
-        f"宅建 {year}年（{wareki}）の過去問を無料で演習。第1問から問番号順に{published}問掲載。"
-        "各問に正答・解説・関連用語リンク付き。宅建士試験の過去問対策に。"
-    )
+    title = f"{wareki} 宅建過去問まとめ（全{len(year_pages)}問）｜{brand}（{exam}）"
+    desc = f"{wareki}（{year}年）の宅建試験過去問を第1問から掲載。分野別のリンク・解説・関連用語付きで無料演習できます。"
 
-    coverage = coverage_note_html(published, total)
-    question_table = q_list_table_html(
-        year_pages,
-        lambda p: f"q{int(p['qno']):02d}/index.html",
-        show_missing=True,
-        show_category=True,
-    )
+    by_field: dict[str, list[dict]] = {}
+    for p in year_pages:
+        by_field.setdefault(p["category"], []).append(p)
+
+    field_sections = []
+    for cat in sorted(by_field.keys()):
+        lis = []
+        for p in by_field[cat]:
+            theme = p.get("theme") or ""
+            label = f"第{p['qno']}問"
+            if theme:
+                label += f"（{theme}）"
+            lis.append(f'<li><a href="q{p["qno"]:02d}/index.html">{html.escape(label)}</a></li>')
+        field_sections.append(
+            f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{html.escape(cat)}</h2>'
+            f'<ol class="q-year-list">{"".join(lis)}</ol></section>'
+        )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
     body = f"""<!DOCTYPE html>
@@ -328,12 +331,11 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
   </ol></nav>
 </header>
 <main class="q-static-main">
-  <h1 class="q-h1">宅建 {year}年の過去問（{html.escape(wareki)}）</h1>
-  <p class="q-meta">掲載 {published}/{total} 問 · 無料 · 解説・関連用語リンク付き</p>
-  <p class="glos-static-intro">宅建・宅建士試験の<strong>{html.escape(str(year))}年 過去問</strong>を<strong>無料</strong>で解けます。<strong>第1問から問番号順</strong>の表で確認でき、各問では正答・解説のほか、<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。<a href="../../index.html">全年度の過去問一覧</a>から他の年度へも移動できます。</p>
+  <h1 class="q-h1">{html.escape(wareki)} 過去問まとめ</h1>
+  <p class="q-meta">全 {len(year_pages)} 問 · 解説・関連用語リンク付き</p>
+  <p class="glos-static-intro">各問のページでは正答・解説のほか、問題文に関連する<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。</p>
   {trust}
-  {coverage}
-  {question_table}
+  {"".join(field_sections)}
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
 </main>
 </body>
@@ -359,16 +361,15 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
     for y in sorted(by_year.keys(), reverse=True):
         ys = sorted(by_year[y], key=lambda x: x["qno"])
         wareki = ys[0]["wareki"]
-        table = q_list_table_html(
-            ys,
-            lambda p, year=y: f"../../past/y{year}/q{int(p['qno']):02d}/index.html",
-            qno_max=None,
-            show_missing=False,
-            show_category=True,
-        )
+        lis = []
+        for p in ys:
+            lis.append(
+                f'<li><a href="../../past/y{y}/q{p["qno"]:02d}/index.html">'
+                f'{html.escape(wareki)} 第{p["qno"]}問</a></li>'
+            )
         year_sections.append(
             f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{y}年（{html.escape(wareki)}）</h2>'
-            f"{table}</section>"
+            f'<ol class="q-year-list">{"".join(lis)}</ol></section>'
         )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
