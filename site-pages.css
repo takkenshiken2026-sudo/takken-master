@@ -3515,6 +3515,26 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 .seo-info-table tr:last-child th {
   border-bottom: none;
 }
+.affiliate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 4px;
+  padding: 12px 20px;
+  border: 1px solid var(--border2);
+  border-radius: var(--r2);
+  background: var(--bg2);
+  color: var(--ink);
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.5;
+}
+.affiliate-btn:hover {
+  background: var(--bg);
+  opacity: 1;
+}
 .related-box {
   background: var(--bg);
   border: 1px solid var(--border2);

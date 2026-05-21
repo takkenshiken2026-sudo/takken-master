@@ -821,6 +821,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://takken-master.jp/articles/takken-textbook-osusume/index.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://takken-master.jp/articles/takken-to-wa/index.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -3412,7 +3417,7 @@
   </url>
   <url>
     <loc>https://takken-master.jp/related-sites.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>

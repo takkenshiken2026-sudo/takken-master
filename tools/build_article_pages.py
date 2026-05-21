@@ -25,6 +25,12 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.articles_textbook_osusume import (  # noqa: E402
+    TEXTBOOK_OSUSUME_SLUG,
+    TEXTBOOK_OSUSUME_CSV_ROW,
+    TEXTBOOK_TOC_EXTRA,
+    textbook_sections_html,
+)
 from tools.site_config import (  # noqa: E402
     brand_name,
     clean_origin,
@@ -280,6 +286,13 @@ def quality_panel_html(article: dict[str, str]) -> str:
             else:
                 source_items.append(f"<li>{label}</li>")
         rows.append(f'<tr><th>主な参照元</th><td><ul class="quality-source-list">{"".join(source_items)}</ul></td></tr>')
+    if norm(article.get("affiliate_disclosure", "")):
+        rows.append(
+            "<tr><th>広告表記</th><td>"
+            "当記事内のAmazonリンクはアソシエイト・プログラムに参加しています。"
+            "リンク先の価格・在庫はAmazonの表示に準じます。"
+            "</td></tr>"
+        )
     if not rows:
         return ""
     return (
@@ -323,19 +336,42 @@ def article_info_table(article: dict[str, str]) -> str:
     )
 
 
+def textbook_toc_html(has_faq: bool) -> str:
+    items: list[tuple[str, str]] = [
+        ("quality-panel-title", "この記事の信頼性について"),
+        ("action-box-title", "この記事でできること"),
+        *TEXTBOOK_TOC_EXTRA,
+    ]
+    if has_faq:
+        items.append(("article-sec-faq", "よくある質問"))
+    items.extend(
+        [
+            ("article-info-title", "記事の基本情報"),
+            ("official-info-title", "公式情報の確認"),
+        ]
+    )
+    links = "".join(f'<li><a href="#{html.escape(anchor)}">{html.escape(label)}</a></li>' for anchor, label in items)
+    return (
+        '<nav class="seo-toc" aria-labelledby="seo-toc-title">'
+        '<h2 id="seo-toc-title">目次</h2>'
+        f"<ol>{links}</ol></nav>"
+    )
+
+
 def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str]]) -> str:
     slug = article["slug"]
     rel_path = Path("articles") / slug / "index.html"
     title = apply_vars(article["title"])
     desc = meta_description(apply_vars(article.get("meta_description") or article.get("lead") or title))
     canonical = public_url(f"articles/{slug}/")
-    updated = date.today().isoformat()
+    updated = apply_vars(article.get("fact_checked_at", "")) or date.today().isoformat()
     genre = apply_vars(article.get("genre", "試験ガイド"))
     tags = split_semicolon(apply_vars(article.get("tags", "")))
-    sections = sections_html(article)
+    is_textbook = slug == TEXTBOOK_OSUSUME_SLUG
+    sections = textbook_sections_html() if is_textbook else sections_html(article)
     faqs = faq_items(article)
     faq_section = faq_html(faqs)
-    toc = toc_html(article, bool(faqs))
+    toc = textbook_toc_html(bool(faqs)) if is_textbook else toc_html(article, bool(faqs))
     related = parse_related_links(article.get("related_links", ""), by_slug, article)
     quality_panel = quality_panel_html(article)
     action_box = action_box_html(article)
@@ -606,6 +642,9 @@ def load_articles() -> list[dict[str, str]]:
     if not ARTICLES_CSV.is_file():
         raise FileNotFoundError(str(ARTICLES_CSV))
     rows = list(csv.DictReader(ARTICLES_CSV.read_text(encoding="utf-8-sig").splitlines()))
+    slugs = {norm(row.get("slug")) for row in rows}
+    if TEXTBOOK_OSUSUME_SLUG not in slugs:
+        rows.append(TEXTBOOK_OSUSUME_CSV_ROW)
     return sorted(rows, key=lambda x: int(norm(x.get("priority")) or 9999))
 
 
