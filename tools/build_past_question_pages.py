@@ -27,6 +27,11 @@ if str(ROOT) not in sys.path:
 
 from tools.html_footer import (  # noqa: E402
     ROBOTS_INDEX_FOLLOW,
+    breadcrumb_html,
+    site_page_footer,
+    site_page_header,
+    site_page_wrap_close,
+    site_page_wrap_open,
     static_q_footer_block,
     static_q_site_header,
 )
@@ -59,6 +64,13 @@ FIELD_LABELS_JS = {
 }
 
 LABELS = [("ア", "statement_a"), ("イ", "statement_b"), ("ウ", "statement_c"), ("エ", "statement_d")]
+
+HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
+
+Q_INDEX_CSS_VER = "20260521-index-layout"
+GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 
 
 def norm(s: str | None) -> str:
@@ -108,6 +120,151 @@ def meta_description(text: str, limit: int = 155) -> str:
     return one[: limit - 1] + "…"
 
 
+def stem_preview(text: str, limit: int = 52) -> str:
+    one = re.sub(r"\s+", " ", text).strip()
+    if not one:
+        return ""
+    if len(one) <= limit:
+        return one
+    return one[: limit - 1] + "…"
+
+
+def q_index_filter_chip_btn(
+    class_name: str,
+    data_attr: str,
+    data_value: str,
+    label: str,
+    *,
+    count: int | None = None,
+    on: bool = False,
+) -> str:
+    on_cls = " on" if on else ""
+    count_html = ""
+    if count is not None:
+        count_html = f'<span class="q-index-filter-count">（{count}）</span>'
+    return (
+        f'<button type="button" class="q-index-filter-opt {class_name}{on_cls}" '
+        f'{data_attr}="{html.escape(data_value, quote=True)}">'
+        f"{html.escape(label)}{count_html}</button>"
+    )
+
+
+def parse_tags(raw: str) -> list[str]:
+    return [t.strip() for t in re.split(r"[,、/|]", raw) if t.strip()]
+
+
+def load_glossary_lookup() -> dict[str, str]:
+    from tools.build_glossary_pages import make_term_lookup, term_slug
+
+    if not GLOSSARY_CSV.is_file():
+        return {}
+    rows = list(csv.DictReader(GLOSSARY_CSV.read_text(encoding="utf-8-sig").splitlines()))
+    used: dict[str, str] = {}
+    entries = []
+    for row in rows:
+        term = norm(row.get("term"))
+        if not term:
+            continue
+        reading = norm(row.get("reading"))
+        slug = term_slug(term, reading, used)
+        entries.append({"term": term, "reading": reading, "slug_file": f"{slug}.html"})
+    lookup = make_term_lookup(entries)
+    return {k: f"../terms/{v}" for k, v in lookup.items()}
+
+
+def glossary_links_for_tags(tags: list[str], lookup: dict[str, str]) -> list[dict]:
+    from tools.build_glossary_pages import lookup_key
+
+    out: list[dict] = []
+    seen: set[str] = set()
+    for tag in tags:
+        for key in (lookup_key(tag), tag):
+            href = lookup.get(key)
+            if not href or href in seen:
+                continue
+            seen.add(href)
+            out.append({"label": tag, "href": href})
+            break
+        if len(out) >= 3:
+            break
+    return out
+
+
+def index_item_dict(page: dict) -> dict:
+    preview = stem_preview(page.get("stem_plain") or "")
+    tags = page.get("tags") or []
+    search_bits = [
+        f"第{page['qno']}問",
+        page["category"],
+        str(page["year"]),
+        page.get("wareki", ""),
+        preview,
+        *tags,
+    ]
+    return {
+        "appId": page["app_id"],
+        "year": page["year"],
+        "qno": page["qno"],
+        "category": page["category"],
+        "wareki": page.get("wareki", ""),
+        "href": page["href_rel"],
+        "preview": preview,
+        "tags": tags,
+        "exempt": bool(page.get("is_exempt")),
+        "invalidated": bool(page.get("is_invalidated")),
+        "correct": page.get("correct"),
+        "search": " ".join(x for x in search_bits if x),
+        "glossary": page.get("glossary_links") or [],
+    }
+
+
+def build_index_table_row(page: dict) -> str:
+    href = html.escape(page["href_rel"])
+    label = f"第{page['qno']}問"
+    preview = stem_preview(page.get("stem_plain") or "")
+    preview_cell = (
+        html.escape(preview)
+        if preview
+        else '<span class="q-year-table-desc--empty">問題文は各ページで確認できます</span>'
+    )
+    tag_html = "".join(
+        f'<span class="q-tag-badge">{html.escape(t)}</span>' for t in (page.get("tags") or [])
+    )
+    gloss = page.get("glossary_links") or []
+    gloss_html = (
+        " ".join(
+            f'<a class="q-glossary-link" href="{html.escape(g["href"])}" onclick="event.stopPropagation()">'
+            f"{html.escape(g['label'])}</a>"
+            for g in gloss
+        )
+        if gloss
+        else "—"
+    )
+    badges = []
+    if page.get("is_exempt"):
+        badges.append('<span class="q-year-table-badge">免除</span>')
+    if page.get("is_invalidated"):
+        badges.append('<span class="q-year-table-badge q-year-table-badge-warn">無効</span>')
+    note_cell = "".join(badges) if badges else "—"
+    app_href = html.escape(f"../index.html#past-play-{page['app_id']}")
+    return (
+        '<tr class="q-year-table-row" tabindex="0"'
+        f' data-app-id="{page["app_id"]}"'
+        f' data-href="{html.escape(page["href_rel"], quote=True)}"'
+        f' data-category="{html.escape(page["category"], quote=True)}">'
+        f'<td class="q-year-table-no" data-label="問"><a href="{href}">{html.escape(label)}</a></td>'
+        f'<td class="q-year-table-cat" data-label="分野">{html.escape(page["category"])}</td>'
+        f'<td class="q-year-table-tags" data-label="タグ">{tag_html or "—"}</td>'
+        f'<td class="q-year-table-desc" data-label="問題文">{preview_cell}</td>'
+        f'<td class="q-year-table-gloss" data-label="用語">{gloss_html}</td>'
+        f'<td class="q-year-table-note" data-label="備考">{note_cell}</td>'
+        f'<td class="q-year-table-action" data-label="操作">'
+        f'<a class="q-row-link" href="{href}">解説</a> '
+        f'<a class="q-row-link q-row-link-app" href="{app_href}">演習</a>'
+        "</td></tr>"
+    )
+
+
 def rel_to_root(rel_file: Path) -> str:
     depth = len(rel_file.parent.parts)
     return "/".join([".."] * depth) + "/index.html"
@@ -121,7 +278,7 @@ def rel_to_q_index(rel_file: Path) -> str:
 
 def rel_css(rel_file: Path) -> str:
     depth = len(rel_file.parent.parts)
-    return "/".join([".."] * depth) + "/site-pages.css"
+    return "/".join([".."] * depth) + f"/site-pages.css?v={Q_INDEX_CSS_VER}"
 
 
 def public_url(base: str, rel_path: str) -> str:
@@ -284,7 +441,7 @@ def page_dict(row: dict, line_no: int) -> dict:
     cor = parse_correct(row.get("correct"))
     if cor is None and not inv:
         raise ValueError(f"line {line_no}: 正答なし {year}-{qno}")
-    wareki = norm(row.get("exam_wareki"))
+    wareki = norm(row.get("exam_wareki")) or wareki_label(year)
     cat = norm(row.get("category"))
     typ = norm(row.get("type")) or "single"
     stem_plain = norm(row.get("stem"))
@@ -304,6 +461,8 @@ def page_dict(row: dict, line_no: int) -> dict:
         "note": norm(row.get("note")),
         "exp": exp,
         "id": f"past-{year}-{qno:02d}",
+        "app_id": year * 100 + qno,
+        "tags": parse_tags(norm(row.get("tags"))),
         "rel_path": f"q/past/y{year}/q{qno:02d}/index.html",
     }
 
@@ -413,62 +572,96 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
 
 
 def build_q_index(pages: list[dict], base_url: str) -> str:
+    glossary_lookup = load_glossary_lookup()
+    index_pages: list[dict] = []
+    for page in pages:
+        pg = dict(page)
+        pg["href_rel"] = (
+            page["rel_path"][2:] if page["rel_path"].startswith("q/") else page["rel_path"]
+        )
+        pg["glossary_links"] = glossary_links_for_tags(pg.get("tags") or [], glossary_lookup)
+        index_pages.append(pg)
+
     by_year: dict[int, list[dict]] = {}
-    for p in pages:
-        by_year.setdefault(p["year"], []).append(p)
+    by_category: dict[str, int] = {}
+    for pg in index_pages:
+        by_year.setdefault(pg["year"], []).append(pg)
+        by_category[pg["category"]] = by_category.get(pg["category"], 0) + 1
     for y in by_year:
-        by_year[y].sort(key=lambda x: int(x["qno"]))
+        by_year[y].sort(key=lambda x: x["qno"])
 
-    field_chips = []
-    for fid, meta in (
-        ("rights", "権利関係"),
-        ("law", "宅建業法"),
-        ("limit", "法令上の制限"),
-        ("tax", "税・その他"),
-    ):
-        field_chips.append(
-            f'<a class="terms-idx-chip" href="field/{html.escape(fid)}/index.html">{html.escape(meta)}</a>'
+    sorted_years = sorted(by_year.keys(), reverse=True)
+    open_years = set(sorted_years[:2])
+
+    year_blocks = []
+    year_jump_links = []
+    for y in sorted_years:
+        rows_html = "".join(build_index_table_row(pg) for pg in by_year[y])
+        heading = (
+            by_year[y][0]["wareki"]
+            if y > 9999
+            else f"{y}年（{by_year[y][0]['wareki']}）"
         )
-    field_nav = (
-        '<nav class="q-field-nav" aria-label="分野別過去問">'
-        + "".join(field_chips)
-        + "</nav>"
+        expanded = "true" if y in open_years else "false"
+        collapsed = "" if y in open_years else " is-collapsed"
+        year_jump_links.append(
+            f'<a class="q-index-filter-opt q-index-year-link" href="#year-{y}" data-year="{y}">'
+            f'{html.escape(f"{y}年")}<span class="q-index-filter-count">（{len(by_year[y])}）</span></a>'
+        )
+        year_blocks.append(
+            f'<section class="q-index-year-block{collapsed}" id="year-{y}">'
+            f'<div class="q-index-year-head">'
+            f'<div class="q-index-year-head-main">'
+            f'<button type="button" class="q-index-year-toggle" aria-expanded="{expanded}" '
+            f'aria-controls="year-body-{y}"><span class="q-index-year-chevron" aria-hidden="true"></span></button>'
+            f'<h2 id="year-{y}-heading">{html.escape(heading)}</h2>'
+            f"</div>"
+            f'<span class="q-index-year-count" data-total="{len(by_year[y])}">{len(by_year[y])}問</span>'
+            f"</div>"
+            f'<div class="q-year-table-wrap" id="year-body-{y}">'
+            f'<table class="q-year-table" aria-labelledby="year-{y}-heading">'
+            "<thead><tr>"
+            '<th scope="col">問</th><th scope="col">分野</th><th scope="col">タグ</th>'
+            '<th scope="col">問題文（抜粋）</th><th scope="col">用語</th><th scope="col">備考</th><th scope="col">操作</th>'
+            "</tr></thead>"
+            f"<tbody>{rows_html}</tbody>"
+            "</table></div></section>"
+        )
+    year_blocks_html = "".join(year_blocks)
+
+    status_chips = [
+        q_index_filter_chip_btn("q-index-status-btn", "data-status", "all", "すべて", on=True),
+        q_index_filter_chip_btn("q-index-status-btn", "data-status", "wrong", "不正解"),
+        q_index_filter_chip_btn("q-index-status-btn", "data-status", "bookmark", "ブックマーク"),
+        q_index_filter_chip_btn("q-index-status-btn", "data-status", "exempt", "免除"),
+        q_index_filter_chip_btn("q-index-status-btn", "data-status", "invalid", "無効"),
+    ]
+    json_data = json.dumps([index_item_dict(pg) for pg in index_pages], ensure_ascii=False)
+    status_chips_html = "".join(status_chips)
+    category_chips = [
+        q_index_filter_chip_btn("q-index-chip-btn", "data-cat", "all", "すべて", on=True)
+    ]
+    for cat, count in sorted(by_category.items()):
+        category_chips.append(
+            q_index_filter_chip_btn("q-index-chip-btn", "data-cat", cat, cat, count=count)
+        )
+    category_chips_html = "".join(category_chips)
+    year_jump_html = "".join(year_jump_links)
+    year_count = len(by_year)
+
+    rel_path = Path("q/index.html")
+    q_index_header = site_page_header(rel_path, current="q")
+    q_index_breadcrumb = breadcrumb_html(rel_path, [("トップ", "index.html"), ("過去問一覧", None)])
+    q_index_footer = site_page_footer(rel_path, current="q")
+
+    page_title = f"過去問｜{brand_name()}（{exam_name()}）"
+    page_desc = (
+        f"{exam_name()}の過去問{len(pages)}問を年度・分野別に掲載。"
+        "検索と絞り込みのあと、各問題の解説ページへ進めます。"
     )
-
-    year_summary = q_year_index_summary_html(by_year)
-
-    q_header = static_q_site_header(
-        root_href="../index.html",
-        breadcrumb_items=[("トップ", "../index.html"), ("過去問一覧", None)],
-    )
-
-    total_line = f"<p class=\"q-meta\">全 {len(pages)} 問</p>" if pages else ""
-
-    recent_years = sorted(by_year.keys(), reverse=True)[:5]
-    quick_year_links = []
-    for y in recent_years:
-        ys = by_year[y]
-        wareki = ys[0]["wareki"]
-        n = len(ys)
-        total = 50
-        label = f"{n}/{total}問" if n < total else f"全{n}問"
-        quick_year_links.append(
-            f'<a class="terms-idx-chip" href="past/y{y}/index.html">'
-            f"宅建 {html.escape(str(y))}年 過去問（{html.escape(wareki)}・{label}）</a>"
-        )
-    quick_years_nav = ""
-    if quick_year_links:
-        quick_years_nav = (
-            '<nav class="q-index-quick-years" aria-label="年度別過去問（人気）">'
-            '<p class="q-index-quick-label">年度別に見る</p>'
-            + "".join(quick_year_links)
-            + "</nav>"
-        )
-
-    index_title = f"宅建 過去問一覧（無料）｜年度別・解説付き｜{brand_name()}"
-    index_desc = (
-        f"宅建・宅建士試験の過去問を無料で年度別に演習。全{len(pages)}問に正答・解説・関連用語リンク付き。"
-        "2025年度・2024年度から各問へ。分野別の絞り込みもできます。"
+    page_lead = (
+        f"{exam_name()}の過去問を年度別・分野別にまとめています。"
+        "検索と絞り込みで目的の問題を探し、解説ページで正誤と解説を確認できます。"
     )
 
     return f"""<!DOCTYPE html>
@@ -476,25 +669,83 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{html.escape(index_title)}</title>
-<meta name="description" content="{html.escape(index_desc)}">
+<title>{html.escape(page_title)}</title>
+<meta name="description" content="{html.escape(page_desc)}">
+<meta property="og:title" content="{html.escape(page_title)}">
+<meta property="og:description" content="{html.escape(page_desc)}">
 {ROBOTS_INDEX_FOLLOW}
 <link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
-<link rel="stylesheet" href="../site-pages.css">
+{HEAD_FONTS}
+<link rel="stylesheet" href="../site-pages.css?v={Q_INDEX_CSS_VER}">
+<link rel="stylesheet" href="../site-theme.css">
 </head>
-<body class="q-static-body">
-{q_header}
-<main class="q-static-main">
-  <h1 class="q-h1">宅建の過去問一覧（無料・年度別）</h1>
-  {total_line}
-  <p class="glos-static-intro q-index-intro">宅建・宅建士試験の<strong>過去問</strong>を<strong>無料</strong>で<strong>年度別</strong>に解けます。各問ページには<strong>解説</strong>と<strong>関連用語</strong>へのリンクがあります。<strong><a href="../index.html#past">アプリで過去問</a></strong>では絞り込みや学習記録も使えます。</p>
-  {trust_table_html(anchor_id="trust", compact=True)}
-  {quick_years_nav}
-  {field_nav}
-  {year_summary}
-  <p class="q-app-link"><a href="../index.html#past">アプリで過去問を開く</a></p>
+<body class="q-index-page">
+{site_page_wrap_open()}
+{q_index_header}
+<main class="site-page-main">
+  {q_index_breadcrumb}
+  <h1>過去問</h1>
+  <p class="site-page-lead">{html.escape(page_lead)}</p>
+  <section class="past-index-panel" aria-labelledby="past-index-heading">
+    <div class="past-index-head">
+      <div>
+        <h2 id="past-index-heading">過去問一覧</h2>
+        <p>全{len(pages)}問・{year_count}年度・{len(by_category)}分野。キーワード検索と絞り込みで探せます。</p>
+      </div>
+      <span id="q-index-hit" class="past-index-hit" aria-live="polite">{len(pages)} / {len(pages)} 問</span>
+    </div>
+    <div class="past-index-tools" aria-label="絞り込み">
+      <label class="past-index-search" for="q-index-q">
+        <span>過去問検索</span>
+        <input id="q-index-q" type="search" inputmode="search" autocomplete="off" placeholder="例：第1問、分野名、問題文…">
+      </label>
+      <div class="past-index-tools-actions">
+        <button type="button" class="q-index-reset hide" id="q-index-reset">条件をクリア</button>
+      </div>
+      <div class="q-index-active-filters hide" id="q-index-active-filters" aria-live="polite"></div>
+    <div class="q-index-chips-row q-index-year-row" id="q-index-year-row">
+      <span class="q-index-chips-label">年度</span>
+      <nav class="q-index-chips q-index-year-jump" aria-label="年度で移動">{year_jump_html}</nav>
+    </div>
+    <div class="q-index-chips-row">
+      <span class="q-index-chips-label" id="q-index-chips-label">分野</span>
+      <div class="q-index-chips" aria-labelledby="q-index-chips-label">{category_chips_html}</div>
+    </div>
+    <div class="q-index-chips-row">
+      <span class="q-index-chips-label">学習状況</span>
+      <div class="q-index-chips q-index-status-chips" role="group" aria-label="学習状況（アプリ連携）">{status_chips_html}</div>
+    </div>
+    </div>
+    <div class="q-index-empty-panel hide" id="q-index-empty" role="status">
+      <p class="q-index-empty-title">条件に一致する過去問がありません</p>
+      <p class="q-index-empty-hint">検索語を短くするか、分野・学習状況を「すべて」に戻してお試しください。</p>
+      <button type="button" class="q-index-reset" id="q-index-empty-reset">条件をクリア</button>
+    </div>
+    <div class="q-index-layout">
+      <div class="q-index-content">
+        <section class="q-index-years q-index-view-panel" id="q-index-view-year" aria-label="年度別過去問">{year_blocks_html}</section>
+        <section class="q-index-view-panel hide" id="q-index-view-cat" aria-label="分野別過去問"><div id="q-index-cat-mount"></div></section>
+        <section class="q-index-view-panel hide" id="q-index-view-flat" aria-label="過去問一覧">
+          <div class="q-year-table-wrap">
+            <table class="q-year-table">
+              <thead><tr>
+                <th scope="col">問</th><th scope="col">分野</th><th scope="col">タグ</th>
+                <th scope="col">問題文（抜粋）</th><th scope="col">用語</th><th scope="col">備考</th><th scope="col">操作</th>
+              </tr></thead>
+              <tbody id="q-index-flat-body"></tbody>
+            </table>
+          </div>
+        </section>
+        <nav class="q-index-pagination hide" id="q-index-pagination" aria-label="ページ送り"></nav>
+      </div>
+    </div>
+  </section>
 </main>
-{static_q_footer_block(Path("q/index.html"))}
+{q_index_footer}
+{site_page_wrap_close()}
+<button type="button" class="q-index-top" id="q-index-top" aria-label="ページ上部へ">↑</button>
+<script type="application/json" id="q-index-data">{json_data}</script>
+<script defer src="../site-q-index.js"></script>
 </body>
 </html>
 """
