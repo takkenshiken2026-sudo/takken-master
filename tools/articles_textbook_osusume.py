@@ -95,7 +95,8 @@ TEXTBOOK_PRODUCTS: list[dict[str, str]] = [
         "color": "フルカラー",
         "audience": "初学者・図解で理解したい人",
         "audience_short": "初学者に最もおすすめ",
-        "workbook_title": "みんなが欲しかった！宅建士の問題集 2026年度版",
+        "workbook_title": "2026年度版 みんなが欲しかった！ 宅建士の論点別過去問題集",
+        "workbook_href": "https://amzn.to/4v1NMc8",
         "workbook_meta": "みんなが欲しかった！教科書と同シリーズ",
     },
     {
@@ -110,7 +111,8 @@ TEXTBOOK_PRODUCTS: list[dict[str, str]] = [
         "color": "フルカラー",
         "audience": "コンパクトに学びたい人",
         "audience_short": "効率重視の学習に最適",
-        "workbook_title": "合格のトリセツ 厳選分野別過去問題集 2026年版",
+        "workbook_title": "2026年版 宅建士 合格のトリセツ 厳選分野別過去問題集",
+        "workbook_href": "https://amzn.to/4dAETPv",
         "workbook_meta": "合格のトリセツと同シリーズ",
     },
     {
@@ -125,16 +127,18 @@ TEXTBOOK_PRODUCTS: list[dict[str, str]] = [
         "color": "2色刷り",
         "audience": "再受験者・知識がある人",
         "audience_short": "語呂合わせ暗記が得意な人向け",
-        "workbook_title": "過去問宅建塾 2026年版",
-        "workbook_meta": "らくらく宅建塾と同シリーズ",
+        "workbook_title": "2026年版 過去問宅建塾",
+        "workbook_href": "https://amzn.to/4u7cYNH",
+        "workbook_meta": "らくらく宅建塾と同シリーズ（権利関係〔1〕）",
     },
 ]
 
 
-def resolve_textbook_image_src(product_id: str) -> str | None:
+def resolve_textbook_image_src(product_id: str, *, workbook: bool = False) -> str | None:
     """WebP/JPG/PNG があれば相対パスを返す。なければ None（CSSプレースホルダー用）。"""
+    base = f"takken-{product_id}-{'workbook-' if workbook else ''}2026"
     for ext in (".webp", ".jpg", ".jpeg", ".png"):
-        path = TEXTBOOK_IMAGE_DIR / f"takken-{product_id}-2026{ext}"
+        path = TEXTBOOK_IMAGE_DIR / f"{base}{ext}"
         if path.is_file():
             return f"{TEXTBOOK_IMAGE_REL}{path.name}"
     return None
@@ -149,10 +153,11 @@ def _product_cover_html(
     alt_label: str,
     *,
     thumb: bool = False,
+    workbook: bool = False,
 ) -> str:
     """表紙画像（ファイル）または CSS プレースホルダー。"""
     alt = html.escape(f"{alt_label}の表紙")
-    src = resolve_textbook_image_src(product["id"])
+    src = resolve_textbook_image_src(product["id"], workbook=workbook)
     if src:
         css = "affiliate-table-thumb" if thumb else "affiliate-product-card-image"
         sizes = (
@@ -229,8 +234,9 @@ def _affiliate_table_row(product: dict[str, str]) -> str:
 
 def _affiliate_workbook_card(product: dict[str, str]) -> str:
     attrs = _affiliate_attrs()
-    thumb = _product_cover_html(product, product["workbook_title"])
-    return f"""<a class="affiliate-product-card affiliate-product-card--workbook" href="{product['href']}" {attrs}>
+    href = product.get("workbook_href") or product["href"]
+    thumb = _product_cover_html(product, product["workbook_title"], workbook=True)
+    return f"""<a class="affiliate-product-card affiliate-product-card--workbook" href="{href}" {attrs}>
 <div class="affiliate-product-card-media">{thumb}</div>
 <div class="affiliate-product-card-body">
 <span class="affiliate-product-card-title">{product['workbook_title']}</span>
@@ -320,9 +326,9 @@ def textbook_sections_html() -> str:
 <table class="seo-info-table">
 <thead><tr><th>テキスト</th><th>おすすめ問題集</th></tr></thead>
 <tbody>
-<tr><td>みんなが欲しかった！教科書</td><td>みんなが欲しかった！宅建士の問題集</td></tr>
-<tr><td>合格のトリセツ</td><td>合格のトリセツ 厳選分野別過去問題集</td></tr>
-<tr><td>らくらく宅建塾</td><td>過去問宅建塾</td></tr>
+<tr><td>みんなが欲しかった！教科書</td><td>2026年度版 みんなが欲しかった！ 宅建士の論点別過去問題集</td></tr>
+<tr><td>合格のトリセツ</td><td>2026年版 宅建士 合格のトリセツ 厳選分野別過去問題集</td></tr>
+<tr><td>らくらく宅建塾</td><td>2026年版 過去問宅建塾</td></tr>
 </tbody>
 </table>
 <p>各シリーズの問題集もAmazonで確認できます（テキストと同じシリーズを選んでください）。</p>
