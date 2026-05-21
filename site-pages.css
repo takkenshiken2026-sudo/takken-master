@@ -2295,8 +2295,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   font-weight: 700;
 }
 .terms-idx-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: visible;
   border: 1px solid var(--table-border);
   border-radius: var(--r2);
   background: var(--bg);
@@ -2320,12 +2319,6 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .terms-idx-table tbody tr:last-child td {
   border-bottom: none;
-}
-@media (min-width: 960px) {
-  .terms-idx-table-duo {
-    min-width: 1080px;
-    width: 100%;
-  }
 }
 .terms-idx-table thead th {
   position: sticky;
@@ -2364,6 +2357,18 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 .terms-idx-table-duo .terms-idx-slot-b.terms-idx-th-term,
 .terms-idx-table-duo .terms-idx-slot-b.terms-idx-td-term {
   border-left: 1px solid var(--table-border);
+}
+.terms-idx-table:not(.terms-idx-table-duo) .terms-idx-th-term,
+.terms-idx-table:not(.terms-idx-table-duo) .terms-idx-td-term {
+  width: 24%;
+}
+.terms-idx-table:not(.terms-idx-table-duo) .terms-idx-th-cat,
+.terms-idx-table:not(.terms-idx-table-duo) .terms-idx-td-cat {
+  width: 14%;
+}
+.terms-idx-table:not(.terms-idx-table-duo) .terms-idx-th-def,
+.terms-idx-table:not(.terms-idx-table-duo) .terms-idx-td-snippet {
+  width: 62%;
 }
 .terms-idx-th-term {
   width: 22%;
@@ -2439,30 +2444,39 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   color: var(--text2);
 }
 .terms-index-large .terms-idx-table td {
-  padding: 7px 12px;
+  padding: 6px 10px;
 }
-/* 定義2行クリップ（table-cell を維持。 -webkit-box は行の高さを壊す） */
+.terms-index-large .terms-idx-term-cell {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+.terms-index-large .terms-idx-reading {
+  font-size: var(--fs-caption);
+}
+/* 定義2行クリップ（table-cell を維持） */
 .terms-index-large .terms-idx-td-snippet {
   overflow: hidden;
-  max-height: 3.2em;
+  max-height: 3.1em;
   line-height: 1.55;
 }
 @media (min-width: 960px) {
-  .terms-idx-table-duo thead,
-  .terms-idx-table-duo tbody {
+  .terms-idx-table:not(.terms-idx-table-duo) thead,
+  .terms-idx-table:not(.terms-idx-table-duo) tbody {
     display: table-row-group;
   }
-  .terms-idx-table-duo tr {
+  .terms-idx-table:not(.terms-idx-table-duo) tr {
     display: table-row;
   }
-  .terms-idx-table-duo th,
-  .terms-idx-table-duo td {
+  .terms-idx-table:not(.terms-idx-table-duo) th,
+  .terms-idx-table:not(.terms-idx-table-duo) td {
     display: table-cell;
     vertical-align: top;
   }
   .terms-index-large .terms-idx-td-snippet {
     display: table-cell;
-    max-height: 3.2em;
+    max-height: 3.1em;
     overflow: hidden;
   }
 }
@@ -3081,15 +3095,17 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   background: var(--bg);
 }
 .terms-index-panel .terms-idx-table-wrap {
+  overflow-x: visible;
   border: 1px solid var(--table-border);
   border-radius: var(--r2);
 }
 .terms-index-panel .terms-idx-table {
+  width: 100%;
   table-layout: fixed;
 }
 .terms-index-panel .terms-idx-table .terms-idx-th-term,
 .terms-index-panel .terms-idx-table .terms-idx-td-term {
-  width: 22%;
+  width: 24%;
 }
 .terms-index-panel .terms-idx-table .terms-idx-th-cat,
 .terms-index-panel .terms-idx-table .terms-idx-td-cat {
@@ -3098,7 +3114,13 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .terms-index-panel .terms-idx-table .terms-idx-th-def,
 .terms-index-panel .terms-idx-table .terms-idx-td-snippet {
-  width: auto;
+  width: 62%;
+}
+.terms-index-panel .terms-idx-table .terms-idx-td-term,
+.terms-index-panel .terms-idx-table .terms-idx-td-cat,
+.terms-index-panel .terms-idx-table .terms-idx-td-snippet {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .terms-index-panel .terms-idx-table [data-entry-href].is-entry-hover {
   background: color-mix(in srgb, var(--accent-soft) 28%, var(--bg2)) !important;
