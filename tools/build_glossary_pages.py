@@ -267,6 +267,7 @@ def terms_index_item_dict(entry: dict) -> dict:
         "category": entry.get("category") or "",
         "tags": tags,
         "definition": def_text,
+        "shortDef": def_text,
         "href": entry["slug_file"],
         "fieldHub": entry.get("field_hub") or "",
         "search": " ".join(x for x in search_bits if x),
