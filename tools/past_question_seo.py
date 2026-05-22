@@ -152,7 +152,7 @@ def question_json_ld(page: dict, canonical: str, title: str, desc: str) -> dict:
                     "@type": "ListItem",
                     "position": 3,
                     "name": page["wareki"],
-                    "item": canonical.rsplit(f"/q{page['qno']:02d}/", 1)[0] + "/",
+                    "item": canonical.rsplit(f"/q{page['qno']:02d}/", 1)[0] + "/index.html",
                 },
                 {"@type": "ListItem", "position": 4, "name": page_title_mid(page), "item": canonical},
             ],
