@@ -33,6 +33,10 @@ from tools.html_footer import (
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.glossary_past_questions import (  # noqa: E402
+    find_past_questions_for_term,
+    past_questions_section_html,
+)
 from tools.site_config import (
     brand_name,
     category_order,
@@ -733,6 +737,14 @@ def build_term_html(
         if html_text:
             content_sections.append(html_text)
             body_toc_items.append((f"term-sec-{sec_id}", label))
+    past_hits = find_past_questions_for_term(term, limit=3, related_terms=related)
+    past_section = past_questions_section_html(
+        past_hits, rel_path, section_num=len(content_sections) + 1
+    )
+    if past_section:
+        content_sections.append(past_section)
+        body_toc_items.append(("term-past-title", "関連する過去問"))
+
     content_sections_html = "\n    ".join(content_sections)
 
     toc_items: list[tuple[str, str]] = [

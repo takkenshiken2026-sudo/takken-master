@@ -20,7 +20,7 @@ python3 -m http.server 8765
 | CSV | 内容 |
 |-----|------|
 | `past_questions.csv` | 過去問（481問） |
-| `glossary_terms.csv` | 用語（304件） |
+| `glossary_terms.csv` | 用語（354件） |
 | `guide_articles.csv` | 試験ガイド（既存51本＋カタログ追補で約180 slug） |
 | `ichimon_questions.csv` | 一問一答（サンプル行あり・増やす場合は編集） |
 | `practice_questions.csv` | 実践演習（任意） |
