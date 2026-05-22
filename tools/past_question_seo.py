@@ -181,6 +181,98 @@ def question_json_ld(page: dict, canonical: str, title: str, desc: str) -> dict:
 
 EXAM_QUESTIONS_PER_YEAR = 50
 
+FIELD_HUB_ORDER = ("rights", "law", "limit", "tax")
+
+
+def _hub_meta_tags(title: str, desc: str, canonical: str) -> str:
+    return f"""<meta name="robots" content="index, follow">
+<link rel="canonical" href="{html.escape(canonical)}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{html.escape(title)}">
+<meta property="og:description" content="{html.escape(desc)}">
+<meta property="og:url" content="{html.escape(canonical)}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{html.escape(title)}">
+<meta name="twitter:description" content="{html.escape(desc)}">"""
+
+
+def _collection_json_ld(
+    *,
+    canonical: str,
+    title: str,
+    desc: str,
+    items: list[tuple[str, str]],
+    site_url: str,
+) -> str:
+    """CollectionPage + ItemList（一覧ページ向け）。"""
+    elements = [
+        {
+            "@type": "ListItem",
+            "position": i,
+            "name": name,
+            "url": url,
+        }
+        for i, (name, url) in enumerate(items[:50], start=1)
+    ]
+    site_root = site_url.rstrip("/") + "/"
+    graph = [
+        {
+            "@type": "CollectionPage",
+            "@id": canonical + "#webpage",
+            "url": canonical,
+            "name": title,
+            "description": desc,
+            "inLanguage": "ja",
+            "isPartOf": {"@type": "WebSite", "name": "宅建マスター", "url": site_root},
+        },
+        {
+            "@type": "ItemList",
+            "@id": canonical + "#itemlist",
+            "numberOfItems": len(items),
+            "itemListElement": elements,
+        },
+    ]
+    payload = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+    return f'<script type="application/ld+json">{payload}</script>'
+
+
+def _field_count_summary(by_field: dict[str, list[dict]]) -> str:
+    parts = []
+    for cat in sorted(by_field.keys()):
+        parts.append(f"{html.escape(cat)}<strong>{len(by_field[cat])}問</strong>")
+    return "・".join(parts)
+
+
+def _year_nav_html(year: int, years: list[int], base_url: str) -> str:
+    base = base_url.rstrip("/")
+    links = []
+    if year - 1 in years:
+        yp = year - 1
+        links.append(f'<a href="{base}/q/past/y{yp}/index.html">前の年度（{yp}年）</a>')
+    links.append(f'<a href="{base}/q/past/index.html">年度別一覧</a>')
+    if year + 1 in years:
+        yn = year + 1
+        links.append(f'<a href="{base}/q/past/y{yn}/index.html">次の年度（{yn}年）</a>')
+    if not links:
+        return ""
+    return '<nav class="q-hub-nav" aria-label="年度ナビ">' + " · ".join(links) + "</nav>"
+
+
+def _field_hub_links_html(base_url: str) -> str:
+    base = base_url.rstrip("/")
+    lis = []
+    for fid in FIELD_HUB_ORDER:
+        meta = FIELD_HUB_META[fid]
+        lis.append(
+            f'<li><a href="{base}/q/field/{fid}/index.html">'
+            f'{html.escape(meta["name"])}の過去問一覧</a></li>'
+        )
+    return (
+        '<section class="q-hub-fields" aria-labelledby="q-field-links">'
+        '<h2 class="q-h2" id="q-field-links">分野別の過去問一覧</h2>'
+        f'<ul class="q-hub-field-list">{"".join(lis)}</ul></section>'
+    )
+
 
 def coverage_note_html(published: int, total: int = EXAM_QUESTIONS_PER_YEAR) -> str:
     if published >= total:
@@ -281,35 +373,131 @@ def q_year_index_summary_html(by_year: dict[int, list[dict]]) -> str:
     )
 
 
+def build_past_root_hub_html(
+    years: list[int], pages: list[dict], base_url: str, brand: str, exam: str
+) -> str:
+    """q/past/index.html — 年度別静的ハブのトップ。"""
+    base = base_url.rstrip("/")
+    rel_path = "q/past/index.html"
+    canonical = f"{base}/{rel_path}"
+    y_min, y_max = min(years), max(years)
+    title = f"宅建 過去問 年度別一覧｜{y_max}年〜{y_min}年｜{brand}（{exam}）"
+    desc = (
+        f"{exam}の過去問を年度別に一覧。{len(years)}年度・全{len(pages)}問を掲載し、"
+        "各問の解説・正答・関連用語リンク付きで無料演習できます。"
+    )
+
+    by_year: dict[int, list[dict]] = {}
+    for p in pages:
+        by_year.setdefault(p["year"], []).append(p)
+
+    year_rows = []
+    list_items: list[tuple[str, str]] = []
+    for y in sorted(years, reverse=True):
+        ys = by_year[y]
+        wareki = ys[0]["wareki"]
+        n = len(ys)
+        url = f"{base}/q/past/y{y}/index.html"
+        year_rows.append(
+            f'<li><a href="y{y}/index.html"><strong>{html.escape(wareki)}</strong>'
+            f"（{y}年）— {n}問掲載</a></li>"
+        )
+        list_items.append((f"{wareki}（{y}年）", url))
+
+    json_ld = _collection_json_ld(
+        canonical=canonical, title=title, desc=desc, items=list_items, site_url=base
+    )
+    trust = trust_table_html(anchor_id="trust", compact=True)
+    field_links = _field_hub_links_html(base)
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{html.escape(title)}</title>
+<meta name="description" content="{html.escape(desc)}">
+{_hub_meta_tags(title, desc, canonical)}
+<link rel="stylesheet" href="../../site-pages.css">
+{json_ld}
+</head>
+<body class="q-static-body">
+<header class="q-static-header">
+  <p class="q-static-brand"><a href="../../index.html">{html.escape(brand)}</a>（{html.escape(exam)}）</p>
+  <nav aria-label="パンくず"><ol class="q-breadcrumb">
+    <li><a href="../../index.html">トップ</a></li>
+    <li><a href="../index.html">過去問一覧</a></li>
+    <li aria-current="page">年度別一覧</li>
+  </ol></nav>
+</header>
+<main class="q-static-main">
+  <h1 class="q-h1">宅建 過去問 年度別一覧</h1>
+  <p class="q-meta">全 {len(pages)} 問 · {len(years)} 年度</p>
+  <p class="glos-static-intro">
+    {html.escape(exam)}の過去問を、試験年度ごとに整理した静的ページです。
+    各年度ページから第1問以降の<strong>解説付き問題</strong>へ進めます。
+    絞り込み検索は<a href="../index.html">過去問一覧（検索付き）</a>をご利用ください。
+  </p>
+  {trust}
+  <section class="glos-cat-section" aria-labelledby="q-past-years">
+    <h2 class="glos-cat-heading" id="q-past-years">試験年度を選ぶ</h2>
+    <ol class="q-year-list q-past-year-overview">{"".join(year_rows)}</ol>
+  </section>
+  {field_links}
+  <p class="q-hub-links"><a href="../../terms/index.html">用語解説一覧</a> · <a href="../../articles/index.html">試験ガイド</a></p>
+  <p class="q-app-link"><a href="../../index.html#past">アプリで過去問を演習</a></p>
+</main>
+</body>
+</html>"""
+
+
 def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str, exam: str) -> str:
     year_pages = sorted([p for p in pages if p["year"] == year], key=lambda x: x["qno"])
     if not year_pages:
         return ""
     wareki = year_pages[0]["wareki"]
+    years = sorted({p["year"] for p in pages})
     rel_path = f"q/past/y{year}/index.html"
-    canonical = f"{base_url.rstrip('/')}/{rel_path}"
+    base = base_url.rstrip("/")
+    canonical = f"{base}/{rel_path}"
     title = f"{wareki} 宅建過去問まとめ（全{len(year_pages)}問）｜{brand}（{exam}）"
-    desc = f"{wareki}（{year}年）の宅建試験過去問を第1問から掲載。分野別のリンク・解説・関連用語付きで無料演習できます。"
+    desc = (
+        f"{wareki}（{year}年）の{exam}過去問{len(year_pages)}問を掲載。"
+        "正答・解説・関連用語リンク付き。権利関係・宅建業法・法令制限・税の分野別に確認できます。"
+    )
 
     by_field: dict[str, list[dict]] = {}
     for p in year_pages:
         by_field.setdefault(p["category"], []).append(p)
 
+    list_items = [
+        (
+            f"第{p['qno']}問",
+            f"{base}/q/past/y{year}/q{p['qno']:02d}/index.html",
+        )
+        for p in year_pages
+    ]
+    json_ld = _collection_json_ld(
+        canonical=canonical, title=title, desc=desc, items=list_items, site_url=base
+    )
+    trust = trust_table_html(anchor_id="trust", compact=True)
+    coverage = coverage_note_html(len(year_pages))
+    year_nav = _year_nav_html(year, years, base)
+    field_summary = _field_count_summary(by_field)
+
     field_sections = []
     for cat in sorted(by_field.keys()):
-        lis = []
-        for p in by_field[cat]:
-            theme = p.get("theme") or ""
-            label = f"第{p['qno']}問"
-            if theme:
-                label += f"（{theme}）"
-            lis.append(f'<li><a href="q{p["qno"]:02d}/index.html">{html.escape(label)}</a></li>')
+        cat_pages = sorted(by_field[cat], key=lambda x: x["qno"])
+        table = q_list_table_html(
+            cat_pages,
+            lambda p: f"q{p['qno']:02d}/index.html",
+            show_category=False,
+        )
         field_sections.append(
-            f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{html.escape(cat)}</h2>'
-            f'<ol class="q-year-list">{"".join(lis)}</ol></section>'
+            f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{html.escape(cat)}'
+            f"（{len(cat_pages)}問）</h2>{table}</section>"
         )
 
-    trust = trust_table_html(anchor_id="trust", compact=True)
     body = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -317,9 +505,9 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="{html.escape(canonical)}">
+{_hub_meta_tags(title, desc, canonical)}
 <link rel="stylesheet" href="../../../site-pages.css">
+{json_ld}
 </head>
 <body class="q-static-body">
 <header class="q-static-header">
@@ -327,15 +515,23 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
   <nav aria-label="パンくず"><ol class="q-breadcrumb">
     <li><a href="../../../index.html">トップ</a></li>
     <li><a href="../../index.html">過去問一覧</a></li>
+    <li><a href="../index.html">年度別一覧</a></li>
     <li aria-current="page">{html.escape(wareki)}</li>
   </ol></nav>
 </header>
 <main class="q-static-main">
   <h1 class="q-h1">{html.escape(wareki)} 過去問まとめ</h1>
   <p class="q-meta">全 {len(year_pages)} 問 · 解説・関連用語リンク付き</p>
-  <p class="glos-static-intro">各問のページでは正答・解説のほか、問題文に関連する<strong><a href="../../../terms/index.html">用語解説</a></strong>へリンクしています。</p>
+  <p class="glos-static-intro">
+    {html.escape(wareki)}（{year}年）の{html.escape(exam)}過去問を掲載しています。
+    内訳は{field_summary}です。各問ページでは<strong>正答・解説</strong>のほか、
+    問題文に関連する<a href="../../../terms/index.html">用語解説</a>へリンクしています。
+  </p>
+  {year_nav}
+  {coverage}
   {trust}
   {"".join(field_sections)}
+  <p class="q-hub-links"><a href="../index.html">ほかの年度を見る</a> · <a href="../../index.html">過去問一覧（検索）</a></p>
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
 </main>
 </body>
@@ -349,33 +545,52 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
     if not field_pages:
         return ""
     rel_path = f"q/field/{field_id}/index.html"
-    canonical = f"{base_url.rstrip('/')}/{rel_path}"
+    base = base_url.rstrip("/")
+    canonical = f"{base}/{rel_path}"
     title = f"{meta['title']}｜{brand}（{exam}）"
     desc = meta["description"]
+    years = sorted({p["year"] for p in field_pages}, reverse=True)
 
     by_year: dict[int, list[dict]] = {}
     for p in field_pages:
         by_year.setdefault(p["year"], []).append(p)
 
+    list_items = [
+        (
+            f"{p['wareki']} 第{p['qno']}問",
+            f"{base}/q/past/y{p['year']}/q{p['qno']:02d}/index.html",
+        )
+        for p in sorted(field_pages, key=lambda x: (-x["year"], x["qno"]))
+    ]
+    json_ld = _collection_json_ld(
+        canonical=canonical, title=title, desc=desc, items=list_items, site_url=base
+    )
+
     year_sections = []
-    for y in sorted(by_year.keys(), reverse=True):
+    for y in years:
         ys = sorted(by_year[y], key=lambda x: x["qno"])
         wareki = ys[0]["wareki"]
-        lis = []
-        for p in ys:
-            lis.append(
-                f'<li><a href="../../past/y{y}/q{p["qno"]:02d}/index.html">'
-                f'{html.escape(wareki)} 第{p["qno"]}問</a></li>'
-            )
+        table = q_list_table_html(
+            ys,
+            lambda p: f"../../past/y{y}/q{p['qno']:02d}/index.html",
+            show_category=False,
+        )
         year_sections.append(
-            f'<section class="glos-cat-section"><h2 class="glos-cat-heading">{y}年（{html.escape(wareki)}）</h2>'
-            f'<ol class="q-year-list">{"".join(lis)}</ol></section>'
+            f'<section class="glos-cat-section"><h2 class="glos-cat-heading">'
+            f'<a href="{base}/q/past/y{y}/index.html">{y}年（{html.escape(wareki)}）</a>'
+            f"（{len(ys)}問）</h2>{table}</section>"
         )
 
     trust = trust_table_html(anchor_id="trust", compact=True)
     depth = len(Path(rel_path).parent.parts)
     to_root = "/".join([".."] * depth)
     to_q = "/".join([".."] * (depth - 1))
+    year_links = " · ".join(
+        f'<a href="{base}/q/past/y{y}/index.html">{y}年</a>' for y in years[:6]
+    )
+    if len(years) > 6:
+        year_links += f' … <a href="{base}/q/past/index.html">全年度</a>'
+
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -383,9 +598,9 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="{html.escape(canonical)}">
+{_hub_meta_tags(title, desc, canonical)}
 <link rel="stylesheet" href="{to_root}/site-pages.css">
+{json_ld}
 </head>
 <body class="q-static-body">
 <header class="q-static-header">
@@ -398,9 +613,15 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
 </header>
 <main class="q-static-main">
   <h1 class="q-h1">{html.escape(meta["name"])}の過去問</h1>
-  <p class="q-meta">掲載 {len(field_pages)} 問</p>
+  <p class="q-meta">掲載 {len(field_pages)} 問 · {len(years)} 年度</p>
+  <p class="glos-static-intro">
+    {html.escape(exam)}の<strong>{html.escape(meta["name"])}</strong>分野の過去問を年度別にまとめています。
+    各問ページでは正答・解説・<a href="{to_root}/terms/index.html">用語解説</a>へのリンクがあります。
+    年度ページ例：{year_links}
+  </p>
   {trust}
   {"".join(year_sections)}
+  <p class="q-hub-links"><a href="{base}/q/past/index.html">年度別一覧</a> · <a href="{to_q}/index.html">過去問一覧（検索）</a></p>
   <p class="q-hub-links"><a href="{to_root}/terms/index.html">用語解説一覧</a> · <a href="{to_root}/articles/index.html">試験ガイド</a></p>
 </main>
 </body>

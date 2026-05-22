@@ -37,6 +37,7 @@ from tools.html_footer import (  # noqa: E402
 )
 from tools.past_question_seo import (  # noqa: E402
     build_field_hub_html,
+    build_past_root_hub_html,
     build_year_hub_html,
     enrich_pages,
     hub_links_html,
@@ -677,8 +678,9 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
         "検索と絞り込みのあと、各問題の解説ページへ進めます。"
     )
     page_lead = (
-        f"{exam_name()}の過去問を年度別・分野別にまとめています。"
+        f"{html.escape(exam_name())}の過去問を年度別・分野別にまとめています。"
         "検索と絞り込みで目的の問題を探し、解説ページで正誤と解説を確認できます。"
+        ' <a href="past/index.html">年度別の静的一覧</a>から各年度ページへも進めます。'
     )
 
     return f"""<!DOCTYPE html>
@@ -702,7 +704,7 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <main class="site-page-main">
   {q_index_breadcrumb}
   <h1>過去問</h1>
-  <p class="site-page-lead">{html.escape(page_lead)}</p>
+  <p class="site-page-lead">{page_lead}</p>
   <section class="past-index-panel" aria-labelledby="past-index-heading">
     <div class="past-index-head">
       <div>
@@ -869,6 +871,10 @@ def main() -> int:
     brand = brand_name()
     exam = exam_name()
     years = sorted({p["year"] for p in pages})
+    past_root = Q_ROOT / "past" / "index.html"
+    past_root.parent.mkdir(parents=True, exist_ok=True)
+    past_root.write_text(build_past_root_hub_html(years, pages, base, brand, exam), encoding="utf-8")
+
     for y in years:
         hub_path = Q_ROOT / "past" / f"y{y}" / "index.html"
         hub_path.parent.mkdir(parents=True, exist_ok=True)
@@ -882,7 +888,7 @@ def main() -> int:
             hub_path.write_text(hub_html, encoding="utf-8")
 
     print(
-        f"wrote {len(pages)} question pages + {len(years)} year hubs + field hubs + {q_index} "
+        f"wrote {len(pages)} question pages + past root + {len(years)} year hubs + field hubs + {q_index} "
         f"(source: {data_source})"
     )
     return 0
