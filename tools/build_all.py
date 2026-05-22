@@ -24,6 +24,7 @@ def main() -> int:
     run([py, "tools/csv_to_takken_glossary_js.py"])
     run([py, "tools/csv_to_exam_site_ichimondou_js.py"])
     run([py, "tools/build_past_question_pages.py"])
+    run([py, "tools/build_practice_ichimon_pages.py"])
     run([py, "tools/build_article_pages.py"])
     run([py, "tools/build_glossary_pages.py"])
     run([py, "tools/build_sitemap.py"])

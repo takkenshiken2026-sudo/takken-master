@@ -49,6 +49,11 @@ from tools.past_question_seo import (  # noqa: E402
     question_json_ld,
     related_terms_html,
 )
+from tools.q_explanation import build_explanation_html  # noqa: E402
+from tools.q_similar_questions import (  # noqa: E402
+    build_similar_questions_html,
+    load_question_catalog,
+)
 from tools.site_config import brand_name, clean_origin, exam_name  # noqa: E402
 from tools.seo_common import trust_table_html  # noqa: E402
 
@@ -70,7 +75,7 @@ HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
 
-Q_INDEX_CSS_VER = "20260521-q-index-slim"
+Q_INDEX_CSS_VER = "20260526-q-index-mobile"
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 
 
@@ -189,6 +194,56 @@ def glossary_links_for_tags(tags: list[str], lookup: dict[str, str]) -> list[dic
         if len(out) >= 3:
             break
     return out
+
+
+def text_to_html(text: str) -> str:
+    if not text:
+        return ""
+    return html.escape(text).replace("\n", "<br>\n")
+
+
+def normalize_glossary_href(href: str) -> str:
+    return re.sub(r"^(?:\.\./)+", "", href.lstrip("/"))
+
+
+GUIDE_LINK_FALLBACK_SLUGS = (
+    "past-question-strategy",
+    "study-plan",
+    "exam-overview",
+    "glossary-how-to",
+)
+
+
+def load_guide_articles() -> list[dict[str, str]]:
+    from tools.build_glossary_pages import load_guide_slugs
+
+    return load_guide_slugs()
+
+
+def guide_links_for_page(category: str, guides: list[dict[str, str]], *, limit: int = 2) -> list[tuple[str, str]]:
+    if not guides:
+        return []
+    picked: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    cat = norm(category)
+    for g in guides:
+        blob = f"{g.get('genre', '')} {g.get('tags', '')} {g.get('title', '')}"
+        if cat and cat in blob:
+            slug = g["slug"]
+            if slug not in seen:
+                seen.add(slug)
+                picked.append((f"articles/{slug}/index.html", g["title"]))
+        if len(picked) >= limit:
+            return picked
+    by_slug = {g["slug"]: g for g in guides}
+    for slug in GUIDE_LINK_FALLBACK_SLUGS:
+        if len(picked) >= limit:
+            break
+        g = by_slug.get(slug)
+        if g and slug not in seen:
+            seen.add(slug)
+            picked.append((f"articles/{slug}/index.html", g["title"]))
+    return picked
 
 
 def index_item_dict(page: dict) -> dict:
@@ -479,7 +534,14 @@ def page_dict(row: dict, line_no: int) -> dict:
     }
 
 
-def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
+def build_question_html(
+    page: dict,
+    row: dict,
+    rel_path: Path,
+    base_url: str,
+    *,
+    question_catalog: list[dict],
+) -> str:
     title_mid = page_title_mid(page)
     title = f"{title_mid}｜解説付き｜{brand_name()}（{exam_name()}）"
     desc = page_meta_description(page)
@@ -511,7 +573,15 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
         badges.append('<span class="q-badge q-badge-warn">出題無効</span>')
     badge_html = ('<p class="q-badges">' + " ".join(badges) + "</p>") if badges else ""
 
-    exp_html = html.escape(page["exp"]).replace("\n", "<br>\n")
+    exp_html = build_explanation_html(page, row)
+    similar_html = build_similar_questions_html(
+        page,
+        rel_path,
+        question_catalog,
+        mode="past",
+        rel_href=rel_href,
+        publish_root=ROOT,
+    )
     json_ld = question_json_ld(page, canonical, title, desc)
     trust = trust_table_html(anchor_id="trust", compact=True)
     related = related_terms_html(page, rel_path)
@@ -552,7 +622,7 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
 {json.dumps(json_ld, ensure_ascii=False, indent=2)}
 </script>
 </head>
-<body class="q-question-page">
+<body class="q-question-page site-shell-column-page">
 {site_page_wrap_open()}
 {site_header}
 <main class="q-static-main">
@@ -579,8 +649,9 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
   </section>
   <section class="q-block" aria-labelledby="q-exp-h">
     <h2 id="q-exp-h" class="q-h2">解説</h2>
-    <div class="q-exp">{exp_html}</div>
+    {exp_html}
   </section>
+  {similar_html}
   {related}
   {adj}
   <p class="q-app-link"><a href="{app_href}">アプリで演習する</a></p>
@@ -853,15 +924,22 @@ def main() -> int:
 
     pages = [page_dict(r, i) for i, r in enumerate(rows, start=2)]
     enrich_pages(pages)
+    question_catalog = load_question_catalog(ROOT)
 
     if Q_ROOT.exists():
         shutil.rmtree(Q_ROOT)
 
-    for p in pages:
+    for p, row in zip(pages, rows):
         rel = Path(p["rel_path"])
         out_file = ROOT / rel
         out_file.parent.mkdir(parents=True, exist_ok=True)
-        html_out = build_question_html(p, out_file.relative_to(ROOT), base)
+        html_out = build_question_html(
+            p,
+            row,
+            out_file.relative_to(ROOT),
+            base,
+            question_catalog=question_catalog,
+        )
         out_file.write_text(html_out, encoding="utf-8")
 
     q_index = Q_ROOT / "index.html"

@@ -10,10 +10,10 @@ window.ICHIMONDOU_ROWS = [
   },
   {
     "id": "2026-01-2",
-    "field": "rights",
-    "statement": "一度間違えた問題は復習しなくても定着する。",
+    "field": "law",
+    "statement": "宅地建物取引士は報酬額の説明を行わなくてもよい。",
     "correctAnswer": false,
-    "exp": "間違えた問題を復習することで、弱点を効率よく補強できます。",
+    "exp": "報酬額の説明は宅建業法上の重要な義務です。",
     "publicPath": "q/past/y2026/q01/index.html"
   }
 ];

@@ -26,6 +26,19 @@ SITE_COPYRIGHT = copyright_text()
 SITE_HEADER_NAV: list[tuple[str, str, str]] = navigation_items("header")
 SITE_FOOTER_NAV: list[tuple[str, str, str]] = navigation_items("footer")
 
+SHELL_COLUMN_PAGE_CLASS = "site-shell-column-page"
+
+
+def shell_body_class(*parts: str) -> str:
+    merged: list[str] = []
+    for part in parts:
+        for token in part.split():
+            if token and token not in merged:
+                merged.append(token)
+    if SHELL_COLUMN_PAGE_CLASS not in merged:
+        merged.append(SHELL_COLUMN_PAGE_CLASS)
+    return " ".join(merged)
+
 
 def footer_href(rel_path: Path, site_rel: str) -> str:
     site_rel = site_rel.lstrip("/")
@@ -223,6 +236,113 @@ def site_page_wrap_open() -> str:
 
 def site_page_wrap_close() -> str:
     return "</div>"
+
+
+def q_index_tools_open_html(
+    *,
+    search_label: str,
+    search_placeholder: str,
+    hit_text: str,
+) -> str:
+    return (
+        '<div class="past-index-tools" aria-label="絞り込み">'
+        '<div class="past-index-tools-primary">'
+        f'<label class="past-index-search" for="q-index-q">'
+        f'<span class="u-visually-hidden">{html.escape(search_label)}</span>'
+        f'<input id="q-index-q" type="search" inputmode="search" autocomplete="off" '
+        f'placeholder="{html.escape(search_placeholder)}" '
+        f'aria-label="{html.escape(search_label)}">'
+        "</label>"
+        f'<span id="q-index-hit" class="past-index-hit" aria-live="polite">'
+        f"{html.escape(hit_text)}</span>"
+        "</div>"
+        '<div class="past-index-tools-actions">'
+        '<button type="button" class="q-index-reset hide" id="q-index-reset">'
+        "条件をクリア</button></div>"
+        '<div class="q-index-active-filters hide" id="q-index-active-filters" '
+        'aria-live="polite"></div>'
+    )
+
+
+def q_index_tools_close_html() -> str:
+    return "</div>"
+
+
+def q_index_stats_line(*, question_count: int, mode: str, year_count: int = 0, category_count: int = 0) -> str:
+    n = question_count
+    if mode == "practice":
+        return f"全{n}問・{category_count}分野"
+    if mode == "ichimon":
+        return f"全{n}問・{year_count}年度・{category_count}分野"
+    return f"全{n}問・{year_count}年度・{category_count}分野"
+
+
+def q_index_filters_details_html(
+    *,
+    year_row_label: str,
+    year_jump_html: str,
+    category_chips_html: str,
+    status_chips_html: str,
+    show_year_row: bool = True,
+    show_category_row: bool = True,
+    filters_hint: str = "年度・分野・学習状況",
+) -> str:
+    year_row = ""
+    if show_year_row and year_jump_html.strip():
+        year_row = (
+            f'<div class="q-index-chips-row q-index-year-row" id="q-index-year-row">'
+            f'<span class="q-index-chips-label">{html.escape(year_row_label)}</span>'
+            f'<nav class="q-index-chips q-index-year-jump" aria-label="{html.escape(year_row_label)}で移動">'
+            f"{year_jump_html}</nav></div>"
+        )
+    category_row = ""
+    if show_category_row:
+        category_row = (
+            '<div class="q-index-chips-row">'
+            '<span class="q-index-chips-label" id="q-index-chips-label">分野</span>'
+            f'<div class="q-index-chips" aria-labelledby="q-index-chips-label">'
+            f"{category_chips_html}</div></div>"
+        )
+    return (
+        '<details class="q-index-filters-more">'
+        '<summary class="q-index-filters-more-summary">'
+        '<span class="q-index-filters-more-title">絞り込み</span>'
+        f'<span class="q-index-filters-more-hint">{html.escape(filters_hint)}</span>'
+        "</summary>"
+        '<div class="q-index-filters-more-body">'
+        f"{year_row}{category_row}"
+        '<div class="q-index-chips-row">'
+        '<span class="q-index-chips-label">学習状況</span>'
+        f'<div class="q-index-chips q-index-status-chips" role="group" aria-label="学習状況（アプリ連携）">'
+        f"{status_chips_html}</div></div></div></details>"
+    )
+
+
+def q_hub_links_html(rel_path: Path, *, current: str) -> str:
+    items: list[tuple[str, str, str]] = [
+        ("past", "過去問", "q/index.html"),
+        ("practice", "実践演習", "q/practice/index.html"),
+        ("ichimon", "一問一答", "q/ichimon/index.html"),
+    ]
+    lis: list[str] = []
+    for key, label, target in items:
+        if key == current:
+            lis.append(
+                f'<li class="q-hub-tab is-current">'
+                f'<span class="q-hub-tab-label" aria-current="page">{html.escape(label)}</span>'
+                f"</li>"
+            )
+        else:
+            href = footer_href(rel_path, target)
+            lis.append(
+                f'<li class="q-hub-tab">'
+                f'<a class="q-hub-tab-label" href="{html.escape(href)}">{html.escape(label)}</a>'
+                f"</li>"
+            )
+    return (
+        '<nav class="q-hub-links q-hub-links--tabs" aria-label="問題タイプ">'
+        f'<ul class="q-hub-tabs-list">{"".join(lis)}</ul></nav>'
+    )
 
 
 def breadcrumb_html(rel_path: Path, items: list[tuple[str, str | None]]) -> str:
