@@ -36,6 +36,16 @@ window.SITE_CONFIG = {
         "key": "q"
       },
       {
+        "label": "実践演習一覧",
+        "href": "q/practice/index.html",
+        "key": "q-practice"
+      },
+      {
+        "label": "一問一答一覧",
+        "href": "q/ichimon/index.html",
+        "key": "q-ichimon"
+      },
+      {
         "label": "用語解説",
         "href": "terms/index.html",
         "key": "terms"
@@ -71,6 +81,16 @@ window.SITE_CONFIG = {
         "label": "過去問一覧",
         "href": "q/index.html",
         "key": "q"
+      },
+      {
+        "label": "実践演習一覧",
+        "href": "q/practice/index.html",
+        "key": "q-practice"
+      },
+      {
+        "label": "一問一答一覧",
+        "href": "q/ichimon/index.html",
+        "key": "q-ichimon"
       },
       {
         "label": "用語解説",
