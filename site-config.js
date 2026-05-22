@@ -69,7 +69,7 @@ window.SITE_CONFIG = {
       },
       {
         "label": "過去問一覧",
-        "href": "q/practice/index.html",
+        "href": "q/index.html",
         "key": "q"
       },
       {
