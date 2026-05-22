@@ -183,6 +183,57 @@ def _q_index_data_count(index_html: Path) -> int | None:
     return len(data) if isinstance(data, list) else None
 
 
+def _parse_q_index_config(index_html: Path) -> dict | None:
+    if not index_html.is_file():
+        return None
+    text = index_html.read_text(encoding="utf-8")
+    m = re.search(
+        r'<script[^>]+id="q-index-config"[^>]*>(.*?)</script>',
+        text,
+        flags=re.S | re.I,
+    )
+    if not m:
+        return None
+    try:
+        data = json.loads(m.group(1).strip())
+    except json.JSONDecodeError:
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def _mode_index_config(mode: str, index_path: Path) -> list[Issue]:
+    """実践・一問一答一覧の INDEX_CONFIG 契約（分野グループ・categoryOrder）。"""
+    if not index_path.is_file():
+        return []
+    cfg = _parse_q_index_config(index_path)
+    if cfg is None:
+        return [Issue(f"q/{mode}/index.html: #q-index-config がありません")]
+    issues: list[Issue] = []
+    if cfg.get("variant") != mode:
+        issues.append(
+            Issue(f"q/{mode}/index.html: variant は {mode!r} である必要があります（現在: {cfg.get('variant')!r}）")
+        )
+    if cfg.get("groupBy") != "category":
+        issues.append(
+            Issue(
+                f"q/{mode}/index.html: groupBy は 'category' である必要があります"
+                f"（現在: {cfg.get('groupBy')!r}。一問一答を年度別にしない）"
+            )
+        )
+    order = cfg.get("categoryOrder")
+    if not isinstance(order, list) or not order:
+        issues.append(Issue(f"q/{mode}/index.html: categoryOrder が空です（build_practice_ichimon を再実行）"))
+    filters = cfg.get("statusFilters")
+    if filters != ["wrong", "bookmark"]:
+        issues.append(
+            Issue(
+                f"q/{mode}/index.html: statusFilters は ['wrong', 'bookmark'] にしてください"
+                f"（現在: {filters!r}）"
+            )
+        )
+    return issues
+
+
 def _mode_index_counts(root: Path) -> list[Issue]:
     issues: list[Issue] = []
     checks = [
@@ -204,6 +255,21 @@ def _mode_index_counts(root: Path) -> list[Issue]:
                     f"{csv_path.name} は {csv_n} 行です（build_all.py を再実行）"
                 )
             )
+        issues.extend(_mode_index_config(mode, index_path))
+    return issues
+
+
+def _site_q_index_js(js_path: Path) -> list[Issue]:
+    if not js_path.is_file():
+        return [Issue("site-q-index.js がありません")]
+    text = js_path.read_text(encoding="utf-8")
+    issues: list[Issue] = []
+    if "categoryOrderIndex" not in text:
+        issues.append(Issue("site-q-index.js: categoryOrderIndex がありません（分野順ソート未実装）"))
+    if "q-index-year-link[data-group]" not in text:
+        issues.append(Issue("site-q-index.js: ジャンプリンクに data-group 対応がありません"))
+    if "ITEMS_RAW" not in text:
+        issues.append(Issue("site-q-index.js: ITEMS_RAW による categoryOrder ソートがありません"))
     return issues
 
 
@@ -213,6 +279,8 @@ def _build_all_includes_practice(build_all: Path) -> Issue | None:
     text = build_all.read_text(encoding="utf-8")
     if "build_practice_ichimon_pages.py" not in text:
         return Issue("tools/build_all.py: build_practice_ichimon_pages.py の呼び出しがありません")
+    if "validate_site_integration.py" not in text:
+        return Issue("tools/build_all.py: validate_site_integration.py の呼び出しがありません")
     return None
 
 
@@ -244,6 +312,7 @@ def main() -> int:
     if err:
         issues.append(err)
     issues.extend(_mode_index_counts(root))
+    issues.extend(_site_q_index_js(root / "site-q-index.js"))
 
     if not issues:
         print("validate_site_integration: OK")
