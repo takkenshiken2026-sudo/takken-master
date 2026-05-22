@@ -298,6 +298,38 @@
     }, 200);
   }
 
+  function availableCategories() {
+    return new Set(ITEMS.map((item) => item.category).filter(Boolean));
+  }
+
+  function allowedStatusValues() {
+    return new Set(['all', ...(CONFIG.statusFilters || [])]);
+  }
+
+  function sanitizeFiltersFromUrl() {
+    let changed = false;
+    const cats = availableCategories();
+    if (activeCat !== 'all' && ITEMS.length && !cats.has(activeCat)) {
+      activeCat = 'all';
+      changed = true;
+    }
+    if (activeStatus !== 'all' && !allowedStatusValues().has(activeStatus)) {
+      activeStatus = 'all';
+      changed = true;
+    }
+    if ((activeStatus === 'wrong' || activeStatus === 'bookmark') && !appData) {
+      activeStatus = 'all';
+      changed = true;
+    }
+    if (changed) {
+      chips.forEach((b) => b.classList.toggle('on', (b.dataset.cat || 'all') === activeCat));
+      statusChips.forEach((b) =>
+        b.classList.toggle('on', (b.dataset.status || 'all') === activeStatus)
+      );
+      syncUrl();
+    }
+  }
+
   function readUrl() {
     const params = new URLSearchParams(location.search);
     if (params.has('q') && q) q.value = params.get('q') || '';
@@ -305,8 +337,7 @@
     activeStatus = params.get('status') || 'all';
     activeView = 'year';
     page = Math.max(1, parseInt(params.get('page') || '1', 10) || 1);
-    chips.forEach((b) => b.classList.toggle('on', (b.dataset.cat || 'all') === activeCat));
-    statusChips.forEach((b) => b.classList.toggle('on', (b.dataset.status || 'all') === activeStatus));
+    sanitizeFiltersFromUrl();
   }
 
   function visibleItems() {
@@ -362,6 +393,16 @@
   }
 
   function applyYearView(visible, query) {
+    if (!ITEMS.length) {
+      if (yearView) {
+        $$('.q-index-year-block', yearView).forEach((block) => {
+          block.classList.remove('hide');
+          $$('.q-year-table-row', block).forEach((row) => row.classList.remove('hide'));
+        });
+      }
+      bindRows(yearView);
+      return;
+    }
     const ids = new Set(visible.map((x) => String(x.appId)));
     $$('.q-index-year-block', yearView).forEach((block) => {
       const rows = $$('.q-year-table-row', block);
@@ -581,6 +622,8 @@ ${items.map((it) => rowHtml(it, query)).join('')}
   );
 
   readUrl();
+  chips.forEach((b) => b.classList.toggle('on', (b.dataset.cat || 'all') === activeCat));
+  statusChips.forEach((b) => b.classList.toggle('on', (b.dataset.status || 'all') === activeStatus));
   ensureYearLayout();
   initYearCollapse();
   initJumpSpy();

@@ -6,7 +6,7 @@ window.ICHIMONDOU_ROWS = [
     "statement": "受験案内や出題範囲は毎年公式情報で確認する必要がある。",
     "correctAnswer": true,
     "exp": "試験制度は更新される場合があります。公式サイトの最新情報を確認してください。",
-    "publicPath": "q/past/y2026/q01/index.html"
+    "publicPath": "q/ichimon/y2026/i01-1/index.html"
   },
   {
     "id": "2026-01-2",
@@ -14,6 +14,6 @@ window.ICHIMONDOU_ROWS = [
     "statement": "宅地建物取引士は報酬額の説明を行わなくてもよい。",
     "correctAnswer": false,
     "exp": "報酬額の説明は宅建業法上の重要な義務です。",
-    "publicPath": "q/past/y2026/q01/index.html"
+    "publicPath": "q/ichimon/y2026/i01-2/index.html"
   }
 ];
