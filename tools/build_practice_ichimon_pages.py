@@ -72,7 +72,7 @@ from tools.q_page_seo import (
     question_meta_description,
     study_modes_note_html,
 )
-from tools.site_config import brand_name, clean_origin, exam_name
+from tools.site_config import brand_name, category_order, clean_origin, exam_name
 
 PRACTICE_CSV = ROOT / "data" / "practice_questions.csv"
 ICHIMON_CSV = ROOT / "data" / "ichimon_questions.csv"
@@ -100,9 +100,9 @@ INDEX_CONFIG: dict[str, dict] = {
     },
     "ichimon": {
         "variant": "ichimon",
-        "groupBy": "year",
-        "groupPrefix": "year",
-        "groupLabel": "年度",
+        "groupBy": "category",
+        "groupPrefix": "group",
+        "groupLabel": "分野",
         "searchInputLabel": "一問一答検索",
         "searchPlaceholder": "例：2026-01-1、分野名、問題文…",
         "emptyTitle": "条件に一致する一問一答がありません",
@@ -120,6 +120,21 @@ def group_slug(key: str) -> str:
     """HTML id / アンカー用（中黒・記号はハイフンに）。"""
     s = re.sub(r"[^0-9A-Za-z\u4e00-\u9fff]+", "-", str(key)).strip("-")
     return s or "other"
+
+
+def sort_category_keys(keys: list[str]) -> list[str]:
+    """site-config.json の fields 順で分野名を並べる。"""
+    order = category_order()
+    rank = {name: i for i, name in enumerate(order)}
+    return sorted(keys, key=lambda k: (rank.get(k, len(order)), k))
+
+
+def category_rank(cat: str) -> int:
+    order = category_order()
+    try:
+        return order.index(cat)
+    except ValueError:
+        return len(order)
 
 
 def ichimon_rel_path(row_id: str) -> str:
@@ -620,7 +635,11 @@ def build_group_blocks(
             key = pg["category"]
         groups.setdefault(key, []).append(pg)
 
-    sorted_keys = sorted(groups.keys(), reverse=(group_by == "year"))
+    sorted_keys = (
+        sorted(groups.keys(), reverse=True)
+        if group_by == "year"
+        else sort_category_keys(list(groups.keys()))
+    )
     open_keys = set(sorted_keys[:2])
     blocks: list[str] = []
     jump_links: list[str] = []
@@ -679,7 +698,7 @@ def build_mode_index(
     rel_path: Path,
 ) -> str:
     """実践演習 / 一問一答の一覧（過去問 q/index.html と同型 UI）。"""
-    cfg = INDEX_CONFIG[mode]
+    cfg = {**INDEX_CONFIG[mode], "categoryOrder": category_order()}
     study_modes_note = study_modes_note_html()
     search_placeholder = index_search_placeholder(mode)
 
@@ -707,10 +726,10 @@ def build_mode_index(
         desc = index_meta_description("ichimon", count=len(pages))
         canonical_rel = "q/ichimon/index.html"
         index_items = [ichimon_index_item_dict(pg) for pg in pages]
-        group_by = "year"
-        filter_hint = "年度・分野・学習状況"
-        show_category_row = True
-        year_row_label = "年度"
+        group_by = "category"
+        filter_hint = "分野・学習状況"
+        show_category_row = False
+        year_row_label = "分野へ"
 
     by_category: dict[str, int] = {}
     for pg in pages:
@@ -743,7 +762,8 @@ def build_mode_index(
     category_chips = [
         q_index_filter_chip_btn("q-index-chip-btn", "data-cat", "all", "すべて", on=True)
     ]
-    for cat, count in sorted(by_category.items()):
+    for cat in sort_category_keys(list(by_category.keys())):
+        count = by_category[cat]
         category_chips.append(
             q_index_filter_chip_btn("q-index-chip-btn", "data-cat", cat, cat, count=count)
         )
@@ -841,7 +861,7 @@ def build_mode_index(
 
 
 def build_practice_index_table_row(page: dict) -> str:
-    """実践一覧は操作列なし（アプリ連携は site-q-index.js の #orig）。"""
+    """実践一覧の表行（操作列なし。フィルタは #q-index-data + site-q-index.js）。"""
     href = html.escape(page["href_rel"])
     label = f"第{page['qno']}問"
     preview = stem_preview(page.get("stem_plain") or "")
@@ -1006,9 +1026,12 @@ def main() -> int:
         )
 
     ichimon_rows = load_ichimon_rows()
-    ichimon_pages: list[dict] = []
+    ichimon_pairs: list[tuple[dict, dict]] = []
     for i, row in enumerate(ichimon_rows, start=2):
-        ichimon_pages.append(ichimon_page_dict(row, i))
+        ichimon_pairs.append((ichimon_page_dict(row, i), row))
+    ichimon_pairs.sort(key=lambda pr: (category_rank(pr[0]["category"]), pr[0]["id"]))
+    ichimon_pages = [p for p, _ in ichimon_pairs]
+    ichimon_rows = [r for _, r in ichimon_pairs]
     _patch_index_rows_for_ichimon(ichimon_pages)
 
     for p, row in zip(ichimon_pages, ichimon_rows):

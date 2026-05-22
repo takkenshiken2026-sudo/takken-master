@@ -26,13 +26,39 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  function categoryOrderIndex(cat) {
+    const order = CONFIG.categoryOrder || [];
+    const i = order.indexOf(cat);
+    return i >= 0 ? i : order.length;
+  }
+
+  function sortCategoryNames(cats) {
+    return cats.slice().sort((a, b) => {
+      const da = categoryOrderIndex(a);
+      const db = categoryOrderIndex(b);
+      if (da !== db) return da - db;
+      return String(a).localeCompare(String(b), 'ja');
+    });
+  }
+
   const configEl = document.getElementById('q-index-config');
   const CONFIG = configEl
     ? { ...DEFAULT_CONFIG, ...JSON.parse(configEl.textContent || '{}') }
     : DEFAULT_CONFIG;
 
   const dataEl = document.getElementById('q-index-data');
-  const ITEMS = dataEl ? JSON.parse(dataEl.textContent || '[]') : [];
+  const ITEMS_RAW = dataEl ? JSON.parse(dataEl.textContent || '[]') : [];
+  const ITEMS = CONFIG.categoryOrder?.length
+    ? ITEMS_RAW.slice().sort((a, b) => {
+        const ca = categoryOrderIndex(a.category);
+        const cb = categoryOrderIndex(b.category);
+        if (ca !== cb) return ca - cb;
+        if (CONFIG.rowLabelField === 'id') {
+          return String(a.appId).localeCompare(String(b.appId), 'ja');
+        }
+        return (a.qno || 0) - (b.qno || 0);
+      })
+    : ITEMS_RAW;
 
   const q = document.getElementById('q-index-q');
   const chips = $$('.q-index-chip-btn[data-cat]');
@@ -44,7 +70,7 @@
   const activeFilters = document.getElementById('q-index-active-filters');
   const toolbar = document.querySelector('.past-index-tools');
   const yearRow = document.getElementById('q-index-year-row');
-  const jumpLinks = $$('.q-index-year-link[data-year]');
+  const jumpLinks = $$('.q-index-year-link[data-year], .q-index-year-link[data-group]');
   const topBtn = document.getElementById('q-index-top');
   const pagBar = document.getElementById('q-index-pagination');
   const yearView = document.getElementById('q-index-view-year');
@@ -448,8 +474,7 @@
       groups[item.category] = groups[item.category] || [];
       groups[item.category].push(item);
     });
-    const html = Object.keys(groups)
-      .sort()
+    const html = sortCategoryNames(Object.keys(groups))
       .map((cat) => {
         const items = groups[cat].sort((a, b) => {
           if (CONFIG.rowLabelField === 'id') return String(a.appId).localeCompare(String(b.appId));
