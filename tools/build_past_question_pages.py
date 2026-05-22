@@ -28,6 +28,8 @@ if str(ROOT) not in sys.path:
 from tools.html_footer import (  # noqa: E402
     ROBOTS_INDEX_FOLLOW,
     breadcrumb_html,
+    q_hub_links_html,
+    shell_body_class,
     site_page_footer,
     site_page_header,
     site_page_wrap_close,
@@ -769,13 +771,14 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <link rel="stylesheet" href="../site-pages.css?v={Q_INDEX_CSS_VER}">
 <link rel="stylesheet" href="../site-theme.css">
 </head>
-<body class="q-index-page">
+<body class="{shell_body_class('q-index-page')}">
 {site_page_wrap_open()}
 {q_index_header}
 <main class="site-page-main">
   {q_index_breadcrumb}
   <h1>過去問</h1>
   <p class="site-page-lead">{page_lead}</p>
+  {q_hub_links_html(rel_path, current="past")}
   <section class="past-index-panel" aria-labelledby="past-index-heading">
     <div class="past-index-head">
       <div>

@@ -376,7 +376,7 @@ def q_hub_links_html(rel_path: Path, *, current: str) -> str:
                 f"</li>"
             )
         else:
-            href = footer_href(rel_path, target)
+            href = "/" + target.lstrip("/")
             lis.append(
                 f'<li class="q-hub-tab">'
                 f'<a class="q-hub-tab-label" href="{html.escape(href)}">{html.escape(label)}</a>'
