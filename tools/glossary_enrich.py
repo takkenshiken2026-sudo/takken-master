@@ -44,7 +44,7 @@ def clean_exam_points(value: str) -> str:
     parts: list[str] = []
     for p in split_points(sanitize_legacy_text(value)):
         p = re.sub(r"^肢では[「\"]?", "", p).strip("」\"")
-        if len(p) < 8:
+        if len(p) < 4:
             continue
         if "のいずれかが正誤" in p or "類似制度（期間・要件・効力）" in p:
             continue

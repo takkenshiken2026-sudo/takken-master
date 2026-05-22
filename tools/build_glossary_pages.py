@@ -737,7 +737,12 @@ def build_term_html(
         if html_text:
             content_sections.append(html_text)
             body_toc_items.append((f"term-sec-{sec_id}", label))
-    past_hits = find_past_questions_for_term(term, limit=3, related_terms=related)
+    past_hits = find_past_questions_for_term(
+        term,
+        limit=3,
+        related_terms=related,
+        legal_basis=legal,
+    )
     past_section = past_questions_section_html(
         past_hits, rel_path, section_num=len(content_sections) + 1
     )

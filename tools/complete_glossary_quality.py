@@ -20,6 +20,7 @@ def run(script: str) -> None:
 def main() -> int:
     run("enrich_glossary_legacy.py")
     run("apply_glossary_priority_deep.py")
+    run("apply_glossary_bulk_deep.py")
     run("attach_glossary_examples.py")
     run("build_glossary_pages.py")
     run("csv_to_takken_glossary_js.py")

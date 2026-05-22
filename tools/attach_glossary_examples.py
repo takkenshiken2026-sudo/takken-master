@@ -27,7 +27,10 @@ def main() -> int:
         if not term:
             continue
         hits = find_past_questions_for_term(
-            term, limit=1, related_terms=row.get("related_terms") or ""
+            term,
+            limit=1,
+            related_terms=row.get("related_terms") or "",
+            legal_basis=row.get("legal_basis") or "",
         )
         if hits:
             q, a = example_from_past_hit(hits[0], term)

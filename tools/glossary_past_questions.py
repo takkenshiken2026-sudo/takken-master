@@ -64,6 +64,7 @@ def find_past_questions_for_term(
     *,
     limit: int = 3,
     related_terms: str = "",
+    legal_basis: str = "",
 ) -> list[dict]:
     term = (term or "").strip()
     if not term or len(term) < 2:
@@ -74,7 +75,7 @@ def find_past_questions_for_term(
         key = (page["year"], page["qno"])
         if key in seen_pages:
             continue
-        if not term_matches_text(term, page["hay"], related_terms):
+        if not term_matches_text(term, page["hay"], related_terms, legal_basis):
             continue
         seen_pages.add(key)
         hits.append(page)

@@ -11,7 +11,9 @@ def norm(s: str | None) -> str:
     return (s or "").strip()
 
 
-def term_search_keys(term: str, related_terms: str = "") -> list[str]:
+def term_search_keys(
+    term: str, related_terms: str = "", legal_basis: str = ""
+) -> list[str]:
     """過去問本文マッチ用。長いキーワードを優先。"""
     keys: list[str] = []
     seen: set[str] = set()
@@ -38,6 +40,20 @@ def term_search_keys(term: str, related_terms: str = "") -> list[str]:
         part = norm(part)
         if len(part) >= 2:
             add(part)
+
+    lb = norm(legal_basis)
+    if lb:
+        add(lb)
+        for m in re.findall(r"\d+条", lb):
+            if len(m) >= 3:
+                add(m)
+        for name in ("民法", "宅建業法", "建築基準法", "都市計画法", "借地借家法", "農地法"):
+            if name in lb:
+                add(name)
+
+    # 4文字以上の単語用語は語幹でも検索（複合語でない場合）
+    if raw and "・" not in raw and "と" not in raw and len(raw) >= 4:
+        add(raw[:4])
 
     if raw.endswith("請求権") and len(raw) > 5:
         add(raw[: -len("請求権")])
@@ -135,11 +151,13 @@ def term_search_keys(term: str, related_terms: str = "") -> list[str]:
     return keys
 
 
-def term_matches_text(term: str, hay: str, related_terms: str = "") -> bool:
+def term_matches_text(
+    term: str, hay: str, related_terms: str = "", legal_basis: str = ""
+) -> bool:
     text = hay or ""
     full = norm(term)
-    composite = "・" in full or "／" in full or "/" in full
-    for key in term_search_keys(term, related_terms):
+    composite = "・" in full or "と" in full or "／" in full or "/" in full
+    for key in term_search_keys(term, related_terms, legal_basis):
         if key not in text:
             continue
         if key == full:
