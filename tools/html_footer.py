@@ -26,6 +26,20 @@ SITE_COPYRIGHT = copyright_text()
 SITE_HEADER_NAV: list[tuple[str, str, str]] = navigation_items("header")
 SITE_FOOTER_NAV: list[tuple[str, str, str]] = navigation_items("footer")
 
+# フッターはサイト直下の絶対パス（どの階層からも同じ遷移先にする）
+FOOTER_ROOT_HREFS: frozenset[str] = frozenset(
+    {
+        "index.html",
+        "about.html",
+        "q/index.html",
+        "terms/index.html",
+        "articles/index.html",
+        "related-sites.html",
+        "privacy.html",
+        "privacy-terms.html",
+    }
+)
+
 SHELL_COLUMN_PAGE_CLASS = "site-shell-column-page"
 
 
@@ -204,30 +218,59 @@ def site_page_header(
     </header>"""
 
 
-def site_page_footer(rel_path: Path, *, current: str | None = None, wide: bool = False) -> str:
+def _footer_nav_href(rel_path: Path, dest: str) -> str:
+    dest = dest.lstrip("/")
+    if dest in FOOTER_ROOT_HREFS:
+        return "/" + dest
+    return footer_href(rel_path, dest)
+
+
+def site_shell_footer(
+    rel_path: Path,
+    *,
+    include_analytics: bool = True,
+) -> str:
+    """index.html と同型のフッター（site-pages.css の .site-footer）。"""
+    root = html.escape(_footer_nav_href(rel_path, "index.html"))
+    mark = html.escape(brand_mark())
+    name = html.escape(brand_name())
+    title = html.escape(f"{brand_name()}（{exam_name()}対策）トップへ")
     links: list[str] = []
-    for label, dest, key in SITE_FOOTER_NAV:
+    for label, dest, _key in SITE_FOOTER_NAV:
         if dest.startswith("http"):
-            href = dest
             links.append(
-                f'<a href="{html.escape(href)}" target="_blank" rel="noopener noreferrer">{html.escape(label)}</a>'
+                f'<a href="{html.escape(dest)}" target="_blank" rel="noopener noreferrer">'
+                f"{html.escape(label)}</a>"
             )
         else:
-            href = footer_href(rel_path, dest)
-            cur = ' aria-current="page"' if current == key else ""
-            links.append(f'<a href="{html.escape(href)}"{cur}>{html.escape(label)}</a>')
+            href = html.escape(_footer_nav_href(rel_path, dest))
+            links.append(f'<a href="{href}">{html.escape(label)}</a>')
     links_html = "\n          ".join(links)
-    footer_class = "site-page-footer site-page-footer--wide" if wide else "site-page-footer"
-    return f"""<footer class="{footer_class}">
-      <div class="site-page-footer-inner">
-        <div class="site-page-footer-links">
+    footer = f"""<footer class="site-footer" role="contentinfo">
+    <div class="site-footer-scroll">
+      <div class="site-footer-inner">
+        <a class="site-footer-brand" href="{root}" title="{title}">
+          <span class="site-footer-logo-mark" title="サービス略称">{mark}</span>
+          <span class="site-footer-site-name">{name}</span>
+        </a>
+        <span class="site-footer-sep" aria-hidden="true"></span>
+        <nav class="site-footer-legal" aria-label="サイト情報・ポリシー">
           {links_html}
-        </div>
-        <span class="site-page-footer-sep" aria-hidden="true"></span>
-        <span class="site-page-footer-copy">{html.escape(SITE_COPYRIGHT)}</span>
+        </nav>
+        <span class="site-footer-sep" aria-hidden="true"></span>
+        <span class="site-footer-copy">{html.escape(SITE_COPYRIGHT)}</span>
       </div>
-    </footer>
-{analytics_snippet(rel_path)}"""
+    </div>
+  </footer>"""
+    if include_analytics:
+        return footer + "\n" + analytics_snippet(rel_path)
+    return footer
+
+
+def site_page_footer(rel_path: Path, *, current: str | None = None, wide: bool = False) -> str:
+    _ = current
+    _ = wide
+    return site_shell_footer(rel_path, include_analytics=True)
 
 
 def site_page_wrap_open() -> str:

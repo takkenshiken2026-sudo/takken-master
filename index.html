@@ -89,6 +89,7 @@
 <meta name="format-detection" content="telephone=no">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="site-theme.css">
+<link rel="stylesheet" href="site-pages.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -1010,7 +1011,7 @@ a.glos-article-link:hover{color:var(--text);text-decoration-color:var(--ink)}
     overflow-x:auto;
     overflow-y:hidden;
     -webkit-overflow-scrolling:touch;
-    touch-action:pan-x pan-y;
+    touch-action:auto;
     scrollbar-width:none;
   }
   .site-footer-scroll::-webkit-scrollbar{display:none}
@@ -1084,7 +1085,7 @@ body.is-solving .site-footer{display:none!important}
   overflow-x:auto;overflow-y:hidden;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior-x:contain;
-  touch-action:pan-x pan-y;
+  touch-action:auto;
   scrollbar-width:none;
 }
 .site-footer-scroll::-webkit-scrollbar{display:none}
@@ -2223,7 +2224,7 @@ body.is-solving .site-footer{display:none!important}
           <li>法令上の制限（都市計画法・建築基準法など）</li>
           <li>税・その他（不動産取得税・固定資産税・地価公示法など）</li>
         </ul>
-        <p style="margin-top:24px;font-size:14px;line-height:2"><a href="about.html">このサイトについて</a> ・ <a href="q/index.html">過去問一覧</a> ・ <a href="q/past/index.html">年度別過去問</a> ・ <a href="terms/index.html">用語集</a> ・ <a href="articles/index.html">試験ガイド</a> ・ <a href="related-sites.html">関連リンク</a> ・ <a href="privacy-terms.html">プライバシー</a> ・ <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener noreferrer">お問い合わせ</a></p>
+        <p style="margin-top:24px;font-size:14px;line-height:2"><a href="about.html">このサイトについて</a> ・ <a href="/q/index.html">過去問一覧</a> ・ <a href="q/past/index.html">年度別過去問</a> ・ <a href="terms/index.html">用語集</a> ・ <a href="articles/index.html">試験ガイド</a> ・ <a href="related-sites.html">関連リンク</a> ・ <a href="privacy-terms.html">プライバシー</a> ・ <a href="https://forms.gle/Rfovea3QJhVo24NYA" target="_blank" rel="noopener noreferrer">お問い合わせ</a></p>
       </div>
     </noscript>
 
@@ -2259,7 +2260,7 @@ body.is-solving .site-footer{display:none!important}
         <span class="site-footer-sep" aria-hidden="true"></span>
         <nav class="site-footer-legal" aria-label="サイト情報・ポリシー">
           <a href="about.html">このサイトについて</a>
-          <a href="q/index.html">過去問一覧</a>
+          <a href="/q/index.html">過去問一覧</a>
           <a href="terms/index.html">用語集</a>
           <a href="articles/index.html">試験ガイド</a>
           <a href="related-sites.html">関連リンク</a>

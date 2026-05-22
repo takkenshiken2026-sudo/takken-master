@@ -321,6 +321,9 @@ a.site-page-brand:hover,
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 .site-footer-legal a:hover {
   color: var(--text2);
@@ -611,7 +614,8 @@ a.site-page-brand:hover {
   color: var(--text);
   text-decoration: none;
   border-bottom-color: var(--text);
-  cursor: default;
+  cursor: pointer;
+  pointer-events: auto;
 }
 /* 静的問題ページ（tools/build_question_pages.py 生成） */
 .q-static-body {
