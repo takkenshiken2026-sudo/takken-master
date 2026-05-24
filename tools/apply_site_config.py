@@ -58,8 +58,8 @@ def ensure_index_config_assets(text: str) -> str:
     )
     if "site-theme.css" not in text:
         text = text.replace(
-            "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
-            "<link rel=\"stylesheet\" href=\"site-theme.css\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
+            "<link rel=\"preconnect\" href=\"https://cdn.jsdelivr.net\" crossorigin>",
+            "<link rel=\"stylesheet\" href=\"site-theme.css\">\n<link rel=\"preconnect\" href=\"https://cdn.jsdelivr.net\" crossorigin>",
             1,
         )
     if "site-perf-loader.js" not in text:

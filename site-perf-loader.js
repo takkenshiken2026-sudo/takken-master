@@ -1,11 +1,17 @@
 /* 初回描画は core のみ。過去問・実践演習等は必要な画面で遅延読み込み */
 (function () {
+  var CDN = (window.__SITE_CDN_BASE__ || '').replace(/\/$/, '');
+
+  function assetUrl(path) {
+    return CDN ? CDN + '/' + path : path;
+  }
+
   var BUNDLES = {
     config: ['site-config.js'],
     core: ['takken-master-data-core.js'],
-    past: ['takken-master-data-past.js'],
-    orig: ['takken-data-original.js'],
-    glossary: ['takken-data-glossary.js'],
+    past: [assetUrl('takken-master-data-past.js')],
+    orig: [assetUrl('takken-data-original.js')],
+    glossary: [assetUrl('takken-data-glossary.js')],
     supabase: ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'],
   };
 
@@ -13,17 +19,30 @@
   var loadedBundles = Object.create(null);
   var loadingBundles = Object.create(null);
 
-  function loadScript(src) {
+  function loadScript(src, fallback) {
     if (loadedScripts[src]) return loadedScripts[src];
     loadedScripts[src] = new Promise(function (resolve, reject) {
       var el = document.createElement('script');
       el.src = src;
       el.async = true;
       el.onload = function () { resolve(); };
-      el.onerror = function () { reject(new Error('Failed to load: ' + src)); };
+      el.onerror = function () {
+        if (fallback && fallback !== src) {
+          delete loadedScripts[src];
+          loadScript(fallback).then(resolve).catch(reject);
+          return;
+        }
+        reject(new Error('Failed to load: ' + src));
+      };
       document.head.appendChild(el);
     });
     return loadedScripts[src];
+  }
+
+  function loadScriptWithFallback(path) {
+    var primary = assetUrl(path);
+    var local = path;
+    return primary === local ? loadScript(primary) : loadScript(primary, local);
   }
 
   function loadBundle(name) {
@@ -31,7 +50,12 @@
     if (loadingBundles[name]) return loadingBundles[name];
     var files = BUNDLES[name];
     if (!files || !files.length) return Promise.resolve();
-    loadingBundles[name] = Promise.all(files.map(loadScript))
+    loadingBundles[name] = Promise.all(files.map(function (src) {
+      if (CDN && src.indexOf(CDN + '/') === 0) {
+        return loadScriptWithFallback(src.slice(CDN.length + 1));
+      }
+      return loadScript(src);
+    }))
       .then(function () { loadedBundles[name] = true; })
       .catch(function (err) {
         delete loadingBundles[name];

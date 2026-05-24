@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<script>window.__SITE_CDN_BASE__='https://cdn.jsdelivr.net/gh/takkenshiken2026-sudo/takken-master@main';</script>
 <script src="site-perf-loader.js"></script>
 <title>宅建マスター｜宅地建物取引士試験 過去問・模擬試験・用語解説で合格を目指す無料学習サイト</title>
 
@@ -89,9 +90,9 @@
 
 <meta name="format-detection" content="telephone=no">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="preload" href="site-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="site-pages.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="site-theme.css"><link rel="stylesheet" href="site-pages.css"></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/takkenshiken2026-sudo/takken-master@main/site-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/takkenshiken2026-sudo/takken-master@main/site-pages.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/takkenshiken2026-sudo/takken-master@main/site-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/takkenshiken2026-sudo/takken-master@main/site-pages.css"></noscript>
 <style>
 :root {
   --bg:    #ffffff;
@@ -4564,7 +4565,8 @@ function renderDash(){
 }
 function renderTrendChart(svgId,sessions){
   const svg=document.getElementById(svgId); if(!svg)return;
-  const W=svg.parentElement.offsetWidth||700,H=220;
+  const parent=svg.parentElement;
+  const W=Math.max(320, parent ? parent.getBoundingClientRect().width : 700), H=220;
   svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
   svg.setAttribute('preserveAspectRatio','none');
   if(!sessions.length){svg.innerHTML=`<text x="${W/2}" y="${H/2}" text-anchor="middle" fill="var(--text3)" font-size="14" font-family="var(--font)">データなし</text>`;return}
@@ -5343,8 +5345,10 @@ function showNextBtn(show, cb, label){
     const isMobile = window.matchMedia && window.matchMedia('(max-width: 700px)').matches;
     el.textContent = isMobile ? (label || '次へ →') : `${label || '次へ →'}  Enter`;
     el.classList.add('show');
-    // re-trigger animation
-    el.style.animation='none'; el.offsetHeight; el.style.animation='';
+    requestAnimationFrame(function(){
+      el.classList.remove('show');
+      requestAnimationFrame(function(){ el.classList.add('show'); });
+    });
   } else {
     el.classList.remove('show');
     _nextFloatCallback = null;
@@ -7191,6 +7195,7 @@ if(window.__SITE_DATA_READY__&&typeof window.__SITE_DATA_READY__.then==='functio
 <script>
 (function(){
   const el=document.getElementById('g-tooltip');
+  let tipSize={w:0,h:0};
   document.addEventListener('mouseover',function(e){
     const icon=e.target.closest('.tip-icon');
     if(!icon) return;
@@ -7198,11 +7203,13 @@ if(window.__SITE_DATA_READY__&&typeof window.__SITE_DATA_READY__.then==='functio
     if(!box) return;
     el.textContent=box.textContent;
     el.style.display='block';
+    tipSize.w=el.offsetWidth;
+    tipSize.h=el.offsetHeight;
   });
   document.addEventListener('mousemove',function(e){
     if(el.style.display==='none') return;
     const x=e.clientX, y=e.clientY;
-    const w=el.offsetWidth, h=el.offsetHeight;
+    const w=tipSize.w, h=tipSize.h;
     const vw=window.innerWidth, vh=window.innerHeight;
     let left=x+12, top=y-h-10;
     if(left+w>vw-8) left=x-w-12;
@@ -7917,6 +7924,17 @@ if(typeof getUserData==='function'){
 })();
 </script>
 <script>window.__GA4_MEASUREMENT_ID__="G-3F5HESVZ9C";</script>
-<script defer src="site-analytics.js"></script>
+<script>
+(function(){
+  function loadAnalytics(){
+    var s=document.createElement('script');
+    s.src='site-analytics.js';
+    s.defer=true;
+    document.head.appendChild(s);
+  }
+  if(typeof requestIdleCallback==='function') requestIdleCallback(loadAnalytics,{timeout:5000});
+  else window.addEventListener('load',function(){ setTimeout(loadAnalytics,2000); });
+})();
+</script>
 </body>
 </html>
