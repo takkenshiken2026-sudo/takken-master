@@ -3150,8 +3150,27 @@ function buildYearHistoryHTML(q){
 
 // ===== STATE =====
 let currentUser = null, db = {};
-let quizState = {mode:'past',fields:FIELDS.map(f=>f.id),years:[...YEARS],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[],scoreReplayMode:false};
-let _nextFloatCallback = null;
+let quizState = {mode:'past',fields:['rights','law','limit','tax'],years:[],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[],scoreReplayMode:false};
+var _nextFloatCallback = null;
+const FIELD_LABELS = {rights:'権利関係', law:'宅建業法', limit:'法令上の制限', tax:'税・その他'};
+let ichiState = {
+  sourcePool: [],
+  questions: [],
+  idx: 0,
+  score: 0,
+  attempts: 0,
+  answered: false,
+  fieldFilter: null,
+  active: false
+};
+function syncQuizStateFromCore(){
+  if(typeof FIELDS!=='undefined'&&FIELDS.length){
+    quizState.fields=FIELDS.map(function(f){ return f.id; });
+  }
+  if(typeof YEARS!=='undefined'&&YEARS.length){
+    quizState.years=YEARS.slice();
+  }
+}
 
 // Storage: localStorage (works in real browsers / GitHub Pages)
 var _memStore = {};
@@ -3714,18 +3733,6 @@ function _updatePageMeta(id) {
 
 
 // ===== 一問一答 =====
-const FIELD_LABELS = {rights:'権利関係', law:'宅建業法', limit:'法令上の制限', tax:'税・その他'};
-let ichiState = {
-  sourcePool: [],
-  questions: [],
-  idx: 0,
-  score: 0,
-  attempts: 0,
-  answered: false,
-  fieldFilter: null,
-  active: false
-};
-
 function selectIchiField(el) {
   el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
   el.classList.add('on');
@@ -4345,7 +4352,7 @@ function gotoPage(id){
 function gotoPageImpl(id){
   if(id==='ichimondou') syncIchiPageVisibility();
   if(id!=='quiz') showNextBtn(false, null);
-  document.body.classList.toggle('is-solving', id==='quiz' || (id==='ichimondou' && ichiState.active));
+  document.body.classList.toggle('is-solving', id==='quiz' || (id==='ichimondou' && ichiState&&ichiState.active));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -4388,7 +4395,7 @@ function gotoPageImpl(id){
   if(id==='glossary')    { enrichGlossaryPlaceholderDesc(); renderGlossary(); }
   if(id==='quiz-start')  { renderDailyStatus(); }
   if(id==='mock')        renderMockPage();
-  if(id==='past-config') buildYearGrid();
+  if(id==='past-config'){ syncQuizStateFromCore(); buildYearGrid(); }
   window.scrollTo(0,0);
 }
 
@@ -7076,6 +7083,7 @@ function closePremium(){document.getElementById('premium-modal').classList.remov
 function mockUpgrade(){const u=getUserData();u.plan='premium';saveUser(u);closePremium();gotoPage('dash')}
 
 async function bootTakkenApp(){
+  syncQuizStateFromCore();
   loadDB();
   const guestEmail='__guest__';
   if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
@@ -7110,8 +7118,11 @@ function scheduleSupabaseSessionCheck(){
   else setTimeout(check, 500);
 }
 
+var _appBootStarted=false;
 function scheduleBootTakkenApp(){
-  queueMicrotask(bootTakkenApp);
+  if(_appBootStarted) return;
+  _appBootStarted=true;
+  setTimeout(bootTakkenApp, 0);
 }
 if(window.__SITE_DATA_READY__&&typeof window.__SITE_DATA_READY__.then==='function'){
   window.__SITE_DATA_READY__.then(scheduleBootTakkenApp);
