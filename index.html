@@ -3151,6 +3151,7 @@ function buildYearHistoryHTML(q){
 // ===== STATE =====
 let currentUser = null, db = {};
 let quizState = {mode:'past',fields:FIELDS.map(f=>f.id),years:[...YEARS],count:10,order:'seq',queue:[],idx:0,startTime:0,sessionResults:[],scoreReplayMode:false};
+let _nextFloatCallback = null;
 
 // Storage: localStorage (works in real browsers / GitHub Pages)
 var _memStore = {};
@@ -4252,7 +4253,9 @@ function bundlesForGotoPage(id){
 }
 function ensureSiteBundles(names){
   if(!window.__SITE_LOAD_BUNDLES__) return Promise.resolve();
-  return window.__SITE_LOAD_BUNDLES__(names);
+  return window.__SITE_LOAD_BUNDLES__(names).catch(function(err){
+    console.warn('Site bundles failed to load', names, err);
+  });
 }
 async function ensureSupabaseReady(){
   if(window.__SITE_LOAD_BUNDLE__) await window.__SITE_LOAD_BUNDLE__('supabase');
@@ -4330,7 +4333,10 @@ function gotoPage(id){
   if(needed.length) tasks.push(ensureSiteBundles(needed));
   if(pageNeedsEnhancements(id)) tasks.push(ensureEnhancements());
   if(tasks.length){
-    Promise.all(tasks).then(function(){ gotoPageImpl(id); });
+    Promise.all(tasks).then(function(){ gotoPageImpl(id); }).catch(function(err){
+      console.warn('gotoPage prerequisites failed, opening anyway', id, err);
+      gotoPageImpl(id);
+    });
     return;
   }
   gotoPageImpl(id);
@@ -5407,7 +5413,6 @@ function updateScoreReplayBackBtn(){
 }
 
 // ===== Floating Next Button =====
-let _nextFloatCallback = null;
 function showNextBtn(show, cb, label){
   const el = document.getElementById('btn-next-float');
   if(!el) return;
@@ -7105,10 +7110,13 @@ function scheduleSupabaseSessionCheck(){
   else setTimeout(check, 500);
 }
 
+function scheduleBootTakkenApp(){
+  queueMicrotask(bootTakkenApp);
+}
 if(window.__SITE_DATA_READY__&&typeof window.__SITE_DATA_READY__.then==='function'){
-  window.__SITE_DATA_READY__.then(bootTakkenApp);
+  window.__SITE_DATA_READY__.then(scheduleBootTakkenApp);
 }else{
-  document.addEventListener('DOMContentLoaded',function(){ window.__SITE_DATA_READY__.then(bootTakkenApp); });
+  document.addEventListener('DOMContentLoaded',function(){ window.__SITE_DATA_READY__.then(scheduleBootTakkenApp); });
 }
 // ===== EXAM COUNTDOWN =====
 (function(){
