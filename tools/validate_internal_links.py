@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Validate that every internal href in generated HTML resolves to an existing target."""
+"""Validate that every internal href in generated HTML resolves to an existing target.
+
+ローカル（既定）: ディスク上の HTML を相互に検証。
+--deploy: git 追跡済みの HTML のみを存在とみなし、本番デプロイ後と同条件で検証する。
+"""
 
 from __future__ import annotations
 
+import argparse
+import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from urllib.parse import unquote, urldefrag, urlparse
+from urllib.parse import unquote, urldefrag
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -29,6 +36,13 @@ INDEX_HASH_WHITELIST = frozenset(
 )
 
 HREF_RE = re.compile(r"""href\s*=\s*(["'])(.*?)\1""", re.IGNORECASE | re.DOTALL)
+DATA_HREF_RE = re.compile(
+    r"""data-href\s*=\s*(["'])(.*?)\1""", re.IGNORECASE | re.DOTALL
+)
+Q_INDEX_DATA_RE = re.compile(
+    r"""<script[^>]+id="q-index-data"[^>]*>(.*?)</script>""",
+    re.IGNORECASE | re.DOTALL,
+)
 ID_RE = re.compile(r"""\bid\s*=\s*(["'])([A-Za-z][\w:.-]*)\1""")
 
 
@@ -43,7 +57,8 @@ class Issue:
 
 
 class InternalLinkValidator:
-    def __init__(self) -> None:
+    def __init__(self, *, deploy_only: bool = False) -> None:
+        self.deploy_only = deploy_only
         self.issues: list[Issue] = []
         self.html_files: list[Path] = []
         self.existing: set[Path] = set()
@@ -55,6 +70,23 @@ class InternalLinkValidator:
         self.issues.append(Issue("WARN", path, message))
 
     def discover_html(self) -> None:
+        if self.deploy_only:
+            tracked = subprocess.check_output(
+                ["git", "ls-files", "-z"], cwd=ROOT, stderr=subprocess.DEVNULL
+            ).split(b"\0")
+            for raw in tracked:
+                if not raw:
+                    continue
+                rel = raw.decode("utf-8")
+                path = (ROOT / rel).resolve()
+                if not path.is_file():
+                    continue
+                self.existing.add(path.resolve())
+                if rel.endswith(".html"):
+                    self.html_files.append(path)
+            self.html_files.sort()
+            return
+
         roots = [
             ROOT / "index.html",
             ROOT / "about.html",
@@ -156,9 +188,15 @@ class InternalLinkValidator:
             return
         if target.resolve() not in self.existing:
             try:
-                target.relative_to(ROOT)
+                rel = target.relative_to(ROOT)
             except ValueError:
                 self.error(page, f"リンク切れ: href={href!r} がサイト外を指しています")
+                return
+            if self.deploy_only:
+                self.error(
+                    page,
+                    f"リンク切れ（未コミット）: href={href!r} → {rel.as_posix()} が git にありません",
+                )
                 return
         self.fragment_ok(target, fragment, page)
 
@@ -166,6 +204,24 @@ class InternalLinkValidator:
         text = page.read_text(encoding="utf-8")
         for match in HREF_RE.finditer(text):
             self.validate_href(page, match.group(2))
+        for match in DATA_HREF_RE.finditer(text):
+            self.validate_href(page, match.group(2))
+        m = Q_INDEX_DATA_RE.search(text)
+        if not m:
+            return
+        try:
+            items = json.loads(m.group(1).strip())
+        except json.JSONDecodeError:
+            self.error(page, "q-index-data の JSON が不正です")
+            return
+        if not isinstance(items, list):
+            return
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            href = str(item.get("href") or "").strip()
+            if href:
+                self.validate_href(page, href)
 
     def run(self) -> int:
         self.discover_html()
@@ -179,21 +235,30 @@ class InternalLinkValidator:
 
         errors = [i for i in self.issues if i.level == "ERROR"]
         warnings = [i for i in self.issues if i.level == "WARN"]
+        mode = "deploy (git tracked)" if self.deploy_only else "local disk"
         if errors:
             print(
-                f"Internal link validation failed: {len(errors)} error(s), {len(warnings)} warning(s)",
+                f"Internal link validation failed ({mode}): "
+                f"{len(errors)} error(s), {len(warnings)} warning(s)",
                 file=sys.stderr,
             )
             return 1
         print(
-            f"Internal link validation passed: {len(self.html_files)} file(s), "
+            f"Internal link validation passed ({mode}): {len(self.html_files)} file(s), "
             f"{warnings and str(len(warnings)) + ' warning(s)' or 'no broken links'}",
         )
         return 0
 
 
 def main() -> int:
-    return InternalLinkValidator().run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--deploy",
+        action="store_true",
+        help="git 追跡済み HTML のみを存在とみなして検証（本番と同条件）",
+    )
+    args = parser.parse_args()
+    return InternalLinkValidator(deploy_only=args.deploy).run()
 
 
 if __name__ == "__main__":
