@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<script src="site-perf-loader.js"></script>
 <title>宅建マスター｜宅地建物取引士試験 過去問・模擬試験・用語解説で合格を目指す無料学習サイト</title>
 
 <!-- 基本SEO -->
@@ -87,13 +88,14 @@
 </script>
 
 <meta name="format-detection" content="telephone=no">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link rel="stylesheet" href="site-theme.css">
-<link rel="stylesheet" href="site-pages.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="site-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="site-pages.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="site-theme.css"><link rel="stylesheet" href="site-pages.css"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 :root {
   --bg:    #ffffff;
@@ -1383,7 +1385,6 @@ body.is-solving .site-footer{display:none!important}
   ]
 }
 </script>
-<script src="site-config.js"></script>
 </head>
 <body>
 
@@ -2297,14 +2298,9 @@ function applyCsvImportedQuestions() {
   }
 }
 </script>
-<script src="takken-master-data-core.js"></script>
-<script src="takken-master-data-past.js"></script>
-<script src="takken-data-glossary.js"></script>
-<script src="takken-data-original.js"></script>
-<script src="exam-site-data-ichimondou.js"></script>
 <script>
 
-(function enrichGlossaryPlaceholderDesc(){
+function enrichGlossaryPlaceholderDesc(){
   const PLACEHOLDER_SNIPPET='宅建試験の頻出論点です。定義・比較表・具体例を公開サイトの解説記事で詳しく確認できます。';
   const CAT_HINT={
     rights:'分野の目安：権利関係（民法・借地借家法・区分所有法等）。物権と債権、登記の対抗力、解除・取消し・時効など「効果がいつ誰に及ぶか」を軸に整理すると取りこぼしが減ります。',
@@ -2333,7 +2329,7 @@ function applyCsvImportedQuestions() {
       '※カードを開くと、データがある項目は表・比較・フローなどの図解が表示されます。'
     ].join('\n');
   });
-})();
+}
 
 // ===== GLOSSARY UI（定数 GLOSSARY_DATA は takken-data-glossary.js）=====
 let glosActiveCat = 'all';
@@ -3296,13 +3292,13 @@ async function syncUserLearningToSupabaseNow(){
   const email=currentUser.email;
   try{
     let u=normalizeUserData(_cloneUserSnapshot(db[email]||{}));
-    const {data,error}=await _sb.from(USER_LEARNING_SYNC_TABLE).select('payload').eq('user_id',currentUser.id).maybeSingle();
+    const {data,error}=await getSb().from(USER_LEARNING_SYNC_TABLE).select('payload').eq('user_id',currentUser.id).maybeSingle();
     if(error&&error.code!=='PGRST116') console.warn('[learning-sync]',error.message);
     if(data?.payload) u=mergeLearningPayload(u,data.payload);
     db[email]=u;
     saveDB();
     const payload=extractLearningSyncPayload(u);
-    const {error:upErr}=await _sb.from(USER_LEARNING_SYNC_TABLE).upsert({
+    const {error:upErr}=await getSb().from(USER_LEARNING_SYNC_TABLE).upsert({
       user_id:currentUser.id,
       payload,
       updated_at:new Date().toISOString()
@@ -3314,7 +3310,7 @@ async function loadMergeUserLearningSyncFromSupabase(){
   if(!currentUser?.id || currentUser.email==='__guest__') return;
   const email=currentUser.email;
   try{
-    const {data,error}=await _sb.from(USER_LEARNING_SYNC_TABLE).select('payload').eq('user_id',currentUser.id).maybeSingle();
+    const {data,error}=await getSb().from(USER_LEARNING_SYNC_TABLE).select('payload').eq('user_id',currentUser.id).maybeSingle();
     if(error&&error.code!=='PGRST116'){ console.warn('[learning-sync load]',error.message); return; }
     if(!data?.payload) return;
     let u=normalizeUserData(db[email]||{});
@@ -3340,7 +3336,13 @@ function closeSidebar(){ closeMobileDrawer(); }
 // ===== SUPABASE =====
 const SUPABASE_URL = 'https://czxrmmbpvocprrwhmuir.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RS9eVE-YsfWg8waxyVjOWA_dIl1cb9x';
-const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+function getSb(){
+  if(!window.__takkenSb){
+    if(!window.supabase) return null;
+    window.__takkenSb=window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  }
+  return window.__takkenSb;
+}
 
 function isValidPassword(p){
   return typeof p === 'string' && p.length >= 6 && /[A-Za-z]/.test(p) && /\d/.test(p);
@@ -3352,9 +3354,11 @@ function passwordRuleMessage(){
 
 async function loadAnswersFromSupabase(){
   if(!currentUser?.id) return;
+  const sb=getSb();
+  if(!sb) return;
   const u=getUserData();
   if(!u) return;
-  const {data,error}=await _sb
+  const {data,error}=await sb
     .from('user_answers')
     .select('*')
     .eq('user_id',currentUser.id);
@@ -3376,7 +3380,7 @@ async function loadAnswersFromSupabase(){
 
 async function saveAnswerToSupabase(q,picked,correct,elapsed){
   if(!currentUser?.id) return;
-  const {error}=await _sb.from('user_answers').insert({
+  const {error}=await getSb().from('user_answers').insert({
     user_id:currentUser.id,
     question_id:q.id,
     answer:picked,
@@ -3395,10 +3399,12 @@ function switchAuthTab(tab){
   document.getElementById('auth-reset').style.display='none';
 }
 async function doLogin(){
+  const sb=getSb();
+  if(!sb){document.getElementById('login-err').textContent='読み込み中です。少し待ってから再度お試しください。';return}
   const e=document.getElementById('login-email').value.trim(),p=document.getElementById('login-pw').value;
   if(!e||!p){document.getElementById('login-err').textContent='メールとパスワードを入力してください';return}
   document.getElementById('login-err').textContent='ログイン中...';
-  const {data,error}=await _sb.auth.signInWithPassword({email:e,password:p});
+  const {data,error}=await sb.auth.signInWithPassword({email:e,password:p});
   if(error){
     const msg = error.message || '';
     document.getElementById('login-err').textContent =
@@ -3422,7 +3428,7 @@ async function doRegister(){
   if(!n||!e||!p){document.getElementById('reg-err').textContent='すべての項目を入力してください';return}
   if(!isValidPassword(p)){document.getElementById('reg-err').textContent=passwordRuleMessage();return}
   document.getElementById('reg-err').textContent='登録中...';
-  const {data,error}=await _sb.auth.signUp({email:e,password:p,options:{data:{name:n}}});
+  const {data,error}=await getSb().auth.signUp({email:e,password:p,options:{data:{name:n}}});
   if(error){
     const rmsg = error.message || '';
     document.getElementById('reg-err').textContent =
@@ -3462,7 +3468,7 @@ function demoLogin(){
 }
 async function doLogout(){
   await flushLearningSyncToSupabase();
-  await _sb.auth.signOut();
+  await getSb().auth.signOut();
   currentUser=null;
   // ゲストとして再入場
   loadDB();
@@ -3480,7 +3486,7 @@ async function sendPasswordReset(){
   const redirectTo=location.origin && location.origin !== 'null'
     ? location.origin + location.pathname
     : undefined;
-  const {error}=await _sb.auth.resetPasswordForEmail(e, redirectTo?{redirectTo}:undefined);
+  const {error}=await getSb().auth.resetPasswordForEmail(e, redirectTo?{redirectTo}:undefined);
   if(error){errEl.textContent='再設定メールを送れませんでした: '+error.message;return}
   errEl.textContent='パスワード再設定メールを送信しました。メールを確認してください。';
 }
@@ -3499,7 +3505,7 @@ async function updatePassword(){
   const errEl=document.getElementById('reset-err');
   if(!isValidPassword(p)){errEl.textContent=passwordRuleMessage();return}
   errEl.textContent='更新中...';
-  const {error}=await _sb.auth.updateUser({password:p});
+  const {error}=await getSb().auth.updateUser({password:p});
   if(error){errEl.textContent='更新できませんでした: '+error.message;return}
   errEl.textContent='パスワードを更新しました。次回から新しいパスワードでログインできます。';
   setTimeout(()=>closeLoginModal(),1200);
@@ -6900,33 +6906,44 @@ function openPremium(){document.getElementById('premium-modal').classList.add('o
 function closePremium(){document.getElementById('premium-modal').classList.remove('open')}
 function mockUpgrade(){const u=getUserData();u.plan='premium';saveUser(u);closePremium();gotoPage('dash')}
 
-loadDB();
-// ゲストとしてまず入場
-(function(){
-  const guestEmail='__guest__';
-  if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
-  currentUser={email:guestEmail,name:'ゲスト'};
-  enterApp();
-  renderOrigPage();
-})();
-// Supabaseセッションがあればログイン済みユーザーに切り替え
-(async function(){
-  const {data:{session}}=await _sb.auth.getSession();
-  const hash = location.hash || '';
-  if(hash.includes('type=recovery') || hash.includes('access_token=')){
-    showPasswordResetForm();
-  }
-  if(session){
-    const e=session.user.email;
-    const u=normalizeUserData(db[e]||{name:e,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0});
-    if(!db[e]){db[e]=u;saveDB();}
-    currentUser={id:session.user.id,email:e,name:u.name};
-    await loadAnswersFromSupabase();
-    await loadMergeUserLearningSyncFromSupabase();
-    await syncUserLearningToSupabaseNow();
+function bootTakkenApp(){
+  enrichGlossaryPlaceholderDesc();
+  loadDB();
+  // ゲストとしてまず入場
+  (function(){
+    const guestEmail='__guest__';
+    if(!db[guestEmail]){db[guestEmail]={name:'ゲスト',plan:'free',answers:{},sessions:[],streak:0};saveDB();}
+    currentUser={email:guestEmail,name:'ゲスト'};
     enterApp();
-  }
-})();
+    renderOrigPage();
+  })();
+  // Supabaseセッションがあればログイン済みユーザーに切り替え
+  (async function(){
+    const sb=getSb();
+    if(!sb) return;
+    const {data:{session}}=await sb.auth.getSession();
+    const hash = location.hash || '';
+    if(hash.includes('type=recovery') || hash.includes('access_token=')){
+      showPasswordResetForm();
+    }
+    if(session){
+      const e=session.user.email;
+      const u=normalizeUserData(db[e]||{name:e,plan:'free',answers:{},sessions:[],bookmarks:{},streak:0});
+      if(!db[e]){db[e]=u;saveDB();}
+      currentUser={id:session.user.id,email:e,name:u.name};
+      await loadAnswersFromSupabase();
+      await loadMergeUserLearningSyncFromSupabase();
+      await syncUserLearningToSupabaseNow();
+      enterApp();
+    }
+  })();
+}
+
+if(window.__SITE_DATA_READY__&&typeof window.__SITE_DATA_READY__.then==='function'){
+  window.__SITE_DATA_READY__.then(bootTakkenApp);
+}else{
+  document.addEventListener('DOMContentLoaded',function(){ window.__SITE_DATA_READY__.then(bootTakkenApp); });
+}
 // ===== EXAM COUNTDOWN =====
 (function(){
   const DAILY_MSGS = [
@@ -7117,7 +7134,7 @@ loadDB();
 
   ── 導入方法 ──
   index.html の <script>window.__GA4_MEASUREMENT_ID__="G-3F5HESVZ9C";</script>
-<script defer src="site-analytics.js"></script>
+  と <script defer src="site-analytics.js"></script> を
 </body> タグの直前に、このファイルの内容を
   まるごとコピー&ペーストしてください。
   既存コードは一切変更不要です。
@@ -7808,5 +7825,7 @@ if(typeof getUserData==='function'){
 
 })();
 </script>
+<script>window.__GA4_MEASUREMENT_ID__="G-3F5HESVZ9C";</script>
+<script defer src="site-analytics.js"></script>
 </body>
 </html>

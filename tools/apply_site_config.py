@@ -62,8 +62,12 @@ def ensure_index_config_assets(text: str) -> str:
             "<link rel=\"stylesheet\" href=\"site-theme.css\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
             1,
         )
-    if "site-config.js" not in text:
-        text = text.replace("</head>", '<script src="site-config.js"></script>\n</head>', 1)
+    if "site-perf-loader.js" not in text:
+        text = text.replace(
+            '<meta name="viewport"',
+            '<script src="site-perf-loader.js"></script>\n<meta name="viewport"',
+            1,
+        )
     if "site-analytics.js" not in text:
         text = text.replace(
             "</body>",
