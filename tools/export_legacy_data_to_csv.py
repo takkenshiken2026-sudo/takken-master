@@ -129,10 +129,15 @@ GLOSSARY_HEADER = [
     "memory_tip",
     "example_question",
     "example_answer",
+    "summary_points",
     "faq_1_question",
     "faq_1_answer",
     "faq_2_question",
     "faq_2_answer",
+    "faq_3_question",
+    "faq_3_answer",
+    "faq_4_question",
+    "faq_4_answer",
 ]
 
 PAST_HEADER = [

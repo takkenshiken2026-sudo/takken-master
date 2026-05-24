@@ -3519,6 +3519,57 @@ function closeLoginModal(){
 }
 	function resetData(){ const u=getUserData();u.answers={};u.sessions=[];u.bookmarks={};u.bookmarkNotes={};u.streak=0;u.bestStreak=0;saveUser(u);gotoPage('quiz-start'); }
 
+/** 静的ページからのディープリンク（#past-play-*, #orig-play-*, #mock-play-*） */
+function allOrigQuestionsFlat(){
+  return [...(ORIG_QUESTIONS[1]||[]),...(ORIG_QUESTIONS[2]||[]),...(ORIG_QUESTIONS[3]||[])];
+}
+function startPastQuestionByAppId(appId){
+  const id=Number(appId);
+  if(!id) return false;
+  const year=Math.floor(id/100);
+  const num=id%100;
+  const q=(typeof BASE_QUESTIONS!=='undefined'?BASE_QUESTIONS:QUESTIONS).find(x=>x.year===year&&x.num===num);
+  if(!q) return false;
+  if(typeof mockState!=='undefined'){ mockState.patternId=null; mockState.queue=[]; mockState.idx=0; clearInterval(mockState.timerInt); }
+  quizState.queue=[q]; quizState.idx=0; quizState.sessionResults=[]; quizState.scoreReplayMode=false;
+  quizState.mode='past';
+  gotoPage('quiz'); renderQ();
+  return true;
+}
+function startOrigQuestionById(qid){
+  const id=Number(qid);
+  if(!id) return false;
+  const q=allOrigQuestionsFlat().find(x=>Number(x.id)===id);
+  if(!q) return false;
+  if(typeof mockState!=='undefined'){ mockState.patternId=null; mockState.queue=[]; mockState.idx=0; clearInterval(mockState.timerInt); }
+  if(!origState.units.includes(q.unit)) origState.units=[q.unit];
+  quizState.queue=[q]; quizState.idx=0; quizState.sessionResults=[]; quizState.scoreReplayMode=false;
+  quizState.mode='orig';
+  gotoPage('quiz'); renderQ();
+  return true;
+}
+function handleAppPlayHash(){
+  const hash=(location.hash||'').replace(/^#/,'');
+  if(!hash) return false;
+  let m=hash.match(/^past-play-(\d+)$/);
+  if(m&&startPastQuestionByAppId(m[1])){
+    try{ history.replaceState(history.state,'',location.pathname+location.search+'#past'); }catch(e){}
+    return true;
+  }
+  m=hash.match(/^orig-play-(\d+)$/);
+  if(m&&startOrigQuestionById(m[1])){
+    try{ history.replaceState(history.state,'',location.pathname+location.search+'#orig'); }catch(e){}
+    return true;
+  }
+  m=hash.match(/^mock-play-(\d+)$/);
+  if(m&&typeof startMockExam==='function'){
+    startMockExam(Number(m[1]));
+    try{ history.replaceState(history.state,'',location.pathname+location.search+'#mock'); }catch(e){}
+    return true;
+  }
+  return false;
+}
+
 function enterApp(){
   document.getElementById('auth-screen').style.display='none';
   document.getElementById('app').style.display='block';
@@ -3535,7 +3586,7 @@ function enterApp(){
   document.getElementById('sb-avatar').textContent=currentUser.name.charAt(0);
   document.getElementById('sb-name').textContent=currentUser.name;
   buildFieldChips(); buildYearGrid();
-  gotoPage(_resolveInitialPage());
+  if(!handleAppPlayHash()) gotoPage(_resolveInitialPage());
   handleDailyFirstVisit();
 }
 
@@ -4181,6 +4232,10 @@ function gotoPage(id){
   window.scrollTo(0,0);
 }
 
+window.addEventListener('hashchange', function(){
+  if(document.getElementById('app')?.style.display!=='none') handleAppPlayHash();
+});
+
 // ブラウザの戻る/進むボタン対応
 window.addEventListener('popstate', function(e) {
   if (e.state && e.state.page) {
@@ -4210,6 +4265,7 @@ function _resolveInitialPage() {
     '/dashboard/':   'dash',
     '/review/':      'review',
     '/quiz/mock/':   'mock',
+    '/q/mock/':      'mock',
     '/account/':     'dash'
   };
   // パスで判定（後方互換としてhashも見る）
@@ -4218,7 +4274,11 @@ function _resolveInitialPage() {
     '#past':'past-config','#orig':'orig','#ichimondou':'ichimondou','#dash':'dash',
     '#review':'review','#mock':'mock','#account':'dash'
   };
-  return pathMap[path] || hashMap[location.hash] || 'quiz-start';
+  const raw=location.hash||'';
+  if(/^#past-play-\d+$/.test(raw)||/^#orig-play-\d+$/.test(raw)||/^#mock-play-\d+$/.test(raw)){
+    return 'quiz-start';
+  }
+  return pathMap[path] || hashMap[raw] || 'quiz-start';
 }
 
 // ===== STATS =====
@@ -4697,10 +4757,20 @@ function startMockExam(pid){
   const pat = MOCK_PATTERNS.find(p=>p.id===pid);
   if(!pat) return;
   const pool = BASE_QUESTIONS.filter(q=>pat.years.includes(q.year));
+  const allPool = BASE_QUESTIONS;
   const queue = [];
+  const used = new Set();
   Object.entries(MOCK_DIST).forEach(([field, n])=>{
-    const fPool = [...pool.filter(q=>q.field===field)].sort(()=>Math.random()-.5);
-    queue.push(...fPool.slice(0,n));
+    const take = [];
+    const pick = (src)=>{
+      [...src.filter(q=>q.field===field)].sort(()=>Math.random()-.5).forEach(q=>{
+        if(take.length>=n||used.has(q.id)) return;
+        take.push(q); used.add(q.id);
+      });
+    };
+    pick(pool);
+    if(take.length<n) pick(allPool);
+    queue.push(...take);
   });
   queue.sort(()=>Math.random()-.5);
   mockState.patternId = pid;
@@ -6838,7 +6908,6 @@ loadDB();
   currentUser={email:guestEmail,name:'ゲスト'};
   enterApp();
   renderOrigPage();
-  gotoPage('quiz-start');
 })();
 // Supabaseセッションがあればログイン済みユーザーに切り替え
 (async function(){

@@ -523,7 +523,7 @@ def faq_section_html(items: list[dict[str, str]]) -> str:
 
 def custom_faq_items(entry: dict, fallback: list[dict[str, str]]) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
-    for idx in range(1, 4):
+    for idx in range(1, 5):
         q = norm(entry.get(f"faq_{idx}_question"))
         a = norm(entry.get(f"faq_{idx}_answer"))
         if q and a:
@@ -564,6 +564,7 @@ def build_term_html(
     exam_points = norm(entry.get("exam_points"))
     common_mistakes = norm(entry.get("common_mistakes"))
     memory_tip = norm(entry.get("memory_tip"))
+    summary_points = norm(entry.get("summary_points"))
     example_question = norm(entry.get("example_question"))
     example_answer = norm(entry.get("example_answer"))
 
@@ -590,6 +591,25 @@ def build_term_html(
         if not paras:
             paras = [body.strip()]
         return "\n".join(f"<p>{html.escape(p).replace(chr(10), '<br>')}</p>" for p in paras)
+
+    def summary_section_html(body: str) -> str:
+        """まず押さえる要点：定義と【具体例】を段落分け。"""
+        body = body.strip()
+        if not body:
+            return ""
+        if "【具体例】" in body:
+            head, _, tail = body.partition("【具体例】")
+            head = head.strip()
+            tail = tail.lstrip("\n").strip()
+            parts = []
+            if head:
+                parts.append(f"<p>{html.escape(head)}</p>")
+            if tail:
+                parts.append(
+                    f'<p><strong>【具体例】</strong>{html.escape(tail).replace(chr(10), "<br>")}</p>'
+                )
+            return "".join(parts)
+        return text_paragraphs(body)
 
     def article_section(sec_id: str, label: str, body_html: str, number: int | None = None) -> str:
         if not body_html.strip():
@@ -646,7 +666,29 @@ def build_term_html(
         points_html = '<ol class="term-point-list">' + "".join(f"<li>{html.escape(p)}</li>" for p in points) + "</ol>"
     detail_html = text_paragraphs(term_detail_body or definition)
     mistakes_html = text_paragraphs(common_mistakes)
-    memory_html = f"<blockquote><p>{html.escape(memory_tip)}</p></blockquote>" if memory_tip else ""
+    memory_html = ""
+    if memory_tip:
+        raw = memory_tip.strip()
+        memory_paras: list[str] = []
+        if "◆ 整理の手順" in raw:
+            head, _, tail = raw.partition("◆ 整理の手順")
+            if head.strip():
+                memory_paras.append(head.strip())
+            step_text = tail.strip()
+            if step_text:
+                memory_paras.append("◆ 整理の手順")
+                chunks = re.split(r"\n{2,}", step_text)
+                if len(chunks) <= 1:
+                    chunks = re.split(r"(?=\d+\.\s)", step_text)
+                memory_paras.extend([s.strip() for s in chunks if s.strip()])
+        else:
+            memory_paras = [p.strip() for p in re.split(r"\n{2,}", raw) if p.strip()]
+        if not memory_paras:
+            memory_paras = [memory_tip]
+        memory_inner = "".join(
+            f"<p>{html.escape(p).replace(chr(10), '<br>')}</p>" for p in memory_paras
+        )
+        memory_html = f'<div class="term-memory-guide">{memory_inner}</div>'
     example_html = ""
     if example_question or example_answer:
         example_html = (
@@ -725,7 +767,7 @@ def build_term_html(
     content_sections: list[str] = []
     body_toc_items: list[tuple[str, str]] = []
     for sec_id, label, body_html in [
-        ("summary", "まず押さえる要点", text_paragraphs(short_def)),
+        ("summary", "まず押さえる要点", summary_section_html(summary_points or short_def)),
         ("points", "試験で押さえるポイント", points_html),
         ("definition", "定義と基本理解", detail_html),
         ("legal", "法令・根拠", legal_basis_html(legal)),
@@ -871,7 +913,7 @@ def build_term_html(
       <span class="meta-updated">{meta_line}</span>
     </div>
     <h1 class="article-title">{html.escape(article_title or term + 'とは？意味・根拠・試験ポイントを整理')}</h1>
-    <p class="article-lead"><strong>{html.escape(term)}</strong>{f"（{html.escape(reading)}）" if reading else ""}について、定義・根拠・試験での押さえ方をまとめます。{html.escape(article_lead or lead)}</p>
+    <p class="article-lead">{html.escape(article_lead) if article_lead else f"<strong>{html.escape(term)}</strong>{f'（{html.escape(reading)}）' if reading else ''}について、定義・根拠・試験での押さえ方をまとめます。{html.escape(lead)}"}</p>
     {toc_html}
     {quality_html}
     {can_do_html}
@@ -1187,8 +1229,11 @@ def main() -> int:
                 "faq_1_answer": norm(row.get("faq_1_answer")),
                 "faq_2_question": norm(row.get("faq_2_question")),
                 "faq_2_answer": norm(row.get("faq_2_answer")),
+                "summary_points": norm(row.get("summary_points")),
                 "faq_3_question": norm(row.get("faq_3_question")),
                 "faq_3_answer": norm(row.get("faq_3_answer")),
+                "faq_4_question": norm(row.get("faq_4_question")),
+                "faq_4_answer": norm(row.get("faq_4_answer")),
                 "slug_file": slug_file,
                 "field_hub": field_hub_slug(norm(row.get("category"))),
             }

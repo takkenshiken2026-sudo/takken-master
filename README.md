@@ -33,6 +33,8 @@ python3 -m http.server 8765
 - `terms/g-*.html` … 用語解説（旧 `terms/{slug}/` からハッシュ ID に変更）
 - `terms/field-*/index.html` … 分野別用語ハブ
 - `q/past/...` … 過去問の静的ページ
+- `q/orig/id.../` … 実践演習の静的ページ（1,000問）
+- `q/mock/...` … オリジナル模試の出題一覧（5回×50問）
 
 トップの SPA（`index.html`）は次を読み込みます（`build_all.py` で CSV から再生成）。
 

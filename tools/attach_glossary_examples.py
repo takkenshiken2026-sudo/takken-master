@@ -13,6 +13,11 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.export_legacy_data_to_csv import GLOSSARY_HEADER  # noqa: E402
+from tools.glossary_article_quality import (  # noqa: E402
+    build_learning_example,
+    example_needs_refresh,
+)
+from tools.glossary_past_insights import build_past_insights  # noqa: E402
 from tools.glossary_enrich import split_points  # noqa: E402
 from tools.glossary_past_questions import example_from_past_hit, find_past_questions_for_term  # noqa: E402
 
@@ -32,23 +37,20 @@ def main() -> int:
             related_terms=row.get("related_terms") or "",
             legal_basis=row.get("legal_basis") or "",
         )
-        if hits:
+        refresh = example_needs_refresh(row)
+        if hits and (refresh or not (row.get("example_question") or "").strip()):
             q, a = example_from_past_hit(hits[0], term)
-        else:
+        elif refresh or not (row.get("example_question") or "").strip():
             points = split_points(row.get("exam_points") or "")
-            if not points:
+            if not points and not refresh:
                 continue
-            cat = (row.get("category") or "").strip()
-            q = f"【学習確認】{term}について、次のうち試験で押さえるべき説明として適切なものはどれか。"
-            lead = points[0]
-            a = (
-                f"要点は「{lead}」です。"
-                f"{cat}分野の関連用語・過去問演習ページで、条文番号と数値をセットで復習してください。"
-            )
-        if not (row.get("example_question") or "").strip():
+            q, a = build_learning_example(row, build_past_insights(row))
+        else:
+            continue
+        if refresh or not (row.get("example_question") or "").strip():
             row["example_question"] = q
             attached += 1
-        if not (row.get("example_answer") or "").strip():
+        if refresh or not (row.get("example_answer") or "").strip():
             row["example_answer"] = a
 
     with GLOSSARY_CSV.open("w", encoding="utf-8-sig", newline="") as f:

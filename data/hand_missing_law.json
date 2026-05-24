@@ -1,0 +1,380 @@
+[
+  {
+    "term": "宅地・建物の定義",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅地は原則一筆の土地の全部又は一部で建物が存する土地等（法2条1項1号ロの整理）。"
+  },
+  {
+    "term": "業務上の規制",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取引一任の契約・代理・媒介の区別、二重媒介の報酬、秘密保持。"
+  },
+  {
+    "term": "割賦販売",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "割賦販売法の対象・契約書面・クーリングオフ（同法の日数は条文で要確認）。"
+  },
+  {
+    "term": "住宅品質確保法",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅品質確保法：住宅性能評価・瑕疵保険・建設住宅の性能表示。"
+  },
+  {
+    "term": "重要事項の範囲",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "重要事項の範囲は施行規則で細目（道路位置指定・私道負担・負担金・飲用水等）。"
+  },
+  {
+    "term": "売買現場での説明",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "現場説明と35条説明の役割分担。"
+  },
+  {
+    "term": "契約書の作成・交付（37条）",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "37条書面・契約書の記載必須事項（施行規則）。"
+  },
+  {
+    "term": "報酬の明瞭化",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "報酬の明瞭化：媒介契約時に上限額等を書面で（法34条の2第4項・35条の2第3項周辺の趣旨）。"
+  },
+  {
+    "term": "宅建業者の賠償責任",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業者の損害賠償責任：重要事項の誤説明・不告知（法35条）、契約不適合・媒介の注意義務違反。"
+  },
+  {
+    "term": "貸室・貸パークの賃貸借",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "貸室・貸パークの賃貸借は原則借地借家法の適用除外（法29条の2の趣旨を条文で）。"
+  },
+  {
+    "term": "他人物売買",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他人物売買の代理・媒介の禁止の例外（法39条2項各号）。"
+  },
+  {
+    "term": "定期報告（媒介）",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "定期報告：専任2週に1回以上、専属専任1週に1回以上（法35条の2）。"
+  },
+  {
+    "term": "特定電磁的手段による提供",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "電磁的方法による提供：特定電磁記録の承諾、表示の明確化、電子契約の成立時期。"
+  },
+  {
+    "term": "悪徳業者への規制",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "悪質な勧誘・示談金の不当提供等への規制（割賦法・景表法・宅建業法の行政措置）。"
+  },
+  {
+    "term": "個人情報の取扱い",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "個人情報保護法：取得目的通知、第三者提供、漏えい報告。"
+  },
+  {
+    "term": "空き家・低廉物件の特例",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "空き家・低廉物件の仲介手数料特例（令和6年7月1日～）：800万円以下の宅地・建物で税込33万円上限等（国土交通省告示・教材要確認）。"
+  },
+  {
+    "term": "賃貸住宅管理業の登録",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "賃貸住宅管理業の登録制度：登録要件・業務範囲・主任者。"
+  },
+  {
+    "term": "管理委託契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "管理委託：借主対応・修繕・収納代行の範囲。"
+  },
+  {
+    "term": "借地・借家の譲渡・転貸",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "借地・借家の譲渡・転貸の承諾・優先承認の条文（借地17条の2、借家19条等）。"
+  },
+  {
+    "term": "売却代金の決済",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "売買代金決済：手付・中間金・残金、司法書士の保管・送金、同時履行。"
+  },
+  {
+    "term": "免許の更新",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業免許を継続するための更新手続。"
+  },
+  {
+    "term": "免許換え",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所所在地の変化に応じて免許権者を変える手続。"
+  },
+  {
+    "term": "廃業等の届出",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業をやめた場合などに必要な届出。"
+  },
+  {
+    "term": "宅建士資格登録簿",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建士の登録事項を管理する帳簿。"
+  },
+  {
+    "term": "登録の移転",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "勤務先の都道府県へ宅建士登録を移す制度。"
+  },
+  {
+    "term": "事務所の範囲",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業法上の事務所に当たる場所の判断。"
+  },
+  {
+    "term": "案内所の届出",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定の案内所を設ける場合の届出義務。"
+  },
+  {
+    "term": "標識の掲示",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所や案内所に標識を掲げる義務。"
+  },
+  {
+    "term": "従業者名簿",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所ごとに備える従業者の名簿。"
+  },
+  {
+    "term": "取引台帳",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業者が取引内容を記録する帳簿。"
+  },
+  {
+    "term": "報酬額の掲示",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所ごとに報酬額表を掲示する義務。"
+  },
+  {
+    "term": "秘密保持義務",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "業務上知った秘密を漏らしてはならない義務。"
+  },
+  {
+    "term": "断定的判断の提供",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "将来利益などを断定的に告げる禁止行為。"
+  },
+  {
+    "term": "手付金等の保全措置",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定額を超える手付金等を保全する制度。"
+  },
+  {
+    "term": "契約不適合責任の特約制限",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "買主に不利な契約不適合責任特約の制限。"
+  },
+  {
+    "term": "解除等の制限",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "買主に不利な解除条項を制限する規制。"
+  },
+  {
+    "term": "仲介手数料",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "媒介・代理で受け取れる報酬。"
+  },
+  {
+    "term": "媒介契約書",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "媒介契約締結時に作成・交付する書面。"
+  },
+  {
+    "term": "一般媒介契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "複数業者へ依頼できる媒介契約。"
+  },
+  {
+    "term": "専任媒介契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一社にだけ媒介を依頼する契約。"
+  },
+  {
+    "term": "専属専任媒介契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "自己発見取引も制限される媒介契約。"
+  },
+  {
+    "term": "書面の電磁的方法による交付",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "35条・37条書面を電子的に交付する制度。"
+  },
+  {
+    "term": "IT重説",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "オンラインによる重要事項説明の要件と手続。"
+  },
+  {
+    "term": "事務所の要件",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "本店・従たる事務所・案内所に課される設置基準。"
+  },
+  {
+    "term": "住宅瑕疵担保履行法",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "新築住宅の瑕疵に対する保険・供託義務。"
+  },
+  {
+    "term": "14条書面",
+    "category": "宅建業法",
+    "related_terms": "37条書面;35条書面;8条書面",
+    "legal_basis": "宅地建物取引業法第14条",
+    "short_def": "14条書面は、宅地建物取引業者が契約の申込み又はその承諾をした場合に、相手方に交付しなければならない書面です（宅建業法第14条）。"
+  },
+  {
+    "term": "8条書面",
+    "category": "宅建業法",
+    "related_terms": "媒介契約の種類;14条書面;35条書面",
+    "legal_basis": "宅地建物取引業法第8条",
+    "short_def": "8条書面は、宅地建物取引業者が媒介契約を締結した場合に交付する書面です（宅建業法第8条）。"
+  },
+  {
+    "term": "35条書面",
+    "category": "宅建業法",
+    "related_terms": "重要事項説明（35条書面）;IT重説;37条書面",
+    "legal_basis": "宅地建物取引業法第35条",
+    "short_def": "35条書面は、宅地建物取引士が重要事項を説明した際に記載し、宅建業者が交付する書面です（宅建業法第35条）。"
+  },
+  {
+    "term": "業務停止命令",
+    "category": "宅建業法",
+    "related_terms": "免許の取消;指示処分;監督処分",
+    "legal_basis": "宅地建物取引業法第47条",
+    "short_def": "業務停止命令は、宅建業者が法令に違反した場合等に、都道府県知事等が一定期間業務の停止を命じる監督処分です。"
+  },
+  {
+    "term": "免許の取消",
+    "category": "宅建業法",
+    "related_terms": "業務停止命令;監督処分;免許の更新",
+    "legal_basis": "宅地建物取引業法第47条",
+    "short_def": "免許の取消は、宅建業者が重大な違反をした場合等に、その免許を剥奪する監督処分です。"
+  },
+  {
+    "term": "指示処分",
+    "category": "宅建業法",
+    "related_terms": "業務停止命令;免許の取消;監督処分",
+    "legal_basis": "宅地建物取引業法第47条",
+    "short_def": "指示処分は、宅建業者に対し法令の遵守・業務の適正化等を指示する監督処分です。"
+  },
+  {
+    "term": "過料",
+    "category": "宅建業法",
+    "related_terms": "宅建業法違反;罰則;監督処分",
+    "legal_basis": "宅地建物取引業法",
+    "short_def": "過料は、宅建業法違反のうち軽微な行為に対し科される金銭的制裁です。"
+  },
+  {
+    "term": "宅建業法違反",
+    "category": "宅建業法",
+    "related_terms": "過料;業務停止命令;免許の取消",
+    "legal_basis": "宅地建物取引業法",
+    "short_def": "宅建業法違反は、免許・業務規制・書面交付・広告・報酬等に関する宅建業法の規定に反する行為を指します。"
+  },
+  {
+    "term": "転借人",
+    "category": "宅建業法",
+    "related_terms": "転貸借（又貸し）;借地・借家の譲渡・転貸",
+    "legal_basis": "借地借家法第13条;第32条",
+    "short_def": "転借人は、賃借人が賃貸人の承諾を得て転貸した場合に、転貸借により賃借権を取得した者です。"
+  }
+]

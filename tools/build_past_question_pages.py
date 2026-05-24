@@ -754,6 +754,8 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
         f"{html.escape(exam_name())}の過去問を年度別・分野別にまとめています。"
         "検索と絞り込みで目的の問題を探し、解説ページで正誤と解説を確認できます。"
         ' <a href="past/index.html">年度別の静的一覧</a>から各年度ページへも進めます。'
+        ' <a href="orig/index.html">実践演習一覧（1,000問・検索）</a>も利用できます。'
+        ' <a href="mock/index.html">オリジナル模試（5回×50問）</a>の出題一覧もあります。'
     )
 
     return f"""<!DOCTYPE html>
@@ -929,8 +931,10 @@ def main() -> int:
     enrich_pages(pages)
     question_catalog = load_question_catalog(ROOT)
 
-    if Q_ROOT.exists():
-        shutil.rmtree(Q_ROOT)
+    for sub in ("past", "field"):
+        p = Q_ROOT / sub
+        if p.exists():
+            shutil.rmtree(p)
 
     for p, row in zip(pages, rows):
         rel = Path(p["rel_path"])

@@ -135,102 +135,120 @@ def build_detail_body(item: dict[str, str]) -> str:
     related = related_phrase(norm(item.get("related_terms")))
     custom = norm(item.get("detail_body"))
 
+    if custom and len(custom) >= 72:
+        parts = [custom]
+        if legal and legal not in custom:
+            parts.append(f"{term}の根拠は主に{legal}にあります。")
+        if related and related not in custom:
+            parts.append(
+                f"理解を深めるには、{related}との関係を条文・要件表で並べて整理するのが有効です。"
+            )
+        return "\n\n".join(parts)
+
     parts: list[str] = []
     if custom:
         parts.append(custom)
     if legal:
         parts.append(f"{term}の根拠は主に{legal}にあります。")
-    if related:
-        parts.append(f"理解を深めるには、{related}との関係を条文・要件表で並べて整理するのが有効です。")
-    if category == "権利関係":
-        parts.append(
-            "権利関係では「誰に・どのような効果が及ぶか」「期間や要件の有無」を問う肢が多く、"
-            "単語の意味だけでなく効力の発生・消滅のタイミングまでセットで押さえてください。"
-        )
-    elif category == "宅建業法":
-        parts.append(
-            "宅建業法では書面交付の時期、記載事項、監督処分の段階など、"
-            "手続の順序と義務者（業者・宅建士）の区別が問われやすいです。"
-        )
-    elif category == "法令上の制限":
-        parts.append(
-            "法令上の制限では数値（面積・幅員・率）と区域・号別の組み合わせが頻出するため、"
-            "「どの法令の・どの区域で・何が必要か」を三段で覚えると安定します。"
-        )
-    elif category == "税・その他":
-        parts.append(
-            "税・その他は計算問題と統計・関連法令の知識問題が混在します。"
-            "用語の定義に加え、誰が納税義務者か・いつ申告するかまで確認してください。"
-        )
     return "\n\n".join(parts)
 
 
 def build_exam_explanation(item: dict[str, str]) -> str:
     """選択肢で問われやすい点（定義の繰り返しを避ける）。"""
-    custom = sanitize_legacy_text(item.get("explanation"))
-    points = split_points(norm(item.get("exam_points")))
-    mistakes = norm(item.get("common_mistakes"))
-    term = norm(item.get("term"))
-    limb = "のいずれかが正誤の分かれ目になりやすいです"
+    from tools.glossary_article_quality import build_natural_explanation
 
-    if custom and custom != norm(item.get("definition")) and limb not in custom:
-        base = custom
-    else:
-        base = ""
+    return build_natural_explanation(item)
 
-    chunks: list[str] = []
-    if base:
-        chunks.append(base)
-    if points and limb not in " ".join(chunks):
-        joined = "／".join(points[:4])
-        chunks.append(f"肢では「{joined}」のいずれかが正誤の分かれ目になりやすいです。")
-    if mistakes:
-        chunks.append(f"特に{mistakes}")
-    if not chunks:
-        chunks.append(f"{term}は定義の暗記に加え、関連制度との比較問題として出題されます。")
-    return "\n\n".join(chunks)
+
+def _faq_answer_is_stale(answer: str) -> bool:
+    a = norm(answer)
+    return bool(
+        a
+        and (
+            "のいずれかが正誤の分かれ目" in a
+            or "肢では「" in a
+            or "。 詳しくは、" in a
+        )
+    )
+
+
+def _faq1_is_stale(answer: str, short_def: str, definition: str) -> bool:
+    if _faq_answer_is_stale(answer):
+        return True
+    a = norm(answer)
+    sd = short_def.rstrip("。")
+    if sd and sd in a and a.count("。") >= 3:
+        return True
+    body = (definition or "").split("\n\n")[0].rstrip("。")
+    if body and body in a and len(a) > len(body) + 40:
+        return True
+    return False
 
 
 def ensure_faq(item: dict[str, str]) -> dict[str, str]:
-    """FAQ1・2を未設定なら補完。"""
+    """FAQ1・2を未設定なら補完。定型の古い回答は上書きする。"""
     out = dict(item)
     term = norm(out.get("term"))
     reading = norm(out.get("reading"))
     short_def = norm(out.get("short_def"))
     definition = norm(out.get("definition"))
-    points = split_points(norm(out.get("exam_points")))
-    exam_text = build_exam_explanation(out)
+    points = split_points(clean_exam_points(norm(out.get("exam_points"))))
 
-    if not norm(out.get("faq_1_question")):
+    if norm(out.get("faq_3_question")):
+        return out
+
+    if not norm(out.get("faq_1_question")) or _faq1_is_stale(
+        out.get("faq_1_answer") or "", short_def, definition
+    ):
         out["faq_1_question"] = f"{term}とは何ですか？"
         label = f"{term}（{reading}）" if reading else term
-        out["faq_1_answer"] = f"{label}とは、{short_def.rstrip('。')}。{definition}"
+        body = definition.split("\n\n")[0] if definition else short_def
+        out["faq_1_answer"] = f"{label}とは、{body.rstrip('。')}。"
 
-    if not norm(out.get("faq_2_question")):
+    if not norm(out.get("faq_2_question")) or _faq_answer_is_stale(
+        out.get("faq_2_answer") or ""
+    ):
         out["faq_2_question"] = f"{term}は試験でどう押さえればよいですか？"
         if points:
+            tail = f"次に{points[1]}。" if len(points) >= 2 else ""
             out["faq_2_answer"] = (
-                f"まず{points[0]}。次に{points[1]}。" if len(points) >= 2 else f"まず{points[0]}。"
-            ) + f" 詳しくは、{exam_text[:200]}{'…' if len(exam_text) > 200 else ''}"
+                f"まず{points[0]}。{tail}"
+                "関連用語と条文番号を表にまとめ、過去問で出題形式に慣れるのが効率的です。"
+            )
         else:
-            out["faq_2_answer"] = exam_text[:300]
+            mistakes = norm(out.get("common_mistakes"))
+            out["faq_2_answer"] = (
+                mistakes
+                if mistakes
+                else f"{term}は定義の確認に加え、関連制度との比較で押さえるとよいです。"
+            )
 
     return out
 
 
 def enrich_glossary_item(item: dict[str, str]) -> dict[str, str]:
     """1用語分のフィールドを記事向けに分離・補完。"""
+    from tools.glossary_article_quality import (
+        build_article_lead,
+        build_article_title,
+        expand_definition,
+    )
+
     out = ensure_faq(dict(item))
     out["exam_points"] = clean_exam_points(derive_exam_points(out))
+    out["definition"] = expand_definition(out)
     definition = norm(out.get("definition"))
     short_def = polish_short_def(norm(out.get("term")), norm(out.get("short_def")), definition)
     detail_extra = build_detail_body(out)
     exam_expl = build_exam_explanation(out)
+    term = norm(out.get("term"))
 
-    out["definition"] = definition
     out["short_def"] = short_def
     out["term_detail_body"] = detail_extra if detail_extra else definition
-    out["article_lead"] = short_def
+    out["article_title"] = norm(out.get("article_title")) or build_article_title(
+        term, norm(out.get("category"))
+    )
+    out["article_lead"] = norm(out.get("article_lead")) or build_article_lead(out)
     if detail_extra and detail_extra != definition:
         out["term_detail_body"] = f"{definition}\n\n{detail_extra}"
     else:

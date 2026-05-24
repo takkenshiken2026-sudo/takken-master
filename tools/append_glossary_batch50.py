@@ -14,6 +14,7 @@ if str(ROOT) not in sys.path:
 
 from tools.export_legacy_data_to_csv import GLOSSARY_HEADER  # noqa: E402
 from tools.glossary_additions_batch50 import GLOSSARY_ADDITIONS  # noqa: E402
+from tools.glossary_article_quality import build_article_title  # noqa: E402
 from tools.glossary_enrich import enrich_glossary_item  # noqa: E402
 
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
@@ -27,8 +28,10 @@ def build_row(item: dict[str, str]) -> dict[str, str]:
     term = norm(item["term"])
     reading = norm(item["reading"])
     category = norm(item["category"])
-    short_def = norm(item["short_def"])
     definition = norm(item["definition"])
+    short_def = norm(item.get("short_def") or "")
+    if not short_def and definition:
+        short_def = definition.split("。", 1)[0].strip() + "。"
     explanation = norm(item.get("explanation") or "")
     term_detail_body = norm(item.get("term_detail_body") or definition)
     exam_points = norm(item.get("exam_points") or "")
@@ -48,18 +51,24 @@ def build_row(item: dict[str, str]) -> dict[str, str]:
             "legal_basis": norm(item.get("legal_basis") or ""),
             "importance": "A",
             "explanation": explanation,
-            "article_title": f"{term}とは",
-            "article_lead": short_def,
+            "article_title": norm(item.get("article_title"))
+            or build_article_title(term, category),
+            "article_lead": norm(item.get("article_lead") or short_def),
             "term_detail_body": term_detail_body,
             "exam_points": exam_points,
             "common_mistakes": common_mistakes,
             "memory_tip": memory_tip,
             "example_question": norm(item.get("example_question") or ""),
             "example_answer": norm(item.get("example_answer") or ""),
+            "summary_points": norm(item.get("summary_points") or ""),
             "faq_1_question": norm(item.get("faq_1_question") or ""),
             "faq_1_answer": norm(item.get("faq_1_answer") or ""),
             "faq_2_question": norm(item.get("faq_2_question") or ""),
             "faq_2_answer": norm(item.get("faq_2_answer") or ""),
+            "faq_3_question": norm(item.get("faq_3_question") or ""),
+            "faq_3_answer": norm(item.get("faq_3_answer") or ""),
+            "faq_4_question": norm(item.get("faq_4_question") or ""),
+            "faq_4_answer": norm(item.get("faq_4_answer") or ""),
         }
     )
     return row

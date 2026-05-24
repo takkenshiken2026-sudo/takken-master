@@ -3,9 +3,9 @@ const CSV_IMPORTED_PRACTICE_QUESTION_COUNT = 1000;
 const PRACTICE_QUESTIONS = {
   "1": [
     {
-      "id": 900001,
+      "id": 910001,
       "year": "orig",
-      "num": 1,
+      "num": 10001,
       "field": "rights",
       "text": "未成年者が法定代理人の同意なく行った売買契約の効力として正しいものはどれか。",
       "opts": [
@@ -14,14 +14,14 @@ const PRACTICE_QUESTIONS = {
         "相手方が取り消すことができる",
         "誰も取り消すことができない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "未成年者が同意なく行った契約は「取り消しうる行為」で、未成年者本人または法定代理人（親等）が取り消せます（民法5条2項）。当初から無効ではなく、取り消されるまでは有効です。追認すれば確定的に有効になります。",
-      "publicPath": "q/practice/p001/index.html"
+      "publicPath": "q/practice/p10001/index.html"
     },
     {
-      "id": 900002,
+      "id": 910002,
       "year": "orig",
-      "num": 2,
+      "num": 10002,
       "field": "rights",
       "text": "土地の売買でAがBに売った後Cにも売った二重売買の場合、所有権を取得できるのは誰か。",
       "opts": [
@@ -30,14 +30,14 @@ const PRACTICE_QUESTIONS = {
         "先に登記を備えた方",
         "価格が高い方"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不動産の二重売買では先に登記（法務局での正式な記録）を備えた者が所有権を取得できます（民法177条）。契約の締結時期や価格は関係ありません。",
-      "publicPath": "q/practice/p002/index.html"
+      "publicPath": "q/practice/p10002/index.html"
     },
     {
-      "id": 900003,
+      "id": 910003,
       "year": "orig",
-      "num": 3,
+      "num": 10003,
       "field": "rights",
       "text": "抵当権について正しいものはどれか。",
       "opts": [
@@ -46,14 +46,14 @@ const PRACTICE_QUESTIONS = {
         "登記がなければ当事者間でも効力が生じない",
         "農地には抵当権を一切設定できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当権は「非占有担保物権」で、設定者（借主）はそのまま住み続けたり使い続けたりできます（民法369条）。占有を移す必要はありません。登記は第三者対抗要件であり、当事者間では登記なくても成立します。",
-      "publicPath": "q/practice/p003/index.html"
+      "publicPath": "q/practice/p10003/index.html"
     },
     {
-      "id": 900004,
+      "id": 910004,
       "year": "orig",
-      "num": 4,
+      "num": 10004,
       "field": "rights",
       "text": "相続で配偶者Bと子C・Dがいる場合、配偶者Bの法定相続分はいくらか。",
       "opts": [
@@ -62,14 +62,14 @@ const PRACTICE_QUESTIONS = {
         "2分の1",
         "4分の3"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "配偶者と子が相続人の場合、配偶者の法定相続分は2分の1で、子全体で残りの2分の1を均等に分けます（民法900条）。",
-      "publicPath": "q/practice/p004/index.html"
+      "publicPath": "q/practice/p10004/index.html"
     },
     {
-      "id": 900005,
+      "id": 910005,
       "year": "orig",
-      "num": 5,
+      "num": 10005,
       "field": "law",
       "text": "宅地建物取引業の免許について正しいものはどれか。",
       "opts": [
@@ -78,14 +78,14 @@ const PRACTICE_QUESTIONS = {
         "法人は免許を取得できない",
         "更新申請は期間満了後でも受け付ける"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "1つの都道府県内にのみ事務所がある場合は都道府県知事の免許が必要です（宅建業法3条）。免許の有効期間は5年です。法人も免許を取得できます。",
-      "publicPath": "q/practice/p005/index.html"
+      "publicPath": "q/practice/p10005/index.html"
     },
     {
-      "id": 900006,
+      "id": 910006,
       "year": "orig",
-      "num": 6,
+      "num": 10006,
       "field": "law",
       "text": "重要事項説明（35条書面）を行えるのは誰か。",
       "opts": [
@@ -94,14 +94,14 @@ const PRACTICE_QUESTIONS = {
         "宅建業者に雇用された者なら誰でも",
         "弁護士"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "重要事項説明は「宅建士」が宅建士証を提示して行わなければなりません（宅建業法35条）。代表者や一般従業員が行うことはできません。",
-      "publicPath": "q/practice/p006/index.html"
+      "publicPath": "q/practice/p10006/index.html"
     },
     {
-      "id": 900007,
+      "id": 910007,
       "year": "orig",
-      "num": 7,
+      "num": 10007,
       "field": "law",
       "text": "クーリングオフができる期間として正しいものはどれか。",
       "opts": [
@@ -110,14 +110,14 @@ const PRACTICE_QUESTIONS = {
         "告知を受けた日から14日以内",
         "引渡しを受けるまでいつでも"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフは告知を受けた日から8日以内に書面で行う必要があります（宅建業法37条の2）。告知がなければ期間が始まりません。",
-      "publicPath": "q/practice/p007/index.html"
+      "publicPath": "q/practice/p10007/index.html"
     },
     {
-      "id": 900008,
+      "id": 910008,
       "year": "orig",
-      "num": 8,
+      "num": 10008,
       "field": "law",
       "text": "専任媒介契約の有効期間の上限として正しいものはどれか。",
       "opts": [
@@ -126,14 +126,14 @@ const PRACTICE_QUESTIONS = {
         "3か月",
         "6か月"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "専任媒介・専属専任媒介の有効期間の上限は3か月です（宅建業法34条の2）。",
-      "publicPath": "q/practice/p008/index.html"
+      "publicPath": "q/practice/p10008/index.html"
     },
     {
-      "id": 900009,
+      "id": 910009,
       "year": "orig",
-      "num": 9,
+      "num": 10009,
       "field": "limit",
       "text": "建ぺい率の説明として正しいものはどれか。",
       "opts": [
@@ -142,14 +142,14 @@ const PRACTICE_QUESTIONS = {
         "道路幅員に対する建物高さの割合",
         "容積率と同じ意味"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建ぺい率は「敷地面積に対する建築面積（建物の真上から見た面積）の割合」です。延べ床面積との割合は容積率です。",
-      "publicPath": "q/practice/p009/index.html"
+      "publicPath": "q/practice/p10009/index.html"
     },
     {
-      "id": 900010,
+      "id": 910010,
       "year": "orig",
-      "num": 10,
+      "num": 10010,
       "field": "limit",
       "text": "農地を農地のまま第三者に売る場合に必要なものはどれか。",
       "opts": [
@@ -158,14 +158,14 @@ const PRACTICE_QUESTIONS = {
         "市町村長への届出のみ",
         "何も必要ない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地を農地のまま売買（権利移動）する場合は農地法3条の規定により農業委員会の許可が必要です。",
-      "publicPath": "q/practice/p010/index.html"
+      "publicPath": "q/practice/p10010/index.html"
     },
     {
-      "id": 900011,
+      "id": 910011,
       "year": "orig",
-      "num": 11,
+      "num": 10011,
       "field": "rights",
       "text": "保証契約の成立要件として正しいものはどれか。",
       "opts": [
@@ -174,14 +174,14 @@ const PRACTICE_QUESTIONS = {
         "口頭でも成立する",
         "主債務者の同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証契約は書面（または電磁的記録）によらなければ効力が生じません（民法446条2項）。口頭の保証契約は無効です。",
-      "publicPath": "q/practice/p011/index.html"
+      "publicPath": "q/practice/p10011/index.html"
     },
     {
-      "id": 900012,
+      "id": 910012,
       "year": "orig",
-      "num": 12,
+      "num": 10012,
       "field": "law",
       "text": "宅建業者の事務所の専任宅建士の割合として正しいものはどれか。",
       "opts": [
@@ -190,14 +190,14 @@ const PRACTICE_QUESTIONS = {
         "業務従事者10名に1名以上",
         "全員が宅建士"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事務所には業務に従事する者5名につき1名以上の専任の宅建士が必要です（宅建業法31条の3）。",
-      "publicPath": "q/practice/p012/index.html"
+      "publicPath": "q/practice/p10012/index.html"
     },
     {
-      "id": 900013,
+      "id": 910013,
       "year": "orig",
-      "num": 13,
+      "num": 10013,
       "field": "limit",
       "text": "市街化区域の説明として正しいものはどれか。",
       "opts": [
@@ -206,14 +206,14 @@ const PRACTICE_QUESTIONS = {
         "将来も絶対に開発しない区域",
         "商業地域のみが含まれる区域"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化区域は「すでに市街地を形成している区域」と「おおむね10年以内に優先的・計画的に市街化を図るべき区域」から構成されます（都市計画法7条）。",
-      "publicPath": "q/practice/p013/index.html"
+      "publicPath": "q/practice/p10013/index.html"
     },
     {
-      "id": 900014,
+      "id": 910014,
       "year": "orig",
-      "num": 14,
+      "num": 10014,
       "field": "tax",
       "text": "固定資産税を課す権者として正しいものはどれか。",
       "opts": [
@@ -222,14 +222,14 @@ const PRACTICE_QUESTIONS = {
         "市町村（東京23区は都）",
         "固定資産評価委員会"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "固定資産税は市町村が課す地方税です（東京23区は都）（地方税法343条）。国税ではありません。",
-      "publicPath": "q/practice/p014/index.html"
+      "publicPath": "q/practice/p10014/index.html"
     },
     {
-      "id": 900015,
+      "id": 910015,
       "year": "orig",
-      "num": 15,
+      "num": 10015,
       "field": "rights",
       "text": "一般の債権の消滅時効期間（2020年改正後）として正しいものはどれか。",
       "opts": [
@@ -238,14 +238,14 @@ const PRACTICE_QUESTIONS = {
         "権利行使できると知った時から5年",
         "権利行使できる時から5年"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "改正民法では、一般の債権の消滅時効は「権利行使できると知った時から5年」または「権利行使できる時から10年」のいずれか早い方で完成します（民法166条）。",
-      "publicPath": "q/practice/p015/index.html"
+      "publicPath": "q/practice/p10015/index.html"
     },
     {
-      "id": 900016,
+      "id": 910016,
       "year": "orig",
-      "num": 16,
+      "num": 10016,
       "field": "law",
       "text": "37条書面の必要的記載事項として正しいものはどれか。",
       "opts": [
@@ -254,14 +254,14 @@ const PRACTICE_QUESTIONS = {
         "近隣施設の状況",
         "隣地所有者の名前"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面の必要的記載事項には「物件の特定・代金・引渡し時期・移転登記申請時期」などが含まれます（宅建業法37条1項）。",
-      "publicPath": "q/practice/p016/index.html"
+      "publicPath": "q/practice/p10016/index.html"
     },
     {
-      "id": 900017,
+      "id": 910017,
       "year": "orig",
-      "num": 17,
+      "num": 10017,
       "field": "limit",
       "text": "前面道路幅員が12m未満の場合の容積率の扱いとして正しいものはどれか。",
       "opts": [
@@ -270,14 +270,14 @@ const PRACTICE_QUESTIONS = {
         "都市計画の容積率と道路幅員×法定乗数の小さい方",
         "制限なし"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "前面道路が12m未満の場合、都市計画の容積率と「道路幅員×0.4（住居系）」を比較して小さい方が上限として適用されます（建築基準法52条2項）。",
-      "publicPath": "q/practice/p017/index.html"
+      "publicPath": "q/practice/p10017/index.html"
     },
     {
-      "id": 900018,
+      "id": 910018,
       "year": "orig",
-      "num": 18,
+      "num": 10018,
       "field": "tax",
       "text": "不動産取得税について正しいものはどれか。",
       "opts": [
@@ -286,14 +286,14 @@ const PRACTICE_QUESTIONS = {
         "都道府県が課す地方税",
         "毎年課される"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不動産取得税は都道府県が課す地方税です（地方税法73条の2）。相続による取得は非課税。一度の取得に一度だけ課される税です。",
-      "publicPath": "q/practice/p018/index.html"
+      "publicPath": "q/practice/p10018/index.html"
     },
     {
-      "id": 900019,
+      "id": 910019,
       "year": "orig",
-      "num": 19,
+      "num": 10019,
       "field": "rights",
       "text": "詐欺による取消しと善意無過失の第三者の関係として正しいものはどれか。",
       "opts": [
@@ -302,14 +302,14 @@ const PRACTICE_QUESTIONS = {
         "強迫と同様に誰にでも対抗できる",
         "取消しはできず無効を主張するしかない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "詐欺による取消しは「善意かつ無過失の第三者」には対抗できません（民法96条3項）。強迫による取消しはたとえ善意の第三者に対しても対抗できます。",
-      "publicPath": "q/practice/p019/index.html"
+      "publicPath": "q/practice/p10019/index.html"
     },
     {
-      "id": 900020,
+      "id": 910020,
       "year": "orig",
-      "num": 20,
+      "num": 10020,
       "field": "law",
       "text": "宅建業の免許の有効期間として正しいものはどれか。",
       "opts": [
@@ -318,14 +318,14 @@ const PRACTICE_QUESTIONS = {
         "5年",
         "10年"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業の免許の有効期間は5年です（宅建業法3条2項）。更新申請は有効期間満了の90日前から30日前の間に行う必要があります。",
-      "publicPath": "q/practice/p020/index.html"
+      "publicPath": "q/practice/p10020/index.html"
     },
     {
-      "id": 900021,
+      "id": 910021,
       "year": "orig",
-      "num": 21,
+      "num": 10021,
       "field": "rights",
       "text": "Aが死亡し、子BとCが相続人の場合、Bが相続を放棄した場合のCの相続分はどうなるか。",
       "opts": [
@@ -334,14 +334,14 @@ const PRACTICE_QUESTIONS = {
         "全部を相続する",
         "放棄できない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "相続人の一人が放棄した場合、その放棄した相続人は最初から相続人でなかったものとみなされます（民法939条）。BとCの2人のうちBが放棄すれば、Cが単独相続人となり全部を相続します。",
-      "publicPath": "q/practice/p021/index.html"
+      "publicPath": "q/practice/p10021/index.html"
     },
     {
-      "id": 900022,
+      "id": 910022,
       "year": "orig",
-      "num": 22,
+      "num": 10022,
       "field": "rights",
       "text": "借地権の存続期間（普通借地権）として正しいものはどれか。",
       "opts": [
@@ -350,14 +350,14 @@ const PRACTICE_QUESTIONS = {
         "30年以上",
         "50年以上"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "普通借地権の存続期間は30年以上です（借地借家法3条）。30年未満の定めをしても30年となります。",
-      "publicPath": "q/practice/p022/index.html"
+      "publicPath": "q/practice/p10022/index.html"
     },
     {
-      "id": 900023,
+      "id": 910023,
       "year": "orig",
-      "num": 23,
+      "num": 10023,
       "field": "rights",
       "text": "物権と債権の違いとして正しいものはどれか。",
       "opts": [
@@ -366,14 +366,14 @@ const PRACTICE_QUESTIONS = {
         "物権も債権も同じ内容の権利",
         "物権には排他性がなく、債権には排他性がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "物権は物に対する権利で排他性があります（一物一権主義）。債権は特定人（債務者）に対して一定の行為を請求できる権利で、排他性はなく同一内容の債権が複数成立します。",
-      "publicPath": "q/practice/p023/index.html"
+      "publicPath": "q/practice/p10023/index.html"
     },
     {
-      "id": 900024,
+      "id": 910024,
       "year": "orig",
-      "num": 24,
+      "num": 10024,
       "field": "law",
       "text": "宅建業者が依頼者から受け取れる売買の媒介報酬の上限（代金400万円超の場合）として正しいものはどれか（消費税別）。",
       "opts": [
@@ -382,14 +382,14 @@ const PRACTICE_QUESTIONS = {
         "代金の4%+2万円",
         "代金の5%"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売買代金が400万円を超える場合の報酬上限は「代金の3%+6万円」です（宅建業法46条・告示）。これは一方の依頼者から受け取れる上限であり、双方から受け取る場合は合計でこの2倍が上限です。",
-      "publicPath": "q/practice/p024/index.html"
+      "publicPath": "q/practice/p10024/index.html"
     },
     {
-      "id": 900025,
+      "id": 910025,
       "year": "orig",
-      "num": 25,
+      "num": 10025,
       "field": "law",
       "text": "宅建業者の事務所に掲示しなければならないものとして正しいものはどれか。",
       "opts": [
@@ -398,14 +398,14 @@ const PRACTICE_QUESTIONS = {
         "近隣地図",
         "営業時間表"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者は全ての事務所に「宅地建物取引業者票（業者票）」と「報酬額表」を掲示しなければなりません（宅建業法50条）。",
-      "publicPath": "q/practice/p025/index.html"
+      "publicPath": "q/practice/p10025/index.html"
     },
     {
-      "id": 900026,
+      "id": 910026,
       "year": "orig",
-      "num": 26,
+      "num": 10026,
       "field": "limit",
       "text": "建築基準法の接道義務として正しいものはどれか。",
       "opts": [
@@ -414,14 +414,14 @@ const PRACTICE_QUESTIONS = {
         "幅員6メートル以上の道路に3メートル以上接しなければならない",
         "道路への接道は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建築物の敷地は幅員4メートル以上の道路に2メートル以上接しなければなりません（建築基準法43条1項）。これを接道義務（接道要件）といいます。",
-      "publicPath": "q/practice/p026/index.html"
+      "publicPath": "q/practice/p10026/index.html"
     },
     {
-      "id": 900027,
+      "id": 910027,
       "year": "orig",
-      "num": 27,
+      "num": 10027,
       "field": "tax",
       "text": "居住用財産を売却した際の3000万円特別控除の適用条件として正しいものはどれか。",
       "opts": [
@@ -430,14 +430,14 @@ const PRACTICE_QUESTIONS = {
         "居住期間が10年以上必要",
         "毎年適用できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "3000万円特別控除は現に居住している家屋、または居住しなくなった日から3年後の年末までに売却した場合に適用されます（租税特別措置法35条）。居住期間の制限はありません。",
-      "publicPath": "q/practice/p027/index.html"
+      "publicPath": "q/practice/p10027/index.html"
     },
     {
-      "id": 900028,
+      "id": 910028,
       "year": "orig",
-      "num": 28,
+      "num": 10028,
       "field": "rights",
       "text": "民法の原則として、契約の成立に必要なものはどれか。",
       "opts": [
@@ -446,14 +446,14 @@ const PRACTICE_QUESTIONS = {
         "申込みと承諾の意思表示の合致",
         "第三者の立会い"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "契約は申込みと承諾の意思表示が合致したときに成立します（民法522条）。原則として書面は不要であり、口頭でも成立します（例外：保証契約・定期借地権等は書面が必要）。",
-      "publicPath": "q/practice/p028/index.html"
+      "publicPath": "q/practice/p10028/index.html"
     },
     {
-      "id": 900029,
+      "id": 910029,
       "year": "orig",
-      "num": 29,
+      "num": 10029,
       "field": "law",
       "text": "宅建業法で定める手付の性質について正しいものはどれか。",
       "opts": [
@@ -462,14 +462,14 @@ const PRACTICE_QUESTIONS = {
         "手付金は返還されない",
         "手付の最低額は代金の5%"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者が自ら売主の場合、手付は解約手付とみなされます（宅建業法39条2項）。買主は手付を放棄して、業者は手付の倍額を返すことで契約を解除できます。",
-      "publicPath": "q/practice/p029/index.html"
+      "publicPath": "q/practice/p10029/index.html"
     },
     {
-      "id": 900030,
+      "id": 910030,
       "year": "orig",
-      "num": 30,
+      "num": 10030,
       "field": "limit",
       "text": "都市計画区域と準都市計画区域の違いとして正しいものはどれか。",
       "opts": [
@@ -478,14 +478,14 @@ const PRACTICE_QUESTIONS = {
         "両者に違いはない",
         "準都市計画区域は農業専用地域に指定される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "準都市計画区域は都市計画区域外の地域のうち、相当数の建築物の建築等が行われ無秩序な土地利用を防ぐ必要がある地域に指定されます（都市計画法5条の2）。",
-      "publicPath": "q/practice/p030/index.html"
+      "publicPath": "q/practice/p10030/index.html"
     },
     {
-      "id": 900031,
+      "id": 910031,
       "year": "orig",
-      "num": 31,
+      "num": 10031,
       "field": "rights",
       "text": "Aが所有する土地にBが無断で建物を建てた。AのBに対する請求として誤っているものはどれか。",
       "opts": [
@@ -494,14 +494,14 @@ const PRACTICE_QUESTIONS = {
         "損害賠償請求",
         "土地の売却を強制する請求"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "土地所有者Aは、不法占拠者Bに対して建物の収去・土地明渡し・損害賠償を請求できます。しかし、土地を強制的に売却させる権利（売却強制）はありません。",
-      "publicPath": "q/practice/p031/index.html"
+      "publicPath": "q/practice/p10031/index.html"
     },
     {
-      "id": 900032,
+      "id": 910032,
       "year": "orig",
-      "num": 32,
+      "num": 10032,
       "field": "tax",
       "text": "印紙税の課税文書に該当するものはどれか。",
       "opts": [
@@ -510,14 +510,14 @@ const PRACTICE_QUESTIONS = {
         "電子メールでの売買合意",
         "業者への売却の依頼"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産の売買契約書は印紙税の課税文書に該当します（印紙税法別表第一）。口頭での合意や電子メールは文書ではないため課税されません。電子的な契約書も原則として課税対象外です。",
-      "publicPath": "q/practice/p032/index.html"
+      "publicPath": "q/practice/p10032/index.html"
     },
     {
-      "id": 900033,
+      "id": 910033,
       "year": "orig",
-      "num": 33,
+      "num": 10033,
       "field": "law",
       "text": "宅建業者が宅地の売買を媒介する際の義務として正しいものはどれか。",
       "opts": [
@@ -526,14 +526,14 @@ const PRACTICE_QUESTIONS = {
         "相手方に弁護士を紹介する",
         "2週間以内に登記申請を行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者は売買契約成立後、遅滞なく37条書面（契約書面）を作成して当事者に交付しなければなりません（宅建業法37条）。公正証書での作成は義務ではありません。",
-      "publicPath": "q/practice/p033/index.html"
+      "publicPath": "q/practice/p10033/index.html"
     },
     {
-      "id": 900034,
+      "id": 910034,
       "year": "orig",
-      "num": 34,
+      "num": 10034,
       "field": "rights",
       "text": "民法上の「意思能力」がない状態でした法律行為の効力として正しいものはどれか。",
       "opts": [
@@ -542,14 +542,14 @@ const PRACTICE_QUESTIONS = {
         "有効だが後で追認が必要",
         "相手方が選択できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "意思能力を欠く状態でした法律行為は無効です（民法3条の2）。制限行為能力者の行為は「取り消しうる行為」ですが、意思能力のない者の行為は当然無効となります。",
-      "publicPath": "q/practice/p034/index.html"
+      "publicPath": "q/practice/p10034/index.html"
     },
     {
-      "id": 900035,
+      "id": 910035,
       "year": "orig",
-      "num": 35,
+      "num": 10035,
       "field": "rights",
       "text": "強迫による意思表示の取消しについて正しいものはどれか。",
       "opts": [
@@ -560,12 +560,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "強迫による意思表示の取消しは、善意の第三者に対しても対抗できます（民法96条3項の反対解釈）。詐欺は善意無過失の第三者に対抗できませんが、強迫はより保護が強くすべての第三者に対抗できます。",
-      "publicPath": "q/practice/p035/index.html"
+      "publicPath": "q/practice/p10035/index.html"
     },
     {
-      "id": 900036,
+      "id": 910036,
       "year": "orig",
-      "num": 36,
+      "num": 10036,
       "field": "rights",
       "text": "任意代理と法定代理の違いとして正しいものはどれか。",
       "opts": [
@@ -574,14 +574,14 @@ const PRACTICE_QUESTIONS = {
         "任意代理のみ復代理人を選任できる",
         "法定代理には顕名が不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "任意代理は本人の授権行為（委任等）によって設定され、法定代理は法律の規定（親権・後見等）によって設定されます。どちらも顕名が必要です。",
-      "publicPath": "q/practice/p036/index.html"
+      "publicPath": "q/practice/p10036/index.html"
     },
     {
-      "id": 900037,
+      "id": 910037,
       "year": "orig",
-      "num": 37,
+      "num": 10037,
       "field": "rights",
       "text": "取得時効の成立に必要な占有の態様として正しいものはどれか。",
       "opts": [
@@ -590,14 +590,14 @@ const PRACTICE_QUESTIONS = {
         "占有開始が善意の場合は5年で成立する",
         "占有は断続的でもよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "取得時効が成立するためには、所有の意思をもって（自主占有）、平穏かつ公然に、継続して占有することが必要です（民法162条）。善意無過失の場合は10年、悪意または有過失の場合は20年です。",
-      "publicPath": "q/practice/p037/index.html"
+      "publicPath": "q/practice/p10037/index.html"
     },
     {
-      "id": 900038,
+      "id": 910038,
       "year": "orig",
-      "num": 38,
+      "num": 10038,
       "field": "rights",
       "text": "不動産の登記の効力として正しいものはどれか。",
       "opts": [
@@ -606,14 +606,14 @@ const PRACTICE_QUESTIONS = {
         "登記がなければ当事者間でも権利は生じない",
         "登記には絶対的な公信力がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産登記は物権変動の対抗要件です（民法177条）。登記があれば権利の存在が推定されますが（民法188条の類推）、公信力はなく登記を信頼して取引しても保護されないことがあります。",
-      "publicPath": "q/practice/p038/index.html"
+      "publicPath": "q/practice/p10038/index.html"
     },
     {
-      "id": 900039,
+      "id": 910039,
       "year": "orig",
-      "num": 39,
+      "num": 10039,
       "field": "rights",
       "text": "先取特権に関して正しいものはどれか。",
       "opts": [
@@ -622,14 +622,14 @@ const PRACTICE_QUESTIONS = {
         "先取特権は登記がなければ第三者に対抗できない",
         "先取特権は動産にのみ成立する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "先取特権は法律が定めた一定の事由が生じると当然に発生する法定担保物権です（民法303条）。合意で設定する必要はなく、法律の要件を満たせば自動的に生じます。",
-      "publicPath": "q/practice/p039/index.html"
+      "publicPath": "q/practice/p10039/index.html"
     },
     {
-      "id": 900040,
+      "id": 910040,
       "year": "orig",
-      "num": 40,
+      "num": 10040,
       "field": "rights",
       "text": "債務不履行に基づく損害賠償請求の要件として不要なものはどれか。",
       "opts": [
@@ -638,14 +638,14 @@ const PRACTICE_QUESTIONS = {
         "債務不履行と損害の因果関係",
         "債務者の故意・過失（帰責事由）が常に必要"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "2020年民法改正後、損害賠償請求に債務者の帰責事由は必ずしも必要ではありません（民法415条1項ただし書き）。ただし「契約その他の債務の発生原因及び取引上の社会通念に照らして」責めに帰することができないときは免責されます。",
-      "publicPath": "q/practice/p040/index.html"
+      "publicPath": "q/practice/p10040/index.html"
     },
     {
-      "id": 900041,
+      "id": 910041,
       "year": "orig",
-      "num": 41,
+      "num": 10041,
       "field": "rights",
       "text": "売買契約において買主が代金を支払わない場合、売主が取れる手段として誤っているものはどれか。",
       "opts": [
@@ -654,14 +654,14 @@ const PRACTICE_QUESTIONS = {
         "損害賠償請求",
         "即時に契約を無効とする申告"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "売買契約を無効にする申告という手続きは民法上存在しません。売主が取れる手段は履行請求（強制）・解除・損害賠償請求です（民法541条・542条・415条）。",
-      "publicPath": "q/practice/p041/index.html"
+      "publicPath": "q/practice/p10041/index.html"
     },
     {
-      "id": 900042,
+      "id": 910042,
       "year": "orig",
-      "num": 42,
+      "num": 10042,
       "field": "rights",
       "text": "建物賃貸借の期間と更新に関して正しいものはどれか。",
       "opts": [
@@ -670,14 +670,14 @@ const PRACTICE_QUESTIONS = {
         "期間満了後も賃借人が使用継続し貸主が異議を述べなければ同条件で更新とみなされる",
         "賃貸借に期間の定めは必須"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "期間満了後も賃借人が使用収益を継続し、賃貸人がこれを知りながら異議を述べない場合は、従前と同一条件で更新したものとみなされます（民法619条1項）。",
-      "publicPath": "q/practice/p042/index.html"
+      "publicPath": "q/practice/p10042/index.html"
     },
     {
-      "id": 900043,
+      "id": 910043,
       "year": "orig",
-      "num": 43,
+      "num": 10043,
       "field": "rights",
       "text": "遺留分の割合として正しいものはどれか（相続人が配偶者のみの場合）。",
       "opts": [
@@ -686,14 +686,14 @@ const PRACTICE_QUESTIONS = {
         "法定相続分の3分の1",
         "遺留分はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続人が配偶者のみの場合、遺留分は法定相続分（全部）の2分の1、つまり財産全体の2分の1です（民法1042条1項）。直系尊属のみが相続人の場合は3分の1です。",
-      "publicPath": "q/practice/p043/index.html"
+      "publicPath": "q/practice/p10043/index.html"
     },
     {
-      "id": 900044,
+      "id": 910044,
       "year": "orig",
-      "num": 44,
+      "num": 10044,
       "field": "rights",
       "text": "使用者責任（民法715条）が成立する要件として誤っているものはどれか。",
       "opts": [
@@ -702,14 +702,14 @@ const PRACTICE_QUESTIONS = {
         "損害の発生",
         "使用者が被用者の選任・監督について過失があること"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "使用者責任では使用者は「相当の注意をしたこと」「注意をしても損害が生じたこと」を証明すれば免責されます。つまり過失は推定され、使用者側が無過失を立証する必要があります（民法715条1項ただし書き）。",
-      "publicPath": "q/practice/p044/index.html"
+      "publicPath": "q/practice/p10044/index.html"
     },
     {
-      "id": 900045,
+      "id": 910045,
       "year": "orig",
-      "num": 45,
+      "num": 10045,
       "field": "rights",
       "text": "借地権の対抗要件として正しいものはどれか。",
       "opts": [
@@ -718,14 +718,14 @@ const PRACTICE_QUESTIONS = {
         "地主の承認書の備え付け",
         "建物の建築確認済証の保管"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地権は借地権自体の登記のほか、借地上の建物について借地権者名義の登記（表示登記でも可）を備えることで第三者に対抗できます（借地借家法10条）。",
-      "publicPath": "q/practice/p045/index.html"
+      "publicPath": "q/practice/p10045/index.html"
     },
     {
-      "id": 900046,
+      "id": 910046,
       "year": "orig",
-      "num": 46,
+      "num": 10046,
       "field": "rights",
       "text": "マンションの管理規約の設定に必要な決議として正しいものはどれか。",
       "opts": [
@@ -734,14 +734,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者及び議決権の各4分の3以上",
         "全区分所有者の同意"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "管理規約の設定・変更・廃止には区分所有者及び議決権の各4分の3以上の多数による集会の決議が必要です（区分所有法31条1項）。",
-      "publicPath": "q/practice/p046/index.html"
+      "publicPath": "q/practice/p10046/index.html"
     },
     {
-      "id": 900047,
+      "id": 910047,
       "year": "orig",
-      "num": 47,
+      "num": 10047,
       "field": "rights",
       "text": "不動産登記の申請方法として正しいものはどれか。",
       "opts": [
@@ -750,14 +750,14 @@ const PRACTICE_QUESTIONS = {
         "代理人による申請はできない",
         "申請は売主のみが行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産登記の申請は、登記所の窓口への書面申請のほかオンライン申請（電子申請）も認められています（不動産登記法18条）。代理人による申請も可能です。",
-      "publicPath": "q/practice/p047/index.html"
+      "publicPath": "q/practice/p10047/index.html"
     },
     {
-      "id": 900048,
+      "id": 910048,
       "year": "orig",
-      "num": 48,
+      "num": 10048,
       "field": "rights",
       "text": "境界線上に設けた塀の費用負担として民法が定める原則はどれか。",
       "opts": [
@@ -766,14 +766,14 @@ const PRACTICE_QUESTIONS = {
         "すべて新しく建てた者の負担",
         "話し合いで自由に決める"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "境界線上に設けた境界標・囲障等（塀・垣根等）は、相隣者が共同の費用で設置・保存するのが原則です（民法225条）。",
-      "publicPath": "q/practice/p048/index.html"
+      "publicPath": "q/practice/p10048/index.html"
     },
     {
-      "id": 900049,
+      "id": 910049,
       "year": "orig",
-      "num": 49,
+      "num": 10049,
       "field": "law",
       "text": "宅建業者が廃業した場合の免許の失効について正しいものはどれか。",
       "opts": [
@@ -782,14 +782,14 @@ const PRACTICE_QUESTIONS = {
         "廃業しても免許有効期間内は有効",
         "免許権者の取消処分が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者が廃業した場合、廃業の日から30日以内に免許権者に届け出なければなりません（宅建業法11条1項5号）。届出があった日に免許は失効します。",
-      "publicPath": "q/practice/p049/index.html"
+      "publicPath": "q/practice/p10049/index.html"
     },
     {
-      "id": 900050,
+      "id": 910050,
       "year": "orig",
-      "num": 50,
+      "num": 10050,
       "field": "law",
       "text": "宅建士の登録の移転について正しいものはどれか。",
       "opts": [
@@ -798,14 +798,14 @@ const PRACTICE_QUESTIONS = {
         "登録の移転は任意だが、勤務先の都道府県に移転することが望ましい",
         "登録の移転は免許権者の許可が必要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建士の登録の移転は義務ではなく任意です（宅建業法19条の2）。勤務先の所在する都道府県知事に移転することができますが、しなくても違法ではありません。",
-      "publicPath": "q/practice/p050/index.html"
+      "publicPath": "q/practice/p10050/index.html"
     },
     {
-      "id": 900051,
+      "id": 910051,
       "year": "orig",
-      "num": 51,
+      "num": 10051,
       "field": "law",
       "text": "営業保証金の供託先として正しいものはどれか。",
       "opts": [
@@ -814,14 +814,14 @@ const PRACTICE_QUESTIONS = {
         "法務局本局のみ",
         "財務省"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "営業保証金は主たる事務所の最寄りの供託所（法務局等）に供託しなければなりません（宅建業法25条1項）。",
-      "publicPath": "q/practice/p051/index.html"
+      "publicPath": "q/practice/p10051/index.html"
     },
     {
-      "id": 900052,
+      "id": 910052,
       "year": "orig",
-      "num": 52,
+      "num": 10052,
       "field": "law",
       "text": "一般媒介契約と専任媒介契約の最大の違いはどれか。",
       "opts": [
@@ -830,14 +830,14 @@ const PRACTICE_QUESTIONS = {
         "一般媒介の有効期間は6か月",
         "専任媒介はレインズ登録が不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "一般媒介は依頼者が複数の宅建業者に同時に依頼できますが、専任媒介・専属専任媒介は1社のみに限定されます（宅建業法34条の2）。",
-      "publicPath": "q/practice/p052/index.html"
+      "publicPath": "q/practice/p10052/index.html"
     },
     {
-      "id": 900053,
+      "id": 910053,
       "year": "orig",
-      "num": 53,
+      "num": 10053,
       "field": "law",
       "text": "重要事項説明のIT重説（テレビ会議等）について正しいものはどれか。",
       "opts": [
@@ -846,14 +846,14 @@ const PRACTICE_QUESTIONS = {
         "IT重説では宅建士証の提示は省略できる",
         "IT重説で説明した場合は書面交付が不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "IT重説は相手方の承諾があり、映像・音声を双方向でリアルタイム通信できる環境が整っている場合に利用できます。宅建士証の画面越しの提示と書面（電磁的方法可）の交付は引き続き必要です。",
-      "publicPath": "q/practice/p053/index.html"
+      "publicPath": "q/practice/p10053/index.html"
     },
     {
-      "id": 900054,
+      "id": 910054,
       "year": "orig",
-      "num": 54,
+      "num": 10054,
       "field": "law",
       "text": "37条書面に記載が不要なものはどれか。",
       "opts": [
@@ -862,14 +862,14 @@ const PRACTICE_QUESTIONS = {
         "近隣施設（学校・病院等）の情報",
         "引渡しの時期"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "37条書面の必要的記載事項は物件特定・代金・引渡時期・移転登記申請時期等です（宅建業法37条）。近隣施設の情報は37条書面の記載事項ではありません（重要事項説明でも必須ではない）。",
-      "publicPath": "q/practice/p054/index.html"
+      "publicPath": "q/practice/p10054/index.html"
     },
     {
-      "id": 900055,
+      "id": 910055,
       "year": "orig",
-      "num": 55,
+      "num": 10055,
       "field": "law",
       "text": "クーリングオフができない場所として正しいものはどれか。",
       "opts": [
@@ -878,14 +878,14 @@ const PRACTICE_QUESTIONS = {
         "買主が指定した喫茶店",
         "宅建業者の事務所"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "宅建業者の事務所で申し込んだ場合はクーリングオフができません（宅建業法37条の2）。買主の自宅・勤務先（買主から申し出た場合）・買主が指定した場所では申し込みがあればクーリングオフが可能です。",
-      "publicPath": "q/practice/p055/index.html"
+      "publicPath": "q/practice/p10055/index.html"
     },
     {
-      "id": 900056,
+      "id": 910056,
       "year": "orig",
-      "num": 56,
+      "num": 10056,
       "field": "law",
       "text": "土地付建物の売買（代金3000万円）を媒介した場合、一方の依頼者から受け取れる報酬の上限はいくらか（消費税別）。",
       "opts": [
@@ -894,14 +894,14 @@ const PRACTICE_QUESTIONS = {
         "105万円",
         "150万円"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代金400万円超の売買報酬は「代金×3%+6万円」が上限です。3000万円×3%+6万円=96万円（税別）が一方から受け取れる上限です（宅建業法46条・告示）。",
-      "publicPath": "q/practice/p056/index.html"
+      "publicPath": "q/practice/p10056/index.html"
     },
     {
-      "id": 900057,
+      "id": 910057,
       "year": "orig",
-      "num": 57,
+      "num": 10057,
       "field": "law",
       "text": "宅建業法上の指示処分について正しいものはどれか。",
       "opts": [
@@ -910,14 +910,14 @@ const PRACTICE_QUESTIONS = {
         "指示処分を受けると即時に業務が停止される",
         "指示処分は国交大臣のみが行える"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "指示処分は業務停止処分・免許取消処分と独立して行うことができます（宅建業法65条）。指示処分を受けても業務は継続できます。なお都道府県知事も管轄内の業者に指示処分を行えます。",
-      "publicPath": "q/practice/p057/index.html"
+      "publicPath": "q/practice/p10057/index.html"
     },
     {
-      "id": 900058,
+      "id": 910058,
       "year": "orig",
-      "num": 58,
+      "num": 10058,
       "field": "law",
       "text": "住宅瑕疵担保責任保険に関して正しいものはどれか。",
       "opts": [
@@ -928,12 +928,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "住宅瑕疵担保責任保険に加入した場合、保険期間内（10年）に瑕疵が発見されれば保険金が支払われます（住宅瑕疵担保履行法）。保険金は修補費用等に充てられ、一定条件下で買主も直接請求できます。",
-      "publicPath": "q/practice/p058/index.html"
+      "publicPath": "q/practice/p10058/index.html"
     },
     {
-      "id": 900059,
+      "id": 910059,
       "year": "orig",
-      "num": 59,
+      "num": 10059,
       "field": "limit",
       "text": "都市計画区域の指定権者として正しいものはどれか。",
       "opts": [
@@ -942,14 +942,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣のみ",
         "固定資産評価委員会"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "都市計画区域は都道府県が指定します（都市計画法5条）。ただし2以上の都府県にわたる区域は国土交通大臣が指定します。",
-      "publicPath": "q/practice/p059/index.html"
+      "publicPath": "q/practice/p10059/index.html"
     },
     {
-      "id": 900060,
+      "id": 910060,
       "year": "orig",
-      "num": 60,
+      "num": 10060,
       "field": "limit",
       "text": "建築確認が不要な場合として正しいものはどれか。",
       "opts": [
@@ -958,14 +958,14 @@ const PRACTICE_QUESTIONS = {
         "都市計画区域内での10平方メートル超の増築",
         "特殊建築物（病院等）への用途変更"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "防火地域・準防火地域以外での10平方メートル以内の増築は建築確認が不要です（建築基準法6条2項）。新築・特殊建築物への用途変更・一定規模以上の増改築は確認申請が必要です。",
-      "publicPath": "q/practice/p060/index.html"
+      "publicPath": "q/practice/p10060/index.html"
     },
     {
-      "id": 900061,
+      "id": 910061,
       "year": "orig",
-      "num": 61,
+      "num": 10061,
       "field": "limit",
       "text": "農地を農地以外の用途に転用して売買する場合（農地法5条）の許可権者として正しいものはどれか。",
       "opts": [
@@ -974,14 +974,14 @@ const PRACTICE_QUESTIONS = {
         "市町村長",
         "国土交通大臣"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地の転用目的の権利移動（農地法5条）の許可権者は都道府県知事です（4ヘクタール超等は農林水産大臣）。農地のままの権利移動（3条）は農業委員会が許可権者です。",
-      "publicPath": "q/practice/p061/index.html"
+      "publicPath": "q/practice/p10061/index.html"
     },
     {
-      "id": 900062,
+      "id": 910062,
       "year": "orig",
-      "num": 62,
+      "num": 10062,
       "field": "limit",
       "text": "国土利用計画法の事前届出（監視区域）について正しいものはどれか。",
       "opts": [
@@ -990,14 +990,14 @@ const PRACTICE_QUESTIONS = {
         "事前届出は取引後2週間以内に行う",
         "届出の審査期間中も取引を進められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事前届出制は都道府県知事が指定した「監視区域」内での一定規模以上の土地取引に適用されます（国土利用計画法27条の4）。届出後、審査期間（6週間以内）は契約締結ができません。",
-      "publicPath": "q/practice/p062/index.html"
+      "publicPath": "q/practice/p10062/index.html"
     },
     {
-      "id": 900063,
+      "id": 910063,
       "year": "orig",
-      "num": 63,
+      "num": 10063,
       "field": "limit",
       "text": "土地区画整理事業の施行者として含まれないものはどれか。",
       "opts": [
@@ -1006,14 +1006,14 @@ const PRACTICE_QUESTIONS = {
         "都道府県・市町村",
         "外国法人"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "土地区画整理事業の施行者は個人・組合・区画整理会社・地方公共団体・国土交通大臣・機構等です（土地区画整理法3条）。外国法人は施行者となれません。",
-      "publicPath": "q/practice/p063/index.html"
+      "publicPath": "q/practice/p10063/index.html"
     },
     {
-      "id": 900064,
+      "id": 910064,
       "year": "orig",
-      "num": 64,
+      "num": 10064,
       "field": "tax",
       "text": "不動産を譲渡した場合の所得の種類として正しいものはどれか。",
       "opts": [
@@ -1022,14 +1022,14 @@ const PRACTICE_QUESTIONS = {
         "譲渡所得",
         "一時所得"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "土地・建物等の不動産を譲渡した場合の所得は「譲渡所得」に分類され、他の所得と分離して課税される申告分離課税方式が適用されます（租税特別措置法31条・32条）。",
-      "publicPath": "q/practice/p064/index.html"
+      "publicPath": "q/practice/p10064/index.html"
     },
     {
-      "id": 900065,
+      "id": 910065,
       "year": "orig",
-      "num": 65,
+      "num": 10065,
       "field": "tax",
       "text": "不動産取得税の課税標準となるものはどれか。",
       "opts": [
@@ -1038,14 +1038,14 @@ const PRACTICE_QUESTIONS = {
         "地価公示価格",
         "相続税評価額"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産取得税の課税標準は固定資産税評価額です（地方税法73条の13）。購入価格や相続税評価額ではありません。",
-      "publicPath": "q/practice/p065/index.html"
+      "publicPath": "q/practice/p10065/index.html"
     },
     {
-      "id": 900066,
+      "id": 910066,
       "year": "orig",
-      "num": 66,
+      "num": 10066,
       "field": "tax",
       "text": "固定資産税の小規模住宅用地の特例について正しいものはどれか。",
       "opts": [
@@ -1056,12 +1056,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "小規模住宅用地（200平方メートル以下の部分）は固定資産税の課税標準が評価額の6分の1となる特例があります（地方税法349条の3の2）。200平方メートル超の一般住宅用地は3分の1です。",
-      "publicPath": "q/practice/p066/index.html"
+      "publicPath": "q/practice/p10066/index.html"
     },
     {
-      "id": 900067,
+      "id": 910067,
       "year": "orig",
-      "num": 67,
+      "num": 10067,
       "field": "tax",
       "text": "登録免許税の課税標準（所有権移転登記・売買の場合）として正しいものはどれか。",
       "opts": [
@@ -1070,14 +1070,14 @@ const PRACTICE_QUESTIONS = {
         "地価公示価格",
         "路線価"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売買による所有権移転登記の課税標準は固定資産税評価額です（登録免許税法10条）。相続・贈与・交換等によっても固定資産税評価額が課税標準となります。",
-      "publicPath": "q/practice/p067/index.html"
+      "publicPath": "q/practice/p10067/index.html"
     },
     {
-      "id": 900068,
+      "id": 910068,
       "year": "orig",
-      "num": 68,
+      "num": 10068,
       "field": "rights",
       "text": "売主の契約不適合責任（民法上）において、買主が責任を追及するために必要な通知の期限として正しいものはどれか。",
       "opts": [
@@ -1086,14 +1086,14 @@ const PRACTICE_QUESTIONS = {
         "契約締結から5年以内に請求しなければならない",
         "特約がない限り期限はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法566条により、買主は「不適合を知った時から1年以内」に売主へ通知しなければ契約不適合責任を追及できなくなります。通知後の訴訟は別途消滅時効の範囲内で行えます。",
-      "publicPath": "q/practice/p068/index.html"
+      "publicPath": "q/practice/p10068/index.html"
     },
     {
-      "id": 900069,
+      "id": 910069,
       "year": "orig",
-      "num": 69,
+      "num": 10069,
       "field": "rights",
       "text": "建物賃貸借における通常損耗の原状回復義務について正しいものはどれか。",
       "opts": [
@@ -1102,14 +1102,14 @@ const PRACTICE_QUESTIONS = {
         "特約があっても通常損耗を賃借人に負担させることはできない",
         "原状回復の範囲は賃貸人が自由に決定できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "通常の使用による損耗（通常損耗）の原状回復費用は賃貸人が負担します（民法621条・判例）。ただし一定の条件を満たす特約があれば賃借人に負担させることが認められる場合もあります。",
-      "publicPath": "q/practice/p069/index.html"
+      "publicPath": "q/practice/p10069/index.html"
     },
     {
-      "id": 900070,
+      "id": 910070,
       "year": "orig",
-      "num": 70,
+      "num": 10070,
       "field": "rights",
       "text": "配偶者と子1人が共同相続する場合の法定相続分として正しいものはどれか。",
       "opts": [
@@ -1120,12 +1120,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "配偶者と子が共同相続する場合の法定相続分は配偶者1/2・子1/2です（民法900条1号）。子が複数の場合は子の取分1/2を均等に分割します。",
-      "publicPath": "q/practice/p070/index.html"
+      "publicPath": "q/practice/p10070/index.html"
     },
     {
-      "id": 900071,
+      "id": 910071,
       "year": "orig",
-      "num": 71,
+      "num": 10071,
       "field": "rights",
       "text": "不法行為による損害賠償請求権の消滅時効として正しいものはどれか。",
       "opts": [
@@ -1134,14 +1134,14 @@ const PRACTICE_QUESTIONS = {
         "不法行為時から5年",
         "損害及び加害者を知った時から5年"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不法行為の損害賠償請求権は原則「損害及び加害者を知った時から3年」で時効消滅します（民法724条1号）。ただし人の生命・身体を害する不法行為は「知った時から5年」です（民法724条の2）。",
-      "publicPath": "q/practice/p071/index.html"
+      "publicPath": "q/practice/p10071/index.html"
     },
     {
-      "id": 900072,
+      "id": 910072,
       "year": "orig",
-      "num": 72,
+      "num": 10072,
       "field": "rights",
       "text": "借地権の最低存続期間として正しいものはどれか。",
       "opts": [
@@ -1150,14 +1150,14 @@ const PRACTICE_QUESTIONS = {
         "50年",
         "期間の定めなし"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地権の存続期間は最低30年です（借地借家法3条）。これより短い期間を定めても30年となります。更新後は最初が20年、2回目以降は10年ごととなります。",
-      "publicPath": "q/practice/p072/index.html"
+      "publicPath": "q/practice/p10072/index.html"
     },
     {
-      "id": 900073,
+      "id": 910073,
       "year": "orig",
-      "num": 73,
+      "num": 10073,
       "field": "rights",
       "text": "区分所有建物の共用部分の重大変更（形状・効用の著しい変更）の決議要件として正しいものはどれか。",
       "opts": [
@@ -1166,14 +1166,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者及び議決権の各4/5以上の多数",
         "区分所有者全員の同意"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共用部分の重大変更は区分所有者及び議決権の各3/4以上の多数決が必要です（区分所有法17条1項）。形状・効用を著しく変えない軽微変更は普通決議（過半数）で可能です。",
-      "publicPath": "q/practice/p073/index.html"
+      "publicPath": "q/practice/p10073/index.html"
     },
     {
-      "id": 900074,
+      "id": 910074,
       "year": "orig",
-      "num": 74,
+      "num": 10074,
       "field": "rights",
       "text": "不動産登記における仮登記の効力として正しいものはどれか。",
       "opts": [
@@ -1182,14 +1182,14 @@ const PRACTICE_QUESTIONS = {
         "仮登記後は当該不動産の取引が禁止される",
         "仮登記は2年で自動的に失効する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮登記は本登記の順位保全効を持ちます（不動産登記法105条）。本登記がされると仮登記の順位が遡及し、仮登記後に登記した第三者に対抗できます。",
-      "publicPath": "q/practice/p074/index.html"
+      "publicPath": "q/practice/p10074/index.html"
     },
     {
-      "id": 900075,
+      "id": 910075,
       "year": "orig",
-      "num": 75,
+      "num": 10075,
       "field": "law",
       "text": "宅地建物取引業の免許の有効期間として正しいものはどれか。",
       "opts": [
@@ -1198,14 +1198,14 @@ const PRACTICE_QUESTIONS = {
         "5年",
         "10年"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業の免許の有効期間は5年です（宅建業法3条2項）。引き続き業を営む場合は有効期間満了の90日前から30日前までに更新申請を行う必要があります。",
-      "publicPath": "q/practice/p075/index.html"
+      "publicPath": "q/practice/p10075/index.html"
     },
     {
-      "id": 900076,
+      "id": 910076,
       "year": "orig",
-      "num": 76,
+      "num": 10076,
       "field": "law",
       "text": "宅地建物取引士証の有効期間として正しいものはどれか。",
       "opts": [
@@ -1214,14 +1214,14 @@ const PRACTICE_QUESTIONS = {
         "7年",
         "10年"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士証の有効期間は5年です（宅建業法22条の2第3項）。更新時には交付申請前6ヶ月以内に行われた法定講習の受講が必要です。",
-      "publicPath": "q/practice/p076/index.html"
+      "publicPath": "q/practice/p10076/index.html"
     },
     {
-      "id": 900077,
+      "id": 910077,
       "year": "orig",
-      "num": 77,
+      "num": 10077,
       "field": "law",
       "text": "媒介契約の種類のうち、依頼者が他の宅建業者に重ねて依頼できるものはどれか。",
       "opts": [
@@ -1230,14 +1230,14 @@ const PRACTICE_QUESTIONS = {
         "一般媒介契約",
         "いずれも重ねて依頼できない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "一般媒介契約は依頼者が複数の宅建業者に重ねて依頼することができます（宅建業法34条の2）。専任・専属専任媒介契約では他業者への依頼が禁じられます。",
-      "publicPath": "q/practice/p077/index.html"
+      "publicPath": "q/practice/p10077/index.html"
     },
     {
-      "id": 900078,
+      "id": 910078,
       "year": "orig",
-      "num": 78,
+      "num": 10078,
       "field": "law",
       "text": "宅建業者が受領できる報酬の限度額を定める権限を持つのはどれか。",
       "opts": [
@@ -1246,14 +1246,14 @@ const PRACTICE_QUESTIONS = {
         "都道府県知事が条例で定める",
         "業者間の自由合意で決まる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "報酬の限度額は国土交通大臣が告示で定めます（宅建業法46条1項）。業者はこの告示を超えて報酬を受領することはできません。",
-      "publicPath": "q/practice/p078/index.html"
+      "publicPath": "q/practice/p10078/index.html"
     },
     {
-      "id": 900079,
+      "id": 910079,
       "year": "orig",
-      "num": 79,
+      "num": 10079,
       "field": "limit",
       "text": "市街化区域と市街化調整区域の区分（線引き）を決定する権限を持つのはどれか。",
       "opts": [
@@ -1262,14 +1262,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣",
         "都市計画審議会"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化区域と市街化調整区域の区分（線引き）は都道府県が決定します（都市計画法7条）。政令指定都市は市が定めることができます。",
-      "publicPath": "q/practice/p079/index.html"
+      "publicPath": "q/practice/p10079/index.html"
     },
     {
-      "id": 900080,
+      "id": 910080,
       "year": "orig",
-      "num": 80,
+      "num": 10080,
       "field": "limit",
       "text": "市街化区域内での開発行為において、開発許可が不要となる規模の上限として正しいものはどれか。",
       "opts": [
@@ -1278,14 +1278,14 @@ const PRACTICE_QUESTIONS = {
         "1,000平方メートル未満",
         "3,000平方メートル未満"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "市街化区域内での開発行為で開発許可が不要となる上限面積は1,000平方メートル未満です（都市計画法29条1項1号）。なお三大都市圏の一部特定市では500平方メートル未満が基準となる場合があります。",
-      "publicPath": "q/practice/p080/index.html"
+      "publicPath": "q/practice/p10080/index.html"
     },
     {
-      "id": 900081,
+      "id": 910081,
       "year": "orig",
-      "num": 81,
+      "num": 10081,
       "field": "limit",
       "text": "建ぺい率の定義として正しいものはどれか。",
       "opts": [
@@ -1294,14 +1294,14 @@ const PRACTICE_QUESTIONS = {
         "建物の高さを隣地境界距離で割った割合",
         "床面積合計を建築面積で割った割合"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建ぺい率は建築面積（建物を真上から見た水平投影面積）を敷地面積で割った値で、敷地に対する建物の平面的な広がりを示します（建築基準法53条）。延べ面積÷敷地面積は容積率です。",
-      "publicPath": "q/practice/p081/index.html"
+      "publicPath": "q/practice/p10081/index.html"
     },
     {
-      "id": 900082,
+      "id": 910082,
       "year": "orig",
-      "num": 82,
+      "num": 10082,
       "field": "limit",
       "text": "農地を相続により取得する場合の農地法3条の許可の要否として正しいものはどれか。",
       "opts": [
@@ -1310,14 +1310,14 @@ const PRACTICE_QUESTIONS = {
         "許可は不要で農業委員会への届出が必要",
         "届出も許可も一切不要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "農地の相続取得は農地法3条の許可は不要ですが（農地法3条1項ただし書）、取得後は農業委員会への届出が必要です（農地法3条の3）。",
-      "publicPath": "q/practice/p082/index.html"
+      "publicPath": "q/practice/p10082/index.html"
     },
     {
-      "id": 900083,
+      "id": 910083,
       "year": "orig",
-      "num": 83,
+      "num": 10083,
       "field": "limit",
       "text": "国土利用計画法の事後届出制において、市街化区域内で届出が必要となる面積要件はどれか。",
       "opts": [
@@ -1326,14 +1326,14 @@ const PRACTICE_QUESTIONS = {
         "2,000平方メートル以上",
         "5,000平方メートル以上"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "市街化区域内の土地取引で事後届出が必要となる面積要件は2,000平方メートル以上です（国土利用計画法23条）。市街化調整区域等は5,000平方メートル以上、その他の区域は10,000平方メートル以上です。",
-      "publicPath": "q/practice/p083/index.html"
+      "publicPath": "q/practice/p10083/index.html"
     },
     {
-      "id": 900084,
+      "id": 910084,
       "year": "orig",
-      "num": 84,
+      "num": 10084,
       "field": "tax",
       "text": "住宅金融支援機構が提供するフラット35の仕組みとして正しいものはどれか。",
       "opts": [
@@ -1342,14 +1342,14 @@ const PRACTICE_QUESTIONS = {
         "変動金利のみ取り扱う住宅ローン",
         "新築住宅のみを対象とした住宅ローン"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "フラット35は民間金融機関が実行した住宅ローンを住宅金融支援機構が買い取ることで成り立つ長期固定金利の住宅ローンです。中古住宅も対象で、機構が直接融資するものではありません。",
-      "publicPath": "q/practice/p084/index.html"
+      "publicPath": "q/practice/p10084/index.html"
     },
     {
-      "id": 900085,
+      "id": 910085,
       "year": "orig",
-      "num": 85,
+      "num": 10085,
       "field": "tax",
       "text": "建物の構造に関する説明として正しいものはどれか。",
       "opts": [
@@ -1358,14 +1358,14 @@ const PRACTICE_QUESTIONS = {
         "鉄骨鉄筋コンクリート造（SRC造）は木造より耐震性が低い",
         "木造は法律上宅地建物取引の構造として不適格とされる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "鉄筋コンクリート造（RC造）は鉄筋の引張力とコンクリートの圧縮力を組み合わせた構造で耐久性・耐火性・耐震性に優れます。鉄骨造（S造）はコンクリートを使用せず鉄骨のみで構成します。",
-      "publicPath": "q/practice/p085/index.html"
+      "publicPath": "q/practice/p10085/index.html"
     },
     {
-      "id": 900086,
+      "id": 910086,
       "year": "orig",
-      "num": 86,
+      "num": 10086,
       "field": "rights",
       "text": "共有物の管理行為（保存・管理・変更）のうち、共有者全員の同意が必要なものはどれか。",
       "opts": [
@@ -1374,14 +1374,14 @@ const PRACTICE_QUESTIONS = {
         "変更行為（処分・重要な変更）",
         "いずれも持分過半数でよい"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "変更行為（処分・重要な変更）は共有者全員の同意が必要です（民法251条）。管理行為（利用・改良）は持分価格の過半数で決定でき、保存行為は各共有者が単独でできます。",
-      "publicPath": "q/practice/p086/index.html"
+      "publicPath": "q/practice/p10086/index.html"
     },
     {
-      "id": 900087,
+      "id": 910087,
       "year": "orig",
-      "num": 87,
+      "num": 10087,
       "field": "law",
       "text": "37条書面（契約書面）を交付すべき相手として正しいものはどれか。",
       "opts": [
@@ -1390,14 +1390,14 @@ const PRACTICE_QUESTIONS = {
         "売主と買主の双方",
         "媒介した宅建業者のみ"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "37条書面は宅地建物取引の各当事者（売主・買主の双方）に交付しなければなりません（宅建業法37条1項）。",
-      "publicPath": "q/practice/p087/index.html"
+      "publicPath": "q/practice/p10087/index.html"
     },
     {
-      "id": 900088,
+      "id": 910088,
       "year": "orig",
-      "num": 88,
+      "num": 10088,
       "field": "law",
       "text": "保証協会の社員となった宅建業者の営業保証金供託義務の扱いとして正しいものはどれか。",
       "opts": [
@@ -1406,14 +1406,14 @@ const PRACTICE_QUESTIONS = {
         "営業保証金を半額にして供託する必要がある",
         "保証協会から指示がある場合のみ免除される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証協会の社員となった宅建業者は営業保証金の供託義務が免除されます（宅建業法64条の13）。代わりに弁済業務保証金分担金を保証協会に納付します。",
-      "publicPath": "q/practice/p088/index.html"
+      "publicPath": "q/practice/p10088/index.html"
     },
     {
-      "id": 900089,
+      "id": 910089,
       "year": "orig",
-      "num": 89,
+      "num": 10089,
       "field": "law",
       "text": "宅建業者に対する業務停止処分の最長期間として正しいものはどれか。",
       "opts": [
@@ -1422,14 +1422,14 @@ const PRACTICE_QUESTIONS = {
         "1年",
         "2年"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業者の業務停止処分の期間は最長1年です（宅建業法65条2項）。業務停止中は宅建業に係る業務を行うことができません。",
-      "publicPath": "q/practice/p089/index.html"
+      "publicPath": "q/practice/p10089/index.html"
     },
     {
-      "id": 900090,
+      "id": 910090,
       "year": "orig",
-      "num": 90,
+      "num": 10090,
       "field": "limit",
       "text": "土地区画整理事業における「換地」の意味として正しいものはどれか。",
       "opts": [
@@ -1440,12 +1440,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "換地とは土地区画整理事業において従前の宅地に代わる宅地を権利者に割り当てることです（土地区画整理法91条）。換地の位置・形状・面積は従前地と異なります。",
-      "publicPath": "q/practice/p090/index.html"
+      "publicPath": "q/practice/p10090/index.html"
     },
     {
-      "id": 900091,
+      "id": 910091,
       "year": "orig",
-      "num": 91,
+      "num": 10091,
       "field": "rights",
       "text": "錯誤による意思表示の取消しが認められる要件として正しいものはどれか（民法95条）。",
       "opts": [
@@ -1454,14 +1454,14 @@ const PRACTICE_QUESTIONS = {
         "法律行為の目的及び取引上の社会通念に照らして重要な錯誤が必要",
         "相手方が善意であれば取り消せない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "錯誤取消しには「法律行為の目的及び取引上の社会通念に照らして重要な錯誤」が必要です（民法95条1項）。表意者に重大な過失がある場合は原則として取消しができません（同条3項）。",
-      "publicPath": "q/practice/p091/index.html"
+      "publicPath": "q/practice/p10091/index.html"
     },
     {
-      "id": 900092,
+      "id": 910092,
       "year": "orig",
-      "num": 92,
+      "num": 10092,
       "field": "rights",
       "text": "代理権の濫用（民法107条）とはどのような行為か。正しいものはどれか。",
       "opts": [
@@ -1472,12 +1472,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "代理権の濫用は代理人が自己または第三者の利益のために（本人のためでなく）代理権を行使した場合です。相手方がその目的を知りまたは知ることができた場合は無権代理とみなされます（民法107条）。",
-      "publicPath": "q/practice/p092/index.html"
+      "publicPath": "q/practice/p10092/index.html"
     },
     {
-      "id": 900093,
+      "id": 910093,
       "year": "orig",
-      "num": 93,
+      "num": 10093,
       "field": "law",
       "text": "宅建業者が広告において必ず明示しなければならない事項はどれか。",
       "opts": [
@@ -1486,14 +1486,14 @@ const PRACTICE_QUESTIONS = {
         "担当宅建士の氏名",
         "広告媒体の種類"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者は広告をする際に取引態様（売主・代理・媒介の別）を明示しなければなりません（宅建業法34条1項）。誇大広告も禁止されており（宅建業法32条）、違反は行政処分の対象です。",
-      "publicPath": "q/practice/p093/index.html"
+      "publicPath": "q/practice/p10093/index.html"
     },
     {
-      "id": 900094,
+      "id": 910094,
       "year": "orig",
-      "num": 94,
+      "num": 10094,
       "field": "rights",
       "text": "保証契約の効力発生要件として正しいものはどれか。",
       "opts": [
@@ -1502,14 +1502,14 @@ const PRACTICE_QUESTIONS = {
         "公正証書によらなければならない",
         "保証人が認印を押印した書面で足りる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証契約は書面（または電磁的記録）によらなければ効力が生じません（民法446条2項）。主たる債務が無効・取消しの場合は保証も無効となります（付従性）。",
-      "publicPath": "q/practice/p094/index.html"
+      "publicPath": "q/practice/p10094/index.html"
     },
     {
-      "id": 900095,
+      "id": 910095,
       "year": "orig",
-      "num": 95,
+      "num": 10095,
       "field": "limit",
       "text": "盛土規制法（宅地造成及び特定盛土等規制法）における宅地造成工事規制区域内での工事の許可権者として正しいものはどれか。",
       "opts": [
@@ -1518,14 +1518,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣",
         "農業委員会"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅地造成工事規制区域内で一定規模以上の宅地造成等工事を行う場合は都道府県知事（政令市では市長等）の許可が必要です（盛土規制法12条）。",
-      "publicPath": "q/practice/p095/index.html"
+      "publicPath": "q/practice/p10095/index.html"
     },
     {
-      "id": 900096,
+      "id": 910096,
       "year": "orig",
-      "num": 96,
+      "num": 10096,
       "field": "law",
       "text": "住宅瑕疵担保履行法において自ら売主となる宅建業者が新築住宅を売却する場合に義務付けられる資力確保措置として正しいものはどれか。",
       "opts": [
@@ -1534,14 +1534,14 @@ const PRACTICE_QUESTIONS = {
         "保険加入か供託のいずれかを選択して行う",
         "任意の措置で義務ではない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "自ら売主となる宅建業者は新築住宅（竣工から1年以内かつ未居住）を売却する場合、住宅瑕疵担保責任保険への加入か保証金の供託のいずれかを義務付けられます（住宅瑕疵担保履行法11条）。",
-      "publicPath": "q/practice/p096/index.html"
+      "publicPath": "q/practice/p10096/index.html"
     },
     {
-      "id": 900097,
+      "id": 910097,
       "year": "orig",
-      "num": 97,
+      "num": 10097,
       "field": "tax",
       "text": "不動産売買契約書に貼付する収入印紙の金額はどのように決まるか。正しいものはどれか。",
       "opts": [
@@ -1550,14 +1550,14 @@ const PRACTICE_QUESTIONS = {
         "登録免許税と同額になる",
         "当事者が自由に決定できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産売買契約書の印紙税額は売買金額（記載金額）に応じた印紙税法別表第一の税額表によります。例えば記載金額1,000万円超5,000万円以下の契約書は2万円（軽減税率適用時は1万円）です。",
-      "publicPath": "q/practice/p097/index.html"
+      "publicPath": "q/practice/p10097/index.html"
     },
     {
-      "id": 900098,
+      "id": 910098,
       "year": "orig",
-      "num": 98,
+      "num": 10098,
       "field": "rights",
       "text": "遺留分を持つ相続人として正しいものはどれか。",
       "opts": [
@@ -1566,14 +1566,14 @@ const PRACTICE_QUESTIONS = {
         "配偶者のみ",
         "子と直系尊属のみ（配偶者を除く）"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "遺留分権利者は配偶者・子（代襲相続人を含む）・直系尊属です（民法1042条）。兄弟姉妹には遺留分がありません。",
-      "publicPath": "q/practice/p098/index.html"
+      "publicPath": "q/practice/p10098/index.html"
     },
     {
-      "id": 900099,
+      "id": 910099,
       "year": "orig",
-      "num": 99,
+      "num": 10099,
       "field": "rights",
       "text": "袋地（公道に至らない土地）の所有者の他の土地の通行権（囲繞地通行権）について正しいものはどれか。",
       "opts": [
@@ -1582,14 +1582,14 @@ const PRACTICE_QUESTIONS = {
         "好きな場所を自由に通行できる",
         "隣接地所有者の同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "袋地の所有者は公道に至るために損害が最も少ない方法・場所で他の土地を通行でき、償金の支払いが必要です（民法211条・212条）。ただし分割によって生じた袋地の場合は償金なしで通行できます（民法213条）。",
-      "publicPath": "q/practice/p099/index.html"
+      "publicPath": "q/practice/p10099/index.html"
     },
     {
-      "id": 900100,
+      "id": 910100,
       "year": "orig",
-      "num": 100,
+      "num": 10100,
       "field": "rights",
       "text": "心裡留保（冗談など、真意でない意思表示）の原則的な効力として正しいものはどれか。",
       "opts": [
@@ -1598,14 +1598,14 @@ const PRACTICE_QUESTIONS = {
         "原則有効。相手方が悪意または有過失の場合のみ無効",
         "常に有効で取り消しも無効主張も不可"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "心裡留保は原則として有効です（民法93条1項）。ただし相手方が表意者の真意でないことを知っていた（悪意）または知ることができた（有過失）場合は無効となります。",
-      "publicPath": "q/practice/p100/index.html"
+      "publicPath": "q/practice/p10100/index.html"
     },
     {
-      "id": 900101,
+      "id": 910101,
       "year": "orig",
-      "num": 101,
+      "num": 10101,
       "field": "rights",
       "text": "自己契約・双方代理として禁止されていないものはどれか。",
       "opts": [
@@ -1614,14 +1614,14 @@ const PRACTICE_QUESTIONS = {
         "本人があらかじめ許諾した場合の自己契約",
         "いかなる場合も全て禁止"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "自己契約・双方代理は原則禁止ですが（民法108条）、本人があらかじめ許諾した場合と、単に債務を履行する行為は禁止から除外されます。",
-      "publicPath": "q/practice/p101/index.html"
+      "publicPath": "q/practice/p10101/index.html"
     },
     {
-      "id": 900102,
+      "id": 910102,
       "year": "orig",
-      "num": 102,
+      "num": 10102,
       "field": "rights",
       "text": "消滅時効の援用権者として正しいものはどれか。",
       "opts": [
@@ -1630,14 +1630,14 @@ const PRACTICE_QUESTIONS = {
         "時効完成により直接利益を受ける者（保証人・物上保証人等を含む）",
         "裁判所が職権で援用できる"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "消滅時効は援用しなければ裁判上で効力を主張できません（民法145条）。援用できるのは時効の完成により直接利益を受ける当事者で、主債務者だけでなく保証人・物上保証人・担保不動産の第三取得者なども含まれます。",
-      "publicPath": "q/practice/p102/index.html"
+      "publicPath": "q/practice/p10102/index.html"
     },
     {
-      "id": 900103,
+      "id": 910103,
       "year": "orig",
-      "num": 103,
+      "num": 10103,
       "field": "rights",
       "text": "物権的請求権のうち、不法占拠者に対して占有の排除を求める権利はどれか。",
       "opts": [
@@ -1646,14 +1646,14 @@ const PRACTICE_QUESTIONS = {
         "物権的妨害予防請求権",
         "損害賠償請求権"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "物権的妨害排除請求権は、物権が継続的に侵害されている状態（不法占拠など）に対して、その侵害状態の除去を求める権利です。物権的返還請求権は占有自体を奪われた場合に返還を求めるものです。",
-      "publicPath": "q/practice/p103/index.html"
+      "publicPath": "q/practice/p10103/index.html"
     },
     {
-      "id": 900104,
+      "id": 910104,
       "year": "orig",
-      "num": 104,
+      "num": 10104,
       "field": "rights",
       "text": "不動産の物権変動を第三者に対抗するために必要なものはどれか。",
       "opts": [
@@ -1662,14 +1662,14 @@ const PRACTICE_QUESTIONS = {
         "登記",
         "当事者間の合意"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不動産の物権変動は登記がなければ第三者に対抗できません（民法177条）。売買契約書や引渡し・合意だけでは第三者への対抗要件を満たしません。",
-      "publicPath": "q/practice/p104/index.html"
+      "publicPath": "q/practice/p10104/index.html"
     },
     {
-      "id": 900105,
+      "id": 910105,
       "year": "orig",
-      "num": 105,
+      "num": 10105,
       "field": "rights",
       "text": "民法上の賃貸借の存続期間の上限として正しいものはどれか。",
       "opts": [
@@ -1678,14 +1678,14 @@ const PRACTICE_QUESTIONS = {
         "50年",
         "制限なし"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "民法上の賃貸借の存続期間は最長50年です（民法604条、2020年改正）。従前は20年でしたが改正により50年に延長されました。なお借地借家法が適用される場合は同法の規定が優先します。",
-      "publicPath": "q/practice/p105/index.html"
+      "publicPath": "q/practice/p10105/index.html"
     },
     {
-      "id": 900106,
+      "id": 910106,
       "year": "orig",
-      "num": 106,
+      "num": 10106,
       "field": "rights",
       "text": "売買契約における手付の性質として、当事者間で特に定めがない場合の推定として正しいものはどれか。",
       "opts": [
@@ -1694,14 +1694,14 @@ const PRACTICE_QUESTIONS = {
         "違約手付",
         "損害賠償額の予定"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "手付は特段の合意がない場合、解約手付と推定されます（民法557条）。買主は手付を放棄し、売主は手付の倍額を返還することで契約を解除できます（相手方が履行に着手するまで）。",
-      "publicPath": "q/practice/p106/index.html"
+      "publicPath": "q/practice/p10106/index.html"
     },
     {
-      "id": 900107,
+      "id": 910107,
       "year": "orig",
-      "num": 107,
+      "num": 10107,
       "field": "rights",
       "text": "配偶者と子が1人いる場合の法定相続分として正しいものはどれか。",
       "opts": [
@@ -1712,12 +1712,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "配偶者と子が相続人の場合、配偶者が1/2・子が1/2です（民法900条）。子が複数いる場合はその1/2を均等に分けます。",
-      "publicPath": "q/practice/p107/index.html"
+      "publicPath": "q/practice/p10107/index.html"
     },
     {
-      "id": 900108,
+      "id": 910108,
       "year": "orig",
-      "num": 108,
+      "num": 10108,
       "field": "rights",
       "text": "使用者責任が成立する要件として正しいものはどれか。",
       "opts": [
@@ -1726,14 +1726,14 @@ const PRACTICE_QUESTIONS = {
         "使用者が直接加害行為を行うこと",
         "被用者と使用者の間に親族関係があること"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "使用者責任（民法715条）は、被用者が使用者の事業の執行について第三者に損害を与えた場合に成立します。使用者は選任・監督に相当の注意をしたことを証明すれば免責されますが、実務上免責は認められにくい傾向があります。",
-      "publicPath": "q/practice/p108/index.html"
+      "publicPath": "q/practice/p10108/index.html"
     },
     {
-      "id": 900109,
+      "id": 910109,
       "year": "orig",
-      "num": 109,
+      "num": 10109,
       "field": "rights",
       "text": "抵当権の効力が及ぶ範囲として原則正しいものはどれか。",
       "opts": [
@@ -1742,14 +1742,14 @@ const PRACTICE_QUESTIONS = {
         "抵当不動産の果実（賃料等）には一切及ばない",
         "動産には及ばない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当権は抵当不動産の付加一体物（増築部分・庭木等）に効力が及びます（民法370条）。ただし抵当地上の建物は別個の不動産として抵当権の効力は原則及びません。賃料等の果実については被担保債権の不履行後は差押えを経て効力が及びます。",
-      "publicPath": "q/practice/p109/index.html"
+      "publicPath": "q/practice/p10109/index.html"
     },
     {
-      "id": 900110,
+      "id": 910110,
       "year": "orig",
-      "num": 110,
+      "num": 10110,
       "field": "law",
       "text": "宅地建物取引業を営むために必要な免許として正しいものはどれか。",
       "opts": [
@@ -1758,14 +1758,14 @@ const PRACTICE_QUESTIONS = {
         "すべての場合で国土交通大臣の免許",
         "免許は不要で届出のみでよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅地建物取引業を営む場合、1つの都道府県内にのみ事務所を設ける場合は都道府県知事免許、2以上の都道府県に事務所を設ける場合は国土交通大臣免許が必要です（宅建業法3条）。",
-      "publicPath": "q/practice/p110/index.html"
+      "publicPath": "q/practice/p10110/index.html"
     },
     {
-      "id": 900111,
+      "id": 910111,
       "year": "orig",
-      "num": 111,
+      "num": 10111,
       "field": "law",
       "text": "宅地建物取引士の登録を受けることができる者として正しいものはどれか。",
       "opts": [
@@ -1774,14 +1774,14 @@ const PRACTICE_QUESTIONS = {
         "未成年者は登録不可",
         "業務禁止処分中の者も登録できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士の登録には試験合格後に2年以上の実務経験（または国土交通大臣が指定する登録実務講習の修了）が必要です（宅建業法18条）。未成年者でも法定代理人の同意があれば登録できます。",
-      "publicPath": "q/practice/p111/index.html"
+      "publicPath": "q/practice/p10111/index.html"
     },
     {
-      "id": 900112,
+      "id": 910112,
       "year": "orig",
-      "num": 112,
+      "num": 10112,
       "field": "law",
       "text": "媒介契約の種類として誤っているものはどれか。",
       "opts": [
@@ -1790,14 +1790,14 @@ const PRACTICE_QUESTIONS = {
         "専属専任媒介契約",
         "優先媒介契約"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "媒介契約の種類は一般媒介契約・専任媒介契約・専属専任媒介契約の3種類です（宅建業法34条の2）。「優先媒介契約」という種類はありません。",
-      "publicPath": "q/practice/p112/index.html"
+      "publicPath": "q/practice/p10112/index.html"
     },
     {
-      "id": 900113,
+      "id": 910113,
       "year": "orig",
-      "num": 113,
+      "num": 10113,
       "field": "law",
       "text": "売買の媒介における宅建業者の報酬限度額の基準となる金額はどれか。",
       "opts": [
@@ -1806,14 +1806,14 @@ const PRACTICE_QUESTIONS = {
         "売買代金の200万円以下部分は5%、200万超400万以下は4%、400万超は3%（税別）で算出した合計額",
         "売主・買主それぞれから売買代金の3%＋6万円"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "売買媒介報酬の上限は、200万円以下の部分は5%、200万円超400万円以下の部分は4%、400万円超の部分は3%を乗じた額の合計です（報酬告示）。400万円超の場合は売買代金×3%＋6万円（税別）という速算式が使えます。",
-      "publicPath": "q/practice/p113/index.html"
+      "publicPath": "q/practice/p10113/index.html"
     },
     {
-      "id": 900114,
+      "id": 910114,
       "year": "orig",
-      "num": 114,
+      "num": 10114,
       "field": "law",
       "text": "37条書面（契約書面）に必ず記載しなければならない事項はどれか。",
       "opts": [
@@ -1822,14 +1822,14 @@ const PRACTICE_QUESTIONS = {
         "瑕疵担保責任の内容",
         "天災その他不可抗力による損害の負担に関する定め"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面の必要的記載事項には移転登記の申請時期（宅建業法37条1項5号）が含まれます。ローンあっせん・瑕疵担保・天災損害負担は定めがある場合の任意的記載事項です。",
-      "publicPath": "q/practice/p114/index.html"
+      "publicPath": "q/practice/p10114/index.html"
     },
     {
-      "id": 900115,
+      "id": 910115,
       "year": "orig",
-      "num": 115,
+      "num": 10115,
       "field": "law",
       "text": "重要事項の説明を行うことができる者として正しいものはどれか。",
       "opts": [
@@ -1838,14 +1838,14 @@ const PRACTICE_QUESTIONS = {
         "仲介業者の事務員",
         "行政書士"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "重要事項の説明は、宅地建物取引士が取引士証を提示して行わなければなりません（宅建業法35条）。宅建士資格がない者は説明できません。",
-      "publicPath": "q/practice/p115/index.html"
+      "publicPath": "q/practice/p10115/index.html"
     },
     {
-      "id": 900116,
+      "id": 910116,
       "year": "orig",
-      "num": 116,
+      "num": 10116,
       "field": "law",
       "text": "宅建業者が自ら売主として未完成物件を売却する場合、手付金等の保全措置が必要となる基準額として正しいものはどれか。",
       "opts": [
@@ -1856,12 +1856,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "未完成物件の場合、受領した手付金等が代金の5%超または1000万円を超える場合に保全措置が必要です（宅建業法41条）。完成物件は10%超または1000万円超が基準です。",
-      "publicPath": "q/practice/p116/index.html"
+      "publicPath": "q/practice/p10116/index.html"
     },
     {
-      "id": 900117,
+      "id": 910117,
       "year": "orig",
-      "num": 117,
+      "num": 10117,
       "field": "law",
       "text": "クーリングオフが適用される取引場所として正しいものはどれか。",
       "opts": [
@@ -1870,14 +1870,14 @@ const PRACTICE_QUESTIONS = {
         "テント張りの案内所",
         "買主が指定したファミリーレストラン"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "クーリングオフが適用される場所は、宅建業者の事務所・土地に定着した案内所（申込みの撤回等ができない旨の説明と書面を交付した場所）以外の場所です（宅建業法37条の2）。テント張りの案内所や喫茶店はクーリングオフ可能な場所です。",
-      "publicPath": "q/practice/p117/index.html"
+      "publicPath": "q/practice/p10117/index.html"
     },
     {
-      "id": 900118,
+      "id": 910118,
       "year": "orig",
-      "num": 118,
+      "num": 10118,
       "field": "law",
       "text": "宅建業法上の誇大広告の禁止に関して正しいものはどれか。",
       "opts": [
@@ -1886,14 +1886,14 @@ const PRACTICE_QUESTIONS = {
         "インターネット広告には適用されない",
         "誇大広告による行政処分はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業法32条は、著しく事実に相違する表示または実際のものより著しく優良・有利と誤認させるような表示を禁止しています。故意・過失を問わず、また媒体を問いません。違反した場合は指示・業務停止処分の対象となります。",
-      "publicPath": "q/practice/p118/index.html"
+      "publicPath": "q/practice/p10118/index.html"
     },
     {
-      "id": 900119,
+      "id": 910119,
       "year": "orig",
-      "num": 119,
+      "num": 10119,
       "field": "law",
       "text": "宅建業者に対する業務停止処分の期間として正しいものはどれか。",
       "opts": [
@@ -1902,14 +1902,14 @@ const PRACTICE_QUESTIONS = {
         "最長1年",
         "期間制限なし"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者に対する業務停止処分の期間は1年以内です（宅建業法65条2項）。指示処分よりも重く、免許取消処分よりも軽い処分です。",
-      "publicPath": "q/practice/p119/index.html"
+      "publicPath": "q/practice/p10119/index.html"
     },
     {
-      "id": 900120,
+      "id": 910120,
       "year": "orig",
-      "num": 120,
+      "num": 10120,
       "field": "law",
       "text": "宅建業の免許の欠格事由として正しいものはどれか。",
       "opts": [
@@ -1918,14 +1918,14 @@ const PRACTICE_QUESTIONS = {
         "拘禁刑以上の刑の執行終了から5年未満",
         "精神的な病気を持つ者"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業免許の欠格事由（宅建業法5条）には、拘禁刑以上の刑に処せられ、その刑の執行終了等から5年を経過しない者が含まれます。また、宅建業に関し不正・不誠実な行為をして免許取消しを受けた者も、取消しの日から5年を経過しない間は欠格事由に該当します。",
-      "publicPath": "q/practice/p120/index.html"
+      "publicPath": "q/practice/p10120/index.html"
     },
     {
-      "id": 900121,
+      "id": 910121,
       "year": "orig",
-      "num": 121,
+      "num": 10121,
       "field": "law",
       "text": "宅建業者の営業保証金の供託額として正しいものはどれか。",
       "opts": [
@@ -1936,12 +1936,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "営業保証金は主たる事務所につき1000万円、従たる事務所1カ所につき500万円を法務局等に供託しなければなりません（宅建業法25条）。",
-      "publicPath": "q/practice/p121/index.html"
+      "publicPath": "q/practice/p10121/index.html"
     },
     {
-      "id": 900122,
+      "id": 910122,
       "year": "orig",
-      "num": 122,
+      "num": 10122,
       "field": "limit",
       "text": "用途地域として定められていないものはどれか。",
       "opts": [
@@ -1950,14 +1950,14 @@ const PRACTICE_QUESTIONS = {
         "工業専用地域",
         "農業専用地域"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "用途地域は都市計画法で定められた13種類で構成されており（住居系8・商業系2・工業系3）、「農業専用地域」という用途地域は存在しません。農業に関連するものとして農業振興地域や農用地区域があります。",
-      "publicPath": "q/practice/p122/index.html"
+      "publicPath": "q/practice/p10122/index.html"
     },
     {
-      "id": 900123,
+      "id": 910123,
       "year": "orig",
-      "num": 123,
+      "num": 10123,
       "field": "limit",
       "text": "建蔽率（建ぺい率）の説明として正しいものはどれか。",
       "opts": [
@@ -1966,14 +1966,14 @@ const PRACTICE_QUESTIONS = {
         "建築面積に対する延べ床面積の割合",
         "道路幅員に基づく制限"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建蔽率は敷地面積に対する建築面積（建物の投影面積）の割合です（建築基準法53条）。なお延べ床面積に対する割合は容積率と呼ばれます。",
-      "publicPath": "q/practice/p123/index.html"
+      "publicPath": "q/practice/p10123/index.html"
     },
     {
-      "id": 900124,
+      "id": 910124,
       "year": "orig",
-      "num": 124,
+      "num": 10124,
       "field": "limit",
       "text": "農地法3条の許可が必要な行為として正しいものはどれか。",
       "opts": [
@@ -1984,12 +1984,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "農地法3条は農地を農地のまま権利移動（売買・贈与・賃借等）する場合に農業委員会の許可を要します。農地を転用する売買は5条許可、農地のまま転用するのは4条許可です。相続は許可不要（届出が必要）。",
-      "publicPath": "q/practice/p124/index.html"
+      "publicPath": "q/practice/p10124/index.html"
     },
     {
-      "id": 900125,
+      "id": 910125,
       "year": "orig",
-      "num": 125,
+      "num": 10125,
       "field": "limit",
       "text": "国土利用計画法の事後届出が必要となる市街化区域内の面積基準として正しいものはどれか。",
       "opts": [
@@ -1998,14 +1998,14 @@ const PRACTICE_QUESTIONS = {
         "2000㎡以上",
         "5000㎡以上"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "市街化区域内では2000㎡以上の土地の権利移動が事後届出の対象です（国土利用計画法23条）。市街化調整区域・非線引区域は5000㎡以上、都市計画区域外は10000㎡以上が基準です。",
-      "publicPath": "q/practice/p125/index.html"
+      "publicPath": "q/practice/p10125/index.html"
     },
     {
-      "id": 900126,
+      "id": 910126,
       "year": "orig",
-      "num": 126,
+      "num": 10126,
       "field": "limit",
       "text": "土地区画整理事業における換地として正しいものはどれか。",
       "opts": [
@@ -2016,12 +2016,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "換地とは、土地区画整理事業において従前の宅地に代えて与えられる新たな宅地のことです（土地区画整理法2条6項）。区画整理後の整備された土地が従前の権利者に割り当てられます。",
-      "publicPath": "q/practice/p126/index.html"
+      "publicPath": "q/practice/p10126/index.html"
     },
     {
-      "id": 900127,
+      "id": 910127,
       "year": "orig",
-      "num": 127,
+      "num": 10127,
       "field": "limit",
       "text": "容積率の算定にあたって延べ床面積から除外されるものとして正しいものはどれか。",
       "opts": [
@@ -2030,14 +2030,14 @@ const PRACTICE_QUESTIONS = {
         "屋上テラス",
         "駐車場（延べ面積の1/5まで）"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "自動車車庫等の床面積は当該建築物の各階の床面積の合計の1/5を限度として容積率算定の基礎となる延べ面積から除外されます（建築基準法52条3項）。住宅地下室は要件を満たせば1/3まで除外されます。",
-      "publicPath": "q/practice/p127/index.html"
+      "publicPath": "q/practice/p10127/index.html"
     },
     {
-      "id": 900128,
+      "id": 910128,
       "year": "orig",
-      "num": 128,
+      "num": 10128,
       "field": "limit",
       "text": "開発許可の申請先として正しいものはどれか。",
       "opts": [
@@ -2046,14 +2046,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣",
         "農業委員会"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "開発許可は都道府県知事（指定都市・中核市等では当該市の長）に申請します（都市計画法29条）。",
-      "publicPath": "q/practice/p128/index.html"
+      "publicPath": "q/practice/p10128/index.html"
     },
     {
-      "id": 900129,
+      "id": 910129,
       "year": "orig",
-      "num": 129,
+      "num": 10129,
       "field": "tax",
       "text": "住宅ローン控除（住宅借入金等特別控除）の控除期間として一般住宅の場合に正しいものはどれか。",
       "opts": [
@@ -2062,14 +2062,14 @@ const PRACTICE_QUESTIONS = {
         "13年",
         "20年"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "住宅ローン控除の控除期間は新築・取得の場合に最長13年間です（租税特別措置法41条）。なお一般的な中古住宅取得の場合は10年間となります。",
-      "publicPath": "q/practice/p129/index.html"
+      "publicPath": "q/practice/p10129/index.html"
     },
     {
-      "id": 900130,
+      "id": 910130,
       "year": "orig",
-      "num": 130,
+      "num": 10130,
       "field": "tax",
       "text": "地価公示における標準地の価格（公示価格）の基準日として正しいものはどれか。",
       "opts": [
@@ -2080,12 +2080,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "地価公示の価格は毎年1月1日を基準日として調査・公表されます（地価公示法2条）。なお基準地価（都道府県地価調査）の基準日は7月1日です。",
-      "publicPath": "q/practice/p130/index.html"
+      "publicPath": "q/practice/p10130/index.html"
     },
     {
-      "id": 900131,
+      "id": 910131,
       "year": "orig",
-      "num": 131,
+      "num": 10131,
       "field": "tax",
       "text": "印紙税が課税される文書として正しいものはどれか。",
       "opts": [
@@ -2096,12 +2096,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "不動産の売買契約書は印紙税の課税文書（第1号文書）です（印紙税法別表第一）。見積書・委任状は原則非課税で、領収書は5万円未満は非課税です。",
-      "publicPath": "q/practice/p131/index.html"
+      "publicPath": "q/practice/p10131/index.html"
     },
     {
-      "id": 900132,
+      "id": 910132,
       "year": "orig",
-      "num": 132,
+      "num": 10132,
       "field": "tax",
       "text": "不動産取得税の課税主体として正しいものはどれか。",
       "opts": [
@@ -2110,14 +2110,14 @@ const PRACTICE_QUESTIONS = {
         "都道府県",
         "所在地の特別区"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不動産取得税は都道府県が課する地方税です（地方税法73条の2）。固定資産税・都市計画税は市区町村税、登録免許税・印紙税・所得税は国税です。",
-      "publicPath": "q/practice/p132/index.html"
+      "publicPath": "q/practice/p10132/index.html"
     },
     {
-      "id": 900133,
+      "id": 910133,
       "year": "orig",
-      "num": 133,
+      "num": 10133,
       "field": "tax",
       "text": "不動産取得税の非課税となる取得として正しいものはどれか。",
       "opts": [
@@ -2126,14 +2126,14 @@ const PRACTICE_QUESTIONS = {
         "相続による取得",
         "競売による取得"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "相続・合併・会社分割等の一定の場合は不動産取得税が非課税となります（地方税法73条の7）。贈与・交換・競売は課税対象です。",
-      "publicPath": "q/practice/p133/index.html"
+      "publicPath": "q/practice/p10133/index.html"
     },
     {
-      "id": 900134,
+      "id": 910134,
       "year": "orig",
-      "num": 134,
+      "num": 10134,
       "field": "rights",
       "text": "Aがフリマサイトで冗談として「高級腕時計を100円で売ります」と投稿しBが「購入します」と応答した。相手方Bが冗談と知らず知ることもできなかった場合の法律上の効果として正しいものはどれか。",
       "opts": [
@@ -2142,14 +2142,14 @@ const PRACTICE_QUESTIONS = {
         "Aが冗談と認めれば常に無効",
         "相手方は常に保護されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "心裡留保（民法93条）では、相手方が表意者の真意（冗談）を知らず、かつ知ることができなかった場合は意思表示は有効です。相手方が善意かつ無過失なら契約は成立します。",
-      "publicPath": "q/practice/p134/index.html"
+      "publicPath": "q/practice/p10134/index.html"
     },
     {
-      "id": 900135,
+      "id": 910135,
       "year": "orig",
-      "num": 135,
+      "num": 10135,
       "field": "rights",
       "text": "本人Aが代理権を与えた後にAが死亡した場合、代理権はどうなるか。",
       "opts": [
@@ -2158,14 +2158,14 @@ const PRACTICE_QUESTIONS = {
         "代理権はAの相続人が引き継ぐ",
         "代理権は一時停止する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "本人（A）が死亡すると任意代理権は消滅します（民法111条1項1号）。代理権は本人の死亡によって当然に消滅し、相続人に引き継がれません。",
-      "publicPath": "q/practice/p135/index.html"
+      "publicPath": "q/practice/p10135/index.html"
     },
     {
-      "id": 900136,
+      "id": 910136,
       "year": "orig",
-      "num": 136,
+      "num": 10136,
       "field": "rights",
       "text": "裁判上の請求による消滅時効の「更新」はどの時点で生じるか。",
       "opts": [
@@ -2174,14 +2174,14 @@ const PRACTICE_QUESTIONS = {
         "確定判決等によって権利が確定した時",
         "相手方に訴状が送達された時"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "裁判上の請求による時効の更新は、確定判決等によって権利が確定した時点に生じます（民法147条2項）。請求中は時効の完成が猶予され、権利確定後に新たな時効が起算されます。",
-      "publicPath": "q/practice/p136/index.html"
+      "publicPath": "q/practice/p10136/index.html"
     },
     {
-      "id": 900137,
+      "id": 910137,
       "year": "orig",
-      "num": 137,
+      "num": 10137,
       "field": "rights",
       "text": "相続の承認・放棄を選択するための熟慮期間として正しいものはどれか。",
       "opts": [
@@ -2190,14 +2190,14 @@ const PRACTICE_QUESTIONS = {
         "相続開始から6ヶ月以内",
         "期間の制限はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続人は自己のために相続の開始があったことを知った時から3ヶ月以内（熟慮期間）に、単純承認・限定承認・放棄のいずれかを選択しなければなりません（民法915条）。",
-      "publicPath": "q/practice/p137/index.html"
+      "publicPath": "q/practice/p10137/index.html"
     },
     {
-      "id": 900138,
+      "id": 910138,
       "year": "orig",
-      "num": 138,
+      "num": 10138,
       "field": "rights",
       "text": "売買契約において手付が交付された場合の解約手付の効果として正しいものはどれか。",
       "opts": [
@@ -2206,14 +2206,14 @@ const PRACTICE_QUESTIONS = {
         "手付があっても解除権はない",
         "相手方が履行完了後も解除できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "解約手付として手付が交付された場合、買主は手付を放棄し、売主は手付の倍額を現実に提供して解除できます（民法557条1項）。ただし相手方が「履行に着手」した後は解除できません。",
-      "publicPath": "q/practice/p138/index.html"
+      "publicPath": "q/practice/p10138/index.html"
     },
     {
-      "id": 900139,
+      "id": 910139,
       "year": "orig",
-      "num": 139,
+      "num": 10139,
       "field": "rights",
       "text": "建物賃貸借における敷金の返還時期として正しいものはどれか。",
       "opts": [
@@ -2222,14 +2222,14 @@ const PRACTICE_QUESTIONS = {
         "賃貸借終了の3ヶ月後に返還される",
         "賃貸人の裁量で決まる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "敷金は、賃貸借が終了し建物の明渡しを受けた後に、未払賃料等の債務を控除した残額を返還しなければなりません（民法622条の2第1項）。",
-      "publicPath": "q/practice/p139/index.html"
+      "publicPath": "q/practice/p10139/index.html"
     },
     {
-      "id": 900140,
+      "id": 910140,
       "year": "orig",
-      "num": 140,
+      "num": 10140,
       "field": "rights",
       "text": "不法行為（民法709条）の成立要件として正しいものはどれか。",
       "opts": [
@@ -2238,14 +2238,14 @@ const PRACTICE_QUESTIONS = {
         "損害が発生すれば故意・過失は不要",
         "被害者が損害を証明する必要はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不法行為の成立には①故意または過失②他人の権利・法益の侵害③損害の発生④因果関係の4要件が必要です（民法709条）。被害者側がこれらの要件を立証する必要があります。",
-      "publicPath": "q/practice/p140/index.html"
+      "publicPath": "q/practice/p10140/index.html"
     },
     {
-      "id": 900141,
+      "id": 910141,
       "year": "orig",
-      "num": 141,
+      "num": 10141,
       "field": "rights",
       "text": "普通建物賃貸借（一般の借家契約）における賃貸人からの更新拒絶・解約申入れの要件として正しいものはどれか。",
       "opts": [
@@ -2254,14 +2254,14 @@ const PRACTICE_QUESTIONS = {
         "賃借人の同意があれば正当事由は不要",
         "期間満了で自動終了する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "普通建物賃貸借では賃貸人が更新を拒絶したり解約を申し入れたりする場合、「正当事由」がなければ認められません（借地借家法28条）。正当事由の有無は個別の事情で総合的に判断されます。",
-      "publicPath": "q/practice/p141/index.html"
+      "publicPath": "q/practice/p10141/index.html"
     },
     {
-      "id": 900142,
+      "id": 910142,
       "year": "orig",
-      "num": 142,
+      "num": 10142,
       "field": "rights",
       "text": "区分所有建物において「専有部分」となるものはどれか。",
       "opts": [
@@ -2272,12 +2272,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "専有部分は「構造上区分された数個の部分」で「独立して住居・店舗・事務所等の用途に供することができるもの」です（区分所有法1条）。廊下・エレベーター・外壁等は共用部分です。",
-      "publicPath": "q/practice/p142/index.html"
+      "publicPath": "q/practice/p10142/index.html"
     },
     {
-      "id": 900143,
+      "id": 910143,
       "year": "orig",
-      "num": 143,
+      "num": 10143,
       "field": "rights",
       "text": "不動産登記において単独で申請できるものはどれか。",
       "opts": [
@@ -2286,14 +2286,14 @@ const PRACTICE_QUESTIONS = {
         "贈与による所有権移転登記",
         "抵当権設定登記"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続による所有権移転登記は相続人が単独で申請できます（不動産登記法63条2項）。売買・贈与・抵当権設定は権利者と義務者の共同申請が原則です（同法60条）。",
-      "publicPath": "q/practice/p143/index.html"
+      "publicPath": "q/practice/p10143/index.html"
     },
     {
-      "id": 900144,
+      "id": 910144,
       "year": "orig",
-      "num": 144,
+      "num": 10144,
       "field": "law",
       "text": "宅建業者の事務所に置かなければならない専任宅建士の割合として正しいものはどれか。",
       "opts": [
@@ -2304,12 +2304,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "宅建業者の事務所には従業者5人に1人以上の割合で専任の宅建士を置かなければなりません（宅建業法31条の3第1項）。",
-      "publicPath": "q/practice/p144/index.html"
+      "publicPath": "q/practice/p10144/index.html"
     },
     {
-      "id": 900145,
+      "id": 910145,
       "year": "orig",
-      "num": 145,
+      "num": 10145,
       "field": "law",
       "text": "宅建士が氏名・住所を変更した場合の手続きとして正しいものはどれか。",
       "opts": [
@@ -2318,14 +2318,14 @@ const PRACTICE_QUESTIONS = {
         "変更後1年以内に申請すれば足りる",
         "変更は雇用している宅建業者を通じて申請する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士は氏名・住所等の登録事項に変更が生じた場合、遅滞なく登録を受けた都道府県知事に変更の登録を申請しなければなりません（宅建業法20条）。",
-      "publicPath": "q/practice/p145/index.html"
+      "publicPath": "q/practice/p10145/index.html"
     },
     {
-      "id": 900146,
+      "id": 910146,
       "year": "orig",
-      "num": 146,
+      "num": 10146,
       "field": "law",
       "text": "一般媒介契約において法的に義務付けられていないものはどれか。",
       "opts": [
@@ -2334,14 +2334,14 @@ const PRACTICE_QUESTIONS = {
         "取引態様の明示",
         "媒介契約書への記名押印"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2週間に1回以上の業務処理状況の報告義務は専任媒介・専属専任媒介契約にのみ課されます（宅建業法34条の2第8項・9項）。一般媒介契約では法定の報告頻度義務はありません。",
-      "publicPath": "q/practice/p146/index.html"
+      "publicPath": "q/practice/p10146/index.html"
     },
     {
-      "id": 900147,
+      "id": 910147,
       "year": "orig",
-      "num": 147,
+      "num": 10147,
       "field": "law",
       "text": "宅建業者が建物賃貸借の媒介をした場合（依頼者から承諾を得た場合）の報酬上限として正しいものはどれか。",
       "opts": [
@@ -2350,14 +2350,14 @@ const PRACTICE_QUESTIONS = {
         "借賃の3ヶ月分が上限",
         "報酬は自由に決められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物賃貸借の媒介報酬は貸主・借主の双方から合計して借賃の1ヶ月分（消費税別）が上限です（国土交通省告示）。依頼者の承諾があれば一方から1ヶ月分を受領することも可能です。",
-      "publicPath": "q/practice/p147/index.html"
+      "publicPath": "q/practice/p10147/index.html"
     },
     {
-      "id": 900148,
+      "id": 910148,
       "year": "orig",
-      "num": 148,
+      "num": 10148,
       "field": "law",
       "text": "37条書面の「定めがある場合のみ記載する」任意的記載事項として正しいものはどれか。",
       "opts": [
@@ -2366,14 +2366,14 @@ const PRACTICE_QUESTIONS = {
         "代金・借賃の額",
         "契約解除に関する事項"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "37条書面の必要的記載事項に当事者の氏名・住所、引渡し時期、代金額等があります。「契約解除に関する事項」「損害賠償額の予定・違約金に関する事項」等は定めがある場合のみ記載する任意的記載事項です（宅建業法37条1項各号・2項各号）。",
-      "publicPath": "q/practice/p148/index.html"
+      "publicPath": "q/practice/p10148/index.html"
     },
     {
-      "id": 900149,
+      "id": 910149,
       "year": "orig",
-      "num": 149,
+      "num": 10149,
       "field": "law",
       "text": "宅建業者の営業保証金の額（主たる事務所のみの場合）として正しいものはどれか。",
       "opts": [
@@ -2382,14 +2382,14 @@ const PRACTICE_QUESTIONS = {
         "1,000万円",
         "2,000万円"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "営業保証金の額は主たる事務所につき1,000万円、従たる事務所1ヶ所あたり500万円です（宅建業法25条2項）。保証協会社員は弁済業務保証金分担金（主たる事務所60万円等）を納付し、営業保証金の供託義務が免除されます。",
-      "publicPath": "q/practice/p149/index.html"
+      "publicPath": "q/practice/p10149/index.html"
     },
     {
-      "id": 900150,
+      "id": 910150,
       "year": "orig",
-      "num": 150,
+      "num": 10150,
       "field": "law",
       "text": "クーリングオフが適用されない（解除できない）場合として正しいものはどれか。",
       "opts": [
@@ -2398,14 +2398,14 @@ const PRACTICE_QUESTIONS = {
         "買主が自ら申し出た自宅または勤務先での申込み",
         "届出のない展示会場での申込み"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "買主が自ら申し出た「自宅または勤務先」での申込み・契約はクーリングオフができません（宅建業法施行規則16条の5第2号）。業者訪問の自宅・業者指定の喫茶店等はクーリングオフできます。",
-      "publicPath": "q/practice/p150/index.html"
+      "publicPath": "q/practice/p10150/index.html"
     },
     {
-      "id": 900151,
+      "id": 910151,
       "year": "orig",
-      "num": 151,
+      "num": 10151,
       "field": "law",
       "text": "重要事項説明を行う時期として正しいものはどれか。",
       "opts": [
@@ -2414,14 +2414,14 @@ const PRACTICE_QUESTIONS = {
         "引渡し前に行えばよい",
         "媒介契約締結時に行わなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "重要事項説明は契約が成立するまでの間に行わなければなりません（宅建業法35条1項）。契約締結前に相手方が重要事項を理解したうえで判断できるようにするためです。",
-      "publicPath": "q/practice/p151/index.html"
+      "publicPath": "q/practice/p10151/index.html"
     },
     {
-      "id": 900152,
+      "id": 910152,
       "year": "orig",
-      "num": 152,
+      "num": 10152,
       "field": "law",
       "text": "宅建業法違反をした宅建業者に対する指示処分・業務停止処分の権限を持つのはどれか。",
       "opts": [
@@ -2430,14 +2430,14 @@ const PRACTICE_QUESTIONS = {
         "免許を与えた国土交通大臣または都道府県知事",
         "市区町村長"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業法違反に対する指示処分・業務停止処分・免許取消し処分は、免許権者である国土交通大臣または都道府県知事が行います（宅建業法65条）。",
-      "publicPath": "q/practice/p152/index.html"
+      "publicPath": "q/practice/p10152/index.html"
     },
     {
-      "id": 900153,
+      "id": 910153,
       "year": "orig",
-      "num": 153,
+      "num": 10153,
       "field": "limit",
       "text": "用途地域のうち、住居の環境保護が最も厳格な地域はどれか。",
       "opts": [
@@ -2446,14 +2446,14 @@ const PRACTICE_QUESTIONS = {
         "第2種住居地域",
         "準住居地域"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "第1種低層住居専用地域は低層住宅の良好な住環境を保護する地域で、建築できる建物の用途が最も厳しく制限されています（都市計画法9条1項・建築基準法48条・別表第二）。",
-      "publicPath": "q/practice/p153/index.html"
+      "publicPath": "q/practice/p10153/index.html"
     },
     {
-      "id": 900154,
+      "id": 910154,
       "year": "orig",
-      "num": 154,
+      "num": 10154,
       "field": "limit",
       "text": "建築基準法の「接道義務」として正しいものはどれか。",
       "opts": [
@@ -2462,14 +2462,14 @@ const PRACTICE_QUESTIONS = {
         "建築物の敷地は幅員6m以上の道路に接しなければならない",
         "接道義務に例外はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建築物の敷地は原則として幅員4m以上の道路に2m以上接していなければなりません（建築基準法43条）。いわゆる「2項道路」（幅員4m未満で特定行政庁が指定した道路）の場合はセットバックが必要です。",
-      "publicPath": "q/practice/p154/index.html"
+      "publicPath": "q/practice/p10154/index.html"
     },
     {
-      "id": 900155,
+      "id": 910155,
       "year": "orig",
-      "num": 155,
+      "num": 10155,
       "field": "limit",
       "text": "農地法2条の「農地」は何を基準に判断するか。正しいものはどれか。",
       "opts": [
@@ -2478,14 +2478,14 @@ const PRACTICE_QUESTIONS = {
         "農業委員会が農地と認定した土地のみ",
         "農地台帳に登録された土地"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地法上の「農地」は「耕作の目的に供されている土地」であり（農地法2条1項）、登記地目ではなく現況で判断します。地目が農地でも現に宅地として利用されていれば農地法の農地ではありません。",
-      "publicPath": "q/practice/p155/index.html"
+      "publicPath": "q/practice/p10155/index.html"
     },
     {
-      "id": 900156,
+      "id": 910156,
       "year": "orig",
-      "num": 156,
+      "num": 10156,
       "field": "limit",
       "text": "国土利用計画法の事後届出をすべき者として正しいものはどれか。",
       "opts": [
@@ -2494,14 +2494,14 @@ const PRACTICE_QUESTIONS = {
         "売主と買主の双方",
         "仲介した宅建業者"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事後届出の義務者は土地を取得した者（買主・権利取得者）です（国土利用計画法23条1項）。売主ではありません。取引後2週間以内に市町村経由で都道府県知事に届け出ます。",
-      "publicPath": "q/practice/p156/index.html"
+      "publicPath": "q/practice/p10156/index.html"
     },
     {
-      "id": 900157,
+      "id": 910157,
       "year": "orig",
-      "num": 157,
+      "num": 10157,
       "field": "limit",
       "text": "土地区画整理組合の設立の認可権者として正しいものはどれか。",
       "opts": [
@@ -2510,14 +2510,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣",
         "農業委員会"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "土地区画整理組合の設立は都道府県知事の認可が必要です（土地区画整理法14条1項）。組合設立には施行地区内の宅地所有者等の3分の2以上の同意も必要です（同法18条）。",
-      "publicPath": "q/practice/p157/index.html"
+      "publicPath": "q/practice/p10157/index.html"
     },
     {
-      "id": 900158,
+      "id": 910158,
       "year": "orig",
-      "num": 158,
+      "num": 10158,
       "field": "limit",
       "text": "盛土規制法上「宅地造成」に含まれる工事として正しいものはどれか。",
       "opts": [
@@ -2526,14 +2526,14 @@ const PRACTICE_QUESTIONS = {
         "農地から農地への転換工事",
         "建物の建替えのみを目的とする工事"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅地造成に含まれる工事（盛土規制法2条2号）として、切土で高さ2mを超えるがけを生じさせる工事・盛土で高さ1mを超えるがけを生じさせる工事・切土と盛土を合わせて高さ2mを超えるがけを生じさせる工事等があります。",
-      "publicPath": "q/practice/p158/index.html"
+      "publicPath": "q/practice/p10158/index.html"
     },
     {
-      "id": 900159,
+      "id": 910159,
       "year": "orig",
-      "num": 159,
+      "num": 10159,
       "field": "tax",
       "text": "不動産の譲渡所得における長期・短期の区別の基準として正しいものはどれか。",
       "opts": [
@@ -2542,14 +2542,14 @@ const PRACTICE_QUESTIONS = {
         "所有期間が3年以下は短期・3年超は長期",
         "登記の有無で決まる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "譲渡所得の長期・短期の区別は「譲渡した年の1月1日における所有期間」が5年以下か5年超かで判断します（租税特別措置法31条・32条）。",
-      "publicPath": "q/practice/p159/index.html"
+      "publicPath": "q/practice/p10159/index.html"
     },
     {
-      "id": 900160,
+      "id": 910160,
       "year": "orig",
-      "num": 160,
+      "num": 10160,
       "field": "tax",
       "text": "不動産取得税が課税される「不動産の取得」に該当するものはどれか。",
       "opts": [
@@ -2558,14 +2558,14 @@ const PRACTICE_QUESTIONS = {
         "建物の新築",
         "法人の分割による取得"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "建物の新築・増築・改築も「不動産の取得」として不動産取得税が課税されます（地方税法73条の2）。相続・法人合併・一定の信託による取得等は非課税となります。",
-      "publicPath": "q/practice/p160/index.html"
+      "publicPath": "q/practice/p10160/index.html"
     },
     {
-      "id": 900161,
+      "id": 910161,
       "year": "orig",
-      "num": 161,
+      "num": 10161,
       "field": "tax",
       "text": "新築住宅（一定要件を満たすもの）に適用される固定資産税の減額特例として正しいものはどれか。",
       "opts": [
@@ -2576,12 +2576,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "新築住宅の建物（床面積50〜280平方メートルの居住部分）については、新築後3年間（中高層耐火建築物等は5年間）固定資産税額が1/2に減額されます（地方税法附則15条の6）。",
-      "publicPath": "q/practice/p161/index.html"
+      "publicPath": "q/practice/p10161/index.html"
     },
     {
-      "id": 900162,
+      "id": 910162,
       "year": "orig",
-      "num": 162,
+      "num": 10162,
       "field": "tax",
       "text": "抵当権設定登記の登録免許税率（一般の場合）として正しいものはどれか。",
       "opts": [
@@ -2590,14 +2590,14 @@ const PRACTICE_QUESTIONS = {
         "債権金額の0.4%",
         "固定資産税評価額の2%"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "抵当権設定登記の登録免許税は債権金額の0.4%です（登録免許税法別表第一）。一定要件を満たす住宅ローン等は軽減税率（0.1%）が適用される場合があります。",
-      "publicPath": "q/practice/p162/index.html"
+      "publicPath": "q/practice/p10162/index.html"
     },
     {
-      "id": 900163,
+      "id": 910163,
       "year": "orig",
-      "num": 163,
+      "num": 10163,
       "field": "tax",
       "text": "印紙税において課税対象とならないものとして正しいものはどれか。",
       "opts": [
@@ -2606,14 +2606,14 @@ const PRACTICE_QUESTIONS = {
         "電子データのみで作成した契約書（電子契約書）",
         "土地賃貸借契約書"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "電子契約書（紙の文書でなく電子データとして作成・保存する契約書）には印紙税が課されません（印紙税法2条）。印紙税は「文書」に課税するものであり、電子データは課税対象外です。",
-      "publicPath": "q/practice/p163/index.html"
+      "publicPath": "q/practice/p10163/index.html"
     },
     {
-      "id": 900164,
+      "id": 910164,
       "year": "orig",
-      "num": 164,
+      "num": 10164,
       "field": "tax",
       "text": "地価公示の公示価格が表す価格として正しいものはどれか。",
       "opts": [
@@ -2622,14 +2622,14 @@ const PRACTICE_QUESTIONS = {
         "周辺の平均取引価格",
         "固定資産税評価額の2倍の価格"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地価公示の公示価格は「自由な取引において通常成立すると認められる価格」（正常価格）で、更地・権利付きでない状態での客観的な価格を表します（地価公示法2条2項）。",
-      "publicPath": "q/practice/p164/index.html"
+      "publicPath": "q/practice/p10164/index.html"
     },
     {
-      "id": 900165,
+      "id": 910165,
       "year": "orig",
-      "num": 165,
+      "num": 10165,
       "field": "rights",
       "text": "弁済の充当の順序（当事者間の合意がない場合）として正しいものはどれか。",
       "opts": [
@@ -2638,14 +2638,14 @@ const PRACTICE_QUESTIONS = {
         "弁済者が充当する債務を自由に選べる",
         "債権者が充当する債務を自由に決定できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済の充当は当事者の合意がない場合、費用→利息→元本の順で充当されます（民法489条）。複数の債務がある場合は弁済者の指定（民法488条）がなければ法定の順序によります。",
-      "publicPath": "q/practice/p165/index.html"
+      "publicPath": "q/practice/p10165/index.html"
     },
     {
-      "id": 900166,
+      "id": 910166,
       "year": "orig",
-      "num": 166,
+      "num": 10166,
       "field": "rights",
       "text": "地上権と賃借権の違いとして正しいものはどれか。",
       "opts": [
@@ -2654,14 +2654,14 @@ const PRACTICE_QUESTIONS = {
         "地上権は賃借権より弱い権利",
         "賃借権は地主の承諾なく譲渡できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地上権は物権（民法265条）で登記があれば第三者に対抗でき、地主の承諾なく譲渡・転貸ができます。賃借権は債権で原則として地主の承諾なく譲渡・転貸はできません（民法612条）。",
-      "publicPath": "q/practice/p166/index.html"
+      "publicPath": "q/practice/p10166/index.html"
     },
     {
-      "id": 900167,
+      "id": 910167,
       "year": "orig",
-      "num": 167,
+      "num": 10167,
       "field": "rights",
       "text": "建物が売却されて賃貸人が変わった場合、賃借人が新賃貸人に賃借権を対抗できる要件として正しいものはどれか。",
       "opts": [
@@ -2670,2176 +2670,14 @@ const PRACTICE_QUESTIONS = {
         "登記がなければ対抗できない",
         "新賃貸人の同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物賃貸借では、引渡しを受けた賃借人は建物の新所有者（新賃貸人）に対して賃借権を対抗できます（借地借家法31条）。建物の引渡しが対抗要件となっています。",
-      "publicPath": "q/practice/p167/index.html"
+      "publicPath": "q/practice/p10167/index.html"
     },
     {
-      "id": 900468,
+      "id": 910168,
       "year": "orig",
-      "num": 468,
-      "field": "limit",
-      "text": "宅地造成及び特定盛土等規制法における「宅地造成工事規制区域」を指定する者として正しいものはどれか。",
-      "opts": [
-        "国土交通大臣",
-        "都道府県知事（または指定都市の長）",
-        "市町村長",
-        "農業委員会"
-      ],
-      "ans": 1,
-      "exp": "宅地造成工事規制区域は都道府県知事（政令指定都市・中核市では市長）が指定します（盛土規制法10条）。",
-      "publicPath": "q/practice/p468/index.html"
-    },
-    {
-      "id": 900469,
-      "year": "orig",
-      "num": 469,
-      "field": "limit",
-      "text": "宅地造成工事規制区域内で許可が必要な工事として正しいものはどれか。",
-      "opts": [
-        "高さ50cmの切土",
-        "高さ1mを超える切土",
-        "高さ2mを超える盛土",
-        "面積100㎡の造成"
-      ],
-      "ans": 2,
-      "exp": "宅地造成等工事規制区域内では、盛土で高さ1m超の崖を生じる工事、切土で高さ2m超の崖を生じる工事、崖を生じない盛土でも高さ2m超の工事、面積500㎡超の盛土・切土等について知事の許可が必要です（盛土規制法12条・同法施行令3条）。",
-      "publicPath": "q/practice/p469/index.html"
-    },
-    {
-      "id": 900473,
-      "year": "orig",
-      "num": 473,
-      "field": "tax",
-      "text": "地価公示の公示価格の性格として正しいものはどれか。",
-      "opts": [
-        "相続税路線価の基準となる",
-        "土地取引の指標・公共事業用地の取得価格の基準となる標準的な価格",
-        "固定資産税評価額と同一",
-        "毎月更新される"
-      ],
-      "ans": 1,
-      "exp": "地価公示の公示価格は一般の土地取引の指標や公共事業用地取得の基準として機能します（地価公示法1条）。毎年1月1日時点の価格を3月に公示します。",
-      "publicPath": "q/practice/p473/index.html"
-    },
-    {
-      "id": 900474,
-      "year": "orig",
-      "num": 474,
-      "field": "tax",
-      "text": "木造住宅の耐用年数として住宅金融支援機構が定める基準として最も近いものはどれか。",
-      "opts": [
-        "15年",
-        "22年",
-        "30年",
-        "50年"
-      ],
-      "ans": 2,
-      "exp": "木造住宅の法定耐用年数は22年です（税法上）。住宅金融支援機構の融資でも耐用年数が審査基準の一つとなります。",
-      "publicPath": "q/practice/p474/index.html"
-    },
-    {
-      "id": 900478,
-      "year": "orig",
-      "num": 478,
-      "field": "tax",
-      "text": "住宅金融支援機構の主な業務として正しいものはどれか。",
-      "opts": [
-        "住宅の直接販売",
-        "民間金融機関が貸し付けた住宅ローン債権を買い取る証券化支援業務",
-        "固定資産税の徴収",
-        "建築確認の審査"
-      ],
-      "ans": 1,
-      "exp": "住宅金融支援機構は民間金融機関が貸し付けた住宅ローン債権を買い取り証券化する「フラット35」等の証券化支援業務を主な業務としています（住宅金融支援機構法13条）。",
-      "publicPath": "q/practice/p478/index.html"
-    },
-    {
-      "id": 900479,
-      "year": "orig",
-      "num": 479,
-      "field": "tax",
-      "text": "フラット35の特徴として正しいものはどれか。",
-      "opts": [
-        "変動金利型のローン",
-        "全期間固定金利型の住宅ローン",
-        "10年固定後変動に切り替わる",
-        "金利は毎月変わる"
-      ],
-      "ans": 1,
-      "exp": "フラット35は住宅金融支援機構と民間金融機関が提携した全期間固定金利型の住宅ローンです。金利変動リスクを負わないため返済計画が立てやすいのが特徴です。",
-      "publicPath": "q/practice/p479/index.html"
-    },
-    {
-      "id": 900483,
-      "year": "orig",
-      "num": 483,
-      "field": "tax",
-      "text": "不動産の売買契約書に貼付する印紙税について正しいものはどれか。",
-      "opts": [
-        "売主と買主が同額ずつ負担する法律上の義務がある",
-        "課税文書に印紙を貼付し消印することで納税する",
-        "電子契約書にも印紙が必要",
-        "印紙税は地方税である"
-      ],
-      "ans": 1,
-      "exp": "印紙税は課税文書に収入印紙を貼付し消印することで納付します。印紙税は国税です。電子契約（電磁的記録）は文書に該当しないため不要です。",
-      "publicPath": "q/practice/p483/index.html"
-    },
-    {
-      "id": 900484,
-      "year": "orig",
-      "num": 484,
-      "field": "tax",
-      "text": "印紙税が非課税となる文書として正しいものはどれか。",
-      "opts": [
-        "1000万円の土地売買契約書",
-        "記載金額1万円未満の契約書",
-        "建物の賃貸借契約書",
-        "金銭消費貸借契約書"
-      ],
-      "ans": 1,
-      "exp": "記載金額が1万円未満の契約書は印紙税が非課税です（印紙税法別表第一）。なお建物の賃貸借契約書は課税文書ですが、記載金額のないものは200円の定額課税となります。",
-      "publicPath": "q/practice/p484/index.html"
-    },
-    {
-      "id": 900488,
-      "year": "orig",
-      "num": 488,
-      "field": "tax",
-      "text": "地価公示の調査主体として正しいものはどれか。",
-      "opts": [
-        "市町村",
-        "国土交通省土地鑑定委員会",
-        "都道府県",
-        "日本不動産鑑定士協会連合会"
-      ],
-      "ans": 1,
-      "exp": "地価公示は国土交通省の土地鑑定委員会が毎年実施します（地価公示法2条）。2名以上の不動産鑑定士による鑑定評価を基に標準地の正常な価格を判定・公示します。",
-      "publicPath": "q/practice/p488/index.html"
-    },
-    {
-      "id": 900489,
-      "year": "orig",
-      "num": 489,
-      "field": "tax",
-      "text": "都道府県地価調査（基準地価）の調査基準日として正しいものはどれか。",
-      "opts": [
-        "毎年1月1日",
-        "毎年7月1日",
-        "毎年4月1日",
-        "毎年10月1日"
-      ],
-      "ans": 1,
-      "exp": "都道府県地価調査の基準日は毎年7月1日です。地価公示（1月1日基準）を補完し、半年ごとの地価動向を把握できます。",
-      "publicPath": "q/practice/p489/index.html"
-    },
-    {
-      "id": 900493,
-      "year": "orig",
-      "num": 493,
-      "field": "limit",
-      "text": "国土利用計画法の事後届出の届出期間として正しいものはどれか。",
-      "opts": [
-        "契約締結後2週間以内",
-        "契約締結後3週間以内",
-        "契約締結後2か月以内",
-        "契約締結前"
-      ],
-      "ans": 1,
-      "exp": "事後届出は土地の売買等の契約を締結した日から2週間以内に市町村長を経由して都道府県知事に届け出ます（国土利用計画法23条1項）。",
-      "publicPath": "q/practice/p493/index.html"
-    },
-    {
-      "id": 900494,
-      "year": "orig",
-      "num": 494,
-      "field": "limit",
-      "text": "国土利用計画法の事後届出が必要な市街化区域内の面積要件として正しいものはどれか。",
-      "opts": [
-        "100㎡以上",
-        "500㎡以上",
-        "2000㎡以上",
-        "5000㎡以上"
-      ],
-      "ans": 2,
-      "exp": "市街化区域では2000㎡以上の土地取引について事後届出が必要です（国土利用計画法23条）。市街化区域以外の都市計画区域は5000㎡以上、都市計画区域外は10000㎡以上が要件です。",
-      "publicPath": "q/practice/p494/index.html"
-    },
-    {
-      "id": 900498,
-      "year": "orig",
-      "num": 498,
-      "field": "limit",
-      "text": "土地区画整理事業の施行者として認められていないものはどれか。",
-      "opts": [
-        "個人",
-        "土地区画整理組合",
-        "都道府県・市町村",
-        "外国政府"
-      ],
-      "ans": 3,
-      "exp": "土地区画整理事業の施行者は個人・土地区画整理組合・区画整理会社・市町村・都道府県・国土交通大臣・機構等です（土地区画整理法3条）。外国政府は認められていません。",
-      "publicPath": "q/practice/p498/index.html"
-    },
-    {
-      "id": 900499,
-      "year": "orig",
-      "num": 499,
-      "field": "limit",
-      "text": "換地処分の公告後に換地が従前地とみなされる効果として正しいものはどれか。",
-      "opts": [
-        "換地は公告前から従前地とみなされる",
-        "換地処分の公告の翌日から換地が従前地とみなされる",
-        "換地は登記後から効力を生じる",
-        "換地処分後も従前地の権利は消滅しない"
-      ],
-      "ans": 1,
-      "exp": "換地処分の公告があった翌日から換地が従前地とみなされ、従前地の権利は換地に移行します（土地区画整理法104条）。保留地は施行者が取得します。",
-      "publicPath": "q/practice/p499/index.html"
-    },
-    {
-      "id": 900503,
-      "year": "orig",
-      "num": 503,
-      "field": "rights",
-      "text": "民法上、隣地の竹木の枝が境界線を越えてきた場合の処理として正しいものはどれか（2021年改正後）。",
-      "opts": [
-        "直ちに自分で切ることができる",
-        "原則として竹木の所有者に切除を催告し、相当期間内に切除されない場合は自ら切除できる",
-        "切除は裁判所の許可が必要",
-        "枝の越境は法律上問題ない"
-      ],
-      "ans": 1,
-      "exp": "2021年民法改正により、竹木の枝が越境した場合は竹木所有者に催告し相当期間内に切除されない場合・所有者不明・急迫の事情がある場合に自ら切除できるようになりました（民法233条）。根は従来通り自分で切除できます。",
-      "publicPath": "q/practice/p503/index.html"
-    },
-    {
-      "id": 900504,
-      "year": "orig",
-      "num": 504,
-      "field": "rights",
-      "text": "共有物の保存行為として正しいものはどれか。",
-      "opts": [
-        "共有物全体を売却すること",
-        "共有物に対する不法占拠者への明渡し請求（保存行為）は単独でできる",
-        "共有物の大規模修繕は単独でできる",
-        "共有持分の放棄は全員の同意が必要"
-      ],
-      "ans": 1,
-      "exp": "共有物の保存行為（不法占拠者への明渡し請求・修繕等）は各共有者が単独で行えます（民法252条5項）。管理行為は持分過半数、変更行為は全員同意が原則です。",
-      "publicPath": "q/practice/p504/index.html"
-    },
-    {
-      "id": 900508,
-      "year": "orig",
-      "num": 508,
-      "field": "rights",
-      "text": "定期借地権の存続期間として正しいものはどれか。",
-      "opts": [
-        "10年以上",
-        "20年以上",
-        "30年以上",
-        "50年以上"
-      ],
-      "ans": 3,
-      "exp": "一般定期借地権の存続期間は50年以上です（借地借家法22条）。事業用定期借地権は10年以上50年未満、建物譲渡特約付借地権は30年以上が要件です。",
-      "publicPath": "q/practice/p508/index.html"
-    },
-    {
-      "id": 900509,
-      "year": "orig",
-      "num": 509,
-      "field": "rights",
-      "text": "普通借家契約の更新拒絶に必要な要件として正しいものはどれか。",
-      "opts": [
-        "貸主はいつでも自由に更新を拒絶できる",
-        "貸主の正当事由が必要",
-        "借主側の事情のみで決まる",
-        "6か月前の通知だけで足りる"
-      ],
-      "ans": 1,
-      "exp": "普通借家契約の更新拒絶には「正当事由」が必要です（借地借家法28条）。正当事由は建物使用の必要性・利用状況・立退料の提供等を総合的に判断します。通知だけでは足りません。",
-      "publicPath": "q/practice/p509/index.html"
-    },
-    {
-      "id": 900513,
-      "year": "orig",
-      "num": 513,
-      "field": "rights",
-      "text": "管理組合法人の設立に必要な決議要件として正しいものはどれか。",
-      "opts": [
-        "区分所有者全員の同意",
-        "区分所有者及び議決権の各4分の3以上",
-        "区分所有者及び議決権の各過半数",
-        "区分所有者の2分の1以上"
-      ],
-      "ans": 1,
-      "exp": "管理組合法人の設立には区分所有者及び議決権の各4分の3以上の賛成による集会決議が必要です（区分所有法47条1項）。",
-      "publicPath": "q/practice/p513/index.html"
-    },
-    {
-      "id": 900514,
-      "year": "orig",
-      "num": 514,
-      "field": "rights",
-      "text": "専有部分と共用部分の関係として正しいものはどれか。",
-      "opts": [
-        "専有部分の所有者は共用部分持分を自由に分離処分できる",
-        "共用部分の共有持分は専有部分の所有権と分離して処分できない",
-        "共用部分は区分所有者全員で均等に持つ",
-        "廊下は専有部分にできる"
-      ],
-      "ans": 1,
-      "exp": "共用部分の共有持分は専有部分と分離して処分できません（区分所有法15条2項）。専有部分を売却すれば共用部分の持分も当然に移転します。持分割合は原則として専有部分の床面積の割合です。",
-      "publicPath": "q/practice/p514/index.html"
-    },
-    {
-      "id": 900518,
-      "year": "orig",
-      "num": 518,
-      "field": "rights",
-      "text": "不動産登記の申請方法として認められていないものはどれか。",
-      "opts": [
-        "オンライン申請",
-        "書面申請（窓口・郵送）",
-        "電話による口頭申請",
-        "電子申請"
-      ],
-      "ans": 2,
-      "exp": "不動産登記の申請は書面申請またはオンライン申請で行います（不動産登記法18条）。電話による口頭申請は認められていません。",
-      "publicPath": "q/practice/p518/index.html"
-    },
-    {
-      "id": 900519,
-      "year": "orig",
-      "num": 519,
-      "field": "rights",
-      "text": "相続による所有権移転登記の申請義務として正しいものはどれか（2024年施行）。",
-      "opts": [
-        "任意であり申請しなくてよい",
-        "相続を知った日から3年以内に申請義務がある",
-        "10年以内に申請すれば足りる",
-        "相続人全員が共同申請しなければならない"
-      ],
-      "ans": 1,
-      "exp": "2024年4月施行の改正不動産登記法により、相続による所有権取得を知った日から3年以内の登記申請が義務化されました（不動産登記法76条の2）。正当な理由なく義務違反の場合は10万円以下の過料。",
-      "publicPath": "q/practice/p519/index.html"
-    },
-    {
-      "id": 900523,
-      "year": "orig",
-      "num": 523,
-      "field": "law",
-      "text": "宅建業者が行う広告の開始時期として正しいものはどれか。",
-      "opts": [
-        "開発許可申請中から広告できる",
-        "開発許可・建築確認等を受けた後でなければ広告できない",
-        "広告はいつでも開始できる",
-        "売買予約があれば広告できる"
-      ],
-      "ans": 1,
-      "exp": "宅建業者は開発許可・建築確認等の許認可を受ける前には広告を行うことができません（宅建業法33条）。未完成物件でも許可後であれば広告は可能です。",
-      "publicPath": "q/practice/p523/index.html"
-    },
-    {
-      "id": 900524,
-      "year": "orig",
-      "num": 524,
-      "field": "law",
-      "text": "宅建業者が広告に表示しなければならない事項として正しいものはどれか。",
-      "opts": [
-        "宅建業者の代表者の写真",
-        "取引態様の別（売主・代理・媒介）",
-        "近隣の競合物件の価格",
-        "担当者の携帯番号"
-      ],
-      "ans": 1,
-      "exp": "宅建業者は広告において取引態様の別（自ら売主・代理・媒介の区別）を明示しなければなりません（宅建業法34条）。",
-      "publicPath": "q/practice/p524/index.html"
-    },
-    {
-      "id": 900528,
-      "year": "orig",
-      "num": 528,
-      "field": "law",
-      "text": "住宅瑕疵担保履行法における新築住宅の定義として正しいものはどれか。",
-      "opts": [
-        "建築後3年以内の住宅",
-        "建築後1年以内かつ未使用の住宅",
-        "建築確認を受けた住宅すべて",
-        "中古住宅も含まれる"
-      ],
-      "ans": 1,
-      "exp": "住宅瑕疵担保履行法における新築住宅とは建築工事完了から1年以内で未使用の住宅を指します（住宅品質確保法2条2項）。",
-      "publicPath": "q/practice/p528/index.html"
-    },
-    {
-      "id": 900529,
-      "year": "orig",
-      "num": 529,
-      "field": "law",
-      "text": "宅建業者が自ら売主として新築住宅を販売する場合の資力確保義務として正しいものはどれか。",
-      "opts": [
-        "任意で保険に加入する",
-        "住宅瑕疵担保保証金の供託または住宅瑕疵担保責任保険の締結が義務",
-        "建築確認があれば保険不要",
-        "買主が免除できる"
-      ],
-      "ans": 1,
-      "exp": "宅建業者が自ら売主として新築住宅を販売する場合、住宅瑕疵担保保証金の供託または住宅瑕疵担保責任保険への加入が義務付けられています（住宅瑕疵担保履行法11条）。",
-      "publicPath": "q/practice/p529/index.html"
-    },
-    {
-      "id": 900533,
-      "year": "orig",
-      "num": 533,
-      "field": "rights",
-      "text": "契約不適合責任の追完請求の内容として認められないものはどれか。",
-      "opts": [
-        "目的物の修補",
-        "代替物の引渡し",
-        "不足分の引渡し",
-        "損害賠償のみの請求（追完を経ずに）"
-      ],
-      "ans": 3,
-      "exp": "契約不適合があった場合の追完請求は①修補②代替物引渡し③不足分引渡しが認められます（民法562条）。損害賠償は追完請求・代金減額請求と並行して請求できますが、追完を経ずにいきなり損害賠償のみというわけではありません。",
-      "publicPath": "q/practice/p533/index.html"
-    },
-    {
-      "id": 900536,
-      "year": "orig",
-      "num": 536,
-      "field": "rights",
-      "text": "賃貸借契約の存続期間の上限として正しいものはどれか（民法改正後）。",
-      "opts": [
-        "20年",
-        "50年",
-        "100年",
-        "制限なし"
-      ],
-      "ans": 1,
-      "exp": "民法改正後（2020年施行）、賃貸借の存続期間の上限は50年に延長されました（民法604条）。改正前は20年でしたが、長期の定期借地権等に対応するため延長されています。",
-      "publicPath": "q/practice/p536/index.html"
-    },
-    {
-      "id": 900539,
-      "year": "orig",
-      "num": 539,
-      "field": "rights",
-      "text": "留置権の成立要件として正しいものはどれか。",
-      "opts": [
-        "当事者間の契約が必要",
-        "物と債権の間に牽連関係があり、他人の物を適法に占有していること",
-        "登記が必要",
-        "不動産にのみ成立する"
-      ],
-      "ans": 1,
-      "exp": "留置権は①他人の物を占有②その物に関して生じた債権（牽連関係）③弁済期到来④占有が適法であることで成立します（民法295条）。契約不要・登記不要の法定担保物権です。",
-      "publicPath": "q/practice/p539/index.html"
-    },
-    {
-      "id": 900542,
-      "year": "orig",
-      "num": 542,
-      "field": "rights",
-      "text": "相殺が禁止される場合として正しいものはどれか。",
-      "opts": [
-        "双方の債権が金銭債権であるとき",
-        "悪意による不法行為に基づく損害賠償債務を受働債権とするとき",
-        "弁済期が到来していないとき",
-        "債権の額が等しいとき"
-      ],
-      "ans": 1,
-      "exp": "悪意による不法行為に基づく損害賠償債権を受働債権（相殺される側）とする相殺は禁止されます（民法509条1号）。人の生命・身体を害する不法行為も同様に禁止されています。",
-      "publicPath": "q/practice/p542/index.html"
-    },
-    {
-      "id": 900544,
-      "year": "orig",
-      "num": 544,
-      "field": "rights",
-      "text": "通謀虚偽表示（民法94条）の第三者保護の要件として正しいものはどれか。",
-      "opts": [
-        "第三者は善意でも悪意でも保護される",
-        "第三者は善意（虚偽表示を知らない）であれば保護される",
-        "第三者は善意無過失が必要",
-        "第三者は登記を備えなければ保護されない"
-      ],
-      "ans": 1,
-      "exp": "通謀虚偽表示の無効は善意の第三者に対抗できません（民法94条2項）。第三者は善意であれば保護され、無過失は不要です（悪意でなければ足りる）。",
-      "publicPath": "q/practice/p544/index.html"
-    },
-    {
-      "id": 900546,
-      "year": "orig",
-      "num": 546,
-      "field": "rights",
-      "text": "時効の完成猶予事由として正しいものはどれか。",
-      "opts": [
-        "時効の利益の放棄",
-        "裁判上の請求・差押え・仮処分等",
-        "弁済の承認",
-        "時効期間の経過"
-      ],
-      "ans": 1,
-      "exp": "時効の完成猶予事由は裁判上の請求・差押え・仮処分・仮差押え・協議を行う旨の合意書面等です（民法147条以下）。弁済の承認は時効の更新（新たな時効が進行開始）事由です。",
-      "publicPath": "q/practice/p546/index.html"
-    },
-    {
-      "id": 900548,
-      "year": "orig",
-      "num": 548,
-      "field": "rights",
-      "text": "不動産物権変動の対抗要件として正しいものはどれか。",
-      "opts": [
-        "公正証書の作成",
-        "登記",
-        "引渡し",
-        "占有"
-      ],
-      "ans": 1,
-      "exp": "不動産物権変動の対抗要件は登記です（民法177条）。動産の場合は引渡しが対抗要件です（民法178条）。",
-      "publicPath": "q/practice/p548/index.html"
-    },
-    {
-      "id": 900550,
-      "year": "orig",
-      "num": 550,
-      "field": "law",
-      "text": "宅建業の免許が不要な場合として正しいものはどれか。",
-      "opts": [
-        "年2回を超えて自己所有不動産を売却する場合",
-        "自己所有の不動産を賃貸する場合（自ら貸主）",
-        "他人から依頼されて不動産の売買を仲介する場合",
-        "分譲マンションを自ら販売する場合"
-      ],
-      "ans": 1,
-      "exp": "自ら貸主として不動産を賃貸する行為は宅建業（取引業）に該当しないため免許不要です（宅建業法2条2号）。ただし賃貸の媒介・代理を業として行う場合は免許が必要です。",
-      "publicPath": "q/practice/p550/index.html"
-    },
-    {
-      "id": 900552,
-      "year": "orig",
-      "num": 552,
-      "field": "law",
-      "text": "宅建士証の有効期間として正しいものはどれか。",
-      "opts": [
-        "3年",
-        "5年",
-        "10年",
-        "更新不要の永続"
-      ],
-      "ans": 1,
-      "exp": "宅建士証の有効期間は5年です（宅建業法22条の2第4項）。更新には法定講習（有効期間満了の6か月前から）の受講が必要です。",
-      "publicPath": "q/practice/p552/index.html"
-    },
-    {
-      "id": 900554,
-      "year": "orig",
-      "num": 554,
-      "field": "law",
-      "text": "宅建業者が受け取る報酬の上限を定めているのはどれか。",
-      "opts": [
-        "民法",
-        "宅建業法の規定に基づく国土交通大臣告示",
-        "都道府県条例",
-        "当事者の合意のみ"
-      ],
-      "ans": 1,
-      "exp": "宅建業者が宅地建物取引に関して受け取れる報酬の上限は宅建業法46条に基づく国土交通大臣告示によって定められています。上限を超える報酬を受け取ることは禁止されています。",
-      "publicPath": "q/practice/p554/index.html"
-    },
-    {
-      "id": 900556,
-      "year": "orig",
-      "num": 556,
-      "field": "law",
-      "text": "37条書面に記載が不要な事項として正しいものはどれか。",
-      "opts": [
-        "物件の引渡し時期",
-        "代金の額",
-        "近隣の騒音状況",
-        "移転登記申請の時期"
-      ],
-      "ans": 2,
-      "exp": "37条書面の必要的記載事項は①物件特定②代金・借賃③引渡し時期④移転登記申請時期等です（宅建業法37条1項）。近隣の騒音状況は37条書面ではなく重要事項説明（35条書面）でも必須ではなく、周辺環境への任意記載事項です。",
-      "publicPath": "q/practice/p556/index.html"
-    },
-    {
-      "id": 900558,
-      "year": "orig",
-      "num": 558,
-      "field": "law",
-      "text": "専属専任媒介契約の報告頻度として正しいものはどれか。",
-      "opts": [
-        "1か月に1回以上",
-        "2週間に1回以上",
-        "1週間に1回以上",
-        "3日に1回以上"
-      ],
-      "ans": 2,
-      "exp": "専属専任媒介契約では1週間に1回以上の業務処理状況の報告義務があります（宅建業法34条の2第9項）。専任媒介は2週間に1回以上です。",
-      "publicPath": "q/practice/p558/index.html"
-    },
-    {
-      "id": 900560,
-      "year": "orig",
-      "num": 560,
-      "field": "law",
-      "text": "クーリングオフができない場合として正しいものはどれか。",
-      "opts": [
-        "宅建業者の案内所で申込みをした場合（届出済みの案内所）",
-        "事務所以外の場所で申込みをした場合",
-        "告知から7日目に行使した場合",
-        "電話で申込みをした場合"
-      ],
-      "ans": 0,
-      "exp": "宅建業者が届出をした案内所・展示会場等（事務所等）で申込みをした場合はクーリングオフができません（宅建業法37条の2）。告知から8日以内に書面で行使する必要があります。",
-      "publicPath": "q/practice/p560/index.html"
-    },
-    {
-      "id": 900562,
-      "year": "orig",
-      "num": 562,
-      "field": "law",
-      "text": "重要事項説明を受ける権利を持つ者として正しいものはどれか。",
-      "opts": [
-        "売主のみ",
-        "買主・借主（取引の相手方）",
-        "売主と買主の双方",
-        "仲介業者"
-      ],
-      "ans": 1,
-      "exp": "重要事項説明は取引の相手方（買主・借主）に行います（宅建業法35条1項）。相手方が宅建業者の場合も書面交付は必要ですが説明は省略できます。",
-      "publicPath": "q/practice/p562/index.html"
-    },
-    {
-      "id": 900564,
-      "year": "orig",
-      "num": 564,
-      "field": "law",
-      "text": "営業保証金の供託先として正しいものはどれか。",
-      "opts": [
-        "都道府県の金庫",
-        "主たる事務所の最寄りの供託所（法務局）",
-        "宅建業協会",
-        "国土交通省"
-      ],
-      "ans": 1,
-      "exp": "営業保証金は主たる事務所の最寄りの供託所（法務局）に供託します（宅建業法25条1項）。",
-      "publicPath": "q/practice/p564/index.html"
-    },
-    {
-      "id": 900566,
-      "year": "orig",
-      "num": 566,
-      "field": "law",
-      "text": "宅建業者に対する業務停止処分の期間の上限として正しいものはどれか。",
-      "opts": [
-        "3か月",
-        "6か月",
-        "1年",
-        "2年"
-      ],
-      "ans": 2,
-      "exp": "宅建業者に対する業務停止処分の期間は1年以内です（宅建業法65条2項）。業務停止処分に違反した場合は免許取消処分の対象となります。",
-      "publicPath": "q/practice/p566/index.html"
-    },
-    {
-      "id": 900568,
-      "year": "orig",
-      "num": 568,
-      "field": "tax",
-      "text": "登録免許税の課税主体として正しいものはどれか。",
-      "opts": [
-        "都道府県",
-        "市町村",
-        "国（国税）",
-        "固定資産評価委員会"
-      ],
-      "ans": 2,
-      "exp": "登録免許税は国税です（登録免許税法1条）。登記・登録等を受ける者が納付します。",
-      "publicPath": "q/practice/p568/index.html"
-    },
-    {
-      "id": 900569,
-      "year": "orig",
-      "num": 569,
-      "field": "tax",
-      "text": "抵当権設定登記の登録免許税の課税標準として正しいものはどれか。",
-      "opts": [
-        "不動産の固定資産税評価額",
-        "債権金額（ローン金額）",
-        "不動産の売買価格",
-        "固定資産税評価額の2分の1"
-      ],
-      "ans": 1,
-      "exp": "抵当権設定登記の課税標準は「債権金額」です（登録免許税法9条）。不動産の価額ではなく担保する債権の金額が基準となります。税率は原則0.4%です。",
-      "publicPath": "q/practice/p569/index.html"
-    },
-    {
-      "id": 900573,
-      "year": "orig",
-      "num": 573,
-      "field": "tax",
-      "text": "不動産取得税の標準税率として正しいものはどれか（住宅・土地の特例適用時）。",
-      "opts": [
-        "2%",
-        "3%",
-        "4%",
-        "5%"
-      ],
-      "ans": 1,
-      "exp": "住宅および住宅用土地の不動産取得税の標準税率は特例により3%です（地方税法附則11条の2）。それ以外の不動産は4%が標準税率です。",
-      "publicPath": "q/practice/p573/index.html"
-    },
-    {
-      "id": 900574,
-      "year": "orig",
-      "num": 574,
-      "field": "tax",
-      "text": "不動産取得税の納税方法として正しいものはどれか。",
-      "opts": [
-        "自分で申告して納付する（申告納付）",
-        "都道府県から送られてくる納税通知書で納付する（普通徴収）",
-        "不動産取得と同時に自動引き落とし",
-        "登記の際に法務局で納付"
-      ],
-      "ans": 1,
-      "exp": "不動産取得税は都道府県が賦課決定し納税通知書を送付する普通徴収方式です（地方税法73条の17）。自分で申告する必要はありません。",
-      "publicPath": "q/practice/p574/index.html"
-    },
-    {
-      "id": 900578,
-      "year": "orig",
-      "num": 578,
-      "field": "tax",
-      "text": "固定資産税の賦課期日として正しいものはどれか。",
-      "opts": [
-        "毎年4月1日",
-        "毎年1月1日",
-        "毎年7月1日",
-        "登記日"
-      ],
-      "ans": 1,
-      "exp": "固定資産税の賦課期日は毎年1月1日です（地方税法359条）。1月1日時点の所有者に課税されます。年の途中で売却しても1月1日の所有者が納税義務者です。",
-      "publicPath": "q/practice/p578/index.html"
-    },
-    {
-      "id": 900579,
-      "year": "orig",
-      "num": 579,
-      "field": "tax",
-      "text": "固定資産税の評価替えの周期として正しいものはどれか。",
-      "opts": [
-        "毎年",
-        "2年ごと",
-        "3年ごと",
-        "5年ごと"
-      ],
-      "ans": 2,
-      "exp": "固定資産税の評価替えは3年ごとに行われます（地方税法409条）。基準年度に評価替えを行い、次の基準年度まで原則として据え置かれます。",
-      "publicPath": "q/practice/p579/index.html"
-    },
-    {
-      "id": 900583,
-      "year": "orig",
-      "num": 583,
-      "field": "tax",
-      "text": "不動産の譲渡所得の計算式として正しいものはどれか。",
-      "opts": [
-        "譲渡収入金額－取得費",
-        "譲渡収入金額－（取得費＋譲渡費用）",
-        "譲渡収入金額－固定資産税評価額",
-        "売買代金のみ"
-      ],
-      "ans": 1,
-      "exp": "譲渡所得＝譲渡収入金額－（取得費＋譲渡費用）です（所得税法33条）。取得費が不明な場合は譲渡収入金額の5%を取得費とみなすことができます。",
-      "publicPath": "q/practice/p583/index.html"
-    },
-    {
-      "id": 900584,
-      "year": "orig",
-      "num": 584,
-      "field": "tax",
-      "text": "居住用財産の3000万円特別控除の適用を受けられない場合として正しいものはどれか。",
-      "opts": [
-        "居住しなくなってから2年後に売却した場合",
-        "配偶者に売却した場合",
-        "売却した年の前年・前々年に同控除を受けていない場合",
-        "住宅ローンが残っている場合"
-      ],
-      "ans": 1,
-      "exp": "居住用財産の3000万円特別控除は配偶者・直系血族・生計を共にする親族等への売却には適用されません（租税特別措置法35条2項）。関連当事者間取引への適用を排除しています。",
-      "publicPath": "q/practice/p584/index.html"
-    },
-    {
-      "id": 900588,
-      "year": "orig",
-      "num": 588,
-      "field": "tax",
-      "text": "扇状地の特徴として正しいものはどれか。",
-      "opts": [
-        "海岸沿いに形成される平坦地",
-        "山地から平野部へ出る河川が土砂を堆積して形成される地形",
-        "低湿で洪水リスクが高い",
-        "都市の中心部に多い"
-      ],
-      "ans": 1,
-      "exp": "扇状地は山地と平野の境界付近で河川が急勾配から緩勾配になる地点で土砂を扇形に堆積して形成されます。水はけがよく果樹園等に利用されますが、土石流・洪水のリスクがあります。",
-      "publicPath": "q/practice/p588/index.html"
-    },
-    {
-      "id": 900592,
-      "year": "orig",
-      "num": 592,
-      "field": "tax",
-      "text": "フラット35の借入期間として正しいものはどれか。",
-      "opts": [
-        "最長20年",
-        "最長25年",
-        "最長35年",
-        "最長50年"
-      ],
-      "ans": 2,
-      "exp": "フラット35の借入期間は15年以上35年以内（完済時年齢80歳以下）です。「35年」の名称はこの最長借入期間に由来します。",
-      "publicPath": "q/practice/p592/index.html"
-    },
-    {
-      "id": 900595,
-      "year": "orig",
-      "num": 595,
-      "field": "tax",
-      "text": "地価公示の標準地の鑑定評価を行う者として正しいものはどれか。",
-      "opts": [
-        "市町村職員",
-        "2名以上の不動産鑑定士",
-        "都道府県知事",
-        "国土交通大臣"
-      ],
-      "ans": 1,
-      "exp": "地価公示の標準地は2名以上の不動産鑑定士が鑑定評価を行い、土地鑑定委員会が正常な価格を判定して公示します（地価公示法2条・6条）。",
-      "publicPath": "q/practice/p595/index.html"
-    },
-    {
-      "id": 900598,
-      "year": "orig",
-      "num": 598,
-      "field": "limit",
-      "text": "準都市計画区域を指定できる者として正しいものはどれか。",
-      "opts": [
-        "市町村長",
-        "都道府県知事",
-        "国土交通大臣",
-        "農業委員会"
-      ],
-      "ans": 1,
-      "exp": "準都市計画区域は都道府県知事が指定します（都市計画法5条の2）。都市計画区域外で無秩序な開発のおそれがある地域を指定します。",
-      "publicPath": "q/practice/p598/index.html"
-    },
-    {
-      "id": 900599,
-      "year": "orig",
-      "num": 599,
-      "field": "limit",
-      "text": "市街化調整区域において原則として建築できる建築物として正しいものはどれか。",
-      "opts": [
-        "大型ショッピングモール",
-        "農業・林業・漁業を営む者の居住用建築物",
-        "分譲マンション",
-        "工場"
-      ],
-      "ans": 1,
-      "exp": "市街化調整区域では農林漁業を営む者の居住用建築物（農家住宅等）は原則として建築できます（都市計画法34条1号）。それ以外の建築物は原則として開発許可・建築許可が必要です。",
-      "publicPath": "q/practice/p599/index.html"
-    },
-    {
-      "id": 900603,
-      "year": "orig",
-      "num": 603,
-      "field": "limit",
-      "text": "建築基準法の「道路」の幅員要件として正しいものはどれか。",
-      "opts": [
-        "1メートル以上",
-        "2メートル以上",
-        "4メートル以上",
-        "6メートル以上"
-      ],
-      "ans": 2,
-      "exp": "建築基準法上の「道路」は原則として幅員4メートル以上のものです（建築基準法42条1項）。4メートル未満でも特定行政庁が指定した「2項道路（みなし道路）」はセットバック義務を伴い道路とみなされます。",
-      "publicPath": "q/practice/p603/index.html"
-    },
-    {
-      "id": 900604,
-      "year": "orig",
-      "num": 604,
-      "field": "limit",
-      "text": "第一種低層住居専用地域に建築できる建築物として正しいものはどれか。",
-      "opts": [
-        "中規模の事務所ビル",
-        "10階建てマンション",
-        "小規模な住宅・共同住宅・小学校など",
-        "大型スーパー"
-      ],
-      "ans": 2,
-      "exp": "第一種低層住居専用地域は低層住宅の良好な住環境を守るための地域で、住宅・共同住宅・小学校・幼稚園・診療所等の建築が可能です。大学・病院・事務所・商業施設は建築できません。",
-      "publicPath": "q/practice/p604/index.html"
-    },
-    {
-      "id": 900608,
-      "year": "orig",
-      "num": 608,
-      "field": "limit",
-      "text": "農地法2条における「農地」の定義として正しいものはどれか。",
-      "opts": [
-        "登記簿上の地目が田・畑のもの",
-        "現に耕作の目的に供されている土地",
-        "固定資産税が農地評価のもの",
-        "農業振興地域内の土地"
-      ],
-      "ans": 1,
-      "exp": "農地法上の「農地」は現に耕作の目的に供されている土地です（農地法2条1項）。登記簿の地目ではなく現況で判断します（現況主義）。",
-      "publicPath": "q/practice/p608/index.html"
-    },
-    {
-      "id": 900609,
-      "year": "orig",
-      "num": 609,
-      "field": "limit",
-      "text": "農地法3条の許可が不要な場合として正しいものはどれか。",
-      "opts": [
-        "農地を農地のまま売買する",
-        "農地を相続により取得する",
-        "農地の賃貸借契約を締結する",
-        "農地の使用貸借契約を締結する"
-      ],
-      "ans": 1,
-      "exp": "農地を相続・遺産分割・包括遺贈・相続人への特定遺贈により取得する場合は農地法3条の許可は不要ですが、農業委員会への届出（3か月以内）が必要です（農地法3条の3）。",
-      "publicPath": "q/practice/p609/index.html"
-    },
-    {
-      "id": 900613,
-      "year": "orig",
-      "num": 613,
-      "field": "limit",
-      "text": "宅地造成工事規制区域内で工事を行う際の届出・許可について正しいものはどれか。",
-      "opts": [
-        "工事完了後に届け出ればよい",
-        "一定規模以上の工事は工事着手前に都道府県知事の許可が必要",
-        "工事の規模にかかわらず届出のみで足りる",
-        "許可は不要で完了検査のみ必要"
-      ],
-      "ans": 1,
-      "exp": "宅地造成工事規制区域内で一定規模以上（高さ2m超の盛土等）の宅地造成工事を行う場合は、工事着手前に都道府県知事の許可を受けなければなりません（盛土規制法12条1項）。",
-      "publicPath": "q/practice/p613/index.html"
-    },
-    {
-      "id": 900616,
-      "year": "orig",
-      "num": 616,
-      "field": "limit",
-      "text": "国土利用計画法の「土地売買等の契約」に含まれないものはどれか。",
-      "opts": [
-        "売買契約",
-        "交換契約",
-        "贈与契約",
-        "地上権・賃借権の設定（対価あり）"
-      ],
-      "ans": 2,
-      "exp": "贈与契約は無償の取得であるため国土利用計画法の届出対象となる「土地売買等の契約」に含まれません（国土利用計画法14条）。有償の売買・交換・地上権設定等が対象です。",
-      "publicPath": "q/practice/p616/index.html"
-    },
-    {
-      "id": 900618,
-      "year": "orig",
-      "num": 618,
-      "field": "rights",
-      "text": "遺言の種類として民法が定める普通方式の遺言に含まれないものはどれか。",
-      "opts": [
-        "自筆証書遺言",
-        "公正証書遺言",
-        "秘密証書遺言",
-        "口頭遺言"
-      ],
-      "ans": 3,
-      "exp": "民法が定める普通方式の遺言は①自筆証書遺言②公正証書遺言③秘密証書遺言の3種類です（民法967条）。口頭遺言という方式はありません。特別方式として危急時遺言等があります。",
-      "publicPath": "q/practice/p618/index.html"
-    },
-    {
-      "id": 900619,
-      "year": "orig",
-      "num": 619,
-      "field": "rights",
-      "text": "遺留分を持つ相続人として正しいものはどれか。",
-      "opts": [
-        "配偶者・子・父母・兄弟姉妹",
-        "配偶者・子・父母（直系尊属）のみ（兄弟姉妹には遺留分なし）",
-        "子のみ",
-        "全ての法定相続人"
-      ],
-      "ans": 1,
-      "exp": "遺留分を持つのは配偶者・子（代襲相続人を含む）・直系尊属です（民法1042条）。兄弟姉妹には遺留分がありません。遺留分の割合は直系尊属のみが相続人の場合は1/3、それ以外は1/2です。",
-      "publicPath": "q/practice/p619/index.html"
-    },
-    {
-      "id": 900623,
-      "year": "orig",
-      "num": 623,
-      "field": "rights",
-      "text": "不法行為による損害賠償請求権の消滅時効として正しいものはどれか。",
-      "opts": [
-        "損害および加害者を知った時から1年",
-        "損害および加害者を知った時から3年（人身損害は5年）",
-        "不法行為時から10年",
-        "損害を知った時から5年"
-      ],
-      "ans": 1,
-      "exp": "不法行為による損害賠償請求権は被害者が損害および加害者を知った時から3年（生命・身体への損害は5年）または不法行為の時から20年で消滅します（民法724条）。",
-      "publicPath": "q/practice/p623/index.html"
-    },
-    {
-      "id": 900624,
-      "year": "orig",
-      "num": 624,
-      "field": "rights",
-      "text": "使用者責任（民法715条）の成立要件として正しいものはどれか。",
-      "opts": [
-        "被用者の行為に故意が必要",
-        "被用者が事業の執行について第三者に損害を与えたこと",
-        "使用者が直接加害行為をしたこと",
-        "使用者・被用者が同一の場所にいたこと"
-      ],
-      "ans": 1,
-      "exp": "使用者責任は被用者（従業員等）が「事業の執行について」第三者に損害を加えた場合に使用者が負う責任です（民法715条）。使用者は選任・監督に相当の注意をしたことを証明すれば免責されます。",
-      "publicPath": "q/practice/p624/index.html"
-    },
-    {
-      "id": 900627,
-      "year": "orig",
-      "num": 627,
-      "field": "rights",
-      "text": "代理行為の効果帰属先として正しいものはどれか。",
-      "opts": [
-        "代理人",
-        "本人（委任者）",
-        "相手方",
-        "代理人と本人が半分ずつ"
-      ],
-      "ans": 1,
-      "exp": "代理人が代理権の範囲内で本人のためにすることを示して（顕名）行った法律行為の効果は直接本人に帰属します（民法99条）。",
-      "publicPath": "q/practice/p627/index.html"
-    },
-    {
-      "id": 900630,
-      "year": "orig",
-      "num": 630,
-      "field": "rights",
-      "text": "売買契約における手付金の種類として「解約手付」の説明として正しいものはどれか。",
-      "opts": [
-        "契約成立の証拠として交付される手付",
-        "違約した場合に没収される手付",
-        "買主は手付を放棄し、売主は手付の倍額を返すことで解除できる手付",
-        "相手方の同意が必要な手付"
-      ],
-      "ans": 2,
-      "exp": "解約手付とは買主は手付を放棄し、売主は手付の倍額を現実に提供することで相手方が履行に着手するまでの間は契約を解除できる手付です（民法557条）。",
-      "publicPath": "q/practice/p630/index.html"
-    },
-    {
-      "id": 900632,
-      "year": "orig",
-      "num": 632,
-      "field": "rights",
-      "text": "賃借人が賃料を支払わない場合の賃貸人の対応として正しいものはどれか。",
-      "opts": [
-        "直ちに鍵を交換して追い出せる",
-        "賃料不払いを理由に解除するには原則として催告が必要で、信頼関係破壊の程度に応じて判断される",
-        "1か月の不払いで即時解除できる",
-        "賃貸借契約は解除できない"
-      ],
-      "ans": 1,
-      "exp": "賃貸借の解除は単なる債務不履行（賃料不払い）があれば即時解除できるのではなく、信頼関係が破壊されるほどの不払いがあって初めて解除できるとするのが判例の立場です（信頼関係破壊の法理）。",
-      "publicPath": "q/practice/p632/index.html"
-    },
-    {
-      "id": 900634,
-      "year": "orig",
-      "num": 634,
-      "field": "rights",
-      "text": "抵当権の被担保債権として認められないものはどれか。",
-      "opts": [
-        "金銭消費貸借契約上の貸金債権",
-        "売買代金債権",
-        "将来生じる債権（根抵当権の場合）",
-        "不法行為に基づく損害賠償債権（抵当権設定時に発生している場合）"
-      ],
-      "ans": 3,
-      "exp": "抵当権の被担保債権は原則として抵当権設定時に特定されている必要があります。不法行為による損害賠償債権は将来発生が不確実であり、設定時点では特定困難なため通常の抵当権の被担保債権としては認められにくいです。",
-      "publicPath": "q/practice/p634/index.html"
-    },
-    {
-      "id": 900636,
-      "year": "orig",
-      "num": 636,
-      "field": "rights",
-      "text": "弁済の充当順序について正しいものはどれか（当事者の合意がない場合）。",
-      "opts": [
-        "元本→利息→費用の順で充当",
-        "費用→利息→元本の順で充当（費用が優先）",
-        "利息→元本→費用",
-        "元本のみに充当"
-      ],
-      "ans": 1,
-      "exp": "弁済の充当は費用→利息→元本の順で行います（民法489条）。費用・利息が残っている場合は元本には充当されないため、債務者は元本が減っていると思っていても利息が蓄積している場合があります。",
-      "publicPath": "q/practice/p636/index.html"
-    },
-    {
-      "id": 900639,
-      "year": "orig",
-      "num": 639,
-      "field": "rights",
-      "text": "取得時効における占有の要件として「自主占有」とは何か。",
-      "opts": [
-        "占有者本人が直接占有していること",
-        "所有の意思をもって占有すること",
-        "占有期間が長いこと",
-        "公示された占有であること"
-      ],
-      "ans": 1,
-      "exp": "自主占有とは所有の意思をもってする占有のことです（民法162条）。賃借人の占有は他主占有（所有の意思なし）であり、取得時効は成立しません。",
-      "publicPath": "q/practice/p639/index.html"
-    },
-    {
-      "id": 900641,
-      "year": "orig",
-      "num": 641,
-      "field": "rights",
-      "text": "不動産の二重譲渡で第一買主Bが登記を備えた場合の効力として正しいものはどれか。",
-      "opts": [
-        "先に契約したCが優先する",
-        "先に登記したBが所有権を取得しCに対抗できる",
-        "売主Aが所有権を保持する",
-        "価格が高い方が優先する"
-      ],
-      "ans": 1,
-      "exp": "不動産の二重譲渡では先に登記を備えた者が所有権を対抗できます（民法177条）。契約の先後ではなく登記の先後で決まります。",
-      "publicPath": "q/practice/p641/index.html"
-    },
-    {
-      "id": 900643,
-      "year": "orig",
-      "num": 643,
-      "field": "rights",
-      "text": "制限行為能力者制度における「被保佐人」について正しいものはどれか。",
-      "opts": [
-        "すべての法律行為を保佐人が代理する",
-        "不動産売買・借財など重要な法律行為について保佐人の同意が必要",
-        "日常的な買い物も保佐人の同意が必要",
-        "被保佐人は完全に行為能力を制限される"
-      ],
-      "ans": 1,
-      "exp": "被保佐人は精神上の障害により判断能力が著しく不十分な者で、不動産の売買・借財・保証等の重要な行為（民法13条1項）について保佐人の同意が必要です。日常的な行為は単独で可能です。",
-      "publicPath": "q/practice/p643/index.html"
-    },
-    {
-      "id": 900645,
-      "year": "orig",
-      "num": 645,
-      "field": "rights",
-      "text": "区分所有建物において「専有部分」として認められる要件として正しいものはどれか。",
-      "opts": [
-        "建物の外壁であれば専有部分になる",
-        "構造上の独立性と利用上の独立性を備えた建物の部分",
-        "廊下・エレベーターも専有部分にできる",
-        "面積が30㎡以上あれば専有部分"
-      ],
-      "ans": 1,
-      "exp": "専有部分とは区分所有権の目的となる建物の部分で、構造上区分されていること（構造上の独立性）と独立して住居・店舗等として利用できること（利用上の独立性）の両方を備えた部分です（区分所有法1条）。",
-      "publicPath": "q/practice/p645/index.html"
-    },
-    {
-      "id": 900647,
-      "year": "orig",
-      "num": 647,
-      "field": "rights",
-      "text": "登記記録の構成として正しいものはどれか。",
-      "opts": [
-        "表題部のみからなる",
-        "表題部（土地・建物の物理的状況）と権利部（甲区・乙区）からなる",
-        "権利部のみからなる",
-        "所有者部と担保部からなる"
-      ],
-      "ans": 1,
-      "exp": "不動産登記記録は表題部（土地・建物の所在・地番・種類・構造・面積等の物理的状況）と権利部（甲区：所有権に関する事項、乙区：所有権以外の権利に関する事項）から構成されます（不動産登記法12条）。",
-      "publicPath": "q/practice/p647/index.html"
-    },
-    {
-      "id": 900649,
-      "year": "orig",
-      "num": 649,
-      "field": "rights",
-      "text": "普通借家権の存続期間の最短として正しいものはどれか。",
-      "opts": [
-        "1年未満は期間の定めのない契約とみなされる",
-        "6か月未満は期間の定めのない契約とみなされる",
-        "3か月未満は無効",
-        "制限なし"
-      ],
-      "ans": 0,
-      "exp": "借地借家法上、期間を1年未満と定めた建物賃貸借は期間の定めのない賃貸借とみなされます（借地借家法29条1項）。",
-      "publicPath": "q/practice/p649/index.html"
-    },
-    {
-      "id": 900651,
-      "year": "orig",
-      "num": 651,
-      "field": "rights",
-      "text": "民法上の境界線付近の建築制限として正しいものはどれか。",
-      "opts": [
-        "境界線から30cm以上離して建築しなければならない",
-        "境界線から50cm以上離して建築しなければならない",
-        "距離制限はない",
-        "1m以上離す必要がある"
-      ],
-      "ans": 1,
-      "exp": "民法237条により境界線から50cm以上離して建物を築造しなければなりません。ただし建築基準法の防火地域内では外壁を境界線に接して設けることができます（建築基準法65条）。",
-      "publicPath": "q/practice/p651/index.html"
-    },
-    {
-      "id": 900653,
-      "year": "orig",
-      "num": 653,
-      "field": "law",
-      "text": "宅建業の免許の種類として正しいものはどれか。",
-      "opts": [
-        "国土交通大臣免許のみ",
-        "都道府県知事免許のみ",
-        "国土交通大臣免許（2都道府県以上に事務所）と都道府県知事免許（1都道府県内のみ）の2種類",
-        "市町村長免許もある"
-      ],
-      "ans": 2,
-      "exp": "宅建業の免許は2以上の都道府県に事務所を設置する場合は国土交通大臣免許、1つの都道府県内にのみ事務所を設置する場合は都道府県知事免許です（宅建業法3条）。",
-      "publicPath": "q/practice/p653/index.html"
-    },
-    {
-      "id": 900655,
-      "year": "orig",
-      "num": 655,
-      "field": "law",
-      "text": "専任の宅建士の設置義務について正しいものはどれか。",
-      "opts": [
-        "全ての従業員が宅建士でなければならない",
-        "事務所では業務に従事する者5名につき1名以上の専任の宅建士が必要",
-        "10名につき1名で足りる",
-        "宅建士は1事務所に1名いれば足りる"
-      ],
-      "ans": 1,
-      "exp": "宅建業者の事務所には業務に従事する者5名につき1名以上の専任の宅建士を置かなければなりません（宅建業法31条の3第1項）。5名未満でも1名以上必要です。",
-      "publicPath": "q/practice/p655/index.html"
-    },
-    {
-      "id": 900657,
-      "year": "orig",
-      "num": 657,
-      "field": "law",
-      "text": "営業保証金として供託できるものとして正しいものはどれか。",
-      "opts": [
-        "現金のみ",
-        "現金または国債証券・地方債証券等の有価証券",
-        "土地や建物",
-        "株式のみ"
-      ],
-      "ans": 1,
-      "exp": "営業保証金は現金または国債証券・地方債証券・政府保証債等の有価証券で供託できます（宅建業法25条3項）。有価証券は額面金額で計算されますが、種類により評価率が異なります。",
-      "publicPath": "q/practice/p657/index.html"
-    },
-    {
-      "id": 900659,
-      "year": "orig",
-      "num": 659,
-      "field": "law",
-      "text": "専任媒介契約の有効期間満了後の更新について正しいものはどれか。",
-      "opts": [
-        "自動更新できる",
-        "依頼者からの申出があった場合のみ更新でき、更新後の期間も3か月以内",
-        "更新は無制限に可能",
-        "一度締結したら解除できない"
-      ],
-      "ans": 1,
-      "exp": "専任媒介契約は依頼者から申出があった場合のみ更新でき、更新後の有効期間も3か月以内です（宅建業法34条の2第4項）。業者側からの自動更新・押しつけ更新は禁止されています。",
-      "publicPath": "q/practice/p659/index.html"
-    },
-    {
-      "id": 900661,
-      "year": "orig",
-      "num": 661,
-      "field": "law",
-      "text": "重要事項説明の時期として正しいものはどれか。",
-      "opts": [
-        "契約締結後速やかに",
-        "契約締結前に行わなければならない",
-        "引渡し前であればいつでもよい",
-        "代金支払い後に行う"
-      ],
-      "ans": 1,
-      "exp": "重要事項説明は必ず契約締結前に行わなければなりません（宅建業法35条）。説明を受けた後に買主・借主が契約締結するか否かを判断できるようにするためです。",
-      "publicPath": "q/practice/p661/index.html"
-    },
-    {
-      "id": 900663,
-      "year": "orig",
-      "num": 663,
-      "field": "law",
-      "text": "37条書面の交付義務者として正しいものはどれか。",
-      "opts": [
-        "売主のみ",
-        "媒介した宅建業者（売主・買主双方に交付）",
-        "買主のみ",
-        "公証人"
-      ],
-      "ans": 1,
-      "exp": "37条書面は宅建業者が当事者の双方（売主・買主、または貸主・借主）に対して遅滞なく交付しなければなりません（宅建業法37条1項）。媒介の場合も宅建業者が作成して交付します。",
-      "publicPath": "q/practice/p663/index.html"
-    },
-    {
-      "id": 900665,
-      "year": "orig",
-      "num": 665,
-      "field": "law",
-      "text": "損害賠償の予定額の制限（宅建業法38条）として正しいものはどれか。",
-      "opts": [
-        "代金の10%以下",
-        "代金の20%以下（違約金と合算）",
-        "代金の30%以下",
-        "制限なし"
-      ],
-      "ans": 1,
-      "exp": "宅建業者が自ら売主の場合、損害賠償額の予定と違約金を合算した金額は代金の20%を超えてはなりません（宅建業法38条）。超過した部分は無効です。",
-      "publicPath": "q/practice/p665/index.html"
-    },
-    {
-      "id": 900667,
-      "year": "orig",
-      "num": 667,
-      "field": "law",
-      "text": "800万円以下の低廉な空家等の売買媒介の場合の報酬特例として正しいものはどれか。",
-      "opts": [
-        "通常の報酬上限と変わらない",
-        "原則の報酬額を超えて30万円（税別）まで報酬を受け取れる場合がある（依頼者への説明と合意が必要）",
-        "制限なく報酬を受け取れる",
-        "報酬は受け取れない"
-      ],
-      "ans": 1,
-      "exp": "宅建業者は売買代金800万円以下の低廉な空家等の売買・交換の媒介をする場合、依頼者への説明と合意を前提に、原則の報酬額を超えて30万円（税別）まで報酬を受け取れる場合があります（宅建業法46条・報酬告示）。",
-      "publicPath": "q/practice/p667/index.html"
-    },
-    {
-      "id": 900669,
-      "year": "orig",
-      "num": 669,
-      "field": "law",
-      "text": "宅建業者に対する指示処分の内容として正しいものはどれか。",
-      "opts": [
-        "免許を取り消す処分",
-        "一定期間の業務停止を命じる処分",
-        "業務の適正な運営または取引の公正を確保するため必要な措置を命じる処分",
-        "罰金を科す処分"
-      ],
-      "ans": 2,
-      "exp": "指示処分は業務の適正な運営または取引の公正を確保するために必要な措置を取るよう命じる行政処分です（宅建業法65条1項）。業務停止・免許取消より軽い処分です。",
-      "publicPath": "q/practice/p669/index.html"
-    },
-    {
-      "id": 900671,
-      "year": "orig",
-      "num": 671,
-      "field": "law",
-      "text": "住宅瑕疵担保責任保険の加入先として正しいものはどれか。",
-      "opts": [
-        "国土交通省",
-        "国土交通大臣が指定した住宅瑕疵担保責任保険法人",
-        "都道府県",
-        "市町村"
-      ],
-      "ans": 1,
-      "exp": "住宅瑕疵担保責任保険は国土交通大臣が指定した保険法人（例：住宅保証機構・JIO等）に加入します（住宅瑕疵担保履行法19条）。",
-      "publicPath": "q/practice/p671/index.html"
-    },
-    {
-      "id": 900673,
-      "year": "orig",
-      "num": 673,
-      "field": "law",
-      "text": "宅建業者が行う広告に関して「おとり広告」とは何か。",
-      "opts": [
-        "実際には存在しない・取引できない物件を広告すること",
-        "価格を安く見せる広告",
-        "写真を加工した広告",
-        "周辺環境を偽った広告"
-      ],
-      "ans": 0,
-      "exp": "おとり広告とは実際には存在しない物件・取引できない物件・既に取引が成立した物件を広告して顧客を集め、別の物件へ誘導する行為です。不当表示として宅建業法・景品表示法で禁止されています。",
-      "publicPath": "q/practice/p673/index.html"
-    },
-    {
-      "id": 900675,
-      "year": "orig",
-      "num": 675,
-      "field": "tax",
-      "text": "売買による所有権移転登記の登録免許税率として正しいものはどれか。",
-      "opts": [
-        "0.4%",
-        "1.0%",
-        "2.0%",
-        "3.0%"
-      ],
-      "ans": 2,
-      "exp": "売買による所有権移転登記の税率は2.0%です（登録免許税法別表1）。一定の住宅要件を満たす場合は軽減税率0.3%が適用されます。",
-      "publicPath": "q/practice/p675/index.html"
-    },
-    {
-      "id": 900677,
-      "year": "orig",
-      "num": 677,
-      "field": "tax",
-      "text": "不動産取得税の課税主体として正しいものはどれか。",
-      "opts": [
-        "国",
-        "市町村",
-        "都道府県",
-        "固定資産評価委員会"
-      ],
-      "ans": 2,
-      "exp": "不動産取得税は都道府県が課す地方税です（地方税法73条の2）。市町村税ではありません。",
-      "publicPath": "q/practice/p677/index.html"
-    },
-    {
-      "id": 900678,
-      "year": "orig",
-      "num": 678,
-      "field": "tax",
-      "text": "固定資産税の課税主体として正しいものはどれか。",
-      "opts": [
-        "国",
-        "都道府県",
-        "市町村（東京23区は都）",
-        "固定資産評価委員会"
-      ],
-      "ans": 2,
-      "exp": "固定資産税は市町村が課す地方税です（地方税法343条）。東京23区内は都が課税します。",
-      "publicPath": "q/practice/p678/index.html"
-    },
-    {
-      "id": 900679,
-      "year": "orig",
-      "num": 679,
-      "field": "tax",
-      "text": "不動産を売却した場合の譲渡所得の課税方式として正しいものはどれか。",
-      "opts": [
-        "他の所得と合算して総合課税される",
-        "分離課税（他の所得と合算しない）",
-        "源泉分離課税",
-        "非課税"
-      ],
-      "ans": 1,
-      "exp": "不動産の譲渡所得は他の所得と合算しない申告分離課税です（租税特別措置法31条）。保有期間5年以下が短期（39%）、5年超が長期（20%）で税率が異なります。",
-      "publicPath": "q/practice/p679/index.html"
-    },
-    {
-      "id": 900680,
-      "year": "orig",
-      "num": 680,
-      "field": "limit",
-      "text": "都市計画区域の指定権者として正しいものはどれか。",
-      "opts": [
-        "市町村長",
-        "都道府県知事（一定の場合は国土交通大臣）",
-        "農業委員会",
-        "国土交通大臣のみ"
-      ],
-      "ans": 1,
-      "exp": "都市計画区域は都道府県が指定します（都市計画法5条1項）。2以上の都府県にわたる場合は国土交通大臣が指定します。",
-      "publicPath": "q/practice/p680/index.html"
-    },
-    {
-      "id": 900681,
-      "year": "orig",
-      "num": 681,
-      "field": "limit",
-      "text": "建築確認が必要な工事として正しいものはどれか。",
-      "opts": [
-        "外壁の塗り替えのみ",
-        "木造2階建て以上または延べ面積500㎡超の建築物の新築",
-        "ブロック塀の設置のみ",
-        "内装工事のみ"
-      ],
-      "ans": 1,
-      "exp": "木造の場合は3階建て以上または延べ面積500㎡超または高さ13m超または軒高9m超の建築物の新築・増改築等に建築確認が必要です（建築基準法6条）。",
-      "publicPath": "q/practice/p681/index.html"
-    },
-    {
-      "id": 900682,
-      "year": "orig",
-      "num": 682,
-      "field": "rights",
-      "text": "成年被後見人が行った法律行為の効力として正しいものはどれか。",
-      "opts": [
-        "取り消すことができる",
-        "当然に無効",
-        "有効",
-        "後見人が追認すれば有効"
-      ],
-      "ans": 0,
-      "exp": "成年被後見人（後見開始の審判を受けた者）が行った法律行為は取り消すことができます（民法9条）。日用品の購入等は例外として有効です。",
-      "publicPath": "q/practice/p682/index.html"
-    },
-    {
-      "id": 900683,
-      "year": "orig",
-      "num": 683,
-      "field": "rights",
-      "text": "代理権の消滅事由として正しいものはどれか。",
-      "opts": [
-        "代理人の転居",
-        "本人の死亡・破産・代理人の死亡・後見開始の審判等",
-        "代理人の結婚",
-        "代理の目的物の価値変動"
-      ],
-      "ans": 1,
-      "exp": "代理権は①本人の死亡②本人の破産③代理人の死亡④代理人の後見開始の審判・破産等により消滅します（民法111条）。任意代理は本人の死亡・破産で消滅しますが、法定代理は本人の破産では消滅しません。",
-      "publicPath": "q/practice/p683/index.html"
-    },
-    {
-      "id": 900684,
-      "year": "orig",
-      "num": 684,
-      "field": "rights",
-      "text": "遺産分割協議の成立要件として正しいものはどれか。",
-      "opts": [
-        "相続人の過半数の同意",
-        "相続人全員の合意",
-        "家庭裁判所の許可",
-        "公証人の認証"
-      ],
-      "ans": 1,
-      "exp": "遺産分割協議は共同相続人全員が参加し全員の合意によって成立します（民法907条）。一人でも欠けた協議は無効となります。",
-      "publicPath": "q/practice/p684/index.html"
-    },
-    {
-      "id": 900685,
-      "year": "orig",
-      "num": 685,
-      "field": "rights",
-      "text": "不法行為の一般的成立要件として不要なものはどれか。",
-      "opts": [
-        "故意または過失",
-        "権利・法律上保護される利益の侵害",
-        "損害の発生",
-        "契約関係の存在"
-      ],
-      "ans": 3,
-      "exp": "不法行為の成立には①故意または過失②権利・法益の侵害③損害の発生④因果関係が必要です（民法709条）。契約関係は不要であり、見知らぬ相手に対する不法行為も成立します。",
-      "publicPath": "q/practice/p685/index.html"
-    },
-    {
-      "id": 900686,
-      "year": "orig",
-      "num": 686,
-      "field": "rights",
-      "text": "質権と抵当権の最大の違いとして正しいものはどれか。",
-      "opts": [
-        "質権は不動産にのみ設定できる",
-        "質権は目的物を占有する担保、抵当権は占有しない担保",
-        "抵当権は動産に設定できる",
-        "両者に違いはない"
-      ],
-      "ans": 1,
-      "exp": "質権は目的物を債権者（質権者）が占有する占有担保物権、抵当権は目的物を設定者が引き続き使用・収益できる非占有担保物権です（民法342条・369条）。",
-      "publicPath": "q/practice/p686/index.html"
-    },
-    {
-      "id": 900687,
-      "year": "orig",
-      "num": 687,
-      "field": "rights",
-      "text": "保証債務の付従性として正しいものはどれか。",
-      "opts": [
-        "主債務が消滅しても保証債務は残る",
-        "主債務が消滅すれば保証債務も消滅する",
-        "保証債務は主債務と独立して存在する",
-        "保証人は主債務者よりも重い責任を負う"
-      ],
-      "ans": 1,
-      "exp": "保証債務は主たる債務を担保するものであり、主債務に付従します（付従性・民法448条）。主債務が弁済等で消滅すれば保証債務も消滅します。また保証人の負担は主債務より重くなりません。",
-      "publicPath": "q/practice/p687/index.html"
-    },
-    {
-      "id": 900688,
-      "year": "orig",
-      "num": 688,
-      "field": "rights",
-      "text": "売買の目的物に契約不適合があった場合の買主の権利として認められないものはどれか。",
-      "opts": [
-        "追完請求（修補・代替品請求）",
-        "代金減額請求",
-        "解除",
-        "取消し（詐欺や錯誤がない場合でも当然に）"
-      ],
-      "ans": 3,
-      "exp": "契約不適合責任に基づく買主の権利は①追完請求②代金減額請求③解除④損害賠償請求です（民法562条〜564条）。詐欺や錯誤がない限り「取消し」という手段はありません。",
-      "publicPath": "q/practice/p688/index.html"
-    },
-    {
-      "id": 900689,
-      "year": "orig",
-      "num": 689,
-      "field": "rights",
-      "text": "建物の賃貸借が終了した場合の原状回復義務について正しいものはどれか。",
-      "opts": [
-        "賃借人は通常損耗（自然損耗）も修繕しなければならない",
-        "通常の使用による損耗・経年劣化は原状回復の対象外で、賃借人の故意・過失による損傷が対象",
-        "全ての修繕費用は賃貸人負担",
-        "賃借人は何も修繕しなくてよい"
-      ],
-      "ans": 1,
-      "exp": "原状回復は賃借人が通常の使用を超えて発生させた損傷を回復することです（国土交通省ガイドライン・民法621条）。通常損耗（自然損耗・経年劣化）は賃貸人負担が原則で、賃借人の責任は故意・過失等による損傷に限られます。",
-      "publicPath": "q/practice/p689/index.html"
-    },
-    {
-      "id": 900690,
-      "year": "orig",
-      "num": 690,
-      "field": "rights",
-      "text": "消滅時効における「権利を行使することができる時」（客観的起算点）の例として正しいものはどれか。",
-      "opts": [
-        "債権者が債権の存在を知った時",
-        "弁済期（履行期）が到来した時",
-        "契約締結時",
-        "登記をした時"
-      ],
-      "ans": 1,
-      "exp": "消滅時効の客観的起算点は「権利を行使することができる時」（民法166条1項2号）で、弁済期が定められている債権は弁済期到来時が起算点です。主観的起算点（知った時から5年）との短い方で時効が完成します。",
-      "publicPath": "q/practice/p690/index.html"
-    },
-    {
-      "id": 900691,
-      "year": "orig",
-      "num": 691,
-      "field": "rights",
-      "text": "登記の申請に必要な「登記原因証明情報」として正しいものはどれか。",
-      "opts": [
-        "戸籍謄本",
-        "売買契約書等、登記原因となった法律行為・事実を証する情報",
-        "固定資産税評価証明書",
-        "住民票"
-      ],
-      "ans": 1,
-      "exp": "登記原因証明情報とは登記の原因となった法律行為・事実を証する情報です（不動産登記法61条）。売買の場合は売買契約書、相続の場合は遺産分割協議書・戸籍謄本等が該当します。",
-      "publicPath": "q/practice/p691/index.html"
-    },
-    {
-      "id": 900692,
-      "year": "orig",
-      "num": 692,
-      "field": "rights",
-      "text": "集会の決議が成立するための定足数について正しいものはどれか。",
-      "opts": [
-        "区分所有者全員が出席しなければならない",
-        "議決権の過半数を有する区分所有者の出席（または議決権行使書・代理人）で成立（規約で別段の定め可）",
-        "出席者数にかかわらず成立する",
-        "3分の2以上の出席が必要"
-      ],
-      "ans": 1,
-      "exp": "区分所有法上、集会の議事は区分所有者の議決権の過半数で決します（区分所有法39条1項）。出席者数の定足数規定はありませんが、規約で定めることができます。議決権行使書・代理人による行使も認められます。",
-      "publicPath": "q/practice/p692/index.html"
-    },
-    {
-      "id": 900693,
-      "year": "orig",
-      "num": 693,
-      "field": "rights",
-      "text": "建物の表題登記の申請義務について正しいものはどれか。",
-      "opts": [
-        "任意で申請しなくてよい",
-        "新築建物の所有者は取得から1か月以内に表題登記を申請しなければならない",
-        "6か月以内でよい",
-        "登記は売買時にのみ行えばよい"
-      ],
-      "ans": 1,
-      "exp": "新築建物の所有者は建物の取得から1か月以内に表題登記を申請する義務があります（不動産登記法47条）。正当な理由なく怠った場合は10万円以下の過料が科されます。",
-      "publicPath": "q/practice/p693/index.html"
-    },
-    {
-      "id": 900694,
-      "year": "orig",
-      "num": 694,
-      "field": "rights",
-      "text": "借地権の存続期間満了時に建物がある場合の取扱いとして正しいものはどれか（普通借地権）。",
-      "opts": [
-        "借地人は直ちに建物を収去して土地を返還しなければならない",
-        "借地人は契約の更新を請求でき、建物がある場合は法定更新が認められる",
-        "建物は地主の所有となる",
-        "借地権は自動的に消滅する"
-      ],
-      "ans": 1,
-      "exp": "普通借地権は期間満了時に借地人が契約の更新を請求した場合、または建物があって借地人が土地を使用継続した場合は法定更新されます（借地借家法5条）。地主が更新拒絶するには正当事由が必要です。",
-      "publicPath": "q/practice/p694/index.html"
-    },
-    {
-      "id": 900695,
-      "year": "orig",
-      "num": 695,
-      "field": "rights",
-      "text": "公道に至るための他の土地の通行権（囲繞地通行権）について正しいものはどれか。",
-      "opts": [
-        "他の土地の所有者は通行を拒否できる",
-        "公道に至るため他の土地を囲まれている土地の所有者は囲繞地を通行できる（償金が必要な場合あり）",
-        "通行権は無償で無制限に認められる",
-        "建物がある場合のみ認められる"
-      ],
-      "ans": 1,
-      "exp": "囲繞地通行権（民法210条）は公道に至るため他の土地に囲まれた土地の所有者に認められる法定の通行権です。通行の場所・方法は必要最小限で、囲繞地所有者には原則として償金を支払う義務があります（民法212条）。",
-      "publicPath": "q/practice/p695/index.html"
-    },
-    {
-      "id": 900696,
-      "year": "orig",
-      "num": 696,
-      "field": "law",
-      "text": "宅建業の免許申請から免許の効力発生までの流れとして正しいものはどれか。",
-      "opts": [
-        "申請と同時に効力が生じる",
-        "申請→審査→免許通知→営業保証金の供託→業務開始の順で行う",
-        "免許取得後すぐに業務開始できる",
-        "保証協会加入後に申請する"
-      ],
-      "ans": 1,
-      "exp": "宅建業の免許を取得後、業務を開始するには主たる事務所の最寄りの供託所に営業保証金を供託し、その旨を免許権者に届け出る必要があります（宅建業法25条）。保証協会に加入する場合は分担金納付後に届け出ます。",
-      "publicPath": "q/practice/p696/index.html"
-    },
-    {
-      "id": 900697,
-      "year": "orig",
-      "num": 697,
-      "field": "law",
-      "text": "宅建士登録の移転について正しいものはどれか。",
-      "opts": [
-        "宅建士登録は全国共通で移転不要",
-        "勤務先の宅建業者の事務所が他の都道府県に変わった場合、登録の移転申請ができる（義務ではない）",
-        "転居したら必ず登録移転が必要",
-        "登録移転は禁止されている"
-      ],
-      "ans": 1,
-      "exp": "宅建士は勤務先等の変更により他の都道府県に変わった場合に登録の移転申請ができます（宅建業法19条の2）。これは義務ではなく任意です。登録移転すると宅建士証の有効期間も引き継がれます（残期間のみ）。",
-      "publicPath": "q/practice/p697/index.html"
-    },
-    {
-      "id": 900698,
-      "year": "orig",
-      "num": 698,
-      "field": "law",
-      "text": "営業保証金の額（従たる事務所1か所あたり）として正しいものはどれか。",
-      "opts": [
-        "100万円",
-        "300万円",
-        "500万円",
-        "1000万円"
-      ],
-      "ans": 2,
-      "exp": "営業保証金は主たる事務所1000万円、従たる事務所1か所につき500万円です（宅建業法25条2項）。保証協会加入の場合の分担金は主たる事務所60万円・従たる事務所30万円と大幅に少額です。",
-      "publicPath": "q/practice/p698/index.html"
-    },
-    {
-      "id": 900699,
-      "year": "orig",
-      "num": 699,
-      "field": "law",
-      "text": "媒介契約書面への記名義務者として正しいものはどれか。",
-      "opts": [
-        "宅建士のみが記名する",
-        "宅建業者（法人の場合は代表者等）が記名する",
-        "媒介契約書への記名義務はない",
-        "依頼者と宅建業者の双方が記名する"
-      ],
-      "ans": 1,
-      "exp": "媒介契約書（34条の2の書面）は宅建業者が記名して交付します（宅建業法34条の2第1項）。2021年改正で押印は廃止され記名のみとなりました。重要事項説明書・37条書面は宅建士の記名が必要です。",
-      "publicPath": "q/practice/p699/index.html"
-    },
-    {
-      "id": 900700,
-      "year": "orig",
-      "num": 700,
-      "field": "law",
-      "text": "重要事項説明書（35条書面）への記名義務者として正しいものはどれか。",
-      "opts": [
-        "宅建業者（会社の代表者）",
-        "宅建士（説明した宅建士）",
-        "依頼者",
-        "公証人"
-      ],
-      "ans": 1,
-      "exp": "重要事項説明書には説明を行った宅建士が記名しなければなりません（宅建業法35条5項）。2021年改正で押印が廃止され記名のみとなりました。",
-      "publicPath": "q/practice/p700/index.html"
-    },
-    {
-      "id": 900707,
-      "year": "orig",
-      "num": 707,
-      "field": "rights",
-      "text": "借地権者が地主の承諾なしに建物を増改築した場合の効果として正しいものはどれか。",
-      "opts": [
-        "契約違反であるが解除はできない",
-        "契約に増改築禁止特約があれば解除の原因となりうる",
-        "増改築は常に自由にできる",
-        "地主の事後承諾があれば遡及的に有効になる"
-      ],
-      "ans": 1,
-      "exp": "借地契約に増改築禁止特約がある場合、無断増改築は契約違反となり解除の原因となります。ただし解除には信頼関係破壊の程度が必要です。",
-      "publicPath": "q/practice/p707/index.html"
-    },
-    {
-      "id": 900713,
-      "year": "orig",
-      "num": 713,
-      "field": "rights",
-      "text": "竹木の枝・根の越境について正しいものはどれか（2021年改正後）。",
-      "opts": [
-        "隣地の竹木の枝・根はいつでも自由に切除できる",
-        "根は自己の費用で切除できるが枝は原則として竹木の所有者に切除を請求する必要がある",
-        "枝も根も自由に切除できる",
-        "越境した場合は損害賠償のみ"
-      ],
-      "ans": 1,
-      "exp": "2021年民法改正で竹木越境ルールが明確化されました（民法233条）。根は自ら切除できますが、枝は原則として所有者に切除を請求します。ただし所有者が不明・催告後相当期間経過・急迫の事情がある場合は自ら切除できます。",
-      "publicPath": "q/practice/p713/index.html"
-    },
-    {
-      "id": 900750,
-      "year": "orig",
-      "num": 750,
-      "field": "rights",
-      "text": "被保佐人が不動産を売却する場合に必要なものとして正しいものはどれか。",
-      "opts": [
-        "後見人の同意",
-        "保佐人の同意",
-        "成年後見人の同意",
-        "家庭裁判所の許可のみ"
-      ],
-      "ans": 1,
-      "exp": "被保佐人は民法13条1項に列挙された重要な法律行為（不動産売買・借財等）をするには保佐人の同意が必要です（民法13条1項3号）。保佐人の同意を得ずにした行為は取り消すことができます。",
-      "publicPath": "q/practice/p750/index.html"
-    },
-    {
-      "id": 900751,
-      "year": "orig",
-      "num": 751,
-      "field": "rights",
-      "text": "代理人が本人のためにすることを示さずに行った法律行為の効力として正しいものはどれか。",
-      "opts": [
-        "無効",
-        "代理行為としての効果は本人に帰属しないが代理人が相手方との関係で義務を負う",
-        "常に本人に効果が帰属する",
-        "相手方の同意があれば本人に帰属する"
-      ],
-      "ans": 1,
-      "exp": "代理人が顕名せずに行った行為は原則として本人に効果が帰属しません（民法100条）。ただし相手方が代理人であることを知りまたは知ることができた場合は本人に帰属します。",
-      "publicPath": "q/practice/p751/index.html"
-    },
-    {
-      "id": 900752,
-      "year": "orig",
-      "num": 752,
-      "field": "rights",
-      "text": "先取特権について正しいものはどれか。",
-      "opts": [
-        "当事者の契約により発生する担保物権",
-        "法律の規定により当然に生じる法定担保物権",
-        "登記しなければ効力がない",
-        "不動産にのみ成立する"
-      ],
-      "ans": 1,
-      "exp": "先取特権は法律の規定により当然に成立する法定担保物権です（民法303条）。一般の先取特権・動産先取特権・不動産先取特権の3種があります。",
-      "publicPath": "q/practice/p752/index.html"
-    },
-    {
-      "id": 900753,
-      "year": "orig",
-      "num": 753,
-      "field": "rights",
-      "text": "履行不能が生じた場合の損害賠償について正しいものはどれか。",
-      "opts": [
-        "履行不能の場合は損害賠償を請求できない",
-        "債務者の責めに帰すべき事由による履行不能の場合は損害賠償を請求できる",
-        "履行不能は常に損害賠償義務を生じさせる",
-        "不可抗力でも損害賠償できる"
-      ],
-      "ans": 1,
-      "exp": "債務不履行による損害賠償（民法415条）は債務者の責めに帰すべき事由（帰責事由）がある場合に請求できます。2020年改正民法では帰責事由がない場合（不可抗力等）は損害賠償責任を負わないと明確化されました。",
-      "publicPath": "q/practice/p753/index.html"
-    },
-    {
-      "id": 900754,
-      "year": "orig",
-      "num": 754,
-      "field": "rights",
-      "text": "失火責任法（失火ノ責任ニ関スル法律）について正しいものはどれか。",
-      "opts": [
-        "火事を起こした者は無過失責任を負う",
-        "失火者の責任は重大な過失がある場合に限られる",
-        "失火責任法はない",
-        "延焼しても責任はない"
-      ],
-      "ans": 1,
-      "exp": "失火責任法により、失火（過失による火事）の場合は失火者に重大な過失がある場合にのみ損害賠償責任が生じます。一般の過失だけでは責任を負いません（軽過失は免責）。",
-      "publicPath": "q/practice/p754/index.html"
-    },
-    {
-      "id": 900755,
-      "year": "orig",
-      "num": 755,
-      "field": "rights",
-      "text": "定期建物賃貸借（定期借家）の契約方法として正しいものはどれか。",
-      "opts": [
-        "口頭で締結できる",
-        "書面によること・更新がない旨を書面で事前に告知することが必要",
-        "公正証書でなければならない",
-        "通常の賃貸借と同様の手続きでよい"
-      ],
-      "ans": 1,
-      "exp": "定期建物賃貸借は書面（または電磁的記録）によって締結し（借地借家法38条1項）、さらに契約締結前に更新がない旨等を書面で賃借人に説明する手続きが必要です（同条3項）。",
-      "publicPath": "q/practice/p755/index.html"
-    },
-    {
-      "id": 900756,
-      "year": "orig",
-      "num": 756,
-      "field": "rights",
-      "text": "区分所有建物の敷地に関して正しいものはどれか。",
-      "opts": [
-        "敷地は区分所有者全員が単独で所有する",
-        "専有部分を持つ区分所有者は建物の敷地について利用権（敷地利用権）を持つ",
-        "敷地は管理会社が所有する",
-        "敷地の持分は変更できない"
-      ],
-      "ans": 1,
-      "exp": "区分所有者は専有部分と切り離せない形で建物の敷地についての利用権（敷地利用権）を有します（区分所有法22条）。この敷地利用権と専有部分は原則として分離して処分できません。",
-      "publicPath": "q/practice/p756/index.html"
-    },
-    {
-      "id": 900760,
-      "year": "orig",
-      "num": 760,
-      "field": "limit",
-      "text": "建築物の用途変更において確認申請が必要な場合として正しいものはどれか。",
-      "opts": [
-        "用途変更は常に確認申請が必要",
-        "特殊建築物の用途に変更する場合で床面積200㎡超の場合は確認申請が必要",
-        "用途変更には確認申請は不要",
-        "200㎡以下の変更は全て不要"
-      ],
-      "ans": 1,
-      "exp": "用途変更により特殊建築物（学校・病院・劇場・ホテル等）となる場合で床面積200㎡を超えるものは建築確認が必要です（建築基準法87条）。200㎡以下の用途変更は確認申請不要です。",
-      "publicPath": "q/practice/p760/index.html"
-    },
-    {
-      "id": 900761,
-      "year": "orig",
-      "num": 761,
-      "field": "rights",
-      "text": "不特定物（種類物）の売買で引渡し前に滅失した場合について正しいものはどれか。",
-      "opts": [
-        "買主は代金を支払わなくてよい",
-        "特定されるまでは売主がリスクを負担し同等の物を調達して引き渡す義務がある",
-        "リスクは買主が常に負担する",
-        "特定物と同様に扱われる"
-      ],
-      "ans": 1,
-      "exp": "不特定物の売買は「特定」が生じるまでは売主が調達義務を負い滅失のリスクも売主が負います（民法401条2項）。特定後は特定物と同様に扱われます。",
-      "publicPath": "q/practice/p761/index.html"
-    },
-    {
-      "id": 900762,
-      "year": "orig",
-      "num": 762,
-      "field": "rights",
-      "text": "時効の利益を放棄できる時期として正しいものはどれか。",
-      "opts": [
-        "時効が完成する前であればいつでも放棄できる",
-        "時効の利益の放棄は時効完成後に限られる",
-        "放棄はいつでもできる",
-        "時効の放棄は禁止されている"
-      ],
-      "ans": 1,
-      "exp": "時効の利益は時効完成後でなければ放棄できません（民法146条）。時効完成前の予め放棄する特約は時効制度の趣旨を没却するため無効とされています。",
-      "publicPath": "q/practice/p762/index.html"
-    },
-    {
-      "id": 900763,
-      "year": "orig",
-      "num": 763,
-      "field": "rights",
-      "text": "物権の「排他性」について正しいものはどれか。",
-      "opts": [
-        "同一物件に同一内容の物権が2つ以上成立できる",
-        "一つの物件の上に同一内容の物権は1つしか存在できない（一物一権主義）",
-        "物権は他人と共有できる",
-        "物権の排他性とは第三者への対抗力を意味する"
-      ],
-      "ans": 1,
-      "exp": "物権には排他性があり同一の物の上に同一内容の物権は1つしか成立できません（一物一権主義）。例えば所有権は1つの物に1つしか成立せず二重の所有権は認められません。",
-      "publicPath": "q/practice/p763/index.html"
-    },
-    {
-      "id": 900764,
-      "year": "orig",
-      "num": 764,
-      "field": "law",
-      "text": "手付金等の保全措置が必要な「完成物件」の基準として正しいものはどれか。",
-      "opts": [
-        "手付金等が代金の5%超または1000万円超",
-        "手付金等が代金の10%超または1000万円超",
-        "手付金等が代金の20%超",
-        "手付金等が500万円超"
-      ],
-      "ans": 1,
-      "exp": "完成物件の手付金等の保全措置は手付金等が代金の10%を超えるまたは1000万円を超える場合に必要です（宅建業法41条の2第1項）。未完成物件は5%超または1000万円超が基準です。",
-      "publicPath": "q/practice/p764/index.html"
-    },
-    {
-      "id": 900765,
-      "year": "orig",
-      "num": 765,
-      "field": "law",
-      "text": "宅建業者が分譲マンションの広告をする際に必ず表示しなければならない事項として正しいものはどれか。",
-      "opts": [
-        "分譲業者代表者の顔写真",
-        "取引態様・所在地・交通・用途地域・面積・価格等の物件情報",
-        "近隣の飲食店情報",
-        "建設会社の名称"
-      ],
-      "ans": 1,
-      "exp": "宅建業者が宅地建物の広告をする際には公正競争規約に基づき取引態様・所在地・交通・価格・面積・用途地域等の必要的表示事項を記載しなければなりません。",
-      "publicPath": "q/practice/p765/index.html"
-    },
-    {
-      "id": 900766,
-      "year": "orig",
-      "num": 766,
-      "field": "tax",
-      "text": "固定資産税と都市計画税の賦課対象として正しいものはどれか。",
-      "opts": [
-        "固定資産税は土地のみ課税",
-        "固定資産税は土地・家屋・償却資産に課税、都市計画税は市街化区域内の土地・家屋に課税",
-        "都市計画税は全国一律に課税",
-        "償却資産には都市計画税が課税される"
-      ],
-      "ans": 1,
-      "exp": "固定資産税は土地・家屋・事業用の償却資産に課税されます（地方税法341条）。都市計画税は市街化区域内の土地・家屋を対象とし（地方税法702条）、償却資産には課税されません。",
-      "publicPath": "q/practice/p766/index.html"
-    },
-    {
-      "id": 900767,
-      "year": "orig",
-      "num": 767,
-      "field": "tax",
-      "text": "長期譲渡所得と短期譲渡所得の区別の基準として正しいものはどれか。",
-      "opts": [
-        "所有期間が3年超か以下か",
-        "譲渡した年の1月1日現在の所有期間が5年超か5年以下か",
-        "取得日から5年",
-        "購入時の価格で判断"
-      ],
-      "ans": 1,
-      "exp": "不動産の譲渡所得は譲渡した年の1月1日現在の所有期間が5年を超えるものを「長期譲渡所得」（税率20%）、5年以下のものを「短期譲渡所得」（税率39%）として税率が異なります（租税特別措置法31条・32条）。",
-      "publicPath": "q/practice/p767/index.html"
-    },
-    {
-      "id": 900770,
-      "year": "orig",
-      "num": 770,
-      "field": "limit",
-      "text": "「用途地域」の決定権者として正しいものはどれか。",
-      "opts": [
-        "市町村（都市計画として決定）",
-        "都道府県知事",
-        "国土交通大臣",
-        "農業委員会"
-      ],
-      "ans": 0,
-      "exp": "用途地域は市町村が都市計画として定めます（都市計画法8条・15条）。ただし指定都市以外の市町村は都道府県知事の承認を要する場合があります。",
-      "publicPath": "q/practice/p770/index.html"
-    },
-    {
-      "id": 900772,
-      "year": "orig",
-      "num": 772,
-      "field": "tax",
-      "text": "建物の賃貸借契約書の印紙税の課税について正しいものはどれか。",
-      "opts": [
-        "非課税（建物賃貸借は印紙税非課税）",
-        "第1号文書として課税対象",
-        "第2号文書として課税対象",
-        "印紙税額は賃料の0.1%"
-      ],
-      "ans": 0,
-      "exp": "建物の賃貸借契約書は印紙税の課税文書に該当せず非課税です。土地の賃貸借契約書（地上権・賃借権の設定）は第1号の2文書として課税されます（印紙税法別表第一）。",
-      "publicPath": "q/practice/p772/index.html"
-    },
-    {
-      "id": 900780,
-      "year": "orig",
-      "num": 780,
-      "field": "limit",
-      "text": "土地区画整理組合の設立について正しいものはどれか。",
-      "opts": [
-        "1人でも設立できる",
-        "施行地区内の宅地の所有者・借地権者が7名以上の同意で組合設立の認可申請ができる",
-        "都道府県の申請のみで設立できる",
-        "法人のみ設立できる"
-      ],
-      "ans": 1,
-      "exp": "土地区画整理組合は施行地区内の宅地の所有者または借地権者が7名以上で組合設立の認可申請ができます（土地区画整理法14条1項）。認可後は施行地区内の全地権者が組合員となります（強制加入）。",
-      "publicPath": "q/practice/p780/index.html"
-    },
-    {
-      "id": 900787,
-      "year": "orig",
-      "num": 787,
-      "field": "rights",
-      "text": "法人の不動産登記申請における「代表者事項証明書」について正しいものはどれか。",
-      "opts": [
-        "不要",
-        "法人が当事者となる登記申請には代表者の資格を証する情報（代表者事項証明書等）が必要",
-        "戸籍謄本が必要",
-        "法人は個人と同様の書類でよい"
-      ],
-      "ans": 1,
-      "exp": "法人が登記の申請人となる場合、代表者の資格を証する情報（代表者事項証明書・登記事項証明書等）の提出が必要です（不動産登記令7条1項1号）。",
-      "publicPath": "q/practice/p787/index.html"
-    },
-    {
-      "id": 900795,
-      "year": "orig",
-      "num": 795,
-      "field": "law",
-      "text": "宅建業の免許の有効期間として正しいものはどれか。",
-      "opts": [
-        "3年",
-        "5年",
-        "10年",
-        "更新不要"
-      ],
-      "ans": 1,
-      "exp": "宅建業の免許の有効期間は5年です（宅建業法3条2項）。有効期間満了の90日前から30日前までの間に更新申請をする必要があります。",
-      "publicPath": "q/practice/p795/index.html"
-    }
-  ],
-  "2": [
-    {
-      "id": 900168,
-      "year": "orig",
-      "num": 168,
+      "num": 10168,
       "field": "rights",
       "text": "AがBの代理人と称して代理権なくCと売買契約を結んだ。Cが善意かつ無過失の場合に成立しうる法律構成はどれか。",
       "opts": [
@@ -4848,14 +2686,14 @@ const PRACTICE_QUESTIONS = {
         "表見代理が成立しBが責任を負う可能性がある",
         "Cは必ずAに対して損害賠償を請求しなければならない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "代理権がなくても「代理権があると信じさせるような外観」があり、Cが善意かつ無過失であれば表見代理が成立し本人Bが責任を負います（民法109条・110条・112条）。",
-      "publicPath": "q/practice/p168/index.html"
+      "publicPath": "q/practice/p10168/index.html"
     },
     {
-      "id": 900169,
+      "id": 910169,
       "year": "orig",
-      "num": 169,
+      "num": 10169,
       "field": "rights",
       "text": "消滅時効完成後にBが「払います」と承認した場合、Bはその後時効を援用できるか。",
       "opts": [
@@ -4864,14 +2702,14 @@ const PRACTICE_QUESTIONS = {
         "援用できる。援用は相手方への意思表示が必要なため",
         "裁判所が判断する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "時効完成後に債務を承認した債務者は信義則上時効の援用が許されないとするのが判例です。たとえ時効が完成していても承認後は時効を使えなくなります。",
-      "publicPath": "q/practice/p169/index.html"
+      "publicPath": "q/practice/p10169/index.html"
     },
     {
-      "id": 900170,
+      "id": 910170,
       "year": "orig",
-      "num": 170,
+      "num": 10170,
       "field": "rights",
       "text": "時効完成後に所有者Bから土地を購入して登記したCに対し、取得時効完成者Aはどう対抗できるか。",
       "opts": [
@@ -4880,14 +2718,14 @@ const PRACTICE_QUESTIONS = {
         "Aは時効を再起算して再び20年占有すれば対抗できる",
         "Cが悪意ならAが常に勝つ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "時効完成後に第三者Cが登記した場合、AはCに時効取得を対抗できません（判例）。時効完成後は対抗問題となり登記の先後で決まります。",
-      "publicPath": "q/practice/p170/index.html"
+      "publicPath": "q/practice/p10170/index.html"
     },
     {
-      "id": 900171,
+      "id": 910171,
       "year": "orig",
-      "num": 171,
+      "num": 10171,
       "field": "rights",
       "text": "法定地上権の成立要件として誤っているものはどれか。",
       "opts": [
@@ -4896,14 +2734,14 @@ const PRACTICE_QUESTIONS = {
         "土地または建物の一方または双方に抵当権が設定",
         "競売後も土地と建物の所有者が同一"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "法定地上権が成立するには「競売によって土地と建物の所有者が異なる者になること」が要件です（民法388条）。同一所有者のままでは法定地上権は発生しません。",
-      "publicPath": "q/practice/p171/index.html"
+      "publicPath": "q/practice/p10171/index.html"
     },
     {
-      "id": 900172,
+      "id": 910172,
       "year": "orig",
-      "num": 172,
+      "num": 10172,
       "field": "law",
       "text": "自ら売主の宅建業者が手付金等の保全措置が必要な場合（未完成物件）として正しいものはどれか。",
       "opts": [
@@ -4912,14 +2750,14 @@ const PRACTICE_QUESTIONS = {
         "代金の5%超かつ1000万円超",
         "代金の10%超"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "未完成物件の場合、手付金等が「代金の5%超」または「1000万円超」のいずれかに該当する場合に保全措置が必要です（宅建業法41条）。完成物件は10%超または1000万円超が基準です。",
-      "publicPath": "q/practice/p172/index.html"
+      "publicPath": "q/practice/p10172/index.html"
     },
     {
-      "id": 900173,
+      "id": 910173,
       "year": "orig",
-      "num": 173,
+      "num": 10173,
       "field": "law",
       "text": "専任媒介契約を締結した宅建業者のレインズ登録義務として正しいものはどれか。",
       "opts": [
@@ -4928,14 +2766,14 @@ const PRACTICE_QUESTIONS = {
         "契約後14日以内",
         "登録義務なし"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専任媒介契約の場合、契約締結後7日以内にレインズへ登録しなければなりません（宅建業法34条の2第5項）。専属専任は5日以内、一般媒介は登録義務なしです。",
-      "publicPath": "q/practice/p173/index.html"
+      "publicPath": "q/practice/p10173/index.html"
     },
     {
-      "id": 900174,
+      "id": 910174,
       "year": "orig",
-      "num": 174,
+      "num": 10174,
       "field": "law",
       "text": "重要事項説明書を電磁的方法で交付できる要件として正しいものはどれか。",
       "opts": [
@@ -4944,14 +2782,14 @@ const PRACTICE_QUESTIONS = {
         "宅建士証の電子版提示が条件",
         "国土交通省の認可が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "重要事項説明書の電子交付は「相手方の承諾」がある場合に認められます（宅建業法35条8項）。相手方の承諾なく一方的に電子交付することはできません。",
-      "publicPath": "q/practice/p174/index.html"
+      "publicPath": "q/practice/p10174/index.html"
     },
     {
-      "id": 900175,
+      "id": 910175,
       "year": "orig",
-      "num": 175,
+      "num": 10175,
       "field": "limit",
       "text": "市街化調整区域で開発許可が不要な場合として正しいものはどれか。",
       "opts": [
@@ -4962,12 +2800,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "市街化調整区域においても、農林漁業者が農林漁業用の建物（農業用倉庫・農家住宅等）を建てる場合は開発許可が不要です（都市計画法29条1項2号）。",
-      "publicPath": "q/practice/p175/index.html"
+      "publicPath": "q/practice/p10175/index.html"
     },
     {
-      "id": 900176,
+      "id": 910176,
       "year": "orig",
-      "num": 176,
+      "num": 10176,
       "field": "limit",
       "text": "換地処分の公告があった翌日から生じる効果として正しいものはどれか。",
       "opts": [
@@ -4976,14 +2814,14 @@ const PRACTICE_QUESTIONS = {
         "従前の土地の所有権が消滅する",
         "借地権者の権利がすべて消滅する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "換地処分の公告があった翌日から、換地は従前の土地とみなされ清算金も確定します（土地区画整理法104条）。",
-      "publicPath": "q/practice/p176/index.html"
+      "publicPath": "q/practice/p10176/index.html"
     },
     {
-      "id": 900177,
+      "id": 910177,
       "year": "orig",
-      "num": 177,
+      "num": 10177,
       "field": "tax",
       "text": "居住用財産の3000万円特別控除が適用されない場合はどれか。",
       "opts": [
@@ -4992,14 +2830,14 @@ const PRACTICE_QUESTIONS = {
         "配偶者への売却",
         "前年に同特例を使っていない場合の売却"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "3000万円特別控除は配偶者・直系血族など特別の関係にある者への売却には適用されません（租税特別措置法35条2項）。",
-      "publicPath": "q/practice/p177/index.html"
+      "publicPath": "q/practice/p10177/index.html"
     },
     {
-      "id": 900178,
+      "id": 910178,
       "year": "orig",
-      "num": 178,
+      "num": 10178,
       "field": "rights",
       "text": "保証人CはBの相殺権を援用できるかについて正しいものはどれか。",
       "opts": [
@@ -5008,14 +2846,14 @@ const PRACTICE_QUESTIONS = {
         "Cには相殺権援用は認められない",
         "連帯保証人のみに認められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証人は主債務者が債権者に対して有する相殺権を援用することができます（民法457条3項）。",
-      "publicPath": "q/practice/p178/index.html"
+      "publicPath": "q/practice/p10178/index.html"
     },
     {
-      "id": 900179,
+      "id": 910179,
       "year": "orig",
-      "num": 179,
+      "num": 10179,
       "field": "law",
       "text": "自ら売主の宅建業者が受け取れる手付金の上限として正しいものはどれか。",
       "opts": [
@@ -5024,14 +2862,14 @@ const PRACTICE_QUESTIONS = {
         "代金の20%",
         "上限なし"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業者が自ら売主の場合、手付金の額は代金の20%が上限です（宅建業法39条）。",
-      "publicPath": "q/practice/p179/index.html"
+      "publicPath": "q/practice/p10179/index.html"
     },
     {
-      "id": 900180,
+      "id": 910180,
       "year": "orig",
-      "num": 180,
+      "num": 10180,
       "field": "limit",
       "text": "第一種低層住居専用地域で建築できるものはどれか。",
       "opts": [
@@ -5040,14 +2878,14 @@ const PRACTICE_QUESTIONS = {
         "高等学校",
         "映画館"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "第一種低層住居専用地域では幼稚園・小学校・中学校・高等学校は建築できます（建築基準法別表第二）。大学・病院・映画館は不可です。",
-      "publicPath": "q/practice/p180/index.html"
+      "publicPath": "q/practice/p10180/index.html"
     },
     {
-      "id": 900181,
+      "id": 910181,
       "year": "orig",
-      "num": 181,
+      "num": 10181,
       "field": "tax",
       "text": "抵当権設定登記の登録免許税の課税標準として正しいものはどれか。",
       "opts": [
@@ -5056,14 +2894,14 @@ const PRACTICE_QUESTIONS = {
         "抵当権で担保される債権（ローン）の金額",
         "不動産の相続税評価額"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "抵当権設定登記の課税標準は「担保される債権の金額（借入金額）」です（登録免許税法別表第一）。不動産の価額ではありません。",
-      "publicPath": "q/practice/p181/index.html"
+      "publicPath": "q/practice/p10181/index.html"
     },
     {
-      "id": 900182,
+      "id": 910182,
       "year": "orig",
-      "num": 182,
+      "num": 10182,
       "field": "rights",
       "text": "定期建物賃貸借の締結要件として正しいものはどれか。",
       "opts": [
@@ -5072,14 +2910,14 @@ const PRACTICE_QUESTIONS = {
         "口頭でも成立する",
         "期間は1年以上"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "定期建物賃貸借は書面または電磁的記録で締結しなければなりません（借地借家法38条1項）。公正証書は不要。期間1年未満でも設定できます。",
-      "publicPath": "q/practice/p182/index.html"
+      "publicPath": "q/practice/p10182/index.html"
     },
     {
-      "id": 900183,
+      "id": 910183,
       "year": "orig",
-      "num": 183,
+      "num": 10183,
       "field": "law",
       "text": "宅建業者への指示処分について正しいものはどれか。",
       "opts": [
@@ -5088,14 +2926,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣はすべての宅建業者に指示処分できる",
         "指示処分は公告されない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "国土交通大臣はすべての宅建業者（大臣免許・知事免許を問わず）に指示処分を行うことができます（宅建業法65条）。指示処分違反は業務停止処分となります。",
-      "publicPath": "q/practice/p183/index.html"
+      "publicPath": "q/practice/p10183/index.html"
     },
     {
-      "id": 900184,
+      "id": 910184,
       "year": "orig",
-      "num": 184,
+      "num": 10184,
       "field": "limit",
       "text": "防火地域と準防火地域にまたがる建物の制限として正しいものはどれか。",
       "opts": [
@@ -5104,14 +2942,14 @@ const PRACTICE_QUESTIONS = {
         "防火地域の制限が建物全体に適用",
         "準防火地域の制限が建物全体に適用"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "建物が防火地域と準防火地域にわたる場合、厳しい方（防火地域）の制限が建物全体に適用されます（建築基準法65条）。",
-      "publicPath": "q/practice/p184/index.html"
+      "publicPath": "q/practice/p10184/index.html"
     },
     {
-      "id": 900185,
+      "id": 910185,
       "year": "orig",
-      "num": 185,
+      "num": 10185,
       "field": "tax",
       "text": "印紙税について正しいものはどれか。",
       "opts": [
@@ -5120,14 +2958,14 @@ const PRACTICE_QUESTIONS = {
         "建物賃貸借契約書は課税対象外",
         "印紙税は地方税"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "記載金額が1万円未満の場合は非課税です（印紙税法別表第一）。電子契約は非課税。建物賃貸借契約書も課税対象。印紙税は国税です。",
-      "publicPath": "q/practice/p185/index.html"
+      "publicPath": "q/practice/p10185/index.html"
     },
     {
-      "id": 900186,
+      "id": 910186,
       "year": "orig",
-      "num": 186,
+      "num": 10186,
       "field": "rights",
       "text": "連帯債務者の一人が相殺した場合の他の連帯債務者への影響として正しいものはどれか。",
       "opts": [
@@ -5136,14 +2974,14 @@ const PRACTICE_QUESTIONS = {
         "相殺した者の債務のみ消滅する",
         "連帯債務に相殺は使えない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "連帯債務者の一人が相殺した場合、その相殺額については他の連帯債務者の債務も消滅します（民法439条1項）。絶対的効力事由の一つです。",
-      "publicPath": "q/practice/p186/index.html"
+      "publicPath": "q/practice/p10186/index.html"
     },
     {
-      "id": 900187,
+      "id": 910187,
       "year": "orig",
-      "num": 187,
+      "num": 10187,
       "field": "law",
       "text": "売買媒介（代金400万超）の報酬上限として正しいものはどれか。",
       "opts": [
@@ -5152,14 +2990,14 @@ const PRACTICE_QUESTIONS = {
         "賃貸と同じ計算式",
         "双方合計で代金の3%+6万円が上限"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売買媒介（400万超）の報酬上限は一方の依頼者から「代金×3%+6万円（税別）」です（宅建業法46条）。依頼者の同意があっても上限超えは不可。",
-      "publicPath": "q/practice/p187/index.html"
+      "publicPath": "q/practice/p10187/index.html"
     },
     {
-      "id": 900188,
+      "id": 910188,
       "year": "orig",
-      "num": 188,
+      "num": 10188,
       "field": "rights",
       "text": "賃借人Bが賃貸人Aの承諾を得て転貸した場合、転借人CはAとどのような関係にあるか。",
       "opts": [
@@ -5168,14 +3006,14 @@ const PRACTICE_QUESTIONS = {
         "AはBにのみ請求でき、Cには直接請求できない",
         "CはAの承諾なく直接Aに賃料を払える"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "適法な転貸借が成立した場合、転借人Cは賃貸人Aに対して直接義務を負います（民法613条1項）。AはCに直接賃料請求等ができます。ただしその限度はBに対するAの債権の範囲内です。",
-      "publicPath": "q/practice/p188/index.html"
+      "publicPath": "q/practice/p10188/index.html"
     },
     {
-      "id": 900189,
+      "id": 910189,
       "year": "orig",
-      "num": 189,
+      "num": 10189,
       "field": "rights",
       "text": "連帯債務者の一人Aに対して請求した場合、他の連帯債務者B・Cに対する時効の進行はどうなるか（2020年改正後）。",
       "opts": [
@@ -5184,14 +3022,14 @@ const PRACTICE_QUESTIONS = {
         "BとCに対しても時効が完成する",
         "裁判でのみ影響する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年の民法改正後、連帯債務者の一人に対する請求は他の連帯債務者に対して更新・完成猶予の効力を生じなくなりました（相対効の原則）。つまりAへの請求はB・Cの時効に影響しません（民法441条）。",
-      "publicPath": "q/practice/p189/index.html"
+      "publicPath": "q/practice/p10189/index.html"
     },
     {
-      "id": 900190,
+      "id": 910190,
       "year": "orig",
-      "num": 190,
+      "num": 10190,
       "field": "rights",
       "text": "相続の単純承認とみなされる（法定単純承認）ケースとして正しいものはどれか。",
       "opts": [
@@ -5200,14 +3038,14 @@ const PRACTICE_QUESTIONS = {
         "相続財産の調査をした場合",
         "遺産分割協議に参加した場合"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続人が相続財産の全部または一部を消費（隠匿・費消等）した場合は法定単純承認とみなされます（民法921条）。相続財産を使ってしまうと限定承認・放棄ができなくなります。",
-      "publicPath": "q/practice/p190/index.html"
+      "publicPath": "q/practice/p10190/index.html"
     },
     {
-      "id": 900191,
+      "id": 910191,
       "year": "orig",
-      "num": 191,
+      "num": 10191,
       "field": "law",
       "text": "宅建業者が媒介契約を締結した場合に交付する34条の2書面（媒介契約書）の記載事項として不要なものはどれか。",
       "opts": [
@@ -5216,14 +3054,14 @@ const PRACTICE_QUESTIONS = {
         "媒介契約の有効期間",
         "近隣の飲食店情報"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "34条の2書面（媒介契約書）の記載事項は①物件特定事項②価額③有効期間④解除の要件⑤報酬額⑥指定流通機構への登録事項等が定められています（宅建業法34条の2）。近隣飲食店情報は記載不要です。",
-      "publicPath": "q/practice/p191/index.html"
+      "publicPath": "q/practice/p10191/index.html"
     },
     {
-      "id": 900192,
+      "id": 910192,
       "year": "orig",
-      "num": 192,
+      "num": 10192,
       "field": "law",
       "text": "宅建業者が自ら売主として新築住宅を販売した場合に義務付けられるものはどれか。",
       "opts": [
@@ -5232,14 +3070,14 @@ const PRACTICE_QUESTIONS = {
         "10年間の無償修繕義務",
         "第三者機関による検査"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者が自ら売主として宅建業者以外の者に新築住宅を引き渡す場合、住宅販売瑕疵担保保証金の供託または住宅販売瑕疵担保責任保険への加入が義務付けられています（住宅瑕疵担保履行法11条）。",
-      "publicPath": "q/practice/p192/index.html"
+      "publicPath": "q/practice/p10192/index.html"
     },
     {
-      "id": 900193,
+      "id": 910193,
       "year": "orig",
-      "num": 193,
+      "num": 10193,
       "field": "limit",
       "text": "建築基準法の高さ制限（斜線制限）のうち、住居系用途地域で隣地との関係で建物の高さを制限するものはどれか。",
       "opts": [
@@ -5248,14 +3086,14 @@ const PRACTICE_QUESTIONS = {
         "北側斜線制限",
         "日影規制"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "北側斜線制限は住居系用途地域（第一種・第二種低層住居専用地域、田園住居地域）において北側隣地の日照を確保するために建物の高さを制限するものです（建築基準法56条1項3号）。",
-      "publicPath": "q/practice/p193/index.html"
+      "publicPath": "q/practice/p10193/index.html"
     },
     {
-      "id": 900194,
+      "id": 910194,
       "year": "orig",
-      "num": 194,
+      "num": 10194,
       "field": "limit",
       "text": "宅地造成等工事規制区域内で許可が必要な工事として正しいものはどれか。",
       "opts": [
@@ -5264,14 +3102,14 @@ const PRACTICE_QUESTIONS = {
         "高さ30センチの盛土",
         "敷地内の植栽工事"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅地造成等工事規制区域内では高さ2メートルを超える崖を生じる切土、高さ1メートルを超える崖を生じる盛土等の工事には都道府県知事の許可が必要です（盛土規制法12条）。",
-      "publicPath": "q/practice/p194/index.html"
+      "publicPath": "q/practice/p10194/index.html"
     },
     {
-      "id": 900195,
+      "id": 910195,
       "year": "orig",
-      "num": 195,
+      "num": 10195,
       "field": "tax",
       "text": "不動産を5年超保有して売却した場合の所得税の取扱いとして正しいものはどれか。",
       "opts": [
@@ -5280,14 +3118,14 @@ const PRACTICE_QUESTIONS = {
         "非課税である",
         "短期譲渡所得として所得税30%が適用される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産を売却した日の属する年の1月1日時点で保有期間が5年を超える場合、長期譲渡所得として所得税15%・住民税5%の合計20%の税率で申告分離課税されます（租税特別措置法31条）。",
-      "publicPath": "q/practice/p195/index.html"
+      "publicPath": "q/practice/p10195/index.html"
     },
     {
-      "id": 900196,
+      "id": 910196,
       "year": "orig",
-      "num": 196,
+      "num": 10196,
       "field": "rights",
       "text": "質権と抵当権の最大の違いとして正しいものはどれか。",
       "opts": [
@@ -5296,14 +3134,14 @@ const PRACTICE_QUESTIONS = {
         "質権の方が抵当権より優先する",
         "抵当権には被担保債権の制限がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "質権（民法342条）は目的物の占有を質権者（債権者）に移す点が最大の特徴です。一方、抵当権は目的物の占有を移さず、設定者が引き続き使用・収益できます（民法369条）。",
-      "publicPath": "q/practice/p196/index.html"
+      "publicPath": "q/practice/p10196/index.html"
     },
     {
-      "id": 900197,
+      "id": 910197,
       "year": "orig",
-      "num": 197,
+      "num": 10197,
       "field": "law",
       "text": "宅建業者でない者がその所有する宅地を宅建業者に媒介を依頼して売却した場合の法的関係として正しいものはどれか。",
       "opts": [
@@ -5312,14 +3150,14 @@ const PRACTICE_QUESTIONS = {
         "宅建業法の規制は一切適用されない",
         "売主にも宅建業の免許が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者でない者（一般の個人・法人）が自己所有の宅地を売却する場合、その者自身は宅建業者ではありません。媒介する宅建業者には宅建業法の規制が適用されますが、8種制限（手付・クーリングオフ等）は宅建業者が自ら売主の場合のみ適用されます。",
-      "publicPath": "q/practice/p197/index.html"
+      "publicPath": "q/practice/p10197/index.html"
     },
     {
-      "id": 900198,
+      "id": 910198,
       "year": "orig",
-      "num": 198,
+      "num": 10198,
       "field": "limit",
       "text": "都市計画法の地域地区のうち、容積率の最高限度を定めることができるものはどれか。",
       "opts": [
@@ -5328,14 +3166,14 @@ const PRACTICE_QUESTIONS = {
         "高度利用地区",
         "高度地区"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "高度利用地区は土地の合理的な高度利用を図るため、容積率の最高・最低限度、建ぺい率の最高限度等を定めることができます（都市計画法9条19項）。",
-      "publicPath": "q/practice/p198/index.html"
+      "publicPath": "q/practice/p10198/index.html"
     },
     {
-      "id": 900199,
+      "id": 910199,
       "year": "orig",
-      "num": 199,
+      "num": 10199,
       "field": "tax",
       "text": "登録免許税について正しいものはどれか。",
       "opts": [
@@ -5344,14 +3182,14 @@ const PRACTICE_QUESTIONS = {
         "相続による所有権移転登記は非課税である",
         "抵当権設定登記の課税標準は不動産の評価額である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "登録免許税は登記等を受ける者（登記申請者）が納税義務者です（登録免許税法3条）。抵当権設定の課税標準は債権金額（ローン金額）、所有権移転の課税標準は固定資産税評価額です。相続による移転も課税対象（税率0.4%）です。",
-      "publicPath": "q/practice/p199/index.html"
+      "publicPath": "q/practice/p10199/index.html"
     },
     {
-      "id": 900200,
+      "id": 910200,
       "year": "orig",
-      "num": 200,
+      "num": 10200,
       "field": "rights",
       "text": "遺産分割の方法として民法が定めていないものはどれか。",
       "opts": [
@@ -5360,14 +3198,14 @@ const PRACTICE_QUESTIONS = {
         "代償分割（一人が取得して他に代償金を払う）",
         "くじ引き分割"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "民法が定める遺産分割の方法は現物分割・換価分割・代償分割の3種類です（民法906条等）。くじ引きによる分割は法定の方法ではありません。",
-      "publicPath": "q/practice/p200/index.html"
+      "publicPath": "q/practice/p10200/index.html"
     },
     {
-      "id": 900201,
+      "id": 910201,
       "year": "orig",
-      "num": 201,
+      "num": 10201,
       "field": "rights",
       "text": "Aが自己の土地をBに売ると申し込み、Bの承諾前にAが死亡した。この場合の申込みの効力として正しいものはどれか。",
       "opts": [
@@ -5376,14 +3214,14 @@ const PRACTICE_QUESTIONS = {
         "相続人が承認した場合のみ有効",
         "承諾がない以上最初から無効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "申込者が死亡した場合でも、申込者が反対の意思を表示していたか、相手方が死亡の事実を知っていた場合を除き、申込みの効力は失われません（民法526条）。相続人が申込みの効果を承継します。",
-      "publicPath": "q/practice/p201/index.html"
+      "publicPath": "q/practice/p10201/index.html"
     },
     {
-      "id": 900202,
+      "id": 910202,
       "year": "orig",
-      "num": 202,
+      "num": 10202,
       "field": "rights",
       "text": "双方代理が禁止される理由として正しいものはどれか。",
       "opts": [
@@ -5392,14 +3230,14 @@ const PRACTICE_QUESTIONS = {
         "代理報酬が二重取りになるから",
         "法律上の根拠がないから"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "双方代理（同一人が両当事者の代理人となること）は、一方の利益のために他方が不利益を受けるおそれがあるため原則禁止です（民法108条）。ただし債務の履行や本人があらかじめ許諾した行為は例外です。",
-      "publicPath": "q/practice/p202/index.html"
+      "publicPath": "q/practice/p10202/index.html"
     },
     {
-      "id": 900203,
+      "id": 910203,
       "year": "orig",
-      "num": 203,
+      "num": 10203,
       "field": "rights",
       "text": "時効の完成猶予（旧法の停止）事由として正しいものはどれか。",
       "opts": [
@@ -5410,12 +3248,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "催告をした場合、催告の時から6か月間は時効の完成が猶予されます（民法150条）。ただし催告は権利行使の意思を示すもので、裁判上の請求等と異なり更新効果はありません。",
-      "publicPath": "q/practice/p203/index.html"
+      "publicPath": "q/practice/p10203/index.html"
     },
     {
-      "id": 900204,
+      "id": 910204,
       "year": "orig",
-      "num": 204,
+      "num": 10204,
       "field": "rights",
       "text": "動産の物権変動の対抗要件として正しいものはどれか。",
       "opts": [
@@ -5424,14 +3262,14 @@ const PRACTICE_QUESTIONS = {
         "引渡し（占有の移転）",
         "公証人の認証"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "動産の物権変動は引渡し（占有の移転）が対抗要件です（民法178条）。不動産の対抗要件は登記です（民法177条）。",
-      "publicPath": "q/practice/p204/index.html"
+      "publicPath": "q/practice/p10204/index.html"
     },
     {
-      "id": 900205,
+      "id": 910205,
       "year": "orig",
-      "num": 205,
+      "num": 10205,
       "field": "rights",
       "text": "抵当不動産の第三取得者が抵当権消滅請求できる場合として正しいものはどれか。",
       "opts": [
@@ -5440,14 +3278,14 @@ const PRACTICE_QUESTIONS = {
         "主債務者のみが消滅請求できる",
         "競売開始後のみ消滅請求できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当不動産の第三取得者は、抵当権者に対して登記した各債権者に対し自ら評価した金額を提供して抵当権の消滅を請求できます（民法379条）。競売開始前に行使しなければなりません。",
-      "publicPath": "q/practice/p205/index.html"
+      "publicPath": "q/practice/p10205/index.html"
     },
     {
-      "id": 900206,
+      "id": 910206,
       "year": "orig",
-      "num": 206,
+      "num": 10206,
       "field": "rights",
       "text": "債権者代位権（民法423条）の行使要件として正しいものはどれか。",
       "opts": [
@@ -5456,14 +3294,14 @@ const PRACTICE_QUESTIONS = {
         "債務者の同意が必要",
         "特定債権の場合は無資力要件が不要な場合もある"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "債権者代位権は原則として債務者の無資力（資産が債務を下回る状態）が要件ですが、特定債権の保全を目的とする場合（登記・登録等）は無資力要件が不要です（民法423条の7）。",
-      "publicPath": "q/practice/p206/index.html"
+      "publicPath": "q/practice/p10206/index.html"
     },
     {
-      "id": 900207,
+      "id": 910207,
       "year": "orig",
-      "num": 207,
+      "num": 10207,
       "field": "rights",
       "text": "売主が種類・品質に関する契約不適合を知らせずに売却した場合、買主が行使できる権利として誤っているものはどれか。",
       "opts": [
@@ -5472,14 +3310,14 @@ const PRACTICE_QUESTIONS = {
         "解除",
         "即時の無効確認請求"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "契約不適合責任として買主が行使できる権利は①修補請求②代金減額請求③解除④損害賠償請求です（民法562〜564条）。「即時の無効確認請求」という手段は民法に規定がありません。",
-      "publicPath": "q/practice/p207/index.html"
+      "publicPath": "q/practice/p10207/index.html"
     },
     {
-      "id": 900208,
+      "id": 910208,
       "year": "orig",
-      "num": 208,
+      "num": 10208,
       "field": "rights",
       "text": "賃貸人が賃借人に対して賃料増額請求をした場合の取扱いとして正しいものはどれか。",
       "opts": [
@@ -5488,14 +3326,14 @@ const PRACTICE_QUESTIONS = {
         "増額が確定するまでは賃料を一切支払わなくてよい",
         "賃貸人は一方的に賃料を変更できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "賃料増額請求があった場合、合意できなければ裁判所に賃料の相当額の確定を求めることができます（借地借家法32条2項）。確定されるまでは相当額を支払えばよく、差額は確定後に利息付きで精算します。",
-      "publicPath": "q/practice/p208/index.html"
+      "publicPath": "q/practice/p10208/index.html"
     },
     {
-      "id": 900209,
+      "id": 910209,
       "year": "orig",
-      "num": 209,
+      "num": 10209,
       "field": "rights",
       "text": "相続財産の管理と処分に関して、相続人が相続の承認・放棄を決める前の義務として正しいものはどれか。",
       "opts": [
@@ -5504,14 +3342,14 @@ const PRACTICE_QUESTIONS = {
         "相続財産を即時売却しなければならない",
         "管理義務はなく放置してよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続人は相続の承認・放棄をするまで、固有財産と同一の注意をもって相続財産を管理する義務があります（民法918条1項）。ただし相続放棄をした後は次順位の相続人や相続財産清算人に引き渡すまで管理義務が続きます。",
-      "publicPath": "q/practice/p209/index.html"
+      "publicPath": "q/practice/p10209/index.html"
     },
     {
-      "id": 900210,
+      "id": 910210,
       "year": "orig",
-      "num": 210,
+      "num": 10210,
       "field": "rights",
       "text": "不当利得（民法703条）の返還義務が生じる要件として誤っているものはどれか。",
       "opts": [
@@ -5520,14 +3358,14 @@ const PRACTICE_QUESTIONS = {
         "利益と損失の因果関係",
         "不当利得者に故意・過失があること"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "不当利得の成立要件は①法律上の原因なく②他人の損失で③利益を受けたこと④損失と利益の因果関係です。受益者に故意・過失は不要です（民法703条）。悪意の場合は利息を付けて返還する等の義務が加重されます。",
-      "publicPath": "q/practice/p210/index.html"
+      "publicPath": "q/practice/p10210/index.html"
     },
     {
-      "id": 900211,
+      "id": 910211,
       "year": "orig",
-      "num": 211,
+      "num": 10211,
       "field": "rights",
       "text": "定期借地権（一般定期借地）が普通借地権と最も異なる点はどれか。",
       "opts": [
@@ -5536,14 +3374,14 @@ const PRACTICE_QUESTIONS = {
         "地代が安い",
         "建物の用途に制限がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "一般定期借地権は50年以上の存続期間で、期間満了により更新なく確定的に終了します（借地借家法22条）。普通借地権は更新が原則で建物がある限り継続しますが、定期借地は更新がありません。",
-      "publicPath": "q/practice/p211/index.html"
+      "publicPath": "q/practice/p10211/index.html"
     },
     {
-      "id": 900212,
+      "id": 910212,
       "year": "orig",
-      "num": 212,
+      "num": 10212,
       "field": "rights",
       "text": "区分所有建物の大規模修繕工事（共用部分の重大変更）に必要な決議はどれか。",
       "opts": [
@@ -5552,14 +3390,14 @@ const PRACTICE_QUESTIONS = {
         "5分の4以上の特別決議",
         "全員の同意"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共用部分の変更（重大変更）は区分所有者及び議決権の各4分の3以上の決議が必要です（区分所有法17条1項）。ただし形状・効用の著しい変更を伴わない軽微な変更は過半数でよいです。",
-      "publicPath": "q/practice/p212/index.html"
+      "publicPath": "q/practice/p10212/index.html"
     },
     {
-      "id": 900213,
+      "id": 910213,
       "year": "orig",
-      "num": 213,
+      "num": 10213,
       "field": "rights",
       "text": "仮登記の効力として正しいものはどれか。",
       "opts": [
@@ -5568,14 +3406,14 @@ const PRACTICE_QUESTIONS = {
         "仮登記後は第三者は登記申請できない",
         "仮登記は10年で失効する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮登記には対抗力はありませんが順位保全効があります（不動産登記法105条・106条）。本登記に移行した場合は仮登記の順位が保全され、仮登記後の第三者に優先することができます。",
-      "publicPath": "q/practice/p213/index.html"
+      "publicPath": "q/practice/p10213/index.html"
     },
     {
-      "id": 900214,
+      "id": 910214,
       "year": "orig",
-      "num": 214,
+      "num": 10214,
       "field": "rights",
       "text": "囲繞地通行権（公道に至るための他の土地の通行権）について正しいものはどれか。",
       "opts": [
@@ -5584,14 +3422,14 @@ const PRACTICE_QUESTIONS = {
         "通行料は不要",
         "建物の建築のために自動車通行を認めなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "袋地の所有者は公道に至るために囲繞地を通行できますが、通行する場所・方法は囲繞地の損害が最も少ないものでなければなりません（民法211条1項）。一定の場合は通行料の支払いが必要です。",
-      "publicPath": "q/practice/p214/index.html"
+      "publicPath": "q/practice/p10214/index.html"
     },
     {
-      "id": 900215,
+      "id": 910215,
       "year": "orig",
-      "num": 215,
+      "num": 10215,
       "field": "law",
       "text": "宅建業者が事務所を増設した場合に必要な手続きとして正しいものはどれか。",
       "opts": [
@@ -5600,14 +3438,14 @@ const PRACTICE_QUESTIONS = {
         "所轄警察署への届出",
         "税務署への届出のみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事務所を増設した場合、免許権者への変更届（宅建業法9条）と増設分の営業保証金の供託（または保証協会の場合は分担金の追加納付）が必要です（宅建業法25条4項）。",
-      "publicPath": "q/practice/p215/index.html"
+      "publicPath": "q/practice/p10215/index.html"
     },
     {
-      "id": 900216,
+      "id": 910216,
       "year": "orig",
-      "num": 216,
+      "num": 10216,
       "field": "law",
       "text": "宅建士が業務停止処分を受けた場合の宅建士証の取扱いとして正しいものはどれか。",
       "opts": [
@@ -5616,14 +3454,14 @@ const PRACTICE_QUESTIONS = {
         "業務停止処分は宅建士証に記載される",
         "業務停止処分中は宅建士証を書き換えなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "業務停止処分を受けた宅建士は、その期間中、登録している都道府県知事に宅建士証を提出しなければなりません（宅建業法22条の2第7項）。処分期間終了後に返還されます。",
-      "publicPath": "q/practice/p216/index.html"
+      "publicPath": "q/practice/p10216/index.html"
     },
     {
-      "id": 900217,
+      "id": 910217,
       "year": "orig",
-      "num": 217,
+      "num": 10217,
       "field": "law",
       "text": "弁済業務保証金の還付請求ができる者として正しいものはどれか。",
       "opts": [
@@ -5632,14 +3470,14 @@ const PRACTICE_QUESTIONS = {
         "全ての消費者",
         "宅建業者の従業員"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済業務保証金から還付請求できるのは「宅建業者以外の者」であって当該宅建業者と「宅建業に関する取引をした者」です（宅建業法64条の8）。業者間取引や宅建業以外の取引は対象外です。",
-      "publicPath": "q/practice/p217/index.html"
+      "publicPath": "q/practice/p10217/index.html"
     },
     {
-      "id": 900218,
+      "id": 910218,
       "year": "orig",
-      "num": 218,
+      "num": 10218,
       "field": "law",
       "text": "専属専任媒介契約でのみ禁止される行為はどれか。",
       "opts": [
@@ -5648,14 +3486,14 @@ const PRACTICE_QUESTIONS = {
         "レインズへの登録",
         "業務処理状況の報告"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専属専任媒介では依頼者が自ら発見した相手方との取引も禁止されますが（宅建業法34条の2第9項）、専任媒介では自己発見取引は可能です。他の業者への依頼禁止・レインズ登録・業務報告義務はいずれも専任・専属専任の両方に適用されます。",
-      "publicPath": "q/practice/p218/index.html"
+      "publicPath": "q/practice/p10218/index.html"
     },
     {
-      "id": 900219,
+      "id": 910219,
       "year": "orig",
-      "num": 219,
+      "num": 10219,
       "field": "law",
       "text": "区分所有建物の売買における重要事項説明の特有の記載事項として正しいものはどれか。",
       "opts": [
@@ -5664,14 +3502,14 @@ const PRACTICE_QUESTIONS = {
         "建物の建設工事費",
         "近隣の地価情報"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有建物（マンション等）の売買では通常の重要事項に加え、管理形態・管理会社・管理費・修繕積立金・大規模修繕計画等の管理に関する事項を説明しなければなりません（宅建業法35条1項6号）。",
-      "publicPath": "q/practice/p219/index.html"
+      "publicPath": "q/practice/p10219/index.html"
     },
     {
-      "id": 900220,
+      "id": 910220,
       "year": "orig",
-      "num": 220,
+      "num": 10220,
       "field": "law",
       "text": "37条書面への宅建士の記名に関して正しいものはどれか。",
       "opts": [
@@ -5680,14 +3518,14 @@ const PRACTICE_QUESTIONS = {
         "専任の宅建士でなければ記名できない",
         "宅建士証番号の記載も必須"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面には宅建士が記名しなければなりませんが、押印は2021年の改正により不要となりました（宅建業法37条3項）。専任の宅建士に限らず、その業者の宅建士であれば記名できます。",
-      "publicPath": "q/practice/p220/index.html"
+      "publicPath": "q/practice/p10220/index.html"
     },
     {
-      "id": 900221,
+      "id": 910221,
       "year": "orig",
-      "num": 221,
+      "num": 10221,
       "field": "law",
       "text": "宅建業法上の誇大広告禁止が適用される媒体として正しいものはどれか。",
       "opts": [
@@ -5696,14 +3534,14 @@ const PRACTICE_QUESTIONS = {
         "新聞・テレビ・インターネット等あらゆる媒体",
         "口頭による説明のみ"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "誇大広告禁止は「広告」に適用され、新聞・雑誌・テレビ・インターネット・チラシ等あらゆる媒体が対象です（宅建業法32条）。口頭による説明は別途不当な勧誘行為の禁止規定が適用されます。",
-      "publicPath": "q/practice/p221/index.html"
+      "publicPath": "q/practice/p10221/index.html"
     },
     {
-      "id": 900222,
+      "id": 910222,
       "year": "orig",
-      "num": 222,
+      "num": 10222,
       "field": "law",
       "text": "クーリングオフの意思表示の効力発生時期として正しいものはどれか。",
       "opts": [
@@ -5712,14 +3550,14 @@ const PRACTICE_QUESTIONS = {
         "書面が業者に到達した翌日",
         "裁判所が確認した時"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフによる解除の意思表示は書面を発送した時点で効力が生じます（発信主義）（宅建業法37条の2第2項）。通常の解除は到達主義ですが、クーリングオフは例外として発信主義が適用されます。",
-      "publicPath": "q/practice/p222/index.html"
+      "publicPath": "q/practice/p10222/index.html"
     },
     {
-      "id": 900223,
+      "id": 910223,
       "year": "orig",
-      "num": 223,
+      "num": 10223,
       "field": "law",
       "text": "居住用建物の賃貸借で、借主の承諾がある場合、貸主から依頼を受けた業者の報酬について正しいものはどれか。",
       "opts": [
@@ -5730,12 +3568,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "居住用建物の賃貸借で貸主・借主双方から合計借賃の1か月分が上限です。貸主のみから依頼を受けた場合、原則として借主から受け取れる報酬は0（貸主から最大1か月分）ですが、借主の承諾があれば借主からも受け取れます（合計上限は1か月分変わらず）。",
-      "publicPath": "q/practice/p223/index.html"
+      "publicPath": "q/practice/p10223/index.html"
     },
     {
-      "id": 900224,
+      "id": 910224,
       "year": "orig",
-      "num": 224,
+      "num": 10224,
       "field": "law",
       "text": "免許取消処分の必要的取消し事由（必ず取り消される場合）に該当するものはどれか。",
       "opts": [
@@ -5744,14 +3582,14 @@ const PRACTICE_QUESTIONS = {
         "不正な手段で免許を取得した場合",
         "報酬に関する規定違反"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不正な手段で免許を取得した場合は必要的取消し（必ず免許を取り消さなければならない）事由です（宅建業法66条1項8号）。業務停止命令違反や営業保証金の供託遅延は任意的取消し等の対象です。",
-      "publicPath": "q/practice/p224/index.html"
+      "publicPath": "q/practice/p10224/index.html"
     },
     {
-      "id": 900225,
+      "id": 910225,
       "year": "orig",
-      "num": 225,
+      "num": 10225,
       "field": "limit",
       "text": "第一種住居地域の建物制限として正しいものはどれか。",
       "opts": [
@@ -5760,14 +3598,14 @@ const PRACTICE_QUESTIONS = {
         "ナイトクラブは建築できる",
         "大型ショッピングモール（床面積1万平方メートル超）は建築できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "第一種住居地域では床面積3000平方メートル以下の店舗・飲食店等を建築できます（建築基準法別表第二）。ナイトクラブ・大型商業施設は建築できません。",
-      "publicPath": "q/practice/p225/index.html"
+      "publicPath": "q/practice/p10225/index.html"
     },
     {
-      "id": 900226,
+      "id": 910226,
       "year": "orig",
-      "num": 226,
+      "num": 10226,
       "field": "limit",
       "text": "容積率算定の際に延べ面積から除外できる部分として正しいものはどれか。",
       "opts": [
@@ -5776,14 +3614,14 @@ const PRACTICE_QUESTIONS = {
         "地階の倉庫",
         "バルコニー"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同住宅の共用廊下・階段の床面積は容積率算定の基礎となる延べ面積に算入しません（建築基準法52条6項）。住宅の地下室（延べ面積の3分の1以内）も不算入の特例があります。",
-      "publicPath": "q/practice/p226/index.html"
+      "publicPath": "q/practice/p10226/index.html"
     },
     {
-      "id": 900227,
+      "id": 910227,
       "year": "orig",
-      "num": 227,
+      "num": 10227,
       "field": "limit",
       "text": "農地法の適用を受けない場合として正しいものはどれか。",
       "opts": [
@@ -5792,14 +3630,14 @@ const PRACTICE_QUESTIONS = {
         "農地から非農地への転用",
         "農地の耕作方法の変更"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "農地の耕作方法の変更（どのような作物を育てるか等）は農地法の規制を受けません。農地の権利移動（売買・贈与等）は農地法3条、転用は4条・5条の規制対象です。",
-      "publicPath": "q/practice/p227/index.html"
+      "publicPath": "q/practice/p10227/index.html"
     },
     {
-      "id": 900228,
+      "id": 910228,
       "year": "orig",
-      "num": 228,
+      "num": 10228,
       "field": "limit",
       "text": "換地計画に関して正しいものはどれか。",
       "opts": [
@@ -5808,14 +3646,14 @@ const PRACTICE_QUESTIONS = {
         "換地は必ず従前地と同じ面積・形状でなければならない",
         "換地計画は市町村の承認のみで確定する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "換地計画を定めた場合は関係権利者が縦覧できるよう公告し、異議申し立ての機会が与えられます（土地区画整理法88条）。換地は必ずしも従前地と同一面積・形状でなく、清算金で調整されます。",
-      "publicPath": "q/practice/p228/index.html"
+      "publicPath": "q/practice/p10228/index.html"
     },
     {
-      "id": 900229,
+      "id": 910229,
       "year": "orig",
-      "num": 229,
+      "num": 10229,
       "field": "limit",
       "text": "盛土規制法における特定盛土等規制区域の指定について正しいものはどれか。",
       "opts": [
@@ -5824,14 +3662,14 @@ const PRACTICE_QUESTIONS = {
         "山林には指定できない",
         "市町村が指定する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特定盛土等規制区域は宅地造成等工事規制区域と重複して指定することはできません（盛土規制法26条）。都市計画区域外・山林等にも指定できます。都道府県知事（または政令市長）が指定します。",
-      "publicPath": "q/practice/p229/index.html"
+      "publicPath": "q/practice/p10229/index.html"
     },
     {
-      "id": 900230,
+      "id": 910230,
       "year": "orig",
-      "num": 230,
+      "num": 10230,
       "field": "tax",
       "text": "居住用財産の買換え特例（3000万円控除との選択）の適用要件として正しいものはどれか。",
       "opts": [
@@ -5840,14 +3678,14 @@ const PRACTICE_QUESTIONS = {
         "新たに取得する住宅の床面積が50平方メートル以上",
         "上記2と3の両方"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "居住用財産の買換え特例の主な要件は①譲渡資産の譲渡価格が1億円以下②買換資産の床面積が50平方メートル以上・土地500平方メートル以下③所有期間・居住期間が10年超④保有期間10年超などです（租税特別措置法36条の2）。",
-      "publicPath": "q/practice/p230/index.html"
+      "publicPath": "q/practice/p10230/index.html"
     },
     {
-      "id": 900231,
+      "id": 910231,
       "year": "orig",
-      "num": 231,
+      "num": 10231,
       "field": "tax",
       "text": "不動産取得税の非課税事由として正しいものはどれか。",
       "opts": [
@@ -5856,14 +3694,14 @@ const PRACTICE_QUESTIONS = {
         "相続による取得",
         "交換による取得"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "相続による不動産取得は不動産取得税が非課税です（地方税法73条の7第1号）。売買・贈与・交換・新築等は課税対象です。",
-      "publicPath": "q/practice/p231/index.html"
+      "publicPath": "q/practice/p10231/index.html"
     },
     {
-      "id": 900232,
+      "id": 910232,
       "year": "orig",
-      "num": 232,
+      "num": 10232,
       "field": "tax",
       "text": "固定資産税の標準税率と超過税率の関係として正しいものはどれか。",
       "opts": [
@@ -5872,14 +3710,14 @@ const PRACTICE_QUESTIONS = {
         "標準税率は国税として一律に決定される",
         "超過税率の上限は2%と法定されている"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "固定資産税の標準税率は1.4%ですが、市町村は条例により標準税率を超える税率（超過税率）を定めることができます（地方税法350条）。上限の法定はなく、各市町村が条例で定めます。",
-      "publicPath": "q/practice/p232/index.html"
+      "publicPath": "q/practice/p10232/index.html"
     },
     {
-      "id": 900233,
+      "id": 910233,
       "year": "orig",
-      "num": 233,
+      "num": 10233,
       "field": "tax",
       "text": "不動産売買契約書の印紙税について正しいものはどれか。",
       "opts": [
@@ -5888,14 +3726,14 @@ const PRACTICE_QUESTIONS = {
         "売主だけが負担する",
         "電子契約書にも印紙税がかかる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "印紙税は収入印紙を課税文書に貼付して消印することで納付します（印紙税法8条）。売主・買主が1通ずつ作成した場合は各通に印紙が必要です。電子契約書（データのみ）は課税対象外です。",
-      "publicPath": "q/practice/p233/index.html"
+      "publicPath": "q/practice/p10233/index.html"
     },
     {
-      "id": 900234,
+      "id": 910234,
       "year": "orig",
-      "num": 234,
+      "num": 10234,
       "field": "tax",
       "text": "不動産鑑定評価の3方式について正しいものはどれか。",
       "opts": [
@@ -5906,12 +3744,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "不動産鑑定評価の3方式は取引事例比較法・収益還元法・原価法です（不動産鑑定評価基準）。取引事例比較法で求めた価格を比準価格、収益還元法で求めた価格を収益価格、原価法で求めた価格を積算価格といいます。",
-      "publicPath": "q/practice/p234/index.html"
+      "publicPath": "q/practice/p10234/index.html"
     },
     {
-      "id": 900235,
+      "id": 910235,
       "year": "orig",
-      "num": 235,
+      "num": 10235,
       "field": "rights",
       "text": "AがBに甲建物を売却したが引渡し時から雨漏りの欠陥（契約不適合）があった。Bがとれる手段として誤っているものはどれか。",
       "opts": [
@@ -5920,14 +3758,14 @@ const PRACTICE_QUESTIONS = {
         "損害賠償請求",
         "要件を問わず即時に契約を全部解除して代金全額返還を請求"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "契約不適合責任では追完・代金減額・損害賠償・解除が認められます。ただし契約解除には「催告しても相当期間内に追完されない」等の要件（民法541条・564条）が必要であり、欠陥があるだけで即時の全部解除・全額返還が当然に認められるわけではありません。",
-      "publicPath": "q/practice/p235/index.html"
+      "publicPath": "q/practice/p10235/index.html"
     },
     {
-      "id": 900236,
+      "id": 910236,
       "year": "orig",
-      "num": 236,
+      "num": 10236,
       "field": "rights",
       "text": "建物の賃貸借における賃料の増減額請求に関して正しいものはどれか。",
       "opts": [
@@ -5936,14 +3774,14 @@ const PRACTICE_QUESTIONS = {
         "一定期間は減額しない旨の特約も常に有効",
         "賃料改定は必ず裁判によらなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地借家法では一定期間は賃料を増額しない旨の特約は有効です（借地借家法32条1項ただし書）。一方、減額しない旨の特約は無効とされています。協議不成立時は調停・訴訟で解決します。",
-      "publicPath": "q/practice/p236/index.html"
+      "publicPath": "q/practice/p10236/index.html"
     },
     {
-      "id": 900237,
+      "id": 910237,
       "year": "orig",
-      "num": 237,
+      "num": 10237,
       "field": "rights",
       "text": "遺言の種類のうち、家庭裁判所の検認が不要なものはどれか。",
       "opts": [
@@ -5952,14 +3790,14 @@ const PRACTICE_QUESTIONS = {
         "秘密証書遺言",
         "口頭での遺言"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "公正証書遺言は公証人が関与して作成されるため、家庭裁判所の検認が不要です（民法1004条2項）。自筆証書遺言（法務局保管制度利用の場合も検認不要）や秘密証書遺言は原則検認が必要です。",
-      "publicPath": "q/practice/p237/index.html"
+      "publicPath": "q/practice/p10237/index.html"
     },
     {
-      "id": 900238,
+      "id": 910238,
       "year": "orig",
-      "num": 238,
+      "num": 10238,
       "field": "rights",
       "text": "使用者責任（民法715条）について正しいものはどれか。",
       "opts": [
@@ -5968,14 +3806,14 @@ const PRACTICE_QUESTIONS = {
         "被用者が故意の場合のみ成立する",
         "使用者は被用者の行為について一切責任を負わない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "使用者責任は、使用者が選任及び事業の監督について相当の注意をしたこと、または相当の注意をしても損害が生じた場合は免責されます（民法715条1項ただし書）。実務上この免責はほぼ認められません。",
-      "publicPath": "q/practice/p238/index.html"
+      "publicPath": "q/practice/p10238/index.html"
     },
     {
-      "id": 900239,
+      "id": 910239,
       "year": "orig",
-      "num": 239,
+      "num": 10239,
       "field": "rights",
       "text": "定期建物賃貸借（定期借家・1年以上の契約）の終了通知として正しいものはどれか。",
       "opts": [
@@ -5984,14 +3822,14 @@ const PRACTICE_QUESTIONS = {
         "期間満了の3ヶ月前に通知すれば足りる",
         "通知なしでも自動的に終了する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "期間1年以上の定期建物賃貸借では、賃貸人は期間満了の1年前から6ヶ月前までの間に終了通知をしなければなりません（借地借家法38条6項）。通知がない場合は期間満了後6ヶ月経過後にようやく終了を対抗できます。",
-      "publicPath": "q/practice/p239/index.html"
+      "publicPath": "q/practice/p10239/index.html"
     },
     {
-      "id": 900240,
+      "id": 910240,
       "year": "orig",
-      "num": 240,
+      "num": 10240,
       "field": "rights",
       "text": "マンションの管理規約の変更・廃止の決議要件として正しいものはどれか。",
       "opts": [
@@ -6000,14 +3838,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者及び議決権の各4/5以上の多数",
         "区分所有者全員の同意"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "管理規約の設定・変更・廃止は区分所有者及び議決権の各3/4以上の多数決が必要です（区分所有法31条1項）。建替え決議は各4/5以上、普通の管理事項は過半数です。",
-      "publicPath": "q/practice/p240/index.html"
+      "publicPath": "q/practice/p10240/index.html"
     },
     {
-      "id": 900241,
+      "id": 910241,
       "year": "orig",
-      "num": 241,
+      "num": 10241,
       "field": "rights",
       "text": "登記の対抗力における「背信的悪意者」の扱いとして正しいものはどれか。",
       "opts": [
@@ -6016,14 +3854,14 @@ const PRACTICE_QUESTIONS = {
         "背信的悪意者かどうかは登記官が判断する",
         "背信的悪意者への対抗には仮登記が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "判例上、信義則に反する態様で登記の欠如を主張する背信的悪意者には、登記がなくても物権変動を対抗できます。背信的悪意者は民法177条の「第三者」から除外されるとされています。",
-      "publicPath": "q/practice/p241/index.html"
+      "publicPath": "q/practice/p10241/index.html"
     },
     {
-      "id": 900242,
+      "id": 910242,
       "year": "orig",
-      "num": 242,
+      "num": 10242,
       "field": "law",
       "text": "宅建業の免許の欠格事由として正しいものはどれか。",
       "opts": [
@@ -6034,12 +3872,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "拘禁刑以上の刑の執行終了（または執行猶予満了）から5年が経過すれば欠格事由が消滅し免許を取得できます（宅建業法5条1項5号）。執行猶予中は欠格です。成年被後見人・被保佐人であること自体は現行法上当然に一律欠格となるものではなく、心身の故障により宅建業を適正に営めない者等に当たるかを個別に判断します。法人の役員が欠格なら法人も欠格です。",
-      "publicPath": "q/practice/p242/index.html"
+      "publicPath": "q/practice/p10242/index.html"
     },
     {
-      "id": 900243,
+      "id": 910243,
       "year": "orig",
-      "num": 243,
+      "num": 10243,
       "field": "law",
       "text": "宅建士の登録の移転について正しいものはどれか。",
       "opts": [
@@ -6048,14 +3886,14 @@ const PRACTICE_QUESTIONS = {
         "登録移転は義務で移転しないと登録が消除される",
         "宅建士試験を再受験した場合のみ移転できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士の登録は都道府県ごとに行います。他の都道府県に所在する宅建業者に従事する場合、その都道府県へ登録を移転することができます（任意）（宅建業法19条の2）。",
-      "publicPath": "q/practice/p243/index.html"
+      "publicPath": "q/practice/p10243/index.html"
     },
     {
-      "id": 900244,
+      "id": 910244,
       "year": "orig",
-      "num": 244,
+      "num": 10244,
       "field": "law",
       "text": "専任媒介契約の有効期間と更新について正しいものはどれか。",
       "opts": [
@@ -6064,14 +3902,14 @@ const PRACTICE_QUESTIONS = {
         "有効期間は最長3ヶ月で業者が自動更新できる",
         "更新後の有効期間に制限はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専任媒介契約の有効期間の上限は3ヶ月です（宅建業法34条の2第3項）。更新は依頼者からの申し出がある場合のみ可能で、更新後の有効期間も3ヶ月が上限です。",
-      "publicPath": "q/practice/p244/index.html"
+      "publicPath": "q/practice/p10244/index.html"
     },
     {
-      "id": 900245,
+      "id": 910245,
       "year": "orig",
-      "num": 245,
+      "num": 10245,
       "field": "law",
       "text": "重要事項説明（35条書面）の説明者として正しいものはどれか。",
       "opts": [
@@ -6080,14 +3918,14 @@ const PRACTICE_QUESTIONS = {
         "宅建士が自ら説明し宅建士証を提示したうえで宅建士が記名した書面を交付する",
         "営業担当者であれば宅建士でなくてもよい"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "重要事項説明は宅建士が自ら説明を行い、宅建士証を提示したうえで宅建士が記名した書面（35条書面）を相手方に交付しなければなりません（宅建業法35条）。",
-      "publicPath": "q/practice/p245/index.html"
+      "publicPath": "q/practice/p10245/index.html"
     },
     {
-      "id": 900246,
+      "id": 910246,
       "year": "orig",
-      "num": 246,
+      "num": 10246,
       "field": "law",
       "text": "37条書面（契約書面）の必要的記載事項として正しいものはどれか。",
       "opts": [
@@ -6096,14 +3934,14 @@ const PRACTICE_QUESTIONS = {
         "住宅性能評価を受けた旨",
         "容積率・建ぺい率"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面の必要的記載事項には「代金・交換差金・借賃の額及び支払時期・方法」が含まれます（宅建業法37条1項2号）。融資あっせん失敗時の措置・移転登記申請時期等は定めがある場合のみ記載する任意的記載事項です。",
-      "publicPath": "q/practice/p246/index.html"
+      "publicPath": "q/practice/p10246/index.html"
     },
     {
-      "id": 900247,
+      "id": 910247,
       "year": "orig",
-      "num": 247,
+      "num": 10247,
       "field": "law",
       "text": "宅建業者が売買の媒介をした場合（代金400万円超）の報酬上限（消費税別）として正しいものはどれか。",
       "opts": [
@@ -6114,12 +3952,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "売買の媒介では一方の依頼者から「代金×3%+6万円（消費税別）」が上限です（国土交通省告示）。売主・買主それぞれから、この計算式が上限となります。",
-      "publicPath": "q/practice/p247/index.html"
+      "publicPath": "q/practice/p10247/index.html"
     },
     {
-      "id": 900248,
+      "id": 910248,
       "year": "orig",
-      "num": 248,
+      "num": 10248,
       "field": "law",
       "text": "営業保証金の供託先として正しいものはどれか。",
       "opts": [
@@ -6128,14 +3966,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣が指定する法務局",
         "市区町村が設置する供託所"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "営業保証金は主たる事務所の最寄りの供託所（法務局・地方法務局等）に供託します（宅建業法25条1項）。",
-      "publicPath": "q/practice/p248/index.html"
+      "publicPath": "q/practice/p10248/index.html"
     },
     {
-      "id": 900249,
+      "id": 910249,
       "year": "orig",
-      "num": 249,
+      "num": 10249,
       "field": "law",
       "text": "クーリングオフを行使できる期間として正しいものはどれか。",
       "opts": [
@@ -6144,14 +3982,14 @@ const PRACTICE_QUESTIONS = {
         "契約締結から10日以内",
         "業者が指定した日から8日以内"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフは「クーリングオフができる旨等を書面で告げられた日から8日以内」に行使できます（宅建業法37条の2）。書面告知がない場合は期間制限なく行使可能です。",
-      "publicPath": "q/practice/p249/index.html"
+      "publicPath": "q/practice/p10249/index.html"
     },
     {
-      "id": 900250,
+      "id": 910250,
       "year": "orig",
-      "num": 250,
+      "num": 10250,
       "field": "limit",
       "text": "準都市計画区域について正しいものはどれか。",
       "opts": [
@@ -6160,14 +3998,14 @@ const PRACTICE_QUESTIONS = {
         "都市計画法の規制が一切及ばない区域",
         "開発許可が常に不要な区域"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "準都市計画区域は都市計画区域外であっても、放置すれば無秩序な土地利用が行われる恐れのある区域として都道府県が指定する区域です（都市計画法5条の2）。一定の都市計画規制が適用されます。",
-      "publicPath": "q/practice/p250/index.html"
+      "publicPath": "q/practice/p10250/index.html"
     },
     {
-      "id": 900251,
+      "id": 910251,
       "year": "orig",
-      "num": 251,
+      "num": 10251,
       "field": "limit",
       "text": "共同住宅の共用廊下・共用階段の床面積の容積率計算における扱いとして正しいものはどれか。",
       "opts": [
@@ -6176,14 +4014,14 @@ const PRACTICE_QUESTIONS = {
         "建築面積には算入するが容積率計算から除外される",
         "建築主事の裁量による"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同住宅（マンション等）の共用廊下・共用階段の床面積は容積率算定の基礎となる延べ面積から除外されます（建築基準法52条6項）。居住者の共用部分の負担軽減を目的とした規定です。",
-      "publicPath": "q/practice/p251/index.html"
+      "publicPath": "q/practice/p10251/index.html"
     },
     {
-      "id": 900252,
+      "id": 910252,
       "year": "orig",
-      "num": 252,
+      "num": 10252,
       "field": "limit",
       "text": "農地の転用（農地法4条）の許可権者として正しいものはどれか。",
       "opts": [
@@ -6192,14 +4030,14 @@ const PRACTICE_QUESTIONS = {
         "都道府県知事（4ha超は農林水産大臣）",
         "国土交通大臣"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "農地の自己転用（農地法4条）の許可権者は都道府県知事です。ただし農地面積が4haを超える転用については農林水産大臣の許可が必要です（農地法4条1項）。",
-      "publicPath": "q/practice/p252/index.html"
+      "publicPath": "q/practice/p10252/index.html"
     },
     {
-      "id": 900253,
+      "id": 910253,
       "year": "orig",
-      "num": 253,
+      "num": 10253,
       "field": "limit",
       "text": "土地区画整理事業の施行者になれる者として正しいものはどれか。",
       "opts": [
@@ -6210,12 +4048,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "土地区画整理事業の施行者は個人・組合・区画整理会社・市町村・都道府県・国土交通大臣・独立行政法人都市再生機構等、多様な主体が認められています（土地区画整理法3条〜3条の4）。",
-      "publicPath": "q/practice/p253/index.html"
+      "publicPath": "q/practice/p10253/index.html"
     },
     {
-      "id": 900254,
+      "id": 910254,
       "year": "orig",
-      "num": 254,
+      "num": 10254,
       "field": "rights",
       "text": "相殺の要件として正しいものはどれか。",
       "opts": [
@@ -6224,14 +4062,14 @@ const PRACTICE_QUESTIONS = {
         "相殺は内容証明郵便で行わなければならない",
         "不法行為による損害賠償債権は何でも相殺に使える"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相殺の要件のひとつとして、自働債権（相殺する側の債権）の弁済期が到来していることが必要です（民法505条1項）。受働債権の弁済期は未到来でも相殺可能。不法行為等を原因とする債権への相殺は一定制限があります（民法509条）。",
-      "publicPath": "q/practice/p254/index.html"
+      "publicPath": "q/practice/p10254/index.html"
     },
     {
-      "id": 900255,
+      "id": 910255,
       "year": "orig",
-      "num": 255,
+      "num": 10255,
       "field": "rights",
       "text": "第三者による詐欺（AがBに騙されCに売却）の場合の取消しの対抗について正しいものはどれか。",
       "opts": [
@@ -6240,14 +4078,14 @@ const PRACTICE_QUESTIONS = {
         "AはCに対して取消しを対抗できない",
         "詐欺者Bへの損害賠償のみが認められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "第三者による詐欺の場合、取消しは相手方（C）が詐欺の事実を知りまたは知ることができた場合（悪意・有過失）のみ対抗できます（民法96条3項）。Cが善意無過失であれば保護されます。",
-      "publicPath": "q/practice/p255/index.html"
+      "publicPath": "q/practice/p10255/index.html"
     },
     {
-      "id": 900256,
+      "id": 910256,
       "year": "orig",
-      "num": 256,
+      "num": 10256,
       "field": "law",
       "text": "宅建士が不正手段で登録を受けた場合の処分として正しいものはどれか。",
       "opts": [
@@ -6256,14 +4094,14 @@ const PRACTICE_QUESTIONS = {
         "戒告のみ",
         "免許取消しと同時に登録消除"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不正手段で宅建士の登録を受けた者は登録を消除されます（宅建業法68条の2第1項2号）。登録消除後5年間は再登録できません。",
-      "publicPath": "q/practice/p256/index.html"
+      "publicPath": "q/practice/p10256/index.html"
     },
     {
-      "id": 900257,
+      "id": 910257,
       "year": "orig",
-      "num": 257,
+      "num": 10257,
       "field": "law",
       "text": "住宅瑕疵担保責任保険（住宅瑕疵担保履行法）の加入先として正しいものはどれか。",
       "opts": [
@@ -6274,12 +4112,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "住宅瑕疵担保責任保険は国土交通大臣が指定した住宅瑕疵担保責任保険法人（日本住宅保証検査機構・住宅保証機構等）に加入します（住宅瑕疵担保履行法2条7項）。",
-      "publicPath": "q/practice/p257/index.html"
+      "publicPath": "q/practice/p10257/index.html"
     },
     {
-      "id": 900258,
+      "id": 910258,
       "year": "orig",
-      "num": 258,
+      "num": 10258,
       "field": "tax",
       "text": "居住用財産の軽減税率の特例（長期所有・6,000万円以下の部分に14%）の適用要件として正しいものはどれか。",
       "opts": [
@@ -6288,14 +4126,14 @@ const PRACTICE_QUESTIONS = {
         "3,000万円特別控除との併用は不可",
         "夫婦間の売買でも適用できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "居住用財産の軽減税率特例（6,000万円以下の部分が税率14%）は、譲渡した年の1月1日現在で所有期間が10年超であることが必要です（租税特別措置法31条の3）。3,000万円特別控除との併用も可能です。",
-      "publicPath": "q/practice/p258/index.html"
+      "publicPath": "q/practice/p10258/index.html"
     },
     {
-      "id": 900259,
+      "id": 910259,
       "year": "orig",
-      "num": 259,
+      "num": 10259,
       "field": "tax",
       "text": "不動産取得税の税率（住宅及び土地・当分の間の特例税率）として正しいものはどれか。",
       "opts": [
@@ -6304,14 +4142,14 @@ const PRACTICE_QUESTIONS = {
         "2%",
         "1.5%"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産取得税の本則税率は4%ですが、住宅及び土地については当分の間3%の特例税率が適用されます（地方税法附則11条の2）。",
-      "publicPath": "q/practice/p259/index.html"
+      "publicPath": "q/practice/p10259/index.html"
     },
     {
-      "id": 900260,
+      "id": 910260,
       "year": "orig",
-      "num": 260,
+      "num": 10260,
       "field": "tax",
       "text": "固定資産税の賦課期日（課税の基準日）として正しいものはどれか。",
       "opts": [
@@ -6320,14 +4158,14 @@ const PRACTICE_QUESTIONS = {
         "毎年3月31日",
         "課税年度の開始時点"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "固定資産税は毎年1月1日（賦課期日）現在に固定資産課税台帳に登録されている者を納税義務者として課税します（地方税法343条1項・359条）。",
-      "publicPath": "q/practice/p260/index.html"
+      "publicPath": "q/practice/p10260/index.html"
     },
     {
-      "id": 900261,
+      "id": 910261,
       "year": "orig",
-      "num": 261,
+      "num": 10261,
       "field": "tax",
       "text": "相続による所有権移転登記の登録免許税率として正しいものはどれか。",
       "opts": [
@@ -6336,14 +4174,14 @@ const PRACTICE_QUESTIONS = {
         "0.4%",
         "0.2%"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "相続による所有権移転登記の登録免許税率は固定資産税評価額の0.4%です（登録免許税法別表第一）。売買は2%、贈与・財産分与等は2%（一般）となります。",
-      "publicPath": "q/practice/p261/index.html"
+      "publicPath": "q/practice/p10261/index.html"
     },
     {
-      "id": 900262,
+      "id": 910262,
       "year": "orig",
-      "num": 262,
+      "num": 10262,
       "field": "tax",
       "text": "不動産売買契約書への印紙税軽減措置（令和9年3月31日まで延長）の対象として正しいものはどれか。",
       "opts": [
@@ -6352,14 +4190,14 @@ const PRACTICE_QUESTIONS = {
         "記載金額が1,000万円超の場合のみ軽減税率",
         "軽減措置は既に廃止されている"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "平成26年4月1日以降令和9年3月31日まで（延長済み）、記載金額が10万円超の不動産売買契約書等について印紙税の軽減税率が適用されています。電子契約書（データのみ）は印紙税の対象外です。",
-      "publicPath": "q/practice/p262/index.html"
+      "publicPath": "q/practice/p10262/index.html"
     },
     {
-      "id": 900263,
+      "id": 910263,
       "year": "orig",
-      "num": 263,
+      "num": 10263,
       "field": "tax",
       "text": "地価公示における標準地の鑑定評価者として正しいものはどれか。",
       "opts": [
@@ -6368,14 +4206,14 @@ const PRACTICE_QUESTIONS = {
         "1人の不動産鑑定士のみ",
         "都道府県の職員"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地価公示では標準地1地点について2人以上の不動産鑑定士が鑑定評価を行い、その結果をもとに土地鑑定委員会が正常価格を判定・公示します（地価公示法2条2項）。",
-      "publicPath": "q/practice/p263/index.html"
+      "publicPath": "q/practice/p10263/index.html"
     },
     {
-      "id": 900264,
+      "id": 910264,
       "year": "orig",
-      "num": 264,
+      "num": 10264,
       "field": "tax",
       "text": "住宅金融支援機構の主な業務として正しいものはどれか。",
       "opts": [
@@ -6384,14 +4222,14 @@ const PRACTICE_QUESTIONS = {
         "住宅建設のための補助金を給付する",
         "固定資産税の還付業務を行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "住宅金融支援機構の主たる業務は民間金融機関の住宅ローン債権を買い取る証券化支援業務（フラット35等）です（住宅金融支援機構法13条）。直接融資は災害復興住宅等一部の特殊な用途に限定されています。",
-      "publicPath": "q/practice/p264/index.html"
+      "publicPath": "q/practice/p10264/index.html"
     },
     {
-      "id": 900265,
+      "id": 910265,
       "year": "orig",
-      "num": 265,
+      "num": 10265,
       "field": "tax",
       "text": "不動産鑑定評価における収益還元法のDCF法（割引キャッシュフロー法）について正しいものはどれか。",
       "opts": [
@@ -6400,14 +4238,14 @@ const PRACTICE_QUESTIONS = {
         "原価を積み上げて評価する方法",
         "取引事例を収集して比較する方法"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "DCF法は将来の各期間の純収益と保有終了時の不動産価値（復帰価格）を割引率で現在価値に換算して合計する方法です（不動産鑑定評価基準）。一期の純収益を還元率で割る方法は直接還元法です。",
-      "publicPath": "q/practice/p265/index.html"
+      "publicPath": "q/practice/p10265/index.html"
     },
     {
-      "id": 900266,
+      "id": 910266,
       "year": "orig",
-      "num": 266,
+      "num": 10266,
       "field": "rights",
       "text": "地役権の性質として正しいものはどれか。",
       "opts": [
@@ -6416,14 +4254,14 @@ const PRACTICE_QUESTIONS = {
         "地役権は承役地の所有者が単独で消滅させられる",
         "地役権の存続期間は最長10年"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地役権は要役地（利益を受ける土地）の便益のために承役地（負担を負う土地）に設定される物権です（民法280条）。地役権は要役地の所有権に従い、これと分離して譲渡したり他の権利の目的としたりすることはできません（民法281条）。",
-      "publicPath": "q/practice/p266/index.html"
+      "publicPath": "q/practice/p10266/index.html"
     },
     {
-      "id": 900267,
+      "id": 910267,
       "year": "orig",
-      "num": 267,
+      "num": 10267,
       "field": "rights",
       "text": "錯誤による意思表示の取消しが認められる要件として正しいものはどれか。",
       "opts": [
@@ -6432,14 +4270,14 @@ const PRACTICE_QUESTIONS = {
         "錯誤が法律行為の目的及び取引上の社会通念に照らして重要であること",
         "相手方に詐欺があった場合のみ"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "錯誤による取消し（民法95条）は、①錯誤が法律行為の目的及び取引上の社会通念に照らして重要であること、②表意者に重大な過失がないこと（または相手方が同一の錯誤に陥っていた等の場合）が要件です。動機の錯誤は要素の錯誤に当たらず、相手方に表示・了解されていた場合に取消し可能です。",
-      "publicPath": "q/practice/p267/index.html"
+      "publicPath": "q/practice/p10267/index.html"
     },
     {
-      "id": 900268,
+      "id": 910268,
       "year": "orig",
-      "num": 268,
+      "num": 10268,
       "field": "rights",
       "text": "復代理人に関する説明として正しいものはどれか。",
       "opts": [
@@ -6448,14 +4286,14 @@ const PRACTICE_QUESTIONS = {
         "法定代理人は常に復代理人を選任できるが無限責任を負う",
         "復代理人は代理人の代理人なので本人に対し権限を持たない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "任意代理人の復任権（民法104条）は本人の許諾がある場合または止むを得ない事由がある場合に限られます。法定代理人は常に復任権がありますが責任は軽減されます（民法106条）。復代理人は本人を直接代理し本人に効果が帰属します。",
-      "publicPath": "q/practice/p268/index.html"
+      "publicPath": "q/practice/p10268/index.html"
     },
     {
-      "id": 900269,
+      "id": 910269,
       "year": "orig",
-      "num": 269,
+      "num": 10269,
       "field": "rights",
       "text": "消滅時効の完成猶予（旧「中断」）事由として正しいものはどれか。",
       "opts": [
@@ -6466,12 +4304,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "催告（督促）をすると、その時から6ヶ月以内に訴訟・仮差押え等をすれば時効の完成が猶予されます（民法150条）。催告だけでは更新（中断）にはなりません。承認は承認者が相手方の権利を知っていることは要件とされていません（民法152条）。",
-      "publicPath": "q/practice/p269/index.html"
+      "publicPath": "q/practice/p10269/index.html"
     },
     {
-      "id": 900270,
+      "id": 910270,
       "year": "orig",
-      "num": 270,
+      "num": 10270,
       "field": "rights",
       "text": "混同による物権の消滅について、例外として消滅しない場合として正しいものはどれか。",
       "opts": [
@@ -6480,14 +4318,14 @@ const PRACTICE_QUESTIONS = {
         "所有権と地役権が同一人に帰属した場合",
         "所有権と賃借権が同一人に帰属した場合"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "所有権と他の物権が同一人に帰属すると混同により物権は消滅しますが（民法179条）、第三者の権利の目的である場合は消滅しません。例えば抵当権が設定された不動産の所有権を抵当権者が取得しても、その抵当権を目的とする転抵当権があれば抵当権は消滅しません。",
-      "publicPath": "q/practice/p270/index.html"
+      "publicPath": "q/practice/p10270/index.html"
     },
     {
-      "id": 900271,
+      "id": 910271,
       "year": "orig",
-      "num": 271,
+      "num": 10271,
       "field": "rights",
       "text": "中間省略登記の可否について正しいものはどれか。",
       "opts": [
@@ -6498,12 +4336,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "中間省略登記は原則として認められませんが（判例・先例）、当事者（A・B・C）全員の合意がある場合は登記の申請が認められます。なおこの場合でも実体的な権利関係と登記が一致しないと問題が生じる場合があります。",
-      "publicPath": "q/practice/p271/index.html"
+      "publicPath": "q/practice/p10271/index.html"
     },
     {
-      "id": 900272,
+      "id": 910272,
       "year": "orig",
-      "num": 272,
+      "num": 10272,
       "field": "rights",
       "text": "転貸借（サブリース）に関する説明として正しいものはどれか。",
       "opts": [
@@ -6512,14 +4350,14 @@ const PRACTICE_QUESTIONS = {
         "転借人は原賃貸人に対し転借人の債務額を超えた賠償義務を負う",
         "賃貸人が承諾した転貸借では原賃貸借が終了しても転借人に対抗できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "適法な転貸借がある場合、賃貸人は転借人に対し直接履行の請求ができます（民法613条1項）。ただしその額は転借料と原賃料の低い方が上限です。無断転貸は解除原因となります。",
-      "publicPath": "q/practice/p272/index.html"
+      "publicPath": "q/practice/p10272/index.html"
     },
     {
-      "id": 900273,
+      "id": 910273,
       "year": "orig",
-      "num": 273,
+      "num": 10273,
       "field": "rights",
       "text": "売買目的物の契約不適合（瑕疵）に関して買主が権利を行使するための期間制限として正しいものはどれか。",
       "opts": [
@@ -6530,12 +4368,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "種類・品質に関する不適合は、買主が不適合を知った時から1年以内に売主に通知しなければ、代金減額請求・損害賠償請求等ができなくなります（民法566条）。なお通知後の権利行使は消滅時効（5年又は10年）に服します。",
-      "publicPath": "q/practice/p273/index.html"
+      "publicPath": "q/practice/p10273/index.html"
     },
     {
-      "id": 900274,
+      "id": 910274,
       "year": "orig",
-      "num": 274,
+      "num": 10274,
       "field": "rights",
       "text": "遺留分を有する相続人として正しいものはどれか。",
       "opts": [
@@ -6544,14 +4382,14 @@ const PRACTICE_QUESTIONS = {
         "配偶者・子のみ",
         "法定相続人全員"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "遺留分を有するのは配偶者・子（孫等の代襲相続人を含む）・直系尊属です（民法1042条）。兄弟姉妹（甥姪を含む）は遺留分を有しません。",
-      "publicPath": "q/practice/p274/index.html"
+      "publicPath": "q/practice/p10274/index.html"
     },
     {
-      "id": 900275,
+      "id": 910275,
       "year": "orig",
-      "num": 275,
+      "num": 10275,
       "field": "rights",
       "text": "不法行為における過失相殺の説明として正しいものはどれか。",
       "opts": [
@@ -6560,14 +4398,14 @@ const PRACTICE_QUESTIONS = {
         "被害者の過失は必ず損害額の50%以上を減額する",
         "過失相殺は当事者の申立てがあった場合にのみ適用される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "過失相殺（民法722条2項）は、損害の発生または拡大に被害者の過失が寄与した場合に、裁判所がその過失を考慮して損害賠償額を減額できる制度です。具体的な減額割合は裁判所の裁量によります。",
-      "publicPath": "q/practice/p275/index.html"
+      "publicPath": "q/practice/p10275/index.html"
     },
     {
-      "id": 900276,
+      "id": 910276,
       "year": "orig",
-      "num": 276,
+      "num": 10276,
       "field": "rights",
       "text": "根抵当権の説明として正しいものはどれか。",
       "opts": [
@@ -6576,14 +4414,14 @@ const PRACTICE_QUESTIONS = {
         "根抵当権は登記できない",
         "根抵当権は被担保債権と一体となって移転する（付従性あり）"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "根抵当権（民法398条の2）は一定の範囲に属する不特定の債権を極度額の限度で担保します。普通抵当権と異なり付従性・随伴性が緩和されており（元本確定前）、極度額の範囲で継続的に担保として機能します。",
-      "publicPath": "q/practice/p276/index.html"
+      "publicPath": "q/practice/p10276/index.html"
     },
     {
-      "id": 900277,
+      "id": 910277,
       "year": "orig",
-      "num": 277,
+      "num": 10277,
       "field": "law",
       "text": "宅建業の免許の承継に関して正しいものはどれか。",
       "opts": [
@@ -6592,14 +4430,14 @@ const PRACTICE_QUESTIONS = {
         "法人が吸収合併された場合、存続法人はそのまま被合併法人の免許で業を継続できる",
         "免許は一切承継されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者（個人）が死亡した場合、免許は一身専属的で相続されません。相続人は死亡の事実を知った日から30日以内に免許権者へ届け出る必要があります（宅建業法11条）。また、相続人は被相続人が宅建業者として締結した契約に基づく取引を結了する目的の範囲内で宅建業者とみなされます（同法76条）。",
-      "publicPath": "q/practice/p277/index.html"
+      "publicPath": "q/practice/p10277/index.html"
     },
     {
-      "id": 900278,
+      "id": 910278,
       "year": "orig",
-      "num": 278,
+      "num": 10278,
       "field": "law",
       "text": "宅建士の登録事項に変更があった場合の手続きとして正しいものはどれか。",
       "opts": [
@@ -6608,14 +4446,14 @@ const PRACTICE_QUESTIONS = {
         "変更から3ヶ月以内に届け出ればよい",
         "住所が変わった場合は宅建士証を返納しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士の登録事項（氏名・住所等）に変更があった場合は、遅滞なく登録をしている都道府県知事に変更の登録を申請しなければなりません（宅建業法20条）。",
-      "publicPath": "q/practice/p278/index.html"
+      "publicPath": "q/practice/p10278/index.html"
     },
     {
-      "id": 900279,
+      "id": 910279,
       "year": "orig",
-      "num": 279,
+      "num": 10279,
       "field": "law",
       "text": "専任媒介契約における宅建業者の義務として正しいものはどれか。",
       "opts": [
@@ -6624,14 +4462,14 @@ const PRACTICE_QUESTIONS = {
         "自己発見取引（依頼者自身が相手方を見つける取引）は禁止",
         "専任媒介契約の有効期間は最長3ヶ月"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "専任媒介契約の有効期間は最長3ヶ月（更新可）で、依頼者への報告義務は2週間に1回以上、レインズへの登録は7日以内（休業日除く）です（宅建業法34条の2）。自己発見取引は専任媒介では可能ですが専属専任媒介では禁止です。",
-      "publicPath": "q/practice/p279/index.html"
+      "publicPath": "q/practice/p10279/index.html"
     },
     {
-      "id": 900280,
+      "id": 910280,
       "year": "orig",
-      "num": 280,
+      "num": 10280,
       "field": "law",
       "text": "宅建業者が建物の貸借の媒介をした場合の報酬の合計額の上限として正しいものはどれか。",
       "opts": [
@@ -6640,14 +4478,14 @@ const PRACTICE_QUESTIONS = {
         "借主・貸主双方から合わせて借賃2ヶ月分以内（税別）",
         "貸主から借賃3ヶ月分以内（税別）"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物の貸借媒介の報酬合計の上限は依頼者双方から合わせて借賃1ヶ月分（税別）です（報酬告示）。居住用建物の場合、依頼者の承諾がなければ一方から0.5ヶ月分が上限です。",
-      "publicPath": "q/practice/p280/index.html"
+      "publicPath": "q/practice/p10280/index.html"
     },
     {
-      "id": 900281,
+      "id": 910281,
       "year": "orig",
-      "num": 281,
+      "num": 10281,
       "field": "law",
       "text": "37条書面の任意的記載事項（定めがある場合に記載）として正しいものはどれか。",
       "opts": [
@@ -6656,14 +4494,14 @@ const PRACTICE_QUESTIONS = {
         "代金の額",
         "天災その他不可抗力による損害の負担に関する定め"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "天災等不可抗力による損害負担の定めは、定めがある場合にのみ37条書面に記載する任意的記載事項です（宅建業法37条1項11号）。当事者の氏名・住所・物件所在・代金額は必要的記載事項です。",
-      "publicPath": "q/practice/p281/index.html"
+      "publicPath": "q/practice/p10281/index.html"
     },
     {
-      "id": 900282,
+      "id": 910282,
       "year": "orig",
-      "num": 282,
+      "num": 10282,
       "field": "law",
       "text": "重要事項説明書（35条書面）の記載事項として正しいものはどれか。",
       "opts": [
@@ -6674,12 +4512,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "登記された権利の種類・内容等は35条書面（重要事項説明書）の記載事項です（宅建業法35条1項1号）。引渡し時期・移転登記申請時期・支払方法は37条書面（契約書面）の記載事項です。",
-      "publicPath": "q/practice/p282/index.html"
+      "publicPath": "q/practice/p10282/index.html"
     },
     {
-      "id": 900283,
+      "id": 910283,
       "year": "orig",
-      "num": 283,
+      "num": 10283,
       "field": "law",
       "text": "住宅品質確保促進法（品確法）における瑕疵担保責任の期間として正しいものはどれか。",
       "opts": [
@@ -6688,14 +4526,14 @@ const PRACTICE_QUESTIONS = {
         "新築住宅の全部について5年",
         "すべて任意に定められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "住宅品質確保促進法により、新築住宅の基本構造部分（構造耐力上主要な部分・雨水の侵入を防止する部分）については引渡しから10年間の瑕疵担保責任が義務付けられています（品確法94条・95条）。",
-      "publicPath": "q/practice/p283/index.html"
+      "publicPath": "q/practice/p10283/index.html"
     },
     {
-      "id": 900284,
+      "id": 910284,
       "year": "orig",
-      "num": 284,
+      "num": 10284,
       "field": "law",
       "text": "クーリングオフができなくなる条件として正しいものはどれか。",
       "opts": [
@@ -6704,14 +4542,14 @@ const PRACTICE_QUESTIONS = {
         "書面で告知された日から8日経過または物件の引渡しと代金の全額支払いの両方が完了したとき",
         "手付金を支払ったとき"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "クーリングオフができなくなるのは、①書面による告知の日から8日間を経過したとき、②買主が物件の引渡しを受け、かつ代金の全額を支払ったときです（宅建業法37条の2）。2つの条件はどちらか早い方で適用されます。",
-      "publicPath": "q/practice/p284/index.html"
+      "publicPath": "q/practice/p10284/index.html"
     },
     {
-      "id": 900285,
+      "id": 910285,
       "year": "orig",
-      "num": 285,
+      "num": 10285,
       "field": "law",
       "text": "宅建業法上、未完成物件について広告・契約を開始できる時期として正しいものはどれか。",
       "opts": [
@@ -6720,14 +4558,14 @@ const PRACTICE_QUESTIONS = {
         "広告は申請後すぐにできるが契約は許可・確認後のみ",
         "宅建業法上は制限なし"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "開発許可・建築確認その他法令に基づく許可等が下りるまで、宅建業者は広告・契約の締結ができません（宅建業法33条・36条）。申請中であっても広告・契約は禁止されます。",
-      "publicPath": "q/practice/p285/index.html"
+      "publicPath": "q/practice/p10285/index.html"
     },
     {
-      "id": 900286,
+      "id": 910286,
       "year": "orig",
-      "num": 286,
+      "num": 10286,
       "field": "law",
       "text": "都道府県知事が宅建業者に対して指示処分を行える場合として正しいものはどれか。",
       "opts": [
@@ -6736,14 +4574,14 @@ const PRACTICE_QUESTIONS = {
         "刑事事件で起訴された場合",
         "廃業の届出を怠った場合"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "知事は宅建業者が業務に関し取引の関係者に損害を与えたとき、または損害を与えるおそれが大であるときに指示処分ができます（宅建業法65条1項）。また宅建業法等の規定に違反した場合も指示処分の対象となります。",
-      "publicPath": "q/practice/p286/index.html"
+      "publicPath": "q/practice/p10286/index.html"
     },
     {
-      "id": 900287,
+      "id": 910287,
       "year": "orig",
-      "num": 287,
+      "num": 10287,
       "field": "law",
       "text": "保証協会の弁済業務保証金分担金の額として正しいものはどれか。",
       "opts": [
@@ -6754,12 +4592,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "弁済業務保証金分担金は主たる事務所につき60万円・従たる事務所1カ所につき30万円です（宅建業法64条の9）。これは通常の営業保証金（主1000万・従500万）の60分の1に当たります。",
-      "publicPath": "q/practice/p287/index.html"
+      "publicPath": "q/practice/p10287/index.html"
     },
     {
-      "id": 900288,
+      "id": 910288,
       "year": "orig",
-      "num": 288,
+      "num": 10288,
       "field": "law",
       "text": "一般媒介契約と専任媒介契約の違いとして正しいものはどれか。",
       "opts": [
@@ -6770,12 +4608,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "一般媒介は複数の業者への依頼が可能で依頼者の自己発見取引も自由です。専任媒介は1社のみ依頼可（自己発見取引は可）。専属専任媒介は1社のみ（自己発見取引も不可）。いずれも有効期間は最長3ヶ月（更新可）です。",
-      "publicPath": "q/practice/p288/index.html"
+      "publicPath": "q/practice/p10288/index.html"
     },
     {
-      "id": 900289,
+      "id": 910289,
       "year": "orig",
-      "num": 289,
+      "num": 10289,
       "field": "limit",
       "text": "開発許可が不要な行為として正しいものはどれか。",
       "opts": [
@@ -6784,14 +4622,14 @@ const PRACTICE_QUESTIONS = {
         "市街化調整区域内でのゴルフ場開発",
         "非線引き区域内での10000㎡以上の開発行為"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農業・林業・漁業の用に供する建築物（農家住宅等を含む）のための開発行為は開発許可が不要です（都市計画法29条1項2号・3号）。ただし市街化調整区域内での農林漁業者の住宅は例外的に許可不要となります。",
-      "publicPath": "q/practice/p289/index.html"
+      "publicPath": "q/practice/p10289/index.html"
     },
     {
-      "id": 900290,
+      "id": 910290,
       "year": "orig",
-      "num": 290,
+      "num": 10290,
       "field": "limit",
       "text": "道路斜線制限の説明として正しいものはどれか。",
       "opts": [
@@ -6800,14 +4638,14 @@ const PRACTICE_QUESTIONS = {
         "前面道路幅員が12m以上であれば道路斜線は適用されない",
         "道路斜線は北側斜線制限と同じ内容"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "道路斜線制限（建築基準法56条）は前面道路の幅員と用途地域に応じた勾配の斜線が設定され、建築物の高さがこれを超えてはなりません。前面道路が広いほど制限が緩やかになります。",
-      "publicPath": "q/practice/p290/index.html"
+      "publicPath": "q/practice/p10290/index.html"
     },
     {
-      "id": 900291,
+      "id": 910291,
       "year": "orig",
-      "num": 291,
+      "num": 10291,
       "field": "limit",
       "text": "農地法5条の許可が必要な行為として正しいものはどれか。",
       "opts": [
@@ -6816,14 +4654,14 @@ const PRACTICE_QUESTIONS = {
         "農地を宅地に転用するために権利移動する",
         "農地を農地以外のものに転用する（権利移動なし）"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "農地法5条は農地の転用を伴う権利移動（転用目的で売買・賃借等）に許可が必要です。農地のままの権利移動は3条、権利移動なしの転用は4条の許可が必要です。",
-      "publicPath": "q/practice/p291/index.html"
+      "publicPath": "q/practice/p10291/index.html"
     },
     {
-      "id": 900292,
+      "id": 910292,
       "year": "orig",
-      "num": 292,
+      "num": 10292,
       "field": "limit",
       "text": "国土利用計画法における注視区域内での事前届出の説明として正しいものはどれか。",
       "opts": [
@@ -6832,14 +4670,14 @@ const PRACTICE_QUESTIONS = {
         "届出は不要で自由に取引できる",
         "届出期間は3週間以内"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "注視区域内での届出（事前届出）をした場合、知事が届出受理から6週間以内に勧告または不勧告の通知をします。不勧告通知があれば契約を締結できます（国土利用計画法27条の6）。",
-      "publicPath": "q/practice/p292/index.html"
+      "publicPath": "q/practice/p10292/index.html"
     },
     {
-      "id": 900293,
+      "id": 910293,
       "year": "orig",
-      "num": 293,
+      "num": 10293,
       "field": "limit",
       "text": "仮換地の指定について正しいものはどれか。",
       "opts": [
@@ -6848,14 +4686,14 @@ const PRACTICE_QUESTIONS = {
         "仮換地と従前の宅地の両方を使用収益できる",
         "仮換地が指定されると所有権が移転する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮換地が指定されると、効力発生の日から換地処分の公告がある日まで、仮換地について使用収益でき、従前の宅地は使用収益できなくなります（土地区画整理法99条）。所有権は換地処分まで移転しません。",
-      "publicPath": "q/practice/p293/index.html"
+      "publicPath": "q/practice/p10293/index.html"
     },
     {
-      "id": 900294,
+      "id": 910294,
       "year": "orig",
-      "num": 294,
+      "num": 10294,
       "field": "limit",
       "text": "防火地域内の木造建築物について正しいものはどれか。",
       "opts": [
@@ -6864,14 +4702,14 @@ const PRACTICE_QUESTIONS = {
         "全ての建築物は耐火建築物または準耐火建築物としなければならない",
         "防火地域では木造建築は完全禁止"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "防火地域内では、階数が3以上または延べ面積が100㎡超の建築物は耐火建築物としなければならず、それ以外（階数2以下かつ100㎡以下）は準耐火建築物以上が必要です（建築基準法61条）。",
-      "publicPath": "q/practice/p294/index.html"
+      "publicPath": "q/practice/p10294/index.html"
     },
     {
-      "id": 900295,
+      "id": 910295,
       "year": "orig",
-      "num": 295,
+      "num": 10295,
       "field": "limit",
       "text": "地区計画の説明として正しいものはどれか。",
       "opts": [
@@ -6882,12 +4720,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "地区計画（都市計画法12条の5）は、市町村が都市計画として定め、地区の特性に応じた建築物の用途・容積率・建ぺい率・高さ・形態等のきめ細かなルールを定めるものです。市街化区域・市街化調整区域等の都市計画区域内で定められます。",
-      "publicPath": "q/practice/p295/index.html"
+      "publicPath": "q/practice/p10295/index.html"
     },
     {
-      "id": 900296,
+      "id": 910296,
       "year": "orig",
-      "num": 296,
+      "num": 10296,
       "field": "tax",
       "text": "固定資産税の小規模住宅用地（200㎡以下）の課税標準の特例として正しいものはどれか。",
       "opts": [
@@ -6896,14 +4734,14 @@ const PRACTICE_QUESTIONS = {
         "課税標準が1/4に軽減",
         "課税標準が1/6に軽減"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "小規模住宅用地（住宅1戸につき200㎡以下の部分）については、固定資産税の課税標準が1/6に軽減されます（地方税法349条の3の2）。200㎡超の一般住宅用地は1/3です。",
-      "publicPath": "q/practice/p296/index.html"
+      "publicPath": "q/practice/p10296/index.html"
     },
     {
-      "id": 900297,
+      "id": 910297,
       "year": "orig",
-      "num": 297,
+      "num": 10297,
       "field": "tax",
       "text": "登録免許税の所有権移転登記（売買）における税率として正しいものはどれか。",
       "opts": [
@@ -6912,14 +4750,14 @@ const PRACTICE_QUESTIONS = {
         "固定資産税評価額の0.4%",
         "固定資産税評価額の1.5%"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売買による所有権移転登記の登録免許税の税率は固定資産税評価額（課税標準）の2%です（登録免許税法別表第一）。相続は0.4%、贈与・交換は2%、抵当権設定は債権額の0.4%です。",
-      "publicPath": "q/practice/p297/index.html"
+      "publicPath": "q/practice/p10297/index.html"
     },
     {
-      "id": 900298,
+      "id": 910298,
       "year": "orig",
-      "num": 298,
+      "num": 10298,
       "field": "tax",
       "text": "居住用財産の譲渡所得に係る3000万円の特別控除の要件として正しいものはどれか。",
       "opts": [
@@ -6928,14 +4766,14 @@ const PRACTICE_QUESTIONS = {
         "売却年の前年・前々年にこの特例の適用を受けていないこと",
         "配偶者への売却でも適用可能"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "居住用財産の3000万円特別控除（租税特別措置法35条）は、売却年の前年・前々年にこの特例の適用を受けていないことが要件の1つです。居住の用に供さなくなった日から3年を経過する日の属する年末までの売却が対象で、配偶者・親族等への売却は適用外です。",
-      "publicPath": "q/practice/p298/index.html"
+      "publicPath": "q/practice/p10298/index.html"
     },
     {
-      "id": 900299,
+      "id": 910299,
       "year": "orig",
-      "num": 299,
+      "num": 10299,
       "field": "tax",
       "text": "地価公示の標準地の価格の性格として正しいものはどれか。",
       "opts": [
@@ -6944,14 +4782,14 @@ const PRACTICE_QUESTIONS = {
         "固定資産税評価額と同じ",
         "路線価の1.2倍の価格"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地価公示の標準地の価格（公示価格）は「正常な価格」すなわち土地について自由な取引が行われるとした場合において通常成立すると認められる価格です（地価公示法2条）。実際の取引価格は下回ることも上回ることもあります。",
-      "publicPath": "q/practice/p299/index.html"
+      "publicPath": "q/practice/p10299/index.html"
     },
     {
-      "id": 900300,
+      "id": 910300,
       "year": "orig",
-      "num": 300,
+      "num": 10300,
       "field": "rights",
       "text": "通謀虚偽表示（民法94条）において、虚偽表示の事実を知らない善意の第三者の保護について正しいものはどれか（判例）。",
       "opts": [
@@ -6960,14 +4798,14 @@ const PRACTICE_QUESTIONS = {
         "第三者は悪意でも保護される",
         "第三者は常に保護されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "通謀虚偽表示における善意の第三者の保護については判例上、登記なしでも善意の第三者は保護されるとしています（民法94条2項）。ただし転得者が悪意の場合は保護されません。",
-      "publicPath": "q/practice/p300/index.html"
+      "publicPath": "q/practice/p10300/index.html"
     },
     {
-      "id": 900301,
+      "id": 910301,
       "year": "orig",
-      "num": 301,
+      "num": 10301,
       "field": "rights",
       "text": "無権代理行為の追認を相手方以外の第三者（代理人等）に行った場合の効力として正しいものはどれか。",
       "opts": [
@@ -6976,14 +4814,14 @@ const PRACTICE_QUESTIONS = {
         "追認は必ず相手方に直接しなければならない",
         "追認は書面によらなければ効力がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "無権代理の追認は相手方に対してしなければ相手方に対抗できませんが（民法113条2項）、第三者（代理人等）への追認は相手方がそれを知った時から相手方に対抗できます。追認があると行為時から有効となります（遡及効）。",
-      "publicPath": "q/practice/p301/index.html"
+      "publicPath": "q/practice/p10301/index.html"
     },
     {
-      "id": 900302,
+      "id": 910302,
       "year": "orig",
-      "num": 302,
+      "num": 10302,
       "field": "rights",
       "text": "動産の即時取得（民法192条）の要件として正しいものはどれか。",
       "opts": [
@@ -6994,12 +4832,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "動産の即時取得の要件は①目的物が動産②取引行為に基づく③平穏・公然・善意・無過失で占有を開始することです（民法192条）。不動産には適用されません。",
-      "publicPath": "q/practice/p302/index.html"
+      "publicPath": "q/practice/p10302/index.html"
     },
     {
-      "id": 900303,
+      "id": 910303,
       "year": "orig",
-      "num": 303,
+      "num": 10303,
       "field": "rights",
       "text": "抵当権の物上代位（民法372条・304条）の行使要件として正しいものはどれか。",
       "opts": [
@@ -7010,12 +4848,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "物上代位権を行使するには、売却代金・賃料・保険金等が払い渡される前または引き渡される前に差押えが必要です（民法372条・304条）。払渡し後は物上代位権が消滅します。",
-      "publicPath": "q/practice/p303/index.html"
+      "publicPath": "q/practice/p10303/index.html"
     },
     {
-      "id": 900304,
+      "id": 910304,
       "year": "orig",
-      "num": 304,
+      "num": 10304,
       "field": "rights",
       "text": "消滅時効の援用権者として正しいものはどれか。",
       "opts": [
@@ -7024,14 +4862,14 @@ const PRACTICE_QUESTIONS = {
         "国のみが援用できる",
         "裁判所が職権で時効を認定する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "時効の援用権者は「時効により直接利益を受ける者」です（民法145条）。主たる債務者・連帯債務者・保証人・物上保証人・第三取得者等が含まれます。",
-      "publicPath": "q/practice/p304/index.html"
+      "publicPath": "q/practice/p10304/index.html"
     },
     {
-      "id": 900305,
+      "id": 910305,
       "year": "orig",
-      "num": 305,
+      "num": 10305,
       "field": "rights",
       "text": "遺産分割協議の成立要件として正しいものはどれか。",
       "opts": [
@@ -7040,14 +4878,14 @@ const PRACTICE_QUESTIONS = {
         "家庭裁判所の承認が必要",
         "遺産分割協議書は公正証書にしなければ無効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "遺産分割協議は相続人全員の合意が必要です（民法907条）。一人でも欠けると協議は成立しません。協議書の書面化は望ましいですが公正証書である必要はありません。",
-      "publicPath": "q/practice/p305/index.html"
+      "publicPath": "q/practice/p10305/index.html"
     },
     {
-      "id": 900306,
+      "id": 910306,
       "year": "orig",
-      "num": 306,
+      "num": 10306,
       "field": "rights",
       "text": "製造物責任法（PL法）の特徴として正しいものはどれか。",
       "opts": [
@@ -7056,14 +4894,14 @@ const PRACTICE_QUESTIONS = {
         "被害者が損害を証明する必要はない",
         "不動産も製造物責任法の対象"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "製造物責任法（PL法）では、製造物の「欠陥」により損害が生じた場合、製造業者等は故意・過失がなくても賠償責任を負います（製造物責任法3条）。製造物は「動産」に限られます。",
-      "publicPath": "q/practice/p306/index.html"
+      "publicPath": "q/practice/p10306/index.html"
     },
     {
-      "id": 900307,
+      "id": 910307,
       "year": "orig",
-      "num": 307,
+      "num": 10307,
       "field": "rights",
       "text": "事業用定期借地権（借地借家法23条）の存続期間として正しいものはどれか。",
       "opts": [
@@ -7074,12 +4912,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "事業用定期借地権の存続期間は10年以上50年未満です（借地借家法23条）。公正証書によることが効力要件で、専ら事業用建物の所有を目的とするものに限られます（居住用建物には使えません）。",
-      "publicPath": "q/practice/p307/index.html"
+      "publicPath": "q/practice/p10307/index.html"
     },
     {
-      "id": 900308,
+      "id": 910308,
       "year": "orig",
-      "num": 308,
+      "num": 10308,
       "field": "rights",
       "text": "区分所有建物の建替え決議の要件として正しいものはどれか。",
       "opts": [
@@ -7088,14 +4926,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者及び議決権の各4/5以上",
         "区分所有者全員の合意"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "区分所有建物の建替え決議は区分所有者及び議決権の各4/5以上の多数決が必要です（区分所有法62条1項）。建替えには反対区分所有者の区分所有権の売渡し請求も生じます。",
-      "publicPath": "q/practice/p308/index.html"
+      "publicPath": "q/practice/p10308/index.html"
     },
     {
-      "id": 900309,
+      "id": 910309,
       "year": "orig",
-      "num": 309,
+      "num": 10309,
       "field": "rights",
       "text": "根抵当権の登記において必ず登記する事項として正しいものはどれか。",
       "opts": [
@@ -7104,14 +4942,14 @@ const PRACTICE_QUESTIONS = {
         "担保する借入金の具体的金利",
         "被担保債権の各弁済期"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "根抵当権の登記事項には極度額・担保すべき債権の範囲・債務者が必要です（民法398条の4・不動産登記法83条）。個別の債権額や金利の詳細は登記不要です。",
-      "publicPath": "q/practice/p309/index.html"
+      "publicPath": "q/practice/p10309/index.html"
     },
     {
-      "id": 900310,
+      "id": 910310,
       "year": "orig",
-      "num": 310,
+      "num": 10310,
       "field": "rights",
       "text": "危険負担（民法536条）において、双務契約で一方の債務が帰責事由なく履行不能となった場合の効果として正しいものはどれか（民法改正後）。",
       "opts": [
@@ -7120,14 +4958,14 @@ const PRACTICE_QUESTIONS = {
         "当然に契約が解除される",
         "損害賠償請求ができる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年改正民法では、双務契約で一方の債務が帰責事由なく履行不能となった場合、相手方は反対給付の履行を拒むことができます（履行拒絶権）（民法536条1項）。",
-      "publicPath": "q/practice/p310/index.html"
+      "publicPath": "q/practice/p10310/index.html"
     },
     {
-      "id": 900311,
+      "id": 910311,
       "year": "orig",
-      "num": 311,
+      "num": 10311,
       "field": "rights",
       "text": "転貸借（又貸し）が適法に行われた場合の賃貸人・転借人の関係として正しいものはどれか。",
       "opts": [
@@ -7136,14 +4974,14 @@ const PRACTICE_QUESTIONS = {
         "適法な転貸借でも賃貸人が新たに承諾が必要",
         "転貸借は常に違法"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "適法な転貸借では転借人は賃貸人に対して直接義務を負います（民法613条1項）。賃貸人は転借人に対して転借料の範囲で賃料を直接請求できます。",
-      "publicPath": "q/practice/p311/index.html"
+      "publicPath": "q/practice/p10311/index.html"
     },
     {
-      "id": 900312,
+      "id": 910312,
       "year": "orig",
-      "num": 312,
+      "num": 10312,
       "field": "rights",
       "text": "共有物分割の方法（協議不成立の場合の裁判）として正しいものはどれか。",
       "opts": [
@@ -7152,14 +4990,14 @@ const PRACTICE_QUESTIONS = {
         "裁判所は必ず等分に現物分割しか命じられない",
         "共有物分割は不可能"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共有物分割の協議が調わない場合、裁判所は現物分割・価格賠償（一方が全部取得し他方に代償金支払）・競売による代金分割等を命じることができます（民法258条）。",
-      "publicPath": "q/practice/p312/index.html"
+      "publicPath": "q/practice/p10312/index.html"
     },
     {
-      "id": 900313,
+      "id": 910313,
       "year": "orig",
-      "num": 313,
+      "num": 10313,
       "field": "law",
       "text": "宅建業者の廃業等を免許権者へ届け出る期限として正しいものはどれか。",
       "opts": [
@@ -7168,14 +5006,14 @@ const PRACTICE_QUESTIONS = {
         "廃業等から60日以内",
         "届出は任意"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "廃業・解散・合併等の場合、その日（または知った日）から30日以内に免許権者に届け出なければなりません（宅建業法11条1項）。",
-      "publicPath": "q/practice/p313/index.html"
+      "publicPath": "q/practice/p10313/index.html"
     },
     {
-      "id": 900314,
+      "id": 910314,
       "year": "orig",
-      "num": 314,
+      "num": 10314,
       "field": "law",
       "text": "宅建士証の更新に際して受講が必要な法定講習の時期として正しいものはどれか。",
       "opts": [
@@ -7184,14 +5022,14 @@ const PRACTICE_QUESTIONS = {
         "宅建士証の更新（交付申請）前6ヶ月以内に受講",
         "随時受講すれば足りる"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建士証の有効期間（5年）満了による更新の際には、交付申請前6ヶ月以内に法定講習（登録講習機関が実施）を受講しなければなりません（宅建業法22条の2第2項）。",
-      "publicPath": "q/practice/p314/index.html"
+      "publicPath": "q/practice/p10314/index.html"
     },
     {
-      "id": 900315,
+      "id": 910315,
       "year": "orig",
-      "num": 315,
+      "num": 10315,
       "field": "law",
       "text": "専属専任媒介契約における指定流通機構（レインズ）への登録期限として正しいものはどれか。",
       "opts": [
@@ -7202,12 +5040,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "専属専任媒介契約では契約締結から5日以内（休業日を除く）にレインズへ物件情報を登録しなければなりません（宅建業法34条の2第5項）。専任媒介は7日以内です。",
-      "publicPath": "q/practice/p315/index.html"
+      "publicPath": "q/practice/p10315/index.html"
     },
     {
-      "id": 900316,
+      "id": 910316,
       "year": "orig",
-      "num": 316,
+      "num": 10316,
       "field": "law",
       "text": "35条書面（重要事項説明書）に記載する法令上の制限について正しいものはどれか。",
       "opts": [
@@ -7216,14 +5054,14 @@ const PRACTICE_QUESTIONS = {
         "税金に関する事項のみ記載",
         "インスペクション結果のみ記載"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "35条書面には「都市計画法・建築基準法その他の法令に基づく制限で取引の内容の別に応じて政令で定めるもの」を記載する必要があります（宅建業法35条1項2号）。対象物件に係るすべての関係法令の制限が対象です。",
-      "publicPath": "q/practice/p316/index.html"
+      "publicPath": "q/practice/p10316/index.html"
     },
     {
-      "id": 900317,
+      "id": 910317,
       "year": "orig",
-      "num": 317,
+      "num": 10317,
       "field": "law",
       "text": "37条書面（契約書面）に必ず記載しなければならない事項として正しいものはどれか。",
       "opts": [
@@ -7232,14 +5070,14 @@ const PRACTICE_QUESTIONS = {
         "住宅性能評価を受けた旨",
         "容積率・建ぺい率"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "「宅地または建物の引渡しの時期」は37条書面の必要的記載事項です（宅建業法37条1項4号）。融資あっせんに関する事項は定めがある場合のみ記載する任意的記載事項です。",
-      "publicPath": "q/practice/p317/index.html"
+      "publicPath": "q/practice/p10317/index.html"
     },
     {
-      "id": 900318,
+      "id": 910318,
       "year": "orig",
-      "num": 318,
+      "num": 10318,
       "field": "law",
       "text": "宅建業者が自ら売主として売買契約を直接締結した場合（媒介でない場合）の報酬について正しいものはどれか。",
       "opts": [
@@ -7248,14 +5086,14 @@ const PRACTICE_QUESTIONS = {
         "売主宅建業者は媒介報酬と同額の手数料を受領できる",
         "売主宅建業者は報酬制限の対象外"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者が自ら売主として直接売買契約を結ぶ場合、売買代金の中に利益が含まれるため別途「媒介報酬」を受け取ることはできません。宅建業法の報酬制限（46条）は媒介・代理の場合に適用される規定です。",
-      "publicPath": "q/practice/p318/index.html"
+      "publicPath": "q/practice/p10318/index.html"
     },
     {
-      "id": 900319,
+      "id": 910319,
       "year": "orig",
-      "num": 319,
+      "num": 10319,
       "field": "law",
       "text": "保証協会への弁済業務保証金分担金の額（主たる事務所のみの場合）として正しいものはどれか。",
       "opts": [
@@ -7264,14 +5102,14 @@ const PRACTICE_QUESTIONS = {
         "10万円",
         "1,000万円"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済業務保証金分担金は主たる事務所につき60万円、従たる事務所1ヶ所あたり30万円です（宅建業法64条の9第1項）。営業保証金（主たる事務所1,000万円）と比べて大幅に少額となっています。",
-      "publicPath": "q/practice/p319/index.html"
+      "publicPath": "q/practice/p10319/index.html"
     },
     {
-      "id": 900320,
+      "id": 910320,
       "year": "orig",
-      "num": 320,
+      "num": 10320,
       "field": "law",
       "text": "クーリングオフの行使方法として正しいものはどれか。",
       "opts": [
@@ -7280,14 +5118,14 @@ const PRACTICE_QUESTIONS = {
         "宅建業者の事務所でのみ行使できる",
         "相手方の同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフは書面または電磁的方法（相手方の承諾がある場合）で行使する必要があります（宅建業法37条の2第1項）。書面が発送された時点（発信主義）で効力が生じます。",
-      "publicPath": "q/practice/p320/index.html"
+      "publicPath": "q/practice/p10320/index.html"
     },
     {
-      "id": 900321,
+      "id": 910321,
       "year": "orig",
-      "num": 321,
+      "num": 10321,
       "field": "law",
       "text": "宅建業者の従業者証明書（証明書）の携帯・提示義務について正しいものはどれか。",
       "opts": [
@@ -7296,14 +5134,14 @@ const PRACTICE_QUESTIONS = {
         "事務所内に掲示すれば携帯は不要",
         "代表取締役は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者はすべての従業者（役員を含む）に従業者証明書を携帯させ、取引の関係者から請求があった場合は提示させなければなりません（宅建業法48条）。",
-      "publicPath": "q/practice/p321/index.html"
+      "publicPath": "q/practice/p10321/index.html"
     },
     {
-      "id": 900322,
+      "id": 910322,
       "year": "orig",
-      "num": 322,
+      "num": 10322,
       "field": "limit",
       "text": "市街化調整区域内での開発行為で許可が不要とされる場合として正しいものはどれか。",
       "opts": [
@@ -7312,14 +5150,14 @@ const PRACTICE_QUESTIONS = {
         "1,000平方メートル未満であれば許可不要",
         "都道府県知事が認めれば自由に開発できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化調整区域内でも農業・林業・漁業を営む者の住宅等、一定の農林漁業用建築物を目的とする開発行為は開発許可が不要です（都市計画法29条1項2号）。",
-      "publicPath": "q/practice/p322/index.html"
+      "publicPath": "q/practice/p10322/index.html"
     },
     {
-      "id": 900323,
+      "id": 910323,
       "year": "orig",
-      "num": 323,
+      "num": 10323,
       "field": "limit",
       "text": "防火地域内にある耐火建築物等（建築基準法53条3項）に対する建ぺい率の扱いとして正しいものはどれか。",
       "opts": [
@@ -7328,14 +5166,14 @@ const PRACTICE_QUESTIONS = {
         "建ぺい率が厳しくなる",
         "建ぺい率への影響はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "防火地域内にある耐火建築物等（または準防火地域内にある耐火建築物等）は建ぺい率が10%加算（緩和）されます（建築基準法53条3項）。また角地等も10%加算されます。",
-      "publicPath": "q/practice/p323/index.html"
+      "publicPath": "q/practice/p10323/index.html"
     },
     {
-      "id": 900324,
+      "id": 910324,
       "year": "orig",
-      "num": 324,
+      "num": 10324,
       "field": "limit",
       "text": "農地法5条（転用目的の権利移動）で国または都道府県等が転用目的で農地を取得する場合の手続きとして正しいものはどれか。",
       "opts": [
@@ -7344,14 +5182,14 @@ const PRACTICE_QUESTIONS = {
         "協議または通知で足り許可は不要",
         "農業委員会の許可が必要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "国または都道府県等が一定の目的のために農地の権利を取得する場合は農地法5条の許可が不要となり、協議または通知で足ります（農地法5条1項6号・7号等）。",
-      "publicPath": "q/practice/p324/index.html"
+      "publicPath": "q/practice/p10324/index.html"
     },
     {
-      "id": 900325,
+      "id": 910325,
       "year": "orig",
-      "num": 325,
+      "num": 10325,
       "field": "limit",
       "text": "国土利用計画法の事後届出が不要な取引として正しいものはどれか。",
       "opts": [
@@ -7360,14 +5198,14 @@ const PRACTICE_QUESTIONS = {
         "贈与による土地取得",
         "交換による土地取得"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "国土利用計画法の事後届出は「土地売買等の契約」に基づく取引が対象です（国土利用計画法23条）。相続・遺贈（贈与遺言を除く）・信託（委託者に戻す場合）等は届出不要です。",
-      "publicPath": "q/practice/p325/index.html"
+      "publicPath": "q/practice/p10325/index.html"
     },
     {
-      "id": 900326,
+      "id": 910326,
       "year": "orig",
-      "num": 326,
+      "num": 10326,
       "field": "limit",
       "text": "土地区画整理事業における清算金の仕組みとして正しいものはどれか。",
       "opts": [
@@ -7376,14 +5214,14 @@ const PRACTICE_QUESTIONS = {
         "清算金は任意で支払わなくてよい",
         "清算金は現物のみで支払われる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "清算金は換地と従前地との面積や価値の差に応じて金銭で調整するものです（土地区画整理法94条）。換地が少なければ施行者が権利者に交付し、換地が多ければ権利者が施行者に納付します。",
-      "publicPath": "q/practice/p326/index.html"
+      "publicPath": "q/practice/p10326/index.html"
     },
     {
-      "id": 900327,
+      "id": 910327,
       "year": "orig",
-      "num": 327,
+      "num": 10327,
       "field": "tax",
       "text": "「被相続人の居住用財産（空き家）の譲渡所得の3,000万円特別控除」の対象となる主な要件として正しいものはどれか。",
       "opts": [
@@ -7392,14 +5230,14 @@ const PRACTICE_QUESTIONS = {
         "居住用以外の家屋でも適用できる",
         "譲渡価格に上限はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "空き家特例（租税特別措置法35条3項）は相続開始直前に被相続人が居住していた建物・土地について、一定の要件（2023年改正含む：耐震改修、売却代金1億円以下等）を満たした譲渡に3,000万円控除が適用されます。",
-      "publicPath": "q/practice/p327/index.html"
+      "publicPath": "q/practice/p10327/index.html"
     },
     {
-      "id": 900328,
+      "id": 910328,
       "year": "orig",
-      "num": 328,
+      "num": 10328,
       "field": "tax",
       "text": "新築住宅の不動産取得税における課税標準の特例控除として正しいものはどれか。",
       "opts": [
@@ -7408,14 +5246,14 @@ const PRACTICE_QUESTIONS = {
         "税額から10万円を控除",
         "床面積120平方メートルまでが非課税"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "新築住宅（床面積50平方メートル以上240平方メートル以下）の不動産取得税では課税標準から1,200万円（認定長期優良住宅等は1,300万円）を控除する特例があります（地方税法附則11条）。",
-      "publicPath": "q/practice/p328/index.html"
+      "publicPath": "q/practice/p10328/index.html"
     },
     {
-      "id": 900329,
+      "id": 910329,
       "year": "orig",
-      "num": 329,
+      "num": 10329,
       "field": "tax",
       "text": "固定資産税の課税権者として正しいものはどれか。",
       "opts": [
@@ -7424,14 +5262,14 @@ const PRACTICE_QUESTIONS = {
         "市町村（東京特別区においては東京都）",
         "国税庁"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "固定資産税は市町村税であり、課税権者は市町村（東京特別区においては東京都）です（地方税法342条・734条）。",
-      "publicPath": "q/practice/p329/index.html"
+      "publicPath": "q/practice/p10329/index.html"
     },
     {
-      "id": 900330,
+      "id": 910330,
       "year": "orig",
-      "num": 330,
+      "num": 10330,
       "field": "tax",
       "text": "一定要件を満たす新築住宅の所有権保存登記の登録免許税の軽減税率として正しいものはどれか。",
       "opts": [
@@ -7440,14 +5278,14 @@ const PRACTICE_QUESTIONS = {
         "0.3%に軽減",
         "全額免除"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "一定の要件を満たす新築住宅（床面積50平方メートル以上等）の所有権保存登記の登録免許税は本則0.4%から0.15%に軽減されます（租税特別措置法72条）。",
-      "publicPath": "q/practice/p330/index.html"
+      "publicPath": "q/practice/p10330/index.html"
     },
     {
-      "id": 900331,
+      "id": 910331,
       "year": "orig",
-      "num": 331,
+      "num": 10331,
       "field": "tax",
       "text": "基準地価格（都道府県地価調査）の調査時点と公表時期として正しいものはどれか。",
       "opts": [
@@ -7456,14 +5294,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通省が毎年7月1日時点で調査",
         "都道府県が毎年1月1日時点で調査"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "基準地価格（都道府県地価調査）は都道府県が毎年7月1日時点の価格を調査し9月頃公表します（国土利用計画法施行令9条）。地価公示は国土交通省が1月1日時点で3月頃公表します。",
-      "publicPath": "q/practice/p331/index.html"
+      "publicPath": "q/practice/p10331/index.html"
     },
     {
-      "id": 900332,
+      "id": 910332,
       "year": "orig",
-      "num": 332,
+      "num": 10332,
       "field": "tax",
       "text": "フラット35の金利タイプについて正しいものはどれか。",
       "opts": [
@@ -7472,2256 +5310,14 @@ const PRACTICE_QUESTIONS = {
         "当初10年固定・その後変動の選択型",
         "金利は毎月変動する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "フラット35は借入時に決定した金利が返済完了まで変動しない全期間固定金利型の住宅ローンです。金利変動リスクがなく長期の資金計画が立てやすいのが最大の特徴です。",
-      "publicPath": "q/practice/p332/index.html"
+      "publicPath": "q/practice/p10332/index.html"
     },
     {
-      "id": 900470,
+      "id": 910333,
       "year": "orig",
-      "num": 470,
-      "field": "limit",
-      "text": "特定盛土等規制区域と宅地造成工事規制区域の違いとして正しいものはどれか。",
-      "opts": [
-        "特定盛土等規制区域は市街地のみに指定できる",
-        "特定盛土等規制区域は市街地から離れた山林・農地等にも指定できる",
-        "両区域は重複して指定できない",
-        "特定盛土等規制区域では届出は不要"
-      ],
-      "ans": 1,
-      "exp": "特定盛土等規制区域は市街地から離れた山林・農地等でも盛土崩落が人家等に危害を与えるおそれがある区域に指定されます。宅地造成工事規制区域との重複指定は認められていません。",
-      "publicPath": "q/practice/p470/index.html"
-    },
-    {
-      "id": 900471,
-      "year": "orig",
-      "num": 471,
-      "field": "limit",
-      "text": "盛土規制法における「造成宅地防災区域」の指定目的として正しいものはどれか。",
-      "opts": [
-        "農地の転用を規制するため",
-        "既存の宅地造成地で災害発生のおそれがある区域を指定し防災措置を促すため",
-        "新規開発を禁止するため",
-        "固定資産税を軽減するため"
-      ],
-      "ans": 1,
-      "exp": "造成宅地防災区域は既に造成された宅地で地盤が軟弱・崩落のおそれがある区域を知事が指定し、土地所有者等に擁壁設置等の防災措置を勧告・命令できる制度です（盛土規制法45条）。",
-      "publicPath": "q/practice/p471/index.html"
-    },
-    {
-      "id": 900475,
-      "year": "orig",
-      "num": 475,
-      "field": "tax",
-      "text": "沖積低地と洪積台地の比較として正しいものはどれか。",
-      "opts": [
-        "沖積低地の方が地盤が安定している",
-        "洪積台地の方が液状化リスクが高い",
-        "洪積台地は比較的古い時代に形成され地盤が安定している",
-        "沖積低地は宅地として最適"
-      ],
-      "ans": 2,
-      "exp": "洪積台地は数万年以上前に形成された安定した地盤で宅地に適しています。沖積低地は比較的新しく形成され液状化・洪水のリスクが高いため宅地には注意が必要です。",
-      "publicPath": "q/practice/p475/index.html"
-    },
-    {
-      "id": 900476,
-      "year": "orig",
-      "num": 476,
-      "field": "tax",
-      "text": "建物の構造に関する記述として正しいものはどれか。",
-      "opts": [
-        "鉄筋コンクリート造は引張力に弱い",
-        "鉄骨造は耐火性が高い",
-        "鉄筋コンクリート造はコンクリートの圧縮力と鉄筋の引張力を組み合わせた構造",
-        "木造は耐火性が最も高い"
-      ],
-      "ans": 2,
-      "exp": "鉄筋コンクリート造（RC造）はコンクリートの圧縮強度と鉄筋の引張強度を組み合わせることで高い耐久性を実現しています。鉄骨造は耐火被覆が必要です。",
-      "publicPath": "q/practice/p476/index.html"
-    },
-    {
-      "id": 900480,
-      "year": "orig",
-      "num": 480,
-      "field": "tax",
-      "text": "住宅金融支援機構が直接融資を行うことができる場合として正しいものはどれか。",
-      "opts": [
-        "すべての住宅取得者",
-        "災害復興住宅融資・子育て支援住宅融資など政策上必要なケース",
-        "年収1000万円以上の高所得者",
-        "事業用不動産の取得"
-      ],
-      "ans": 1,
-      "exp": "住宅金融支援機構は原則として証券化支援業務が中心ですが、災害復興融資・財形住宅融資・子育て世帯向け融資など政策上必要なケースでは直接融資も行います（住宅金融支援機構法17条）。",
-      "publicPath": "q/practice/p480/index.html"
-    },
-    {
-      "id": 900481,
-      "year": "orig",
-      "num": 481,
-      "field": "tax",
-      "text": "フラット35の融資対象となる住宅の床面積要件として正しいものはどれか（一戸建て）。",
-      "opts": [
-        "30㎡以上",
-        "50㎡以上",
-        "70㎡以上",
-        "100㎡以上"
-      ],
-      "ans": 1,
-      "exp": "フラット35の融資対象は一戸建て住宅で床面積70㎡以上、マンション等の共同住宅は30㎡以上が要件です（住宅金融支援機構の取扱基準）。",
-      "publicPath": "q/practice/p481/index.html"
-    },
-    {
-      "id": 900485,
-      "year": "orig",
-      "num": 485,
-      "field": "tax",
-      "text": "不動産売買契約書を2通作成した場合の印紙税について正しいものはどれか。",
-      "opts": [
-        "2通合わせて1通分の印紙で足りる",
-        "各1通ずつに印紙が必要（合計2通分）",
-        "1通だけに貼付すれば足りる",
-        "コピーにも印紙が必要"
-      ],
-      "ans": 1,
-      "exp": "印紙税は1通ごとに課税されるため、2通作成した場合はそれぞれに印紙を貼付する必要があります。コピー（複写）には印紙は不要です。",
-      "publicPath": "q/practice/p485/index.html"
-    },
-    {
-      "id": 900486,
-      "year": "orig",
-      "num": 486,
-      "field": "tax",
-      "text": "宅地建物の譲渡に関する消費税について正しいものはどれか。",
-      "opts": [
-        "土地の譲渡には消費税が課される",
-        "建物の譲渡には消費税が課されるが土地の譲渡は非課税",
-        "住宅の賃貸借も消費税が課される",
-        "消費税は売主が免税事業者でも必ず課税される"
-      ],
-      "ans": 1,
-      "exp": "土地の譲渡は消費税非課税です（消費税法6条・別表1）。建物の譲渡は課税対象です。住宅の貸付（家賃）は非課税ですが、駐車場・事業用建物の賃貸は課税されます。",
-      "publicPath": "q/practice/p486/index.html"
-    },
-    {
-      "id": 900490,
-      "year": "orig",
-      "num": 490,
-      "field": "tax",
-      "text": "不動産鑑定評価の原価法における「減価修正」の方法として正しいものはどれか。",
-      "opts": [
-        "取引事例と比較して減価する",
-        "耐用年数や劣化状況を考慮して再調達原価から減価する",
-        "収益の減少分を控除する",
-        "相続税評価額から控除する"
-      ],
-      "ans": 1,
-      "exp": "原価法は再調達原価（その不動産を現時点で再建築・再取得する費用）から物理的・機能的・経済的な減価を修正して積算価格を求める方法です。主に建物の評価に用いられます。",
-      "publicPath": "q/practice/p490/index.html"
-    },
-    {
-      "id": 900491,
-      "year": "orig",
-      "num": 491,
-      "field": "tax",
-      "text": "相続税路線価と地価公示価格の関係として正しいものはどれか。",
-      "opts": [
-        "相続税路線価は地価公示価格と同額",
-        "相続税路線価は地価公示価格のおおむね80%水準",
-        "相続税路線価は地価公示価格の50%水準",
-        "両者は無関係"
-      ],
-      "ans": 1,
-      "exp": "相続税路線価は地価公示価格のおおむね80%水準に設定されています。固定資産税評価額は地価公示価格の70%水準が目安です。",
-      "publicPath": "q/practice/p491/index.html"
-    },
-    {
-      "id": 900495,
-      "year": "orig",
-      "num": 495,
-      "field": "limit",
-      "text": "国土利用計画法の届出が不要な場合として正しいものはどれか。",
-      "opts": [
-        "個人間の売買契約",
-        "国・地方公共団体が当事者となる取引",
-        "法人同士の売買",
-        "外国人が取得する場合"
-      ],
-      "ans": 1,
-      "exp": "国または地方公共団体が当事者となる取引は届出不要です（国土利用計画法23条2項）。また農地法の許可が必要な農地の取引も届出不要です。",
-      "publicPath": "q/practice/p495/index.html"
-    },
-    {
-      "id": 900496,
-      "year": "orig",
-      "num": 496,
-      "field": "limit",
-      "text": "事後届出後に都道府県知事が「利用目的の変更勧告」をできる期間として正しいものはどれか。",
-      "opts": [
-        "届出受理後1週間以内",
-        "届出受理後3週間以内",
-        "届出受理後6週間以内",
-        "届出受理後3か月以内"
-      ],
-      "ans": 1,
-      "exp": "都道府県知事は事後届出を受理した日から3週間以内に利用目的について勧告することができます（国土利用計画法24条1項）。勧告に従わない場合は公表できます。",
-      "publicPath": "q/practice/p496/index.html"
-    },
-    {
-      "id": 900500,
-      "year": "orig",
-      "num": 500,
-      "field": "limit",
-      "text": "土地区画整理組合の設立認可の要件として正しいものはどれか。",
-      "opts": [
-        "施行区域内の土地所有者全員の同意",
-        "施行区域内の土地所有者及び借地権者のそれぞれ3分の2以上の同意",
-        "施行区域内の土地所有者の過半数の同意",
-        "都道府県知事の職権による設立"
-      ],
-      "ans": 1,
-      "exp": "土地区画整理組合の設立には施行区域内の土地所有者および借地権者のそれぞれ3分の2以上の同意と都道府県知事の認可が必要です（土地区画整理法14条）。",
-      "publicPath": "q/practice/p500/index.html"
-    },
-    {
-      "id": 900501,
-      "year": "orig",
-      "num": 501,
-      "field": "limit",
-      "text": "清算金の徴収・交付に関して正しいものはどれか。",
-      "opts": [
-        "清算金は換地処分前に支払われる",
-        "過小な換地を受けた者は清算金を交付され、過大な換地を受けた者は清算金を徴収される",
-        "清算金は任意の支払い",
-        "清算金制度は廃止されている"
-      ],
-      "ans": 1,
-      "exp": "換地と従前地の価額に差がある場合、換地処分の公告後に清算金の徴収・交付が行われます（土地区画整理法94条）。価値が増加した者からは徴収、減少した者へは交付されます。",
-      "publicPath": "q/practice/p501/index.html"
-    },
-    {
-      "id": 900505,
-      "year": "orig",
-      "num": 505,
-      "field": "rights",
-      "text": "地役権の時効取得の要件として正しいものはどれか。",
-      "opts": [
-        "地役権は時効取得できない",
-        "継続的に行使され外形上認識できる地役権は時効取得できる",
-        "10年の占有で取得できる",
-        "地役権は登記がなければ時効取得できない"
-      ],
-      "ans": 1,
-      "exp": "継続的に行使され、かつ外形上認識できる地役権（例：通路開設を伴う通行地役権）は時効取得できます（民法283条・判例）。継続性・外形性の要件が必要です。",
-      "publicPath": "q/practice/p505/index.html"
-    },
-    {
-      "id": 900506,
-      "year": "orig",
-      "num": 506,
-      "field": "rights",
-      "text": "共有物の分割方法として民法上認められていないものはどれか。",
-      "opts": [
-        "現物分割",
-        "代金分割（競売）",
-        "価格賠償（価格弁償）",
-        "第三者への強制譲渡"
-      ],
-      "ans": 3,
-      "exp": "民法上の共有物分割方法は①現物分割②代金分割（競売）③価格賠償（一方が他方に価値を弁償して単独取得）です（民法258条）。第三者への強制譲渡という方法はありません。",
-      "publicPath": "q/practice/p506/index.html"
-    },
-    {
-      "id": 900510,
-      "year": "orig",
-      "num": 510,
-      "field": "rights",
-      "text": "定期借家契約の説明として正しいものはどれか。",
-      "opts": [
-        "口頭で契約できる",
-        "公正証書等の書面で行い更新がなく期間満了で終了する",
-        "2年未満の期間は無効",
-        "貸主の正当事由が不要なため普及している"
-      ],
-      "ans": 1,
-      "exp": "定期借家契約は書面（公正証書等）によって締結し、更新がなく期間満了で終了します（借地借家法38条）。貸主は事前に更新がない旨を書面で説明する義務があります。",
-      "publicPath": "q/practice/p510/index.html"
-    },
-    {
-      "id": 900511,
-      "year": "orig",
-      "num": 511,
-      "field": "rights",
-      "text": "借地権の対抗要件として正しいものはどれか。",
-      "opts": [
-        "借地契約書の公正証書化",
-        "借地上の建物の登記（建物所有者が借地権者と同一人）",
-        "土地の賃借権登記のみ",
-        "市町村への届出"
-      ],
-      "ans": 1,
-      "exp": "借地権の対抗要件は「借地上に建物の登記」があることです（借地借家法10条）。建物の所有者と借地権者が同一人であれば、建物の登記により第三者に対抗できます。",
-      "publicPath": "q/practice/p511/index.html"
-    },
-    {
-      "id": 900515,
-      "year": "orig",
-      "num": 515,
-      "field": "rights",
-      "text": "区分所有建物の大規模滅失（価格の2分の1超が滅失）後の復旧決議の要件として正しいものはどれか。",
-      "opts": [
-        "全員の同意",
-        "区分所有者及び議決権の各4分の3以上",
-        "区分所有者及び議決権の各過半数",
-        "区分所有者及び議決権の各5分の4以上"
-      ],
-      "ans": 1,
-      "exp": "大規模滅失の復旧決議は区分所有者及び議決権の各4分の3以上の賛成が必要です（区分所有法61条5項）。小規模滅失（2分の1以下）は各区分所有者が単独で復旧できます。",
-      "publicPath": "q/practice/p515/index.html"
-    },
-    {
-      "id": 900516,
-      "year": "orig",
-      "num": 516,
-      "field": "rights",
-      "text": "管理者に関して正しいものはどれか。",
-      "opts": [
-        "管理者は必ず区分所有者でなければならない",
-        "管理者は区分所有者以外の第三者もなれる",
-        "管理者の選任には全員の同意が必要",
-        "管理者は設置が義務付けられている"
-      ],
-      "ans": 1,
-      "exp": "管理者は区分所有者に限らず、管理会社等の第三者もなることができます（区分所有法25条1項）。管理者の設置は任意で、選任・解任は集会の普通決議で行います。",
-      "publicPath": "q/practice/p516/index.html"
-    },
-    {
-      "id": 900520,
-      "year": "orig",
-      "num": 520,
-      "field": "rights",
-      "text": "仮登記の効力として正しいものはどれか。",
-      "opts": [
-        "仮登記は本登記と同一の効力を持つ",
-        "仮登記は順位保全の効力を持ち、本登記すると仮登記の順位で本登記の効力が生じる",
-        "仮登記後は本登記が不要",
-        "仮登記は対抗力を持つ"
-      ],
-      "ans": 1,
-      "exp": "仮登記は順位保全の効力を持ちます（不動産登記法105条・106条）。仮登記に基づいて本登記をすると仮登記の順位で本登記の効力が生じます。ただし仮登記自体には対抗力はありません。",
-      "publicPath": "q/practice/p520/index.html"
-    },
-    {
-      "id": 900521,
-      "year": "orig",
-      "num": 521,
-      "field": "rights",
-      "text": "登記申請の共同申請の原則と例外として正しいものはどれか。",
-      "opts": [
-        "すべての登記は単独で申請できる",
-        "原則として登記権利者と登記義務者が共同で申請するが、相続・合併等は単独申請できる",
-        "登記は常に裁判所を経由して行う",
-        "共同申請は任意"
-      ],
-      "ans": 1,
-      "exp": "不動産登記は原則として登記権利者と登記義務者が共同で申請します（不動産登記法60条）。ただし相続・法人合併・判決・収用等の場合は権利者が単独申請できます（同法63条）。",
-      "publicPath": "q/practice/p521/index.html"
-    },
-    {
-      "id": 900525,
-      "year": "orig",
-      "num": 525,
-      "field": "law",
-      "text": "誇大広告の禁止規定（宅建業法32条）で禁止される表示として正しいものはどれか。",
-      "opts": [
-        "物件の正確な所在地の表示",
-        "実際より著しく優良・有利と誤認させる表示",
-        "競合物件との比較広告",
-        "値引きキャンペーンの告知"
-      ],
-      "ans": 1,
-      "exp": "宅建業法32条は、物件の所在・規模・形質・現在・将来の利用の制限・環境・交通等の利便・代金等について著しく事実に相違する表示や実際より著しく優良・有利と誤認させる表示を禁止しています。",
-      "publicPath": "q/practice/p525/index.html"
-    },
-    {
-      "id": 900526,
-      "year": "orig",
-      "num": 526,
-      "field": "law",
-      "text": "宅建業者の契約締結時期の制限として正しいものはどれか。",
-      "opts": [
-        "開発許可前でも買主が同意すれば契約できる",
-        "建築確認・開発許可等の処分前には売買契約（予約含む）を締結できない",
-        "広告前であれば契約できる",
-        "宅建業者間の取引は制限なし"
-      ],
-      "ans": 1,
-      "exp": "宅建業者は開発許可・建築確認等の処分がある前には自ら売主として宅地建物の売買契約（予約を含む）を締結することができません（宅建業法36条）。",
-      "publicPath": "q/practice/p526/index.html"
-    },
-    {
-      "id": 900530,
-      "year": "orig",
-      "num": 530,
-      "field": "law",
-      "text": "住宅瑕疵担保責任保険の保証期間として正しいものはどれか。",
-      "opts": [
-        "1年間",
-        "2年間",
-        "5年間",
-        "10年間"
-      ],
-      "ans": 3,
-      "exp": "新築住宅の構造耐力上主要な部分と雨水の浸入を防止する部分に関する瑕疵担保責任は10年間です（住宅品質確保法95条）。保険もこれに対応した10年間の保証となります。",
-      "publicPath": "q/practice/p530/index.html"
-    },
-    {
-      "id": 900531,
-      "year": "orig",
-      "num": 531,
-      "field": "law",
-      "text": "宅地建物取引業保証協会が行う苦情解決業務として正しいものはどれか。",
-      "opts": [
-        "裁判所への提訴",
-        "宅建業者の業務に関する苦情の解決（相談・あっせん）",
-        "罰金の徴収",
-        "宅建業者の監督処分"
-      ],
-      "ans": 1,
-      "exp": "宅地建物取引業保証協会は社員である宅建業者の業務に関する苦情の解決（相談受付・あっせん）を行います（宅建業法64条の5）。行政処分権限は知事・国交大臣にあります。",
-      "publicPath": "q/practice/p531/index.html"
-    },
-    {
-      "id": 900534,
-      "year": "orig",
-      "num": 534,
-      "field": "rights",
-      "text": "契約不適合を理由とする代金減額請求ができる場合として正しいものはどれか。",
-      "opts": [
-        "不適合があれば直ちに代金減額請求できる",
-        "追完請求をして相当期間内に履行されない場合または追完不能の場合に代金減額請求できる",
-        "代金減額請求には売主の帰責事由が必要",
-        "代金減額請求権は1年で消滅する"
-      ],
-      "ans": 1,
-      "exp": "代金減額請求は追完請求後に相当期間内に追完されない場合、または追完が不能な場合に行使できます（民法563条）。売主の帰責事由は不要です。",
-      "publicPath": "q/practice/p534/index.html"
-    },
-    {
-      "id": 900537,
-      "year": "orig",
-      "num": 537,
-      "field": "rights",
-      "text": "賃借人が賃貸人の承諾なく転貸した場合、賃貸人が解除できない「特段の事情」の典型例として正しいものはどれか。",
-      "opts": [
-        "賃借人と転借人が親子で実質的に同一と認められる場合",
-        "賃借人が法人の場合",
-        "転借人が外国人の場合",
-        "転借料が賃料より高い場合"
-      ],
-      "ans": 0,
-      "exp": "判例は、無断転貸であっても賃借人と転借人が実質的に同一視できる場合（親子・夫婦・会社と代表者等）は背信行為と認めるに足りない特段の事情があるとして解除を否定します。",
-      "publicPath": "q/practice/p537/index.html"
-    },
-    {
-      "id": 900538,
-      "year": "orig",
-      "num": 538,
-      "field": "rights",
-      "text": "使用貸借と賃貸借の違いとして正しいものはどれか。",
-      "opts": [
-        "使用貸借は有償、賃貸借は無償",
-        "使用貸借は無償で物を貸す契約で、賃貸借は有償",
-        "使用貸借には借地借家法が適用される",
-        "使用貸借の借主は第三者に対抗できる"
-      ],
-      "ans": 1,
-      "exp": "使用貸借は無償で物を貸す契約（民法593条）、賃貸借は有償（賃料を払う）の契約です。使用貸借には借地借家法は適用されず、借主の権利は弱く死亡すると終了します（民法597条3項）。",
-      "publicPath": "q/practice/p538/index.html"
-    },
-    {
-      "id": 900540,
-      "year": "orig",
-      "num": 540,
-      "field": "rights",
-      "text": "抵当権の順位変更に必要な要件として正しいものはどれか。",
-      "opts": [
-        "順位変更は認められない",
-        "各抵当権者全員の合意と登記が必要",
-        "抵当権設定者の同意のみで足りる",
-        "裁判所の許可が必要"
-      ],
-      "ans": 1,
-      "exp": "抵当権の順位変更は各抵当権者全員の合意と登記が効力発生要件です（民法374条）。利害関係人（後順位抵当権者等）の承諾も必要です。",
-      "publicPath": "q/practice/p540/index.html"
-    },
-    {
-      "id": 900543,
-      "year": "orig",
-      "num": 543,
-      "field": "rights",
-      "text": "連帯債務者の一人について生じた事項の絶対的効力として正しいものはどれか。",
-      "opts": [
-        "履行の請求は他の連帯債務者にも時効完成猶予の効力がある",
-        "連帯債務者の一人に対する履行の請求は他の連帯債務者の時効を中断しない（相対的効力）",
-        "一人の免除は全員の債務を消滅させる",
-        "一人の弁済は他の連帯債務者の債務に影響しない"
-      ],
-      "ans": 1,
-      "exp": "2020年民法改正後、連帯債務者の一人に対する請求は他の連帯債務者に対して時効の完成猶予・更新の効力を持ちません（相対的効力・民法441条）。ただし当事者間で合意すれば絶対的効力とすることができます。",
-      "publicPath": "q/practice/p543/index.html"
-    },
-    {
-      "id": 900545,
-      "year": "orig",
-      "num": 545,
-      "field": "rights",
-      "text": "錯誤取消しの要件として正しいものはどれか（2020年改正後）。",
-      "opts": [
-        "表意者に重大な過失がある場合も取消しできる",
-        "法律行為の目的及び取引上の社会通念に照らして重要なものであること、かつ表意者に重大な過失がないこと",
-        "相手方の詐欺があった場合のみ認められる",
-        "公証人の認証が必要"
-      ],
-      "ans": 1,
-      "exp": "2020年民法改正後の錯誤取消しは①意思表示の動機等に関する錯誤であること②法律行為の目的及び社会通念に照らして重要であること③表意者に重大な過失がないことが要件です（民法95条）。",
-      "publicPath": "q/practice/p545/index.html"
-    },
-    {
-      "id": 900547,
-      "year": "orig",
-      "num": 547,
-      "field": "rights",
-      "text": "時効の利益の放棄について正しいものはどれか。",
-      "opts": [
-        "時効完成前でも放棄できる",
-        "時効完成後であれば時効の利益を放棄できる",
-        "時効の放棄は第三者にも効力が及ぶ",
-        "時効の放棄は口頭では無効"
-      ],
-      "ans": 1,
-      "exp": "時効の利益は時効完成後であれば放棄できます（民法146条）。時効完成前の予め放棄する合意は無効です。放棄の効力は相対的で、連帯保証人等の第三者には及びません。",
-      "publicPath": "q/practice/p547/index.html"
-    },
-    {
-      "id": 900549,
-      "year": "orig",
-      "num": 549,
-      "field": "rights",
-      "text": "即時取得（善意取得）の成立要件として正しいものはどれか。",
-      "opts": [
-        "不動産にも適用される",
-        "動産を平穏・公然・善意・無過失で取引行為により占有取得した場合に成立",
-        "登記を備えた場合のみ成立",
-        "相手方が真の所有者であることが必要"
-      ],
-      "ans": 1,
-      "exp": "即時取得（民法192条）は動産について、取引行為・平穏・公然・善意・無過失で占有を取得した場合に成立します。不動産には適用されません（登記制度があるため）。",
-      "publicPath": "q/practice/p549/index.html"
-    },
-    {
-      "id": 900551,
-      "year": "orig",
-      "num": 551,
-      "field": "law",
-      "text": "免許の欠格事由に該当する者として正しいものはどれか。",
-      "opts": [
-        "拘禁刑以上の刑に処せられてから5年が経過した者",
-        "宅建業法違反で罰金刑を受けてから5年が経過していない者",
-        "成年被後見人でなくなってから5年が経過した者",
-        "破産者で復権を得た者"
-      ],
-      "ans": 1,
-      "exp": "宅建業法違反・暴力団関連犯罪・背任罪等で罰金刑を受け、その刑の執行終了等から5年を経過しない者は欠格事由に該当します（宅建業法5条1項）。拘禁刑以上・破産で復権未取得も同様です。",
-      "publicPath": "q/practice/p551/index.html"
-    },
-    {
-      "id": 900553,
-      "year": "orig",
-      "num": 553,
-      "field": "law",
-      "text": "宅建士の登録消除事由として正しいものはどれか。",
-      "opts": [
-        "宅建試験に再受験した場合",
-        "死亡または登録欠格事由に該当した場合",
-        "事務所を移転した場合",
-        "氏名を変更した場合"
-      ],
-      "ans": 1,
-      "exp": "宅建士の登録は、死亡、登録欠格事由への該当、不正登録、重大な違反行為等があった場合に消除されます（宅建業法68条の2）。成年被後見人・被保佐人であること自体は、現行法上、当然に一律欠格となるものではありません。氏名変更・事務所移転は変更届が必要ですが消除ではありません。",
-      "publicPath": "q/practice/p553/index.html"
-    },
-    {
-      "id": 900555,
-      "year": "orig",
-      "num": 555,
-      "field": "law",
-      "text": "賃貸借の媒介報酬の上限（依頼者双方合計）として正しいものはどれか。",
-      "opts": [
-        "賃料の1か月分（消費税別）",
-        "賃料の2か月分",
-        "賃料の半月分",
-        "賃料の3か月分"
-      ],
-      "ans": 0,
-      "exp": "居住用建物の賃貸借媒介の場合、依頼者双方から受け取る報酬の合計上限は賃料の1か月分（消費税別）です（国土交通省告示）。依頼者一方からの上限は原則賃料の0.5か月分ですが、依頼者の承諾があれば一方から1か月分まで受け取れます。",
-      "publicPath": "q/practice/p555/index.html"
-    },
-    {
-      "id": 900557,
-      "year": "orig",
-      "num": 557,
-      "field": "law",
-      "text": "37条書面と35条書面（重要事項説明書）の違いとして正しいものはどれか。",
-      "opts": [
-        "両書面とも契約前に交付する",
-        "35条書面は契約前・37条書面は契約後に交付する",
-        "37条書面は売主のみに交付する",
-        "35条書面には宅建士の記名は不要"
-      ],
-      "ans": 1,
-      "exp": "重要事項説明書（35条書面）は契約前に買主・借主に交付します。37条書面は契約成立後遅滞なく売主・買主双方に交付します。両書面とも宅建士の記名が必要です（押印は廃止）。",
-      "publicPath": "q/practice/p557/index.html"
-    },
-    {
-      "id": 900559,
-      "year": "orig",
-      "num": 559,
-      "field": "law",
-      "text": "一般媒介契約における宅建業者の義務として正しいものはどれか。",
-      "opts": [
-        "レインズへの登録が義務付けられている",
-        "定期的な業務報告が義務付けられている",
-        "レインズ登録義務・定期報告義務ともにない",
-        "有効期間は3か月を超えてはならない"
-      ],
-      "ans": 2,
-      "exp": "一般媒介契約にはレインズ登録義務も定期報告義務もありません。ただし有効期間の法的上限の定めもありません（専任・専属専任は3か月が上限）。",
-      "publicPath": "q/practice/p559/index.html"
-    },
-    {
-      "id": 900561,
-      "year": "orig",
-      "num": 561,
-      "field": "law",
-      "text": "手付金等の保全措置が不要な場合として正しいものはどれか（未完成物件）。",
-      "opts": [
-        "手付金等が代金の5%以下かつ1000万円以下",
-        "手付金等が代金の10%以下かつ1000万円以下",
-        "手付金等が500万円以下",
-        "保全措置は常に必要"
-      ],
-      "ans": 0,
-      "exp": "未完成物件の場合、手付金等が代金の5%以下かつ1000万円以下であれば保全措置は不要です（宅建業法41条1項）。完成物件は10%以下かつ1000万円以下が要件です。",
-      "publicPath": "q/practice/p561/index.html"
-    },
-    {
-      "id": 900563,
-      "year": "orig",
-      "num": 563,
-      "field": "law",
-      "text": "重要事項説明書に記載が必要な法令上の制限の例として正しいものはどれか。",
-      "opts": [
-        "近隣の地価動向",
-        "都市計画法・建築基準法等の法令に基づく制限の概要",
-        "売主の確定申告状況",
-        "近隣住民の意見"
-      ],
-      "ans": 1,
-      "exp": "重要事項説明書には都市計画法・建築基準法等の法令に基づく制限の概要を記載しなければなりません（宅建業法35条1項2号）。",
-      "publicPath": "q/practice/p563/index.html"
-    },
-    {
-      "id": 900565,
-      "year": "orig",
-      "num": 565,
-      "field": "law",
-      "text": "弁済業務保証金分担金の額として正しいものはどれか（主たる事務所）。",
-      "opts": [
-        "100万円",
-        "60万円",
-        "30万円",
-        "1000万円"
-      ],
-      "ans": 1,
-      "exp": "保証協会に加入する場合の弁済業務保証金分担金は主たる事務所が60万円、従たる事務所1か所につき30万円です（宅建業法64条の9）。営業保証金（主1000万円・従500万円）より大幅に低額です。",
-      "publicPath": "q/practice/p565/index.html"
-    },
-    {
-      "id": 900567,
-      "year": "orig",
-      "num": 567,
-      "field": "law",
-      "text": "宅建業者の免許が必ず取り消される（必要的取消し）事由として正しいものはどれか。",
-      "opts": [
-        "軽微な広告表示の誤り",
-        "不正の手段により免許を取得したことが判明した場合",
-        "業務報告の遅延",
-        "従業員の軽微な違反"
-      ],
-      "ans": 1,
-      "exp": "不正の手段による免許取得が判明した場合は必要的取消し事由です（宅建業法66条1項8号）。知事・大臣に裁量の余地はなく必ず取り消されます。業務停止処分違反も必要的取消し事由に含まれます。",
-      "publicPath": "q/practice/p567/index.html"
-    },
-    {
-      "id": 900570,
-      "year": "orig",
-      "num": 570,
-      "field": "tax",
-      "text": "所有権保存登記の登録免許税の税率として正しいものはどれか。",
-      "opts": [
-        "0.1%",
-        "0.4%",
-        "1.0%",
-        "2.0%"
-      ],
-      "ans": 1,
-      "exp": "所有権保存登記の登録免許税率は原則0.4%です（登録免許税法別表1）。一定の住宅要件を満たす場合は軽減税率0.15%が適用されます。",
-      "publicPath": "q/practice/p570/index.html"
-    },
-    {
-      "id": 900571,
-      "year": "orig",
-      "num": 571,
-      "field": "tax",
-      "text": "相続による所有権移転登記の税率として正しいものはどれか。",
-      "opts": [
-        "0.4%",
-        "1.0%",
-        "2.0%",
-        "0.1%"
-      ],
-      "ans": 0,
-      "exp": "相続または法人合併による所有権移転登記の税率は0.4%です（登録免許税法別表1）。売買による移転（2.0%）より低く設定されています。",
-      "publicPath": "q/practice/p571/index.html"
-    },
-    {
-      "id": 900575,
-      "year": "orig",
-      "num": 575,
-      "field": "tax",
-      "text": "新築住宅の不動産取得税の課税標準の特例として正しいものはどれか（一般住宅）。",
-      "opts": [
-        "固定資産税評価額から500万円控除",
-        "固定資産税評価額から1200万円控除",
-        "固定資産税評価額の2分の1",
-        "固定資産税評価額から3000万円控除"
-      ],
-      "ans": 1,
-      "exp": "新築住宅（一般）の不動産取得税は固定資産税評価額から1200万円を控除した額が課税標準となります（地方税法73条の14第1項）。認定長期優良住宅は1300万円控除です。",
-      "publicPath": "q/practice/p575/index.html"
-    },
-    {
-      "id": 900576,
-      "year": "orig",
-      "num": 576,
-      "field": "tax",
-      "text": "不動産取得税が非課税となる取得として正しいものはどれか。",
-      "opts": [
-        "売買による取得",
-        "贈与による取得",
-        "相続による取得",
-        "交換による取得"
-      ],
-      "ans": 2,
-      "exp": "相続による不動産取得は不動産取得税が非課税です（地方税法73条の7）。贈与・売買・交換・法人への現物出資等は課税対象です。",
-      "publicPath": "q/practice/p576/index.html"
-    },
-    {
-      "id": 900580,
-      "year": "orig",
-      "num": 580,
-      "field": "tax",
-      "text": "新築住宅に対する固定資産税の減額特例として正しいものはどれか（一般住宅）。",
-      "opts": [
-        "永続的に2分の1に減額",
-        "新築後3年間、税額が2分の1に減額（3階建以上の中高層耐火住宅は5年間）",
-        "新築後5年間、全額免除",
-        "10年間、4分の1に減額"
-      ],
-      "ans": 1,
-      "exp": "新築住宅（120㎡相当部分）の固定資産税は新築後3年間（3階建以上の中高層耐火・準耐火住宅は5年間）、税額が2分の1に減額されます（地方税法附則15条の6）。",
-      "publicPath": "q/practice/p580/index.html"
-    },
-    {
-      "id": 900581,
-      "year": "orig",
-      "num": 581,
-      "field": "tax",
-      "text": "固定資産税における住宅用地の課税標準の特例で「一般住宅用地」とは何か。",
-      "opts": [
-        "200㎡以下の部分",
-        "200㎡を超える部分（小規模住宅用地以外の住宅用地）",
-        "全ての住宅用地",
-        "非住宅用地"
-      ],
-      "ans": 1,
-      "exp": "小規模住宅用地（200㎡以下）の課税標準は評価額の1/6、200㎡を超える一般住宅用地部分は評価額の1/3に軽減されます（地方税法349条の3の2）。",
-      "publicPath": "q/practice/p581/index.html"
-    },
-    {
-      "id": 900585,
-      "year": "orig",
-      "num": 585,
-      "field": "tax",
-      "text": "居住用財産を10年超保有して売却した場合の軽減税率（6000万円以下部分）として正しいものはどれか。",
-      "opts": [
-        "合計10%（所得税6%・住民税4%）",
-        "合計14%（所得税10%・住民税4%）",
-        "合計20%（所得税15%・住民税5%）",
-        "合計39%（所得税30%・住民税9%）"
-      ],
-      "ans": 1,
-      "exp": "10年超保有の居住用財産の譲渡で6000万円以下の部分は軽減税率として合計14%（所得税10%・住民税4%）が適用されます（租税特別措置法31条の3）。6000万円超の部分は通常の長期譲渡所得税率20%です。",
-      "publicPath": "q/practice/p585/index.html"
-    },
-    {
-      "id": 900586,
-      "year": "orig",
-      "num": 586,
-      "field": "tax",
-      "text": "収用等による譲渡の特別控除として認められる金額として正しいものはどれか。",
-      "opts": [
-        "1000万円",
-        "3000万円",
-        "5000万円",
-        "控除なし"
-      ],
-      "ans": 2,
-      "exp": "公共事業等による収用の場合は譲渡所得から5000万円を特別控除できます（租税特別措置法33条の4）。これは3000万円特別控除と重複適用はできません。",
-      "publicPath": "q/practice/p586/index.html"
-    },
-    {
-      "id": 900589,
-      "year": "orig",
-      "num": 589,
-      "field": "tax",
-      "text": "液状化現象が起きやすい地盤として正しいものはどれか。",
-      "opts": [
-        "洪積台地の砂礫層",
-        "埋立地・旧河道・砂丘の砂質地盤",
-        "岩盤上の住宅地",
-        "丘陵地の粘土層"
-      ],
-      "ans": 1,
-      "exp": "液状化は地震時に砂質地盤が振動で液体状になる現象です。埋立地・旧河道・砂丘など水分を多く含む砂質地盤で発生しやすく、建物の沈下・傾斜が起こります。",
-      "publicPath": "q/practice/p589/index.html"
-    },
-    {
-      "id": 900590,
-      "year": "orig",
-      "num": 590,
-      "field": "tax",
-      "text": "鉄骨鉄筋コンクリート造（SRC造）の特徴として正しいものはどれか。",
-      "opts": [
-        "RC造より耐火性が低い",
-        "RC造と鉄骨造を組み合わせた構造で高層建築物に用いられる",
-        "木造より工期が短い",
-        "SRC造は2階建て住宅が主な用途"
-      ],
-      "ans": 1,
-      "exp": "SRC造は鉄骨（Steel）の骨格にRC（鉄筋コンクリート）を組み合わせた構造で、高い強度・耐火性・耐震性を持ちます。超高層マンション・オフィスビル等の高層建築物に多く使われます。",
-      "publicPath": "q/practice/p590/index.html"
-    },
-    {
-      "id": 900593,
-      "year": "orig",
-      "num": 593,
-      "field": "tax",
-      "text": "フラット35の金利の決まり方として正しいものはどれか。",
-      "opts": [
-        "申込時に金利が決まり返済終了まで変わらない",
-        "毎年4月に金利が改定される",
-        "借入後5年ごとに見直し",
-        "市場金利に連動して毎月変わる"
-      ],
-      "ans": 0,
-      "exp": "フラット35は申込時（正確には資金受取時）に金利が確定し、その後返済終了まで金利が変わらない全期間固定金利型ローンです。市場金利の上昇リスクを負わないのが最大の特徴です。",
-      "publicPath": "q/practice/p593/index.html"
-    },
-    {
-      "id": 900596,
-      "year": "orig",
-      "num": 596,
-      "field": "tax",
-      "text": "不動産鑑定評価の取引事例比較法における「事情補正」の説明として正しいものはどれか。",
-      "opts": [
-        "時点の違いを補正すること",
-        "売急ぎ・買進み等の特殊な事情を補正すること",
-        "土地の形状の違いを補正すること",
-        "地域の違いを補正すること"
-      ],
-      "ans": 1,
-      "exp": "取引事例比較法における事情補正とは、取引事例が売急ぎ・買進み・特殊な関係者間取引等の特殊事情を含む場合にそれを除いた正常な価格に補正することです。時点補正は別途行います。",
-      "publicPath": "q/practice/p596/index.html"
-    },
-    {
-      "id": 900600,
-      "year": "orig",
-      "num": 600,
-      "field": "limit",
-      "text": "都市計画の決定手続きにおいて必ず公聴会を開催しなければならない場合として正しいものはどれか。",
-      "opts": [
-        "すべての都市計画決定",
-        "住民または利害関係人から公聴会開催の請求があった場合",
-        "市町村長が必要と判断した場合のみ",
-        "国土交通大臣が指示した場合のみ"
-      ],
-      "ans": 1,
-      "exp": "都市計画の決定・変更にあたっては、住民または利害関係人から公聴会開催の請求があった場合は公聴会を開催しなければなりません（都市計画法16条）。",
-      "publicPath": "q/practice/p600/index.html"
-    },
-    {
-      "id": 900601,
-      "year": "orig",
-      "num": 601,
-      "field": "limit",
-      "text": "高度利用地区の目的として正しいものはどれか。",
-      "opts": [
-        "低層住宅専用地区として建物高さを制限する",
-        "用途地域内で土地の合理的高度利用を図るため建ぺい率・容積率・建築面積の最低限度等を定める地区",
-        "工業専用地区として工場のみ建築を許可する",
-        "緑地を確保するため建築を制限する"
-      ],
-      "ans": 1,
-      "exp": "高度利用地区は用途地域内において市街地の環境を維持しつつ土地の合理的な高度利用を図るため、建ぺい率・容積率の最高・最低限度、建築面積の最低限度、壁面の位置を定める地区です（都市計画法9条19項）。",
-      "publicPath": "q/practice/p601/index.html"
-    },
-    {
-      "id": 900605,
-      "year": "orig",
-      "num": 605,
-      "field": "limit",
-      "text": "防火地域内の建築規制として正しいものはどれか。",
-      "opts": [
-        "全ての建築物を準耐火建築物にしなければならない",
-        "階数3以上または延べ面積100㎡超の建築物は耐火建築物としなければならない",
-        "木造建築物は一切禁止",
-        "高さ制限のみが適用される"
-      ],
-      "ans": 1,
-      "exp": "防火地域内では①階数3以上②延べ面積が100㎡を超える建築物は耐火建築物としなければなりません（建築基準法61条）。それ以外（階数2以下かつ100㎡以下）は準耐火建築物で可とされます。",
-      "publicPath": "q/practice/p605/index.html"
-    },
-    {
-      "id": 900606,
-      "year": "orig",
-      "num": 606,
-      "field": "limit",
-      "text": "建ぺい率が緩和（10%加算）される場合として正しいものはどれか。",
-      "opts": [
-        "準防火地域内の耐火建築物",
-        "防火地域内の耐火建築物または角地",
-        "第一種住居地域に建築する場合",
-        "容積率が高い地域"
-      ],
-      "ans": 1,
-      "exp": "建ぺい率は防火地域内の耐火建築物（10%加算）・特定行政庁が指定する角地（10%加算）の場合に緩和されます（建築基準法53条3項）。両方に該当すれば20%加算となります。",
-      "publicPath": "q/practice/p606/index.html"
-    },
-    {
-      "id": 900610,
-      "year": "orig",
-      "num": 610,
-      "field": "limit",
-      "text": "市街化区域内の農地を自己転用（農地→宅地）する場合の手続きとして正しいものはどれか。",
-      "opts": [
-        "都道府県知事の許可が必要",
-        "農業委員会への届出で足りる",
-        "国土交通大臣の許可が必要",
-        "手続き不要"
-      ],
-      "ans": 1,
-      "exp": "市街化区域内の農地を自己転用する場合（農地法4条）は、都道府県知事の許可は不要で農業委員会への届出のみで足ります（農地法4条1項8号）。市街化区域外は原則として知事の許可が必要です。",
-      "publicPath": "q/practice/p610/index.html"
-    },
-    {
-      "id": 900611,
-      "year": "orig",
-      "num": 611,
-      "field": "limit",
-      "text": "採草放牧地に関する農地法の適用として正しいものはどれか。",
-      "opts": [
-        "農地と全く同じ規制が適用される",
-        "3条・4条・5条の規制が農地と同様に適用されるが一部異なる",
-        "農地法の規制は一切適用されない",
-        "5条のみ適用される"
-      ],
-      "ans": 1,
-      "exp": "採草放牧地（草刈り・牧草収穫・家畜の放牧に供する土地）にも農地法が適用されます（農地法2条1項）が、農地と異なり4条（自己転用）は採草放牧地→農地以外への転用にのみ適用されるなど一部規制内容が異なります。",
-      "publicPath": "q/practice/p611/index.html"
-    },
-    {
-      "id": 900614,
-      "year": "orig",
-      "num": 614,
-      "field": "limit",
-      "text": "盛土規制法における「特定盛土等」の定義として最も正しいものはどれか。",
-      "opts": [
-        "市街地内の盛土すべて",
-        "宅地または農地等において行う盛土等であって、盛土等をする土地の地形・地質等からみて、崩落等により人家等に危害を生ずるおそれが大きいもの",
-        "高さ1m超の盛土すべて",
-        "農地での盛土"
-      ],
-      "ans": 1,
-      "exp": "特定盛土等は宅地・農地等で行う盛土等のうち、地形・地質等から崩落等により人家等に危害を及ぼすおそれが大きいものとして政令で定めるものを指します（盛土規制法2条3号）。",
-      "publicPath": "q/practice/p614/index.html"
-    },
-    {
-      "id": 900617,
-      "year": "orig",
-      "num": 617,
-      "field": "limit",
-      "text": "国土利用計画法で届出が必要な都市計画区域外の面積要件として正しいものはどれか。",
-      "opts": [
-        "3000㎡以上",
-        "5000㎡以上",
-        "10000㎡以上",
-        "20000㎡以上"
-      ],
-      "ans": 2,
-      "exp": "都市計画区域外（準都市計画区域を除く）の土地取引は10000㎡（1ha）以上が事後届出の対象です（国土利用計画法23条2項1号）。市街化区域2000㎡・その他都市計画区域5000㎡と比べて面積要件が大きいです。",
-      "publicPath": "q/practice/p617/index.html"
-    },
-    {
-      "id": 900620,
-      "year": "orig",
-      "num": 620,
-      "field": "rights",
-      "text": "自筆証書遺言の要件として正しいものはどれか。",
-      "opts": [
-        "証人2名以上の立会いが必要",
-        "全文・日付・氏名を自書し押印が必要（財産目録はパソコン作成可）",
-        "公証人役場での作成が必要",
-        "録音・録画でも有効"
-      ],
-      "ans": 1,
-      "exp": "自筆証書遺言は全文・日付・氏名を自書し押印することで成立します（民法968条）。2019年改正で財産目録（通帳のコピー等）はパソコン作成も可能になりましたが、各頁に署名押印が必要です。",
-      "publicPath": "q/practice/p620/index.html"
-    },
-    {
-      "id": 900621,
-      "year": "orig",
-      "num": 621,
-      "field": "rights",
-      "text": "相続放棄の期間として正しいものはどれか。",
-      "opts": [
-        "相続開始を知った日から1か月以内",
-        "相続開始を知った日から3か月以内（熟慮期間）",
-        "相続開始後いつでも可",
-        "遺産分割協議前のみ可"
-      ],
-      "ans": 1,
-      "exp": "相続放棄は相続開始を知った時から3か月以内（熟慮期間）に家庭裁判所に申述しなければなりません（民法915条・938条）。この期間の延長を家庭裁判所に申請することもできます。",
-      "publicPath": "q/practice/p621/index.html"
-    },
-    {
-      "id": 900625,
-      "year": "orig",
-      "num": 625,
-      "field": "rights",
-      "text": "不当利得返還請求権の要件として正しいものはどれか。",
-      "opts": [
-        "相手方の故意・過失が必要",
-        "法律上の原因なく他人の財産または労務により利益を受け、それによって他人に損失を与えたこと",
-        "相手方に損害が生じたこと",
-        "契約書の存在が必要"
-      ],
-      "ans": 1,
-      "exp": "不当利得は①法律上の原因がないこと②受益があること③他人の損失があること④因果関係があることで成立します（民法703条）。相手方の故意・過失は不要です。",
-      "publicPath": "q/practice/p625/index.html"
-    },
-    {
-      "id": 900628,
-      "year": "orig",
-      "num": 628,
-      "field": "rights",
-      "text": "無権代理人が相手方に負う責任として正しいものはどれか。",
-      "opts": [
-        "無権代理人は一切の責任を負わない",
-        "相手方の選択により履行または損害賠償の責任を負う（善意無過失の相手方に対して）",
-        "本人が必ず追認しなければならない",
-        "相手方のみが責任を負う"
-      ],
-      "ans": 1,
-      "exp": "無権代理人は相手方が善意無過失の場合、相手方の選択に従い契約の履行または損害賠償の責任を負います（民法117条）。相手方が悪意または有過失の場合は無権代理人の責任は生じません。",
-      "publicPath": "q/practice/p628/index.html"
-    },
-    {
-      "id": 900631,
-      "year": "orig",
-      "num": 631,
-      "field": "rights",
-      "text": "売買代金の支払いと目的物引渡しの関係として正しいものはどれか。",
-      "opts": [
-        "常に代金を先払いしなければならない",
-        "代金の支払いと目的物の引渡しは同時履行の関係にある",
-        "引渡しが先でなければならない",
-        "法律上の定めはなく全て当事者の合意による"
-      ],
-      "ans": 1,
-      "exp": "売買における代金支払いと目的物引渡しは同時履行の関係にあります（民法533条）。一方は相手方が履行または履行の提供をするまで自己の債務の履行を拒絶できます。",
-      "publicPath": "q/practice/p631/index.html"
-    },
-    {
-      "id": 900633,
-      "year": "orig",
-      "num": 633,
-      "field": "rights",
-      "text": "敷金の返還について正しいものはどれか（2020年民法改正後）。",
-      "opts": [
-        "敷金は退去後いつ返還してもよい",
-        "賃貸借終了後の目的物返還時に、未払い賃料等を控除した残額を返還しなければならない",
-        "敷金は返還しなくてよい",
-        "敷金の返還時期は賃貸人が自由に決定できる"
-      ],
-      "ans": 1,
-      "exp": "2020年施行の民法改正で敷金規定が明文化されました（民法622条の2）。賃貸借終了と目的物の返還の後、賃借人の未払い賃料等の債務を控除した残額を返還しなければなりません。",
-      "publicPath": "q/practice/p633/index.html"
-    },
-    {
-      "id": 900635,
-      "year": "orig",
-      "num": 635,
-      "field": "rights",
-      "text": "抵当権の実行方法として正しいものはどれか。",
-      "opts": [
-        "抵当権者が直接目的物を占有して売却できる",
-        "競売（裁判所の競売手続き）または担保不動産収益執行",
-        "任意売却のみ",
-        "抵当権者が自由に処分できる"
-      ],
-      "ans": 1,
-      "exp": "抵当権の実行は①競売（裁判所による競売手続き）②担保不動産収益執行（賃料等を収取して弁済に充てる）の方法があります（民法180条以下、民事執行法）。",
-      "publicPath": "q/practice/p635/index.html"
-    },
-    {
-      "id": 900637,
-      "year": "orig",
-      "num": 637,
-      "field": "rights",
-      "text": "履行遅滞の成立要件として正しいものはどれか。",
-      "opts": [
-        "債務者が弁済の意思表示をすれば遅滞にならない",
-        "履行が可能であるのに弁済期が到来しているにもかかわらず債務者が正当な理由なく履行しないこと",
-        "履行期前の履行拒絶でも遅滞が成立する",
-        "不可抗力でも遅滞が成立する"
-      ],
-      "ans": 1,
-      "exp": "履行遅滞は①履行が可能②弁済期到来③履行しない④違法（帰責事由がある）の要件で成立します（民法412条）。不可抗力等の帰責事由がない場合は遅滞の責任を負いません（改正民法）。",
-      "publicPath": "q/practice/p637/index.html"
-    },
-    {
-      "id": 900640,
-      "year": "orig",
-      "num": 640,
-      "field": "rights",
-      "text": "消滅時効の「更新」事由として正しいものはどれか。",
-      "opts": [
-        "裁判上の請求",
-        "確定判決・債務の承認等",
-        "仮差押え・仮処分",
-        "協議を行う旨の合意"
-      ],
-      "ans": 1,
-      "exp": "時効の更新（旧:中断）事由は①確定判決等による権利確定②強制執行等の終了③債務の承認です（民法152条）。裁判上の請求・仮差押え・協議合意は完成猶予事由です。",
-      "publicPath": "q/practice/p640/index.html"
-    },
-    {
-      "id": 900642,
-      "year": "orig",
-      "num": 642,
-      "field": "rights",
-      "text": "抵当権設定後に抵当不動産の所有者が変わった場合（第三取得者）の対抗として正しいものはどれか。",
-      "opts": [
-        "第三取得者は抵当権の負担のない所有権を取得する",
-        "第三取得者は抵当権の負担を承継し、抵当権が実行されれば競売で所有権を失う可能性がある",
-        "抵当権は自動的に消滅する",
-        "第三取得者は抵当権者に損害賠償を請求できる"
-      ],
-      "ans": 1,
-      "exp": "抵当権は登記があれば第三取得者にも対抗できます（民法177条）。第三取得者は抵当権の負担を承継し、代価弁済・抵当権消滅請求等の制度を利用して抵当権を消滅させることができます（民法378条・379条）。",
-      "publicPath": "q/practice/p642/index.html"
-    },
-    {
-      "id": 900644,
-      "year": "orig",
-      "num": 644,
-      "field": "rights",
-      "text": "詐欺による意思表示の取消しと第三者の保護について正しいものはどれか。",
-      "opts": [
-        "取消しは全ての第三者に対抗できる",
-        "取消し前の善意かつ無過失の第三者には対抗できない",
-        "取消し後の第三者には登記なしに対抗できる",
-        "善意であれば過失があっても保護される"
-      ],
-      "ans": 1,
-      "exp": "詐欺取消し前の善意かつ無過失の第三者には取消しを対抗できません（民法96条3項）。取消し後の第三者との関係は対抗問題（登記の先後）で処理されます。",
-      "publicPath": "q/practice/p644/index.html"
-    },
-    {
-      "id": 900646,
-      "year": "orig",
-      "num": 646,
-      "field": "rights",
-      "text": "管理組合の集会の招集について正しいものはどれか。",
-      "opts": [
-        "いつでも任意に開催できる",
-        "管理者は毎年1回以上集会を招集しなければならない",
-        "区分所有者の過半数の請求があれば翌日に開催しなければならない",
-        "集会は書面決議で代替できるため開催不要"
-      ],
-      "ans": 1,
-      "exp": "管理者は毎年1回以上集会を招集しなければなりません（区分所有法34条2項）。区分所有者の5分の1以上・議決権の5分の1以上の請求があれば管理者は集会を招集する義務があります。",
-      "publicPath": "q/practice/p646/index.html"
-    },
-    {
-      "id": 900648,
-      "year": "orig",
-      "num": 648,
-      "field": "rights",
-      "text": "登記の推定力について正しいものはどれか。",
-      "opts": [
-        "登記があれば権利の存在が絶対的に証明される",
-        "登記がある場合は登記通りの実体関係が存在すると推定されるが、公信力はない",
-        "登記は単なる行政上の記録であり法的効力はない",
-        "登記は当事者間でのみ効力を持つ"
-      ],
-      "ans": 1,
-      "exp": "日本の不動産登記には推定力はありますが公信力はありません。登記を信頼して取引した者でも、真の権利者が別にいる場合は保護されない場合があります（対比：動産の即時取得は公信力あり）。",
-      "publicPath": "q/practice/p648/index.html"
-    },
-    {
-      "id": 900650,
-      "year": "orig",
-      "num": 650,
-      "field": "rights",
-      "text": "借家権の対抗要件として正しいものはどれか。",
-      "opts": [
-        "賃貸借契約書の公証",
-        "建物の引渡し",
-        "賃借権の登記（のみ）",
-        "敷金の支払い"
-      ],
-      "ans": 1,
-      "exp": "建物賃借権の対抗要件は「建物の引渡し」です（借地借家法31条）。引渡しを受けていれば賃借権の登記がなくても新所有者等の第三者に対抗できます。",
-      "publicPath": "q/practice/p650/index.html"
-    },
-    {
-      "id": 900652,
-      "year": "orig",
-      "num": 652,
-      "field": "rights",
-      "text": "隣地使用権（民法209条）について正しいものはどれか（2021年改正後）。",
-      "opts": [
-        "隣地使用は隣人の同意がなければ一切できない",
-        "境界の調査・境界標設置・建物の修繕等のためなら必要な範囲で隣地を使用できる（隣人への通知が原則必要）",
-        "隣地使用は無条件に認められる",
-        "隣地使用の対価は不要"
-      ],
-      "ans": 1,
-      "exp": "2021年民法改正で隣地使用権が拡充されました（民法209条）。境界確認・境界標設置・建物の建築・修繕等の目的があれば必要な範囲で隣地使用が認められます。原則として事前に隣人に通知する必要があります。",
-      "publicPath": "q/practice/p652/index.html"
-    },
-    {
-      "id": 900654,
-      "year": "orig",
-      "num": 654,
-      "field": "law",
-      "text": "免許換えが必要な場合として正しいものはどれか。",
-      "opts": [
-        "事務所の移転（同じ都道府県内）",
-        "知事免許業者が他の都道府県にも事務所を設置した場合",
-        "代表者が変更になった場合",
-        "従業員数が増加した場合"
-      ],
-      "ans": 1,
-      "exp": "都道府県知事免許を受けた業者が他の都道府県にも事務所を設置した場合は、国土交通大臣免許への免許換えが必要です（宅建業法7条）。同一都道府県内の移転は免許換え不要です。",
-      "publicPath": "q/practice/p654/index.html"
-    },
-    {
-      "id": 900656,
-      "year": "orig",
-      "num": 656,
-      "field": "law",
-      "text": "宅建士証の返納義務が生じる場合として正しいものはどれか。",
-      "opts": [
-        "宅建士証の有効期間が満了した時",
-        "事務禁止処分を受けた場合（処分期間中は返納）",
-        "転職した場合",
-        "引越しした場合"
-      ],
-      "ans": 1,
-      "exp": "宅建士が事務禁止処分を受けた場合は、処分の期間中、宅建士証を知事に提出（返納）しなければなりません（宅建業法22条の2第7項）。有効期間満了時も更新しない場合は返納が必要です。",
-      "publicPath": "q/practice/p656/index.html"
-    },
-    {
-      "id": 900658,
-      "year": "orig",
-      "num": 658,
-      "field": "law",
-      "text": "営業保証金の取戻し（供託金の回収）ができる場合として正しいものはどれか。",
-      "opts": [
-        "事業年度終了時",
-        "廃業・免許失効等の場合に、還付請求権者への公告期間（6か月以上）経過後",
-        "いつでも取戻せる",
-        "還付を受けた者が全員同意した場合"
-      ],
-      "ans": 1,
-      "exp": "営業保証金の取戻しは廃業・免許失効等の場合に、還付請求権を有する者への公告（6か月以上）を行い、当該期間内に還付請求がなければ取り戻すことができます（宅建業法30条）。",
-      "publicPath": "q/practice/p658/index.html"
-    },
-    {
-      "id": 900660,
-      "year": "orig",
-      "num": 660,
-      "field": "law",
-      "text": "専属専任媒介契約で自己発見取引（依頼者が自分で相手方を見つけた）をした場合について正しいものはどれか。",
-      "opts": [
-        "自己発見取引は自由にできる",
-        "依頼した宅建業者を通さずに直接契約することはできない",
-        "違約金を払えば自己発見取引できる",
-        "宅建業者の承諾があれば可能"
-      ],
-      "ans": 1,
-      "exp": "専属専任媒介契約では依頼者は宅建業者が探した相手方以外とも直接取引することが禁止されています（宅建業法34条の2第9項）。これは専任媒介（自己発見OK）との大きな違いです。",
-      "publicPath": "q/practice/p660/index.html"
-    },
-    {
-      "id": 900662,
-      "year": "orig",
-      "num": 662,
-      "field": "law",
-      "text": "賃貸借の重要事項説明で特に記載が必要な事項として正しいものはどれか。",
-      "opts": [
-        "賃料のみ記載すればよい",
-        "台所・浴室・便所等の設備の整備状況・契約期間・更新・定期建物賃貸借の旨等",
-        "近隣の賃料相場",
-        "建物の将来の価値予想"
-      ],
-      "ans": 1,
-      "exp": "建物の賃貸借の重要事項説明には台所・浴室・便所・洗面所等の設備の整備状況、契約終了時の措置、契約期間・更新、定期建物賃貸借である旨等を記載する必要があります（宅建業法35条1項）。",
-      "publicPath": "q/practice/p662/index.html"
-    },
-    {
-      "id": 900664,
-      "year": "orig",
-      "num": 664,
-      "field": "law",
-      "text": "37条書面の任意的記載事項（定めがあれば記載）として正しいものはどれか。",
-      "opts": [
-        "代金の額",
-        "物件の所在地",
-        "ローン条件（融資利用の場合）・危険負担・瑕疵担保の内容等",
-        "引渡し時期"
-      ],
-      "ans": 2,
-      "exp": "37条書面の任意的記載事項は定めがある場合にのみ記載すればよい事項で、ローン条件・危険負担の特約・契約不適合責任に関する特約・天災等免責特約等が含まれます。代金・所在地・引渡し時期は必要的記載事項です。",
-      "publicPath": "q/practice/p664/index.html"
-    },
-    {
-      "id": 900666,
-      "year": "orig",
-      "num": 666,
-      "field": "law",
-      "text": "手付額の制限（宅建業法39条）として正しいものはどれか。",
-      "opts": [
-        "代金の10%以下",
-        "代金の20%以下",
-        "代金の30%以下",
-        "制限なし"
-      ],
-      "ans": 1,
-      "exp": "宅建業者が自ら売主の場合、手付金の額は代金の20%を超えてはなりません（宅建業法39条）。これを超える手付を受け取った場合、超過分は無効で返還しなければなりません。",
-      "publicPath": "q/practice/p666/index.html"
-    },
-    {
-      "id": 900668,
-      "year": "orig",
-      "num": 668,
-      "field": "law",
-      "text": "居住用建物以外の賃貸借媒介の報酬上限として正しいものはどれか。",
-      "opts": [
-        "借賃の0.5か月分",
-        "借賃の1か月分",
-        "借賃の2か月分",
-        "借賃の3か月分"
-      ],
-      "ans": 1,
-      "exp": "居住用建物以外の建物（事務所・店舗等）の賃貸借媒介の場合、依頼者双方から受け取る報酬の合計上限は借賃の1か月分（税別）です。居住用と同じ上限ですが依頼者一方から1か月分全額受取りができます。",
-      "publicPath": "q/practice/p668/index.html"
-    },
-    {
-      "id": 900670,
-      "year": "orig",
-      "num": 670,
-      "field": "law",
-      "text": "宅建業者が受けた行政処分を公表する制度として正しいものはどれか。",
-      "opts": [
-        "公表制度は存在しない",
-        "国土交通大臣・都道府県知事は処分内容を公告しなければならない",
-        "公表は任意",
-        "業界団体のみが公表する"
-      ],
-      "ans": 1,
-      "exp": "国土交通大臣または都道府県知事は指示処分・業務停止処分・免許取消処分を行ったときはその旨を公告しなければなりません（宅建業法70条）。消費者保護のための情報開示です。",
-      "publicPath": "q/practice/p670/index.html"
-    },
-    {
-      "id": 900672,
-      "year": "orig",
-      "num": 672,
-      "field": "law",
-      "text": "住宅品質確保法（品確法）における「住宅性能表示制度」の利用について正しいものはどれか。",
-      "opts": [
-        "全ての住宅の取引に義務付けられている",
-        "任意の制度で、申請により第三者機関が性能を評価・表示する",
-        "国土交通省が直接評価する",
-        "性能表示を受けると固定資産税が免除される"
-      ],
-      "ans": 1,
-      "exp": "住宅性能表示制度は任意の制度で、事業者が申請することにより登録住宅性能評価機関が設計・建設段階で住宅の性能を評価し表示します（住宅品質確保法5条）。",
-      "publicPath": "q/practice/p672/index.html"
-    },
-    {
-      "id": 900674,
-      "year": "orig",
-      "num": 674,
-      "field": "law",
-      "text": "未完成物件の広告表示で許容されるものはどれか。",
-      "opts": [
-        "完成予想図（CGパース）を使用した広告",
-        "実際より広く見える写真を使用した広告",
-        "周辺環境を実際と異なって表示した広告",
-        "開発許可前に行う広告"
-      ],
-      "ans": 0,
-      "exp": "未完成物件でも開発許可・建築確認後であれば広告ができます。完成予想図（CGパース）は使用可能ですが、その旨（「完成予想図」等）を明示する必要があります。実際と大きく異なる誇大表示は禁止です。",
-      "publicPath": "q/practice/p674/index.html"
-    },
-    {
-      "id": 900676,
-      "year": "orig",
-      "num": 676,
-      "field": "tax",
-      "text": "法人合併による所有権移転登記の税率として正しいものはどれか。",
-      "opts": [
-        "2.0%",
-        "1.0%",
-        "0.4%",
-        "0.1%"
-      ],
-      "ans": 2,
-      "exp": "法人合併による所有権移転登記の税率は0.4%です（登録免許税法別表1）。相続・合併は売買（2.0%）より低率です。",
-      "publicPath": "q/practice/p676/index.html"
-    },
-    {
-      "id": 900701,
-      "year": "orig",
-      "num": 701,
-      "field": "rights",
-      "text": "AがBに対して強迫により売買契約を締結させた場合、取消し後に現れた善意の第三者Cに対してBはどう対抗できるか。",
-      "opts": [
-        "Cが善意であれば対抗できない",
-        "強迫の場合は善意の第三者にも取消しを対抗できる",
-        "登記を備えた場合のみ対抗できる",
-        "Cが悪意の場合のみ対抗できる"
-      ],
-      "ans": 1,
-      "exp": "強迫による取消しは善意の第三者にも対抗できます（民法96条3項の反対解釈）。被強迫者保護のため第三者保護規定は適用されません。取消し後の第三者との関係は登記の先後で決します。",
-      "publicPath": "q/practice/p701/index.html"
-    },
-    {
-      "id": 900702,
-      "year": "orig",
-      "num": 702,
-      "field": "rights",
-      "text": "制限行為能力者が代理人として行った法律行為の効力について正しいものはどれか。",
-      "opts": [
-        "制限行為能力者は代理人になれない",
-        "制限行為能力者が代理人としてした行為は行為能力の制限を理由に取り消せない",
-        "制限行為能力者の代理行為は当然に無効",
-        "本人が同意した場合のみ有効"
-      ],
-      "ans": 1,
-      "exp": "制限行為能力者を代理人とした場合、その代理行為は行為能力の制限を理由として取り消すことができません（民法102条）。代理行為の効果は本人に帰属するため本人を保護する必要がないからです。",
-      "publicPath": "q/practice/p702/index.html"
-    },
-    {
-      "id": 900703,
-      "year": "orig",
-      "num": 703,
-      "field": "rights",
-      "text": "保証人が主債務者のために弁済した場合の時効の承認の効力として正しいものはどれか。",
-      "opts": [
-        "保証人の承認は主債務者にも時効更新の効力が及ぶ",
-        "保証人の承認は主債務者には及ばず相対的効力のみ",
-        "連帯保証人の承認は主債務の時効を更新する",
-        "保証人の弁済は時効に何の影響もない"
-      ],
-      "ans": 1,
-      "exp": "保証人が主債務の時効を承認しても、その効力は主債務者には及びません（相対的効力）。時効の承認の効果は承認をした者に限られます（民法152条）。",
-      "publicPath": "q/practice/p703/index.html"
-    },
-    {
-      "id": 900704,
-      "year": "orig",
-      "num": 704,
-      "field": "rights",
-      "text": "賃料を被担保債権とする抵当権の物上代位について正しいものはどれか。",
-      "opts": [
-        "賃料への物上代位は認められない",
-        "抵当権の物上代位として賃料債権に差押えをすることで賃料から優先弁済を受けることができる",
-        "賃料の物上代位には競売開始が必要",
-        "賃料物上代位は賃借人の同意が必要"
-      ],
-      "ans": 1,
-      "exp": "判例により、抵当不動産の賃料債権に対して物上代位が認められています。払渡し前に差押えが必要で（民法304条）、これにより抵当権者は賃料から優先弁済を受けることができます。",
-      "publicPath": "q/practice/p704/index.html"
-    },
-    {
-      "id": 900705,
-      "year": "orig",
-      "num": 705,
-      "field": "rights",
-      "text": "連帯保証と通常の保証の最大の違いとして正しいものはどれか。",
-      "opts": [
-        "連帯保証人には催告の抗弁権・検索の抗弁権がある",
-        "連帯保証人には催告の抗弁権・検索の抗弁権・分別の利益がない",
-        "連帯保証人は主債務者と全く同一の義務を負う",
-        "連帯保証は書面でなくても成立する"
-      ],
-      "ans": 1,
-      "exp": "連帯保証人は催告の抗弁権・検索の抗弁権・分別の利益がありません（民法454条）。これが通常の保証との最大の違いです。",
-      "publicPath": "q/practice/p705/index.html"
-    },
-    {
-      "id": 900706,
-      "year": "orig",
-      "num": 706,
-      "field": "rights",
-      "text": "売買契約において特約で契約不適合責任を免除した場合の効力として正しいものはどれか。",
-      "opts": [
-        "免除特約は常に有効",
-        "売主が知りながら告げなかった不適合については免除特約の効力は及ばない",
-        "宅建業者の場合は免除特約が有効",
-        "免除特約があれば買主はいかなる権利も行使できない"
-      ],
-      "ans": 1,
-      "exp": "売主が知りながら告げなかった契約不適合については、免除・制限特約の効力は及びません（民法572条）。自ら知っている欠陥を隠して免責を主張することは認められません。",
-      "publicPath": "q/practice/p706/index.html"
-    },
-    {
-      "id": 900708,
-      "year": "orig",
-      "num": 708,
-      "field": "rights",
-      "text": "相続分の譲渡について正しいものはどれか。",
-      "opts": [
-        "相続分の譲渡は禁止されている",
-        "相続分の譲渡は相続人間でのみ可能",
-        "相続分は相続人以外の第三者にも譲渡できる",
-        "相続分の譲渡には家庭裁判所の許可が必要"
-      ],
-      "ans": 2,
-      "exp": "相続分は相続人以外の第三者にも譲渡することができます（民法905条）。ただし他の相続人は一定期間内に対価を支払って相続分を取り戻すことができます（相続分の取戻権）。",
-      "publicPath": "q/practice/p708/index.html"
-    },
-    {
-      "id": 900709,
-      "year": "orig",
-      "num": 709,
-      "field": "rights",
-      "text": "名誉毀損による不法行為の特則として正しいものはどれか。",
-      "opts": [
-        "財産的損害のみ賠償請求できる",
-        "慰謝料も請求でき原状回復措置（謝罪広告等）の請求も認められる",
-        "名誉毀損は不法行為にならない",
-        "故意の場合のみ損害賠償できる"
-      ],
-      "ans": 1,
-      "exp": "名誉毀損等の人格権侵害では財産的損害・精神的損害（慰謝料）の賠償請求ができ、裁判所は名誉回復のための適当な処分（謝罪広告等）を命じることもできます（民法723条）。",
-      "publicPath": "q/practice/p709/index.html"
-    },
-    {
-      "id": 900710,
-      "year": "orig",
-      "num": 710,
-      "field": "rights",
-      "text": "建物買取請求権（借地借家法13条）について正しいものはどれか。",
-      "opts": [
-        "借地契約更新拒絶時に借地人が地主に建物を時価で買い取ることを請求できる権利",
-        "地主が借地人に建物を買い取るよう請求できる権利",
-        "期間満了に関係なく行使できる",
-        "地主の合意が必要な権利"
-      ],
-      "ans": 0,
-      "exp": "建物買取請求権は、借地契約の更新が拒絶された場合に借地人が地主に対して借地上の建物を時価で買い取ることを請求できる権利です（借地借家法13条1項）。形成権であり地主の承諾は不要です。",
-      "publicPath": "q/practice/p710/index.html"
-    },
-    {
-      "id": 900711,
-      "year": "orig",
-      "num": 711,
-      "field": "rights",
-      "text": "区分所有建物の管理費の滞納について正しいものはどれか。",
-      "opts": [
-        "管理組合は滞納者の専有部分を競売できる",
-        "管理組合は特定承継人（新たな区分所有者）にも未払い管理費を請求できる",
-        "管理費の滞納は損害賠償のみが認められる",
-        "管理費請求権の時効は20年"
-      ],
-      "ans": 1,
-      "exp": "管理費等の債権は区分所有者の特定承継人（売買等で所有権を取得した者）に対しても行使できます（区分所有法8条）。",
-      "publicPath": "q/practice/p711/index.html"
-    },
-    {
-      "id": 900712,
-      "year": "orig",
-      "num": 712,
-      "field": "rights",
-      "text": "登記申請時に必要な「登記識別情報」について正しいものはどれか。",
-      "opts": [
-        "登記申請後に法務局から送られてくるもので次回の登記に必要",
-        "登記完了後に通知される英数字のパスワードで紛失しても再発行されない",
-        "登記識別情報は誰でも閲覧できる",
-        "登記識別情報は紙の権利書と同じ"
-      ],
-      "ans": 1,
-      "exp": "登記識別情報は登記完了後に登記権利者に通知される12桁の英数字情報です（不動産登記法21条）。紛失・失念しても再発行されないため厳重に管理する必要があります。",
-      "publicPath": "q/practice/p712/index.html"
-    },
-    {
-      "id": 900714,
-      "year": "orig",
-      "num": 714,
-      "field": "law",
-      "text": "宅建業者が事務所以外の場所を「案内所」として設置する場合に必要な手続きとして正しいものはどれか。",
-      "opts": [
-        "免許権者への事前届出（開設10日前まで）と専任の宅建士の設置",
-        "何も必要ない",
-        "許可申請が必要",
-        "設置後速やかに届出すればよい"
-      ],
-      "ans": 0,
-      "exp": "宅建業者が一時的な案内所等を設置する場合は業務開始の10日前までに免許権者へ届出が必要です（宅建業法50条2項）。また業務に従事する者が1名以上いる場合は専任の宅建士も1名以上必要です。",
-      "publicPath": "q/practice/p714/index.html"
-    },
-    {
-      "id": 900715,
-      "year": "orig",
-      "num": 715,
-      "field": "law",
-      "text": "宅建士が宅建士証の有効期間の更新をしない場合の手続きとして正しいものはどれか。",
-      "opts": [
-        "何もしなくてよい",
-        "有効期間満了時に宅建士証を知事に返納しなければならない",
-        "宅建士証は自動的に失効するため返納不要",
-        "廃業届を提出する"
-      ],
-      "ans": 1,
-      "exp": "宅建士証の有効期間が満了した場合等には宅建士証を速やかに交付を受けた都道府県知事に返納しなければなりません（宅建業法22条の2第6項）。",
-      "publicPath": "q/practice/p715/index.html"
-    },
-    {
-      "id": 900716,
-      "year": "orig",
-      "num": 716,
-      "field": "law",
-      "text": "保証協会の社員が還付により不足が生じた場合の補充について正しいものはどれか。",
-      "opts": [
-        "保証協会が全額補充する",
-        "還付充当金として不足額を保証協会に納付しなければならない（通知から2週間以内）",
-        "補充の義務はない",
-        "国が補充する"
-      ],
-      "ans": 1,
-      "exp": "弁済業務保証金から還付がなされた場合、保証協会は社員に対して還付充当金の納付を通知します。社員はその通知を受けた日から2週間以内に還付充当金を納付しなければなりません（宅建業法64条の10）。",
-      "publicPath": "q/practice/p716/index.html"
-    },
-    {
-      "id": 900717,
-      "year": "orig",
-      "num": 717,
-      "field": "law",
-      "text": "指定流通機構（レインズ）の目的として正しいものはどれか。",
-      "opts": [
-        "業者の収益を増やすため",
-        "不動産流通市場の活性化・情報の共有・取引の透明化のため",
-        "買主への情報提供のため",
-        "税務管理のため"
-      ],
-      "ans": 1,
-      "exp": "指定流通機構（レインズ）は不動産流通の活性化・情報の共有・取引の透明性確保を目的とした物件情報システムです（宅建業法34条の2第5〜7項）。専任・専属専任媒介では登録が義務付けられています。",
-      "publicPath": "q/practice/p717/index.html"
-    },
-    {
-      "id": 900718,
-      "year": "orig",
-      "num": 718,
-      "field": "law",
-      "text": "土砂災害警戒区域内の不動産売買における重要事項説明として正しいものはどれか。",
-      "opts": [
-        "特別な説明義務はない",
-        "土砂災害警戒区域または土砂災害特別警戒区域内である旨を説明しなければならない",
-        "危険性があることを口頭で告げればよい",
-        "買主が希望した場合のみ説明する"
-      ],
-      "ans": 1,
-      "exp": "土砂災害警戒区域等における土砂災害防止対策の推進に関する法律に基づく区域内である旨は重要事項として説明する義務があります（宅建業法35条1項14号）。",
-      "publicPath": "q/practice/p718/index.html"
-    },
-    {
-      "id": 900719,
-      "year": "orig",
-      "num": 719,
-      "field": "law",
-      "text": "37条書面に記載する「移転登記申請の時期」について正しいものはどれか。",
-      "opts": [
-        "法律上の規定はなく任意",
-        "売買契約では定めがある場合に記載する任意的記載事項",
-        "引渡しと同時と定めた場合も含め必ず記載する必要的記載事項",
-        "引渡し後30日以内が法定されている"
-      ],
-      "ans": 2,
-      "exp": "「移転登記申請の時期」は37条書面の必要的記載事項です（宅建業法37条1項5号）。引渡しと同時・代金完済後等、具体的な時期を記載する必要があります。",
-      "publicPath": "q/practice/p719/index.html"
-    },
-    {
-      "id": 900720,
-      "year": "orig",
-      "num": 720,
-      "field": "law",
-      "text": "宅建業法上の「取引態様の明示義務」について正しいものはどれか。",
-      "opts": [
-        "広告時には不要で注文を受けた時のみ明示すればよい",
-        "広告する際と注文を受けた際の両方において取引態様を明示しなければならない",
-        "取引態様の明示は口頭で足りる",
-        "取引態様の明示違反に罰則はない"
-      ],
-      "ans": 1,
-      "exp": "宅建業者は広告をするときと注文を受けた場合の両方で取引態様の明示が義務付けられています（宅建業法34条）。売主・代理・媒介のいずれかを明示することで取引の透明性を確保します。",
-      "publicPath": "q/practice/p720/index.html"
-    },
-    {
-      "id": 900721,
-      "year": "orig",
-      "num": 721,
-      "field": "law",
-      "text": "手付解除について正しいものはどれか（宅建業者が自ら売主の場合）。",
-      "opts": [
-        "売主・買主はいつでも手付解除できる",
-        "相手方が契約の履行に着手するまでは手付解除ができる",
-        "履行着手後も手付解除できる",
-        "手付を支払っても解除はできない"
-      ],
-      "ans": 1,
-      "exp": "宅建業者が自ら売主の場合、手付解除は相手方が履行に着手するまでの間に行う必要があります（宅建業法39条2項準用・民法557条）。売主からの解除は手付の倍額を現実に提供することが必要です。",
-      "publicPath": "q/practice/p721/index.html"
-    },
-    {
-      "id": 900722,
-      "year": "orig",
-      "num": 722,
-      "field": "law",
-      "text": "売買の代理と媒介では報酬の上限はどう違うか。",
-      "opts": [
-        "代理も媒介も上限は同じ",
-        "代理の場合は媒介の上限額の2倍まで受け取れる（双方代理の場合は各自から媒介の1倍が上限）",
-        "代理のほうが低い",
-        "代理には報酬制限がない"
-      ],
-      "ans": 1,
-      "exp": "代理の場合、依頼者から受け取れる報酬は媒介の場合の2倍が上限です。ただし双方代理なら各自から媒介の1倍が上限です（報酬告示）。",
-      "publicPath": "q/practice/p722/index.html"
-    },
-    {
-      "id": 900723,
-      "year": "orig",
-      "num": 723,
-      "field": "law",
-      "text": "宅建業法に基づく「立入検査」の権限について正しいものはどれか。",
-      "opts": [
-        "捜査令状がなければ立入検査できない",
-        "国土交通大臣または都道府県知事は事務所等への立入検査ができる",
-        "立入検査は業者の同意が必要",
-        "立入検査は年1回に限られる"
-      ],
-      "ans": 1,
-      "exp": "国土交通大臣または都道府県知事は宅建業の適正な運営の確保のため宅建業者の事務所等に立入り帳簿・書類の検査や関係者への質問ができます（宅建業法72条）。業者は正当な理由なく拒否できません。",
-      "publicPath": "q/practice/p723/index.html"
-    },
-    {
-      "id": 900724,
-      "year": "orig",
-      "num": 724,
-      "field": "law",
-      "text": "宅建業者が買主に対して行う手付金等の保全措置の種類として正しいものはどれか。",
-      "opts": [
-        "保証保険のみ",
-        "保証保険・保証委託・指定保管機関による保管の3種類",
-        "保証協会への預け入れのみ",
-        "法務局への供託のみ"
-      ],
-      "ans": 1,
-      "exp": "手付金等の保全措置の方法は①保証保険（保険会社）②保証委託（銀行等の連帯保証）③指定保管機関（保証協会等）による保管の3種類です（宅建業法41条の2）。未完成物件は①②のみです。",
-      "publicPath": "q/practice/p724/index.html"
-    },
-    {
-      "id": 900725,
-      "year": "orig",
-      "num": 725,
-      "field": "limit",
-      "text": "都市計画区域マスタープランの策定者として正しいものはどれか。",
-      "opts": [
-        "市町村",
-        "都道府県",
-        "国土交通大臣",
-        "市町村と都道府県の共同"
-      ],
-      "ans": 1,
-      "exp": "都市計画区域の整備・開発・保全の方針（マスタープラン）は都道府県が定めます（都市計画法6条の2）。市町村は市町村マスタープランを定めます（同法18条の2）。",
-      "publicPath": "q/practice/p725/index.html"
-    },
-    {
-      "id": 900726,
-      "year": "orig",
-      "num": 726,
-      "field": "limit",
-      "text": "用途地域のうち「商業地域」で建築できない建築物として正しいものはどれか。",
-      "opts": [
-        "百貨店・大型ショッピングモール",
-        "映画館・カラオケ",
-        "住宅",
-        "危険物の製造・貯蔵で一定規模を超えるもの"
-      ],
-      "ans": 3,
-      "exp": "商業地域は最も制限が緩く住宅・商業施設・映画館等ほぼ全て建築できますが、危険物の製造・貯蔵で一定規模を超えるものや特定の工場は建築できません（建築基準法別表第二）。",
-      "publicPath": "q/practice/p726/index.html"
-    },
-    {
-      "id": 900727,
-      "year": "orig",
-      "num": 727,
-      "field": "limit",
-      "text": "日影規制（建築基準法56条の2）の対象となる建築物として正しいものはどれか。",
-      "opts": [
-        "すべての建築物",
-        "用途地域が定められた地域内の一定高さ以上の建築物",
-        "日影規制は存在しない",
-        "住宅のみ対象"
-      ],
-      "ans": 1,
-      "exp": "日影規制は用途地域が定められた地域内（商業地域・工業地域等を除く）で一定の高さを超える建築物を対象として冬至日の日影時間を規制します（建築基準法56条の2）。",
-      "publicPath": "q/practice/p727/index.html"
-    },
-    {
-      "id": 900728,
-      "year": "orig",
-      "num": 728,
-      "field": "limit",
-      "text": "敷地が2以上の異なる建ぺい率の地域にわたる場合の建ぺい率の算定として正しいものはどれか。",
-      "opts": [
-        "最も緩い地域の建ぺい率を全体に適用",
-        "各地域の面積に応じた加重平均で算定（按分計算）",
-        "最も厳しい地域の建ぺい率を全体に適用",
-        "どちらか選択できる"
-      ],
-      "ans": 1,
-      "exp": "敷地が異なる建ぺい率の地域にわたる場合は各地域の面積の割合に応じた加重平均（按分計算）で建ぺい率の限度を計算します（建築基準法53条2項）。容積率も同様です。",
-      "publicPath": "q/practice/p728/index.html"
-    },
-    {
-      "id": 900729,
-      "year": "orig",
-      "num": 729,
-      "field": "limit",
-      "text": "農地法の「農地」判断の原則として正しいものはどれか。",
-      "opts": [
-        "登記簿の地目で判断する",
-        "現況（現在の状態）で判断する（現況主義）",
-        "固定資産税の課税地目で判断する",
-        "農業振興地域内かどうかで判断する"
-      ],
-      "ans": 1,
-      "exp": "農地法上の「農地」は現に耕作の目的に供されている土地を指します（農地法2条）。登記簿の地目が宅地でも現況が農地であれば農地法が適用されます（現況主義）。",
-      "publicPath": "q/practice/p729/index.html"
-    },
-    {
-      "id": 900730,
-      "year": "orig",
-      "num": 730,
-      "field": "limit",
-      "text": "土地区画整理事業の換地処分について正しいものはどれか。",
-      "opts": [
-        "換地処分は個々の地権者ごとに行われる",
-        "換地処分の公告があった日の翌日に換地が従前の宅地の所有者に帰属し登記効力が生じる",
-        "換地処分後も従前の宅地所有権は残る",
-        "換地処分には地権者全員の同意が必要"
-      ],
-      "ans": 1,
-      "exp": "換地処分の公告があった日の翌日に換地は従前の宅地とみなされ所有権その他の権利が換地に移行します（土地区画整理法103条4項）。",
-      "publicPath": "q/practice/p730/index.html"
-    },
-    {
-      "id": 900731,
-      "year": "orig",
-      "num": 731,
-      "field": "limit",
-      "text": "宅地造成工事規制区域内で許可が不要な造成工事として正しいものはどれか。",
-      "opts": [
-        "高さ2m以下の擁壁の設置",
-        "切土で高さ2m超の場合",
-        "盛土で高さ1m超の場合",
-        "面積500㎡超の盛土"
-      ],
-      "ans": 0,
-      "exp": "宅地造成工事規制区域内であっても高さ2m以下の擁壁の設置など小規模なものは許可不要です（盛土規制法12条1項・令3条）。一定規模（切土2m超・盛土1m超等）を超えると許可が必要です。",
-      "publicPath": "q/practice/p731/index.html"
-    },
-    {
-      "id": 900732,
-      "year": "orig",
-      "num": 732,
-      "field": "limit",
-      "text": "国土利用計画法の「規制区域」における土地取引について正しいものはどれか。",
-      "opts": [
-        "規制区域内では事後届出で足りる",
-        "規制区域内での一定の土地取引には都道府県知事の事前許可が必要で許可なき契約は無効",
-        "規制区域の指定には国会の承認が必要",
-        "規制区域は全国に多数指定されている"
-      ],
-      "ans": 1,
-      "exp": "規制区域（国土利用計画法12条）内では一定面積以上の土地取引に都道府県知事の許可が必要で、無許可の契約は無効です。現在はほぼ指定されていません。",
-      "publicPath": "q/practice/p732/index.html"
-    },
-    {
-      "id": 900733,
-      "year": "orig",
-      "num": 733,
-      "field": "tax",
-      "text": "不動産の譲渡所得において「取得費」に含まれるものとして正しいものはどれか。",
-      "opts": [
-        "固定資産税",
-        "取得時の仲介手数料・登録免許税・不動産取得税・測量費等",
-        "購入後の修繕費",
-        "取得費は購入価格のみ"
-      ],
-      "ans": 1,
-      "exp": "取得費には購入代金のほか仲介手数料・登録免許税・不動産取得税・測量費・改良費等の取得に要した費用が含まれます（所得税法38条）。固定資産税は取得費に含まれません。",
-      "publicPath": "q/practice/p733/index.html"
-    },
-    {
-      "id": 900734,
-      "year": "orig",
-      "num": 734,
-      "field": "tax",
-      "text": "住宅用地の不動産取得税の特例（土地）について正しいものはどれか。",
-      "opts": [
-        "新築住宅を取得した場合、土地には特例はない",
-        "新築住宅を取得した場合の土地は固定資産税評価額の1/2に軽減され一定の控除がある",
-        "土地の不動産取得税は常に非課税",
-        "土地には標準税率4%が適用される"
-      ],
-      "ans": 1,
-      "exp": "住宅用地の不動産取得税では課税標準が固定資産税評価額の1/2に軽減され（地方税法附則11条の5）、さらに新築住宅の敷地については一定の控除額を差し引く特例があります（地方税法73条の24）。",
-      "publicPath": "q/practice/p734/index.html"
-    },
-    {
-      "id": 900735,
-      "year": "orig",
-      "num": 735,
-      "field": "tax",
-      "text": "固定資産の価格に不服がある場合の手続きとして正しいものはどれか。",
-      "opts": [
-        "直ちに裁判所に提訴する",
-        "固定資産評価審査委員会に審査申出ができる",
-        "都道府県知事に異議申出する",
-        "国税不服申立て制度による"
-      ],
-      "ans": 1,
-      "exp": "固定資産の価格に不服がある場合は固定資産評価審査委員会に審査の申出ができます（地方税法432条）。基準年度の4月1日から当該年度の納税通知書を受け取った日後3か月を経過する日までが申出期間です。",
-      "publicPath": "q/practice/p735/index.html"
-    },
-    {
-      "id": 900736,
-      "year": "orig",
-      "num": 736,
-      "field": "tax",
-      "text": "住宅用家屋の所有権移転登記（売買）の登録免許税の軽減税率を受けるための要件として正しいものはどれか。",
-      "opts": [
-        "新築住宅のみ適用",
-        "床面積50㎡以上・取得後1年以内の登記・自己の居住用・一定の耐震基準等が要件",
-        "築年数制限はない",
-        "法人も適用対象"
-      ],
-      "ans": 1,
-      "exp": "住宅用家屋の所有権移転登記の軽減税率（0.3%）を受けるには床面積50㎡以上・取得後1年以内の登記・自己の居住用・一定の耐震基準等の要件があります（租税特別措置法73条）。",
-      "publicPath": "q/practice/p736/index.html"
-    },
-    {
-      "id": 900737,
-      "year": "orig",
-      "num": 737,
-      "field": "tax",
-      "text": "印紙税の「記載金額」が複数ある場合の取扱いとして正しいものはどれか。",
-      "opts": [
-        "最も低い金額を記載金額とする",
-        "最も高い金額を記載金額とする",
-        "合算して記載金額とする",
-        "記載金額のある文書は非課税"
-      ],
-      "ans": 2,
-      "exp": "1通の文書に土地・建物それぞれの売買代金が記載されている場合は、その合計額が記載金額となります（印紙税法基本通達）。",
-      "publicPath": "q/practice/p737/index.html"
-    },
-    {
-      "id": 900738,
-      "year": "orig",
-      "num": 738,
-      "field": "tax",
-      "text": "不動産鑑定評価における「正常価格」の定義として正しいものはどれか。",
-      "opts": [
-        "最高値で売却できる価格",
-        "市場で自由な取引が行われるとした場合に通常成立すると認められる適正な価格",
-        "固定資産税評価額に基づく価格",
-        "路線価に基づく価格"
-      ],
-      "ans": 1,
-      "exp": "正常価格とは市場性を有する不動産について現実の社会経済情勢のもとで合理的と考えられる条件を満たす市場で形成されるであろう市場価値を表す適正な価格です（不動産鑑定評価基準）。",
-      "publicPath": "q/practice/p738/index.html"
-    },
-    {
-      "id": 900739,
-      "year": "orig",
-      "num": 739,
-      "field": "tax",
-      "text": "住宅金融支援機構の直接融資の対象として正しいものはどれか。",
-      "opts": [
-        "一般の住宅購入者全て（主たる業務）",
-        "災害復興住宅・マンション共用部分の改修・高齢者向け返済特例等の特定用途に限られる",
-        "地方公共団体向けのみ",
-        "商業施設のみ"
-      ],
-      "ans": 1,
-      "exp": "住宅金融支援機構の主な業務は民間金融機関への支援（証券化支援・保険など）です。直接融資は災害復興住宅・マンション共用部分の改修・高齢者向け返済特例等の特定用途に限られます（住宅金融支援機構法13条）。",
-      "publicPath": "q/practice/p739/index.html"
-    },
-    {
-      "id": 900740,
-      "year": "orig",
-      "num": 740,
-      "field": "tax",
-      "text": "丘陵地・台地を宅地として利用する場合の特徴として正しいものはどれか。",
-      "opts": [
-        "低湿地より地盤が弱く危険",
-        "地盤が比較的安定しており洪水や液状化のリスクが低い好適な宅地",
-        "常に盛土が必要",
-        "農地に転用しにくい"
-      ],
-      "ans": 1,
-      "exp": "丘陵地・台地は地盤が比較的固く安定しており、洪水・液状化・土砂崩れのリスクが低いため良好な宅地として評価されます。傾斜地では切土・盛土の造成が必要な場合があります。",
-      "publicPath": "q/practice/p740/index.html"
-    },
-    {
-      "id": 900757,
-      "year": "orig",
-      "num": 757,
-      "field": "rights",
-      "text": "共有物に対する不法占拠者への妨害排除請求について正しいものはどれか。",
-      "opts": [
-        "共有者全員で行わなければならない",
-        "各共有者が単独で妨害排除請求（保存行為）できる",
-        "過半数の共有者が合意した場合のみ",
-        "訴訟は全員参加が必要"
-      ],
-      "ans": 1,
-      "exp": "不法占拠者への妨害排除請求は共有物の「保存行為」に該当し各共有者が単独で行使できます（民法252条5項）。保存行為は共有物の現状を維持する行為で他の共有者の同意は不要です。",
-      "publicPath": "q/practice/p757/index.html"
-    },
-    {
-      "id": 900773,
-      "year": "orig",
-      "num": 773,
-      "field": "rights",
-      "text": "消費者契約法による契約の取消しについて正しいものはどれか。",
-      "opts": [
-        "消費者契約法の取消権は宅建業者間の取引にも適用される",
-        "事業者が消費者に重要事項について不実告知等をした場合、消費者は契約を取り消すことができる",
-        "消費者契約法の時効は1年のみ",
-        "全ての消費者契約に自動的に適用される"
-      ],
-      "ans": 1,
-      "exp": "消費者契約法は事業者と消費者間の契約に適用されます。事業者が不実告知・断定的判断の提供・不利益事実の不告知等を行った場合、消費者は契約を取り消すことができます（消費者契約法4条）。取消権は追認できる時から1年・契約締結から5年で消滅します。",
-      "publicPath": "q/practice/p773/index.html"
-    },
-    {
-      "id": 900786,
-      "year": "orig",
-      "num": 786,
-      "field": "rights",
-      "text": "瑕疵担保責任から「契約不適合責任」への改正（2020年）の主な変更点として正しいものはどれか。",
-      "opts": [
-        "旧制度と全く同じ",
-        "買主の権利が追完請求・代金減額請求・損害賠償・解除に整理され、買主は不適合を知った時から1年以内の「通知」で足りる",
-        "売主の責任が重くなった",
-        "権利行使期間が延長された"
-      ],
-      "ans": 1,
-      "exp": "2020年改正民法により瑕疵担保責任が「契約不適合責任」に改められました。買主の権利は追完請求・代金減額請求・損害賠償・解除に整理され、権利行使は不適合を知った時から1年以内に「通知」するだけで足ります（民法566条）。",
-      "publicPath": "q/practice/p786/index.html"
-    },
-    {
-      "id": 900790,
-      "year": "orig",
-      "num": 790,
-      "field": "rights",
-      "text": "保証人の求償権について正しいものはどれか。",
-      "opts": [
-        "保証人は弁済しても主債務者に求償できない",
-        "保証人は主債務者のために弁済した場合、主債務者に求償できる（民法459条）",
-        "求償できる範囲は弁済額の半分のみ",
-        "事前通知なく弁済した場合も常に全額求償できる"
-      ],
-      "ans": 1,
-      "exp": "保証人が主債務者のために弁済した場合、主債務者に求償できます（民法459条）。ただし事前通知せずに弁済した場合は主債務者が弁済等の抗弁を失うおそれがあり求償が制限される場合があります（民法463条）。",
-      "publicPath": "q/practice/p790/index.html"
-    },
-    {
-      "id": 900791,
-      "year": "orig",
-      "num": 791,
-      "field": "rights",
-      "text": "賃借権の譲渡と転貸の比較として正しいものはどれか。",
-      "opts": [
-        "両者は全く同じ",
-        "賃借権の譲渡は賃借人が賃借権を第三者に移転して自己は契約関係から離脱、転貸は賃借人が賃借権を保持したまま第三者に転貸する",
-        "どちらも賃貸人の承諾不要",
-        "転貸のみ賃貸人の承諾が必要"
-      ],
-      "ans": 1,
-      "exp": "賃借権の譲渡は賃借人（譲渡人）が賃借権を第三者（譲受人）に譲渡し自己は契約から離脱します。転貸は賃借人が賃借権を保持したまま第三者に又貸しします。いずれも賃貸人の承諾が必要です（民法612条）。",
-      "publicPath": "q/practice/p791/index.html"
-    },
-    {
-      "id": 900793,
-      "year": "orig",
-      "num": 793,
-      "field": "rights",
-      "text": "土地の所有権と建物の所有権が別人に属する場合の法定地上権（民法388条）の成立要件として正しいものはどれか。",
-      "opts": [
-        "要件なしに自動的に成立する",
-        "抵当権設定時に土地・建物が同一人の所有で、競売により土地・建物の所有者が別々になった場合に成立",
-        "競売のみで成立し任意売却では成立しない",
-        "建物があれば常に法定地上権が成立"
-      ],
-      "ans": 1,
-      "exp": "法定地上権（民法388条）は抵当権設定時に土地と建物が同一人の所有で、その後競売により土地・建物が別々の所有者になった場合に成立します。建物のための地上権が法律上当然に成立します。",
-      "publicPath": "q/practice/p793/index.html"
-    },
-    {
-      "id": 900794,
-      "year": "orig",
-      "num": 794,
-      "field": "rights",
-      "text": "特別受益（婚姻・養子縁組・生計の資本のための贈与）について正しいものはどれか。",
-      "opts": [
-        "特別受益は相続財産に含まれない",
-        "相続分の計算において特別受益は相続財産に持ち戻して計算されるが被相続人の意思によって持ち戻しを免除できる",
-        "特別受益は全て相続財産として均等分配される",
-        "生前贈与は常に特別受益になる"
-      ],
-      "ans": 1,
-      "exp": "特別受益は相続財産に持ち戻して相続分を計算します（民法903条）。ただし被相続人が遺言等で持ち戻しの免除の意思表示をした場合は持ち戻し計算から除外されます（民法903条3項）。",
-      "publicPath": "q/practice/p794/index.html"
-    },
-    {
-      "id": 900796,
-      "year": "orig",
-      "num": 796,
-      "field": "limit",
-      "text": "自然公園法（国立公園・国定公園）の特別地域における建築規制として正しいものはどれか。",
-      "opts": [
-        "国立公園内での建築は一切禁止",
-        "特別地域内では環境大臣等の許可なく建築物の新築・増改築等はできない",
-        "国立公園内は全て自由に建築できる",
-        "普通地域には規制がない"
-      ],
-      "ans": 1,
-      "exp": "自然公園法により国立・国定公園の特別地域内では環境大臣（国定公園は都道府県知事）の許可なく建築物の新築・増改築・外観変更等が原則として禁止されています（自然公園法17条）。",
-      "publicPath": "q/practice/p796/index.html"
-    },
-    {
-      "id": 900797,
-      "year": "orig",
-      "num": 797,
-      "field": "limit",
-      "text": "都市緑地法における「緑地保全地域」の規制として正しいものはどれか。",
-      "opts": [
-        "緑地保全地域では全ての行為が自由",
-        "建築物の新築・改築・宅地造成等の行為は市町村長への届出が必要",
-        "緑地保全地域は農地にのみ指定できる",
-        "規制はない"
-      ],
-      "ans": 1,
-      "exp": "緑地保全地域（都市緑地法4条）内では建築物の新築・改築・宅地造成・木竹の伐採等の行為をしようとする場合は市町村長への届出が必要です（都市緑地法7条）。",
-      "publicPath": "q/practice/p797/index.html"
-    },
-    {
-      "id": 900798,
-      "year": "orig",
-      "num": 798,
-      "field": "rights",
-      "text": "土地の工作物等の設置・保存の瑕疵による損害賠償（民法717条）における責任者について正しいものはどれか。",
-      "opts": [
-        "建設業者が常に責任を負う",
-        "占有者が第一次的に責任を負い、占有者が無過失を証明した場合は所有者が無過失責任を負う",
-        "所有者のみが責任を負う",
-        "居住者が常に責任を負う"
-      ],
-      "ans": 1,
-      "exp": "工作物責任（民法717条）では占有者が第一次的に責任を負い（過失責任）、無過失を証明した場合は所有者が絶対的無過失責任を負います（最終責任者）。",
-      "publicPath": "q/practice/p798/index.html"
-    },
-    {
-      "id": 900799,
-      "year": "orig",
-      "num": 799,
-      "field": "law",
-      "text": "宅建業者が土地と建物を一括して売買の媒介をした場合の報酬計算について正しいものはどれか。",
-      "opts": [
-        "土地と建物それぞれに報酬上限を計算して合算する",
-        "土地と建物の代金合計額（消費税相当額を除く）を基礎として報酬上限を計算する",
-        "建物の代金のみを基礎として計算する",
-        "土地のみを基礎として計算する"
-      ],
-      "ans": 1,
-      "exp": "土地と建物を一括して売買する場合の媒介報酬は土地と建物の代金合計額（消費税分を除く）を基礎として報酬上限を計算します（報酬告示）。",
-      "publicPath": "q/practice/p799/index.html"
-    },
-    {
-      "id": 900800,
-      "year": "orig",
-      "num": 800,
-      "field": "rights",
-      "text": "不動産の物権変動における「登記なくして対抗できない第三者」の範囲について正しいものはどれか（判例）。",
-      "opts": [
-        "登記を信頼した全ての者",
-        "正当な利益を有する者（取引当事者・差押債権者等）であり不法占拠者・背信的悪意者は含まれない",
-        "相続人も含まれる",
-        "第三者の範囲に制限はない"
-      ],
-      "ans": 1,
-      "exp": "民法177条の「第三者」は当事者・包括承継人（相続人等）以外の者で不動産物権変動について正当な利益を有する者です（判例）。不法占拠者・背信的悪意者は含まれず、登記がなくても対抗できます。",
-      "publicPath": "q/practice/p800/index.html"
-    }
-  ],
-  "3": [
-    {
-      "id": 900333,
-      "year": "orig",
-      "num": 333,
+      "num": 10333,
       "field": "rights",
       "text": "通謀虚偽表示（民法94条）における第三者保護について。AとBが通謀して虚偽の売買契約をし登記もBに移転した。その後Bから当該不動産を買い受けたCが「善意」の場合の法律関係として正しいものはどれか。",
       "opts": [
@@ -9730,14 +5326,14 @@ const PRACTICE_QUESTIONS = {
         "Cの善意は推定されないため証明が必要",
         "Cが善意でも登記を備えていなければ保護されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法94条2項は通謀虚偽表示の無効を善意の第三者に対抗できないと規定します。善意のCはAからの無効主張を受けません。Cの善意は推定され、AがCの悪意を立証しなければなりません（判例）。また登記の有無はCの保護に影響しないとされています（判例）。",
-      "publicPath": "q/practice/p333/index.html"
+      "publicPath": "q/practice/p10333/index.html"
     },
     {
-      "id": 900334,
+      "id": 910334,
       "year": "orig",
-      "num": 334,
+      "num": 10334,
       "field": "rights",
       "text": "表見代理の成立と本人の責任について。AはBに土地売買の代理権を与えたが、Bはその権限外の行為（建物の売買）を行い、Cが代理権ありと信じた場合の法律構成として正しいものはどれか。",
       "opts": [
@@ -9746,14 +5342,14 @@ const PRACTICE_QUESTIONS = {
         "Cは善意であればBに対してのみ責任追及できる",
         "表見代理と無権代理の責任追及は必ずどちらかを選択しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法110条の権限外行為の表見代理は、代理人が基本的代理権を有し第三者がその権限内と信じたことに正当な理由がある場合に成立します。相手方Cは本人Aに対し表見代理を主張するか、代理人Bに対し無権代理責任を追及するかを選択できます（選択的行使が可能）。",
-      "publicPath": "q/practice/p334/index.html"
+      "publicPath": "q/practice/p10334/index.html"
     },
     {
-      "id": 900335,
+      "id": 910335,
       "year": "orig",
-      "num": 335,
+      "num": 10335,
       "field": "rights",
       "text": "取得時効の成立要件について。Aが他人の土地を占有する場合、20年ではなく10年の時効取得が認められる要件として正しいものはどれか。",
       "opts": [
@@ -9762,14 +5358,14 @@ const PRACTICE_QUESTIONS = {
         "占有開始時に登記名義があること",
         "占有の途中で善意になれば足りる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "所有権の10年の取得時効（民法162条2項）は占有開始時に善意かつ無過失であることが必要です。占有の途中で善意になっても10年時効の適用はありません。無過失の判断は占有開始時を基準とします（判例）。",
-      "publicPath": "q/practice/p335/index.html"
+      "publicPath": "q/practice/p10335/index.html"
     },
     {
-      "id": 900336,
+      "id": 910336,
       "year": "orig",
-      "num": 336,
+      "num": 10336,
       "field": "rights",
       "text": "共有物の分割請求について正しいものはどれか。",
       "opts": [
@@ -9780,12 +5376,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "各共有者はいつでも共有物の分割を請求できます（民法256条1項）。ただし5年以内の期間を定めた分割禁止の特約は有効で（同条1項但書）、登記することで第三者にも対抗できます（民法不動産登記法59条6号）。持分の大小は分割請求権に影響しません。",
-      "publicPath": "q/practice/p336/index.html"
+      "publicPath": "q/practice/p10336/index.html"
     },
     {
-      "id": 900337,
+      "id": 910337,
       "year": "orig",
-      "num": 337,
+      "num": 10337,
       "field": "rights",
       "text": "仮登記の効力として正しいものはどれか。",
       "opts": [
@@ -9794,14 +5390,14 @@ const PRACTICE_QUESTIONS = {
         "仮登記は担保としての効力のみを持つ",
         "仮登記は抵当権の設定には利用できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮登記に基づく本登記がなされると、仮登記後に行われた第三者の権利に関する登記は抹消されます（不動産登記法109条）。これが仮登記の順位保全効です。仮登記自体は対抗力がなく、担保仮登記（仮登記担保）もあります（仮登記担保法）。",
-      "publicPath": "q/practice/p337/index.html"
+      "publicPath": "q/practice/p10337/index.html"
     },
     {
-      "id": 900338,
+      "id": 910338,
       "year": "orig",
-      "num": 338,
+      "num": 10338,
       "field": "rights",
       "text": "借地権の対抗要件として正しいものはどれか。",
       "opts": [
@@ -9810,14 +5406,14 @@ const PRACTICE_QUESTIONS = {
         "借地権は登記なしで当然に対抗できる",
         "建物の未登記では借地権の対抗要件にならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地権は地上権・賃借権の登記のほか、借地上に建物の登記（表示登記でも可）があれば第三者に対抗できます（借地借家法10条1項）。建物の未登記の場合は建物の登記がないため対抗力を失います（滅失した場合は掲示で2年間保護）。",
-      "publicPath": "q/practice/p338/index.html"
+      "publicPath": "q/practice/p10338/index.html"
     },
     {
-      "id": 900339,
+      "id": 910339,
       "year": "orig",
-      "num": 339,
+      "num": 10339,
       "field": "rights",
       "text": "売買契約における危険負担について（2020年改正後）。契約締結後引渡し前に目的物が双方の責めに帰することができない事由で滅失した場合の処理として正しいものはどれか。",
       "opts": [
@@ -9826,14 +5422,14 @@ const PRACTICE_QUESTIONS = {
         "危険は常に買主が負担する（買主主義）",
         "滅失した場合も売主は代金請求できるが買主は損害賠償できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年改正民法536条により危険負担は「債務者主義」が原則となりました。引渡し前に双方の帰責なく滅失した場合、買主は売主の反対給付（代金支払い）の履行を拒絶でき、また契約を解除することもできます（民法542条）。",
-      "publicPath": "q/practice/p339/index.html"
+      "publicPath": "q/practice/p10339/index.html"
     },
     {
-      "id": 900340,
+      "id": 910340,
       "year": "orig",
-      "num": 340,
+      "num": 10340,
       "field": "rights",
       "text": "相続の放棄について正しいものはどれか。",
       "opts": [
@@ -9842,14 +5438,14 @@ const PRACTICE_QUESTIONS = {
         "相続放棄は家庭裁判所への申述ではなく口頭でもできる",
         "相続放棄をした者も固定資産税を支払う義務がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続放棄（民法938条）は家庭裁判所への申述により行い、申述が受理されると初めから相続人でなかったとみなされます（民法939条）。相続開始前の放棄は認められず、申述は相続開始を知った日から3ヶ月以内に行わなければなりません（民法915条）。",
-      "publicPath": "q/practice/p340/index.html"
+      "publicPath": "q/practice/p10340/index.html"
     },
     {
-      "id": 900341,
+      "id": 910341,
       "year": "orig",
-      "num": 341,
+      "num": 10341,
       "field": "rights",
       "text": "共同不法行為者間の責任に関して正しいものはどれか。",
       "opts": [
@@ -9858,14 +5454,14 @@ const PRACTICE_QUESTIONS = {
         "過失割合に応じた部分のみの責任を負う",
         "共同不法行為は故意によるものに限られる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同不法行為者（民法719条）は被害者に対して損害の全額について連帯して損害賠償責任を負います（不真正連帯債務）。各人の求償関係（内部関係）は過失割合等に基づきます。共同不法行為は故意・過失いずれの場合でも成立します。",
-      "publicPath": "q/practice/p341/index.html"
+      "publicPath": "q/practice/p10341/index.html"
     },
     {
-      "id": 900342,
+      "id": 910342,
       "year": "orig",
-      "num": 342,
+      "num": 10342,
       "field": "rights",
       "text": "抵当権侵害に対する抵当権者の救済手段として正しいものはどれか。",
       "opts": [
@@ -9874,14 +5470,14 @@ const PRACTICE_QUESTIONS = {
         "抵当権侵害に対しては損害賠償請求のみが認められる",
         "抵当権者が建物に侵入した第三者を排除するには必ず裁判所の許可が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当権者は抵当目的物の交換価値の実現が妨害されている場合（例：不法占拠により競売価格が下落するなど）に物権的妨害排除請求権を行使できます（最高裁判例）。弁済期前でも侵害が明白であれば認められる場合があります。",
-      "publicPath": "q/practice/p342/index.html"
+      "publicPath": "q/practice/p10342/index.html"
     },
     {
-      "id": 900343,
+      "id": 910343,
       "year": "orig",
-      "num": 343,
+      "num": 10343,
       "field": "law",
       "text": "宅建業者の廃業等に関する届出義務について正しいものはどれか。",
       "opts": [
@@ -9890,14 +5486,14 @@ const PRACTICE_QUESTIONS = {
         "法人が合併により消滅した場合は消滅前に届け出る",
         "廃業等の届出は任意であり義務ではない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者（個人）が死亡した場合、その相続人は死亡の事実を知った日から30日以内に届け出なければなりません（宅建業法11条1項1号）。廃業・解散等も同様に30日以内の届出が必要です。",
-      "publicPath": "q/practice/p343/index.html"
+      "publicPath": "q/practice/p10343/index.html"
     },
     {
-      "id": 900344,
+      "id": 910344,
       "year": "orig",
-      "num": 344,
+      "num": 10344,
       "field": "law",
       "text": "宅建士による重要事項説明の義務に関して正しいものはどれか。",
       "opts": [
@@ -9906,14 +5502,14 @@ const PRACTICE_QUESTIONS = {
         "宅建業者間の取引では説明も書面交付も省略できる",
         "書面交付さえすれば説明は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者間の取引では重要事項の説明（宅建士による口頭説明）は省略できますが、35条書面（重要事項説明書）の交付義務は残ります（宅建業法35条6項）。つまり「説明なし・書面交付あり」が正しい取扱いです。",
-      "publicPath": "q/practice/p344/index.html"
+      "publicPath": "q/practice/p10344/index.html"
     },
     {
-      "id": 900345,
+      "id": 910345,
       "year": "orig",
-      "num": 345,
+      "num": 10345,
       "field": "law",
       "text": "媒介契約書面（34条の2書面）の記載事項として必要なものはどれか。",
       "opts": [
@@ -9922,14 +5518,14 @@ const PRACTICE_QUESTIONS = {
         "依頼者の資産状況",
         "依頼者の購入候補地の詳細"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "媒介契約書面（宅建業法34条の2）の記載事項には物件の所在・規模・価格、媒介の種類、有効期間、解除に関する事項、報酬に関する事項、指定流通機構への登録に関する事項等が含まれます。",
-      "publicPath": "q/practice/p345/index.html"
+      "publicPath": "q/practice/p10345/index.html"
     },
     {
-      "id": 900346,
+      "id": 910346,
       "year": "orig",
-      "num": 346,
+      "num": 10346,
       "field": "law",
       "text": "1つの売買について売主・買主双方から媒介を依頼された宅建業者が受領できる報酬の合計の上限として正しいものはどれか。",
       "opts": [
@@ -9938,14 +5534,14 @@ const PRACTICE_QUESTIONS = {
         "売主・買主それぞれから3%＋6万円（税別）なので合計6%＋12万円",
         "売主・買主どちらか一方からの報酬のみ"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "売主・買主双方から依頼を受けた場合（双方代理的媒介）、それぞれから受け取れる上限額（各側3%＋6万円等）を合計した額が上限となります（報酬告示）。つまり売買代金×6%＋12万円（税別）が合計の上限です。",
-      "publicPath": "q/practice/p346/index.html"
+      "publicPath": "q/practice/p10346/index.html"
     },
     {
-      "id": 900347,
+      "id": 910347,
       "year": "orig",
-      "num": 347,
+      "num": 10347,
       "field": "law",
       "text": "37条書面の作成・交付に関して正しいものはどれか。",
       "opts": [
@@ -9954,14 +5550,14 @@ const PRACTICE_QUESTIONS = {
         "37条書面は契約当事者のうち買主にのみ交付すれば足りる",
         "37条書面は重要事項説明書と同時に交付しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面（契約書面）は宅建士が記名しなければなりません（電磁的方法の場合は国土交通省令で定める措置が必要）（宅建業法37条3項）。売主・買主の双方に交付する必要があり、交付のタイミングは契約成立後遅滞なくです。重説との同時交付義務はありません。",
-      "publicPath": "q/practice/p347/index.html"
+      "publicPath": "q/practice/p10347/index.html"
     },
     {
-      "id": 900348,
+      "id": 910348,
       "year": "orig",
-      "num": 348,
+      "num": 10348,
       "field": "law",
       "text": "区分所有建物（マンション）の売買における重要事項説明の特有記載事項として正しいものはどれか。",
       "opts": [
@@ -9970,14 +5566,14 @@ const PRACTICE_QUESTIONS = {
         "隣接する土地所有者の情報",
         "マンション全体の固定資産税評価額"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有建物の売買では通常の重説事項に加え、管理規約・総会議事録・長期修繕計画・修繕積立金の状況・管理会社の名称等を説明・記載する必要があります（宅建業法35条1項6号等）。",
-      "publicPath": "q/practice/p348/index.html"
+      "publicPath": "q/practice/p10348/index.html"
     },
     {
-      "id": 900349,
+      "id": 910349,
       "year": "orig",
-      "num": 349,
+      "num": 10349,
       "field": "law",
       "text": "宅建業者が自ら売主となる場合の手付金等保全措置について。完成物件において保全措置が不要となる要件として正しいものはどれか。",
       "opts": [
@@ -9988,12 +5584,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "完成物件の場合、受領する手付金等の額が代金の10%以下かつ1000万円以下であれば保全措置は不要です（宅建業法41条の2）。未完成物件は5%以下かつ1000万円以下が基準です。",
-      "publicPath": "q/practice/p349/index.html"
+      "publicPath": "q/practice/p10349/index.html"
     },
     {
-      "id": 900350,
+      "id": 910350,
       "year": "orig",
-      "num": 350,
+      "num": 10350,
       "field": "law",
       "text": "クーリングオフの書面に必要な記載事項として正しいものはどれか。",
       "opts": [
@@ -10004,12 +5600,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "宅建業者は買主等に対してクーリングオフができる旨・クーリングオフを行使する場合の方法を書面で告知しなければなりません（宅建業法37条の2第1項）。告知がなければ8日の起算が始まらず、買主はいつでもクーリングオフできます。",
-      "publicPath": "q/practice/p350/index.html"
+      "publicPath": "q/practice/p10350/index.html"
     },
     {
-      "id": 900351,
+      "id": 910351,
       "year": "orig",
-      "num": 351,
+      "num": 10351,
       "field": "law",
       "text": "宅建業法上の取引態様の明示義務について正しいものはどれか。",
       "opts": [
@@ -10018,14 +5614,14 @@ const PRACTICE_QUESTIONS = {
         "取引態様は売主・媒介・代理のいずれか一つのみ",
         "取引態様の明示義務は自ら売主の場合のみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者は広告をするときおよび注文を受けたときに、取引態様（自己売主・媒介・代理の別）を明示しなければなりません（宅建業法34条）。明示は注文ごとに遅滞なく行う必要があり、書面でなく口頭でも可です。",
-      "publicPath": "q/practice/p351/index.html"
+      "publicPath": "q/practice/p10351/index.html"
     },
     {
-      "id": 900352,
+      "id": 910352,
       "year": "orig",
-      "num": 352,
+      "num": 10352,
       "field": "law",
       "text": "宅建業者の免許取消処分事由として正しいものはどれか。",
       "opts": [
@@ -10034,14 +5630,14 @@ const PRACTICE_QUESTIONS = {
         "免許を受けてから1年以上業務を開始しない場合は任意取消",
         "指示処分を3回受けると自動的に免許取消"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不正の手段により免許を受けた場合は必要的免許取消事由です（宅建業法66条1項8号）。業務停止処分違反も必要的取消事由（同1号）。免許を受けてから1年以内に業務を開始しない等の場合も取消事由（同2項）ですが、こちらは任意的取消です。",
-      "publicPath": "q/practice/p352/index.html"
+      "publicPath": "q/practice/p10352/index.html"
     },
     {
-      "id": 900353,
+      "id": 910353,
       "year": "orig",
-      "num": 353,
+      "num": 10353,
       "field": "law",
       "text": "宅建業者の事務所に置く専任の宅建士の数について正しいものはどれか。",
       "opts": [
@@ -10050,14 +5646,14 @@ const PRACTICE_QUESTIONS = {
         "事務所ごとに業務に従事する者5人に1人以上の割合で専任の宅建士を置く",
         "主たる事務所は10人に1人，従たる事務所は5人に1人"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業法では、事務所ごとに業務に従事する者の数の5分の1以上の数の専任の宅建士を置かなければなりません（宅建業法31条の3第1項）。主従の事務所で割合は変わりません。",
-      "publicPath": "q/practice/p353/index.html"
+      "publicPath": "q/practice/p10353/index.html"
     },
     {
-      "id": 900354,
+      "id": 910354,
       "year": "orig",
-      "num": 354,
+      "num": 10354,
       "field": "law",
       "text": "宅建業者が売買の媒介をした場合に売主に交付が義務付けられる「物件状況確認書」について正しいものはどれか。",
       "opts": [
@@ -10066,14 +5662,14 @@ const PRACTICE_QUESTIONS = {
         "物件状況確認書は買主のみに交付する",
         "物件状況確認書は35条書面と同じもの"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "物件状況確認書（告知書）は売主が物件の状況（雨漏り・シロアリ・設備の不具合等）を告知するための書面です。宅建業者は売主に物件の状況を確認し書面を作成・確認させ、買主に交付することが業界の標準的な取扱いとされています（宅建業法47条の2の観点からも重要）。",
-      "publicPath": "q/practice/p354/index.html"
+      "publicPath": "q/practice/p10354/index.html"
     },
     {
-      "id": 900355,
+      "id": 910355,
       "year": "orig",
-      "num": 355,
+      "num": 10355,
       "field": "limit",
       "text": "市街化区域と市街化調整区域の区分（線引き）に関して正しいものはどれか。",
       "opts": [
@@ -10082,14 +5678,14 @@ const PRACTICE_QUESTIONS = {
         "線引きは市区町村が決定する",
         "市街化調整区域では一切の建築が禁止される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "線引き（市街化区域・市街化調整区域への区分）は都道府県が都市計画で定めますが（都市計画法7条）、全ての都市計画区域で義務付けられているわけではなく、非線引き都市計画区域（区域区分が定められていない区域）も存在します。",
-      "publicPath": "q/practice/p355/index.html"
+      "publicPath": "q/practice/p10355/index.html"
     },
     {
-      "id": 900356,
+      "id": 910356,
       "year": "orig",
-      "num": 356,
+      "num": 10356,
       "field": "limit",
       "text": "第二種住居地域内で原則として建築できる建築物として正しいものはどれか。",
       "opts": [
@@ -10098,14 +5694,14 @@ const PRACTICE_QUESTIONS = {
         "床面積の合計1万㎡以下の店舗・飲食店・事務所",
         "工場（原動機使用）"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "第二種住居地域では床面積の合計が1万㎡以下の店舗・飲食店・事務所等は建築できます（建築基準法別表第二）。1万㎡超の大規模店舗は準住居・近商・商業地域等でなければ建てられません。風俗施設や工場は住居系地域では原則建築できません。",
-      "publicPath": "q/practice/p356/index.html"
+      "publicPath": "q/practice/p10356/index.html"
     },
     {
-      "id": 900357,
+      "id": 910357,
       "year": "orig",
-      "num": 357,
+      "num": 10357,
       "field": "limit",
       "text": "農地法4条の許可を要しない転用として正しいものはどれか。",
       "opts": [
@@ -10114,14 +5710,14 @@ const PRACTICE_QUESTIONS = {
         "農業用水路の整備のために農地を利用する",
         "2アール未満の農地を農業用施設に転用する場合"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "農地法4条の例外として、農業者が2アール未満の農地を農業用施設（農業倉庫・ビニールハウス等）に転用する場合は許可不要です（農地法4条1項8号・農地法施行令2条1項1号）。農業用水路等の土地改良施設への転用も許可不要の場合があります。",
-      "publicPath": "q/practice/p357/index.html"
+      "publicPath": "q/practice/p10357/index.html"
     },
     {
-      "id": 900358,
+      "id": 910358,
       "year": "orig",
-      "num": 358,
+      "num": 10358,
       "field": "limit",
       "text": "土地区画整理組合の設立要件として正しいものはどれか。",
       "opts": [
@@ -10132,12 +5728,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "土地区画整理組合は施行区域内の土地所有者または借地権者の3分の2以上の同意（同意者の所有地・借地権の面積が施行区域の3分の2以上）を得て都道府県知事の認可を受けて設立します（土地区画整理法14条）。",
-      "publicPath": "q/practice/p358/index.html"
+      "publicPath": "q/practice/p10358/index.html"
     },
     {
-      "id": 900359,
+      "id": 910359,
       "year": "orig",
-      "num": 359,
+      "num": 10359,
       "field": "limit",
       "text": "日影規制（日影による中高層建築物の高さ制限）について正しいものはどれか。",
       "opts": [
@@ -10146,14 +5742,14 @@ const PRACTICE_QUESTIONS = {
         "規制対象は高さ10m以下の建築物",
         "日影規制は建築物の用途には関係なく高さのみで判断する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "日影規制（建築基準法56条の2）は商業地域・工業地域・工業専用地域には適用されません。適用対象は一定の高さ以上の建築物（住居系は高さ10mを超えるもの等）で、条例指定がある地域・用途に適用されます。",
-      "publicPath": "q/practice/p359/index.html"
+      "publicPath": "q/practice/p10359/index.html"
     },
     {
-      "id": 900360,
+      "id": 910360,
       "year": "orig",
-      "num": 360,
+      "num": 10360,
       "field": "limit",
       "text": "地区計画において条例による制限の強化・緩和ができる事項として正しいものはどれか。",
       "opts": [
@@ -10164,12 +5760,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "地区計画が定められると、市区町村の条例で建築物の用途・容積率・建蔽率・高さ・壁面位置等について制限を強化または緩和することができます（建築基準法68条の2）。これにより地区の特性に応じた詳細なルール設定が可能です。",
-      "publicPath": "q/practice/p360/index.html"
+      "publicPath": "q/practice/p10360/index.html"
     },
     {
-      "id": 900361,
+      "id": 910361,
       "year": "orig",
-      "num": 361,
+      "num": 10361,
       "field": "tax",
       "text": "固定資産税の免税点として正しいものはどれか。",
       "opts": [
@@ -10178,14 +5774,14 @@ const PRACTICE_QUESTIONS = {
         "すべての固定資産は課税される",
         "土地・家屋は5万円未満が免税"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "固定資産税の免税点は土地30万円・家屋20万円・償却資産150万円です（地方税法351条）。同一市区町村内の同一人が所有する固定資産の課税標準の合計がこれ未満の場合は課税されません。",
-      "publicPath": "q/practice/p361/index.html"
+      "publicPath": "q/practice/p10361/index.html"
     },
     {
-      "id": 900362,
+      "id": 910362,
       "year": "orig",
-      "num": 362,
+      "num": 10362,
       "field": "tax",
       "text": "登録免許税の課税標準について正しいものはどれか。",
       "opts": [
@@ -10194,14 +5790,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣が定める価格",
         "路線価"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産の権利に関する登記の登録免許税の課税標準は原則として固定資産税評価額です（登録免許税法10条）。ただし新築建物等で固定資産税評価額がない場合は法務局長が認定した価格を用います。",
-      "publicPath": "q/practice/p362/index.html"
+      "publicPath": "q/practice/p10362/index.html"
     },
     {
-      "id": 900363,
+      "id": 910363,
       "year": "orig",
-      "num": 363,
+      "num": 10363,
       "field": "tax",
       "text": "居住用財産の3000万円特別控除（租税特別措置法35条）の適用を受けることができない場合として正しいものはどれか。",
       "opts": [
@@ -10210,14 +5806,14 @@ const PRACTICE_QUESTIONS = {
         "マイホームの売却で住んでいた期間は問わない",
         "火災で焼失した住宅の敷地の売却（焼失後1年以内）"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "3000万円特別控除は配偶者・直系血族・生計を一にする親族等の特別の関係がある者への売却には適用されません（租税特別措置法35条2項）。居住期間の下限要件はなく、住まなくなってから3年を経過する年末までに売却すれば適用可能です。",
-      "publicPath": "q/practice/p363/index.html"
+      "publicPath": "q/practice/p10363/index.html"
     },
     {
-      "id": 900364,
+      "id": 910364,
       "year": "orig",
-      "num": 364,
+      "num": 10364,
       "field": "tax",
       "text": "不動産鑑定評価基準における正常価格の説明として正しいものはどれか。",
       "opts": [
@@ -10226,14 +5822,14 @@ const PRACTICE_QUESTIONS = {
         "固定資産税評価額と路線価の平均",
         "強制処分の場合に成立する価格"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "正常価格とは、市場性を有する不動産について、合理的な市場で十分な市場公開期間を経た後に成立する価格をいいます（不動産鑑定評価基準）。地価公示の公示価格も正常価格です。なお競売等の場合は「限定価格」「特定価格」が使われる場合があります。",
-      "publicPath": "q/practice/p364/index.html"
+      "publicPath": "q/practice/p10364/index.html"
     },
     {
-      "id": 900365,
+      "id": 910365,
       "year": "orig",
-      "num": 365,
+      "num": 10365,
       "field": "tax",
       "text": "住宅金融支援機構の証券化支援業務（フラット35）の要件について正しいものはどれか。",
       "opts": [
@@ -10242,14 +5838,14 @@ const PRACTICE_QUESTIONS = {
         "年収に対する返済額の割合（返済負担率）の基準はない",
         "フラット35は土地の購入費用にも充当できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "フラット35の床面積要件は戸建て住宅等（一戸建て・連続建て・重ね建て）で70㎡以上、共同住宅（マンション等）で30㎡以上です。返済負担率の基準もあり（年収400万円未満は30%以下，400万円以上は35%以下）、建物資金向けで土地単独融資は対象外です。",
-      "publicPath": "q/practice/p365/index.html"
+      "publicPath": "q/practice/p10365/index.html"
     },
     {
-      "id": 900366,
+      "id": 910366,
       "year": "orig",
-      "num": 366,
+      "num": 10366,
       "field": "rights",
       "text": "AがBに甲土地を売却し、後にAがBとの売買を詐欺を理由に取り消した。取消し後にBからCへ所有権移転登記がされた場合、AとCの関係として正しいものはどれか。",
       "opts": [
@@ -10258,14 +5854,14 @@ const PRACTICE_QUESTIONS = {
         "Cが善意無過失であれば常にCが保護される",
         "Cは背信的悪意者なので保護されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "詐欺による取消し後に現れた第三者Cとの関係は「対抗問題」となります（判例）。AとCはどちらが先に登記を備えたかで勝敗が決まります。",
-      "publicPath": "q/practice/p366/index.html"
+      "publicPath": "q/practice/p10366/index.html"
     },
     {
-      "id": 900367,
+      "id": 910367,
       "year": "orig",
-      "num": 367,
+      "num": 10367,
       "field": "rights",
       "text": "AがBへの100万円の金銭債権をCに譲渡。Dが同債権を差し押さえていた場合、CとDの優先関係を決めるルールはどれか。",
       "opts": [
@@ -10274,14 +5870,14 @@ const PRACTICE_QUESTIONS = {
         "確定日付のある証書による通知または承諾の先後",
         "CとDの合意"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "債権譲渡において第三者（他の譲受人・差押債権者等）との優劣は「確定日付のある証書による通知または承諾」の先後で決まります（民法467条2項）。",
-      "publicPath": "q/practice/p367/index.html"
+      "publicPath": "q/practice/p10367/index.html"
     },
     {
-      "id": 900368,
+      "id": 910368,
       "year": "orig",
-      "num": 368,
+      "num": 10368,
       "field": "rights",
       "text": "抵当権が実行されて差押え効力が生じた後、抵当目的物から生じる法定果実（賃料等）の帰属として正しいものはどれか。",
       "opts": [
@@ -10290,14 +5886,14 @@ const PRACTICE_QUESTIONS = {
         "差押え後は法定果実（賃料等）に抵当権の効力が及ぶ",
         "法定果実には抵当権の効力は及ばない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "抵当権の効力は通常は果実に及びませんが、抵当権が実行されて差押えの効力が生じた後は法定果実（賃料など）にも効力が及びます（民法371条）。",
-      "publicPath": "q/practice/p368/index.html"
+      "publicPath": "q/practice/p10368/index.html"
     },
     {
-      "id": 900369,
+      "id": 910369,
       "year": "orig",
-      "num": 369,
+      "num": 10369,
       "field": "rights",
       "text": "相続放棄をした者の子は代襲相続できるかについて正しいものはどれか。",
       "opts": [
@@ -10306,14 +5902,14 @@ const PRACTICE_QUESTIONS = {
         "できる。子は別個の相続権を持つ",
         "家庭裁判所が判断する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続放棄をした者は初めから相続人でなかったことになります（民法939条）。そのため放棄した者の子は代襲相続できません。死亡・欠格・廃除の場合（代襲あり）と異なります。",
-      "publicPath": "q/practice/p369/index.html"
+      "publicPath": "q/practice/p10369/index.html"
     },
     {
-      "id": 900370,
+      "id": 910370,
       "year": "orig",
-      "num": 370,
+      "num": 10370,
       "field": "law",
       "text": "クーリングオフができない「事務所等」に含まれる場所として正しいものはどれか。",
       "opts": [
@@ -10322,14 +5918,14 @@ const PRACTICE_QUESTIONS = {
         "業者指定の喫茶店",
         "届出のない展示会場"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "買主が自ら申し出た場合の「自宅または勤務先」での申込み・契約はクーリングオフできません（宅建業法施行規則16条の5）。業者訪問の自宅や業者指定の喫茶店はクーリングオフできます。",
-      "publicPath": "q/practice/p370/index.html"
+      "publicPath": "q/practice/p10370/index.html"
     },
     {
-      "id": 900371,
+      "id": 910371,
       "year": "orig",
-      "num": 371,
+      "num": 10371,
       "field": "law",
       "text": "低廉な空家等（800万円以下）の売買の報酬特例として正しいものはどれか。",
       "opts": [
@@ -10338,14 +5934,14 @@ const PRACTICE_QUESTIONS = {
         "加算後の合計が30万円（税別）を超えることができる",
         "媒介報酬は原則の報酬額を超えて30万円（税別）まで受け取れる場合がある"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "低廉な空家等（800万円以下）の売買・交換の媒介では、媒介報酬について、依頼者への説明と合意を前提に、原則の報酬額を超えて30万円（税別）まで受け取れる場合があります（宅建業法46条・報酬告示）。",
-      "publicPath": "q/practice/p371/index.html"
+      "publicPath": "q/practice/p10371/index.html"
     },
     {
-      "id": 900372,
+      "id": 910372,
       "year": "orig",
-      "num": 372,
+      "num": 10372,
       "field": "law",
       "text": "業務停止処分を受けた宅建士が処分中に業務を行った場合の処分として正しいものはどれか。",
       "opts": [
@@ -10354,14 +5950,14 @@ const PRACTICE_QUESTIONS = {
         "登録が消除（取り消し）される",
         "始末書の提出のみ"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "業務停止処分に違反して業務を行った宅建士は「登録消除」処分の対象となります（宅建業法68条の2）。宅建士資格を失う最も重い行政処分です。",
-      "publicPath": "q/practice/p372/index.html"
+      "publicPath": "q/practice/p10372/index.html"
     },
     {
-      "id": 900373,
+      "id": 910373,
       "year": "orig",
-      "num": 373,
+      "num": 10373,
       "field": "limit",
       "text": "市街化調整区域で農林漁業者が農業用施設を建てる場合の手続として正しいものはどれか。",
       "opts": [
@@ -10370,14 +5966,14 @@ const PRACTICE_QUESTIONS = {
         "農業委員会の許可があれば開発許可不要",
         "面積500㎡以下なら許可不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農林漁業者が農林漁業用建築物を建てる場合は開発許可が不要です（都市計画法29条1項2号）。届出も不要です。",
-      "publicPath": "q/practice/p373/index.html"
+      "publicPath": "q/practice/p10373/index.html"
     },
     {
-      "id": 900374,
+      "id": 910374,
       "year": "orig",
-      "num": 374,
+      "num": 10374,
       "field": "limit",
       "text": "農地法4条・5条の許可権者として正しいものはどれか。",
       "opts": [
@@ -10386,14 +5982,14 @@ const PRACTICE_QUESTIONS = {
         "国土交通大臣",
         "市町村長"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地法4条（自己転用）・5条（転用目的の権利移動）の許可権者は都道府県知事です（農地法4条1項・5条1項）。農地法3条（権利移動）の許可権者は農業委員会です。",
-      "publicPath": "q/practice/p374/index.html"
+      "publicPath": "q/practice/p10374/index.html"
     },
     {
-      "id": 900375,
+      "id": 910375,
       "year": "orig",
-      "num": 375,
+      "num": 10375,
       "field": "tax",
       "text": "200㎡の住宅用地に適用される固定資産税の特例として正しいものはどれか。",
       "opts": [
@@ -10402,14 +5998,14 @@ const PRACTICE_QUESTIONS = {
         "200㎡全体に6分の1の特例が適用される",
         "特例の適用なし"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "200㎡以下の住宅用地は全て「小規模住宅用地」として課税標準が6分の1になります（地方税法349条の3の2）。200㎡ちょうどなら全体に6分の1の特例が適用されます。",
-      "publicPath": "q/practice/p375/index.html"
+      "publicPath": "q/practice/p10375/index.html"
     },
     {
-      "id": 900376,
+      "id": 910376,
       "year": "orig",
-      "num": 376,
+      "num": 10376,
       "field": "rights",
       "text": "取得時効完成後に所有者Bから土地を購入して登記したCに対しAはどう主張できるか。",
       "opts": [
@@ -10418,14 +6014,14 @@ const PRACTICE_QUESTIONS = {
         "AはCに対し損害賠償を請求できる",
         "Cが悪意ならAが常に勝つ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "時効完成後に第三者Cが登記した場合、AはCに時効取得を対抗できません（判例）。対抗問題となり登記の先後で決まります。ただしAが再び時効を完成させれば対抗できます（再取得時効）。",
-      "publicPath": "q/practice/p376/index.html"
+      "publicPath": "q/practice/p10376/index.html"
     },
     {
-      "id": 900377,
+      "id": 910377,
       "year": "orig",
-      "num": 377,
+      "num": 10377,
       "field": "law",
       "text": "宅建業者Aが媒介により売買契約を成立させた場合の37条書面の交付義務として正しいものはどれか。",
       "opts": [
@@ -10436,12 +6032,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "37条書面（契約書）は売買の場合、売主・買主の双方に交付しなければなりません（宅建業法37条）。35条書面（重要事項説明書）は買主のみへの交付という点と区別しましょう。",
-      "publicPath": "q/practice/p377/index.html"
+      "publicPath": "q/practice/p10377/index.html"
     },
     {
-      "id": 900378,
+      "id": 910378,
       "year": "orig",
-      "num": 378,
+      "num": 10378,
       "field": "limit",
       "text": "道路斜線制限の起点として正しいものはどれか。",
       "opts": [
@@ -10450,14 +6046,14 @@ const PRACTICE_QUESTIONS = {
         "建物の外壁面",
         "敷地境界線"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "道路斜線制限は「前面道路の反対側の境界線」から一定の角度の斜線を引いて、建物はその斜線内に収めなければならないというルールです（建築基準法56条）。道路幅員が広いほど起点が遠くなり建物を高くできます。",
-      "publicPath": "q/practice/p378/index.html"
+      "publicPath": "q/practice/p10378/index.html"
     },
     {
-      "id": 900379,
+      "id": 910379,
       "year": "orig",
-      "num": 379,
+      "num": 10379,
       "field": "tax",
       "text": "相続時精算課税制度を選択した場合の贈与税の説明として正しいものはどれか。",
       "opts": [
@@ -10468,12 +6064,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "相続時精算課税では、累積2500万円の特別控除を超えた分には一律20%の贈与税が課されます（租税特別措置法70条の3）。累進課税ではありません。特別控除は累積2500万円（毎年リセットではない）。",
-      "publicPath": "q/practice/p379/index.html"
+      "publicPath": "q/practice/p10379/index.html"
     },
     {
-      "id": 900380,
+      "id": 910380,
       "year": "orig",
-      "num": 380,
+      "num": 10380,
       "field": "rights",
       "text": "Bから建物を賃借し引渡しを受けたAが、BがCに建物を売却した場合の権利関係として正しいものはどれか。",
       "opts": [
@@ -10482,14 +6078,14 @@ const PRACTICE_QUESTIONS = {
         "引渡しを受けているAはCに賃借権を対抗でき賃貸人の地位はCに移転する",
         "登記のないAはCに何も主張できない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "建物賃借人Aは「建物の引渡し」を受けていればCに賃借権を対抗できます（借地借家法31条）。建物売却により賃貸人の地位もCに移転します（民法605条の2）。",
-      "publicPath": "q/practice/p380/index.html"
+      "publicPath": "q/practice/p10380/index.html"
     },
     {
-      "id": 900381,
+      "id": 910381,
       "year": "orig",
-      "num": 381,
+      "num": 10381,
       "field": "law",
       "text": "自ら売主の宅建業者が未完成物件で保全措置なしに受領できる手付金等の上限として正しいものはどれか。",
       "opts": [
@@ -10498,14 +6094,14 @@ const PRACTICE_QUESTIONS = {
         "代金の10%以下かつ1000万円以下",
         "代金の20%以下かつ2000万円以下"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "未完成物件の場合、「代金の5%以下かつ1000万円以下」であれば保全措置なしに受領できます（宅建業法41条1項）。完成物件は「10%以下かつ1000万円以下」です。",
-      "publicPath": "q/practice/p381/index.html"
+      "publicPath": "q/practice/p10381/index.html"
     },
     {
-      "id": 900382,
+      "id": 910382,
       "year": "orig",
-      "num": 382,
+      "num": 10382,
       "field": "limit",
       "text": "市街化区域内の農地を転用目的で売る場合（農地法5条）の手続として正しいものはどれか。",
       "opts": [
@@ -10514,14 +6110,14 @@ const PRACTICE_QUESTIONS = {
         "農業委員会への届出で足りる",
         "何も必要ない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "市街化区域内の農地については、農地法5条（転用目的の権利移動）の場合も農業委員会への届出で足ります（農地法5条1項7号）。3条（権利移動のみ）には特例がなく農業委員会の許可が必要です。",
-      "publicPath": "q/practice/p382/index.html"
+      "publicPath": "q/practice/p10382/index.html"
     },
     {
-      "id": 900383,
+      "id": 910383,
       "year": "orig",
-      "num": 383,
+      "num": 10383,
       "field": "tax",
       "text": "不動産取得税の住宅用土地の課税標準の特例として正しいものはどれか。",
       "opts": [
@@ -10530,14 +6126,14 @@ const PRACTICE_QUESTIONS = {
         "新築住宅（一般）は評価額から1000万円控除",
         "中古住宅には特例は一切ない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "住宅用土地（一定要件）の不動産取得税は固定資産税評価額の2分の1が課税標準になる特例があります（地方税法附則11条の5）。新築住宅（一般）は評価額から1200万円控除です。",
-      "publicPath": "q/practice/p383/index.html"
+      "publicPath": "q/practice/p10383/index.html"
     },
     {
-      "id": 900384,
+      "id": 910384,
       "year": "orig",
-      "num": 384,
+      "num": 10384,
       "field": "rights",
       "text": "区分所有建物の建替え決議の要件として正しいものはどれか。",
       "opts": [
@@ -10546,14 +6142,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者及び議決権の各5分の4以上",
         "区分所有者全員の同意"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "建替え決議は区分所有者及び議決権の各5分の4以上の賛成が必要です（区分所有法62条1項）。共用部分の重大変更・規約変更・管理組合法人設立はいずれも4分の3以上です。",
-      "publicPath": "q/practice/p384/index.html"
+      "publicPath": "q/practice/p10384/index.html"
     },
     {
-      "id": 900385,
+      "id": 910385,
       "year": "orig",
-      "num": 385,
+      "num": 10385,
       "field": "law",
       "text": "宅建業者の営業保証金から還付を受けられる者の範囲として正しいものはどれか。",
       "opts": [
@@ -10562,14 +6158,14 @@ const PRACTICE_QUESTIONS = {
         "宅建業者のみ",
         "消費者に限り法人は含まれない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "営業保証金から還付を受けられるのは「宅建業者以外の者」で、その業者と「宅建業に関し取引をした者」に限られます（宅建業法27条1項）。業者間取引は対象外。法人・個人は問いません。",
-      "publicPath": "q/practice/p385/index.html"
+      "publicPath": "q/practice/p10385/index.html"
     },
     {
-      "id": 900386,
+      "id": 910386,
       "year": "orig",
-      "num": 386,
+      "num": 10386,
       "field": "rights",
       "text": "Aがその所有する建物をBに売却したが、AがCにも同じ建物を売却し、CがAから建物の引渡しを受けた。その後CはさらにDに転売し、DはCから建物の引渡しを受けた。建物の所有権の帰属として正しいものはどれか（登記はいずれもなし）。",
       "opts": [
@@ -10578,14 +6174,14 @@ const PRACTICE_QUESTIONS = {
         "Dが所有権を取得する",
         "AとBとCが共有する"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "動産の場合は占有（引渡し）が対抗要件です（民法178条）。本問は動産の二重譲渡で、DはCから引渡しを受けておりCからの譲渡を対抗できます。ただし不動産なら登記が対抗要件となります。本問のように動産では占有を先に取得した者が優先し、さらにDへの転売・引渡しが完成しているため、Dが有効に所有権を取得します。",
-      "publicPath": "q/practice/p386/index.html"
+      "publicPath": "q/practice/p10386/index.html"
     },
     {
-      "id": 900387,
+      "id": 910387,
       "year": "orig",
-      "num": 387,
+      "num": 10387,
       "field": "rights",
       "text": "根抵当権の元本確定事由として誤っているものはどれか。",
       "opts": [
@@ -10594,14 +6190,14 @@ const PRACTICE_QUESTIONS = {
         "根抵当権者と設定者が合意して確定の登記をした",
         "元本確定期日の定めがある場合にその期日が到来した"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "根抵当権の元本確定事由には競売申立て、破産手続き開始、確定期日の到来、設定者の死亡等があります。しかし「根抵当権者と設定者の合意」のみでは元本確定とはならず、確定の合意と登記が必要です（民法398条の19第2項）。",
-      "publicPath": "q/practice/p387/index.html"
+      "publicPath": "q/practice/p10387/index.html"
     },
     {
-      "id": 900388,
+      "id": 910388,
       "year": "orig",
-      "num": 388,
+      "num": 10388,
       "field": "rights",
       "text": "建物の区分所有に関して、一部共用部分の管理についての正しい説明はどれか。",
       "opts": [
@@ -10610,14 +6206,14 @@ const PRACTICE_QUESTIONS = {
         "管理者が単独で決定できる",
         "区分所有者全員の5分の4の決議が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "一部共用部分とはその区分所有者の一部のみが共用する部分です（区分所有法3条ただし書き）。その管理は原則として当該区分所有者のみで行いますが、規約でその管理を全体の管理組合が行うこととすることもできます（区分所有法16条）。",
-      "publicPath": "q/practice/p388/index.html"
+      "publicPath": "q/practice/p10388/index.html"
     },
     {
-      "id": 900389,
+      "id": 910389,
       "year": "orig",
-      "num": 389,
+      "num": 10389,
       "field": "law",
       "text": "宅建業者の違反行為に対する監督処分の種類として誤っているものはどれか。",
       "opts": [
@@ -10626,14 +6222,14 @@ const PRACTICE_QUESTIONS = {
         "免許取消処分",
         "刑事罰のみで行政処分なし"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "宅建業法上の監督処分は①指示処分②業務停止処分（1年以内）③免許取消処分の3種類です（宅建業法65条・66条）。行政処分と刑事罰は別個に科すことができ、「刑事罰のみ」という選択肢はありません。",
-      "publicPath": "q/practice/p389/index.html"
+      "publicPath": "q/practice/p10389/index.html"
     },
     {
-      "id": 900390,
+      "id": 910390,
       "year": "orig",
-      "num": 390,
+      "num": 10390,
       "field": "law",
       "text": "宅建士が不正の手段により登録を受けた場合の処分として正しいものはどれか。",
       "opts": [
@@ -10642,14 +6238,14 @@ const PRACTICE_QUESTIONS = {
         "登録消除処分（必須）",
         "指示処分のみ"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不正手段で登録を受けた宅建士は登録消除処分を受けます（宅建業法68条の2第1項）。これは必須処分（義務的消除）であり、知事が裁量で判断する余地はありません。消除後5年間は再登録できません。",
-      "publicPath": "q/practice/p390/index.html"
+      "publicPath": "q/practice/p10390/index.html"
     },
     {
-      "id": 900391,
+      "id": 910391,
       "year": "orig",
-      "num": 391,
+      "num": 10391,
       "field": "limit",
       "text": "防火地域に関する次の記述のうち正しいものはどれか。",
       "opts": [
@@ -10658,14 +6254,14 @@ const PRACTICE_QUESTIONS = {
         "準耐火建築物は防火地域内では一切建築できない",
         "防火地域の指定は国土交通大臣が行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "防火地域内では階数3以上または延べ面積が100平方メートルを超える建築物は耐火建築物にしなければなりません（建築基準法61条・旧61条）。それ以外（階数2以下かつ100平方メートル以下）は準耐火建築物で可能です。",
-      "publicPath": "q/practice/p391/index.html"
+      "publicPath": "q/practice/p10391/index.html"
     },
     {
-      "id": 900392,
+      "id": 910392,
       "year": "orig",
-      "num": 392,
+      "num": 10392,
       "field": "limit",
       "text": "都市計画法の開発許可を受けた開発区域内において、工事完了公告後に建築できないものはどれか。",
       "opts": [
@@ -10674,14 +6270,14 @@ const PRACTICE_QUESTIONS = {
         "公衆トイレ",
         "開発許可を受けていない用途の建築物"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "開発許可を受けた開発区域内では、工事完了公告後に予定建築物以外の建築物を建築することは原則として禁止されています（都市計画法42条）。ただし管理事務所・公衆トイレ等の軽微なものは例外として建築できます。",
-      "publicPath": "q/practice/p392/index.html"
+      "publicPath": "q/practice/p10392/index.html"
     },
     {
-      "id": 900393,
+      "id": 910393,
       "year": "orig",
-      "num": 393,
+      "num": 10393,
       "field": "tax",
       "text": "住宅ローン控除（住宅借入金等特別控除）の適用要件として誤っているものはどれか。",
       "opts": [
@@ -10690,14 +6286,14 @@ const PRACTICE_QUESTIONS = {
         "床面積が50平方メートル以上（一定の要件下では40平方メートル以上）",
         "給与所得者のみが利用できる"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "住宅ローン控除は給与所得者だけでなく、自営業者など確定申告をする者も利用できます（租税特別措置法41条）。主な要件は自己居住・償還期間10年以上・床面積50平方メートル以上（合計所得金額1000万円以下の場合は40平方メートル以上）です。",
-      "publicPath": "q/practice/p393/index.html"
+      "publicPath": "q/practice/p10393/index.html"
     },
     {
-      "id": 900394,
+      "id": 910394,
       "year": "orig",
-      "num": 394,
+      "num": 10394,
       "field": "rights",
       "text": "共有物の管理行為（軽微でない変更以外）に関して2021年改正後の正しい説明はどれか。",
       "opts": [
@@ -10706,14 +6302,14 @@ const PRACTICE_QUESTIONS = {
         "持分価格の4分の3以上で決定できる",
         "各共有者が単独でできる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共有物の管理に関する事項（変更でなく管理行為）は持分価格の過半数で決定できます（民法252条1項）。2021年の民法改正でこの点は明確化されました。なお変更（重大変更）は全員同意が必要です。",
-      "publicPath": "q/practice/p394/index.html"
+      "publicPath": "q/practice/p10394/index.html"
     },
     {
-      "id": 900395,
+      "id": 910395,
       "year": "orig",
-      "num": 395,
+      "num": 10395,
       "field": "law",
       "text": "宅建業者が行った媒介において、物件の重要な事実を告げなかった場合に成立しうる責任として、誤っているものはどれか。",
       "opts": [
@@ -10724,12 +6320,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "不利益となる重要な事実を故意に告げなかった場合の整理は、主として宅建業法第44条第1項第2号（禁止行為）や第35条・第40条と一体的に行います。一方、第47条は「虚偽の」重要事項説明等を規律する規定であり、条文対応として「47条違反による行政処分」とだけ括るのは不正確です（この選択肢が誤り）。媒介契約上の善管注意義務違反・不法行為による損害賠償や、事情によっては刑事責任が問題になり得る、という各記載は一般的に妥当です。",
-      "publicPath": "q/practice/p395/index.html"
+      "publicPath": "q/practice/p10395/index.html"
     },
     {
-      "id": 900396,
+      "id": 910396,
       "year": "orig",
-      "num": 396,
+      "num": 10396,
       "field": "limit",
       "text": "仮換地の使用収益ができない場合の補償（使用収益停止の場合）として正しいものはどれか。",
       "opts": [
@@ -10738,14 +6334,14 @@ const PRACTICE_QUESTIONS = {
         "施行者が代わりに土地を管理する",
         "区分所有者に移転補償が行われる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮換地の指定があった場合に、使用収益を開始できる日が指定されていないときや使用収益できない場合は、従前の土地の使用収益者に対して損失補償が行われます（土地区画整理法97条）。",
-      "publicPath": "q/practice/p396/index.html"
+      "publicPath": "q/practice/p10396/index.html"
     },
     {
-      "id": 900397,
+      "id": 910397,
       "year": "orig",
-      "num": 397,
+      "num": 10397,
       "field": "tax",
       "text": "地価公示における標準地の正常価格について正しいものはどれか。",
       "opts": [
@@ -10756,12 +6352,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "地価公示における正常価格は、土地について自由な取引が行われるとした場合に通常成立すると認められる価格です。標準地の鑑定評価は更地（建物等がない状態）として行われます（地価公示法2条・不動産鑑定評価基準）。",
-      "publicPath": "q/practice/p397/index.html"
+      "publicPath": "q/practice/p10397/index.html"
     },
     {
-      "id": 900398,
+      "id": 910398,
       "year": "orig",
-      "num": 398,
+      "num": 10398,
       "field": "rights",
       "text": "売買契約における危険負担（目的物が契約後・引渡し前に滅失した場合）について2020年改正後の正しい説明はどれか。",
       "opts": [
@@ -10770,14 +6366,14 @@ const PRACTICE_QUESTIONS = {
         "買主は反対給付（代金支払い）を拒絶できる",
         "危険は常に買主が負担する"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "2020年民法改正後、債務者の責めに帰することができない事由により債務の履行が不能となった場合、債権者（買主）は反対給付（代金支払い）を拒絶できます（民法536条1項）。引渡しが済んでいない場合は売主が危険を負担するのが原則です。",
-      "publicPath": "q/practice/p398/index.html"
+      "publicPath": "q/practice/p10398/index.html"
     },
     {
-      "id": 900399,
+      "id": 910399,
       "year": "orig",
-      "num": 399,
+      "num": 10399,
       "field": "law",
       "text": "宅建業者が相手方に不利益となる事実を故意に告げなかった場合の制裁として、誤っているものはどれか。",
       "opts": [
@@ -10786,14 +6382,14 @@ const PRACTICE_QUESTIONS = {
         "損害賠償請求の対象となる",
         "故意でも過失でも同様の処分となる"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "不利益となる事実を故意に告げなかった場合は宅建業法第44条第1項第2号等に該当し得ます（重要事項説明・第35条・第40条と一体的に整理されます）。過失による不告知との区別や処分の評価は異なることがあり、「故意でも過失でも同様の処分となる」とは限りません。したがって当該記述は誤りです。なお行政処分（業務停止・免許取消）と民事上の損害賠償は別途成立しえます。",
-      "publicPath": "q/practice/p399/index.html"
+      "publicPath": "q/practice/p10399/index.html"
     },
     {
-      "id": 900400,
+      "id": 910400,
       "year": "orig",
-      "num": 400,
+      "num": 10400,
       "field": "rights",
       "text": "Aが自分の土地をBに売却した後、錯誤を理由に取消しを主張した。取消し前にBから土地を買ったCがいる場合の法律関係として正しいものはどれか（AB間の意思表示は錯誤取消しの要件を満たしているものとする）。",
       "opts": [
@@ -10802,14 +6398,14 @@ const PRACTICE_QUESTIONS = {
         "取消し前に現れたCが善意無過失であれば、AはCに取消しを対抗できない",
         "錯誤取消しは絶対的無効であるためCの善意は関係ない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "錯誤取消し前に現れた第三者との関係は対抗問題となり、取消し前の第三者が善意無過失であればAはその第三者に取消しを対抗できません（民法95条4項）。これは詐欺取消しと同様の規律です。",
-      "publicPath": "q/practice/p400/index.html"
+      "publicPath": "q/practice/p10400/index.html"
     },
     {
-      "id": 900401,
+      "id": 910401,
       "year": "orig",
-      "num": 401,
+      "num": 10401,
       "field": "rights",
       "text": "表見代理が成立した場合の法律効果として正しいものはどれか。",
       "opts": [
@@ -10818,14 +6414,14 @@ const PRACTICE_QUESTIONS = {
         "契約は無効となる",
         "相手方のみが選択権を持つ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "表見代理が成立した場合、本人が代理人の行為を授権したものとして扱われ、本人に法律効果が帰属します（民法109条・110条・112条）。相手方は表見代理の主張か無権代理人への責任追及かを選択できます。",
-      "publicPath": "q/practice/p401/index.html"
+      "publicPath": "q/practice/p10401/index.html"
     },
     {
-      "id": 900402,
+      "id": 910402,
       "year": "orig",
-      "num": 402,
+      "num": 10402,
       "field": "rights",
       "text": "消滅時効の援用の法的性質として通説・判例が採用する見解はどれか。",
       "opts": [
@@ -10834,14 +6430,14 @@ const PRACTICE_QUESTIONS = {
         "時効の援用によって初めて効力が生じる（援用があって初めて時効の効果が確定）",
         "時効の援用は裁判上のみ有効"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "通説・判例は援用により時効の効果が確定するという考え（確定効果説）を採用しています（民法145条）。援用がなくても時効完成の事実はありますが、当事者が援用して初めてその効果が確定します。",
-      "publicPath": "q/practice/p402/index.html"
+      "publicPath": "q/practice/p10402/index.html"
     },
     {
-      "id": 900403,
+      "id": 910403,
       "year": "orig",
-      "num": 403,
+      "num": 10403,
       "field": "rights",
       "text": "背信的悪意者の第三者からさらに転得した者が善意の場合の法律関係として正しいものはどれか。",
       "opts": [
@@ -10852,12 +6448,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "背信的悪意者からの転得者については、転得者自身が善意であれば保護されるというのが判例の立場です（最判昭和43年8月2日）。背信的悪意者自身は保護されませんが、そこから取得した善意の転得者は保護されます。",
-      "publicPath": "q/practice/p403/index.html"
+      "publicPath": "q/practice/p10403/index.html"
     },
     {
-      "id": 900404,
+      "id": 910404,
       "year": "orig",
-      "num": 404,
+      "num": 10404,
       "field": "rights",
       "text": "物上代位権の行使における差押えの趣旨として判例が示すものはどれか。",
       "opts": [
@@ -10866,14 +6462,14 @@ const PRACTICE_QUESTIONS = {
         "抵当権者の優先権を確保するため",
         "差押えは形式的要件にすぎない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "物上代位における差押えの趣旨は、目的物の価値代替物（賃料等）が第三者に支払われる前に差し押さえることで二重払いを防ぎ、物上代位権の目的を特定するためです（判例）。差押えは実質的要件です。",
-      "publicPath": "q/practice/p404/index.html"
+      "publicPath": "q/practice/p10404/index.html"
     },
     {
-      "id": 900405,
+      "id": 910405,
       "year": "orig",
-      "num": 405,
+      "num": 10405,
       "field": "rights",
       "text": "詐害行為取消権（民法424条）の要件として誤っているものはどれか。",
       "opts": [
@@ -10882,14 +6478,14 @@ const PRACTICE_QUESTIONS = {
         "債権者に現在の債権（被保全債権）があること",
         "債務者が既に無資力であること（行為前からの無資力も含む）"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "詐害行為取消権は債務者が詐害行為時に無資力であること、または詐害行為によって無資力になったことが要件です（民法424条）。行為前から無資力であったことは要件ではなく、行為によって無資力になれば足ります。",
-      "publicPath": "q/practice/p405/index.html"
+      "publicPath": "q/practice/p10405/index.html"
     },
     {
-      "id": 900406,
+      "id": 910406,
       "year": "orig",
-      "num": 406,
+      "num": 10406,
       "field": "rights",
       "text": "売買の目的物に抵当権が設定されており、競売により買主が所有権を失った場合の法律関係として正しいものはどれか。",
       "opts": [
@@ -10898,14 +6494,14 @@ const PRACTICE_QUESTIONS = {
         "買主に帰責事由があれば何も請求できない",
         "売主の担保責任は負担のある物の売買では生じない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売買の目的物に抵当権等が設定されており買主が権利を失った場合、売主は担保責任を負い買主は解除・損害賠償・費用償還等を請求できます（民法565条）。",
-      "publicPath": "q/practice/p406/index.html"
+      "publicPath": "q/practice/p10406/index.html"
     },
     {
-      "id": 900407,
+      "id": 910407,
       "year": "orig",
-      "num": 407,
+      "num": 10407,
       "field": "rights",
       "text": "賃借権の無断転貸と解除に関する判例の立場として正しいものはどれか。",
       "opts": [
@@ -10914,14 +6510,14 @@ const PRACTICE_QUESTIONS = {
         "無断転貸の事実があれば信頼関係破壊は推定される",
         "賃貸人の承諾なき転貸は常に無効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "賃借人が無断転貸をした場合でも、それが賃貸人に対する背信的行為と認めるに足りない特段の事情がある場合は解除できないとするのが判例の立場（信頼関係破壊理論）です（最判昭和28年9月25日）。",
-      "publicPath": "q/practice/p407/index.html"
+      "publicPath": "q/practice/p10407/index.html"
     },
     {
-      "id": 900408,
+      "id": 910408,
       "year": "orig",
-      "num": 408,
+      "num": 10408,
       "field": "rights",
       "text": "遺産分割協議が成立した後に被相続人の別の隠れた財産が発見された場合の取扱いとして正しいものはどれか。",
       "opts": [
@@ -10930,14 +6526,14 @@ const PRACTICE_QUESTIONS = {
         "自動的に均等分割される",
         "遺言があれば遺言に従う必要があるが、なければ長男が相続する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "遺産分割協議成立後に新たな遺産が発見された場合、その財産については別途改めて遺産分割協議を行う必要があります。当初の協議は成立した範囲で有効です。",
-      "publicPath": "q/practice/p408/index.html"
+      "publicPath": "q/practice/p10408/index.html"
     },
     {
-      "id": 900409,
+      "id": 910409,
       "year": "orig",
-      "num": 409,
+      "num": 10409,
       "field": "rights",
       "text": "工作物の設置・保存の瑕疵による損害について所有者の責任の性質として正しいものはどれか。",
       "opts": [
@@ -10946,14 +6542,14 @@ const PRACTICE_QUESTIONS = {
         "軽過失があれば免責される",
         "故意のみが責任の要件"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "土地の工作物の設置・保存の瑕疵による損害について、占有者は過失なければ免責されますが（民法717条1項但書）、所有者は無過失責任を負い、免責されません（民法717条1項本文・2項）。",
-      "publicPath": "q/practice/p409/index.html"
+      "publicPath": "q/practice/p10409/index.html"
     },
     {
-      "id": 900410,
+      "id": 910410,
       "year": "orig",
-      "num": 410,
+      "num": 10410,
       "field": "rights",
       "text": "建物の朽廃（自然に朽ちること）と借地権の消滅の関係として正しいものはどれか。",
       "opts": [
@@ -10962,14 +6558,14 @@ const PRACTICE_QUESTIONS = {
         "朽廃前に再築すれば借地権は存続する",
         "建物の朽廃は普通借地権の消滅事由とはされていない"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "借地借家法では建物の朽廃は普通借地権の消滅事由とされていません（借地借家法3条〜8条）。ただし建物が滅失した場合には再築の手続きを適切に行わないと存続期間が変わることがあります。",
-      "publicPath": "q/practice/p410/index.html"
+      "publicPath": "q/practice/p10410/index.html"
     },
     {
-      "id": 900411,
+      "id": 910411,
       "year": "orig",
-      "num": 411,
+      "num": 10411,
       "field": "rights",
       "text": "管理組合法人の成立要件として正しいものはどれか。",
       "opts": [
@@ -10978,14 +6574,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者が30人以上いることと所定の決議・登記が必要",
         "区分所有者全員の同意が必要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "管理組合が法人となるには区分所有者が30人以上いることを前提に、区分所有者及び議決権の各4分の3以上の集会決議を経て法人の登記をする必要があります（区分所有法47条）。",
-      "publicPath": "q/practice/p411/index.html"
+      "publicPath": "q/practice/p10411/index.html"
     },
     {
-      "id": 900412,
+      "id": 910412,
       "year": "orig",
-      "num": 412,
+      "num": 10412,
       "field": "rights",
       "text": "登記の公信力がないことの意味として正しいものはどれか。",
       "opts": [
@@ -10994,14 +6590,14 @@ const PRACTICE_QUESTIONS = {
         "登記があれば真の権利者として完全に保護される",
         "登記には推定力があるため公信力と同じ効果がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "日本の不動産登記には公信力がありません。登記を信頼して取引した者でも、登記名義人が真の権利者でなければ権利を取得できない場合があります（善意の第三者も保護されないことがある）。これは民法94条2項の類推適用等で例外的に保護される場合があります。",
-      "publicPath": "q/practice/p412/index.html"
+      "publicPath": "q/practice/p10412/index.html"
     },
     {
-      "id": 900413,
+      "id": 910413,
       "year": "orig",
-      "num": 413,
+      "num": 10413,
       "field": "rights",
       "text": "共有物の分割請求に対して裁判所が命じられる分割方法として認められないものはどれか。",
       "opts": [
@@ -11010,14 +6606,14 @@ const PRACTICE_QUESTIONS = {
         "競売による分割（換価分割）",
         "強制的な第三者への売却"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "裁判所による共有物分割の方法は①現物分割②価格賠償（代償分割）③競売による分割（換価分割）の3種類です（民法258条2項・3項）。特定の第三者への強制売却という手段は認められていません。",
-      "publicPath": "q/practice/p413/index.html"
+      "publicPath": "q/practice/p10413/index.html"
     },
     {
-      "id": 900414,
+      "id": 910414,
       "year": "orig",
-      "num": 414,
+      "num": 10414,
       "field": "law",
       "text": "宅建業者が一方的に免許を返納した場合の効果として正しいものはどれか。",
       "opts": [
@@ -11026,14 +6622,14 @@ const PRACTICE_QUESTIONS = {
         "返納の届出をした時点で免許が失効する",
         "返納後も進行中の取引は継続して処理できる"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅建業者が免許証を返納する届出をした時点で免許が失効します（廃業等に準じた処理）。ただし返納後に進行中の取引の処理については一定の制限があり、新規取引はできません。",
-      "publicPath": "q/practice/p414/index.html"
+      "publicPath": "q/practice/p10414/index.html"
     },
     {
-      "id": 900415,
+      "id": 910415,
       "year": "orig",
-      "num": 415,
+      "num": 10415,
       "field": "law",
       "text": "宅建士が登録消除後に再登録を申請できる最短の期間として正しいものはどれか。",
       "opts": [
@@ -11042,14 +6638,14 @@ const PRACTICE_QUESTIONS = {
         "5年",
         "制限なし"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "登録消除処分（不正手段での登録・業務停止違反等）を受けた場合、処分の日から5年を経過しなければ新たな登録を受けることができません（宅建業法18条1項5号）。",
-      "publicPath": "q/practice/p415/index.html"
+      "publicPath": "q/practice/p10415/index.html"
     },
     {
-      "id": 900416,
+      "id": 910416,
       "year": "orig",
-      "num": 416,
+      "num": 10416,
       "field": "law",
       "text": "保証協会が弁済業務保証金の還付に応じる上限額はどのように決まるか。",
       "opts": [
@@ -11058,14 +6654,14 @@ const PRACTICE_QUESTIONS = {
         "被害額の全額（上限なし）",
         "1000万円が法定上限"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証協会は当該業者が本来供託すべきであった営業保証金の額（主たる事務所1000万円・従たる事務所各500万円等の合計）を上限として還付に応じます（宅建業法64条の8第1項）。",
-      "publicPath": "q/practice/p416/index.html"
+      "publicPath": "q/practice/p10416/index.html"
     },
     {
-      "id": 900417,
+      "id": 910417,
       "year": "orig",
-      "num": 417,
+      "num": 10417,
       "field": "law",
       "text": "一般媒介契約において依頼者に課せられない義務はどれか。",
       "opts": [
@@ -11074,14 +6670,14 @@ const PRACTICE_QUESTIONS = {
         "依頼者が自ら発見した相手方との直接取引の禁止",
         "特にない（一般媒介の依頼者には上記のような制約はない）"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "一般媒介契約の依頼者は他の業者に重ねて依頼でき、自己発見取引も可能で業務報告義務も業者側にありません（宅建業法34条の2）。最も自由度の高い媒介契約形態です。",
-      "publicPath": "q/practice/p417/index.html"
+      "publicPath": "q/practice/p10417/index.html"
     },
     {
-      "id": 900418,
+      "id": 910418,
       "year": "orig",
-      "num": 418,
+      "num": 10418,
       "field": "law",
       "text": "重要事項説明における「法令に基づく制限の概要」の説明として正しいものはどれか。",
       "opts": [
@@ -11090,14 +6686,14 @@ const PRACTICE_QUESTIONS = {
         "現状に影響する制限のみ説明すればよい",
         "法令制限は重要事項説明の対象外"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "重要事項説明における法令に基づく制限の概要は、都市計画法・建築基準法・農地法・国土利用計画法等、その物件に関係するすべての法令上の制限を説明する必要があります（宅建業法35条1項2号）。",
-      "publicPath": "q/practice/p418/index.html"
+      "publicPath": "q/practice/p10418/index.html"
     },
     {
-      "id": 900419,
+      "id": 910419,
       "year": "orig",
-      "num": 419,
+      "num": 10419,
       "field": "law",
       "text": "37条書面（契約書面）について、IT化（電磁的方法での提供）の要件として正しいものはどれか。",
       "opts": [
@@ -11106,14 +6702,14 @@ const PRACTICE_QUESTIONS = {
         "電磁的方法での提供では宅建士の記名は不要",
         "電磁的方法での提供は禁止されている"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面の電磁的方法での提供は相手方の承諾を得ることが必要で、宅建士の記名に代わる国土交通省令で定める措置を講じた電磁的記録を提供することで交付に代えることができます（宅建業法37条）。",
-      "publicPath": "q/practice/p419/index.html"
+      "publicPath": "q/practice/p10419/index.html"
     },
     {
-      "id": 900420,
+      "id": 910420,
       "year": "orig",
-      "num": 420,
+      "num": 10420,
       "field": "law",
       "text": "宅建業法上の広告開始時期制限に違反した場合の効果として正しいものはどれか。",
       "opts": [
@@ -11122,14 +6718,14 @@ const PRACTICE_QUESTIONS = {
         "広告費の返還義務が生じる",
         "民事上の損害賠償義務が直ちに生じる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "広告開始時期制限（宅建業法33条）に違反した場合、行政処分（指示・業務停止等）の対象となりますが、違反した広告を信じて締結した契約の私法上の効力には影響しません。",
-      "publicPath": "q/practice/p420/index.html"
+      "publicPath": "q/practice/p10420/index.html"
     },
     {
-      "id": 900421,
+      "id": 910421,
       "year": "orig",
-      "num": 421,
+      "num": 10421,
       "field": "law",
       "text": "クーリングオフ後、宅建業者が返還すべき金員として正しいものはどれか。",
       "opts": [
@@ -11138,14 +6734,14 @@ const PRACTICE_QUESTIONS = {
         "代金から実費を控除した額",
         "証約手付として交付した場合は返還不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフによる解除が行われた場合、宅建業者は受領した代金・手付金等の全額を遅滞なく返還しなければなりません（宅建業法37条の2第3項）。違約金の差し引きや損害賠償の主張はできません。",
-      "publicPath": "q/practice/p421/index.html"
+      "publicPath": "q/practice/p10421/index.html"
     },
     {
-      "id": 900422,
+      "id": 910422,
       "year": "orig",
-      "num": 422,
+      "num": 10422,
       "field": "law",
       "text": "宅建業者が受け取る報酬の消費税の取扱いとして正しいものはどれか。",
       "opts": [
@@ -11156,12 +6752,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "宅建業者が受け取る報酬の上限は消費税別の金額であり、実際には上限額に消費税相当額を加算して受け取ることができます（国土交通省告示）。",
-      "publicPath": "q/practice/p422/index.html"
+      "publicPath": "q/practice/p10422/index.html"
     },
     {
-      "id": 900423,
+      "id": 910423,
       "year": "orig",
-      "num": 423,
+      "num": 10423,
       "field": "law",
       "text": "宅建業法上の罰則で拘禁刑刑が規定されているものとして正しいものはどれか。",
       "opts": [
@@ -11170,14 +6766,14 @@ const PRACTICE_QUESTIONS = {
         "重要事項説明書への記名を忘れた場合",
         "帳簿の備え付けをしなかった場合"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "無免許で宅建業を営んだ場合は3年以下の拘禁刑もしくは300万円以下の罰金またはその両方が科されます（宅建業法79条1号）。他の違反は罰金や過料の場合が多いです。",
-      "publicPath": "q/practice/p423/index.html"
+      "publicPath": "q/practice/p10423/index.html"
     },
     {
-      "id": 900424,
+      "id": 910424,
       "year": "orig",
-      "num": 424,
+      "num": 10424,
       "field": "limit",
       "text": "都市計画の変更手続きとして正しいものはどれか。",
       "opts": [
@@ -11186,14 +6782,14 @@ const PRACTICE_QUESTIONS = {
         "市町村の申請があれば即時変更できる",
         "変更は5年ごとに義務的に行われる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "都市計画の変更には公聴会の開催・案の縦覧・意見書の受付・都市計画審議会への付議等の手続きが必要です（都市計画法17条・18条）。一方的な変更はできません。",
-      "publicPath": "q/practice/p424/index.html"
+      "publicPath": "q/practice/p10424/index.html"
     },
     {
-      "id": 900425,
+      "id": 910425,
       "year": "orig",
-      "num": 425,
+      "num": 10425,
       "field": "limit",
       "text": "特殊建築物（病院・劇場・ホテル等）に関して建築基準法が定める規制として正しいものはどれか。",
       "opts": [
@@ -11202,14 +6798,14 @@ const PRACTICE_QUESTIONS = {
         "特殊建築物は一切の増改築ができない",
         "特殊建築物への用途変更は建築確認が不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特殊建築物には耐火構造・防火区画・避難設備・内装制限等、一般建築物より厳しい単体規定が適用されます（建築基準法27条・35条等）。また用途変更（特殊建築物へ）は一定規模以上で確認申請が必要です。",
-      "publicPath": "q/practice/p425/index.html"
+      "publicPath": "q/practice/p10425/index.html"
     },
     {
-      "id": 900426,
+      "id": 910426,
       "year": "orig",
-      "num": 426,
+      "num": 10426,
       "field": "limit",
       "text": "農地法の目的として正しいものはどれか。",
       "opts": [
@@ -11218,14 +6814,14 @@ const PRACTICE_QUESTIONS = {
         "農地の所有権を農業者に集中させること",
         "農地の価格を安定させること"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地法の目的は農地を農業上の利用を確保しながらその合理的な利用を図り、農業生産力の維持・増進と農業経営の安定を図ることです（農地法1条）。農地の宅地化促進ではありません。",
-      "publicPath": "q/practice/p426/index.html"
+      "publicPath": "q/practice/p10426/index.html"
     },
     {
-      "id": 900427,
+      "id": 910427,
       "year": "orig",
-      "num": 427,
+      "num": 10427,
       "field": "limit",
       "text": "注視区域・監視区域の指定と事前届出の違いとして正しいものはどれか。",
       "opts": [
@@ -11234,14 +6830,14 @@ const PRACTICE_QUESTIONS = {
         "注視区域は取引の効力に影響しないが監視区域は許可制",
         "監視区域内では事前届出を行い、審査期間中は契約できない"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "監視区域内では取引契約の締結前（事前）に届け出が必要で、審査期間中（最長6週間）は契約を締結できません（国土利用計画法27条の4〜7）。注視区域は事後届出制が強化されたものです。",
-      "publicPath": "q/practice/p427/index.html"
+      "publicPath": "q/practice/p10427/index.html"
     },
     {
-      "id": 900428,
+      "id": 910428,
       "year": "orig",
-      "num": 428,
+      "num": 10428,
       "field": "limit",
       "text": "土地区画整理事業において保留地を定める目的として正しいものはどれか。",
       "opts": [
@@ -11252,12 +6848,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "保留地は土地区画整理事業の費用を捻出するために、換地として定めず施行者が取得して第三者に売却する土地です（土地区画整理法96条）。事業費に充てるために設定されます。",
-      "publicPath": "q/practice/p428/index.html"
+      "publicPath": "q/practice/p10428/index.html"
     },
     {
-      "id": 900429,
+      "id": 910429,
       "year": "orig",
-      "num": 429,
+      "num": 10429,
       "field": "tax",
       "text": "特定居住用財産の譲渡損失の損益通算及び繰越控除について正しいものはどれか。",
       "opts": [
@@ -11266,14 +6862,14 @@ const PRACTICE_QUESTIONS = {
         "損益通算はできないが繰越控除のみできる",
         "この特例は廃止されている"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特定居住用財産（住宅ローン残高のある居住用財産）の譲渡損失は、一定要件を満たす場合に他の所得との損益通算および3年間の繰越控除ができます（租税特別措置法41条の5）。",
-      "publicPath": "q/practice/p429/index.html"
+      "publicPath": "q/practice/p10429/index.html"
     },
     {
-      "id": 900430,
+      "id": 910430,
       "year": "orig",
-      "num": 430,
+      "num": 10430,
       "field": "tax",
       "text": "固定資産税の評価替えにおける「据置年度」の仕組みとして正しいものはどれか。",
       "opts": [
@@ -11284,12 +6880,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "固定資産税は3年ごとに評価替えを行い（基準年度）、評価替え後の2年間（据置年度）は原則として評価額を据え置きます（地方税法349条）。ただし地価が下落した場合は据置年度でも修正が行われます。",
-      "publicPath": "q/practice/p430/index.html"
+      "publicPath": "q/practice/p10430/index.html"
     },
     {
-      "id": 900431,
+      "id": 910431,
       "year": "orig",
-      "num": 431,
+      "num": 10431,
       "field": "tax",
       "text": "日本の土地に関する用語の説明として正しいものはどれか。",
       "opts": [
@@ -11298,14 +6894,14 @@ const PRACTICE_QUESTIONS = {
         "沖積低地は地盤が堅固で宅地に最適",
         "扇状地は海岸沿いに形成される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "洪積台地（洪積層）は数万年以上前に形成された地盤で比較的安定しており宅地に適しています。沖積低地は比較的新しく形成された低地で液状化・洪水のリスクがあります。台地は河川の低湿地ではなく周辺より高い安定した地形です。",
-      "publicPath": "q/practice/p431/index.html"
+      "publicPath": "q/practice/p10431/index.html"
     },
     {
-      "id": 900432,
+      "id": 910432,
       "year": "orig",
-      "num": 432,
+      "num": 10432,
       "field": "rights",
       "text": "AがBに強迫されてCに土地を売却した場合、Cへの取消しの対抗について正しいものはどれか。",
       "opts": [
@@ -11314,14 +6910,14 @@ const PRACTICE_QUESTIONS = {
         "CがAの強迫の有無・善意悪意にかかわらず取消しを対抗できる",
         "Cが登記を備えていれば取消しを対抗できない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "詐欺の場合と異なり、強迫による取消しは善意の第三者Cに対しても対抗できます（民法96条2項・3項）。強迫は意思決定を完全に奪うため、被害者保護を徹底した規定です。",
-      "publicPath": "q/practice/p432/index.html"
+      "publicPath": "q/practice/p10432/index.html"
     },
     {
-      "id": 900433,
+      "id": 910433,
       "year": "orig",
-      "num": 433,
+      "num": 10433,
       "field": "rights",
       "text": "自己契約・双方代理の禁止（民法108条）の例外として認められる場合はどれか。",
       "opts": [
@@ -11330,14 +6926,14 @@ const PRACTICE_QUESTIONS = {
         "代理人が法人である場合",
         "本人が未成年の場合"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "自己契約・双方代理は原則として無権代理行為とみなされますが（民法108条1項本文）、本人があらかじめ許諾した行為と債務の履行については例外として有効です（同条ただし書）。",
-      "publicPath": "q/practice/p433/index.html"
+      "publicPath": "q/practice/p10433/index.html"
     },
     {
-      "id": 900434,
+      "id": 910434,
       "year": "orig",
-      "num": 434,
+      "num": 10434,
       "field": "rights",
       "text": "取得時効の起算点の選択について正しいものはどれか（判例）。",
       "opts": [
@@ -11346,14 +6942,14 @@ const PRACTICE_QUESTIONS = {
         "裁判所が事案に応じて起算点を決定する",
         "起算点は相手方が指定する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "取得時効の起算点は占有開始時点に固定されるとするのが判例です。時効援用者が有利な中間時点を任意に選択することはできません。",
-      "publicPath": "q/practice/p434/index.html"
+      "publicPath": "q/practice/p10434/index.html"
     },
     {
-      "id": 900435,
+      "id": 910435,
       "year": "orig",
-      "num": 435,
+      "num": 10435,
       "field": "rights",
       "text": "民法177条の「第三者」から除外されるのはどれか（判例）。",
       "opts": [
@@ -11362,14 +6958,14 @@ const PRACTICE_QUESTIONS = {
         "抵当権者",
         "仮登記権者"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法177条の「第三者」は登記の欠如を主張することについて正当な利益を有する者ですが、背信的悪意者は第三者から除外されます（判例）。背信的悪意者には登記なしで対抗できます。",
-      "publicPath": "q/practice/p435/index.html"
+      "publicPath": "q/practice/p10435/index.html"
     },
     {
-      "id": 900436,
+      "id": 910436,
       "year": "orig",
-      "num": 436,
+      "num": 10436,
       "field": "rights",
       "text": "根抵当権の元本確定前の極度額変更に必要な要件として正しいものはどれか。",
       "opts": [
@@ -11378,14 +6974,14 @@ const PRACTICE_QUESTIONS = {
         "元本確定前は極度額を変更できない",
         "変更には公証人の認証が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "根抵当権の極度額変更は根抵当権者と設定者の合意に加え、利害関係を有する第三者（後順位抵当権者等）の承諾が必要です（民法398条の5）。変更の登記が効力発生要件です。",
-      "publicPath": "q/practice/p436/index.html"
+      "publicPath": "q/practice/p10436/index.html"
     },
     {
-      "id": 900437,
+      "id": 910437,
       "year": "orig",
-      "num": 437,
+      "num": 10437,
       "field": "rights",
       "text": "連帯保証と通常の保証（単純保証）の違いとして正しいものはどれか。",
       "opts": [
@@ -11394,14 +6990,14 @@ const PRACTICE_QUESTIONS = {
         "連帯保証人には分別の利益がある",
         "通常の保証人は主たる債務者と同時に請求される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "連帯保証人には催告の抗弁権・検索の抗弁権・分別の利益がいずれもありません（民法454条）。通常の保証人はこれらの権利を持ちます。",
-      "publicPath": "q/practice/p437/index.html"
+      "publicPath": "q/practice/p10437/index.html"
     },
     {
-      "id": 900438,
+      "id": 910438,
       "year": "orig",
-      "num": 438,
+      "num": 10438,
       "field": "rights",
       "text": "売買契約の解除と第三者の保護（民法545条1項ただし書）について正しいものはどれか。",
       "opts": [
@@ -11410,14 +7006,14 @@ const PRACTICE_QUESTIONS = {
         "解除前の第三者は登記なしで保護される",
         "解除後の第三者は常に保護される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "解除による原状回復は解除前に現れた善意の第三者を害することができません（民法545条1項ただし書）。ただし第三者が保護されるには登記が必要（判例）。解除後の第三者は対抗問題（登記の先後）で処理します。",
-      "publicPath": "q/practice/p438/index.html"
+      "publicPath": "q/practice/p10438/index.html"
     },
     {
-      "id": 900439,
+      "id": 910439,
       "year": "orig",
-      "num": 439,
+      "num": 10439,
       "field": "rights",
       "text": "賃借権の無断転貸に対する賃貸人の解除権について正しいものはどれか（判例）。",
       "opts": [
@@ -11426,14 +7022,14 @@ const PRACTICE_QUESTIONS = {
         "賃貸人は損害賠償のみ請求できる",
         "転借人に対して直接の退去請求はできない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "判例は、無断転貸・無断譲渡があっても賃貸人への「背信行為」と認めるに足りない特段の事情がある場合は解除権が発生しないとします。また適法な転貸の場合、転借人は賃貸人に対して直接義務を負います（民法613条）。",
-      "publicPath": "q/practice/p439/index.html"
+      "publicPath": "q/practice/p10439/index.html"
     },
     {
-      "id": 900440,
+      "id": 910440,
       "year": "orig",
-      "num": 440,
+      "num": 10440,
       "field": "rights",
       "text": "特別受益の持ち戻し免除について正しいものはどれか。",
       "opts": [
@@ -11442,14 +7038,14 @@ const PRACTICE_QUESTIONS = {
         "特別受益は常に持ち戻しされ免除は認められない",
         "持ち戻し免除の意思表示は公正証書によらなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "被相続人は生前贈与等の特別受益について意思表示（遺言等）により持ち戻し免除ができます（民法903条3項）。ただし遺留分を侵害する範囲では遺留分侵害額請求の対象になります。",
-      "publicPath": "q/practice/p440/index.html"
+      "publicPath": "q/practice/p10440/index.html"
     },
     {
-      "id": 900441,
+      "id": 910441,
       "year": "orig",
-      "num": 441,
+      "num": 10441,
       "field": "rights",
       "text": "共同不法行為者の責任（民法719条）として正しいものはどれか。",
       "opts": [
@@ -11458,14 +7054,14 @@ const PRACTICE_QUESTIONS = {
         "一人の行為者に賠償を求めると他の行為者への請求権が消滅する",
         "被害者の過失は一切考慮されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同不法行為者は連帯して損害賠償の責任を負います（民法719条）。連帯債務として一人に全額請求できます。被害者の過失がある場合は過失相殺（民法722条2項）が適用されます。",
-      "publicPath": "q/practice/p441/index.html"
+      "publicPath": "q/practice/p10441/index.html"
     },
     {
-      "id": 900442,
+      "id": 910442,
       "year": "orig",
-      "num": 442,
+      "num": 10442,
       "field": "rights",
       "text": "地主の承諾が得られない場合に借地上の建物を第三者に売却するための手続きとして正しいものはどれか。",
       "opts": [
@@ -11474,14 +7070,14 @@ const PRACTICE_QUESTIONS = {
         "地主への通知のみで建物を売却できる",
         "借地権が消滅し買主は建物のみ取得する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地主が借地上建物の第三者への売却（借地権の譲渡）を承諾しない場合、借地人は裁判所（借地非訟）に地主の承諾に代わる許可を申し立てることができます（借地借家法19条）。",
-      "publicPath": "q/practice/p442/index.html"
+      "publicPath": "q/practice/p10442/index.html"
     },
     {
-      "id": 900443,
+      "id": 910443,
       "year": "orig",
-      "num": 443,
+      "num": 10443,
       "field": "rights",
       "text": "区分所有者が共同生活上の義務に違反した場合に管理組合がとれる措置として正しいものはどれか。",
       "opts": [
@@ -11490,14 +7086,14 @@ const PRACTICE_QUESTIONS = {
         "管理組合は損害賠償請求のみできる",
         "区分所有者には共同生活上の義務はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有法57条以下により、区分所有者が共同生活上の義務違反行為をした場合、管理組合は集会決議により行為停止請求・専有部分の使用禁止請求・区分所有権の競売請求ができます。",
-      "publicPath": "q/practice/p443/index.html"
+      "publicPath": "q/practice/p10443/index.html"
     },
     {
-      "id": 900444,
+      "id": 910444,
       "year": "orig",
-      "num": 444,
+      "num": 10444,
       "field": "rights",
       "text": "登記識別情報の失効申出について正しいものはどれか。",
       "opts": [
@@ -11506,14 +7102,14 @@ const PRACTICE_QUESTIONS = {
         "失効申出後も再発行を受けられる",
         "失効申出は裁判所に対して行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "登記識別情報が不正に取得された恐れがある場合、登記名義人は登記所に対して失効申出ができます（不動産登記規則65条）。失効後は再発行されず、本人確認情報の提供等で対応します。",
-      "publicPath": "q/practice/p444/index.html"
+      "publicPath": "q/practice/p10444/index.html"
     },
     {
-      "id": 900445,
+      "id": 910445,
       "year": "orig",
-      "num": 445,
+      "num": 10445,
       "field": "law",
       "text": "宅建業者の免許の必要的取消し事由として正しいものはどれか。",
       "opts": [
@@ -11522,14 +7118,14 @@ const PRACTICE_QUESTIONS = {
         "不正手段で免許を受けたことが判明した場合",
         "広告表示の軽微な誤り"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "不正手段による免許取得の判明は必要的取消し事由です（宅建業法66条1項8号）。業務停止処分違反や一定の義務違反は任意的取消し事由となる場合があります。",
-      "publicPath": "q/practice/p445/index.html"
+      "publicPath": "q/practice/p10445/index.html"
     },
     {
-      "id": 900446,
+      "id": 910446,
       "year": "orig",
-      "num": 446,
+      "num": 10446,
       "field": "law",
       "text": "事務禁止処分を受けた宅建士が禁止期間中に宅建士として事務を行った場合の処分として正しいものはどれか。",
       "opts": [
@@ -11538,14 +7134,14 @@ const PRACTICE_QUESTIONS = {
         "戒告のみ",
         "過料のみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事務禁止処分中に宅建士としての事務を行った場合は登録消除処分の対象となります（宅建業法68条の2第1項3号）。事務禁止処分の期間は最長2年です。",
-      "publicPath": "q/practice/p446/index.html"
+      "publicPath": "q/practice/p10446/index.html"
     },
     {
-      "id": 900447,
+      "id": 910447,
       "year": "orig",
-      "num": 447,
+      "num": 10447,
       "field": "law",
       "text": "専任媒介契約における業務処理状況の報告頻度として正しいものはどれか。",
       "opts": [
@@ -11556,12 +7152,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "専任媒介契約では2週間に1回以上、依頼者に業務処理状況を報告しなければなりません（宅建業法34条の2第8項）。専属専任媒介契約は1週間に1回以上と報告頻度が高くなっています。",
-      "publicPath": "q/practice/p447/index.html"
+      "publicPath": "q/practice/p10447/index.html"
     },
     {
-      "id": 900448,
+      "id": 910448,
       "year": "orig",
-      "num": 448,
+      "num": 10448,
       "field": "law",
       "text": "IT重説（テレビ会議等による重要事項説明）が認められる条件として正しいものはどれか。",
       "opts": [
@@ -11570,14 +7166,14 @@ const PRACTICE_QUESTIONS = {
         "IT重説では書面交付が不要",
         "IT重説は投資用不動産のみに認められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "IT重説はテレビ会議等を通じて行いますが、①相手方の承諾②宅建士が宅建士証を画面上で提示③映像・音声が安定して受信できる環境等の要件が必要です。書面（または電磁的方法）の交付は引き続き必要です。",
-      "publicPath": "q/practice/p448/index.html"
+      "publicPath": "q/practice/p10448/index.html"
     },
     {
-      "id": 900449,
+      "id": 910449,
       "year": "orig",
-      "num": 449,
+      "num": 10449,
       "field": "law",
       "text": "37条書面への記名押印（または電磁的措置）について正しいものはどれか。",
       "opts": [
@@ -11586,14 +7182,14 @@ const PRACTICE_QUESTIONS = {
         "記名のみでよく押印は不要",
         "電磁的方法による提供では署名・電子署名も不要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "37条書面は宅建士が記名しなければなりません（宅建業法37条3項）。2022年改正後、押印は不要です。電磁的方法で提供する場合は国土交通省令で定める措置が必要です。",
-      "publicPath": "q/practice/p449/index.html"
+      "publicPath": "q/practice/p10449/index.html"
     },
     {
-      "id": 900450,
+      "id": 910450,
       "year": "orig",
-      "num": 450,
+      "num": 10450,
       "field": "law",
       "text": "宅建業者が代理として売買に関与した場合の報酬上限について正しいものはどれか。",
       "opts": [
@@ -11602,14 +7198,14 @@ const PRACTICE_QUESTIONS = {
         "代理の依頼者から媒介の2倍（代金の3%+6万円の2倍）が上限で、依頼者双方合計でもこれを超えてはならない",
         "代理の場合は報酬制限がない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "代理の場合の報酬上限は媒介の2倍（代金の3%+6万円の2倍相当）ですが、売主・買主双方から合計してもこの2倍額を超えてはなりません（国土交通省告示）。",
-      "publicPath": "q/practice/p450/index.html"
+      "publicPath": "q/practice/p10450/index.html"
     },
     {
-      "id": 900451,
+      "id": 910451,
       "year": "orig",
-      "num": 451,
+      "num": 10451,
       "field": "law",
       "text": "保証協会が弁済業務保証金から弁済できる対象として正しいものはどれか。",
       "opts": [
@@ -11618,14 +7214,14 @@ const PRACTICE_QUESTIONS = {
         "宅建業者とその従業員のみ",
         "保証協会が認めた者のみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済業務保証金から弁済できる相手は「宅建業に関し取引をした者（宅建業者である者を除く）」です（宅建業法64条の8）。宅建業者同士の取引については弁済の対象外です。",
-      "publicPath": "q/practice/p451/index.html"
+      "publicPath": "q/practice/p10451/index.html"
     },
     {
-      "id": 900452,
+      "id": 910452,
       "year": "orig",
-      "num": 452,
+      "num": 10452,
       "field": "law",
       "text": "クーリングオフが行使された場合の宅建業者の義務として正しいものはどれか。",
       "opts": [
@@ -11634,14 +7230,14 @@ const PRACTICE_QUESTIONS = {
         "クーリングオフ後は宅建業者が代替物件を提供しなければならない",
         "クーリングオフは口頭で行使できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフが行われると契約は解除され、宅建業者は受領した手付金等を速やかに返還しなければならず、損害賠償や違約金の請求もできません（宅建業法37条の2第3項）。クーリングオフは書面（または電磁的方法）で行使します。",
-      "publicPath": "q/practice/p452/index.html"
+      "publicPath": "q/practice/p10452/index.html"
     },
     {
-      "id": 900453,
+      "id": 910453,
       "year": "orig",
-      "num": 453,
+      "num": 10453,
       "field": "law",
       "text": "宅建業者が取引相手に不当に低い価格で購入を勧誘した場合の規律として正しいものはどれか。",
       "opts": [
@@ -11650,14 +7246,14 @@ const PRACTICE_QUESTIONS = {
         "価格は自由なので規制されない",
         "消費者契約法のみが適用される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者が取引の相手方に不当に低い価格で取引するよう勧誘することは宅建業法47条の2第3項・国交省省令（業務上の規制）により禁止されており、行政処分の対象となります。",
-      "publicPath": "q/practice/p453/index.html"
+      "publicPath": "q/practice/p10453/index.html"
     },
     {
-      "id": 900454,
+      "id": 910454,
       "year": "orig",
-      "num": 454,
+      "num": 10454,
       "field": "limit",
       "text": "地区計画の決定権限として正しいものはどれか。",
       "opts": [
@@ -11666,14 +7262,14 @@ const PRACTICE_QUESTIONS = {
         "市町村",
         "都市計画審議会"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "地区計画は市町村が都市計画として定めます（都市計画法12条の4）。市町村が地域の実情に合わせて詳細な建築等に関するルールを設定できます。",
-      "publicPath": "q/practice/p454/index.html"
+      "publicPath": "q/practice/p10454/index.html"
     },
     {
-      "id": 900455,
+      "id": 910455,
       "year": "orig",
-      "num": 455,
+      "num": 10455,
       "field": "limit",
       "text": "都市計画区域内において建築確認が不要な行為として正しいものはどれか。",
       "opts": [
@@ -11682,14 +7278,14 @@ const PRACTICE_QUESTIONS = {
         "用途変更で床面積200平方メートル超となる場合",
         "外壁の塗装のみの維持修繕（大規模の模様替えでないもの）"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "建築確認が不要な行為の例として、大規模の修繕・模様替えに該当しない通常の維持修繕（外壁塗装等）が挙げられます（建築基準法6条1項）。新築・大規模修繕・大規模模様替え・用途変更（200平方メートル超）は確認が必要です。",
-      "publicPath": "q/practice/p455/index.html"
+      "publicPath": "q/practice/p10455/index.html"
     },
     {
-      "id": 900456,
+      "id": 910456,
       "year": "orig",
-      "num": 456,
+      "num": 10456,
       "field": "limit",
       "text": "市街化区域内の農地を転用する場合の農地法上の手続きとして正しいものはどれか。",
       "opts": [
@@ -11698,14 +7294,14 @@ const PRACTICE_QUESTIONS = {
         "農林水産大臣の許可が必要",
         "転用は一切認められない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化区域内の農地については農地法4条（自己転用）・5条（転用目的の権利移動）の許可は不要で、農業委員会への届出のみで転用できます（農地法4条1項8号・5条1項7号）。",
-      "publicPath": "q/practice/p456/index.html"
+      "publicPath": "q/practice/p10456/index.html"
     },
     {
-      "id": 900457,
+      "id": 910457,
       "year": "orig",
-      "num": 457,
+      "num": 10457,
       "field": "limit",
       "text": "国土利用計画法の注視区域内での事前届出後の契約禁止期間として正しいものはどれか。",
       "opts": [
@@ -11714,14 +7310,14 @@ const PRACTICE_QUESTIONS = {
         "届出後30日",
         "届出後はすぐに契約できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "注視区域内の事前届出では、届出後6週間は契約締結が禁止されます（国土利用計画法27条の7第2項）。この期間に知事が利用計画の変更勧告等を行う場合があります。",
-      "publicPath": "q/practice/p457/index.html"
+      "publicPath": "q/practice/p10457/index.html"
     },
     {
-      "id": 900458,
+      "id": 910458,
       "year": "orig",
-      "num": 458,
+      "num": 10458,
       "field": "limit",
       "text": "仮換地が指定された場合の従前の土地（従前地）の使用収益権について正しいものはどれか。",
       "opts": [
@@ -11730,14 +7326,14 @@ const PRACTICE_QUESTIONS = {
         "仮換地と従前地の双方を使用収益できる",
         "換地処分が完了するまで一切の権利行使ができない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮換地が指定されると、従前地の使用収益権は停止され、仮換地を使用収益できます（土地区画整理法99条）。換地処分の公告後は換地が従前地とみなされます。",
-      "publicPath": "q/practice/p458/index.html"
+      "publicPath": "q/practice/p10458/index.html"
     },
     {
-      "id": 900459,
+      "id": 910459,
       "year": "orig",
-      "num": 459,
+      "num": 10459,
       "field": "limit",
       "text": "盛土規制法（宅地造成及び特定盛土等規制法）における「特定盛土等規制区域」について正しいものはどれか。",
       "opts": [
@@ -11746,14 +7342,14 @@ const PRACTICE_QUESTIONS = {
         "市街地から離れた山林等でも盛土崩落が人家等に危害を及ぼす恐れがある場合に都道府県知事が指定できる",
         "国土交通大臣が指定する"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "特定盛土等規制区域は都道府県知事が指定します。市街地から離れた山林・農地等でも盛土が崩落した場合に人家等に危害を及ぼす恐れがある区域に指定されます（盛土規制法26条）。",
-      "publicPath": "q/practice/p459/index.html"
+      "publicPath": "q/practice/p10459/index.html"
     },
     {
-      "id": 900460,
+      "id": 910460,
       "year": "orig",
-      "num": 460,
+      "num": 10460,
       "field": "rights",
       "text": "共有物の不分割特約（分割禁止の合意）について正しいものはどれか。",
       "opts": [
@@ -11762,14 +7358,14 @@ const PRACTICE_QUESTIONS = {
         "不分割特約は最長2年で更新できない",
         "不分割特約を定めると永久に分割請求できなくなる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共有者は協議により最長5年間（更新可）の不分割特約を定めることができます（民法256条1項ただし書・2項）。共有物の分割は協議→裁判（共有物分割請求訴訟）の順で行います。",
-      "publicPath": "q/practice/p460/index.html"
+      "publicPath": "q/practice/p10460/index.html"
     },
     {
-      "id": 900461,
+      "id": 910461,
       "year": "orig",
-      "num": 461,
+      "num": 10461,
       "field": "law",
       "text": "宅建業者の取引態様の明示義務について正しいものはどれか。",
       "opts": [
@@ -11778,14 +7374,14 @@ const PRACTICE_QUESTIONS = {
         "電話による問い合わせには取引態様の明示は不要",
         "取引態様を誤記しても行政処分の対象とはならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者は広告をする際だけでなく、注文または申込みを受けた際にも遅滞なく取引態様（売主・代理・媒介の別）を明示しなければなりません（宅建業法34条1項・2項）。",
-      "publicPath": "q/practice/p461/index.html"
+      "publicPath": "q/practice/p10461/index.html"
     },
     {
-      "id": 900462,
+      "id": 910462,
       "year": "orig",
-      "num": 462,
+      "num": 10462,
       "field": "rights",
       "text": "心裡留保（民法93条）の効力として正しいものはどれか。",
       "opts": [
@@ -11794,14 +7390,14 @@ const PRACTICE_QUESTIONS = {
         "常に有効であり相手方の知・不知は問わない",
         "相手方の知・不知にかかわらず取り消せる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "心裡留保（冗談・嘘の意思表示）は原則有効です。ただし相手方が表意者の真意を知りまたは知ることができた場合（悪意・有過失）は無効となります（民法93条1項ただし書）。",
-      "publicPath": "q/practice/p462/index.html"
+      "publicPath": "q/practice/p10462/index.html"
     },
     {
-      "id": 900463,
+      "id": 910463,
       "year": "orig",
-      "num": 463,
+      "num": 10463,
       "field": "rights",
       "text": "債権者代位権（民法423条）の行使要件として正しいものはどれか。",
       "opts": [
@@ -11810,14 +7406,14 @@ const PRACTICE_QUESTIONS = {
         "債務者の同意が必要",
         "裁判上のみ行使できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "債権者代位権の行使には原則として債務者の無資力（債権保全の必要性）が必要です（民法423条1項）。被保全債権が弁済期未到来の場合は保全行為に限り行使できます（同条2項）。裁判外でも行使可能です。",
-      "publicPath": "q/practice/p463/index.html"
+      "publicPath": "q/practice/p10463/index.html"
     },
     {
-      "id": 900464,
+      "id": 910464,
       "year": "orig",
-      "num": 464,
+      "num": 10464,
       "field": "law",
       "text": "保証協会の社員を退社した宅建業者の義務として正しいものはどれか。",
       "opts": [
@@ -11826,14 +7422,14 @@ const PRACTICE_QUESTIONS = {
         "退社後はただちに廃業しなければならない",
         "退社後は直ちに他の保証協会に加入しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証協会を退社した宅建業者は退社後1週間以内に営業保証金を供託しなければなりません（宅建業法64条の15）。供託しなければ宅建業を継続できません。",
-      "publicPath": "q/practice/p464/index.html"
+      "publicPath": "q/practice/p10464/index.html"
     },
     {
-      "id": 900465,
+      "id": 910465,
       "year": "orig",
-      "num": 465,
+      "num": 10465,
       "field": "rights",
       "text": "任意代理における復代理人の選任要件として正しいものはどれか（現行民法）。",
       "opts": [
@@ -11842,14 +7438,14 @@ const PRACTICE_QUESTIONS = {
         "復代理人の選任には本人の書面による同意が必要",
         "復代理人を選任しても代理人の権限は消滅しない（正しい）の他に代理人は一切責任を負わない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "任意代理人は本人の許諾または已むを得ない事由がある場合に復代理人を選任でき（民法104条）、選任した場合は選任及び監督について本人に対し責任を負います（民法105条）。",
-      "publicPath": "q/practice/p465/index.html"
+      "publicPath": "q/practice/p10465/index.html"
     },
     {
-      "id": 900466,
+      "id": 910466,
       "year": "orig",
-      "num": 466,
+      "num": 10466,
       "field": "limit",
       "text": "都市計画における用途地域の指定義務について正しいものはどれか。",
       "opts": [
@@ -11858,14 +7454,14 @@ const PRACTICE_QUESTIONS = {
         "準都市計画区域には必ず用途地域を定めなければならない",
         "用途地域の指定は都市計画区域外でしか行えない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化区域には少なくとも用途地域を定めなければなりません（都市計画法13条1項7号）。市街化調整区域には原則として用途地域を定めません。準都市計画区域にも用途地域の指定は可能ですが義務ではありません。",
-      "publicPath": "q/practice/p466/index.html"
+      "publicPath": "q/practice/p10466/index.html"
     },
     {
-      "id": 900467,
+      "id": 910467,
       "year": "orig",
-      "num": 467,
+      "num": 10467,
       "field": "limit",
       "text": "日影規制（建築基準法56条の2）の対象外となる用途地域として正しいものはどれか。",
       "opts": [
@@ -11874,14 +7470,78 @@ const PRACTICE_QUESTIONS = {
         "商業地域・工業地域・工業専用地域",
         "準住居地域"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "日影規制は商業地域・工業地域・工業専用地域には適用されません（建築基準法56条の2）。住居系用途地域・近隣商業地域・準工業地域等が対象です。各自治体の条例によりさらに詳細が定まります。",
-      "publicPath": "q/practice/p467/index.html"
+      "publicPath": "q/practice/p10467/index.html"
     },
     {
-      "id": 900472,
+      "id": 910468,
       "year": "orig",
-      "num": 472,
+      "num": 10468,
+      "field": "limit",
+      "text": "宅地造成及び特定盛土等規制法における「宅地造成工事規制区域」を指定する者として正しいものはどれか。",
+      "opts": [
+        "国土交通大臣",
+        "都道府県知事（または指定都市の長）",
+        "市町村長",
+        "農業委員会"
+      ],
+      "ans": 0,
+      "exp": "宅地造成工事規制区域は都道府県知事（政令指定都市・中核市では市長）が指定します（盛土規制法10条）。",
+      "publicPath": "q/practice/p10468/index.html"
+    },
+    {
+      "id": 910469,
+      "year": "orig",
+      "num": 10469,
+      "field": "limit",
+      "text": "宅地造成工事規制区域内で許可が必要な工事として正しいものはどれか。",
+      "opts": [
+        "高さ50cmの切土",
+        "高さ1mを超える切土",
+        "高さ2mを超える盛土",
+        "面積100㎡の造成"
+      ],
+      "ans": 1,
+      "exp": "宅地造成等工事規制区域内では、盛土で高さ1m超の崖を生じる工事、切土で高さ2m超の崖を生じる工事、崖を生じない盛土でも高さ2m超の工事、面積500㎡超の盛土・切土等について知事の許可が必要です（盛土規制法12条・同法施行令3条）。",
+      "publicPath": "q/practice/p10469/index.html"
+    },
+    {
+      "id": 910470,
+      "year": "orig",
+      "num": 10470,
+      "field": "limit",
+      "text": "特定盛土等規制区域と宅地造成工事規制区域の違いとして正しいものはどれか。",
+      "opts": [
+        "特定盛土等規制区域は市街地のみに指定できる",
+        "特定盛土等規制区域は市街地から離れた山林・農地等にも指定できる",
+        "両区域は重複して指定できない",
+        "特定盛土等規制区域では届出は不要"
+      ],
+      "ans": 0,
+      "exp": "特定盛土等規制区域は市街地から離れた山林・農地等でも盛土崩落が人家等に危害を与えるおそれがある区域に指定されます。宅地造成工事規制区域との重複指定は認められていません。",
+      "publicPath": "q/practice/p10470/index.html"
+    },
+    {
+      "id": 910471,
+      "year": "orig",
+      "num": 10471,
+      "field": "limit",
+      "text": "盛土規制法における「造成宅地防災区域」の指定目的として正しいものはどれか。",
+      "opts": [
+        "農地の転用を規制するため",
+        "既存の宅地造成地で災害発生のおそれがある区域を指定し防災措置を促すため",
+        "新規開発を禁止するため",
+        "固定資産税を軽減するため"
+      ],
+      "ans": 0,
+      "exp": "造成宅地防災区域は既に造成された宅地で地盤が軟弱・崩落のおそれがある区域を知事が指定し、土地所有者等に擁壁設置等の防災措置を勧告・命令できる制度です（盛土規制法45条）。",
+      "publicPath": "q/practice/p10471/index.html"
+    },
+    {
+      "id": 910472,
+      "year": "orig",
+      "num": 10472,
       "field": "limit",
       "text": "宅地造成工事規制区域内の工事で許可が不要なケースとして正しいものはどれか。",
       "opts": [
@@ -11890,14 +7550,78 @@ const PRACTICE_QUESTIONS = {
         "通常の管理行為・軽微な行為として政令で定めるもの",
         "高さ1.5mの切土"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "通常の管理行為や軽微な行為として政令で定めるものは許可不要です（盛土規制法12条ただし書）。高さ2m超の盛土・高さ1m超の切土・面積500㎡超等は原則許可が必要です。",
-      "publicPath": "q/practice/p472/index.html"
+      "publicPath": "q/practice/p10472/index.html"
     },
     {
-      "id": 900477,
+      "id": 910473,
       "year": "orig",
-      "num": 477,
+      "num": 10473,
+      "field": "tax",
+      "text": "地価公示の公示価格の性格として正しいものはどれか。",
+      "opts": [
+        "相続税路線価の基準となる",
+        "土地取引の指標・公共事業用地の取得価格の基準となる標準的な価格",
+        "固定資産税評価額と同一",
+        "毎月更新される"
+      ],
+      "ans": 0,
+      "exp": "地価公示の公示価格は一般の土地取引の指標や公共事業用地取得の基準として機能します（地価公示法1条）。毎年1月1日時点の価格を3月に公示します。",
+      "publicPath": "q/practice/p10473/index.html"
+    },
+    {
+      "id": 910474,
+      "year": "orig",
+      "num": 10474,
+      "field": "tax",
+      "text": "木造住宅の耐用年数として住宅金融支援機構が定める基準として最も近いものはどれか。",
+      "opts": [
+        "15年",
+        "22年",
+        "30年",
+        "50年"
+      ],
+      "ans": 1,
+      "exp": "木造住宅の法定耐用年数は22年です（税法上）。住宅金融支援機構の融資でも耐用年数が審査基準の一つとなります。",
+      "publicPath": "q/practice/p10474/index.html"
+    },
+    {
+      "id": 910475,
+      "year": "orig",
+      "num": 10475,
+      "field": "tax",
+      "text": "沖積低地と洪積台地の比較として正しいものはどれか。",
+      "opts": [
+        "沖積低地の方が地盤が安定している",
+        "洪積台地の方が液状化リスクが高い",
+        "洪積台地は比較的古い時代に形成され地盤が安定している",
+        "沖積低地は宅地として最適"
+      ],
+      "ans": 1,
+      "exp": "洪積台地は数万年以上前に形成された安定した地盤で宅地に適しています。沖積低地は比較的新しく形成され液状化・洪水のリスクが高いため宅地には注意が必要です。",
+      "publicPath": "q/practice/p10475/index.html"
+    },
+    {
+      "id": 910476,
+      "year": "orig",
+      "num": 10476,
+      "field": "tax",
+      "text": "建物の構造に関する記述として正しいものはどれか。",
+      "opts": [
+        "鉄筋コンクリート造は引張力に弱い",
+        "鉄骨造は耐火性が高い",
+        "鉄筋コンクリート造はコンクリートの圧縮力と鉄筋の引張力を組み合わせた構造",
+        "木造は耐火性が最も高い"
+      ],
+      "ans": 1,
+      "exp": "鉄筋コンクリート造（RC造）はコンクリートの圧縮強度と鉄筋の引張強度を組み合わせることで高い耐久性を実現しています。鉄骨造は耐火被覆が必要です。",
+      "publicPath": "q/practice/p10476/index.html"
+    },
+    {
+      "id": 910477,
+      "year": "orig",
+      "num": 10477,
       "field": "tax",
       "text": "不動産鑑定評価の三手法のうち「収益還元法」の説明として正しいものはどれか。",
       "opts": [
@@ -11906,14 +7630,78 @@ const PRACTICE_QUESTIONS = {
         "再調達原価から減価修正を行う方法",
         "固定資産税評価額を基礎とする方法"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "収益還元法は対象不動産が将来生み出すと期待される純収益を還元利回りで割り引いて現在価値を求める方法です。賃貸不動産や事業用不動産の評価に特に有効です。",
-      "publicPath": "q/practice/p477/index.html"
+      "publicPath": "q/practice/p10477/index.html"
     },
     {
-      "id": 900482,
+      "id": 910478,
       "year": "orig",
-      "num": 482,
+      "num": 10478,
+      "field": "tax",
+      "text": "住宅金融支援機構の主な業務として正しいものはどれか。",
+      "opts": [
+        "住宅の直接販売",
+        "民間金融機関が貸し付けた住宅ローン債権を買い取る証券化支援業務",
+        "固定資産税の徴収",
+        "建築確認の審査"
+      ],
+      "ans": 0,
+      "exp": "住宅金融支援機構は民間金融機関が貸し付けた住宅ローン債権を買い取り証券化する「フラット35」等の証券化支援業務を主な業務としています（住宅金融支援機構法13条）。",
+      "publicPath": "q/practice/p10478/index.html"
+    },
+    {
+      "id": 910479,
+      "year": "orig",
+      "num": 10479,
+      "field": "tax",
+      "text": "フラット35の特徴として正しいものはどれか。",
+      "opts": [
+        "変動金利型のローン",
+        "全期間固定金利型の住宅ローン",
+        "10年固定後変動に切り替わる",
+        "金利は毎月変わる"
+      ],
+      "ans": 0,
+      "exp": "フラット35は住宅金融支援機構と民間金融機関が提携した全期間固定金利型の住宅ローンです。金利変動リスクを負わないため返済計画が立てやすいのが特徴です。",
+      "publicPath": "q/practice/p10479/index.html"
+    },
+    {
+      "id": 910480,
+      "year": "orig",
+      "num": 10480,
+      "field": "tax",
+      "text": "住宅金融支援機構が直接融資を行うことができる場合として正しいものはどれか。",
+      "opts": [
+        "すべての住宅取得者",
+        "災害復興住宅融資・子育て支援住宅融資など政策上必要なケース",
+        "年収1000万円以上の高所得者",
+        "事業用不動産の取得"
+      ],
+      "ans": 0,
+      "exp": "住宅金融支援機構は原則として証券化支援業務が中心ですが、災害復興融資・財形住宅融資・子育て世帯向け融資など政策上必要なケースでは直接融資も行います（住宅金融支援機構法17条）。",
+      "publicPath": "q/practice/p10480/index.html"
+    },
+    {
+      "id": 910481,
+      "year": "orig",
+      "num": 10481,
+      "field": "tax",
+      "text": "フラット35の融資対象となる住宅の床面積要件として正しいものはどれか（一戸建て）。",
+      "opts": [
+        "30㎡以上",
+        "50㎡以上",
+        "70㎡以上",
+        "100㎡以上"
+      ],
+      "ans": 0,
+      "exp": "フラット35の融資対象は一戸建て住宅で床面積70㎡以上、マンション等の共同住宅は30㎡以上が要件です（住宅金融支援機構の取扱基準）。",
+      "publicPath": "q/practice/p10481/index.html"
+    },
+    {
+      "id": 910482,
+      "year": "orig",
+      "num": 10482,
       "field": "tax",
       "text": "住宅金融支援機構の証券化支援業務（買取型）の仕組みとして正しいものはどれか。",
       "opts": [
@@ -11922,14 +7710,78 @@ const PRACTICE_QUESTIONS = {
         "機構が保証人となり民間融資を保証する",
         "金利補給金を民間金融機関に交付する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "証券化支援業務（買取型）は民間金融機関の住宅ローン債権を機構が買い取り、それを担保にMBSを発行して資本市場から資金を調達する仕組みです。これにより民間金融機関が長期固定金利ローンを提供しやすくなります。",
-      "publicPath": "q/practice/p482/index.html"
+      "publicPath": "q/practice/p10482/index.html"
     },
     {
-      "id": 900487,
+      "id": 910483,
       "year": "orig",
-      "num": 487,
+      "num": 10483,
+      "field": "tax",
+      "text": "不動産の売買契約書に貼付する印紙税について正しいものはどれか。",
+      "opts": [
+        "売主と買主が同額ずつ負担する法律上の義務がある",
+        "課税文書に印紙を貼付し消印することで納税する",
+        "電子契約書にも印紙が必要",
+        "印紙税は地方税である"
+      ],
+      "ans": 0,
+      "exp": "印紙税は課税文書に収入印紙を貼付し消印することで納付します。印紙税は国税です。電子契約（電磁的記録）は文書に該当しないため不要です。",
+      "publicPath": "q/practice/p10483/index.html"
+    },
+    {
+      "id": 910484,
+      "year": "orig",
+      "num": 10484,
+      "field": "tax",
+      "text": "印紙税が非課税となる文書として正しいものはどれか。",
+      "opts": [
+        "1000万円の土地売買契約書",
+        "記載金額1万円未満の契約書",
+        "建物の賃貸借契約書",
+        "金銭消費貸借契約書"
+      ],
+      "ans": 0,
+      "exp": "記載金額が1万円未満の契約書は印紙税が非課税です（印紙税法別表第一）。なお建物の賃貸借契約書は課税文書ですが、記載金額のないものは200円の定額課税となります。",
+      "publicPath": "q/practice/p10484/index.html"
+    },
+    {
+      "id": 910485,
+      "year": "orig",
+      "num": 10485,
+      "field": "tax",
+      "text": "不動産売買契約書を2通作成した場合の印紙税について正しいものはどれか。",
+      "opts": [
+        "2通合わせて1通分の印紙で足りる",
+        "各1通ずつに印紙が必要（合計2通分）",
+        "1通だけに貼付すれば足りる",
+        "コピーにも印紙が必要"
+      ],
+      "ans": 0,
+      "exp": "印紙税は1通ごとに課税されるため、2通作成した場合はそれぞれに印紙を貼付する必要があります。コピー（複写）には印紙は不要です。",
+      "publicPath": "q/practice/p10485/index.html"
+    },
+    {
+      "id": 910486,
+      "year": "orig",
+      "num": 10486,
+      "field": "tax",
+      "text": "宅地建物の譲渡に関する消費税について正しいものはどれか。",
+      "opts": [
+        "土地の譲渡には消費税が課される",
+        "建物の譲渡には消費税が課されるが土地の譲渡は非課税",
+        "住宅の賃貸借も消費税が課される",
+        "消費税は売主が免税事業者でも必ず課税される"
+      ],
+      "ans": 0,
+      "exp": "土地の譲渡は消費税非課税です（消費税法6条・別表1）。建物の譲渡は課税対象です。住宅の貸付（家賃）は非課税ですが、駐車場・事業用建物の賃貸は課税されます。",
+      "publicPath": "q/practice/p10486/index.html"
+    },
+    {
+      "id": 910487,
+      "year": "orig",
+      "num": 10487,
       "field": "tax",
       "text": "印紙税の過怠税について正しいものはどれか。",
       "opts": [
@@ -11938,14 +7790,78 @@ const PRACTICE_QUESTIONS = {
         "過怠税は自主的に申し出た場合も3倍",
         "印紙税の不納付は刑事罰のみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "印紙税を納付しなかった場合（印紙未貼付・消印なし等）は本来の印紙税額の3倍の過怠税が課されます（印紙税法20条）。ただし自主的に申し出た場合は1.1倍に軽減されます。",
-      "publicPath": "q/practice/p487/index.html"
+      "publicPath": "q/practice/p10487/index.html"
     },
     {
-      "id": 900492,
+      "id": 910488,
       "year": "orig",
-      "num": 492,
+      "num": 10488,
+      "field": "tax",
+      "text": "地価公示の調査主体として正しいものはどれか。",
+      "opts": [
+        "市町村",
+        "国土交通省土地鑑定委員会",
+        "都道府県",
+        "日本不動産鑑定士協会連合会"
+      ],
+      "ans": 0,
+      "exp": "地価公示は国土交通省の土地鑑定委員会が毎年実施します（地価公示法2条）。2名以上の不動産鑑定士による鑑定評価を基に標準地の正常な価格を判定・公示します。",
+      "publicPath": "q/practice/p10488/index.html"
+    },
+    {
+      "id": 910489,
+      "year": "orig",
+      "num": 10489,
+      "field": "tax",
+      "text": "都道府県地価調査（基準地価）の調査基準日として正しいものはどれか。",
+      "opts": [
+        "毎年1月1日",
+        "毎年7月1日",
+        "毎年4月1日",
+        "毎年10月1日"
+      ],
+      "ans": 0,
+      "exp": "都道府県地価調査の基準日は毎年7月1日です。地価公示（1月1日基準）を補完し、半年ごとの地価動向を把握できます。",
+      "publicPath": "q/practice/p10489/index.html"
+    },
+    {
+      "id": 910490,
+      "year": "orig",
+      "num": 10490,
+      "field": "tax",
+      "text": "不動産鑑定評価の原価法における「減価修正」の方法として正しいものはどれか。",
+      "opts": [
+        "取引事例と比較して減価する",
+        "耐用年数や劣化状況を考慮して再調達原価から減価する",
+        "収益の減少分を控除する",
+        "相続税評価額から控除する"
+      ],
+      "ans": 0,
+      "exp": "原価法は再調達原価（その不動産を現時点で再建築・再取得する費用）から物理的・機能的・経済的な減価を修正して積算価格を求める方法です。主に建物の評価に用いられます。",
+      "publicPath": "q/practice/p10490/index.html"
+    },
+    {
+      "id": 910491,
+      "year": "orig",
+      "num": 10491,
+      "field": "tax",
+      "text": "相続税路線価と地価公示価格の関係として正しいものはどれか。",
+      "opts": [
+        "相続税路線価は地価公示価格と同額",
+        "相続税路線価は地価公示価格のおおむね80%水準",
+        "相続税路線価は地価公示価格の50%水準",
+        "両者は無関係"
+      ],
+      "ans": 0,
+      "exp": "相続税路線価は地価公示価格のおおむね80%水準に設定されています。固定資産税評価額は地価公示価格の70%水準が目安です。",
+      "publicPath": "q/practice/p10491/index.html"
+    },
+    {
+      "id": 910492,
+      "year": "orig",
+      "num": 10492,
       "field": "tax",
       "text": "不動産鑑定評価における「正常価格」の定義として正しいものはどれか。",
       "opts": [
@@ -11954,14 +7870,78 @@ const PRACTICE_QUESTIONS = {
         "税務署が認定した価格",
         "担保として評価された価格"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "正常価格とは市場において当事者が市場性を有する不動産について合理的行動をとる場合に通常成立すると認められる価格で、適正な価値を表す概念です（不動産鑑定評価基準）。",
-      "publicPath": "q/practice/p492/index.html"
+      "publicPath": "q/practice/p10492/index.html"
     },
     {
-      "id": 900497,
+      "id": 910493,
       "year": "orig",
-      "num": 497,
+      "num": 10493,
+      "field": "limit",
+      "text": "国土利用計画法の事後届出の届出期間として正しいものはどれか。",
+      "opts": [
+        "契約締結後2週間以内",
+        "契約締結後3週間以内",
+        "契約締結後2か月以内",
+        "契約締結前"
+      ],
+      "ans": 0,
+      "exp": "事後届出は土地の売買等の契約を締結した日から2週間以内に市町村長を経由して都道府県知事に届け出ます（国土利用計画法23条1項）。",
+      "publicPath": "q/practice/p10493/index.html"
+    },
+    {
+      "id": 910494,
+      "year": "orig",
+      "num": 10494,
+      "field": "limit",
+      "text": "国土利用計画法の事後届出が必要な市街化区域内の面積要件として正しいものはどれか。",
+      "opts": [
+        "100㎡以上",
+        "500㎡以上",
+        "2000㎡以上",
+        "5000㎡以上"
+      ],
+      "ans": 1,
+      "exp": "市街化区域では2000㎡以上の土地取引について事後届出が必要です（国土利用計画法23条）。市街化区域以外の都市計画区域は5000㎡以上、都市計画区域外は10000㎡以上が要件です。",
+      "publicPath": "q/practice/p10494/index.html"
+    },
+    {
+      "id": 910495,
+      "year": "orig",
+      "num": 10495,
+      "field": "limit",
+      "text": "国土利用計画法の届出が不要な場合として正しいものはどれか。",
+      "opts": [
+        "個人間の売買契約",
+        "国・地方公共団体が当事者となる取引",
+        "法人同士の売買",
+        "外国人が取得する場合"
+      ],
+      "ans": 0,
+      "exp": "国または地方公共団体が当事者となる取引は届出不要です（国土利用計画法23条2項）。また農地法の許可が必要な農地の取引も届出不要です。",
+      "publicPath": "q/practice/p10495/index.html"
+    },
+    {
+      "id": 910496,
+      "year": "orig",
+      "num": 10496,
+      "field": "limit",
+      "text": "事後届出後に都道府県知事が「利用目的の変更勧告」をできる期間として正しいものはどれか。",
+      "opts": [
+        "届出受理後1週間以内",
+        "届出受理後3週間以内",
+        "届出受理後6週間以内",
+        "届出受理後3か月以内"
+      ],
+      "ans": 0,
+      "exp": "都道府県知事は事後届出を受理した日から3週間以内に利用目的について勧告することができます（国土利用計画法24条1項）。勧告に従わない場合は公表できます。",
+      "publicPath": "q/practice/p10496/index.html"
+    },
+    {
+      "id": 910497,
+      "year": "orig",
+      "num": 10497,
       "field": "limit",
       "text": "土地売買等の契約に係る事後届出義務者として正しいものはどれか。",
       "opts": [
@@ -11970,14 +7950,78 @@ const PRACTICE_QUESTIONS = {
         "売主と買主の双方",
         "仲介した宅建業者"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事後届出の義務を負うのは権利取得者（買主等）です（国土利用計画法23条1項）。売主には届出義務はありません。",
-      "publicPath": "q/practice/p497/index.html"
+      "publicPath": "q/practice/p10497/index.html"
     },
     {
-      "id": 900502,
+      "id": 910498,
       "year": "orig",
-      "num": 502,
+      "num": 10498,
+      "field": "limit",
+      "text": "土地区画整理事業の施行者として認められていないものはどれか。",
+      "opts": [
+        "個人",
+        "土地区画整理組合",
+        "都道府県・市町村",
+        "外国政府"
+      ],
+      "ans": 2,
+      "exp": "土地区画整理事業の施行者は個人・土地区画整理組合・区画整理会社・市町村・都道府県・国土交通大臣・機構等です（土地区画整理法3条）。外国政府は認められていません。",
+      "publicPath": "q/practice/p10498/index.html"
+    },
+    {
+      "id": 910499,
+      "year": "orig",
+      "num": 10499,
+      "field": "limit",
+      "text": "換地処分の公告後に換地が従前地とみなされる効果として正しいものはどれか。",
+      "opts": [
+        "換地は公告前から従前地とみなされる",
+        "換地処分の公告の翌日から換地が従前地とみなされる",
+        "換地は登記後から効力を生じる",
+        "換地処分後も従前地の権利は消滅しない"
+      ],
+      "ans": 0,
+      "exp": "換地処分の公告があった翌日から換地が従前地とみなされ、従前地の権利は換地に移行します（土地区画整理法104条）。保留地は施行者が取得します。",
+      "publicPath": "q/practice/p10499/index.html"
+    },
+    {
+      "id": 910500,
+      "year": "orig",
+      "num": 10500,
+      "field": "limit",
+      "text": "土地区画整理組合の設立認可の要件として正しいものはどれか。",
+      "opts": [
+        "施行区域内の土地所有者全員の同意",
+        "施行区域内の土地所有者及び借地権者のそれぞれ3分の2以上の同意",
+        "施行区域内の土地所有者の過半数の同意",
+        "都道府県知事の職権による設立"
+      ],
+      "ans": 0,
+      "exp": "土地区画整理組合の設立には施行区域内の土地所有者および借地権者のそれぞれ3分の2以上の同意と都道府県知事の認可が必要です（土地区画整理法14条）。",
+      "publicPath": "q/practice/p10500/index.html"
+    },
+    {
+      "id": 910501,
+      "year": "orig",
+      "num": 10501,
+      "field": "limit",
+      "text": "清算金の徴収・交付に関して正しいものはどれか。",
+      "opts": [
+        "清算金は換地処分前に支払われる",
+        "過小な換地を受けた者は清算金を交付され、過大な換地を受けた者は清算金を徴収される",
+        "清算金は任意の支払い",
+        "清算金制度は廃止されている"
+      ],
+      "ans": 0,
+      "exp": "換地と従前地の価額に差がある場合、換地処分の公告後に清算金の徴収・交付が行われます（土地区画整理法94条）。価値が増加した者からは徴収、減少した者へは交付されます。",
+      "publicPath": "q/practice/p10501/index.html"
+    },
+    {
+      "id": 910502,
+      "year": "orig",
+      "num": 10502,
       "field": "limit",
       "text": "仮換地の指定を受けた場合に工事完了公告前に建物を建築できる場合として正しいものはどれか。",
       "opts": [
@@ -11986,14 +8030,78 @@ const PRACTICE_QUESTIONS = {
         "いかなる場合も建築できない",
         "登記さえすれば建築できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮換地上では原則として工事完了公告まで建物の建築等は制限されますが、施行者の承認を得た場合は建築することができます（土地区画整理法76条）。",
-      "publicPath": "q/practice/p502/index.html"
+      "publicPath": "q/practice/p10502/index.html"
     },
     {
-      "id": 900507,
+      "id": 910503,
       "year": "orig",
-      "num": 507,
+      "num": 10503,
+      "field": "rights",
+      "text": "民法上、隣地の竹木の枝が境界線を越えてきた場合の処理として正しいものはどれか（2021年改正後）。",
+      "opts": [
+        "直ちに自分で切ることができる",
+        "原則として竹木の所有者に切除を催告し、相当期間内に切除されない場合は自ら切除できる",
+        "切除は裁判所の許可が必要",
+        "枝の越境は法律上問題ない"
+      ],
+      "ans": 0,
+      "exp": "2021年民法改正により、竹木の枝が越境した場合は竹木所有者に催告し相当期間内に切除されない場合・所有者不明・急迫の事情がある場合に自ら切除できるようになりました（民法233条）。根は従来通り自分で切除できます。",
+      "publicPath": "q/practice/p10503/index.html"
+    },
+    {
+      "id": 910504,
+      "year": "orig",
+      "num": 10504,
+      "field": "rights",
+      "text": "共有物の保存行為として正しいものはどれか。",
+      "opts": [
+        "共有物全体を売却すること",
+        "共有物に対する不法占拠者への明渡し請求（保存行為）は単独でできる",
+        "共有物の大規模修繕は単独でできる",
+        "共有持分の放棄は全員の同意が必要"
+      ],
+      "ans": 0,
+      "exp": "共有物の保存行為（不法占拠者への明渡し請求・修繕等）は各共有者が単独で行えます（民法252条5項）。管理行為は持分過半数、変更行為は全員同意が原則です。",
+      "publicPath": "q/practice/p10504/index.html"
+    },
+    {
+      "id": 910505,
+      "year": "orig",
+      "num": 10505,
+      "field": "rights",
+      "text": "地役権の時効取得の要件として正しいものはどれか。",
+      "opts": [
+        "地役権は時効取得できない",
+        "継続的に行使され外形上認識できる地役権は時効取得できる",
+        "10年の占有で取得できる",
+        "地役権は登記がなければ時効取得できない"
+      ],
+      "ans": 0,
+      "exp": "継続的に行使され、かつ外形上認識できる地役権（例：通路開設を伴う通行地役権）は時効取得できます（民法283条・判例）。継続性・外形性の要件が必要です。",
+      "publicPath": "q/practice/p10505/index.html"
+    },
+    {
+      "id": 910506,
+      "year": "orig",
+      "num": 10506,
+      "field": "rights",
+      "text": "共有物の分割方法として民法上認められていないものはどれか。",
+      "opts": [
+        "現物分割",
+        "代金分割（競売）",
+        "価格賠償（価格弁償）",
+        "第三者への強制譲渡"
+      ],
+      "ans": 2,
+      "exp": "民法上の共有物分割方法は①現物分割②代金分割（競売）③価格賠償（一方が他方に価値を弁償して単独取得）です（民法258条）。第三者への強制譲渡という方法はありません。",
+      "publicPath": "q/practice/p10506/index.html"
+    },
+    {
+      "id": 910507,
+      "year": "orig",
+      "num": 10507,
       "field": "rights",
       "text": "所有者不明土地の管理に関する2021年民法改正の内容として正しいものはどれか。",
       "opts": [
@@ -12002,14 +8110,78 @@ const PRACTICE_QUESTIONS = {
         "所有者不明土地の利用は一切禁止",
         "市町村が強制取得できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2021年民法改正により所有者不明土地・建物管理制度が創設され、利害関係人の申立てにより裁判所が管理人を選任し管理・処分（売却等）を行える制度が整備されました（民法264条の2以下）。",
-      "publicPath": "q/practice/p507/index.html"
+      "publicPath": "q/practice/p10507/index.html"
     },
     {
-      "id": 900512,
+      "id": 910508,
       "year": "orig",
-      "num": 512,
+      "num": 10508,
+      "field": "rights",
+      "text": "定期借地権の存続期間として正しいものはどれか。",
+      "opts": [
+        "10年以上",
+        "20年以上",
+        "30年以上",
+        "50年以上"
+      ],
+      "ans": 2,
+      "exp": "一般定期借地権の存続期間は50年以上です（借地借家法22条）。事業用定期借地権は10年以上50年未満、建物譲渡特約付借地権は30年以上が要件です。",
+      "publicPath": "q/practice/p10508/index.html"
+    },
+    {
+      "id": 910509,
+      "year": "orig",
+      "num": 10509,
+      "field": "rights",
+      "text": "普通借家契約の更新拒絶に必要な要件として正しいものはどれか。",
+      "opts": [
+        "貸主はいつでも自由に更新を拒絶できる",
+        "貸主の正当事由が必要",
+        "借主側の事情のみで決まる",
+        "6か月前の通知だけで足りる"
+      ],
+      "ans": 0,
+      "exp": "普通借家契約の更新拒絶には「正当事由」が必要です（借地借家法28条）。正当事由は建物使用の必要性・利用状況・立退料の提供等を総合的に判断します。通知だけでは足りません。",
+      "publicPath": "q/practice/p10509/index.html"
+    },
+    {
+      "id": 910510,
+      "year": "orig",
+      "num": 10510,
+      "field": "rights",
+      "text": "定期借家契約の説明として正しいものはどれか。",
+      "opts": [
+        "口頭で契約できる",
+        "公正証書等の書面で行い更新がなく期間満了で終了する",
+        "2年未満の期間は無効",
+        "貸主の正当事由が不要なため普及している"
+      ],
+      "ans": 0,
+      "exp": "定期借家契約は書面（公正証書等）によって締結し、更新がなく期間満了で終了します（借地借家法38条）。貸主は事前に更新がない旨を書面で説明する義務があります。",
+      "publicPath": "q/practice/p10510/index.html"
+    },
+    {
+      "id": 910511,
+      "year": "orig",
+      "num": 10511,
+      "field": "rights",
+      "text": "借地権の対抗要件として正しいものはどれか。",
+      "opts": [
+        "借地契約書の公正証書化",
+        "借地上の建物の登記（建物所有者が借地権者と同一人）",
+        "土地の賃借権登記のみ",
+        "市町村への届出"
+      ],
+      "ans": 0,
+      "exp": "借地権の対抗要件は「借地上に建物の登記」があることです（借地借家法10条）。建物の所有者と借地権者が同一人であれば、建物の登記により第三者に対抗できます。",
+      "publicPath": "q/practice/p10511/index.html"
+    },
+    {
+      "id": 910512,
+      "year": "orig",
+      "num": 10512,
       "field": "rights",
       "text": "事業用定期借地権に関して正しいものはどれか。",
       "opts": [
@@ -12018,14 +8190,78 @@ const PRACTICE_QUESTIONS = {
         "存続期間は50年以上",
         "更新特約を付けることができる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事業用定期借地権は必ず公正証書で締結しなければなりません（借地借家法23条3項）。存続期間は10年以上50年未満で、居住用建物には利用できません。",
-      "publicPath": "q/practice/p512/index.html"
+      "publicPath": "q/practice/p10512/index.html"
     },
     {
-      "id": 900517,
+      "id": 910513,
       "year": "orig",
-      "num": 517,
+      "num": 10513,
+      "field": "rights",
+      "text": "管理組合法人の設立に必要な決議要件として正しいものはどれか。",
+      "opts": [
+        "区分所有者全員の同意",
+        "区分所有者及び議決権の各4分の3以上",
+        "区分所有者及び議決権の各過半数",
+        "区分所有者の2分の1以上"
+      ],
+      "ans": 0,
+      "exp": "管理組合法人の設立には区分所有者及び議決権の各4分の3以上の賛成による集会決議が必要です（区分所有法47条1項）。",
+      "publicPath": "q/practice/p10513/index.html"
+    },
+    {
+      "id": 910514,
+      "year": "orig",
+      "num": 10514,
+      "field": "rights",
+      "text": "専有部分と共用部分の関係として正しいものはどれか。",
+      "opts": [
+        "専有部分の所有者は共用部分持分を自由に分離処分できる",
+        "共用部分の共有持分は専有部分の所有権と分離して処分できない",
+        "共用部分は区分所有者全員で均等に持つ",
+        "廊下は専有部分にできる"
+      ],
+      "ans": 0,
+      "exp": "共用部分の共有持分は専有部分と分離して処分できません（区分所有法15条2項）。専有部分を売却すれば共用部分の持分も当然に移転します。持分割合は原則として専有部分の床面積の割合です。",
+      "publicPath": "q/practice/p10514/index.html"
+    },
+    {
+      "id": 910515,
+      "year": "orig",
+      "num": 10515,
+      "field": "rights",
+      "text": "区分所有建物の大規模滅失（価格の2分の1超が滅失）後の復旧決議の要件として正しいものはどれか。",
+      "opts": [
+        "全員の同意",
+        "区分所有者及び議決権の各4分の3以上",
+        "区分所有者及び議決権の各過半数",
+        "区分所有者及び議決権の各5分の4以上"
+      ],
+      "ans": 0,
+      "exp": "大規模滅失の復旧決議は区分所有者及び議決権の各4分の3以上の賛成が必要です（区分所有法61条5項）。小規模滅失（2分の1以下）は各区分所有者が単独で復旧できます。",
+      "publicPath": "q/practice/p10515/index.html"
+    },
+    {
+      "id": 910516,
+      "year": "orig",
+      "num": 10516,
+      "field": "rights",
+      "text": "管理者に関して正しいものはどれか。",
+      "opts": [
+        "管理者は必ず区分所有者でなければならない",
+        "管理者は区分所有者以外の第三者もなれる",
+        "管理者の選任には全員の同意が必要",
+        "管理者は設置が義務付けられている"
+      ],
+      "ans": 0,
+      "exp": "管理者は区分所有者に限らず、管理会社等の第三者もなることができます（区分所有法25条1項）。管理者の設置は任意で、選任・解任は集会の普通決議で行います。",
+      "publicPath": "q/practice/p10516/index.html"
+    },
+    {
+      "id": 910517,
+      "year": "orig",
+      "num": 10517,
       "field": "rights",
       "text": "規約の設定に関して正しいものはどれか。",
       "opts": [
@@ -12034,14 +8270,78 @@ const PRACTICE_QUESTIONS = {
         "規約は書面でなくても有効",
         "規約の設定に公証人の認証が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "規約の設定・変更・廃止には区分所有者及び議決権の各4分の3以上の多数による集会決議が必要です（区分所有法31条1項）。一部の区分所有者の権利に特別の影響を及ぼす変更はその者の承諾も必要です。",
-      "publicPath": "q/practice/p517/index.html"
+      "publicPath": "q/practice/p10517/index.html"
     },
     {
-      "id": 900522,
+      "id": 910518,
       "year": "orig",
-      "num": 522,
+      "num": 10518,
+      "field": "rights",
+      "text": "不動産登記の申請方法として認められていないものはどれか。",
+      "opts": [
+        "オンライン申請",
+        "書面申請（窓口・郵送）",
+        "電話による口頭申請",
+        "電子申請"
+      ],
+      "ans": 1,
+      "exp": "不動産登記の申請は書面申請またはオンライン申請で行います（不動産登記法18条）。電話による口頭申請は認められていません。",
+      "publicPath": "q/practice/p10518/index.html"
+    },
+    {
+      "id": 910519,
+      "year": "orig",
+      "num": 10519,
+      "field": "rights",
+      "text": "相続による所有権移転登記の申請義務として正しいものはどれか（2024年施行）。",
+      "opts": [
+        "任意であり申請しなくてよい",
+        "相続を知った日から3年以内に申請義務がある",
+        "10年以内に申請すれば足りる",
+        "相続人全員が共同申請しなければならない"
+      ],
+      "ans": 0,
+      "exp": "2024年4月施行の改正不動産登記法により、相続による所有権取得を知った日から3年以内の登記申請が義務化されました（不動産登記法76条の2）。正当な理由なく義務違反の場合は10万円以下の過料。",
+      "publicPath": "q/practice/p10519/index.html"
+    },
+    {
+      "id": 910520,
+      "year": "orig",
+      "num": 10520,
+      "field": "rights",
+      "text": "仮登記の効力として正しいものはどれか。",
+      "opts": [
+        "仮登記は本登記と同一の効力を持つ",
+        "仮登記は順位保全の効力を持ち、本登記すると仮登記の順位で本登記の効力が生じる",
+        "仮登記後は本登記が不要",
+        "仮登記は対抗力を持つ"
+      ],
+      "ans": 0,
+      "exp": "仮登記は順位保全の効力を持ちます（不動産登記法105条・106条）。仮登記に基づいて本登記をすると仮登記の順位で本登記の効力が生じます。ただし仮登記自体には対抗力はありません。",
+      "publicPath": "q/practice/p10520/index.html"
+    },
+    {
+      "id": 910521,
+      "year": "orig",
+      "num": 10521,
+      "field": "rights",
+      "text": "登記申請の共同申請の原則と例外として正しいものはどれか。",
+      "opts": [
+        "すべての登記は単独で申請できる",
+        "原則として登記権利者と登記義務者が共同で申請するが、相続・合併等は単独申請できる",
+        "登記は常に裁判所を経由して行う",
+        "共同申請は任意"
+      ],
+      "ans": 0,
+      "exp": "不動産登記は原則として登記権利者と登記義務者が共同で申請します（不動産登記法60条）。ただし相続・法人合併・判決・収用等の場合は権利者が単独申請できます（同法63条）。",
+      "publicPath": "q/practice/p10521/index.html"
+    },
+    {
+      "id": 910522,
+      "year": "orig",
+      "num": 10522,
       "field": "rights",
       "text": "区分建物の敷地権に関して正しいものはどれか。",
       "opts": [
@@ -12050,14 +8350,78 @@ const PRACTICE_QUESTIONS = {
         "敷地権は任意で登記する",
         "敷地権の登記は市町村が行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "敷地権が登記された区分建物は、専有部分と敷地権を分離して処分することが原則禁止されます（区分所有法22条）。これにより専有部分と敷地の権利が常に一体的に管理されます。",
-      "publicPath": "q/practice/p522/index.html"
+      "publicPath": "q/practice/p10522/index.html"
     },
     {
-      "id": 900527,
+      "id": 910523,
       "year": "orig",
-      "num": 527,
+      "num": 10523,
+      "field": "law",
+      "text": "宅建業者が行う広告の開始時期として正しいものはどれか。",
+      "opts": [
+        "開発許可申請中から広告できる",
+        "開発許可・建築確認等を受けた後でなければ広告できない",
+        "広告はいつでも開始できる",
+        "売買予約があれば広告できる"
+      ],
+      "ans": 0,
+      "exp": "宅建業者は開発許可・建築確認等の許認可を受ける前には広告を行うことができません（宅建業法33条）。未完成物件でも許可後であれば広告は可能です。",
+      "publicPath": "q/practice/p10523/index.html"
+    },
+    {
+      "id": 910524,
+      "year": "orig",
+      "num": 10524,
+      "field": "law",
+      "text": "宅建業者が広告に表示しなければならない事項として正しいものはどれか。",
+      "opts": [
+        "宅建業者の代表者の写真",
+        "取引態様の別（売主・代理・媒介）",
+        "近隣の競合物件の価格",
+        "担当者の携帯番号"
+      ],
+      "ans": 0,
+      "exp": "宅建業者は広告において取引態様の別（自ら売主・代理・媒介の区別）を明示しなければなりません（宅建業法34条）。",
+      "publicPath": "q/practice/p10524/index.html"
+    },
+    {
+      "id": 910525,
+      "year": "orig",
+      "num": 10525,
+      "field": "law",
+      "text": "誇大広告の禁止規定（宅建業法32条）で禁止される表示として正しいものはどれか。",
+      "opts": [
+        "物件の正確な所在地の表示",
+        "実際より著しく優良・有利と誤認させる表示",
+        "競合物件との比較広告",
+        "値引きキャンペーンの告知"
+      ],
+      "ans": 0,
+      "exp": "宅建業法32条は、物件の所在・規模・形質・現在・将来の利用の制限・環境・交通等の利便・代金等について著しく事実に相違する表示や実際より著しく優良・有利と誤認させる表示を禁止しています。",
+      "publicPath": "q/practice/p10525/index.html"
+    },
+    {
+      "id": 910526,
+      "year": "orig",
+      "num": 10526,
+      "field": "law",
+      "text": "宅建業者の契約締結時期の制限として正しいものはどれか。",
+      "opts": [
+        "開発許可前でも買主が同意すれば契約できる",
+        "建築確認・開発許可等の処分前には売買契約（予約含む）を締結できない",
+        "広告前であれば契約できる",
+        "宅建業者間の取引は制限なし"
+      ],
+      "ans": 0,
+      "exp": "宅建業者は開発許可・建築確認等の処分がある前には自ら売主として宅地建物の売買契約（予約を含む）を締結することができません（宅建業法36条）。",
+      "publicPath": "q/practice/p10526/index.html"
+    },
+    {
+      "id": 910527,
+      "year": "orig",
+      "num": 10527,
       "field": "law",
       "text": "景品表示法と宅建業者の広告規制の関係として正しいものはどれか。",
       "opts": [
@@ -12066,14 +8430,78 @@ const PRACTICE_QUESTIONS = {
         "景品表示法違反でも宅建業法上の処分は受けない",
         "景品表示法は消費者のみが申告できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者は宅建業法上の誇大広告禁止に加え、景品表示法の不当表示（優良誤認・有利誤認）規制も受けます。景品表示法違反が宅建業法の「業務に関する不正行為」として行政処分の対象となる場合もあります。",
-      "publicPath": "q/practice/p527/index.html"
+      "publicPath": "q/practice/p10527/index.html"
     },
     {
-      "id": 900532,
+      "id": 910528,
       "year": "orig",
-      "num": 532,
+      "num": 10528,
+      "field": "law",
+      "text": "住宅瑕疵担保履行法における新築住宅の定義として正しいものはどれか。",
+      "opts": [
+        "建築後3年以内の住宅",
+        "建築後1年以内かつ未使用の住宅",
+        "建築確認を受けた住宅すべて",
+        "中古住宅も含まれる"
+      ],
+      "ans": 0,
+      "exp": "住宅瑕疵担保履行法における新築住宅とは建築工事完了から1年以内で未使用の住宅を指します（住宅品質確保法2条2項）。",
+      "publicPath": "q/practice/p10528/index.html"
+    },
+    {
+      "id": 910529,
+      "year": "orig",
+      "num": 10529,
+      "field": "law",
+      "text": "宅建業者が自ら売主として新築住宅を販売する場合の資力確保義務として正しいものはどれか。",
+      "opts": [
+        "任意で保険に加入する",
+        "住宅瑕疵担保保証金の供託または住宅瑕疵担保責任保険の締結が義務",
+        "建築確認があれば保険不要",
+        "買主が免除できる"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が自ら売主として新築住宅を販売する場合、住宅瑕疵担保保証金の供託または住宅瑕疵担保責任保険への加入が義務付けられています（住宅瑕疵担保履行法11条）。",
+      "publicPath": "q/practice/p10529/index.html"
+    },
+    {
+      "id": 910530,
+      "year": "orig",
+      "num": 10530,
+      "field": "law",
+      "text": "住宅瑕疵担保責任保険の保証期間として正しいものはどれか。",
+      "opts": [
+        "1年間",
+        "2年間",
+        "5年間",
+        "10年間"
+      ],
+      "ans": 2,
+      "exp": "新築住宅の構造耐力上主要な部分と雨水の浸入を防止する部分に関する瑕疵担保責任は10年間です（住宅品質確保法95条）。保険もこれに対応した10年間の保証となります。",
+      "publicPath": "q/practice/p10530/index.html"
+    },
+    {
+      "id": 910531,
+      "year": "orig",
+      "num": 10531,
+      "field": "law",
+      "text": "宅地建物取引業保証協会が行う苦情解決業務として正しいものはどれか。",
+      "opts": [
+        "裁判所への提訴",
+        "宅建業者の業務に関する苦情の解決（相談・あっせん）",
+        "罰金の徴収",
+        "宅建業者の監督処分"
+      ],
+      "ans": 0,
+      "exp": "宅地建物取引業保証協会は社員である宅建業者の業務に関する苦情の解決（相談受付・あっせん）を行います（宅建業法64条の5）。行政処分権限は知事・国交大臣にあります。",
+      "publicPath": "q/practice/p10531/index.html"
+    },
+    {
+      "id": 910532,
+      "year": "orig",
+      "num": 10532,
       "field": "law",
       "text": "住宅瑕疵担保履行法における基準日と届出について正しいものはどれか。",
       "opts": [
@@ -12082,14 +8510,46 @@ const PRACTICE_QUESTIONS = {
         "年1回のみ届出すれば足りる",
         "届出義務は任意"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "住宅瑕疵担保履行法の基準日は毎年3月31日と9月30日の年2回です（同法11条）。宅建業者は各基準日から3週間以内に供託額・保険契約締結状況を都道府県知事に届け出なければなりません。",
-      "publicPath": "q/practice/p532/index.html"
+      "publicPath": "q/practice/p10532/index.html"
     },
     {
-      "id": 900535,
+      "id": 910533,
       "year": "orig",
-      "num": 535,
+      "num": 10533,
+      "field": "rights",
+      "text": "契約不適合責任の追完請求の内容として認められないものはどれか。",
+      "opts": [
+        "目的物の修補",
+        "代替物の引渡し",
+        "不足分の引渡し",
+        "損害賠償のみの請求（追完を経ずに）"
+      ],
+      "ans": 2,
+      "exp": "契約不適合があった場合の追完請求は①修補②代替物引渡し③不足分引渡しが認められます（民法562条）。損害賠償は追完請求・代金減額請求と並行して請求できますが、追完を経ずにいきなり損害賠償のみというわけではありません。",
+      "publicPath": "q/practice/p10533/index.html"
+    },
+    {
+      "id": 910534,
+      "year": "orig",
+      "num": 10534,
+      "field": "rights",
+      "text": "契約不適合を理由とする代金減額請求ができる場合として正しいものはどれか。",
+      "opts": [
+        "不適合があれば直ちに代金減額請求できる",
+        "追完請求をして相当期間内に履行されない場合または追完不能の場合に代金減額請求できる",
+        "代金減額請求には売主の帰責事由が必要",
+        "代金減額請求権は1年で消滅する"
+      ],
+      "ans": 0,
+      "exp": "代金減額請求は追完請求後に相当期間内に追完されない場合、または追完が不能な場合に行使できます（民法563条）。売主の帰責事由は不要です。",
+      "publicPath": "q/practice/p10534/index.html"
+    },
+    {
+      "id": 910535,
+      "year": "orig",
+      "num": 10535,
       "field": "rights",
       "text": "不適合が買主の帰責事由による場合の売主の責任として正しいものはどれか。",
       "opts": [
@@ -12098,14 +8558,94 @@ const PRACTICE_QUESTIONS = {
         "売主は通常通り全責任を負う",
         "買主は解除のみできる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "契約不適合が買主の責めに帰すべき事由によるものであるときは、買主は追完請求・代金減額請求・解除をすることができません（民法562条2項・563条3項・543条）。",
-      "publicPath": "q/practice/p535/index.html"
+      "publicPath": "q/practice/p10535/index.html"
     },
     {
-      "id": 900541,
+      "id": 910536,
       "year": "orig",
-      "num": 541,
+      "num": 10536,
+      "field": "rights",
+      "text": "賃貸借契約の存続期間の上限として正しいものはどれか（民法改正後）。",
+      "opts": [
+        "20年",
+        "50年",
+        "100年",
+        "制限なし"
+      ],
+      "ans": 0,
+      "exp": "民法改正後（2020年施行）、賃貸借の存続期間の上限は50年に延長されました（民法604条）。改正前は20年でしたが、長期の定期借地権等に対応するため延長されています。",
+      "publicPath": "q/practice/p10536/index.html"
+    },
+    {
+      "id": 910537,
+      "year": "orig",
+      "num": 10537,
+      "field": "rights",
+      "text": "賃借人が賃貸人の承諾なく転貸した場合、賃貸人が解除できない「特段の事情」の典型例として正しいものはどれか。",
+      "opts": [
+        "賃借人と転借人が親子で実質的に同一と認められる場合",
+        "賃借人が法人の場合",
+        "転借人が外国人の場合",
+        "転借料が賃料より高い場合"
+      ],
+      "ans": 0,
+      "exp": "判例は、無断転貸であっても賃借人と転借人が実質的に同一視できる場合（親子・夫婦・会社と代表者等）は背信行為と認めるに足りない特段の事情があるとして解除を否定します。",
+      "publicPath": "q/practice/p10537/index.html"
+    },
+    {
+      "id": 910538,
+      "year": "orig",
+      "num": 10538,
+      "field": "rights",
+      "text": "使用貸借と賃貸借の違いとして正しいものはどれか。",
+      "opts": [
+        "使用貸借は有償、賃貸借は無償",
+        "使用貸借は無償で物を貸す契約で、賃貸借は有償",
+        "使用貸借には借地借家法が適用される",
+        "使用貸借の借主は第三者に対抗できる"
+      ],
+      "ans": 0,
+      "exp": "使用貸借は無償で物を貸す契約（民法593条）、賃貸借は有償（賃料を払う）の契約です。使用貸借には借地借家法は適用されず、借主の権利は弱く死亡すると終了します（民法597条3項）。",
+      "publicPath": "q/practice/p10538/index.html"
+    },
+    {
+      "id": 910539,
+      "year": "orig",
+      "num": 10539,
+      "field": "rights",
+      "text": "留置権の成立要件として正しいものはどれか。",
+      "opts": [
+        "当事者間の契約が必要",
+        "物と債権の間に牽連関係があり、他人の物を適法に占有していること",
+        "登記が必要",
+        "不動産にのみ成立する"
+      ],
+      "ans": 0,
+      "exp": "留置権は①他人の物を占有②その物に関して生じた債権（牽連関係）③弁済期到来④占有が適法であることで成立します（民法295条）。契約不要・登記不要の法定担保物権です。",
+      "publicPath": "q/practice/p10539/index.html"
+    },
+    {
+      "id": 910540,
+      "year": "orig",
+      "num": 10540,
+      "field": "rights",
+      "text": "抵当権の順位変更に必要な要件として正しいものはどれか。",
+      "opts": [
+        "順位変更は認められない",
+        "各抵当権者全員の合意と登記が必要",
+        "抵当権設定者の同意のみで足りる",
+        "裁判所の許可が必要"
+      ],
+      "ans": 0,
+      "exp": "抵当権の順位変更は各抵当権者全員の合意と登記が効力発生要件です（民法374条）。利害関係人（後順位抵当権者等）の承諾も必要です。",
+      "publicPath": "q/practice/p10540/index.html"
+    },
+    {
+      "id": 910541,
+      "year": "orig",
+      "num": 10541,
       "field": "rights",
       "text": "動産質権の効力として正しいものはどれか。",
       "opts": [
@@ -12114,14 +8654,494 @@ const PRACTICE_QUESTIONS = {
         "質権設定に登記が必要",
         "動産質権は成立しない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "動産質権者は目的物を占有し（民法344条）、弁済を受けるまで留置できます（留置的効力・民法347条）。設定者は目的物の占有を質権者に移転しなければなりません。",
-      "publicPath": "q/practice/p541/index.html"
+      "publicPath": "q/practice/p10541/index.html"
     },
     {
-      "id": 900572,
+      "id": 910542,
       "year": "orig",
-      "num": 572,
+      "num": 10542,
+      "field": "rights",
+      "text": "相殺が禁止される場合として正しいものはどれか。",
+      "opts": [
+        "双方の債権が金銭債権であるとき",
+        "悪意による不法行為に基づく損害賠償債務を受働債権とするとき",
+        "弁済期が到来していないとき",
+        "債権の額が等しいとき"
+      ],
+      "ans": 0,
+      "exp": "悪意による不法行為に基づく損害賠償債権を受働債権（相殺される側）とする相殺は禁止されます（民法509条1号）。人の生命・身体を害する不法行為も同様に禁止されています。",
+      "publicPath": "q/practice/p10542/index.html"
+    },
+    {
+      "id": 910543,
+      "year": "orig",
+      "num": 10543,
+      "field": "rights",
+      "text": "連帯債務者の一人について生じた事項の絶対的効力として正しいものはどれか。",
+      "opts": [
+        "履行の請求は他の連帯債務者にも時効完成猶予の効力がある",
+        "連帯債務者の一人に対する履行の請求は他の連帯債務者の時効を中断しない（相対的効力）",
+        "一人の免除は全員の債務を消滅させる",
+        "一人の弁済は他の連帯債務者の債務に影響しない"
+      ],
+      "ans": 0,
+      "exp": "2020年民法改正後、連帯債務者の一人に対する請求は他の連帯債務者に対して時効の完成猶予・更新の効力を持ちません（相対的効力・民法441条）。ただし当事者間で合意すれば絶対的効力とすることができます。",
+      "publicPath": "q/practice/p10543/index.html"
+    },
+    {
+      "id": 910544,
+      "year": "orig",
+      "num": 10544,
+      "field": "rights",
+      "text": "通謀虚偽表示（民法94条）の第三者保護の要件として正しいものはどれか。",
+      "opts": [
+        "第三者は善意でも悪意でも保護される",
+        "第三者は善意（虚偽表示を知らない）であれば保護される",
+        "第三者は善意無過失が必要",
+        "第三者は登記を備えなければ保護されない"
+      ],
+      "ans": 0,
+      "exp": "通謀虚偽表示の無効は善意の第三者に対抗できません（民法94条2項）。第三者は善意であれば保護され、無過失は不要です（悪意でなければ足りる）。",
+      "publicPath": "q/practice/p10544/index.html"
+    },
+    {
+      "id": 910545,
+      "year": "orig",
+      "num": 10545,
+      "field": "rights",
+      "text": "錯誤取消しの要件として正しいものはどれか（2020年改正後）。",
+      "opts": [
+        "表意者に重大な過失がある場合も取消しできる",
+        "法律行為の目的及び取引上の社会通念に照らして重要なものであること、かつ表意者に重大な過失がないこと",
+        "相手方の詐欺があった場合のみ認められる",
+        "公証人の認証が必要"
+      ],
+      "ans": 0,
+      "exp": "2020年民法改正後の錯誤取消しは①意思表示の動機等に関する錯誤であること②法律行為の目的及び社会通念に照らして重要であること③表意者に重大な過失がないことが要件です（民法95条）。",
+      "publicPath": "q/practice/p10545/index.html"
+    },
+    {
+      "id": 910546,
+      "year": "orig",
+      "num": 10546,
+      "field": "rights",
+      "text": "時効の完成猶予事由として正しいものはどれか。",
+      "opts": [
+        "時効の利益の放棄",
+        "裁判上の請求・差押え・仮処分等",
+        "弁済の承認",
+        "時効期間の経過"
+      ],
+      "ans": 0,
+      "exp": "時効の完成猶予事由は裁判上の請求・差押え・仮処分・仮差押え・協議を行う旨の合意書面等です（民法147条以下）。弁済の承認は時効の更新（新たな時効が進行開始）事由です。",
+      "publicPath": "q/practice/p10546/index.html"
+    },
+    {
+      "id": 910547,
+      "year": "orig",
+      "num": 10547,
+      "field": "rights",
+      "text": "時効の利益の放棄について正しいものはどれか。",
+      "opts": [
+        "時効完成前でも放棄できる",
+        "時効完成後であれば時効の利益を放棄できる",
+        "時効の放棄は第三者にも効力が及ぶ",
+        "時効の放棄は口頭では無効"
+      ],
+      "ans": 0,
+      "exp": "時効の利益は時効完成後であれば放棄できます（民法146条）。時効完成前の予め放棄する合意は無効です。放棄の効力は相対的で、連帯保証人等の第三者には及びません。",
+      "publicPath": "q/practice/p10547/index.html"
+    },
+    {
+      "id": 910548,
+      "year": "orig",
+      "num": 10548,
+      "field": "rights",
+      "text": "不動産物権変動の対抗要件として正しいものはどれか。",
+      "opts": [
+        "公正証書の作成",
+        "登記",
+        "引渡し",
+        "占有"
+      ],
+      "ans": 0,
+      "exp": "不動産物権変動の対抗要件は登記です（民法177条）。動産の場合は引渡しが対抗要件です（民法178条）。",
+      "publicPath": "q/practice/p10548/index.html"
+    },
+    {
+      "id": 910549,
+      "year": "orig",
+      "num": 10549,
+      "field": "rights",
+      "text": "即時取得（善意取得）の成立要件として正しいものはどれか。",
+      "opts": [
+        "不動産にも適用される",
+        "動産を平穏・公然・善意・無過失で取引行為により占有取得した場合に成立",
+        "登記を備えた場合のみ成立",
+        "相手方が真の所有者であることが必要"
+      ],
+      "ans": 0,
+      "exp": "即時取得（民法192条）は動産について、取引行為・平穏・公然・善意・無過失で占有を取得した場合に成立します。不動産には適用されません（登記制度があるため）。",
+      "publicPath": "q/practice/p10549/index.html"
+    },
+    {
+      "id": 910550,
+      "year": "orig",
+      "num": 10550,
+      "field": "law",
+      "text": "宅建業の免許が不要な場合として正しいものはどれか。",
+      "opts": [
+        "年2回を超えて自己所有不動産を売却する場合",
+        "自己所有の不動産を賃貸する場合（自ら貸主）",
+        "他人から依頼されて不動産の売買を仲介する場合",
+        "分譲マンションを自ら販売する場合"
+      ],
+      "ans": 0,
+      "exp": "自ら貸主として不動産を賃貸する行為は宅建業（取引業）に該当しないため免許不要です（宅建業法2条2号）。ただし賃貸の媒介・代理を業として行う場合は免許が必要です。",
+      "publicPath": "q/practice/p10550/index.html"
+    },
+    {
+      "id": 910551,
+      "year": "orig",
+      "num": 10551,
+      "field": "law",
+      "text": "免許の欠格事由に該当する者として正しいものはどれか。",
+      "opts": [
+        "拘禁刑以上の刑に処せられてから5年が経過した者",
+        "宅建業法違反で罰金刑を受けてから5年が経過していない者",
+        "成年被後見人でなくなってから5年が経過した者",
+        "破産者で復権を得た者"
+      ],
+      "ans": 0,
+      "exp": "宅建業法違反・暴力団関連犯罪・背任罪等で罰金刑を受け、その刑の執行終了等から5年を経過しない者は欠格事由に該当します（宅建業法5条1項）。拘禁刑以上・破産で復権未取得も同様です。",
+      "publicPath": "q/practice/p10551/index.html"
+    },
+    {
+      "id": 910552,
+      "year": "orig",
+      "num": 10552,
+      "field": "law",
+      "text": "宅建士証の有効期間として正しいものはどれか。",
+      "opts": [
+        "3年",
+        "5年",
+        "10年",
+        "更新不要の永続"
+      ],
+      "ans": 0,
+      "exp": "宅建士証の有効期間は5年です（宅建業法22条の2第4項）。更新には法定講習（有効期間満了の6か月前から）の受講が必要です。",
+      "publicPath": "q/practice/p10552/index.html"
+    },
+    {
+      "id": 910553,
+      "year": "orig",
+      "num": 10553,
+      "field": "law",
+      "text": "宅建士の登録消除事由として正しいものはどれか。",
+      "opts": [
+        "宅建試験に再受験した場合",
+        "死亡または登録欠格事由に該当した場合",
+        "事務所を移転した場合",
+        "氏名を変更した場合"
+      ],
+      "ans": 0,
+      "exp": "宅建士の登録は、死亡、登録欠格事由への該当、不正登録、重大な違反行為等があった場合に消除されます（宅建業法68条の2）。成年被後見人・被保佐人であること自体は、現行法上、当然に一律欠格となるものではありません。氏名変更・事務所移転は変更届が必要ですが消除ではありません。",
+      "publicPath": "q/practice/p10553/index.html"
+    },
+    {
+      "id": 910554,
+      "year": "orig",
+      "num": 10554,
+      "field": "law",
+      "text": "宅建業者が受け取る報酬の上限を定めているのはどれか。",
+      "opts": [
+        "民法",
+        "宅建業法の規定に基づく国土交通大臣告示",
+        "都道府県条例",
+        "当事者の合意のみ"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が宅地建物取引に関して受け取れる報酬の上限は宅建業法46条に基づく国土交通大臣告示によって定められています。上限を超える報酬を受け取ることは禁止されています。",
+      "publicPath": "q/practice/p10554/index.html"
+    },
+    {
+      "id": 910555,
+      "year": "orig",
+      "num": 10555,
+      "field": "law",
+      "text": "賃貸借の媒介報酬の上限（依頼者双方合計）として正しいものはどれか。",
+      "opts": [
+        "賃料の1か月分（消費税別）",
+        "賃料の2か月分",
+        "賃料の半月分",
+        "賃料の3か月分"
+      ],
+      "ans": 0,
+      "exp": "居住用建物の賃貸借媒介の場合、依頼者双方から受け取る報酬の合計上限は賃料の1か月分（消費税別）です（国土交通省告示）。依頼者一方からの上限は原則賃料の0.5か月分ですが、依頼者の承諾があれば一方から1か月分まで受け取れます。",
+      "publicPath": "q/practice/p10555/index.html"
+    },
+    {
+      "id": 910556,
+      "year": "orig",
+      "num": 10556,
+      "field": "law",
+      "text": "37条書面に記載が不要な事項として正しいものはどれか。",
+      "opts": [
+        "物件の引渡し時期",
+        "代金の額",
+        "近隣の騒音状況",
+        "移転登記申請の時期"
+      ],
+      "ans": 1,
+      "exp": "37条書面の必要的記載事項は①物件特定②代金・借賃③引渡し時期④移転登記申請時期等です（宅建業法37条1項）。近隣の騒音状況は37条書面ではなく重要事項説明（35条書面）でも必須ではなく、周辺環境への任意記載事項です。",
+      "publicPath": "q/practice/p10556/index.html"
+    },
+    {
+      "id": 910557,
+      "year": "orig",
+      "num": 10557,
+      "field": "law",
+      "text": "37条書面と35条書面（重要事項説明書）の違いとして正しいものはどれか。",
+      "opts": [
+        "両書面とも契約前に交付する",
+        "35条書面は契約前・37条書面は契約後に交付する",
+        "37条書面は売主のみに交付する",
+        "35条書面には宅建士の記名は不要"
+      ],
+      "ans": 0,
+      "exp": "重要事項説明書（35条書面）は契約前に買主・借主に交付します。37条書面は契約成立後遅滞なく売主・買主双方に交付します。両書面とも宅建士の記名が必要です（押印は廃止）。",
+      "publicPath": "q/practice/p10557/index.html"
+    },
+    {
+      "id": 910558,
+      "year": "orig",
+      "num": 10558,
+      "field": "law",
+      "text": "専属専任媒介契約の報告頻度として正しいものはどれか。",
+      "opts": [
+        "1か月に1回以上",
+        "2週間に1回以上",
+        "1週間に1回以上",
+        "3日に1回以上"
+      ],
+      "ans": 1,
+      "exp": "専属専任媒介契約では1週間に1回以上の業務処理状況の報告義務があります（宅建業法34条の2第9項）。専任媒介は2週間に1回以上です。",
+      "publicPath": "q/practice/p10558/index.html"
+    },
+    {
+      "id": 910559,
+      "year": "orig",
+      "num": 10559,
+      "field": "law",
+      "text": "一般媒介契約における宅建業者の義務として正しいものはどれか。",
+      "opts": [
+        "レインズへの登録が義務付けられている",
+        "定期的な業務報告が義務付けられている",
+        "レインズ登録義務・定期報告義務ともにない",
+        "有効期間は3か月を超えてはならない"
+      ],
+      "ans": 1,
+      "exp": "一般媒介契約にはレインズ登録義務も定期報告義務もありません。ただし有効期間の法的上限の定めもありません（専任・専属専任は3か月が上限）。",
+      "publicPath": "q/practice/p10559/index.html"
+    },
+    {
+      "id": 910560,
+      "year": "orig",
+      "num": 10560,
+      "field": "law",
+      "text": "クーリングオフができない場合として正しいものはどれか。",
+      "opts": [
+        "宅建業者の案内所で申込みをした場合（届出済みの案内所）",
+        "事務所以外の場所で申込みをした場合",
+        "告知から7日目に行使した場合",
+        "電話で申込みをした場合"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が届出をした案内所・展示会場等（事務所等）で申込みをした場合はクーリングオフができません（宅建業法37条の2）。告知から8日以内に書面で行使する必要があります。",
+      "publicPath": "q/practice/p10560/index.html"
+    },
+    {
+      "id": 910561,
+      "year": "orig",
+      "num": 10561,
+      "field": "law",
+      "text": "手付金等の保全措置が不要な場合として正しいものはどれか（未完成物件）。",
+      "opts": [
+        "手付金等が代金の5%以下かつ1000万円以下",
+        "手付金等が代金の10%以下かつ1000万円以下",
+        "手付金等が500万円以下",
+        "保全措置は常に必要"
+      ],
+      "ans": 0,
+      "exp": "未完成物件の場合、手付金等が代金の5%以下かつ1000万円以下であれば保全措置は不要です（宅建業法41条1項）。完成物件は10%以下かつ1000万円以下が要件です。",
+      "publicPath": "q/practice/p10561/index.html"
+    },
+    {
+      "id": 910562,
+      "year": "orig",
+      "num": 10562,
+      "field": "law",
+      "text": "重要事項説明を受ける権利を持つ者として正しいものはどれか。",
+      "opts": [
+        "売主のみ",
+        "買主・借主（取引の相手方）",
+        "売主と買主の双方",
+        "仲介業者"
+      ],
+      "ans": 0,
+      "exp": "重要事項説明は取引の相手方（買主・借主）に行います（宅建業法35条1項）。相手方が宅建業者の場合も書面交付は必要ですが説明は省略できます。",
+      "publicPath": "q/practice/p10562/index.html"
+    },
+    {
+      "id": 910563,
+      "year": "orig",
+      "num": 10563,
+      "field": "law",
+      "text": "重要事項説明書に記載が必要な法令上の制限の例として正しいものはどれか。",
+      "opts": [
+        "近隣の地価動向",
+        "都市計画法・建築基準法等の法令に基づく制限の概要",
+        "売主の確定申告状況",
+        "近隣住民の意見"
+      ],
+      "ans": 0,
+      "exp": "重要事項説明書には都市計画法・建築基準法等の法令に基づく制限の概要を記載しなければなりません（宅建業法35条1項2号）。",
+      "publicPath": "q/practice/p10563/index.html"
+    },
+    {
+      "id": 910564,
+      "year": "orig",
+      "num": 10564,
+      "field": "law",
+      "text": "営業保証金の供託先として正しいものはどれか。",
+      "opts": [
+        "都道府県の金庫",
+        "主たる事務所の最寄りの供託所（法務局）",
+        "宅建業協会",
+        "国土交通省"
+      ],
+      "ans": 0,
+      "exp": "営業保証金は主たる事務所の最寄りの供託所（法務局）に供託します（宅建業法25条1項）。",
+      "publicPath": "q/practice/p10564/index.html"
+    },
+    {
+      "id": 910565,
+      "year": "orig",
+      "num": 10565,
+      "field": "law",
+      "text": "弁済業務保証金分担金の額として正しいものはどれか（主たる事務所）。",
+      "opts": [
+        "100万円",
+        "60万円",
+        "30万円",
+        "1000万円"
+      ],
+      "ans": 0,
+      "exp": "保証協会に加入する場合の弁済業務保証金分担金は主たる事務所が60万円、従たる事務所1か所につき30万円です（宅建業法64条の9）。営業保証金（主1000万円・従500万円）より大幅に低額です。",
+      "publicPath": "q/practice/p10565/index.html"
+    },
+    {
+      "id": 910566,
+      "year": "orig",
+      "num": 10566,
+      "field": "law",
+      "text": "宅建業者に対する業務停止処分の期間の上限として正しいものはどれか。",
+      "opts": [
+        "3か月",
+        "6か月",
+        "1年",
+        "2年"
+      ],
+      "ans": 1,
+      "exp": "宅建業者に対する業務停止処分の期間は1年以内です（宅建業法65条2項）。業務停止処分に違反した場合は免許取消処分の対象となります。",
+      "publicPath": "q/practice/p10566/index.html"
+    },
+    {
+      "id": 910567,
+      "year": "orig",
+      "num": 10567,
+      "field": "law",
+      "text": "宅建業者の免許が必ず取り消される（必要的取消し）事由として正しいものはどれか。",
+      "opts": [
+        "軽微な広告表示の誤り",
+        "不正の手段により免許を取得したことが判明した場合",
+        "業務報告の遅延",
+        "従業員の軽微な違反"
+      ],
+      "ans": 0,
+      "exp": "不正の手段による免許取得が判明した場合は必要的取消し事由です（宅建業法66条1項8号）。知事・大臣に裁量の余地はなく必ず取り消されます。業務停止処分違反も必要的取消し事由に含まれます。",
+      "publicPath": "q/practice/p10567/index.html"
+    },
+    {
+      "id": 910568,
+      "year": "orig",
+      "num": 10568,
+      "field": "tax",
+      "text": "登録免許税の課税主体として正しいものはどれか。",
+      "opts": [
+        "都道府県",
+        "市町村",
+        "国（国税）",
+        "固定資産評価委員会"
+      ],
+      "ans": 1,
+      "exp": "登録免許税は国税です（登録免許税法1条）。登記・登録等を受ける者が納付します。",
+      "publicPath": "q/practice/p10568/index.html"
+    },
+    {
+      "id": 910569,
+      "year": "orig",
+      "num": 10569,
+      "field": "tax",
+      "text": "抵当権設定登記の登録免許税の課税標準として正しいものはどれか。",
+      "opts": [
+        "不動産の固定資産税評価額",
+        "債権金額（ローン金額）",
+        "不動産の売買価格",
+        "固定資産税評価額の2分の1"
+      ],
+      "ans": 0,
+      "exp": "抵当権設定登記の課税標準は「債権金額」です（登録免許税法9条）。不動産の価額ではなく担保する債権の金額が基準となります。税率は原則0.4%です。",
+      "publicPath": "q/practice/p10569/index.html"
+    },
+    {
+      "id": 910570,
+      "year": "orig",
+      "num": 10570,
+      "field": "tax",
+      "text": "所有権保存登記の登録免許税の税率として正しいものはどれか。",
+      "opts": [
+        "0.1%",
+        "0.4%",
+        "1.0%",
+        "2.0%"
+      ],
+      "ans": 0,
+      "exp": "所有権保存登記の登録免許税率は原則0.4%です（登録免許税法別表1）。一定の住宅要件を満たす場合は軽減税率0.15%が適用されます。",
+      "publicPath": "q/practice/p10570/index.html"
+    },
+    {
+      "id": 910571,
+      "year": "orig",
+      "num": 10571,
+      "field": "tax",
+      "text": "相続による所有権移転登記の税率として正しいものはどれか。",
+      "opts": [
+        "0.4%",
+        "1.0%",
+        "2.0%",
+        "0.1%"
+      ],
+      "ans": 0,
+      "exp": "相続または法人合併による所有権移転登記の税率は0.4%です（登録免許税法別表1）。売買による移転（2.0%）より低く設定されています。",
+      "publicPath": "q/practice/p10571/index.html"
+    },
+    {
+      "id": 910572,
+      "year": "orig",
+      "num": 10572,
       "field": "tax",
       "text": "登録免許税の非課税となる場合として正しいものはどれか。",
       "opts": [
@@ -12132,12 +9152,76 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "国または地方公共団体が登記権利者となる不動産登記は登録免許税が非課税です（登録免許税法4条）。個人や法人の取得は原則課税対象です。",
-      "publicPath": "q/practice/p572/index.html"
+      "publicPath": "q/practice/p10572/index.html"
     },
     {
-      "id": 900577,
+      "id": 910573,
       "year": "orig",
-      "num": 577,
+      "num": 10573,
+      "field": "tax",
+      "text": "不動産取得税の標準税率として正しいものはどれか（住宅・土地の特例適用時）。",
+      "opts": [
+        "2%",
+        "3%",
+        "4%",
+        "5%"
+      ],
+      "ans": 0,
+      "exp": "住宅および住宅用土地の不動産取得税の標準税率は特例により3%です（地方税法附則11条の2）。それ以外の不動産は4%が標準税率です。",
+      "publicPath": "q/practice/p10573/index.html"
+    },
+    {
+      "id": 910574,
+      "year": "orig",
+      "num": 10574,
+      "field": "tax",
+      "text": "不動産取得税の納税方法として正しいものはどれか。",
+      "opts": [
+        "自分で申告して納付する（申告納付）",
+        "都道府県から送られてくる納税通知書で納付する（普通徴収）",
+        "不動産取得と同時に自動引き落とし",
+        "登記の際に法務局で納付"
+      ],
+      "ans": 0,
+      "exp": "不動産取得税は都道府県が賦課決定し納税通知書を送付する普通徴収方式です（地方税法73条の17）。自分で申告する必要はありません。",
+      "publicPath": "q/practice/p10574/index.html"
+    },
+    {
+      "id": 910575,
+      "year": "orig",
+      "num": 10575,
+      "field": "tax",
+      "text": "新築住宅の不動産取得税の課税標準の特例として正しいものはどれか（一般住宅）。",
+      "opts": [
+        "固定資産税評価額から500万円控除",
+        "固定資産税評価額から1200万円控除",
+        "固定資産税評価額の2分の1",
+        "固定資産税評価額から3000万円控除"
+      ],
+      "ans": 0,
+      "exp": "新築住宅（一般）の不動産取得税は固定資産税評価額から1200万円を控除した額が課税標準となります（地方税法73条の14第1項）。認定長期優良住宅は1300万円控除です。",
+      "publicPath": "q/practice/p10575/index.html"
+    },
+    {
+      "id": 910576,
+      "year": "orig",
+      "num": 10576,
+      "field": "tax",
+      "text": "不動産取得税が非課税となる取得として正しいものはどれか。",
+      "opts": [
+        "売買による取得",
+        "贈与による取得",
+        "相続による取得",
+        "交換による取得"
+      ],
+      "ans": 1,
+      "exp": "相続による不動産取得は不動産取得税が非課税です（地方税法73条の7）。贈与・売買・交換・法人への現物出資等は課税対象です。",
+      "publicPath": "q/practice/p10576/index.html"
+    },
+    {
+      "id": 910577,
+      "year": "orig",
+      "num": 10577,
       "field": "tax",
       "text": "既存住宅（中古住宅）取得時の不動産取得税の特例として正しいものはどれか。",
       "opts": [
@@ -12146,14 +9230,78 @@ const PRACTICE_QUESTIONS = {
         "中古住宅は一律非課税",
         "床面積50㎡以上なら自動的に特例適用"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "中古住宅取得時も一定の要件（新耐震基準適合・自己居住用・床面積50㎡以上240㎡以下等）を満たせば課税標準から最大1200万円（昭和57年以前は築年数に応じた額）が控除されます（地方税法73条の14第2項）。",
-      "publicPath": "q/practice/p577/index.html"
+      "publicPath": "q/practice/p10577/index.html"
     },
     {
-      "id": 900582,
+      "id": 910578,
       "year": "orig",
-      "num": 582,
+      "num": 10578,
+      "field": "tax",
+      "text": "固定資産税の賦課期日として正しいものはどれか。",
+      "opts": [
+        "毎年4月1日",
+        "毎年1月1日",
+        "毎年7月1日",
+        "登記日"
+      ],
+      "ans": 0,
+      "exp": "固定資産税の賦課期日は毎年1月1日です（地方税法359条）。1月1日時点の所有者に課税されます。年の途中で売却しても1月1日の所有者が納税義務者です。",
+      "publicPath": "q/practice/p10578/index.html"
+    },
+    {
+      "id": 910579,
+      "year": "orig",
+      "num": 10579,
+      "field": "tax",
+      "text": "固定資産税の評価替えの周期として正しいものはどれか。",
+      "opts": [
+        "毎年",
+        "2年ごと",
+        "3年ごと",
+        "5年ごと"
+      ],
+      "ans": 1,
+      "exp": "固定資産税の評価替えは3年ごとに行われます（地方税法409条）。基準年度に評価替えを行い、次の基準年度まで原則として据え置かれます。",
+      "publicPath": "q/practice/p10579/index.html"
+    },
+    {
+      "id": 910580,
+      "year": "orig",
+      "num": 10580,
+      "field": "tax",
+      "text": "新築住宅に対する固定資産税の減額特例として正しいものはどれか（一般住宅）。",
+      "opts": [
+        "永続的に2分の1に減額",
+        "新築後3年間、税額が2分の1に減額（3階建以上の中高層耐火住宅は5年間）",
+        "新築後5年間、全額免除",
+        "10年間、4分の1に減額"
+      ],
+      "ans": 0,
+      "exp": "新築住宅（120㎡相当部分）の固定資産税は新築後3年間（3階建以上の中高層耐火・準耐火住宅は5年間）、税額が2分の1に減額されます（地方税法附則15条の6）。",
+      "publicPath": "q/practice/p10580/index.html"
+    },
+    {
+      "id": 910581,
+      "year": "orig",
+      "num": 10581,
+      "field": "tax",
+      "text": "固定資産税における住宅用地の課税標準の特例で「一般住宅用地」とは何か。",
+      "opts": [
+        "200㎡以下の部分",
+        "200㎡を超える部分（小規模住宅用地以外の住宅用地）",
+        "全ての住宅用地",
+        "非住宅用地"
+      ],
+      "ans": 0,
+      "exp": "小規模住宅用地（200㎡以下）の課税標準は評価額の1/6、200㎡を超える一般住宅用地部分は評価額の1/3に軽減されます（地方税法349条の3の2）。",
+      "publicPath": "q/practice/p10581/index.html"
+    },
+    {
+      "id": 910582,
+      "year": "orig",
+      "num": 10582,
       "field": "tax",
       "text": "固定資産税の免税点として正しいものはどれか（土地）。",
       "opts": [
@@ -12162,14 +9310,78 @@ const PRACTICE_QUESTIONS = {
         "課税標準額50万円未満",
         "免税点の制度はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "土地の固定資産税は課税標準額が30万円未満の場合は課税されません（地方税法351条）。家屋は20万円未満、償却資産は150万円未満が免税点です。",
-      "publicPath": "q/practice/p582/index.html"
+      "publicPath": "q/practice/p10582/index.html"
     },
     {
-      "id": 900587,
+      "id": 910583,
       "year": "orig",
-      "num": 587,
+      "num": 10583,
+      "field": "tax",
+      "text": "不動産の譲渡所得の計算式として正しいものはどれか。",
+      "opts": [
+        "譲渡収入金額－取得費",
+        "譲渡収入金額－（取得費＋譲渡費用）",
+        "譲渡収入金額－固定資産税評価額",
+        "売買代金のみ"
+      ],
+      "ans": 0,
+      "exp": "譲渡所得＝譲渡収入金額－（取得費＋譲渡費用）です（所得税法33条）。取得費が不明な場合は譲渡収入金額の5%を取得費とみなすことができます。",
+      "publicPath": "q/practice/p10583/index.html"
+    },
+    {
+      "id": 910584,
+      "year": "orig",
+      "num": 10584,
+      "field": "tax",
+      "text": "居住用財産の3000万円特別控除の適用を受けられない場合として正しいものはどれか。",
+      "opts": [
+        "居住しなくなってから2年後に売却した場合",
+        "配偶者に売却した場合",
+        "売却した年の前年・前々年に同控除を受けていない場合",
+        "住宅ローンが残っている場合"
+      ],
+      "ans": 0,
+      "exp": "居住用財産の3000万円特別控除は配偶者・直系血族・生計を共にする親族等への売却には適用されません（租税特別措置法35条2項）。関連当事者間取引への適用を排除しています。",
+      "publicPath": "q/practice/p10584/index.html"
+    },
+    {
+      "id": 910585,
+      "year": "orig",
+      "num": 10585,
+      "field": "tax",
+      "text": "居住用財産を10年超保有して売却した場合の軽減税率（6000万円以下部分）として正しいものはどれか。",
+      "opts": [
+        "合計10%（所得税6%・住民税4%）",
+        "合計14%（所得税10%・住民税4%）",
+        "合計20%（所得税15%・住民税5%）",
+        "合計39%（所得税30%・住民税9%）"
+      ],
+      "ans": 0,
+      "exp": "10年超保有の居住用財産の譲渡で6000万円以下の部分は軽減税率として合計14%（所得税10%・住民税4%）が適用されます（租税特別措置法31条の3）。6000万円超の部分は通常の長期譲渡所得税率20%です。",
+      "publicPath": "q/practice/p10585/index.html"
+    },
+    {
+      "id": 910586,
+      "year": "orig",
+      "num": 10586,
+      "field": "tax",
+      "text": "収用等による譲渡の特別控除として認められる金額として正しいものはどれか。",
+      "opts": [
+        "1000万円",
+        "3000万円",
+        "5000万円",
+        "控除なし"
+      ],
+      "ans": 1,
+      "exp": "公共事業等による収用の場合は譲渡所得から5000万円を特別控除できます（租税特別措置法33条の4）。これは3000万円特別控除と重複適用はできません。",
+      "publicPath": "q/practice/p10586/index.html"
+    },
+    {
+      "id": 910587,
+      "year": "orig",
+      "num": 10587,
       "field": "tax",
       "text": "買換え特例（特定居住用財産の買換え）の適用要件として正しいものはどれか。",
       "opts": [
@@ -12178,14 +9390,62 @@ const PRACTICE_QUESTIONS = {
         "買換え資産の床面積50㎡未満でも適用可",
         "所有期間5年超あれば適用可"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特定居住用財産の買換え特例は譲渡資産の売却価格が1億円以下、所有期間10年超かつ居住期間10年以上、買換え資産の床面積50㎡以上等の要件があります（租税特別措置法36条の2）。",
-      "publicPath": "q/practice/p587/index.html"
+      "publicPath": "q/practice/p10587/index.html"
     },
     {
-      "id": 900591,
+      "id": 910588,
       "year": "orig",
-      "num": 591,
+      "num": 10588,
+      "field": "tax",
+      "text": "扇状地の特徴として正しいものはどれか。",
+      "opts": [
+        "海岸沿いに形成される平坦地",
+        "山地から平野部へ出る河川が土砂を堆積して形成される地形",
+        "低湿で洪水リスクが高い",
+        "都市の中心部に多い"
+      ],
+      "ans": 0,
+      "exp": "扇状地は山地と平野の境界付近で河川が急勾配から緩勾配になる地点で土砂を扇形に堆積して形成されます。水はけがよく果樹園等に利用されますが、土石流・洪水のリスクがあります。",
+      "publicPath": "q/practice/p10588/index.html"
+    },
+    {
+      "id": 910589,
+      "year": "orig",
+      "num": 10589,
+      "field": "tax",
+      "text": "液状化現象が起きやすい地盤として正しいものはどれか。",
+      "opts": [
+        "洪積台地の砂礫層",
+        "埋立地・旧河道・砂丘の砂質地盤",
+        "岩盤上の住宅地",
+        "丘陵地の粘土層"
+      ],
+      "ans": 0,
+      "exp": "液状化は地震時に砂質地盤が振動で液体状になる現象です。埋立地・旧河道・砂丘など水分を多く含む砂質地盤で発生しやすく、建物の沈下・傾斜が起こります。",
+      "publicPath": "q/practice/p10589/index.html"
+    },
+    {
+      "id": 910590,
+      "year": "orig",
+      "num": 10590,
+      "field": "tax",
+      "text": "鉄骨鉄筋コンクリート造（SRC造）の特徴として正しいものはどれか。",
+      "opts": [
+        "RC造より耐火性が低い",
+        "RC造と鉄骨造を組み合わせた構造で高層建築物に用いられる",
+        "木造より工期が短い",
+        "SRC造は2階建て住宅が主な用途"
+      ],
+      "ans": 0,
+      "exp": "SRC造は鉄骨（Steel）の骨格にRC（鉄筋コンクリート）を組み合わせた構造で、高い強度・耐火性・耐震性を持ちます。超高層マンション・オフィスビル等の高層建築物に多く使われます。",
+      "publicPath": "q/practice/p10590/index.html"
+    },
+    {
+      "id": 910591,
+      "year": "orig",
+      "num": 10591,
       "field": "tax",
       "text": "地すべり地形の特徴として正しいものはどれか。",
       "opts": [
@@ -12194,14 +9454,46 @@ const PRACTICE_QUESTIONS = {
         "砂地で水はけがよい",
         "平坦で安定した地形"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地すべり地形は緩傾斜の斜面に馬蹄形の凹地・小丘・湿地が連なる特徴があります。地下水位が高く不安定なため宅地として危険です。過去の地すべり跡は再活動の可能性があります。",
-      "publicPath": "q/practice/p591/index.html"
+      "publicPath": "q/practice/p10591/index.html"
     },
     {
-      "id": 900594,
+      "id": 910592,
       "year": "orig",
-      "num": 594,
+      "num": 10592,
+      "field": "tax",
+      "text": "フラット35の借入期間として正しいものはどれか。",
+      "opts": [
+        "最長20年",
+        "最長25年",
+        "最長35年",
+        "最長50年"
+      ],
+      "ans": 1,
+      "exp": "フラット35の借入期間は15年以上35年以内（完済時年齢80歳以下）です。「35年」の名称はこの最長借入期間に由来します。",
+      "publicPath": "q/practice/p10592/index.html"
+    },
+    {
+      "id": 910593,
+      "year": "orig",
+      "num": 10593,
+      "field": "tax",
+      "text": "フラット35の金利の決まり方として正しいものはどれか。",
+      "opts": [
+        "申込時に金利が決まり返済終了まで変わらない",
+        "毎年4月に金利が改定される",
+        "借入後5年ごとに見直し",
+        "市場金利に連動して毎月変わる"
+      ],
+      "ans": 0,
+      "exp": "フラット35は申込時（正確には資金受取時）に金利が確定し、その後返済終了まで金利が変わらない全期間固定金利型ローンです。市場金利の上昇リスクを負わないのが最大の特徴です。",
+      "publicPath": "q/practice/p10593/index.html"
+    },
+    {
+      "id": 910594,
+      "year": "orig",
+      "num": 10594,
       "field": "tax",
       "text": "フラット35Sの優遇金利の適用条件として正しいものはどれか。",
       "opts": [
@@ -12210,14 +9502,46 @@ const PRACTICE_QUESTIONS = {
         "新築住宅のみに適用",
         "住宅ローン控除との併用不可"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "フラット35Sは省エネルギー性・耐久性・耐震性・バリアフリー性等で一定基準を満たす住宅について当初10年間（または5年間）金利を引き下げる制度です。住宅ローン控除との併用も可能です。",
-      "publicPath": "q/practice/p594/index.html"
+      "publicPath": "q/practice/p10594/index.html"
     },
     {
-      "id": 900597,
+      "id": 910595,
       "year": "orig",
-      "num": 597,
+      "num": 10595,
+      "field": "tax",
+      "text": "地価公示の標準地の鑑定評価を行う者として正しいものはどれか。",
+      "opts": [
+        "市町村職員",
+        "2名以上の不動産鑑定士",
+        "都道府県知事",
+        "国土交通大臣"
+      ],
+      "ans": 0,
+      "exp": "地価公示の標準地は2名以上の不動産鑑定士が鑑定評価を行い、土地鑑定委員会が正常な価格を判定して公示します（地価公示法2条・6条）。",
+      "publicPath": "q/practice/p10595/index.html"
+    },
+    {
+      "id": 910596,
+      "year": "orig",
+      "num": 10596,
+      "field": "tax",
+      "text": "不動産鑑定評価の取引事例比較法における「事情補正」の説明として正しいものはどれか。",
+      "opts": [
+        "時点の違いを補正すること",
+        "売急ぎ・買進み等の特殊な事情を補正すること",
+        "土地の形状の違いを補正すること",
+        "地域の違いを補正すること"
+      ],
+      "ans": 0,
+      "exp": "取引事例比較法における事情補正とは、取引事例が売急ぎ・買進み・特殊な関係者間取引等の特殊事情を含む場合にそれを除いた正常な価格に補正することです。時点補正は別途行います。",
+      "publicPath": "q/practice/p10596/index.html"
+    },
+    {
+      "id": 910597,
+      "year": "orig",
+      "num": 10597,
       "field": "tax",
       "text": "収益還元法における直接還元法と DCF 法の違いとして正しいものはどれか。",
       "opts": [
@@ -12226,14 +9550,78 @@ const PRACTICE_QUESTIONS = {
         "両者は全く同じ方法",
         "DCF法は土地にしか使えない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "直接還元法は1年間の純収益を還元利回りで除して価格を求める方法。DCF法（割引キャッシュフロー法）は保有期間中の各年の純収益と最終的な売却価格を割引率で現在価値に換算して合計する方法です。",
-      "publicPath": "q/practice/p597/index.html"
+      "publicPath": "q/practice/p10597/index.html"
     },
     {
-      "id": 900602,
+      "id": 910598,
       "year": "orig",
-      "num": 602,
+      "num": 10598,
+      "field": "limit",
+      "text": "準都市計画区域を指定できる者として正しいものはどれか。",
+      "opts": [
+        "市町村長",
+        "都道府県知事",
+        "国土交通大臣",
+        "農業委員会"
+      ],
+      "ans": 0,
+      "exp": "準都市計画区域は都道府県知事が指定します（都市計画法5条の2）。都市計画区域外で無秩序な開発のおそれがある地域を指定します。",
+      "publicPath": "q/practice/p10598/index.html"
+    },
+    {
+      "id": 910599,
+      "year": "orig",
+      "num": 10599,
+      "field": "limit",
+      "text": "市街化調整区域において原則として建築できる建築物として正しいものはどれか。",
+      "opts": [
+        "大型ショッピングモール",
+        "農業・林業・漁業を営む者の居住用建築物",
+        "分譲マンション",
+        "工場"
+      ],
+      "ans": 0,
+      "exp": "市街化調整区域では農林漁業を営む者の居住用建築物（農家住宅等）は原則として建築できます（都市計画法34条1号）。それ以外の建築物は原則として開発許可・建築許可が必要です。",
+      "publicPath": "q/practice/p10599/index.html"
+    },
+    {
+      "id": 910600,
+      "year": "orig",
+      "num": 10600,
+      "field": "limit",
+      "text": "都市計画の決定手続きにおいて必ず公聴会を開催しなければならない場合として正しいものはどれか。",
+      "opts": [
+        "すべての都市計画決定",
+        "住民または利害関係人から公聴会開催の請求があった場合",
+        "市町村長が必要と判断した場合のみ",
+        "国土交通大臣が指示した場合のみ"
+      ],
+      "ans": 0,
+      "exp": "都市計画の決定・変更にあたっては、住民または利害関係人から公聴会開催の請求があった場合は公聴会を開催しなければなりません（都市計画法16条）。",
+      "publicPath": "q/practice/p10600/index.html"
+    },
+    {
+      "id": 910601,
+      "year": "orig",
+      "num": 10601,
+      "field": "limit",
+      "text": "高度利用地区の目的として正しいものはどれか。",
+      "opts": [
+        "低層住宅専用地区として建物高さを制限する",
+        "用途地域内で土地の合理的高度利用を図るため建ぺい率・容積率・建築面積の最低限度等を定める地区",
+        "工業専用地区として工場のみ建築を許可する",
+        "緑地を確保するため建築を制限する"
+      ],
+      "ans": 0,
+      "exp": "高度利用地区は用途地域内において市街地の環境を維持しつつ土地の合理的な高度利用を図るため、建ぺい率・容積率の最高・最低限度、建築面積の最低限度、壁面の位置を定める地区です（都市計画法9条19項）。",
+      "publicPath": "q/practice/p10601/index.html"
+    },
+    {
+      "id": 910602,
+      "year": "orig",
+      "num": 10602,
       "field": "limit",
       "text": "特定用途制限地域の説明として正しいものはどれか。",
       "opts": [
@@ -12242,14 +9630,78 @@ const PRACTICE_QUESTIONS = {
         "市街化調整区域全体に適用される",
         "容積率のみを制限する地域"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特定用途制限地域は用途地域が定められていない土地の区域（市街化調整区域を除く）に定め、その良好な環境の形成・保持のため特定の建築物の建築を制限します（都市計画法9条15項）。",
-      "publicPath": "q/practice/p602/index.html"
+      "publicPath": "q/practice/p10602/index.html"
     },
     {
-      "id": 900607,
+      "id": 910603,
       "year": "orig",
-      "num": 607,
+      "num": 10603,
+      "field": "limit",
+      "text": "建築基準法の「道路」の幅員要件として正しいものはどれか。",
+      "opts": [
+        "1メートル以上",
+        "2メートル以上",
+        "4メートル以上",
+        "6メートル以上"
+      ],
+      "ans": 1,
+      "exp": "建築基準法上の「道路」は原則として幅員4メートル以上のものです（建築基準法42条1項）。4メートル未満でも特定行政庁が指定した「2項道路（みなし道路）」はセットバック義務を伴い道路とみなされます。",
+      "publicPath": "q/practice/p10603/index.html"
+    },
+    {
+      "id": 910604,
+      "year": "orig",
+      "num": 10604,
+      "field": "limit",
+      "text": "第一種低層住居専用地域に建築できる建築物として正しいものはどれか。",
+      "opts": [
+        "中規模の事務所ビル",
+        "10階建てマンション",
+        "小規模な住宅・共同住宅・小学校など",
+        "大型スーパー"
+      ],
+      "ans": 1,
+      "exp": "第一種低層住居専用地域は低層住宅の良好な住環境を守るための地域で、住宅・共同住宅・小学校・幼稚園・診療所等の建築が可能です。大学・病院・事務所・商業施設は建築できません。",
+      "publicPath": "q/practice/p10604/index.html"
+    },
+    {
+      "id": 910605,
+      "year": "orig",
+      "num": 10605,
+      "field": "limit",
+      "text": "防火地域内の建築規制として正しいものはどれか。",
+      "opts": [
+        "全ての建築物を準耐火建築物にしなければならない",
+        "階数3以上または延べ面積100㎡超の建築物は耐火建築物としなければならない",
+        "木造建築物は一切禁止",
+        "高さ制限のみが適用される"
+      ],
+      "ans": 0,
+      "exp": "防火地域内では①階数3以上②延べ面積が100㎡を超える建築物は耐火建築物としなければなりません（建築基準法61条）。それ以外（階数2以下かつ100㎡以下）は準耐火建築物で可とされます。",
+      "publicPath": "q/practice/p10605/index.html"
+    },
+    {
+      "id": 910606,
+      "year": "orig",
+      "num": 10606,
+      "field": "limit",
+      "text": "建ぺい率が緩和（10%加算）される場合として正しいものはどれか。",
+      "opts": [
+        "準防火地域内の耐火建築物",
+        "防火地域内の耐火建築物または角地",
+        "第一種住居地域に建築する場合",
+        "容積率が高い地域"
+      ],
+      "ans": 0,
+      "exp": "建ぺい率は防火地域内の耐火建築物（10%加算）・特定行政庁が指定する角地（10%加算）の場合に緩和されます（建築基準法53条3項）。両方に該当すれば20%加算となります。",
+      "publicPath": "q/practice/p10606/index.html"
+    },
+    {
+      "id": 910607,
+      "year": "orig",
+      "num": 10607,
       "field": "limit",
       "text": "総合設計制度の説明として正しいものはどれか。",
       "opts": [
@@ -12258,14 +9710,78 @@ const PRACTICE_QUESTIONS = {
         "大規模建築物に義務付けられる設計基準",
         "防火区画を設けることで建築面積を増やせる制度"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "総合設計制度は一定規模以上の敷地で公開空地・歩行者空間等を確保することを条件に、特定行政庁の許可により容積率・高さ制限の緩和を受けられる制度です（建築基準法59条の2）。",
-      "publicPath": "q/practice/p607/index.html"
+      "publicPath": "q/practice/p10607/index.html"
     },
     {
-      "id": 900612,
+      "id": 910608,
       "year": "orig",
-      "num": 612,
+      "num": 10608,
+      "field": "limit",
+      "text": "農地法2条における「農地」の定義として正しいものはどれか。",
+      "opts": [
+        "登記簿上の地目が田・畑のもの",
+        "現に耕作の目的に供されている土地",
+        "固定資産税が農地評価のもの",
+        "農業振興地域内の土地"
+      ],
+      "ans": 0,
+      "exp": "農地法上の「農地」は現に耕作の目的に供されている土地です（農地法2条1項）。登記簿の地目ではなく現況で判断します（現況主義）。",
+      "publicPath": "q/practice/p10608/index.html"
+    },
+    {
+      "id": 910609,
+      "year": "orig",
+      "num": 10609,
+      "field": "limit",
+      "text": "農地法3条の許可が不要な場合として正しいものはどれか。",
+      "opts": [
+        "農地を農地のまま売買する",
+        "農地を相続により取得する",
+        "農地の賃貸借契約を締結する",
+        "農地の使用貸借契約を締結する"
+      ],
+      "ans": 0,
+      "exp": "農地を相続・遺産分割・包括遺贈・相続人への特定遺贈により取得する場合は農地法3条の許可は不要ですが、農業委員会への届出（3か月以内）が必要です（農地法3条の3）。",
+      "publicPath": "q/practice/p10609/index.html"
+    },
+    {
+      "id": 910610,
+      "year": "orig",
+      "num": 10610,
+      "field": "limit",
+      "text": "市街化区域内の農地を自己転用（農地→宅地）する場合の手続きとして正しいものはどれか。",
+      "opts": [
+        "都道府県知事の許可が必要",
+        "農業委員会への届出で足りる",
+        "国土交通大臣の許可が必要",
+        "手続き不要"
+      ],
+      "ans": 0,
+      "exp": "市街化区域内の農地を自己転用する場合（農地法4条）は、都道府県知事の許可は不要で農業委員会への届出のみで足ります（農地法4条1項8号）。市街化区域外は原則として知事の許可が必要です。",
+      "publicPath": "q/practice/p10610/index.html"
+    },
+    {
+      "id": 910611,
+      "year": "orig",
+      "num": 10611,
+      "field": "limit",
+      "text": "採草放牧地に関する農地法の適用として正しいものはどれか。",
+      "opts": [
+        "農地と全く同じ規制が適用される",
+        "3条・4条・5条の規制が農地と同様に適用されるが一部異なる",
+        "農地法の規制は一切適用されない",
+        "5条のみ適用される"
+      ],
+      "ans": 0,
+      "exp": "採草放牧地（草刈り・牧草収穫・家畜の放牧に供する土地）にも農地法が適用されます（農地法2条1項）が、農地と異なり4条（自己転用）は採草放牧地→農地以外への転用にのみ適用されるなど一部規制内容が異なります。",
+      "publicPath": "q/practice/p10611/index.html"
+    },
+    {
+      "id": 910612,
+      "year": "orig",
+      "num": 10612,
       "field": "limit",
       "text": "農地法5条の許可なく転用目的で農地を売買した場合の効力として正しいものはどれか。",
       "opts": [
@@ -12274,14 +9790,46 @@ const PRACTICE_QUESTIONS = {
         "売買は有効で転用も可能",
         "罰則はあるが売買は有効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地法5条の許可を受けずに締結した農地の売買契約は無効です（農地法3条6項・5条3項）。強行規定であり、許可なき転用目的の売買は契約そのものの効力が否定されます。",
-      "publicPath": "q/practice/p612/index.html"
+      "publicPath": "q/practice/p10612/index.html"
     },
     {
-      "id": 900615,
+      "id": 910613,
       "year": "orig",
-      "num": 615,
+      "num": 10613,
+      "field": "limit",
+      "text": "宅地造成工事規制区域内で工事を行う際の届出・許可について正しいものはどれか。",
+      "opts": [
+        "工事完了後に届け出ればよい",
+        "一定規模以上の工事は工事着手前に都道府県知事の許可が必要",
+        "工事の規模にかかわらず届出のみで足りる",
+        "許可は不要で完了検査のみ必要"
+      ],
+      "ans": 0,
+      "exp": "宅地造成工事規制区域内で一定規模以上（高さ2m超の盛土等）の宅地造成工事を行う場合は、工事着手前に都道府県知事の許可を受けなければなりません（盛土規制法12条1項）。",
+      "publicPath": "q/practice/p10613/index.html"
+    },
+    {
+      "id": 910614,
+      "year": "orig",
+      "num": 10614,
+      "field": "limit",
+      "text": "盛土規制法における「特定盛土等」の定義として最も正しいものはどれか。",
+      "opts": [
+        "市街地内の盛土すべて",
+        "宅地または農地等において行う盛土等であって、盛土等をする土地の地形・地質等からみて、崩落等により人家等に危害を生ずるおそれが大きいもの",
+        "高さ1m超の盛土すべて",
+        "農地での盛土"
+      ],
+      "ans": 0,
+      "exp": "特定盛土等は宅地・農地等で行う盛土等のうち、地形・地質等から崩落等により人家等に危害を及ぼすおそれが大きいものとして政令で定めるものを指します（盛土規制法2条3号）。",
+      "publicPath": "q/practice/p10614/index.html"
+    },
+    {
+      "id": 910615,
+      "year": "orig",
+      "num": 10615,
       "field": "limit",
       "text": "盛土規制法による宅地造成工事の技術基準として定められている事項として正しいものはどれか。",
       "opts": [
@@ -12290,14 +9838,110 @@ const PRACTICE_QUESTIONS = {
         "工事期間の上限",
         "工事業者の資格要件"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "盛土規制法は擁壁の構造・設置基準、排水施設の設置、切土・盛土の勾配・高さに関する安全基準等を技術的基準として政令で定めています（盛土規制法13条）。",
-      "publicPath": "q/practice/p615/index.html"
+      "publicPath": "q/practice/p10615/index.html"
     },
     {
-      "id": 900622,
+      "id": 910616,
       "year": "orig",
-      "num": 622,
+      "num": 10616,
+      "field": "limit",
+      "text": "国土利用計画法の「土地売買等の契約」に含まれないものはどれか。",
+      "opts": [
+        "売買契約",
+        "交換契約",
+        "贈与契約",
+        "地上権・賃借権の設定（対価あり）"
+      ],
+      "ans": 1,
+      "exp": "贈与契約は無償の取得であるため国土利用計画法の届出対象となる「土地売買等の契約」に含まれません（国土利用計画法14条）。有償の売買・交換・地上権設定等が対象です。",
+      "publicPath": "q/practice/p10616/index.html"
+    },
+    {
+      "id": 910617,
+      "year": "orig",
+      "num": 10617,
+      "field": "limit",
+      "text": "国土利用計画法で届出が必要な都市計画区域外の面積要件として正しいものはどれか。",
+      "opts": [
+        "3000㎡以上",
+        "5000㎡以上",
+        "10000㎡以上",
+        "20000㎡以上"
+      ],
+      "ans": 1,
+      "exp": "都市計画区域外（準都市計画区域を除く）の土地取引は10000㎡（1ha）以上が事後届出の対象です（国土利用計画法23条2項1号）。市街化区域2000㎡・その他都市計画区域5000㎡と比べて面積要件が大きいです。",
+      "publicPath": "q/practice/p10617/index.html"
+    },
+    {
+      "id": 910618,
+      "year": "orig",
+      "num": 10618,
+      "field": "rights",
+      "text": "遺言の種類として民法が定める普通方式の遺言に含まれないものはどれか。",
+      "opts": [
+        "自筆証書遺言",
+        "公正証書遺言",
+        "秘密証書遺言",
+        "口頭遺言"
+      ],
+      "ans": 2,
+      "exp": "民法が定める普通方式の遺言は①自筆証書遺言②公正証書遺言③秘密証書遺言の3種類です（民法967条）。口頭遺言という方式はありません。特別方式として危急時遺言等があります。",
+      "publicPath": "q/practice/p10618/index.html"
+    },
+    {
+      "id": 910619,
+      "year": "orig",
+      "num": 10619,
+      "field": "rights",
+      "text": "遺留分を持つ相続人として正しいものはどれか。",
+      "opts": [
+        "配偶者・子・父母・兄弟姉妹",
+        "配偶者・子・父母（直系尊属）のみ（兄弟姉妹には遺留分なし）",
+        "子のみ",
+        "全ての法定相続人"
+      ],
+      "ans": 0,
+      "exp": "遺留分を持つのは配偶者・子（代襲相続人を含む）・直系尊属です（民法1042条）。兄弟姉妹には遺留分がありません。遺留分の割合は直系尊属のみが相続人の場合は1/3、それ以外は1/2です。",
+      "publicPath": "q/practice/p10619/index.html"
+    },
+    {
+      "id": 910620,
+      "year": "orig",
+      "num": 10620,
+      "field": "rights",
+      "text": "自筆証書遺言の要件として正しいものはどれか。",
+      "opts": [
+        "証人2名以上の立会いが必要",
+        "全文・日付・氏名を自書し押印が必要（財産目録はパソコン作成可）",
+        "公証人役場での作成が必要",
+        "録音・録画でも有効"
+      ],
+      "ans": 0,
+      "exp": "自筆証書遺言は全文・日付・氏名を自書し押印することで成立します（民法968条）。2019年改正で財産目録（通帳のコピー等）はパソコン作成も可能になりましたが、各頁に署名押印が必要です。",
+      "publicPath": "q/practice/p10620/index.html"
+    },
+    {
+      "id": 910621,
+      "year": "orig",
+      "num": 10621,
+      "field": "rights",
+      "text": "相続放棄の期間として正しいものはどれか。",
+      "opts": [
+        "相続開始を知った日から1か月以内",
+        "相続開始を知った日から3か月以内（熟慮期間）",
+        "相続開始後いつでも可",
+        "遺産分割協議前のみ可"
+      ],
+      "ans": 0,
+      "exp": "相続放棄は相続開始を知った時から3か月以内（熟慮期間）に家庭裁判所に申述しなければなりません（民法915条・938条）。この期間の延長を家庭裁判所に申請することもできます。",
+      "publicPath": "q/practice/p10621/index.html"
+    },
+    {
+      "id": 910622,
+      "year": "orig",
+      "num": 10622,
       "field": "rights",
       "text": "配偶者居住権の説明として正しいものはどれか。",
       "opts": [
@@ -12306,14 +9950,62 @@ const PRACTICE_QUESTIONS = {
         "配偶者が生前に合意した場合のみ取得できる",
         "居住権は登記できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "配偶者居住権は2020年施行の民法改正で新設されました（民法1028条）。相続開始時に被相続人所有の建物に居住していた配偶者が遺産分割・遺贈等により取得でき、登記も可能です。",
-      "publicPath": "q/practice/p622/index.html"
+      "publicPath": "q/practice/p10622/index.html"
     },
     {
-      "id": 900626,
+      "id": 910623,
       "year": "orig",
-      "num": 626,
+      "num": 10623,
+      "field": "rights",
+      "text": "不法行為による損害賠償請求権の消滅時効として正しいものはどれか。",
+      "opts": [
+        "損害および加害者を知った時から1年",
+        "損害および加害者を知った時から3年（人身損害は5年）",
+        "不法行為時から10年",
+        "損害を知った時から5年"
+      ],
+      "ans": 0,
+      "exp": "不法行為による損害賠償請求権は被害者が損害および加害者を知った時から3年（生命・身体への損害は5年）または不法行為の時から20年で消滅します（民法724条）。",
+      "publicPath": "q/practice/p10623/index.html"
+    },
+    {
+      "id": 910624,
+      "year": "orig",
+      "num": 10624,
+      "field": "rights",
+      "text": "使用者責任（民法715条）の成立要件として正しいものはどれか。",
+      "opts": [
+        "被用者の行為に故意が必要",
+        "被用者が事業の執行について第三者に損害を与えたこと",
+        "使用者が直接加害行為をしたこと",
+        "使用者・被用者が同一の場所にいたこと"
+      ],
+      "ans": 0,
+      "exp": "使用者責任は被用者（従業員等）が「事業の執行について」第三者に損害を加えた場合に使用者が負う責任です（民法715条）。使用者は選任・監督に相当の注意をしたことを証明すれば免責されます。",
+      "publicPath": "q/practice/p10624/index.html"
+    },
+    {
+      "id": 910625,
+      "year": "orig",
+      "num": 10625,
+      "field": "rights",
+      "text": "不当利得返還請求権の要件として正しいものはどれか。",
+      "opts": [
+        "相手方の故意・過失が必要",
+        "法律上の原因なく他人の財産または労務により利益を受け、それによって他人に損失を与えたこと",
+        "相手方に損害が生じたこと",
+        "契約書の存在が必要"
+      ],
+      "ans": 0,
+      "exp": "不当利得は①法律上の原因がないこと②受益があること③他人の損失があること④因果関係があることで成立します（民法703条）。相手方の故意・過失は不要です。",
+      "publicPath": "q/practice/p10625/index.html"
+    },
+    {
+      "id": 910626,
+      "year": "orig",
+      "num": 10626,
       "field": "rights",
       "text": "工作物責任（民法717条）において第一次的に責任を負う者として正しいものはどれか。",
       "opts": [
@@ -12322,14 +10014,46 @@ const PRACTICE_QUESTIONS = {
         "建設した工事業者",
         "近隣住民"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "工作物責任は第一次的に工作物の「占有者」が負い、占有者が損害防止に必要な注意をしていた場合は所有者が無過失責任を負います（民法717条）。所有者の責任は無過失責任（免責不可）です。",
-      "publicPath": "q/practice/p626/index.html"
+      "publicPath": "q/practice/p10626/index.html"
     },
     {
-      "id": 900629,
+      "id": 910627,
       "year": "orig",
-      "num": 629,
+      "num": 10627,
+      "field": "rights",
+      "text": "代理行為の効果帰属先として正しいものはどれか。",
+      "opts": [
+        "代理人",
+        "本人（委任者）",
+        "相手方",
+        "代理人と本人が半分ずつ"
+      ],
+      "ans": 0,
+      "exp": "代理人が代理権の範囲内で本人のためにすることを示して（顕名）行った法律行為の効果は直接本人に帰属します（民法99条）。",
+      "publicPath": "q/practice/p10627/index.html"
+    },
+    {
+      "id": 910628,
+      "year": "orig",
+      "num": 10628,
+      "field": "rights",
+      "text": "無権代理人が相手方に負う責任として正しいものはどれか。",
+      "opts": [
+        "無権代理人は一切の責任を負わない",
+        "相手方の選択により履行または損害賠償の責任を負う（善意無過失の相手方に対して）",
+        "本人が必ず追認しなければならない",
+        "相手方のみが責任を負う"
+      ],
+      "ans": 0,
+      "exp": "無権代理人は相手方が善意無過失の場合、相手方の選択に従い契約の履行または損害賠償の責任を負います（民法117条）。相手方が悪意または有過失の場合は無権代理人の責任は生じません。",
+      "publicPath": "q/practice/p10628/index.html"
+    },
+    {
+      "id": 910629,
+      "year": "orig",
+      "num": 10629,
       "field": "rights",
       "text": "代理権の濫用（自己または第三者の利益のための代理権行使）の効果として正しいものはどれか（判例・改正民法）。",
       "opts": [
@@ -12338,14 +10062,142 @@ const PRACTICE_QUESTIONS = {
         "代理人が個人責任を負うのみ",
         "本人は無条件に取り消せる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代理権の濫用は2020年民法改正で明文化され（民法107条）、相手方が代理人の目的を知りまたは知ることができた場合は代理権のない行為（無権代理）とみなされます。",
-      "publicPath": "q/practice/p629/index.html"
+      "publicPath": "q/practice/p10629/index.html"
     },
     {
-      "id": 900638,
+      "id": 910630,
       "year": "orig",
-      "num": 638,
+      "num": 10630,
+      "field": "rights",
+      "text": "売買契約における手付金の種類として「解約手付」の説明として正しいものはどれか。",
+      "opts": [
+        "契約成立の証拠として交付される手付",
+        "違約した場合に没収される手付",
+        "買主は手付を放棄し、売主は手付の倍額を返すことで解除できる手付",
+        "相手方の同意が必要な手付"
+      ],
+      "ans": 1,
+      "exp": "解約手付とは買主は手付を放棄し、売主は手付の倍額を現実に提供することで相手方が履行に着手するまでの間は契約を解除できる手付です（民法557条）。",
+      "publicPath": "q/practice/p10630/index.html"
+    },
+    {
+      "id": 910631,
+      "year": "orig",
+      "num": 10631,
+      "field": "rights",
+      "text": "売買代金の支払いと目的物引渡しの関係として正しいものはどれか。",
+      "opts": [
+        "常に代金を先払いしなければならない",
+        "代金の支払いと目的物の引渡しは同時履行の関係にある",
+        "引渡しが先でなければならない",
+        "法律上の定めはなく全て当事者の合意による"
+      ],
+      "ans": 0,
+      "exp": "売買における代金支払いと目的物引渡しは同時履行の関係にあります（民法533条）。一方は相手方が履行または履行の提供をするまで自己の債務の履行を拒絶できます。",
+      "publicPath": "q/practice/p10631/index.html"
+    },
+    {
+      "id": 910632,
+      "year": "orig",
+      "num": 10632,
+      "field": "rights",
+      "text": "賃借人が賃料を支払わない場合の賃貸人の対応として正しいものはどれか。",
+      "opts": [
+        "直ちに鍵を交換して追い出せる",
+        "賃料不払いを理由に解除するには原則として催告が必要で、信頼関係破壊の程度に応じて判断される",
+        "1か月の不払いで即時解除できる",
+        "賃貸借契約は解除できない"
+      ],
+      "ans": 0,
+      "exp": "賃貸借の解除は単なる債務不履行（賃料不払い）があれば即時解除できるのではなく、信頼関係が破壊されるほどの不払いがあって初めて解除できるとするのが判例の立場です（信頼関係破壊の法理）。",
+      "publicPath": "q/practice/p10632/index.html"
+    },
+    {
+      "id": 910633,
+      "year": "orig",
+      "num": 10633,
+      "field": "rights",
+      "text": "敷金の返還について正しいものはどれか（2020年民法改正後）。",
+      "opts": [
+        "敷金は退去後いつ返還してもよい",
+        "賃貸借終了後の目的物返還時に、未払い賃料等を控除した残額を返還しなければならない",
+        "敷金は返還しなくてよい",
+        "敷金の返還時期は賃貸人が自由に決定できる"
+      ],
+      "ans": 0,
+      "exp": "2020年施行の民法改正で敷金規定が明文化されました（民法622条の2）。賃貸借終了と目的物の返還の後、賃借人の未払い賃料等の債務を控除した残額を返還しなければなりません。",
+      "publicPath": "q/practice/p10633/index.html"
+    },
+    {
+      "id": 910634,
+      "year": "orig",
+      "num": 10634,
+      "field": "rights",
+      "text": "抵当権の被担保債権として認められないものはどれか。",
+      "opts": [
+        "金銭消費貸借契約上の貸金債権",
+        "売買代金債権",
+        "将来生じる債権（根抵当権の場合）",
+        "不法行為に基づく損害賠償債権（抵当権設定時に発生している場合）"
+      ],
+      "ans": 2,
+      "exp": "抵当権の被担保債権は原則として抵当権設定時に特定されている必要があります。不法行為による損害賠償債権は将来発生が不確実であり、設定時点では特定困難なため通常の抵当権の被担保債権としては認められにくいです。",
+      "publicPath": "q/practice/p10634/index.html"
+    },
+    {
+      "id": 910635,
+      "year": "orig",
+      "num": 10635,
+      "field": "rights",
+      "text": "抵当権の実行方法として正しいものはどれか。",
+      "opts": [
+        "抵当権者が直接目的物を占有して売却できる",
+        "競売（裁判所の競売手続き）または担保不動産収益執行",
+        "任意売却のみ",
+        "抵当権者が自由に処分できる"
+      ],
+      "ans": 0,
+      "exp": "抵当権の実行は①競売（裁判所による競売手続き）②担保不動産収益執行（賃料等を収取して弁済に充てる）の方法があります（民法180条以下、民事執行法）。",
+      "publicPath": "q/practice/p10635/index.html"
+    },
+    {
+      "id": 910636,
+      "year": "orig",
+      "num": 10636,
+      "field": "rights",
+      "text": "弁済の充当順序について正しいものはどれか（当事者の合意がない場合）。",
+      "opts": [
+        "元本→利息→費用の順で充当",
+        "費用→利息→元本の順で充当（費用が優先）",
+        "利息→元本→費用",
+        "元本のみに充当"
+      ],
+      "ans": 0,
+      "exp": "弁済の充当は費用→利息→元本の順で行います（民法489条）。費用・利息が残っている場合は元本には充当されないため、債務者は元本が減っていると思っていても利息が蓄積している場合があります。",
+      "publicPath": "q/practice/p10636/index.html"
+    },
+    {
+      "id": 910637,
+      "year": "orig",
+      "num": 10637,
+      "field": "rights",
+      "text": "履行遅滞の成立要件として正しいものはどれか。",
+      "opts": [
+        "債務者が弁済の意思表示をすれば遅滞にならない",
+        "履行が可能であるのに弁済期が到来しているにもかかわらず債務者が正当な理由なく履行しないこと",
+        "履行期前の履行拒絶でも遅滞が成立する",
+        "不可抗力でも遅滞が成立する"
+      ],
+      "ans": 0,
+      "exp": "履行遅滞は①履行が可能②弁済期到来③履行しない④違法（帰責事由がある）の要件で成立します（民法412条）。不可抗力等の帰責事由がない場合は遅滞の責任を負いません（改正民法）。",
+      "publicPath": "q/practice/p10637/index.html"
+    },
+    {
+      "id": 910638,
+      "year": "orig",
+      "num": 10638,
       "field": "rights",
       "text": "第三者弁済の可否について正しいものはどれか（2020年改正後）。",
       "opts": [
@@ -12354,14 +10206,1646 @@ const PRACTICE_QUESTIONS = {
         "第三者は債権者の同意があれば弁済できる",
         "第三者弁済は無効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年民法改正後、第三者弁済は原則可能ですが①債務の性質が許さない場合②当事者の反対意思表示がある場合は不可、また③正当な利益を有しない第三者は債務者の意思に反して弁済できません（民法474条）。",
-      "publicPath": "q/practice/p638/index.html"
+      "publicPath": "q/practice/p10638/index.html"
     },
     {
-      "id": 900741,
+      "id": 910639,
       "year": "orig",
-      "num": 741,
+      "num": 10639,
+      "field": "rights",
+      "text": "取得時効における占有の要件として「自主占有」とは何か。",
+      "opts": [
+        "占有者本人が直接占有していること",
+        "所有の意思をもって占有すること",
+        "占有期間が長いこと",
+        "公示された占有であること"
+      ],
+      "ans": 0,
+      "exp": "自主占有とは所有の意思をもってする占有のことです（民法162条）。賃借人の占有は他主占有（所有の意思なし）であり、取得時効は成立しません。",
+      "publicPath": "q/practice/p10639/index.html"
+    },
+    {
+      "id": 910640,
+      "year": "orig",
+      "num": 10640,
+      "field": "rights",
+      "text": "消滅時効の「更新」事由として正しいものはどれか。",
+      "opts": [
+        "裁判上の請求",
+        "確定判決・債務の承認等",
+        "仮差押え・仮処分",
+        "協議を行う旨の合意"
+      ],
+      "ans": 0,
+      "exp": "時効の更新（旧:中断）事由は①確定判決等による権利確定②強制執行等の終了③債務の承認です（民法152条）。裁判上の請求・仮差押え・協議合意は完成猶予事由です。",
+      "publicPath": "q/practice/p10640/index.html"
+    },
+    {
+      "id": 910641,
+      "year": "orig",
+      "num": 10641,
+      "field": "rights",
+      "text": "不動産の二重譲渡で第一買主Bが登記を備えた場合の効力として正しいものはどれか。",
+      "opts": [
+        "先に契約したCが優先する",
+        "先に登記したBが所有権を取得しCに対抗できる",
+        "売主Aが所有権を保持する",
+        "価格が高い方が優先する"
+      ],
+      "ans": 0,
+      "exp": "不動産の二重譲渡では先に登記を備えた者が所有権を対抗できます（民法177条）。契約の先後ではなく登記の先後で決まります。",
+      "publicPath": "q/practice/p10641/index.html"
+    },
+    {
+      "id": 910642,
+      "year": "orig",
+      "num": 10642,
+      "field": "rights",
+      "text": "抵当権設定後に抵当不動産の所有者が変わった場合（第三取得者）の対抗として正しいものはどれか。",
+      "opts": [
+        "第三取得者は抵当権の負担のない所有権を取得する",
+        "第三取得者は抵当権の負担を承継し、抵当権が実行されれば競売で所有権を失う可能性がある",
+        "抵当権は自動的に消滅する",
+        "第三取得者は抵当権者に損害賠償を請求できる"
+      ],
+      "ans": 0,
+      "exp": "抵当権は登記があれば第三取得者にも対抗できます（民法177条）。第三取得者は抵当権の負担を承継し、代価弁済・抵当権消滅請求等の制度を利用して抵当権を消滅させることができます（民法378条・379条）。",
+      "publicPath": "q/practice/p10642/index.html"
+    },
+    {
+      "id": 910643,
+      "year": "orig",
+      "num": 10643,
+      "field": "rights",
+      "text": "制限行為能力者制度における「被保佐人」について正しいものはどれか。",
+      "opts": [
+        "すべての法律行為を保佐人が代理する",
+        "不動産売買・借財など重要な法律行為について保佐人の同意が必要",
+        "日常的な買い物も保佐人の同意が必要",
+        "被保佐人は完全に行為能力を制限される"
+      ],
+      "ans": 0,
+      "exp": "被保佐人は精神上の障害により判断能力が著しく不十分な者で、不動産の売買・借財・保証等の重要な行為（民法13条1項）について保佐人の同意が必要です。日常的な行為は単独で可能です。",
+      "publicPath": "q/practice/p10643/index.html"
+    },
+    {
+      "id": 910644,
+      "year": "orig",
+      "num": 10644,
+      "field": "rights",
+      "text": "詐欺による意思表示の取消しと第三者の保護について正しいものはどれか。",
+      "opts": [
+        "取消しは全ての第三者に対抗できる",
+        "取消し前の善意かつ無過失の第三者には対抗できない",
+        "取消し後の第三者には登記なしに対抗できる",
+        "善意であれば過失があっても保護される"
+      ],
+      "ans": 0,
+      "exp": "詐欺取消し前の善意かつ無過失の第三者には取消しを対抗できません（民法96条3項）。取消し後の第三者との関係は対抗問題（登記の先後）で処理されます。",
+      "publicPath": "q/practice/p10644/index.html"
+    },
+    {
+      "id": 910645,
+      "year": "orig",
+      "num": 10645,
+      "field": "rights",
+      "text": "区分所有建物において「専有部分」として認められる要件として正しいものはどれか。",
+      "opts": [
+        "建物の外壁であれば専有部分になる",
+        "構造上の独立性と利用上の独立性を備えた建物の部分",
+        "廊下・エレベーターも専有部分にできる",
+        "面積が30㎡以上あれば専有部分"
+      ],
+      "ans": 0,
+      "exp": "専有部分とは区分所有権の目的となる建物の部分で、構造上区分されていること（構造上の独立性）と独立して住居・店舗等として利用できること（利用上の独立性）の両方を備えた部分です（区分所有法1条）。",
+      "publicPath": "q/practice/p10645/index.html"
+    },
+    {
+      "id": 910646,
+      "year": "orig",
+      "num": 10646,
+      "field": "rights",
+      "text": "管理組合の集会の招集について正しいものはどれか。",
+      "opts": [
+        "いつでも任意に開催できる",
+        "管理者は毎年1回以上集会を招集しなければならない",
+        "区分所有者の過半数の請求があれば翌日に開催しなければならない",
+        "集会は書面決議で代替できるため開催不要"
+      ],
+      "ans": 0,
+      "exp": "管理者は毎年1回以上集会を招集しなければなりません（区分所有法34条2項）。区分所有者の5分の1以上・議決権の5分の1以上の請求があれば管理者は集会を招集する義務があります。",
+      "publicPath": "q/practice/p10646/index.html"
+    },
+    {
+      "id": 910647,
+      "year": "orig",
+      "num": 10647,
+      "field": "rights",
+      "text": "登記記録の構成として正しいものはどれか。",
+      "opts": [
+        "表題部のみからなる",
+        "表題部（土地・建物の物理的状況）と権利部（甲区・乙区）からなる",
+        "権利部のみからなる",
+        "所有者部と担保部からなる"
+      ],
+      "ans": 0,
+      "exp": "不動産登記記録は表題部（土地・建物の所在・地番・種類・構造・面積等の物理的状況）と権利部（甲区：所有権に関する事項、乙区：所有権以外の権利に関する事項）から構成されます（不動産登記法12条）。",
+      "publicPath": "q/practice/p10647/index.html"
+    },
+    {
+      "id": 910648,
+      "year": "orig",
+      "num": 10648,
+      "field": "rights",
+      "text": "登記の推定力について正しいものはどれか。",
+      "opts": [
+        "登記があれば権利の存在が絶対的に証明される",
+        "登記がある場合は登記通りの実体関係が存在すると推定されるが、公信力はない",
+        "登記は単なる行政上の記録であり法的効力はない",
+        "登記は当事者間でのみ効力を持つ"
+      ],
+      "ans": 0,
+      "exp": "日本の不動産登記には推定力はありますが公信力はありません。登記を信頼して取引した者でも、真の権利者が別にいる場合は保護されない場合があります（対比：動産の即時取得は公信力あり）。",
+      "publicPath": "q/practice/p10648/index.html"
+    },
+    {
+      "id": 910649,
+      "year": "orig",
+      "num": 10649,
+      "field": "rights",
+      "text": "普通借家権の存続期間の最短として正しいものはどれか。",
+      "opts": [
+        "1年未満は期間の定めのない契約とみなされる",
+        "6か月未満は期間の定めのない契約とみなされる",
+        "3か月未満は無効",
+        "制限なし"
+      ],
+      "ans": 0,
+      "exp": "借地借家法上、期間を1年未満と定めた建物賃貸借は期間の定めのない賃貸借とみなされます（借地借家法29条1項）。",
+      "publicPath": "q/practice/p10649/index.html"
+    },
+    {
+      "id": 910650,
+      "year": "orig",
+      "num": 10650,
+      "field": "rights",
+      "text": "借家権の対抗要件として正しいものはどれか。",
+      "opts": [
+        "賃貸借契約書の公証",
+        "建物の引渡し",
+        "賃借権の登記（のみ）",
+        "敷金の支払い"
+      ],
+      "ans": 0,
+      "exp": "建物賃借権の対抗要件は「建物の引渡し」です（借地借家法31条）。引渡しを受けていれば賃借権の登記がなくても新所有者等の第三者に対抗できます。",
+      "publicPath": "q/practice/p10650/index.html"
+    },
+    {
+      "id": 910651,
+      "year": "orig",
+      "num": 10651,
+      "field": "rights",
+      "text": "民法上の境界線付近の建築制限として正しいものはどれか。",
+      "opts": [
+        "境界線から30cm以上離して建築しなければならない",
+        "境界線から50cm以上離して建築しなければならない",
+        "距離制限はない",
+        "1m以上離す必要がある"
+      ],
+      "ans": 0,
+      "exp": "民法237条により境界線から50cm以上離して建物を築造しなければなりません。ただし建築基準法の防火地域内では外壁を境界線に接して設けることができます（建築基準法65条）。",
+      "publicPath": "q/practice/p10651/index.html"
+    },
+    {
+      "id": 910652,
+      "year": "orig",
+      "num": 10652,
+      "field": "rights",
+      "text": "隣地使用権（民法209条）について正しいものはどれか（2021年改正後）。",
+      "opts": [
+        "隣地使用は隣人の同意がなければ一切できない",
+        "境界の調査・境界標設置・建物の修繕等のためなら必要な範囲で隣地を使用できる（隣人への通知が原則必要）",
+        "隣地使用は無条件に認められる",
+        "隣地使用の対価は不要"
+      ],
+      "ans": 0,
+      "exp": "2021年民法改正で隣地使用権が拡充されました（民法209条）。境界確認・境界標設置・建物の建築・修繕等の目的があれば必要な範囲で隣地使用が認められます。原則として事前に隣人に通知する必要があります。",
+      "publicPath": "q/practice/p10652/index.html"
+    },
+    {
+      "id": 910653,
+      "year": "orig",
+      "num": 10653,
+      "field": "law",
+      "text": "宅建業の免許の種類として正しいものはどれか。",
+      "opts": [
+        "国土交通大臣免許のみ",
+        "都道府県知事免許のみ",
+        "国土交通大臣免許（2都道府県以上に事務所）と都道府県知事免許（1都道府県内のみ）の2種類",
+        "市町村長免許もある"
+      ],
+      "ans": 1,
+      "exp": "宅建業の免許は2以上の都道府県に事務所を設置する場合は国土交通大臣免許、1つの都道府県内にのみ事務所を設置する場合は都道府県知事免許です（宅建業法3条）。",
+      "publicPath": "q/practice/p10653/index.html"
+    },
+    {
+      "id": 910654,
+      "year": "orig",
+      "num": 10654,
+      "field": "law",
+      "text": "免許換えが必要な場合として正しいものはどれか。",
+      "opts": [
+        "事務所の移転（同じ都道府県内）",
+        "知事免許業者が他の都道府県にも事務所を設置した場合",
+        "代表者が変更になった場合",
+        "従業員数が増加した場合"
+      ],
+      "ans": 0,
+      "exp": "都道府県知事免許を受けた業者が他の都道府県にも事務所を設置した場合は、国土交通大臣免許への免許換えが必要です（宅建業法7条）。同一都道府県内の移転は免許換え不要です。",
+      "publicPath": "q/practice/p10654/index.html"
+    },
+    {
+      "id": 910655,
+      "year": "orig",
+      "num": 10655,
+      "field": "law",
+      "text": "専任の宅建士の設置義務について正しいものはどれか。",
+      "opts": [
+        "全ての従業員が宅建士でなければならない",
+        "事務所では業務に従事する者5名につき1名以上の専任の宅建士が必要",
+        "10名につき1名で足りる",
+        "宅建士は1事務所に1名いれば足りる"
+      ],
+      "ans": 0,
+      "exp": "宅建業者の事務所には業務に従事する者5名につき1名以上の専任の宅建士を置かなければなりません（宅建業法31条の3第1項）。5名未満でも1名以上必要です。",
+      "publicPath": "q/practice/p10655/index.html"
+    },
+    {
+      "id": 910656,
+      "year": "orig",
+      "num": 10656,
+      "field": "law",
+      "text": "宅建士証の返納義務が生じる場合として正しいものはどれか。",
+      "opts": [
+        "宅建士証の有効期間が満了した時",
+        "事務禁止処分を受けた場合（処分期間中は返納）",
+        "転職した場合",
+        "引越しした場合"
+      ],
+      "ans": 0,
+      "exp": "宅建士が事務禁止処分を受けた場合は、処分の期間中、宅建士証を知事に提出（返納）しなければなりません（宅建業法22条の2第7項）。有効期間満了時も更新しない場合は返納が必要です。",
+      "publicPath": "q/practice/p10656/index.html"
+    },
+    {
+      "id": 910657,
+      "year": "orig",
+      "num": 10657,
+      "field": "law",
+      "text": "営業保証金として供託できるものとして正しいものはどれか。",
+      "opts": [
+        "現金のみ",
+        "現金または国債証券・地方債証券等の有価証券",
+        "土地や建物",
+        "株式のみ"
+      ],
+      "ans": 0,
+      "exp": "営業保証金は現金または国債証券・地方債証券・政府保証債等の有価証券で供託できます（宅建業法25条3項）。有価証券は額面金額で計算されますが、種類により評価率が異なります。",
+      "publicPath": "q/practice/p10657/index.html"
+    },
+    {
+      "id": 910658,
+      "year": "orig",
+      "num": 10658,
+      "field": "law",
+      "text": "営業保証金の取戻し（供託金の回収）ができる場合として正しいものはどれか。",
+      "opts": [
+        "事業年度終了時",
+        "廃業・免許失効等の場合に、還付請求権者への公告期間（6か月以上）経過後",
+        "いつでも取戻せる",
+        "還付を受けた者が全員同意した場合"
+      ],
+      "ans": 0,
+      "exp": "営業保証金の取戻しは廃業・免許失効等の場合に、還付請求権を有する者への公告（6か月以上）を行い、当該期間内に還付請求がなければ取り戻すことができます（宅建業法30条）。",
+      "publicPath": "q/practice/p10658/index.html"
+    },
+    {
+      "id": 910659,
+      "year": "orig",
+      "num": 10659,
+      "field": "law",
+      "text": "専任媒介契約の有効期間満了後の更新について正しいものはどれか。",
+      "opts": [
+        "自動更新できる",
+        "依頼者からの申出があった場合のみ更新でき、更新後の期間も3か月以内",
+        "更新は無制限に可能",
+        "一度締結したら解除できない"
+      ],
+      "ans": 0,
+      "exp": "専任媒介契約は依頼者から申出があった場合のみ更新でき、更新後の有効期間も3か月以内です（宅建業法34条の2第4項）。業者側からの自動更新・押しつけ更新は禁止されています。",
+      "publicPath": "q/practice/p10659/index.html"
+    },
+    {
+      "id": 910660,
+      "year": "orig",
+      "num": 10660,
+      "field": "law",
+      "text": "専属専任媒介契約で自己発見取引（依頼者が自分で相手方を見つけた）をした場合について正しいものはどれか。",
+      "opts": [
+        "自己発見取引は自由にできる",
+        "依頼した宅建業者を通さずに直接契約することはできない",
+        "違約金を払えば自己発見取引できる",
+        "宅建業者の承諾があれば可能"
+      ],
+      "ans": 0,
+      "exp": "専属専任媒介契約では依頼者は宅建業者が探した相手方以外とも直接取引することが禁止されています（宅建業法34条の2第9項）。これは専任媒介（自己発見OK）との大きな違いです。",
+      "publicPath": "q/practice/p10660/index.html"
+    },
+    {
+      "id": 910661,
+      "year": "orig",
+      "num": 10661,
+      "field": "law",
+      "text": "重要事項説明の時期として正しいものはどれか。",
+      "opts": [
+        "契約締結後速やかに",
+        "契約締結前に行わなければならない",
+        "引渡し前であればいつでもよい",
+        "代金支払い後に行う"
+      ],
+      "ans": 0,
+      "exp": "重要事項説明は必ず契約締結前に行わなければなりません（宅建業法35条）。説明を受けた後に買主・借主が契約締結するか否かを判断できるようにするためです。",
+      "publicPath": "q/practice/p10661/index.html"
+    },
+    {
+      "id": 910662,
+      "year": "orig",
+      "num": 10662,
+      "field": "law",
+      "text": "賃貸借の重要事項説明で特に記載が必要な事項として正しいものはどれか。",
+      "opts": [
+        "賃料のみ記載すればよい",
+        "台所・浴室・便所等の設備の整備状況・契約期間・更新・定期建物賃貸借の旨等",
+        "近隣の賃料相場",
+        "建物の将来の価値予想"
+      ],
+      "ans": 0,
+      "exp": "建物の賃貸借の重要事項説明には台所・浴室・便所・洗面所等の設備の整備状況、契約終了時の措置、契約期間・更新、定期建物賃貸借である旨等を記載する必要があります（宅建業法35条1項）。",
+      "publicPath": "q/practice/p10662/index.html"
+    },
+    {
+      "id": 910663,
+      "year": "orig",
+      "num": 10663,
+      "field": "law",
+      "text": "37条書面の交付義務者として正しいものはどれか。",
+      "opts": [
+        "売主のみ",
+        "媒介した宅建業者（売主・買主双方に交付）",
+        "買主のみ",
+        "公証人"
+      ],
+      "ans": 0,
+      "exp": "37条書面は宅建業者が当事者の双方（売主・買主、または貸主・借主）に対して遅滞なく交付しなければなりません（宅建業法37条1項）。媒介の場合も宅建業者が作成して交付します。",
+      "publicPath": "q/practice/p10663/index.html"
+    },
+    {
+      "id": 910664,
+      "year": "orig",
+      "num": 10664,
+      "field": "law",
+      "text": "37条書面の任意的記載事項（定めがあれば記載）として正しいものはどれか。",
+      "opts": [
+        "代金の額",
+        "物件の所在地",
+        "ローン条件（融資利用の場合）・危険負担・瑕疵担保の内容等",
+        "引渡し時期"
+      ],
+      "ans": 1,
+      "exp": "37条書面の任意的記載事項は定めがある場合にのみ記載すればよい事項で、ローン条件・危険負担の特約・契約不適合責任に関する特約・天災等免責特約等が含まれます。代金・所在地・引渡し時期は必要的記載事項です。",
+      "publicPath": "q/practice/p10664/index.html"
+    },
+    {
+      "id": 910665,
+      "year": "orig",
+      "num": 10665,
+      "field": "law",
+      "text": "損害賠償の予定額の制限（宅建業法38条）として正しいものはどれか。",
+      "opts": [
+        "代金の10%以下",
+        "代金の20%以下（違約金と合算）",
+        "代金の30%以下",
+        "制限なし"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が自ら売主の場合、損害賠償額の予定と違約金を合算した金額は代金の20%を超えてはなりません（宅建業法38条）。超過した部分は無効です。",
+      "publicPath": "q/practice/p10665/index.html"
+    },
+    {
+      "id": 910666,
+      "year": "orig",
+      "num": 10666,
+      "field": "law",
+      "text": "手付額の制限（宅建業法39条）として正しいものはどれか。",
+      "opts": [
+        "代金の10%以下",
+        "代金の20%以下",
+        "代金の30%以下",
+        "制限なし"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が自ら売主の場合、手付金の額は代金の20%を超えてはなりません（宅建業法39条）。これを超える手付を受け取った場合、超過分は無効で返還しなければなりません。",
+      "publicPath": "q/practice/p10666/index.html"
+    },
+    {
+      "id": 910667,
+      "year": "orig",
+      "num": 10667,
+      "field": "law",
+      "text": "800万円以下の低廉な空家等の売買媒介の場合の報酬特例として正しいものはどれか。",
+      "opts": [
+        "通常の報酬上限と変わらない",
+        "原則の報酬額を超えて30万円（税別）まで報酬を受け取れる場合がある（依頼者への説明と合意が必要）",
+        "制限なく報酬を受け取れる",
+        "報酬は受け取れない"
+      ],
+      "ans": 0,
+      "exp": "宅建業者は売買代金800万円以下の低廉な空家等の売買・交換の媒介をする場合、依頼者への説明と合意を前提に、原則の報酬額を超えて30万円（税別）まで報酬を受け取れる場合があります（宅建業法46条・報酬告示）。",
+      "publicPath": "q/practice/p10667/index.html"
+    },
+    {
+      "id": 910668,
+      "year": "orig",
+      "num": 10668,
+      "field": "law",
+      "text": "居住用建物以外の賃貸借媒介の報酬上限として正しいものはどれか。",
+      "opts": [
+        "借賃の0.5か月分",
+        "借賃の1か月分",
+        "借賃の2か月分",
+        "借賃の3か月分"
+      ],
+      "ans": 0,
+      "exp": "居住用建物以外の建物（事務所・店舗等）の賃貸借媒介の場合、依頼者双方から受け取る報酬の合計上限は借賃の1か月分（税別）です。居住用と同じ上限ですが依頼者一方から1か月分全額受取りができます。",
+      "publicPath": "q/practice/p10668/index.html"
+    },
+    {
+      "id": 910669,
+      "year": "orig",
+      "num": 10669,
+      "field": "law",
+      "text": "宅建業者に対する指示処分の内容として正しいものはどれか。",
+      "opts": [
+        "免許を取り消す処分",
+        "一定期間の業務停止を命じる処分",
+        "業務の適正な運営または取引の公正を確保するため必要な措置を命じる処分",
+        "罰金を科す処分"
+      ],
+      "ans": 1,
+      "exp": "指示処分は業務の適正な運営または取引の公正を確保するために必要な措置を取るよう命じる行政処分です（宅建業法65条1項）。業務停止・免許取消より軽い処分です。",
+      "publicPath": "q/practice/p10669/index.html"
+    },
+    {
+      "id": 910670,
+      "year": "orig",
+      "num": 10670,
+      "field": "law",
+      "text": "宅建業者が受けた行政処分を公表する制度として正しいものはどれか。",
+      "opts": [
+        "公表制度は存在しない",
+        "国土交通大臣・都道府県知事は処分内容を公告しなければならない",
+        "公表は任意",
+        "業界団体のみが公表する"
+      ],
+      "ans": 0,
+      "exp": "国土交通大臣または都道府県知事は指示処分・業務停止処分・免許取消処分を行ったときはその旨を公告しなければなりません（宅建業法70条）。消費者保護のための情報開示です。",
+      "publicPath": "q/practice/p10670/index.html"
+    },
+    {
+      "id": 910671,
+      "year": "orig",
+      "num": 10671,
+      "field": "law",
+      "text": "住宅瑕疵担保責任保険の加入先として正しいものはどれか。",
+      "opts": [
+        "国土交通省",
+        "国土交通大臣が指定した住宅瑕疵担保責任保険法人",
+        "都道府県",
+        "市町村"
+      ],
+      "ans": 0,
+      "exp": "住宅瑕疵担保責任保険は国土交通大臣が指定した保険法人（例：住宅保証機構・JIO等）に加入します（住宅瑕疵担保履行法19条）。",
+      "publicPath": "q/practice/p10671/index.html"
+    },
+    {
+      "id": 910672,
+      "year": "orig",
+      "num": 10672,
+      "field": "law",
+      "text": "住宅品質確保法（品確法）における「住宅性能表示制度」の利用について正しいものはどれか。",
+      "opts": [
+        "全ての住宅の取引に義務付けられている",
+        "任意の制度で、申請により第三者機関が性能を評価・表示する",
+        "国土交通省が直接評価する",
+        "性能表示を受けると固定資産税が免除される"
+      ],
+      "ans": 0,
+      "exp": "住宅性能表示制度は任意の制度で、事業者が申請することにより登録住宅性能評価機関が設計・建設段階で住宅の性能を評価し表示します（住宅品質確保法5条）。",
+      "publicPath": "q/practice/p10672/index.html"
+    },
+    {
+      "id": 910673,
+      "year": "orig",
+      "num": 10673,
+      "field": "law",
+      "text": "宅建業者が行う広告に関して「おとり広告」とは何か。",
+      "opts": [
+        "実際には存在しない・取引できない物件を広告すること",
+        "価格を安く見せる広告",
+        "写真を加工した広告",
+        "周辺環境を偽った広告"
+      ],
+      "ans": 0,
+      "exp": "おとり広告とは実際には存在しない物件・取引できない物件・既に取引が成立した物件を広告して顧客を集め、別の物件へ誘導する行為です。不当表示として宅建業法・景品表示法で禁止されています。",
+      "publicPath": "q/practice/p10673/index.html"
+    },
+    {
+      "id": 910674,
+      "year": "orig",
+      "num": 10674,
+      "field": "law",
+      "text": "未完成物件の広告表示で許容されるものはどれか。",
+      "opts": [
+        "完成予想図（CGパース）を使用した広告",
+        "実際より広く見える写真を使用した広告",
+        "周辺環境を実際と異なって表示した広告",
+        "開発許可前に行う広告"
+      ],
+      "ans": 0,
+      "exp": "未完成物件でも開発許可・建築確認後であれば広告ができます。完成予想図（CGパース）は使用可能ですが、その旨（「完成予想図」等）を明示する必要があります。実際と大きく異なる誇大表示は禁止です。",
+      "publicPath": "q/practice/p10674/index.html"
+    },
+    {
+      "id": 910675,
+      "year": "orig",
+      "num": 10675,
+      "field": "tax",
+      "text": "売買による所有権移転登記の登録免許税率として正しいものはどれか。",
+      "opts": [
+        "0.4%",
+        "1.0%",
+        "2.0%",
+        "3.0%"
+      ],
+      "ans": 1,
+      "exp": "売買による所有権移転登記の税率は2.0%です（登録免許税法別表1）。一定の住宅要件を満たす場合は軽減税率0.3%が適用されます。",
+      "publicPath": "q/practice/p10675/index.html"
+    },
+    {
+      "id": 910676,
+      "year": "orig",
+      "num": 10676,
+      "field": "tax",
+      "text": "法人合併による所有権移転登記の税率として正しいものはどれか。",
+      "opts": [
+        "2.0%",
+        "1.0%",
+        "0.4%",
+        "0.1%"
+      ],
+      "ans": 1,
+      "exp": "法人合併による所有権移転登記の税率は0.4%です（登録免許税法別表1）。相続・合併は売買（2.0%）より低率です。",
+      "publicPath": "q/practice/p10676/index.html"
+    },
+    {
+      "id": 910677,
+      "year": "orig",
+      "num": 10677,
+      "field": "tax",
+      "text": "不動産取得税の課税主体として正しいものはどれか。",
+      "opts": [
+        "国",
+        "市町村",
+        "都道府県",
+        "固定資産評価委員会"
+      ],
+      "ans": 1,
+      "exp": "不動産取得税は都道府県が課す地方税です（地方税法73条の2）。市町村税ではありません。",
+      "publicPath": "q/practice/p10677/index.html"
+    },
+    {
+      "id": 910678,
+      "year": "orig",
+      "num": 10678,
+      "field": "tax",
+      "text": "固定資産税の課税主体として正しいものはどれか。",
+      "opts": [
+        "国",
+        "都道府県",
+        "市町村（東京23区は都）",
+        "固定資産評価委員会"
+      ],
+      "ans": 1,
+      "exp": "固定資産税は市町村が課す地方税です（地方税法343条）。東京23区内は都が課税します。",
+      "publicPath": "q/practice/p10678/index.html"
+    },
+    {
+      "id": 910679,
+      "year": "orig",
+      "num": 10679,
+      "field": "tax",
+      "text": "不動産を売却した場合の譲渡所得の課税方式として正しいものはどれか。",
+      "opts": [
+        "他の所得と合算して総合課税される",
+        "分離課税（他の所得と合算しない）",
+        "源泉分離課税",
+        "非課税"
+      ],
+      "ans": 0,
+      "exp": "不動産の譲渡所得は他の所得と合算しない申告分離課税です（租税特別措置法31条）。保有期間5年以下が短期（39%）、5年超が長期（20%）で税率が異なります。",
+      "publicPath": "q/practice/p10679/index.html"
+    },
+    {
+      "id": 910680,
+      "year": "orig",
+      "num": 10680,
+      "field": "limit",
+      "text": "都市計画区域の指定権者として正しいものはどれか。",
+      "opts": [
+        "市町村長",
+        "都道府県知事（一定の場合は国土交通大臣）",
+        "農業委員会",
+        "国土交通大臣のみ"
+      ],
+      "ans": 0,
+      "exp": "都市計画区域は都道府県が指定します（都市計画法5条1項）。2以上の都府県にわたる場合は国土交通大臣が指定します。",
+      "publicPath": "q/practice/p10680/index.html"
+    },
+    {
+      "id": 910681,
+      "year": "orig",
+      "num": 10681,
+      "field": "limit",
+      "text": "建築確認が必要な工事として正しいものはどれか。",
+      "opts": [
+        "外壁の塗り替えのみ",
+        "木造2階建て以上または延べ面積500㎡超の建築物の新築",
+        "ブロック塀の設置のみ",
+        "内装工事のみ"
+      ],
+      "ans": 0,
+      "exp": "木造の場合は3階建て以上または延べ面積500㎡超または高さ13m超または軒高9m超の建築物の新築・増改築等に建築確認が必要です（建築基準法6条）。",
+      "publicPath": "q/practice/p10681/index.html"
+    },
+    {
+      "id": 910682,
+      "year": "orig",
+      "num": 10682,
+      "field": "rights",
+      "text": "成年被後見人が行った法律行為の効力として正しいものはどれか。",
+      "opts": [
+        "取り消すことができる",
+        "当然に無効",
+        "有効",
+        "後見人が追認すれば有効"
+      ],
+      "ans": 0,
+      "exp": "成年被後見人（後見開始の審判を受けた者）が行った法律行為は取り消すことができます（民法9条）。日用品の購入等は例外として有効です。",
+      "publicPath": "q/practice/p10682/index.html"
+    },
+    {
+      "id": 910683,
+      "year": "orig",
+      "num": 10683,
+      "field": "rights",
+      "text": "代理権の消滅事由として正しいものはどれか。",
+      "opts": [
+        "代理人の転居",
+        "本人の死亡・破産・代理人の死亡・後見開始の審判等",
+        "代理人の結婚",
+        "代理の目的物の価値変動"
+      ],
+      "ans": 0,
+      "exp": "代理権は①本人の死亡②本人の破産③代理人の死亡④代理人の後見開始の審判・破産等により消滅します（民法111条）。任意代理は本人の死亡・破産で消滅しますが、法定代理は本人の破産では消滅しません。",
+      "publicPath": "q/practice/p10683/index.html"
+    },
+    {
+      "id": 910684,
+      "year": "orig",
+      "num": 10684,
+      "field": "rights",
+      "text": "遺産分割協議の成立要件として正しいものはどれか。",
+      "opts": [
+        "相続人の過半数の同意",
+        "相続人全員の合意",
+        "家庭裁判所の許可",
+        "公証人の認証"
+      ],
+      "ans": 0,
+      "exp": "遺産分割協議は共同相続人全員が参加し全員の合意によって成立します（民法907条）。一人でも欠けた協議は無効となります。",
+      "publicPath": "q/practice/p10684/index.html"
+    },
+    {
+      "id": 910685,
+      "year": "orig",
+      "num": 10685,
+      "field": "rights",
+      "text": "不法行為の一般的成立要件として不要なものはどれか。",
+      "opts": [
+        "故意または過失",
+        "権利・法律上保護される利益の侵害",
+        "損害の発生",
+        "契約関係の存在"
+      ],
+      "ans": 2,
+      "exp": "不法行為の成立には①故意または過失②権利・法益の侵害③損害の発生④因果関係が必要です（民法709条）。契約関係は不要であり、見知らぬ相手に対する不法行為も成立します。",
+      "publicPath": "q/practice/p10685/index.html"
+    },
+    {
+      "id": 910686,
+      "year": "orig",
+      "num": 10686,
+      "field": "rights",
+      "text": "質権と抵当権の最大の違いとして正しいものはどれか。",
+      "opts": [
+        "質権は不動産にのみ設定できる",
+        "質権は目的物を占有する担保、抵当権は占有しない担保",
+        "抵当権は動産に設定できる",
+        "両者に違いはない"
+      ],
+      "ans": 0,
+      "exp": "質権は目的物を債権者（質権者）が占有する占有担保物権、抵当権は目的物を設定者が引き続き使用・収益できる非占有担保物権です（民法342条・369条）。",
+      "publicPath": "q/practice/p10686/index.html"
+    },
+    {
+      "id": 910687,
+      "year": "orig",
+      "num": 10687,
+      "field": "rights",
+      "text": "保証債務の付従性として正しいものはどれか。",
+      "opts": [
+        "主債務が消滅しても保証債務は残る",
+        "主債務が消滅すれば保証債務も消滅する",
+        "保証債務は主債務と独立して存在する",
+        "保証人は主債務者よりも重い責任を負う"
+      ],
+      "ans": 0,
+      "exp": "保証債務は主たる債務を担保するものであり、主債務に付従します（付従性・民法448条）。主債務が弁済等で消滅すれば保証債務も消滅します。また保証人の負担は主債務より重くなりません。",
+      "publicPath": "q/practice/p10687/index.html"
+    },
+    {
+      "id": 910688,
+      "year": "orig",
+      "num": 10688,
+      "field": "rights",
+      "text": "売買の目的物に契約不適合があった場合の買主の権利として認められないものはどれか。",
+      "opts": [
+        "追完請求（修補・代替品請求）",
+        "代金減額請求",
+        "解除",
+        "取消し（詐欺や錯誤がない場合でも当然に）"
+      ],
+      "ans": 2,
+      "exp": "契約不適合責任に基づく買主の権利は①追完請求②代金減額請求③解除④損害賠償請求です（民法562条〜564条）。詐欺や錯誤がない限り「取消し」という手段はありません。",
+      "publicPath": "q/practice/p10688/index.html"
+    },
+    {
+      "id": 910689,
+      "year": "orig",
+      "num": 10689,
+      "field": "rights",
+      "text": "建物の賃貸借が終了した場合の原状回復義務について正しいものはどれか。",
+      "opts": [
+        "賃借人は通常損耗（自然損耗）も修繕しなければならない",
+        "通常の使用による損耗・経年劣化は原状回復の対象外で、賃借人の故意・過失による損傷が対象",
+        "全ての修繕費用は賃貸人負担",
+        "賃借人は何も修繕しなくてよい"
+      ],
+      "ans": 0,
+      "exp": "原状回復は賃借人が通常の使用を超えて発生させた損傷を回復することです（国土交通省ガイドライン・民法621条）。通常損耗（自然損耗・経年劣化）は賃貸人負担が原則で、賃借人の責任は故意・過失等による損傷に限られます。",
+      "publicPath": "q/practice/p10689/index.html"
+    },
+    {
+      "id": 910690,
+      "year": "orig",
+      "num": 10690,
+      "field": "rights",
+      "text": "消滅時効における「権利を行使することができる時」（客観的起算点）の例として正しいものはどれか。",
+      "opts": [
+        "債権者が債権の存在を知った時",
+        "弁済期（履行期）が到来した時",
+        "契約締結時",
+        "登記をした時"
+      ],
+      "ans": 0,
+      "exp": "消滅時効の客観的起算点は「権利を行使することができる時」（民法166条1項2号）で、弁済期が定められている債権は弁済期到来時が起算点です。主観的起算点（知った時から5年）との短い方で時効が完成します。",
+      "publicPath": "q/practice/p10690/index.html"
+    },
+    {
+      "id": 910691,
+      "year": "orig",
+      "num": 10691,
+      "field": "rights",
+      "text": "登記の申請に必要な「登記原因証明情報」として正しいものはどれか。",
+      "opts": [
+        "戸籍謄本",
+        "売買契約書等、登記原因となった法律行為・事実を証する情報",
+        "固定資産税評価証明書",
+        "住民票"
+      ],
+      "ans": 0,
+      "exp": "登記原因証明情報とは登記の原因となった法律行為・事実を証する情報です（不動産登記法61条）。売買の場合は売買契約書、相続の場合は遺産分割協議書・戸籍謄本等が該当します。",
+      "publicPath": "q/practice/p10691/index.html"
+    },
+    {
+      "id": 910692,
+      "year": "orig",
+      "num": 10692,
+      "field": "rights",
+      "text": "集会の決議が成立するための定足数について正しいものはどれか。",
+      "opts": [
+        "区分所有者全員が出席しなければならない",
+        "議決権の過半数を有する区分所有者の出席（または議決権行使書・代理人）で成立（規約で別段の定め可）",
+        "出席者数にかかわらず成立する",
+        "3分の2以上の出席が必要"
+      ],
+      "ans": 0,
+      "exp": "区分所有法上、集会の議事は区分所有者の議決権の過半数で決します（区分所有法39条1項）。出席者数の定足数規定はありませんが、規約で定めることができます。議決権行使書・代理人による行使も認められます。",
+      "publicPath": "q/practice/p10692/index.html"
+    },
+    {
+      "id": 910693,
+      "year": "orig",
+      "num": 10693,
+      "field": "rights",
+      "text": "建物の表題登記の申請義務について正しいものはどれか。",
+      "opts": [
+        "任意で申請しなくてよい",
+        "新築建物の所有者は取得から1か月以内に表題登記を申請しなければならない",
+        "6か月以内でよい",
+        "登記は売買時にのみ行えばよい"
+      ],
+      "ans": 0,
+      "exp": "新築建物の所有者は建物の取得から1か月以内に表題登記を申請する義務があります（不動産登記法47条）。正当な理由なく怠った場合は10万円以下の過料が科されます。",
+      "publicPath": "q/practice/p10693/index.html"
+    },
+    {
+      "id": 910694,
+      "year": "orig",
+      "num": 10694,
+      "field": "rights",
+      "text": "借地権の存続期間満了時に建物がある場合の取扱いとして正しいものはどれか（普通借地権）。",
+      "opts": [
+        "借地人は直ちに建物を収去して土地を返還しなければならない",
+        "借地人は契約の更新を請求でき、建物がある場合は法定更新が認められる",
+        "建物は地主の所有となる",
+        "借地権は自動的に消滅する"
+      ],
+      "ans": 0,
+      "exp": "普通借地権は期間満了時に借地人が契約の更新を請求した場合、または建物があって借地人が土地を使用継続した場合は法定更新されます（借地借家法5条）。地主が更新拒絶するには正当事由が必要です。",
+      "publicPath": "q/practice/p10694/index.html"
+    },
+    {
+      "id": 910695,
+      "year": "orig",
+      "num": 10695,
+      "field": "rights",
+      "text": "公道に至るための他の土地の通行権（囲繞地通行権）について正しいものはどれか。",
+      "opts": [
+        "他の土地の所有者は通行を拒否できる",
+        "公道に至るため他の土地を囲まれている土地の所有者は囲繞地を通行できる（償金が必要な場合あり）",
+        "通行権は無償で無制限に認められる",
+        "建物がある場合のみ認められる"
+      ],
+      "ans": 0,
+      "exp": "囲繞地通行権（民法210条）は公道に至るため他の土地に囲まれた土地の所有者に認められる法定の通行権です。通行の場所・方法は必要最小限で、囲繞地所有者には原則として償金を支払う義務があります（民法212条）。",
+      "publicPath": "q/practice/p10695/index.html"
+    },
+    {
+      "id": 910696,
+      "year": "orig",
+      "num": 10696,
+      "field": "law",
+      "text": "宅建業の免許申請から免許の効力発生までの流れとして正しいものはどれか。",
+      "opts": [
+        "申請と同時に効力が生じる",
+        "申請→審査→免許通知→営業保証金の供託→業務開始の順で行う",
+        "免許取得後すぐに業務開始できる",
+        "保証協会加入後に申請する"
+      ],
+      "ans": 0,
+      "exp": "宅建業の免許を取得後、業務を開始するには主たる事務所の最寄りの供託所に営業保証金を供託し、その旨を免許権者に届け出る必要があります（宅建業法25条）。保証協会に加入する場合は分担金納付後に届け出ます。",
+      "publicPath": "q/practice/p10696/index.html"
+    },
+    {
+      "id": 910697,
+      "year": "orig",
+      "num": 10697,
+      "field": "law",
+      "text": "宅建士登録の移転について正しいものはどれか。",
+      "opts": [
+        "宅建士登録は全国共通で移転不要",
+        "勤務先の宅建業者の事務所が他の都道府県に変わった場合、登録の移転申請ができる（義務ではない）",
+        "転居したら必ず登録移転が必要",
+        "登録移転は禁止されている"
+      ],
+      "ans": 0,
+      "exp": "宅建士は勤務先等の変更により他の都道府県に変わった場合に登録の移転申請ができます（宅建業法19条の2）。これは義務ではなく任意です。登録移転すると宅建士証の有効期間も引き継がれます（残期間のみ）。",
+      "publicPath": "q/practice/p10697/index.html"
+    },
+    {
+      "id": 910698,
+      "year": "orig",
+      "num": 10698,
+      "field": "law",
+      "text": "営業保証金の額（従たる事務所1か所あたり）として正しいものはどれか。",
+      "opts": [
+        "100万円",
+        "300万円",
+        "500万円",
+        "1000万円"
+      ],
+      "ans": 1,
+      "exp": "営業保証金は主たる事務所1000万円、従たる事務所1か所につき500万円です（宅建業法25条2項）。保証協会加入の場合の分担金は主たる事務所60万円・従たる事務所30万円と大幅に少額です。",
+      "publicPath": "q/practice/p10698/index.html"
+    },
+    {
+      "id": 910699,
+      "year": "orig",
+      "num": 10699,
+      "field": "law",
+      "text": "媒介契約書面への記名義務者として正しいものはどれか。",
+      "opts": [
+        "宅建士のみが記名する",
+        "宅建業者（法人の場合は代表者等）が記名する",
+        "媒介契約書への記名義務はない",
+        "依頼者と宅建業者の双方が記名する"
+      ],
+      "ans": 0,
+      "exp": "媒介契約書（34条の2の書面）は宅建業者が記名して交付します（宅建業法34条の2第1項）。2021年改正で押印は廃止され記名のみとなりました。重要事項説明書・37条書面は宅建士の記名が必要です。",
+      "publicPath": "q/practice/p10699/index.html"
+    },
+    {
+      "id": 910700,
+      "year": "orig",
+      "num": 10700,
+      "field": "law",
+      "text": "重要事項説明書（35条書面）への記名義務者として正しいものはどれか。",
+      "opts": [
+        "宅建業者（会社の代表者）",
+        "宅建士（説明した宅建士）",
+        "依頼者",
+        "公証人"
+      ],
+      "ans": 0,
+      "exp": "重要事項説明書には説明を行った宅建士が記名しなければなりません（宅建業法35条5項）。2021年改正で押印が廃止され記名のみとなりました。",
+      "publicPath": "q/practice/p10700/index.html"
+    },
+    {
+      "id": 910701,
+      "year": "orig",
+      "num": 10701,
+      "field": "rights",
+      "text": "AがBに対して強迫により売買契約を締結させた場合、取消し後に現れた善意の第三者Cに対してBはどう対抗できるか。",
+      "opts": [
+        "Cが善意であれば対抗できない",
+        "強迫の場合は善意の第三者にも取消しを対抗できる",
+        "登記を備えた場合のみ対抗できる",
+        "Cが悪意の場合のみ対抗できる"
+      ],
+      "ans": 0,
+      "exp": "強迫による取消しは善意の第三者にも対抗できます（民法96条3項の反対解釈）。被強迫者保護のため第三者保護規定は適用されません。取消し後の第三者との関係は登記の先後で決します。",
+      "publicPath": "q/practice/p10701/index.html"
+    },
+    {
+      "id": 910702,
+      "year": "orig",
+      "num": 10702,
+      "field": "rights",
+      "text": "制限行為能力者が代理人として行った法律行為の効力について正しいものはどれか。",
+      "opts": [
+        "制限行為能力者は代理人になれない",
+        "制限行為能力者が代理人としてした行為は行為能力の制限を理由に取り消せない",
+        "制限行為能力者の代理行為は当然に無効",
+        "本人が同意した場合のみ有効"
+      ],
+      "ans": 0,
+      "exp": "制限行為能力者を代理人とした場合、その代理行為は行為能力の制限を理由として取り消すことができません（民法102条）。代理行為の効果は本人に帰属するため本人を保護する必要がないからです。",
+      "publicPath": "q/practice/p10702/index.html"
+    },
+    {
+      "id": 910703,
+      "year": "orig",
+      "num": 10703,
+      "field": "rights",
+      "text": "保証人が主債務者のために弁済した場合の時効の承認の効力として正しいものはどれか。",
+      "opts": [
+        "保証人の承認は主債務者にも時効更新の効力が及ぶ",
+        "保証人の承認は主債務者には及ばず相対的効力のみ",
+        "連帯保証人の承認は主債務の時効を更新する",
+        "保証人の弁済は時効に何の影響もない"
+      ],
+      "ans": 0,
+      "exp": "保証人が主債務の時効を承認しても、その効力は主債務者には及びません（相対的効力）。時効の承認の効果は承認をした者に限られます（民法152条）。",
+      "publicPath": "q/practice/p10703/index.html"
+    },
+    {
+      "id": 910704,
+      "year": "orig",
+      "num": 10704,
+      "field": "rights",
+      "text": "賃料を被担保債権とする抵当権の物上代位について正しいものはどれか。",
+      "opts": [
+        "賃料への物上代位は認められない",
+        "抵当権の物上代位として賃料債権に差押えをすることで賃料から優先弁済を受けることができる",
+        "賃料の物上代位には競売開始が必要",
+        "賃料物上代位は賃借人の同意が必要"
+      ],
+      "ans": 0,
+      "exp": "判例により、抵当不動産の賃料債権に対して物上代位が認められています。払渡し前に差押えが必要で（民法304条）、これにより抵当権者は賃料から優先弁済を受けることができます。",
+      "publicPath": "q/practice/p10704/index.html"
+    },
+    {
+      "id": 910705,
+      "year": "orig",
+      "num": 10705,
+      "field": "rights",
+      "text": "連帯保証と通常の保証の最大の違いとして正しいものはどれか。",
+      "opts": [
+        "連帯保証人には催告の抗弁権・検索の抗弁権がある",
+        "連帯保証人には催告の抗弁権・検索の抗弁権・分別の利益がない",
+        "連帯保証人は主債務者と全く同一の義務を負う",
+        "連帯保証は書面でなくても成立する"
+      ],
+      "ans": 0,
+      "exp": "連帯保証人は催告の抗弁権・検索の抗弁権・分別の利益がありません（民法454条）。これが通常の保証との最大の違いです。",
+      "publicPath": "q/practice/p10705/index.html"
+    },
+    {
+      "id": 910706,
+      "year": "orig",
+      "num": 10706,
+      "field": "rights",
+      "text": "売買契約において特約で契約不適合責任を免除した場合の効力として正しいものはどれか。",
+      "opts": [
+        "免除特約は常に有効",
+        "売主が知りながら告げなかった不適合については免除特約の効力は及ばない",
+        "宅建業者の場合は免除特約が有効",
+        "免除特約があれば買主はいかなる権利も行使できない"
+      ],
+      "ans": 0,
+      "exp": "売主が知りながら告げなかった契約不適合については、免除・制限特約の効力は及びません（民法572条）。自ら知っている欠陥を隠して免責を主張することは認められません。",
+      "publicPath": "q/practice/p10706/index.html"
+    },
+    {
+      "id": 910707,
+      "year": "orig",
+      "num": 10707,
+      "field": "rights",
+      "text": "借地権者が地主の承諾なしに建物を増改築した場合の効果として正しいものはどれか。",
+      "opts": [
+        "契約違反であるが解除はできない",
+        "契約に増改築禁止特約があれば解除の原因となりうる",
+        "増改築は常に自由にできる",
+        "地主の事後承諾があれば遡及的に有効になる"
+      ],
+      "ans": 0,
+      "exp": "借地契約に増改築禁止特約がある場合、無断増改築は契約違反となり解除の原因となります。ただし解除には信頼関係破壊の程度が必要です。",
+      "publicPath": "q/practice/p10707/index.html"
+    },
+    {
+      "id": 910708,
+      "year": "orig",
+      "num": 10708,
+      "field": "rights",
+      "text": "相続分の譲渡について正しいものはどれか。",
+      "opts": [
+        "相続分の譲渡は禁止されている",
+        "相続分の譲渡は相続人間でのみ可能",
+        "相続分は相続人以外の第三者にも譲渡できる",
+        "相続分の譲渡には家庭裁判所の許可が必要"
+      ],
+      "ans": 1,
+      "exp": "相続分は相続人以外の第三者にも譲渡することができます（民法905条）。ただし他の相続人は一定期間内に対価を支払って相続分を取り戻すことができます（相続分の取戻権）。",
+      "publicPath": "q/practice/p10708/index.html"
+    },
+    {
+      "id": 910709,
+      "year": "orig",
+      "num": 10709,
+      "field": "rights",
+      "text": "名誉毀損による不法行為の特則として正しいものはどれか。",
+      "opts": [
+        "財産的損害のみ賠償請求できる",
+        "慰謝料も請求でき原状回復措置（謝罪広告等）の請求も認められる",
+        "名誉毀損は不法行為にならない",
+        "故意の場合のみ損害賠償できる"
+      ],
+      "ans": 0,
+      "exp": "名誉毀損等の人格権侵害では財産的損害・精神的損害（慰謝料）の賠償請求ができ、裁判所は名誉回復のための適当な処分（謝罪広告等）を命じることもできます（民法723条）。",
+      "publicPath": "q/practice/p10709/index.html"
+    },
+    {
+      "id": 910710,
+      "year": "orig",
+      "num": 10710,
+      "field": "rights",
+      "text": "建物買取請求権（借地借家法13条）について正しいものはどれか。",
+      "opts": [
+        "借地契約更新拒絶時に借地人が地主に建物を時価で買い取ることを請求できる権利",
+        "地主が借地人に建物を買い取るよう請求できる権利",
+        "期間満了に関係なく行使できる",
+        "地主の合意が必要な権利"
+      ],
+      "ans": 0,
+      "exp": "建物買取請求権は、借地契約の更新が拒絶された場合に借地人が地主に対して借地上の建物を時価で買い取ることを請求できる権利です（借地借家法13条1項）。形成権であり地主の承諾は不要です。",
+      "publicPath": "q/practice/p10710/index.html"
+    },
+    {
+      "id": 910711,
+      "year": "orig",
+      "num": 10711,
+      "field": "rights",
+      "text": "区分所有建物の管理費の滞納について正しいものはどれか。",
+      "opts": [
+        "管理組合は滞納者の専有部分を競売できる",
+        "管理組合は特定承継人（新たな区分所有者）にも未払い管理費を請求できる",
+        "管理費の滞納は損害賠償のみが認められる",
+        "管理費請求権の時効は20年"
+      ],
+      "ans": 0,
+      "exp": "管理費等の債権は区分所有者の特定承継人（売買等で所有権を取得した者）に対しても行使できます（区分所有法8条）。",
+      "publicPath": "q/practice/p10711/index.html"
+    },
+    {
+      "id": 910712,
+      "year": "orig",
+      "num": 10712,
+      "field": "rights",
+      "text": "登記申請時に必要な「登記識別情報」について正しいものはどれか。",
+      "opts": [
+        "登記申請後に法務局から送られてくるもので次回の登記に必要",
+        "登記完了後に通知される英数字のパスワードで紛失しても再発行されない",
+        "登記識別情報は誰でも閲覧できる",
+        "登記識別情報は紙の権利書と同じ"
+      ],
+      "ans": 0,
+      "exp": "登記識別情報は登記完了後に登記権利者に通知される12桁の英数字情報です（不動産登記法21条）。紛失・失念しても再発行されないため厳重に管理する必要があります。",
+      "publicPath": "q/practice/p10712/index.html"
+    },
+    {
+      "id": 910713,
+      "year": "orig",
+      "num": 10713,
+      "field": "rights",
+      "text": "竹木の枝・根の越境について正しいものはどれか（2021年改正後）。",
+      "opts": [
+        "隣地の竹木の枝・根はいつでも自由に切除できる",
+        "根は自己の費用で切除できるが枝は原則として竹木の所有者に切除を請求する必要がある",
+        "枝も根も自由に切除できる",
+        "越境した場合は損害賠償のみ"
+      ],
+      "ans": 0,
+      "exp": "2021年民法改正で竹木越境ルールが明確化されました（民法233条）。根は自ら切除できますが、枝は原則として所有者に切除を請求します。ただし所有者が不明・催告後相当期間経過・急迫の事情がある場合は自ら切除できます。",
+      "publicPath": "q/practice/p10713/index.html"
+    },
+    {
+      "id": 910714,
+      "year": "orig",
+      "num": 10714,
+      "field": "law",
+      "text": "宅建業者が事務所以外の場所を「案内所」として設置する場合に必要な手続きとして正しいものはどれか。",
+      "opts": [
+        "免許権者への事前届出（開設10日前まで）と専任の宅建士の設置",
+        "何も必要ない",
+        "許可申請が必要",
+        "設置後速やかに届出すればよい"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が一時的な案内所等を設置する場合は業務開始の10日前までに免許権者へ届出が必要です（宅建業法50条2項）。また業務に従事する者が1名以上いる場合は専任の宅建士も1名以上必要です。",
+      "publicPath": "q/practice/p10714/index.html"
+    },
+    {
+      "id": 910715,
+      "year": "orig",
+      "num": 10715,
+      "field": "law",
+      "text": "宅建士が宅建士証の有効期間の更新をしない場合の手続きとして正しいものはどれか。",
+      "opts": [
+        "何もしなくてよい",
+        "有効期間満了時に宅建士証を知事に返納しなければならない",
+        "宅建士証は自動的に失効するため返納不要",
+        "廃業届を提出する"
+      ],
+      "ans": 0,
+      "exp": "宅建士証の有効期間が満了した場合等には宅建士証を速やかに交付を受けた都道府県知事に返納しなければなりません（宅建業法22条の2第6項）。",
+      "publicPath": "q/practice/p10715/index.html"
+    },
+    {
+      "id": 910716,
+      "year": "orig",
+      "num": 10716,
+      "field": "law",
+      "text": "保証協会の社員が還付により不足が生じた場合の補充について正しいものはどれか。",
+      "opts": [
+        "保証協会が全額補充する",
+        "還付充当金として不足額を保証協会に納付しなければならない（通知から2週間以内）",
+        "補充の義務はない",
+        "国が補充する"
+      ],
+      "ans": 0,
+      "exp": "弁済業務保証金から還付がなされた場合、保証協会は社員に対して還付充当金の納付を通知します。社員はその通知を受けた日から2週間以内に還付充当金を納付しなければなりません（宅建業法64条の10）。",
+      "publicPath": "q/practice/p10716/index.html"
+    },
+    {
+      "id": 910717,
+      "year": "orig",
+      "num": 10717,
+      "field": "law",
+      "text": "指定流通機構（レインズ）の目的として正しいものはどれか。",
+      "opts": [
+        "業者の収益を増やすため",
+        "不動産流通市場の活性化・情報の共有・取引の透明化のため",
+        "買主への情報提供のため",
+        "税務管理のため"
+      ],
+      "ans": 0,
+      "exp": "指定流通機構（レインズ）は不動産流通の活性化・情報の共有・取引の透明性確保を目的とした物件情報システムです（宅建業法34条の2第5〜7項）。専任・専属専任媒介では登録が義務付けられています。",
+      "publicPath": "q/practice/p10717/index.html"
+    },
+    {
+      "id": 910718,
+      "year": "orig",
+      "num": 10718,
+      "field": "law",
+      "text": "土砂災害警戒区域内の不動産売買における重要事項説明として正しいものはどれか。",
+      "opts": [
+        "特別な説明義務はない",
+        "土砂災害警戒区域または土砂災害特別警戒区域内である旨を説明しなければならない",
+        "危険性があることを口頭で告げればよい",
+        "買主が希望した場合のみ説明する"
+      ],
+      "ans": 0,
+      "exp": "土砂災害警戒区域等における土砂災害防止対策の推進に関する法律に基づく区域内である旨は重要事項として説明する義務があります（宅建業法35条1項14号）。",
+      "publicPath": "q/practice/p10718/index.html"
+    },
+    {
+      "id": 910719,
+      "year": "orig",
+      "num": 10719,
+      "field": "law",
+      "text": "37条書面に記載する「移転登記申請の時期」について正しいものはどれか。",
+      "opts": [
+        "法律上の規定はなく任意",
+        "売買契約では定めがある場合に記載する任意的記載事項",
+        "引渡しと同時と定めた場合も含め必ず記載する必要的記載事項",
+        "引渡し後30日以内が法定されている"
+      ],
+      "ans": 1,
+      "exp": "「移転登記申請の時期」は37条書面の必要的記載事項です（宅建業法37条1項5号）。引渡しと同時・代金完済後等、具体的な時期を記載する必要があります。",
+      "publicPath": "q/practice/p10719/index.html"
+    },
+    {
+      "id": 910720,
+      "year": "orig",
+      "num": 10720,
+      "field": "law",
+      "text": "宅建業法上の「取引態様の明示義務」について正しいものはどれか。",
+      "opts": [
+        "広告時には不要で注文を受けた時のみ明示すればよい",
+        "広告する際と注文を受けた際の両方において取引態様を明示しなければならない",
+        "取引態様の明示は口頭で足りる",
+        "取引態様の明示違反に罰則はない"
+      ],
+      "ans": 0,
+      "exp": "宅建業者は広告をするときと注文を受けた場合の両方で取引態様の明示が義務付けられています（宅建業法34条）。売主・代理・媒介のいずれかを明示することで取引の透明性を確保します。",
+      "publicPath": "q/practice/p10720/index.html"
+    },
+    {
+      "id": 910721,
+      "year": "orig",
+      "num": 10721,
+      "field": "law",
+      "text": "手付解除について正しいものはどれか（宅建業者が自ら売主の場合）。",
+      "opts": [
+        "売主・買主はいつでも手付解除できる",
+        "相手方が契約の履行に着手するまでは手付解除ができる",
+        "履行着手後も手付解除できる",
+        "手付を支払っても解除はできない"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が自ら売主の場合、手付解除は相手方が履行に着手するまでの間に行う必要があります（宅建業法39条2項準用・民法557条）。売主からの解除は手付の倍額を現実に提供することが必要です。",
+      "publicPath": "q/practice/p10721/index.html"
+    },
+    {
+      "id": 910722,
+      "year": "orig",
+      "num": 10722,
+      "field": "law",
+      "text": "売買の代理と媒介では報酬の上限はどう違うか。",
+      "opts": [
+        "代理も媒介も上限は同じ",
+        "代理の場合は媒介の上限額の2倍まで受け取れる（双方代理の場合は各自から媒介の1倍が上限）",
+        "代理のほうが低い",
+        "代理には報酬制限がない"
+      ],
+      "ans": 0,
+      "exp": "代理の場合、依頼者から受け取れる報酬は媒介の場合の2倍が上限です。ただし双方代理なら各自から媒介の1倍が上限です（報酬告示）。",
+      "publicPath": "q/practice/p10722/index.html"
+    },
+    {
+      "id": 910723,
+      "year": "orig",
+      "num": 10723,
+      "field": "law",
+      "text": "宅建業法に基づく「立入検査」の権限について正しいものはどれか。",
+      "opts": [
+        "捜査令状がなければ立入検査できない",
+        "国土交通大臣または都道府県知事は事務所等への立入検査ができる",
+        "立入検査は業者の同意が必要",
+        "立入検査は年1回に限られる"
+      ],
+      "ans": 0,
+      "exp": "国土交通大臣または都道府県知事は宅建業の適正な運営の確保のため宅建業者の事務所等に立入り帳簿・書類の検査や関係者への質問ができます（宅建業法72条）。業者は正当な理由なく拒否できません。",
+      "publicPath": "q/practice/p10723/index.html"
+    },
+    {
+      "id": 910724,
+      "year": "orig",
+      "num": 10724,
+      "field": "law",
+      "text": "宅建業者が買主に対して行う手付金等の保全措置の種類として正しいものはどれか。",
+      "opts": [
+        "保証保険のみ",
+        "保証保険・保証委託・指定保管機関による保管の3種類",
+        "保証協会への預け入れのみ",
+        "法務局への供託のみ"
+      ],
+      "ans": 0,
+      "exp": "手付金等の保全措置の方法は①保証保険（保険会社）②保証委託（銀行等の連帯保証）③指定保管機関（保証協会等）による保管の3種類です（宅建業法41条の2）。未完成物件は①②のみです。",
+      "publicPath": "q/practice/p10724/index.html"
+    },
+    {
+      "id": 910725,
+      "year": "orig",
+      "num": 10725,
+      "field": "limit",
+      "text": "都市計画区域マスタープランの策定者として正しいものはどれか。",
+      "opts": [
+        "市町村",
+        "都道府県",
+        "国土交通大臣",
+        "市町村と都道府県の共同"
+      ],
+      "ans": 0,
+      "exp": "都市計画区域の整備・開発・保全の方針（マスタープラン）は都道府県が定めます（都市計画法6条の2）。市町村は市町村マスタープランを定めます（同法18条の2）。",
+      "publicPath": "q/practice/p10725/index.html"
+    },
+    {
+      "id": 910726,
+      "year": "orig",
+      "num": 10726,
+      "field": "limit",
+      "text": "用途地域のうち「商業地域」で建築できない建築物として正しいものはどれか。",
+      "opts": [
+        "百貨店・大型ショッピングモール",
+        "映画館・カラオケ",
+        "住宅",
+        "危険物の製造・貯蔵で一定規模を超えるもの"
+      ],
+      "ans": 2,
+      "exp": "商業地域は最も制限が緩く住宅・商業施設・映画館等ほぼ全て建築できますが、危険物の製造・貯蔵で一定規模を超えるものや特定の工場は建築できません（建築基準法別表第二）。",
+      "publicPath": "q/practice/p10726/index.html"
+    },
+    {
+      "id": 910727,
+      "year": "orig",
+      "num": 10727,
+      "field": "limit",
+      "text": "日影規制（建築基準法56条の2）の対象となる建築物として正しいものはどれか。",
+      "opts": [
+        "すべての建築物",
+        "用途地域が定められた地域内の一定高さ以上の建築物",
+        "日影規制は存在しない",
+        "住宅のみ対象"
+      ],
+      "ans": 0,
+      "exp": "日影規制は用途地域が定められた地域内（商業地域・工業地域等を除く）で一定の高さを超える建築物を対象として冬至日の日影時間を規制します（建築基準法56条の2）。",
+      "publicPath": "q/practice/p10727/index.html"
+    },
+    {
+      "id": 910728,
+      "year": "orig",
+      "num": 10728,
+      "field": "limit",
+      "text": "敷地が2以上の異なる建ぺい率の地域にわたる場合の建ぺい率の算定として正しいものはどれか。",
+      "opts": [
+        "最も緩い地域の建ぺい率を全体に適用",
+        "各地域の面積に応じた加重平均で算定（按分計算）",
+        "最も厳しい地域の建ぺい率を全体に適用",
+        "どちらか選択できる"
+      ],
+      "ans": 0,
+      "exp": "敷地が異なる建ぺい率の地域にわたる場合は各地域の面積の割合に応じた加重平均（按分計算）で建ぺい率の限度を計算します（建築基準法53条2項）。容積率も同様です。",
+      "publicPath": "q/practice/p10728/index.html"
+    },
+    {
+      "id": 910729,
+      "year": "orig",
+      "num": 10729,
+      "field": "limit",
+      "text": "農地法の「農地」判断の原則として正しいものはどれか。",
+      "opts": [
+        "登記簿の地目で判断する",
+        "現況（現在の状態）で判断する（現況主義）",
+        "固定資産税の課税地目で判断する",
+        "農業振興地域内かどうかで判断する"
+      ],
+      "ans": 0,
+      "exp": "農地法上の「農地」は現に耕作の目的に供されている土地を指します（農地法2条）。登記簿の地目が宅地でも現況が農地であれば農地法が適用されます（現況主義）。",
+      "publicPath": "q/practice/p10729/index.html"
+    },
+    {
+      "id": 910730,
+      "year": "orig",
+      "num": 10730,
+      "field": "limit",
+      "text": "土地区画整理事業の換地処分について正しいものはどれか。",
+      "opts": [
+        "換地処分は個々の地権者ごとに行われる",
+        "換地処分の公告があった日の翌日に換地が従前の宅地の所有者に帰属し登記効力が生じる",
+        "換地処分後も従前の宅地所有権は残る",
+        "換地処分には地権者全員の同意が必要"
+      ],
+      "ans": 0,
+      "exp": "換地処分の公告があった日の翌日に換地は従前の宅地とみなされ所有権その他の権利が換地に移行します（土地区画整理法103条4項）。",
+      "publicPath": "q/practice/p10730/index.html"
+    },
+    {
+      "id": 910731,
+      "year": "orig",
+      "num": 10731,
+      "field": "limit",
+      "text": "宅地造成工事規制区域内で許可が不要な造成工事として正しいものはどれか。",
+      "opts": [
+        "高さ2m以下の擁壁の設置",
+        "切土で高さ2m超の場合",
+        "盛土で高さ1m超の場合",
+        "面積500㎡超の盛土"
+      ],
+      "ans": 0,
+      "exp": "宅地造成工事規制区域内であっても高さ2m以下の擁壁の設置など小規模なものは許可不要です（盛土規制法12条1項・令3条）。一定規模（切土2m超・盛土1m超等）を超えると許可が必要です。",
+      "publicPath": "q/practice/p10731/index.html"
+    },
+    {
+      "id": 910732,
+      "year": "orig",
+      "num": 10732,
+      "field": "limit",
+      "text": "国土利用計画法の「規制区域」における土地取引について正しいものはどれか。",
+      "opts": [
+        "規制区域内では事後届出で足りる",
+        "規制区域内での一定の土地取引には都道府県知事の事前許可が必要で許可なき契約は無効",
+        "規制区域の指定には国会の承認が必要",
+        "規制区域は全国に多数指定されている"
+      ],
+      "ans": 0,
+      "exp": "規制区域（国土利用計画法12条）内では一定面積以上の土地取引に都道府県知事の許可が必要で、無許可の契約は無効です。現在はほぼ指定されていません。",
+      "publicPath": "q/practice/p10732/index.html"
+    },
+    {
+      "id": 910733,
+      "year": "orig",
+      "num": 10733,
+      "field": "tax",
+      "text": "不動産の譲渡所得において「取得費」に含まれるものとして正しいものはどれか。",
+      "opts": [
+        "固定資産税",
+        "取得時の仲介手数料・登録免許税・不動産取得税・測量費等",
+        "購入後の修繕費",
+        "取得費は購入価格のみ"
+      ],
+      "ans": 0,
+      "exp": "取得費には購入代金のほか仲介手数料・登録免許税・不動産取得税・測量費・改良費等の取得に要した費用が含まれます（所得税法38条）。固定資産税は取得費に含まれません。",
+      "publicPath": "q/practice/p10733/index.html"
+    },
+    {
+      "id": 910734,
+      "year": "orig",
+      "num": 10734,
+      "field": "tax",
+      "text": "住宅用地の不動産取得税の特例（土地）について正しいものはどれか。",
+      "opts": [
+        "新築住宅を取得した場合、土地には特例はない",
+        "新築住宅を取得した場合の土地は固定資産税評価額の1/2に軽減され一定の控除がある",
+        "土地の不動産取得税は常に非課税",
+        "土地には標準税率4%が適用される"
+      ],
+      "ans": 0,
+      "exp": "住宅用地の不動産取得税では課税標準が固定資産税評価額の1/2に軽減され（地方税法附則11条の5）、さらに新築住宅の敷地については一定の控除額を差し引く特例があります（地方税法73条の24）。",
+      "publicPath": "q/practice/p10734/index.html"
+    },
+    {
+      "id": 910735,
+      "year": "orig",
+      "num": 10735,
+      "field": "tax",
+      "text": "固定資産の価格に不服がある場合の手続きとして正しいものはどれか。",
+      "opts": [
+        "直ちに裁判所に提訴する",
+        "固定資産評価審査委員会に審査申出ができる",
+        "都道府県知事に異議申出する",
+        "国税不服申立て制度による"
+      ],
+      "ans": 0,
+      "exp": "固定資産の価格に不服がある場合は固定資産評価審査委員会に審査の申出ができます（地方税法432条）。基準年度の4月1日から当該年度の納税通知書を受け取った日後3か月を経過する日までが申出期間です。",
+      "publicPath": "q/practice/p10735/index.html"
+    },
+    {
+      "id": 910736,
+      "year": "orig",
+      "num": 10736,
+      "field": "tax",
+      "text": "住宅用家屋の所有権移転登記（売買）の登録免許税の軽減税率を受けるための要件として正しいものはどれか。",
+      "opts": [
+        "新築住宅のみ適用",
+        "床面積50㎡以上・取得後1年以内の登記・自己の居住用・一定の耐震基準等が要件",
+        "築年数制限はない",
+        "法人も適用対象"
+      ],
+      "ans": 0,
+      "exp": "住宅用家屋の所有権移転登記の軽減税率（0.3%）を受けるには床面積50㎡以上・取得後1年以内の登記・自己の居住用・一定の耐震基準等の要件があります（租税特別措置法73条）。",
+      "publicPath": "q/practice/p10736/index.html"
+    },
+    {
+      "id": 910737,
+      "year": "orig",
+      "num": 10737,
+      "field": "tax",
+      "text": "印紙税の「記載金額」が複数ある場合の取扱いとして正しいものはどれか。",
+      "opts": [
+        "最も低い金額を記載金額とする",
+        "最も高い金額を記載金額とする",
+        "合算して記載金額とする",
+        "記載金額のある文書は非課税"
+      ],
+      "ans": 1,
+      "exp": "1通の文書に土地・建物それぞれの売買代金が記載されている場合は、その合計額が記載金額となります（印紙税法基本通達）。",
+      "publicPath": "q/practice/p10737/index.html"
+    },
+    {
+      "id": 910738,
+      "year": "orig",
+      "num": 10738,
+      "field": "tax",
+      "text": "不動産鑑定評価における「正常価格」の定義として正しいものはどれか。",
+      "opts": [
+        "最高値で売却できる価格",
+        "市場で自由な取引が行われるとした場合に通常成立すると認められる適正な価格",
+        "固定資産税評価額に基づく価格",
+        "路線価に基づく価格"
+      ],
+      "ans": 0,
+      "exp": "正常価格とは市場性を有する不動産について現実の社会経済情勢のもとで合理的と考えられる条件を満たす市場で形成されるであろう市場価値を表す適正な価格です（不動産鑑定評価基準）。",
+      "publicPath": "q/practice/p10738/index.html"
+    },
+    {
+      "id": 910739,
+      "year": "orig",
+      "num": 10739,
+      "field": "tax",
+      "text": "住宅金融支援機構の直接融資の対象として正しいものはどれか。",
+      "opts": [
+        "一般の住宅購入者全て（主たる業務）",
+        "災害復興住宅・マンション共用部分の改修・高齢者向け返済特例等の特定用途に限られる",
+        "地方公共団体向けのみ",
+        "商業施設のみ"
+      ],
+      "ans": 0,
+      "exp": "住宅金融支援機構の主な業務は民間金融機関への支援（証券化支援・保険など）です。直接融資は災害復興住宅・マンション共用部分の改修・高齢者向け返済特例等の特定用途に限られます（住宅金融支援機構法13条）。",
+      "publicPath": "q/practice/p10739/index.html"
+    },
+    {
+      "id": 910740,
+      "year": "orig",
+      "num": 10740,
+      "field": "tax",
+      "text": "丘陵地・台地を宅地として利用する場合の特徴として正しいものはどれか。",
+      "opts": [
+        "低湿地より地盤が弱く危険",
+        "地盤が比較的安定しており洪水や液状化のリスクが低い好適な宅地",
+        "常に盛土が必要",
+        "農地に転用しにくい"
+      ],
+      "ans": 0,
+      "exp": "丘陵地・台地は地盤が比較的固く安定しており、洪水・液状化・土砂崩れのリスクが低いため良好な宅地として評価されます。傾斜地では切土・盛土の造成が必要な場合があります。",
+      "publicPath": "q/practice/p10740/index.html"
+    },
+    {
+      "id": 910741,
+      "year": "orig",
+      "num": 10741,
       "field": "rights",
       "text": "心裡留保（民法93条）による意思表示の効力について正しいものはどれか。",
       "opts": [
@@ -12370,14 +11854,14 @@ const PRACTICE_QUESTIONS = {
         "相手方が善意なら常に有効",
         "心裡留保は詐欺の一種"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "心裡留保（冗談や内心で本当のことを思わずにした意思表示）は原則として有効ですが、相手方が表意者の真意を知りまたは知ることができた（悪意または有過失）場合は無効となります（民法93条）。",
-      "publicPath": "q/practice/p741/index.html"
+      "publicPath": "q/practice/p10741/index.html"
     },
     {
-      "id": 900742,
+      "id": 910742,
       "year": "orig",
-      "num": 742,
+      "num": 10742,
       "field": "rights",
       "text": "代理権授与行為と基本契約の関係について正しいものはどれか。",
       "opts": [
@@ -12386,14 +11870,14 @@ const PRACTICE_QUESTIONS = {
         "代理権の授与には公証人の認証が必要",
         "代理権授与は口頭では無効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代理権授与行為（委任状等）は基本となる委任契約とは独立した単独行為です（民法99条）。委任契約が解除・取り消されても代理権授与行為が有効である場合は表見代理の問題が生じます。",
-      "publicPath": "q/practice/p742/index.html"
+      "publicPath": "q/practice/p10742/index.html"
     },
     {
-      "id": 900743,
+      "id": 910743,
       "year": "orig",
-      "num": 743,
+      "num": 10743,
       "field": "rights",
       "text": "担保保存義務の違反について正しいものはどれか。",
       "opts": [
@@ -12402,14 +11886,14 @@ const PRACTICE_QUESTIONS = {
         "担保保存義務違反は損害賠償のみ",
         "物上保証人には適用されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法504条（担保保存義務）により債権者が故意または過失により担保を喪失・減少させた場合、保証人・物上保証人等は担保から利益を受けることができた限度で免責されます。",
-      "publicPath": "q/practice/p743/index.html"
+      "publicPath": "q/practice/p10743/index.html"
     },
     {
-      "id": 900744,
+      "id": 910744,
       "year": "orig",
-      "num": 744,
+      "num": 10744,
       "field": "rights",
       "text": "借家契約における造作買取請求権（借地借家法33条）について正しいものはどれか。",
       "opts": [
@@ -12418,14 +11902,14 @@ const PRACTICE_QUESTIONS = {
         "造作買取請求権は認められていない",
         "賃借人が自費で設置した造作のみ対象"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借家人は賃貸人の同意を得て建物に設置した造作（エアコン等）について、賃貸借終了時に時価での買取りを請求することができます（借地借家法33条1項）。ただし特約で排除できます。",
-      "publicPath": "q/practice/p744/index.html"
+      "publicPath": "q/practice/p10744/index.html"
     },
     {
-      "id": 900745,
+      "id": 910745,
       "year": "orig",
-      "num": 745,
+      "num": 10745,
       "field": "rights",
       "text": "所有権の登記名義人が死亡した後の登記について正しいものはどれか（2024年改正後）。",
       "opts": [
@@ -12434,14 +11918,14 @@ const PRACTICE_QUESTIONS = {
         "10年以内でよい",
         "相続登記は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2024年4月1日施行の改正不動産登記法により、相続または遺産分割で不動産を取得した相続人は取得を知った日から3年以内に相続登記を申請する義務が課されました（不動産登記法76条の2）。違反した場合は10万円以下の過料。",
-      "publicPath": "q/practice/p745/index.html"
+      "publicPath": "q/practice/p10745/index.html"
     },
     {
-      "id": 900746,
+      "id": 910746,
       "year": "orig",
-      "num": 746,
+      "num": 10746,
       "field": "law",
       "text": "免許取消処分を受けた宅建業者の役員が再度宅建業の免許を取得できる時期として正しいものはどれか。",
       "opts": [
@@ -12450,14 +11934,14 @@ const PRACTICE_QUESTIONS = {
         "3年経過後に取得できる",
         "永久に取得できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不正の手段による免許取得・業務停止処分違反等により免許を取り消された者は取消しの日から5年間は免許を受けられません（宅建業法5条1項1号・2号）。その役員も同様に5年の欠格期間が適用されます。",
-      "publicPath": "q/practice/p746/index.html"
+      "publicPath": "q/practice/p10746/index.html"
     },
     {
-      "id": 900747,
+      "id": 910747,
       "year": "orig",
-      "num": 747,
+      "num": 10747,
       "field": "law",
       "text": "重要事項説明をIT（オンライン）で行う場合の要件として正しいものはどれか（IT重説）。",
       "opts": [
@@ -12466,14 +11950,14 @@ const PRACTICE_QUESTIONS = {
         "賃貸のみIT重説が可能",
         "買主の承諾なしに行える"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2017年から賃貸（2021年から売買も含む全取引）でIT重説（テレビ会議等を利用した重要事項説明）が認められています。映像・音声の送受信環境・宅建士証の確認・相手方の意思確認等の要件を満たす必要があります。",
-      "publicPath": "q/practice/p747/index.html"
+      "publicPath": "q/practice/p10747/index.html"
     },
     {
-      "id": 900748,
+      "id": 910748,
       "year": "orig",
-      "num": 748,
+      "num": 10748,
       "field": "limit",
       "text": "市街地開発事業等予定区域について正しいものはどれか。",
       "opts": [
@@ -12482,14 +11966,14 @@ const PRACTICE_QUESTIONS = {
         "農業専用地域の別名",
         "住宅のみ建築可能な区域"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街地開発事業等予定区域は市街地再開発事業等の予定区域として都市計画に定められる区域です（都市計画法12条の2）。指定後は建築・開発が制限され事業施行のために土地利用が抑制されます。",
-      "publicPath": "q/practice/p748/index.html"
+      "publicPath": "q/practice/p10748/index.html"
     },
     {
-      "id": 900749,
+      "id": 910749,
       "year": "orig",
-      "num": 749,
+      "num": 10749,
       "field": "limit",
       "text": "建築基準法における「接道義務」の内容として正しいものはどれか。",
       "opts": [
@@ -12498,14 +11982,142 @@ const PRACTICE_QUESTIONS = {
         "3m接すれば足りる",
         "農地では接道義務がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建築基準法上の接道義務（43条）は建築物の敷地が幅員4m以上の建築基準法上の道路に2m以上接することを原則として求めます。これを満たさない土地は「再建築不可」となります。",
-      "publicPath": "q/practice/p749/index.html"
+      "publicPath": "q/practice/p10749/index.html"
     },
     {
-      "id": 900758,
+      "id": 910750,
       "year": "orig",
-      "num": 758,
+      "num": 10750,
+      "field": "rights",
+      "text": "被保佐人が不動産を売却する場合に必要なものとして正しいものはどれか。",
+      "opts": [
+        "後見人の同意",
+        "保佐人の同意",
+        "成年後見人の同意",
+        "家庭裁判所の許可のみ"
+      ],
+      "ans": 0,
+      "exp": "被保佐人は民法13条1項に列挙された重要な法律行為（不動産売買・借財等）をするには保佐人の同意が必要です（民法13条1項3号）。保佐人の同意を得ずにした行為は取り消すことができます。",
+      "publicPath": "q/practice/p10750/index.html"
+    },
+    {
+      "id": 910751,
+      "year": "orig",
+      "num": 10751,
+      "field": "rights",
+      "text": "代理人が本人のためにすることを示さずに行った法律行為の効力として正しいものはどれか。",
+      "opts": [
+        "無効",
+        "代理行為としての効果は本人に帰属しないが代理人が相手方との関係で義務を負う",
+        "常に本人に効果が帰属する",
+        "相手方の同意があれば本人に帰属する"
+      ],
+      "ans": 0,
+      "exp": "代理人が顕名せずに行った行為は原則として本人に効果が帰属しません（民法100条）。ただし相手方が代理人であることを知りまたは知ることができた場合は本人に帰属します。",
+      "publicPath": "q/practice/p10751/index.html"
+    },
+    {
+      "id": 910752,
+      "year": "orig",
+      "num": 10752,
+      "field": "rights",
+      "text": "先取特権について正しいものはどれか。",
+      "opts": [
+        "当事者の契約により発生する担保物権",
+        "法律の規定により当然に生じる法定担保物権",
+        "登記しなければ効力がない",
+        "不動産にのみ成立する"
+      ],
+      "ans": 0,
+      "exp": "先取特権は法律の規定により当然に成立する法定担保物権です（民法303条）。一般の先取特権・動産先取特権・不動産先取特権の3種があります。",
+      "publicPath": "q/practice/p10752/index.html"
+    },
+    {
+      "id": 910753,
+      "year": "orig",
+      "num": 10753,
+      "field": "rights",
+      "text": "履行不能が生じた場合の損害賠償について正しいものはどれか。",
+      "opts": [
+        "履行不能の場合は損害賠償を請求できない",
+        "債務者の責めに帰すべき事由による履行不能の場合は損害賠償を請求できる",
+        "履行不能は常に損害賠償義務を生じさせる",
+        "不可抗力でも損害賠償できる"
+      ],
+      "ans": 0,
+      "exp": "債務不履行による損害賠償（民法415条）は債務者の責めに帰すべき事由（帰責事由）がある場合に請求できます。2020年改正民法では帰責事由がない場合（不可抗力等）は損害賠償責任を負わないと明確化されました。",
+      "publicPath": "q/practice/p10753/index.html"
+    },
+    {
+      "id": 910754,
+      "year": "orig",
+      "num": 10754,
+      "field": "rights",
+      "text": "失火責任法（失火ノ責任ニ関スル法律）について正しいものはどれか。",
+      "opts": [
+        "火事を起こした者は無過失責任を負う",
+        "失火者の責任は重大な過失がある場合に限られる",
+        "失火責任法はない",
+        "延焼しても責任はない"
+      ],
+      "ans": 0,
+      "exp": "失火責任法により、失火（過失による火事）の場合は失火者に重大な過失がある場合にのみ損害賠償責任が生じます。一般の過失だけでは責任を負いません（軽過失は免責）。",
+      "publicPath": "q/practice/p10754/index.html"
+    },
+    {
+      "id": 910755,
+      "year": "orig",
+      "num": 10755,
+      "field": "rights",
+      "text": "定期建物賃貸借（定期借家）の契約方法として正しいものはどれか。",
+      "opts": [
+        "口頭で締結できる",
+        "書面によること・更新がない旨を書面で事前に告知することが必要",
+        "公正証書でなければならない",
+        "通常の賃貸借と同様の手続きでよい"
+      ],
+      "ans": 0,
+      "exp": "定期建物賃貸借は書面（または電磁的記録）によって締結し（借地借家法38条1項）、さらに契約締結前に更新がない旨等を書面で賃借人に説明する手続きが必要です（同条3項）。",
+      "publicPath": "q/practice/p10755/index.html"
+    },
+    {
+      "id": 910756,
+      "year": "orig",
+      "num": 10756,
+      "field": "rights",
+      "text": "区分所有建物の敷地に関して正しいものはどれか。",
+      "opts": [
+        "敷地は区分所有者全員が単独で所有する",
+        "専有部分を持つ区分所有者は建物の敷地について利用権（敷地利用権）を持つ",
+        "敷地は管理会社が所有する",
+        "敷地の持分は変更できない"
+      ],
+      "ans": 0,
+      "exp": "区分所有者は専有部分と切り離せない形で建物の敷地についての利用権（敷地利用権）を有します（区分所有法22条）。この敷地利用権と専有部分は原則として分離して処分できません。",
+      "publicPath": "q/practice/p10756/index.html"
+    },
+    {
+      "id": 910757,
+      "year": "orig",
+      "num": 10757,
+      "field": "rights",
+      "text": "共有物に対する不法占拠者への妨害排除請求について正しいものはどれか。",
+      "opts": [
+        "共有者全員で行わなければならない",
+        "各共有者が単独で妨害排除請求（保存行為）できる",
+        "過半数の共有者が合意した場合のみ",
+        "訴訟は全員参加が必要"
+      ],
+      "ans": 0,
+      "exp": "不法占拠者への妨害排除請求は共有物の「保存行為」に該当し各共有者が単独で行使できます（民法252条5項）。保存行為は共有物の現状を維持する行為で他の共有者の同意は不要です。",
+      "publicPath": "q/practice/p10757/index.html"
+    },
+    {
+      "id": 910758,
+      "year": "orig",
+      "num": 10758,
       "field": "law",
       "text": "宅建業保証協会の弁済業務保証金の「還付限度額」について正しいものはどれか。",
       "opts": [
@@ -12514,14 +12126,14 @@ const PRACTICE_QUESTIONS = {
         "一件あたり1000万円が上限",
         "還付額に上限はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済業務保証金から還付を受けることができる限度額は、その宅建業者が保証協会の社員でなかったとした場合に供託すべき営業保証金の額（主たる事務所1000万円・従たる事務所500万円等の合計）が上限です（宅建業法64条の8第2項）。",
-      "publicPath": "q/practice/p758/index.html"
+      "publicPath": "q/practice/p10758/index.html"
     },
     {
-      "id": 900759,
+      "id": 910759,
       "year": "orig",
-      "num": 759,
+      "num": 10759,
       "field": "law",
       "text": "電磁的方法による37条書面の交付について正しいものはどれか（2022年改正後）。",
       "opts": [
@@ -12530,14 +12142,142 @@ const PRACTICE_QUESTIONS = {
         "電磁的方法による提供には国土交通大臣の許可が必要",
         "自動的に電磁的方法が認められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2022年5月施行の宅建業法改正により、取引の相手方等の承諾を得た場合に限り電磁的方法による書面（37条書面等）の提供が認められました（宅建業法37条4項）。",
-      "publicPath": "q/practice/p759/index.html"
+      "publicPath": "q/practice/p10759/index.html"
     },
     {
-      "id": 900768,
+      "id": 910760,
       "year": "orig",
-      "num": 768,
+      "num": 10760,
+      "field": "limit",
+      "text": "建築物の用途変更において確認申請が必要な場合として正しいものはどれか。",
+      "opts": [
+        "用途変更は常に確認申請が必要",
+        "特殊建築物の用途に変更する場合で床面積200㎡超の場合は確認申請が必要",
+        "用途変更には確認申請は不要",
+        "200㎡以下の変更は全て不要"
+      ],
+      "ans": 0,
+      "exp": "用途変更により特殊建築物（学校・病院・劇場・ホテル等）となる場合で床面積200㎡を超えるものは建築確認が必要です（建築基準法87条）。200㎡以下の用途変更は確認申請不要です。",
+      "publicPath": "q/practice/p10760/index.html"
+    },
+    {
+      "id": 910761,
+      "year": "orig",
+      "num": 10761,
+      "field": "rights",
+      "text": "不特定物（種類物）の売買で引渡し前に滅失した場合について正しいものはどれか。",
+      "opts": [
+        "買主は代金を支払わなくてよい",
+        "特定されるまでは売主がリスクを負担し同等の物を調達して引き渡す義務がある",
+        "リスクは買主が常に負担する",
+        "特定物と同様に扱われる"
+      ],
+      "ans": 0,
+      "exp": "不特定物の売買は「特定」が生じるまでは売主が調達義務を負い滅失のリスクも売主が負います（民法401条2項）。特定後は特定物と同様に扱われます。",
+      "publicPath": "q/practice/p10761/index.html"
+    },
+    {
+      "id": 910762,
+      "year": "orig",
+      "num": 10762,
+      "field": "rights",
+      "text": "時効の利益を放棄できる時期として正しいものはどれか。",
+      "opts": [
+        "時効が完成する前であればいつでも放棄できる",
+        "時効の利益の放棄は時効完成後に限られる",
+        "放棄はいつでもできる",
+        "時効の放棄は禁止されている"
+      ],
+      "ans": 0,
+      "exp": "時効の利益は時効完成後でなければ放棄できません（民法146条）。時効完成前の予め放棄する特約は時効制度の趣旨を没却するため無効とされています。",
+      "publicPath": "q/practice/p10762/index.html"
+    },
+    {
+      "id": 910763,
+      "year": "orig",
+      "num": 10763,
+      "field": "rights",
+      "text": "物権の「排他性」について正しいものはどれか。",
+      "opts": [
+        "同一物件に同一内容の物権が2つ以上成立できる",
+        "一つの物件の上に同一内容の物権は1つしか存在できない（一物一権主義）",
+        "物権は他人と共有できる",
+        "物権の排他性とは第三者への対抗力を意味する"
+      ],
+      "ans": 0,
+      "exp": "物権には排他性があり同一の物の上に同一内容の物権は1つしか成立できません（一物一権主義）。例えば所有権は1つの物に1つしか成立せず二重の所有権は認められません。",
+      "publicPath": "q/practice/p10763/index.html"
+    },
+    {
+      "id": 910764,
+      "year": "orig",
+      "num": 10764,
+      "field": "law",
+      "text": "手付金等の保全措置が必要な「完成物件」の基準として正しいものはどれか。",
+      "opts": [
+        "手付金等が代金の5%超または1000万円超",
+        "手付金等が代金の10%超または1000万円超",
+        "手付金等が代金の20%超",
+        "手付金等が500万円超"
+      ],
+      "ans": 0,
+      "exp": "完成物件の手付金等の保全措置は手付金等が代金の10%を超えるまたは1000万円を超える場合に必要です（宅建業法41条の2第1項）。未完成物件は5%超または1000万円超が基準です。",
+      "publicPath": "q/practice/p10764/index.html"
+    },
+    {
+      "id": 910765,
+      "year": "orig",
+      "num": 10765,
+      "field": "law",
+      "text": "宅建業者が分譲マンションの広告をする際に必ず表示しなければならない事項として正しいものはどれか。",
+      "opts": [
+        "分譲業者代表者の顔写真",
+        "取引態様・所在地・交通・用途地域・面積・価格等の物件情報",
+        "近隣の飲食店情報",
+        "建設会社の名称"
+      ],
+      "ans": 0,
+      "exp": "宅建業者が宅地建物の広告をする際には公正競争規約に基づき取引態様・所在地・交通・価格・面積・用途地域等の必要的表示事項を記載しなければなりません。",
+      "publicPath": "q/practice/p10765/index.html"
+    },
+    {
+      "id": 910766,
+      "year": "orig",
+      "num": 10766,
+      "field": "tax",
+      "text": "固定資産税と都市計画税の賦課対象として正しいものはどれか。",
+      "opts": [
+        "固定資産税は土地のみ課税",
+        "固定資産税は土地・家屋・償却資産に課税、都市計画税は市街化区域内の土地・家屋に課税",
+        "都市計画税は全国一律に課税",
+        "償却資産には都市計画税が課税される"
+      ],
+      "ans": 0,
+      "exp": "固定資産税は土地・家屋・事業用の償却資産に課税されます（地方税法341条）。都市計画税は市街化区域内の土地・家屋を対象とし（地方税法702条）、償却資産には課税されません。",
+      "publicPath": "q/practice/p10766/index.html"
+    },
+    {
+      "id": 910767,
+      "year": "orig",
+      "num": 10767,
+      "field": "tax",
+      "text": "長期譲渡所得と短期譲渡所得の区別の基準として正しいものはどれか。",
+      "opts": [
+        "所有期間が3年超か以下か",
+        "譲渡した年の1月1日現在の所有期間が5年超か5年以下か",
+        "取得日から5年",
+        "購入時の価格で判断"
+      ],
+      "ans": 0,
+      "exp": "不動産の譲渡所得は譲渡した年の1月1日現在の所有期間が5年を超えるものを「長期譲渡所得」（税率20%）、5年以下のものを「短期譲渡所得」（税率39%）として税率が異なります（租税特別措置法31条・32条）。",
+      "publicPath": "q/practice/p10767/index.html"
+    },
+    {
+      "id": 910768,
+      "year": "orig",
+      "num": 10768,
       "field": "rights",
       "text": "遺留分侵害額請求権の行使方法と時効について正しいものはどれか。",
       "opts": [
@@ -12546,14 +12286,14 @@ const PRACTICE_QUESTIONS = {
         "裁判によらなければ行使できない",
         "遺留分の返還は物での返還が原則"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2019年民法改正により遺留分制度が見直され遺留分侵害額請求権は金銭による支払いを求める権利となりました（民法1046条）。行使期間は遺留分侵害を知った時から1年・相続開始から10年です（民法1048条）。",
-      "publicPath": "q/practice/p768/index.html"
+      "publicPath": "q/practice/p10768/index.html"
     },
     {
-      "id": 900769,
+      "id": 910769,
       "year": "orig",
-      "num": 769,
+      "num": 10769,
       "field": "rights",
       "text": "担保不動産収益執行について正しいものはどれか。",
       "opts": [
@@ -12562,14 +12302,30 @@ const PRACTICE_QUESTIONS = {
         "不動産が滅失しないと使えない",
         "抵当権者のみが申立てできる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "担保不動産収益執行（民事執行法180条2号）は抵当不動産の管理人を選任して賃料等の収益を収取し弁済に充てる制度です。競売のように所有権が移転しないため所有者が居住し続けながら債務を返済するという活用方法があります。",
-      "publicPath": "q/practice/p769/index.html"
+      "publicPath": "q/practice/p10769/index.html"
     },
     {
-      "id": 900771,
+      "id": 910770,
       "year": "orig",
-      "num": 771,
+      "num": 10770,
+      "field": "limit",
+      "text": "「用途地域」の決定権者として正しいものはどれか。",
+      "opts": [
+        "市町村（都市計画として決定）",
+        "都道府県知事",
+        "国土交通大臣",
+        "農業委員会"
+      ],
+      "ans": 0,
+      "exp": "用途地域は市町村が都市計画として定めます（都市計画法8条・15条）。ただし指定都市以外の市町村は都道府県知事の承認を要する場合があります。",
+      "publicPath": "q/practice/p10770/index.html"
+    },
+    {
+      "id": 910771,
+      "year": "orig",
+      "num": 10771,
       "field": "limit",
       "text": "仮換地の使用収益が制限される「使用収益の停止」について正しいものはどれか。",
       "opts": [
@@ -12578,14 +12334,46 @@ const PRACTICE_QUESTIONS = {
         "使用収益の停止は区分所有者の同意が必要",
         "使用収益停止は原則認められない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮換地の指定に際して施行者は使用収益の開始日を仮換地の指定の効力発生日と別に定める（または定めない）ことができます（土地区画整理法99条1項但書）。これにより仮換地の使用収益を留保することができます。",
-      "publicPath": "q/practice/p771/index.html"
+      "publicPath": "q/practice/p10771/index.html"
     },
     {
-      "id": 900774,
+      "id": 910772,
       "year": "orig",
-      "num": 774,
+      "num": 10772,
+      "field": "tax",
+      "text": "建物の賃貸借契約書の印紙税の課税について正しいものはどれか。",
+      "opts": [
+        "非課税（建物賃貸借は印紙税非課税）",
+        "第1号文書として課税対象",
+        "第2号文書として課税対象",
+        "印紙税額は賃料の0.1%"
+      ],
+      "ans": 0,
+      "exp": "建物の賃貸借契約書は印紙税の課税文書に該当せず非課税です。土地の賃貸借契約書（地上権・賃借権の設定）は第1号の2文書として課税されます（印紙税法別表第一）。",
+      "publicPath": "q/practice/p10772/index.html"
+    },
+    {
+      "id": 910773,
+      "year": "orig",
+      "num": 10773,
+      "field": "rights",
+      "text": "消費者契約法による契約の取消しについて正しいものはどれか。",
+      "opts": [
+        "消費者契約法の取消権は宅建業者間の取引にも適用される",
+        "事業者が消費者に重要事項について不実告知等をした場合、消費者は契約を取り消すことができる",
+        "消費者契約法の時効は1年のみ",
+        "全ての消費者契約に自動的に適用される"
+      ],
+      "ans": 0,
+      "exp": "消費者契約法は事業者と消費者間の契約に適用されます。事業者が不実告知・断定的判断の提供・不利益事実の不告知等を行った場合、消費者は契約を取り消すことができます（消費者契約法4条）。取消権は追認できる時から1年・契約締結から5年で消滅します。",
+      "publicPath": "q/practice/p10773/index.html"
+    },
+    {
+      "id": 910774,
+      "year": "orig",
+      "num": 10774,
       "field": "law",
       "text": "国土交通大臣が宅建業者に業務停止処分を行う場合の都道府県知事への通知について正しいものはどれか。",
       "opts": [
@@ -12594,14 +12382,14 @@ const PRACTICE_QUESTIONS = {
         "処分後1年以内に通知すれば足りる",
         "知事の許可を得てから処分する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "国土交通大臣が宅建業者に指示処分・業務停止処分を行ったときは当該業者の事務所が所在する都道府県の知事に通知しなければなりません（宅建業法64条・65条3項）。",
-      "publicPath": "q/practice/p774/index.html"
+      "publicPath": "q/practice/p10774/index.html"
     },
     {
-      "id": 900775,
+      "id": 910775,
       "year": "orig",
-      "num": 775,
+      "num": 10775,
       "field": "limit",
       "text": "農地の賃貸借の解約について正しいものはどれか。",
       "opts": [
@@ -12610,14 +12398,14 @@ const PRACTICE_QUESTIONS = {
         "農業委員会への届出のみで解約できる",
         "農地の賃貸借に特別ルールはない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地の賃貸借の合意解除・解除・解約申入れ等には農業委員会の許可が必要です（農地法18条1項）。ただし一定の事由（賃料不払い等）による解除で当事者が申請する場合は例外があります。",
-      "publicPath": "q/practice/p775/index.html"
+      "publicPath": "q/practice/p10775/index.html"
     },
     {
-      "id": 900776,
+      "id": 910776,
       "year": "orig",
-      "num": 776,
+      "num": 10776,
       "field": "rights",
       "text": "他人物売買の効力として正しいものはどれか（民法改正後）。",
       "opts": [
@@ -12626,14 +12414,14 @@ const PRACTICE_QUESTIONS = {
         "他人物売買は買主が善意の場合のみ有効",
         "他人物売買は常に詐欺になる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "他人物売買は有効です（民法561条）。売主は契約後に目的物の権利を取得して買主に移転する義務を負います。この義務を果たせない場合は債務不履行（履行不能）となり損害賠償・解除の対象となります。",
-      "publicPath": "q/practice/p776/index.html"
+      "publicPath": "q/practice/p10776/index.html"
     },
     {
-      "id": 900777,
+      "id": 910777,
       "year": "orig",
-      "num": 777,
+      "num": 10777,
       "field": "rights",
       "text": "賃貸人の地位の移転（所有者の変更）について正しいものはどれか（2020年改正後）。",
       "opts": [
@@ -12642,14 +12430,14 @@ const PRACTICE_QUESTIONS = {
         "賃借人の同意が必要",
         "新所有者は賃貸借を拒否できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年民法改正で明文化されました（民法605条の2）。賃借権の対抗要件を備えた賃借人がいる場合、不動産の譲渡により賃貸人の地位は当然に譲受人（新所有者）に移転します。賃借人の同意は不要です。",
-      "publicPath": "q/practice/p777/index.html"
+      "publicPath": "q/practice/p10777/index.html"
     },
     {
-      "id": 900778,
+      "id": 910778,
       "year": "orig",
-      "num": 778,
+      "num": 10778,
       "field": "law",
       "text": "指定流通機構（レインズ）に登録した物件が成約した場合の業者の義務として正しいものはどれか。",
       "opts": [
@@ -12658,14 +12446,14 @@ const PRACTICE_QUESTIONS = {
         "3か月後に成約報告すればよい",
         "成約報告の義務はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専任・専属専任媒介契約で指定流通機構に登録した物件が成約した場合、宅建業者は遅滞なく登録の削除を行う義務があります（宅建業法施行規則15条の10）。登録したまま放置すると「おとり広告」に該当するおそれがあります。",
-      "publicPath": "q/practice/p778/index.html"
+      "publicPath": "q/practice/p10778/index.html"
     },
     {
-      "id": 900779,
+      "id": 910779,
       "year": "orig",
-      "num": 779,
+      "num": 10779,
       "field": "tax",
       "text": "不動産取得税の「免税点」について正しいものはどれか。",
       "opts": [
@@ -12674,14 +12462,30 @@ const PRACTICE_QUESTIONS = {
         "不動産取得税に免税点はない",
         "評価額100万円未満は免税"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産取得税の免税点は、土地は課税標準額10万円未満、家屋は新築・増築・改築等による取得が23万円未満、売買・贈与・交換等による取得が12万円未満です（地方税法73条の15の2）。免税点未満の取得には不動産取得税は課税されません。",
-      "publicPath": "q/practice/p779/index.html"
+      "publicPath": "q/practice/p10779/index.html"
     },
     {
-      "id": 900781,
+      "id": 910780,
       "year": "orig",
-      "num": 781,
+      "num": 10780,
+      "field": "limit",
+      "text": "土地区画整理組合の設立について正しいものはどれか。",
+      "opts": [
+        "1人でも設立できる",
+        "施行地区内の宅地の所有者・借地権者が7名以上の同意で組合設立の認可申請ができる",
+        "都道府県の申請のみで設立できる",
+        "法人のみ設立できる"
+      ],
+      "ans": 0,
+      "exp": "土地区画整理組合は施行地区内の宅地の所有者または借地権者が7名以上で組合設立の認可申請ができます（土地区画整理法14条1項）。認可後は施行地区内の全地権者が組合員となります（強制加入）。",
+      "publicPath": "q/practice/p10780/index.html"
+    },
+    {
+      "id": 910781,
+      "year": "orig",
+      "num": 10781,
       "field": "rights",
       "text": "境界確認の法的手続きについて正しいものはどれか。",
       "opts": [
@@ -12690,14 +12494,14 @@ const PRACTICE_QUESTIONS = {
         "境界は法務局が職権で定める",
         "境界確認は公証人が行う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "隣地との境界が争われる場合は境界確定訴訟を提起できます。これは形成訴訟で裁判所が境界を確定します。また筆界特定制度（法務局）という行政上の制度もあります（不動産登記法131条以下）。",
-      "publicPath": "q/practice/p781/index.html"
+      "publicPath": "q/practice/p10781/index.html"
     },
     {
-      "id": 900782,
+      "id": 910782,
       "year": "orig",
-      "num": 782,
+      "num": 10782,
       "field": "law",
       "text": "宅建業者が一時的に宅建士の数が設置基準を下回った場合の対応として正しいものはどれか。",
       "opts": [
@@ -12706,14 +12510,14 @@ const PRACTICE_QUESTIONS = {
         "1か月以内であれば問題ない",
         "届出のみでよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "事務所の専任の宅建士の数が設置基準（5名に1名以上）を下回った場合は2週間以内に基準を満たすために必要な措置を取らなければなりません（宅建業法31条の3第3項）。",
-      "publicPath": "q/practice/p782/index.html"
+      "publicPath": "q/practice/p10782/index.html"
     },
     {
-      "id": 900783,
+      "id": 910783,
       "year": "orig",
-      "num": 783,
+      "num": 10783,
       "field": "rights",
       "text": "区分所有法における「議決権行使書」について正しいものはどれか。",
       "opts": [
@@ -12722,14 +12526,14 @@ const PRACTICE_QUESTIONS = {
         "書面投票は5票まで",
         "議決権行使書は宅建士が作成しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有者は規約または集会の決議があれば書面または電磁的方法で議決権を行使することができます（区分所有法39条2項・3項）。これにより区分所有者が出席できない場合でも意思表示が可能です。",
-      "publicPath": "q/practice/p783/index.html"
+      "publicPath": "q/practice/p10783/index.html"
     },
     {
-      "id": 900784,
+      "id": 910784,
       "year": "orig",
-      "num": 784,
+      "num": 10784,
       "field": "tax",
       "text": "路線価（相続税路線価）と公示価格の関係として正しいものはどれか。",
       "opts": [
@@ -12738,14 +12542,14 @@ const PRACTICE_QUESTIONS = {
         "路線価は公示価格の50%水準",
         "路線価は公示価格より高い"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続税の路線価は地価公示価格の概ね80%（8割）を目安として国税庁が設定しています。固定資産税評価額は公示価格の70%水準です。これらの比較は「一物四価」（公示価格・基準地価・路線価・固定資産税評価額）として整理できます。",
-      "publicPath": "q/practice/p784/index.html"
+      "publicPath": "q/practice/p10784/index.html"
     },
     {
-      "id": 900785,
+      "id": 910785,
       "year": "orig",
-      "num": 785,
+      "num": 10785,
       "field": "law",
       "text": "宅建業法における「心理的瑕疵の告知」について正しいものはどれか。",
       "opts": [
@@ -12754,14 +12558,46 @@ const PRACTICE_QUESTIONS = {
         "告知するかは業者の裁量による",
         "告知しなくても契約は有効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2021年10月に国土交通省が「宅地建物取引業者による人の死の告知に関するガイドライン」を策定しました。建物内での自殺・他殺等の事案は原則告知が必要で重要事項説明での説明も求められます。",
-      "publicPath": "q/practice/p785/index.html"
+      "publicPath": "q/practice/p10785/index.html"
     },
     {
-      "id": 900788,
+      "id": 910786,
       "year": "orig",
-      "num": 788,
+      "num": 10786,
+      "field": "rights",
+      "text": "瑕疵担保責任から「契約不適合責任」への改正（2020年）の主な変更点として正しいものはどれか。",
+      "opts": [
+        "旧制度と全く同じ",
+        "買主の権利が追完請求・代金減額請求・損害賠償・解除に整理され、買主は不適合を知った時から1年以内の「通知」で足りる",
+        "売主の責任が重くなった",
+        "権利行使期間が延長された"
+      ],
+      "ans": 0,
+      "exp": "2020年改正民法により瑕疵担保責任が「契約不適合責任」に改められました。買主の権利は追完請求・代金減額請求・損害賠償・解除に整理され、権利行使は不適合を知った時から1年以内に「通知」するだけで足ります（民法566条）。",
+      "publicPath": "q/practice/p10786/index.html"
+    },
+    {
+      "id": 910787,
+      "year": "orig",
+      "num": 10787,
+      "field": "rights",
+      "text": "法人の不動産登記申請における「代表者事項証明書」について正しいものはどれか。",
+      "opts": [
+        "不要",
+        "法人が当事者となる登記申請には代表者の資格を証する情報（代表者事項証明書等）が必要",
+        "戸籍謄本が必要",
+        "法人は個人と同様の書類でよい"
+      ],
+      "ans": 0,
+      "exp": "法人が登記の申請人となる場合、代表者の資格を証する情報（代表者事項証明書・登記事項証明書等）の提出が必要です（不動産登記令7条1項1号）。",
+      "publicPath": "q/practice/p10787/index.html"
+    },
+    {
+      "id": 910788,
+      "year": "orig",
+      "num": 10788,
       "field": "limit",
       "text": "市街化区域と市街化調整区域の区分（線引き）の義務について正しいものはどれか。",
       "opts": [
@@ -12770,14 +12606,14 @@ const PRACTICE_QUESTIONS = {
         "市町村の任意",
         "国土交通大臣が決定する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化区域と市街化調整区域の区分（線引き）は、首都圏・近畿圏・中部圏の一定の地域の都市計画区域では義務的に行わなければなりませんが、それ以外の区域では任意です（都市計画法7条・13条）。",
-      "publicPath": "q/practice/p788/index.html"
+      "publicPath": "q/practice/p10788/index.html"
     },
     {
-      "id": 900789,
+      "id": 910789,
       "year": "orig",
-      "num": 789,
+      "num": 10789,
       "field": "law",
       "text": "宅建業者が受け取る「報酬」と「実費」の区別について正しいものはどれか。",
       "opts": [
@@ -12786,14 +12622,46 @@ const PRACTICE_QUESTIONS = {
         "実費は上限なく請求できる",
         "実費を受け取ることは禁止"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者の報酬に関して広告費用等は原則として報酬上限内に含まれます。ただし依頼者の特別の依頼に基づく遠隔地への出張費・通常を超える広告費等は別途受け取ることができる場合があります（宅建業法46条）。",
-      "publicPath": "q/practice/p789/index.html"
+      "publicPath": "q/practice/p10789/index.html"
     },
     {
-      "id": 900792,
+      "id": 910790,
       "year": "orig",
-      "num": 792,
+      "num": 10790,
+      "field": "rights",
+      "text": "保証人の求償権について正しいものはどれか。",
+      "opts": [
+        "保証人は弁済しても主債務者に求償できない",
+        "保証人は主債務者のために弁済した場合、主債務者に求償できる（民法459条）",
+        "求償できる範囲は弁済額の半分のみ",
+        "事前通知なく弁済した場合も常に全額求償できる"
+      ],
+      "ans": 0,
+      "exp": "保証人が主債務者のために弁済した場合、主債務者に求償できます（民法459条）。ただし事前通知せずに弁済した場合は主債務者が弁済等の抗弁を失うおそれがあり求償が制限される場合があります（民法463条）。",
+      "publicPath": "q/practice/p10790/index.html"
+    },
+    {
+      "id": 910791,
+      "year": "orig",
+      "num": 10791,
+      "field": "rights",
+      "text": "賃借権の譲渡と転貸の比較として正しいものはどれか。",
+      "opts": [
+        "両者は全く同じ",
+        "賃借権の譲渡は賃借人が賃借権を第三者に移転して自己は契約関係から離脱、転貸は賃借人が賃借権を保持したまま第三者に転貸する",
+        "どちらも賃貸人の承諾不要",
+        "転貸のみ賃貸人の承諾が必要"
+      ],
+      "ans": 0,
+      "exp": "賃借権の譲渡は賃借人（譲渡人）が賃借権を第三者（譲受人）に譲渡し自己は契約から離脱します。転貸は賃借人が賃借権を保持したまま第三者に又貸しします。いずれも賃貸人の承諾が必要です（民法612条）。",
+      "publicPath": "q/practice/p10791/index.html"
+    },
+    {
+      "id": 910792,
+      "year": "orig",
+      "num": 10792,
       "field": "tax",
       "text": "固定資産税の農地（田・畑）に対する課税の特例として正しいものはどれか。",
       "opts": [
@@ -12802,14 +12670,142 @@ const PRACTICE_QUESTIONS = {
         "農地は宅地と同じ評価額で課税される",
         "市街化区域農地は一般農地と同じ扱い"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "一般農地の固定資産税は農地の収益性を基準とした農地評価で課税標準が低く設定されています。一方、市街化区域農地は宅地化を促進するため宅地並み評価・宅地並み課税が適用される場合があります（地方税法349条の3第1項）。",
-      "publicPath": "q/practice/p792/index.html"
+      "publicPath": "q/practice/p10792/index.html"
     },
     {
-      "id": 900801,
+      "id": 910793,
       "year": "orig",
-      "num": 801,
+      "num": 10793,
+      "field": "rights",
+      "text": "土地の所有権と建物の所有権が別人に属する場合の法定地上権（民法388条）の成立要件として正しいものはどれか。",
+      "opts": [
+        "要件なしに自動的に成立する",
+        "抵当権設定時に土地・建物が同一人の所有で、競売により土地・建物の所有者が別々になった場合に成立",
+        "競売のみで成立し任意売却では成立しない",
+        "建物があれば常に法定地上権が成立"
+      ],
+      "ans": 0,
+      "exp": "法定地上権（民法388条）は抵当権設定時に土地と建物が同一人の所有で、その後競売により土地・建物が別々の所有者になった場合に成立します。建物のための地上権が法律上当然に成立します。",
+      "publicPath": "q/practice/p10793/index.html"
+    },
+    {
+      "id": 910794,
+      "year": "orig",
+      "num": 10794,
+      "field": "rights",
+      "text": "特別受益（婚姻・養子縁組・生計の資本のための贈与）について正しいものはどれか。",
+      "opts": [
+        "特別受益は相続財産に含まれない",
+        "相続分の計算において特別受益は相続財産に持ち戻して計算されるが被相続人の意思によって持ち戻しを免除できる",
+        "特別受益は全て相続財産として均等分配される",
+        "生前贈与は常に特別受益になる"
+      ],
+      "ans": 0,
+      "exp": "特別受益は相続財産に持ち戻して相続分を計算します（民法903条）。ただし被相続人が遺言等で持ち戻しの免除の意思表示をした場合は持ち戻し計算から除外されます（民法903条3項）。",
+      "publicPath": "q/practice/p10794/index.html"
+    },
+    {
+      "id": 910795,
+      "year": "orig",
+      "num": 10795,
+      "field": "law",
+      "text": "宅建業の免許の有効期間として正しいものはどれか。",
+      "opts": [
+        "3年",
+        "5年",
+        "10年",
+        "更新不要"
+      ],
+      "ans": 0,
+      "exp": "宅建業の免許の有効期間は5年です（宅建業法3条2項）。有効期間満了の90日前から30日前までの間に更新申請をする必要があります。",
+      "publicPath": "q/practice/p10795/index.html"
+    },
+    {
+      "id": 910796,
+      "year": "orig",
+      "num": 10796,
+      "field": "limit",
+      "text": "自然公園法（国立公園・国定公園）の特別地域における建築規制として正しいものはどれか。",
+      "opts": [
+        "国立公園内での建築は一切禁止",
+        "特別地域内では環境大臣等の許可なく建築物の新築・増改築等はできない",
+        "国立公園内は全て自由に建築できる",
+        "普通地域には規制がない"
+      ],
+      "ans": 0,
+      "exp": "自然公園法により国立・国定公園の特別地域内では環境大臣（国定公園は都道府県知事）の許可なく建築物の新築・増改築・外観変更等が原則として禁止されています（自然公園法17条）。",
+      "publicPath": "q/practice/p10796/index.html"
+    },
+    {
+      "id": 910797,
+      "year": "orig",
+      "num": 10797,
+      "field": "limit",
+      "text": "都市緑地法における「緑地保全地域」の規制として正しいものはどれか。",
+      "opts": [
+        "緑地保全地域では全ての行為が自由",
+        "建築物の新築・改築・宅地造成等の行為は市町村長への届出が必要",
+        "緑地保全地域は農地にのみ指定できる",
+        "規制はない"
+      ],
+      "ans": 0,
+      "exp": "緑地保全地域（都市緑地法4条）内では建築物の新築・改築・宅地造成・木竹の伐採等の行為をしようとする場合は市町村長への届出が必要です（都市緑地法7条）。",
+      "publicPath": "q/practice/p10797/index.html"
+    },
+    {
+      "id": 910798,
+      "year": "orig",
+      "num": 10798,
+      "field": "rights",
+      "text": "土地の工作物等の設置・保存の瑕疵による損害賠償（民法717条）における責任者について正しいものはどれか。",
+      "opts": [
+        "建設業者が常に責任を負う",
+        "占有者が第一次的に責任を負い、占有者が無過失を証明した場合は所有者が無過失責任を負う",
+        "所有者のみが責任を負う",
+        "居住者が常に責任を負う"
+      ],
+      "ans": 0,
+      "exp": "工作物責任（民法717条）では占有者が第一次的に責任を負い（過失責任）、無過失を証明した場合は所有者が絶対的無過失責任を負います（最終責任者）。",
+      "publicPath": "q/practice/p10798/index.html"
+    },
+    {
+      "id": 910799,
+      "year": "orig",
+      "num": 10799,
+      "field": "law",
+      "text": "宅建業者が土地と建物を一括して売買の媒介をした場合の報酬計算について正しいものはどれか。",
+      "opts": [
+        "土地と建物それぞれに報酬上限を計算して合算する",
+        "土地と建物の代金合計額（消費税相当額を除く）を基礎として報酬上限を計算する",
+        "建物の代金のみを基礎として計算する",
+        "土地のみを基礎として計算する"
+      ],
+      "ans": 0,
+      "exp": "土地と建物を一括して売買する場合の媒介報酬は土地と建物の代金合計額（消費税分を除く）を基礎として報酬上限を計算します（報酬告示）。",
+      "publicPath": "q/practice/p10799/index.html"
+    },
+    {
+      "id": 910800,
+      "year": "orig",
+      "num": 10800,
+      "field": "rights",
+      "text": "不動産の物権変動における「登記なくして対抗できない第三者」の範囲について正しいものはどれか（判例）。",
+      "opts": [
+        "登記を信頼した全ての者",
+        "正当な利益を有する者（取引当事者・差押債権者等）であり不法占拠者・背信的悪意者は含まれない",
+        "相続人も含まれる",
+        "第三者の範囲に制限はない"
+      ],
+      "ans": 0,
+      "exp": "民法177条の「第三者」は当事者・包括承継人（相続人等）以外の者で不動産物権変動について正当な利益を有する者です（判例）。不法占拠者・背信的悪意者は含まれず、登記がなくても対抗できます。",
+      "publicPath": "q/practice/p10800/index.html"
+    },
+    {
+      "id": 910801,
+      "year": "orig",
+      "num": 10801,
       "field": "rights",
       "text": "Aは、Bに対して自己所有の甲土地（時価2000万円）を1500万円で売却する旨の売買契約を締結した。ところが、この契約はAがBに騙されて行ったものであることが後に判明した。その後、BはCに甲土地を1600万円で転売し、CはBに代金を支払い引渡しも受けたが、登記はまだAからBへの移転登記しか行われていない。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -12820,12 +12816,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "詐欺による取消しは、取消し前の善意無過失の第三者（この場合C）に対抗できません（民法96条3項）。Cが善意無過失であればAはCに取消しを対抗できません。なお詐欺取消し後の第三者との関係は対抗問題（登記の先後）となります。取消権の時効は詐欺を知った時から5年・行為時から20年です（民法126条）。",
-      "publicPath": "q/practice/p801/index.html"
+      "publicPath": "q/practice/p10801/index.html"
     },
     {
-      "id": 900802,
+      "id": 910802,
       "year": "orig",
-      "num": 802,
+      "num": 10802,
       "field": "rights",
       "text": "AはBに対して、A所有の乙建物を売却する代理権を授与した。ところがBは、Aから与えられた代理権の範囲を超えて、乙建物のほかAが所有する丙土地についても売買契約をCとの間で締結した。CはBが丙土地についても代理権を有していると信じており、そう信じることに正当な理由があった。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -12834,14 +12830,14 @@ const PRACTICE_QUESTIONS = {
         "CはBに対し無権代理人の責任（民法117条）を追及するか表見代理を主張するかを任意に選択できない",
         "表見代理が成立する場合、AはCに対し契約上の義務を負うが損害賠償責任のみを負う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法110条の権限外行為の表見代理は、代理人が基本的代理権（乙建物の売却代理権）を有し、第三者がその代理人に権限外の行為（丙土地の売買）の権限があると信じたことに正当な理由がある場合に成立します。この場合Aは契約の全効果を受けます。CはBへの無権代理人責任の追及と表見代理の主張のいずれかを選択できます（選択的行使可能）。",
-      "publicPath": "q/practice/p802/index.html"
+      "publicPath": "q/practice/p10802/index.html"
     },
     {
-      "id": 900803,
+      "id": 910803,
       "year": "orig",
-      "num": 803,
+      "num": 10803,
       "field": "rights",
       "text": "AはB銀行から3000万円を借り入れ、A所有の甲土地（時価4000万円）に第一順位の抵当権を設定した（被担保債権額3000万円）。その後AはC銀行からも1500万円を借り入れ、同じ甲土地に第二順位の抵当権を設定した。その後Aが弁済不能となり、甲土地が競売に付された。競売代金は2500万円であった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12850,14 +12846,14 @@ const PRACTICE_QUESTIONS = {
         "B銀行は2500万円全額を受け取りC銀行は一切受け取れないが、BはAに対し残500万円の債権を有する",
         "競売代金が少ないので抵当権の実行は取り消される"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "抵当権者は登記の順位に従って競売代金から優先弁済を受けます。B銀行（第一順位・被担保債権3000万円）は競売代金2500万円を全額受け取り、なお500万円の債権が残ります（残債権はAへの一般債権として残存）。C銀行（第二順位）は競売代金がB銀行の優先弁済で尽きたため一切受け取れません。",
-      "publicPath": "q/practice/p803/index.html"
+      "publicPath": "q/practice/p10803/index.html"
     },
     {
-      "id": 900804,
+      "id": 910804,
       "year": "orig",
-      "num": 804,
+      "num": 10804,
       "field": "rights",
       "text": "AはBに対して500万円の貸金債権を有している。ところがBはA以外にも多数の債権者（C・D・E）に対して合計2000万円の債務を負っており、Bの資産は甲土地（時価600万円）のみである。AはBに弁済を求めたがBが応じないため、BがCに対して有している100万円の売買代金債権を代位行使しようと考えている。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -12866,14 +12862,14 @@ const PRACTICE_QUESTIONS = {
         "Aが回収できる金額はAのBに対する債権額500万円に限られ、100万円全額をCから受領することはできない",
         "AがCから売買代金100万円を回収した後、AはそのままAの取り分として保持できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "債権者代位権（民法423条）はBが無資力（資産600万円＜債務2000万円）であることが要件で、AはBに代位してCへの売買代金債権を行使できます。Bの同意は不要です。Aは100万円全額をCから受領できますが、それをそのままAの取り分にすることはできず、Bの財産として扱いBの債権者全員の共同担保に供されます（平等配当の原則）。",
-      "publicPath": "q/practice/p804/index.html"
+      "publicPath": "q/practice/p10804/index.html"
     },
     {
-      "id": 900805,
+      "id": 910805,
       "year": "orig",
-      "num": 805,
+      "num": 10805,
       "field": "rights",
       "text": "AはBに対して自己所有の中古マンション（築15年）を2500万円で売却した。引渡し後3か月が経過したころ、マンションの給排水管に重大な欠陥があることが判明し、修理には200万円かかることがわかった。売買契約書には「本物件は現状有姿にて引き渡す」との特約があった。Aはこの特約を根拠に責任を否定している。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12882,14 +12878,14 @@ const PRACTICE_QUESTIONS = {
         "Bは欠陥を知った日から6か月以内に追完請求・代金減額請求等の権利行使をしなければ時効で消滅する",
         "BはAの契約不適合責任を問う前に、必ず裁判所に調停を申し立てなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売主が不適合を知りながら告げなかった場合は免責特約（現状有姿特約を含む）の効力が及びません（民法572条）。Aが欠陥を知っていた場合は特約にかかわらず責任を負います。なお種類・品質の不適合は不適合を知った時から1年以内の「通知」（権利行使ではなく通知で足りる）が必要です（民法566条）。",
-      "publicPath": "q/practice/p805/index.html"
+      "publicPath": "q/practice/p10805/index.html"
     },
     {
-      "id": 900806,
+      "id": 910806,
       "year": "orig",
-      "num": 806,
+      "num": 10806,
       "field": "rights",
       "text": "AはB所有の甲建物について賃貸借契約を締結し、引渡しを受けて居住している。月額賃料は12万円で、賃貸借期間は2年と定めた。2年が経過したため、BはAに対して契約を更新しない旨を通知した。Aは建物に引き続き居住することを希望している。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12898,14 +12894,14 @@ const PRACTICE_QUESTIONS = {
         "Bは期間満了の1か月前に更新しない旨を通知すれば、正当事由がなくても契約を終了できる",
         "この建物賃貸借は期間が2年と定められているので、定期建物賃貸借として期間満了で当然に終了する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "普通建物賃貸借では賃貸人が更新を拒絶するには正当事由が必要です（借地借家法28条）。正当事由がない場合は法定更新されます（同法26条）。また更新拒絶の通知は期間満了の1年前から6か月前までの間に行う必要があります。定期建物賃貸借は必ず書面で更新なしの旨を告知する手続きが必要で、本問はその手続きがないため普通賃貸借として扱われます。",
-      "publicPath": "q/practice/p806/index.html"
+      "publicPath": "q/practice/p10806/index.html"
     },
     {
-      "id": 900807,
+      "id": 910807,
       "year": "orig",
-      "num": 807,
+      "num": 10807,
       "field": "rights",
       "text": "Aには配偶者B、長男C（既婚・子あり）、長女Dがいる。Aが遺言を残さずに死亡した。Aの遺産は、自宅土地建物（評価額5000万円）・預貯金2000万円・負債（借金）1000万円の合計正味財産6000万円である。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12914,14 +12910,14 @@ const PRACTICE_QUESTIONS = {
         "CがAより先に死亡していてCの子（孫）がいた場合、Cの相続分はCの子が代わりに相続する",
         "遺産分割には必ず家庭裁判所の関与が必要である"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "法定相続人が配偶者と子の場合、配偶者の相続分は1/2、子全体で1/2です（民法900条）。Cが先に死亡している場合はCの子（Aの孫）が代襲相続します（民法887条2項）。正味遺産6000万円の分配はB：3000万円、C（または代襲相続人）：1500万円、D：1500万円となります。遺産分割は相続人間の協議で行え、家庭裁判所の関与は協議不成立の場合に限られます。",
-      "publicPath": "q/practice/p807/index.html"
+      "publicPath": "q/practice/p10807/index.html"
     },
     {
-      "id": 900808,
+      "id": 910808,
       "year": "orig",
-      "num": 808,
+      "num": 10808,
       "field": "rights",
       "text": "AはB所有の土地を賃借し、その土地上に自己所有の建物（登記済み）を建築して居住している。BはC銀行から借入れをしており、BC間の借入れ前から土地上に建物が存在し建物登記も完了していた。Bが返済不能となりC銀行が土地を競売にかけた。土地をDが競落した場合に関する記述として民法・借地借家法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -12930,14 +12926,14 @@ const PRACTICE_QUESTIONS = {
         "Dは競落後6か月以内にAに立ち退きを求めれば、Aは無条件に退去しなければならない",
         "土地の競落によりAの建物は自動的にDの所有物となる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地権者は借地上に登記された建物を有することで第三者（競落人Dを含む）に対して借地権を対抗できます（借地借家法10条1項）。AはDに対して借地権を主張でき、引き続き土地を使用できます。ただし今後の賃料はDに支払う必要があります。",
-      "publicPath": "q/practice/p808/index.html"
+      "publicPath": "q/practice/p10808/index.html"
     },
     {
-      "id": 900809,
+      "id": 910809,
       "year": "orig",
-      "num": 809,
+      "num": 10809,
       "field": "rights",
       "text": "AはB所有の甲土地を購入し所有権移転登記を完了した。ところが、その後甲土地についてCが「自分が真の所有者だ」と主張し、Bから甲土地を買い受けていたと申し立てた。調べるとBはAとCの両方に甲土地を売却していた（二重売買）。CはAの登記完了後も登記を未了のままである。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -12946,14 +12942,14 @@ const PRACTICE_QUESTIONS = {
         "BがAとCの両方に売却したことが詐欺に当たるためAB間・BC間の契約が無効となる",
         "Aが登記を完了していても、Cが登記前に強く所有権を主張すれば所有権はCに移転する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産物権変動は登記をしなければ第三者に対抗できません（民法177条）。二重売買ではAとCのどちらが先に登記を備えるかで所有権の帰属が決まります。本問ではAが先に登記を完了しているためAが所有権を対抗できます。Cは登記を備えていないため所有権を主張できません。",
-      "publicPath": "q/practice/p809/index.html"
+      "publicPath": "q/practice/p10809/index.html"
     },
     {
-      "id": 900810,
+      "id": 910810,
       "year": "orig",
-      "num": 810,
+      "num": 10810,
       "field": "rights",
       "text": "分譲マンション（専有部分30戸）の区分所有者の集会において、共用部分である外壁・屋上の大規模修繕工事を行うことについて審議された。この工事は共用部分の形状・効用の著しい変更を伴うものではなく、耐久性向上のための修繕である。また同集会において、一部の区分所有者から専有部分の間取りを変更することも提案された。この場合に関する記述として区分所有法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12962,14 +12958,14 @@ const PRACTICE_QUESTIONS = {
         "専有部分の間取り変更については集会決議は不要で各区分所有者が自由に行える",
         "大規模修繕工事には必ず建替え決議（各5/4以上）と同等の決議が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共用部分の変更は原則として区分所有者及び議決権の各3/4以上の特別決議が必要ですが（区分所有法17条1項）、形状・効用の著しい変更を伴わない軽微な変更については区分所有者及び議決権の各過半数で決議できます（同法18条1項）。専有部分の間取り変更は区分所有者が原則として自由に行えますが、共用部分への影響がある場合は制限を受けることがあります。",
-      "publicPath": "q/practice/p810/index.html"
+      "publicPath": "q/practice/p10810/index.html"
     },
     {
-      "id": 900811,
+      "id": 910811,
       "year": "orig",
-      "num": 811,
+      "num": 10811,
       "field": "law",
       "text": "宅地建物取引業者A（甲県知事免許）は、事業拡大のため乙県にも新たに事務所を開設することを計画している。現在Aの甲県の主たる事務所には専任の宅建士が3名、業務に従事する者は12名在籍している。乙県の新事務所には業務に従事する者を5名置く予定である。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12978,14 +12974,14 @@ const PRACTICE_QUESTIONS = {
         "乙県の新事務所には宅建士は1名いれば専任要件を満たす",
         "甲県の主たる事務所の専任の宅建士は現在3名だが、業務従事者12名に対しては3名では不足している"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2以上の都道府県に事務所を設置する宅建業者は国土交通大臣免許が必要です（宅建業法3条1項）。現在甲県知事免許のAが乙県にも事務所を設置する場合は国土交通大臣免許への免許換えが必要です（宅建業法7条）。また乙県の新事務所は業務従事者5名に対し専任宅建士が1名（5名に1名以上の基準を満たす）必要です。甲県の専任宅建士3名は業務従事者12名（12÷5＝2.4→切り上げ3名）に対し適正です。",
-      "publicPath": "q/practice/p811/index.html"
+      "publicPath": "q/practice/p10811/index.html"
     },
     {
-      "id": 900812,
+      "id": 910812,
       "year": "orig",
-      "num": 812,
+      "num": 10812,
       "field": "law",
       "text": "宅建業者Aは、売主BからB所有の中古マンション（専有部分65㎡・管理費月額2万円・修繕積立金月額1.5万円・修繕積立金残高300万円）の売却を依頼され、買主Cに対して重要事項の説明を行おうとしている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -12994,14 +12990,14 @@ const PRACTICE_QUESTIONS = {
         "重要事項説明書にはマンション管理組合の財政状況（積立金残高等）の記載は任意であり義務ではない",
         "管理費・修繕積立金は販売業者が口頭で伝えれば重要事項説明書への記載は不要である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有建物（マンション）の売買では、管理費・修繕積立金の月額・滞納状況・積立金残高等は重要事項説明書に記載しなければならない事項です（宅建業法35条1項6号・施行規則16条の2）。なお相手方が宅建業者の場合は説明（口頭）は省略できますが書面交付義務は残ります（宅建業法35条6項）。",
-      "publicPath": "q/practice/p812/index.html"
+      "publicPath": "q/practice/p10812/index.html"
     },
     {
-      "id": 900813,
+      "id": 910813,
       "year": "orig",
-      "num": 813,
+      "num": 10813,
       "field": "law",
       "text": "AはB所有の土地の売却を依頼され、専任媒介契約を締結した。契約締結から5日後（休業日なし）にAはレインズ（指定流通機構）に物件情報を登録した。契約締結から10日後にAはBに対して業務処理状況を報告した。その後Cとの間で売買契約が成立したが、Aはレインズへの成約報告を怠った。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13010,14 +13006,14 @@ const PRACTICE_QUESTIONS = {
         "専任媒介契約の依頼者への業務報告は2週間に1回以上なので10日後の報告は報告義務違反",
         "成約後のレインズへの成約報告はAの義務であり、怠った場合は指示処分等の対象となりうる"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "専任媒介契約ではレインズへの登録は7日以内（休業日除く）、報告は2週間に1回以上です（宅建業法34条の2第5項・9項）。5日後の登録は適法（7日以内）。10日後の報告も2週間（14日）以内なので適法。成約後のレインズへの成約報告（登録の削除・更新）は義務で、怠ると業務規制違反として行政処分の対象となります。",
-      "publicPath": "q/practice/p813/index.html"
+      "publicPath": "q/practice/p10813/index.html"
     },
     {
-      "id": 900814,
+      "id": 910814,
       "year": "orig",
-      "num": 814,
+      "num": 10814,
       "field": "law",
       "text": "宅建業者Aが媒介した土地の売買契約が成立した。この売買では、代金3000万円のうち500万円は契約時に手付金として支払い、残代金2500万円は引渡し時に支払うこととなった。また、買主が住宅ローンの審査に通らなかった場合には契約を白紙解除できる旨（ローン特約）も合意された。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13026,14 +13022,14 @@ const PRACTICE_QUESTIONS = {
         "ローン特約は当事者が合意した事項であっても、37条書面への記載は任意であり記載しなくてもよい",
         "37条書面は買主にのみ交付すればよく、売主への交付は不要である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面の必要的記載事項には代金の額（合計3000万円）・支払時期（いつ支払うか）・支払方法が含まれます（宅建業法37条1項2号）。融資（ローン）に関する定め（ローン特約）は定めがある場合に記載する任意的記載事項です（同項8号）。37条書面は売主・買主の双方に交付しなければなりません（同条1項）。",
-      "publicPath": "q/practice/p814/index.html"
+      "publicPath": "q/practice/p10814/index.html"
     },
     {
-      "id": 900815,
+      "id": 910815,
       "year": "orig",
-      "num": 815,
+      "num": 10815,
       "field": "law",
       "text": "宅建業者A（自ら売主）は、買主B（個人・宅建業者でない）との間で宅地の売買契約を締結した。契約場所はAの会社（宅建業の事務所）ではなく、Bが指定した喫茶店であった。Aはクーリングオフができる旨等を書面でBに告知した。告知の8日後、BはAに対してクーリングオフの意思表示を書面で郵送した（8日目に投函）。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13042,14 +13038,14 @@ const PRACTICE_QUESTIONS = {
         "喫茶店で契約した場合でも、買主Bが自ら指定した場所であればクーリングオフはできない",
         "クーリングオフが有効となった場合、AはBに対して手付金の2倍を返還しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフの意思表示は書面を発送した時点で効力が生じます（発信主義・宅建業法37条の2第2項）。告知から8日目の発送はクーリングオフ期間内（告知日を含め8日以内）に適法に行われており、有効です。クーリングオフが成立した場合、Aは受領済みの金銭（手付金等）を遅滞なく返還しなければなりませんが、手付の倍額返還義務はありません。",
-      "publicPath": "q/practice/p815/index.html"
+      "publicPath": "q/practice/p10815/index.html"
     },
     {
-      "id": 900816,
+      "id": 910816,
       "year": "orig",
-      "num": 816,
+      "num": 10816,
       "field": "law",
       "text": "宅建業者Aは、売主B・買主Cの双方から依頼を受けて、代金4000万円の土地の売買を媒介した。AはBから媒介報酬として126万円（税込138.6万円）を受け取り、CからもBと同額の126万円（税込138.6万円）を受け取った。この場合に関する記述として宅建業法の規定（報酬告示）によれば正しいものはどれか。",
       "opts": [
@@ -13058,14 +13054,14 @@ const PRACTICE_QUESTIONS = {
         "売主・買主双方から報酬を受け取る場合は一方からの受領額を一方の上限の半額に抑えなければならない",
         "媒介契約でなく代理契約であれば報酬上限は2倍になり、双方から合計504万円（税別）まで受け取れる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代金4000万円の売買媒介では一方の依頼者から受け取れる報酬上限（税別）は4000万円×3%＋6万円＝126万円です（報酬告示）。Aが受領した126万円（税別）は上限内で適法です。なお代理の場合は一方の依頼者から媒介の2倍（252万円・税別）が上限となりますが、双方から代理した場合でも合計252万円（税別）が上限です（報酬告示）。",
-      "publicPath": "q/practice/p816/index.html"
+      "publicPath": "q/practice/p10816/index.html"
     },
     {
-      "id": 900817,
+      "id": 910817,
       "year": "orig",
-      "num": 817,
+      "num": 10817,
       "field": "limit",
       "text": "AはC市（都市計画区域内・市街化区域）に土地（面積1500㎡）を所有しており、この土地に店舗と倉庫を建築しようとしている。この土地は第一種住居地域に指定されており、建ぺい率60%・容積率200%が定められている。また前面道路幅員は4mである。この場合に関する記述として都市計画法及び建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13074,14 +13070,14 @@ const PRACTICE_QUESTIONS = {
         "前面道路幅員4mの場合、容積率は前面道路幅員×0.4（住居系）＝160%が適用される可能性があり、指定容積率200%より低い制限が適用されることがある",
         "市街化区域内の開発行為は面積にかかわらず開発許可が不要である"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "前面道路幅員による容積率制限（建築基準法52条2項）では、住居系用途地域では前面道路幅員（m）×4/10が容積率の上限となります。4m×4/10＝160%<指定容積率200%なので、この場合は160%が適用される可能性があります。第一種住居地域では床面積3000㎡以下の店舗・倉庫は建築可能（建築基準法別表第二）。市街化区域内の開発行為は1000㎡以上で原則として開発許可が必要です。",
-      "publicPath": "q/practice/p817/index.html"
+      "publicPath": "q/practice/p10817/index.html"
     },
     {
-      "id": 900818,
+      "id": 910818,
       "year": "orig",
-      "num": 818,
+      "num": 10818,
       "field": "limit",
       "text": "AはD市内において次のような建築計画を立てている。計画地は準防火地域内にあり、敷地面積200㎡・建ぺい率60%・容積率200%が指定されている。計画建物は木造3階建て・延べ面積350㎡・耐火建築物である。また計画地は幹線道路（幅員8m）に面した角地（特定行政庁指定）でもある。この場合に関する記述として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13090,14 +13086,14 @@ const PRACTICE_QUESTIONS = {
         "容積率200%・敷地面積200㎡の場合、延べ面積の上限は400㎡であり、延べ面積350㎡の本計画は容積率制限内である",
         "前面道路幅員8mは幅員規制（4m以上）を上回っているため、道路幅員による容積率制限は適用されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建ぺい率は防火地域・準防火地域内の耐火建築物で10%加算、特定行政庁指定の角地で10%加算（建築基準法53条3項・同法施行令135条の3）されます。60%+10%+10%=80%が上限となります。延べ面積の上限は敷地面積200㎡×容積率200%=400㎡で、350㎡は上限内です。前面道路8mの場合は8m×4/10=320%>200%なので指定容積率200%が適用されます。",
-      "publicPath": "q/practice/p818/index.html"
+      "publicPath": "q/practice/p10818/index.html"
     },
     {
-      "id": 900819,
+      "id": 910819,
       "year": "orig",
-      "num": 819,
+      "num": 10819,
       "field": "limit",
       "text": "AはE市（市街化区域内）に農地（田・面積500㎡）を所有しており、この農地を宅地に転用して自己の住宅を建築しようとしている。また、この農地に隣接するF所有の農地（市街化区域外・面積2000㎡）についても購入して宅地にしようと計画している。この場合に関する記述として農地法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13106,14 +13102,14 @@ const PRACTICE_QUESTIONS = {
         "市街化区域外のF所有農地を購入して宅地にしようとする場合、農業委員会への届出で足りる",
         "市街化区域外の農地の転用目的での購入には都道府県知事の許可が必要（農地法5条）"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "市街化区域内の農地の自己転用（農地法4条）は農業委員会への届出のみで足ります（都道府県知事許可不要）。市街化区域外の農地を転用目的で購入する場合（農地法5条）は都道府県知事の許可が必要です（4ha超は農林水産大臣）。したがって①A所有農地（市街化区域内自己転用）→農業委員会届出のみ、②F所有農地（市街化区域外・転用目的での権利移動）→都道府県知事許可が必要です。",
-      "publicPath": "q/practice/p819/index.html"
+      "publicPath": "q/practice/p10819/index.html"
     },
     {
-      "id": 900820,
+      "id": 910820,
       "year": "orig",
-      "num": 820,
+      "num": 10820,
       "field": "limit",
       "text": "G市が施行者となって土地区画整理事業が行われている区域内に宅地を所有するAは、施行者から仮換地の指定を受けた。仮換地はAの従前の宅地とは異なる位置に指定されており、仮換地の面積は従前の宅地より若干小さい。この場合に関する記述として土地区画整理法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13122,14 +13118,14 @@ const PRACTICE_QUESTIONS = {
         "仮換地の面積が従前の宅地より小さい場合、Aは仮換地の指定を拒否できる",
         "仮換地の指定により、Aの従前の宅地の所有権は仮換地に移転する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮換地の指定の効力が生じると、仮換地について使用収益できるようになり、従前の宅地については使用収益できなくなります（土地区画整理法99条1項）。仮換地と従前地の面積の差は、換地処分後に清算金で調整されます。所有権は換地処分の公告後に移転するものであり、仮換地の指定の時点では所有権は移転しません。",
-      "publicPath": "q/practice/p820/index.html"
+      "publicPath": "q/practice/p10820/index.html"
     },
     {
-      "id": 900821,
+      "id": 910821,
       "year": "orig",
-      "num": 821,
+      "num": 10821,
       "field": "tax",
       "text": "AはB（個人）から居住用マンション（所有期間15年・自己居住用）を4000万円で購入し3年後に5500万円で売却した。Aの取得費は4100万円（購入価格4000万円＋取得時の諸費用100万円）、譲渡費用（仲介手数料等）は150万円であった。Aは売却した年の前年・前々年に居住用財産の3000万円特別控除を受けていない。この場合に関する記述として租税特別措置法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13138,14 +13134,14 @@ const PRACTICE_QUESTIONS = {
         "所有期間15年で譲渡価格5500万円は6000万円以下なので、軽減税率（税率14%）の特例が全額に適用される",
         "3000万円特別控除と軽減税率特例は重複して適用できないのでどちらか一方を選択しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "居住用財産の3000万円特別控除（租税特別措置法35条）を適用すると課税譲渡所得＝1250万円－3000万円＝△1750万円となり控除しきれるため税金はかかりません。なお3000万円特別控除と10年超保有の軽減税率特例（租税特別措置法31条の3）は重複して適用できます（まず3000万円控除後の残額に軽減税率を適用）。本問では控除後の課税所得がゼロ以下なので軽減税率を考える必要もありません。",
-      "publicPath": "q/practice/p821/index.html"
+      "publicPath": "q/practice/p10821/index.html"
     },
     {
-      "id": 900822,
+      "id": 910822,
       "year": "orig",
-      "num": 822,
+      "num": 10822,
       "field": "tax",
       "text": "Aは自己の居住用土地（200㎡）及び建物（新築から2年経過・3階建て中高層耐火住宅）を所有している。固定資産税評価額は土地3000万円・建物1500万円である。この場合に関する記述として地方税法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13156,12 +13152,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "小規模住宅用地（住宅1戸につき200㎡以下の部分）の固定資産税の課税標準は固定資産税評価額の1/6に軽減されます（地方税法349条の3の2）。200㎡超の一般住宅用地は1/3です。新築住宅の固定資産税軽減は120㎡相当部分について3年間（3階建て以上の中高層耐火・準耐火住宅は5年間）税額が1/2に軽減されます（地方税法附則15条の6）。本問の建物は新築から2年経過であり5年間の軽減期間内なので特例が適用されます。固定資産税の標準税率は1.4%です。",
-      "publicPath": "q/practice/p822/index.html"
+      "publicPath": "q/practice/p10822/index.html"
     },
     {
-      "id": 900823,
+      "id": 910823,
       "year": "orig",
-      "num": 823,
+      "num": 10823,
       "field": "tax",
       "text": "Aは新築の一戸建て住宅（延べ面積120㎡・自己居住用）を購入した。固定資産税評価額は建物1200万円・土地2000万円である。住宅取得後、不動産取得税がどのくらいかかるか確認している。この場合に関する記述として地方税法の規定（当分の間の特例を含む）によれば正しいものはどれか。",
       "opts": [
@@ -13170,14 +13166,14 @@ const PRACTICE_QUESTIONS = {
         "土地の不動産取得税は2000万円×3%＝60万円であり、住宅用地の特例は関係ない",
         "不動産取得税は取得後すぐに自分で税務署に申告して納付する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "新築住宅（延べ面積50㎡以上240㎡以下の場合）の建物の不動産取得税は課税標準から1200万円を控除します（地方税法73条の14第1項）。1200万円－1200万円＝0円×3%＝0円となりこの場合は建物の不動産取得税はかかりません。土地については課税標準が固定資産税評価額の1/2に軽減され、さらに一定の控除が適用されます。不動産取得税は都道府県が賦課し納税通知書で納付する普通徴収方式です（申告納付ではありません）。",
-      "publicPath": "q/practice/p823/index.html"
+      "publicPath": "q/practice/p10823/index.html"
     },
     {
-      "id": 900824,
+      "id": 910824,
       "year": "orig",
-      "num": 824,
+      "num": 10824,
       "field": "tax",
       "text": "AはB銀行から住宅ローン（借入額3000万円）を組んで、自己居住用の新築住宅（延べ面積70㎡・一定の耐震基準を満たす）を取得した。この住宅の所有権保存登記と抵当権設定登記を行う場合の登録免許税について正しいものはどれか。",
       "opts": [
@@ -13188,12 +13184,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "所有権保存登記の本則税率は0.4%（登録免許税法別表1）。一定要件（床面積50㎡以上・取得後1年以内・自己居住用・一定の耐震基準等）を満たす場合は0.15%に軽減されます（租税特別措置法72条）。抵当権設定登記の課税標準は「債権金額」（ローン金額3000万円）であり、本則税率0.4%、一定要件を満たす住宅ローンは0.1%に軽減されます（租税特別措置法75条）。",
-      "publicPath": "q/practice/p824/index.html"
+      "publicPath": "q/practice/p10824/index.html"
     },
     {
-      "id": 900825,
+      "id": 910825,
       "year": "orig",
-      "num": 825,
+      "num": 10825,
       "field": "rights",
       "text": "Aの被用者BはAの業務執行中に過失により通行人Cに怪我を負わせた。Cの損害は入院費・治療費・慰謝料合計500万円である。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -13202,14 +13198,14 @@ const PRACTICE_QUESTIONS = {
         "CはBとAのどちらかにしか損害賠償請求できず、最初に請求した者が責任を負う",
         "AがCに500万円を支払った後、AはBに対して全額の求償ができない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "使用者Aは被用者Bの選任・監督について相当の注意をしたこと、または相当の注意をしても損害が生じたことを証明すれば免責されます（民法715条1項ただし書）。しかし判例上この免責はほぼ認められません。CはAとBの両方（連帯して）に損害賠償請求できます（不真正連帯債務）。AがCに500万円を支払った後、AはBに対して信義則上相当と認められる額の求償ができます（民法715条3項）。",
-      "publicPath": "q/practice/p825/index.html"
+      "publicPath": "q/practice/p10825/index.html"
     },
     {
-      "id": 900826,
+      "id": 910826,
       "year": "orig",
-      "num": 826,
+      "num": 10826,
       "field": "rights",
       "text": "未成年者A（18歳・高校生）は法定代理人（親）の同意なしに、B所有の中古バイクを20万円で購入する契約をBと締結した。Aの親CはAのバイク購入を知らなかったが、その後Aがバイクで事故を起こしたため追認も取消しもしないままひとまず保険の対応をした。後日CはAB間の売買契約を取り消したいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13220,12 +13216,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "2022年4月施行の改正民法により成年年齢が18歳に引き下げられました（民法4条）。Aは18歳で成年のため、法定代理人の同意なくバイクを購入しても未成年者取消権は適用されません。成年者Aが行った売買契約は有効であり、CによるAへの取消権はありません（Aが詐欺・強迫を受けた等の別の事情がない限り）。",
-      "publicPath": "q/practice/p826/index.html"
+      "publicPath": "q/practice/p10826/index.html"
     },
     {
-      "id": 900827,
+      "id": 910827,
       "year": "orig",
-      "num": 827,
+      "num": 10827,
       "field": "law",
       "text": "宅建業者Aは、宅地建物取引業保証協会（以下「保証協会」という）の社員である。AはBとの間で宅地の売買契約を締結し、Bから手付金200万円を受領したが、その後Aが倒産し手付金をBに返還できなくなった。Bは保証協会に対して弁済業務保証金からの還付を求めようとしている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13234,14 +13230,14 @@ const PRACTICE_QUESTIONS = {
         "BがAから受け取るべき金銭の額は、Aが供託していた弁済業務保証金分担金の額（主たる事務所60万円等）が上限となる",
         "Bが還付請求できる金額の上限は、Aが保証協会の社員でなかったとした場合に供託すべき営業保証金の額（主たる事務所1000万円等）が上限となる"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "弁済業務保証金からの還付請求は「宅建業者でない者」で当該宅建業者と「宅建業に関する取引をした者」が対象です（宅建業法64条の8）。還付を受けることができる限度額は、その宅建業者が保証協会の社員でなかったとした場合に供託すべき営業保証金の額（主たる事務所1000万円・従たる事務所500万円等の合計）が上限です（同条2項）。分担金の額（60万円等）は上限ではありません。",
-      "publicPath": "q/practice/p827/index.html"
+      "publicPath": "q/practice/p10827/index.html"
     },
     {
-      "id": 900828,
+      "id": 910828,
       "year": "orig",
-      "num": 828,
+      "num": 10828,
       "field": "limit",
       "text": "都市計画区域内に土地を所有するAは、土地（面積5000㎡）に事務所兼倉庫を建設するための開発行為を計画している。この土地は市街化区域内にある。この場合に関する記述として都市計画法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13250,14 +13246,14 @@ const PRACTICE_QUESTIONS = {
         "市街化区域内の開発行為は農業・林業・漁業用の建築物のための開発行為と同様に常に許可不要",
         "市街化区域内の開発行為では環境大臣の許可が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化区域内での開発行為は原則として1000㎡以上で都道府県知事の開発許可が必要です（都市計画法29条1項）。5000㎡はこの面積要件を超えているため開発許可が必要です。農業・林業・漁業用の建築物のための開発行為は都市計画区域全体で許可不要ですが、それ以外は基本的に許可が必要です。",
-      "publicPath": "q/practice/p828/index.html"
+      "publicPath": "q/practice/p10828/index.html"
     },
     {
-      "id": 900829,
+      "id": 910829,
       "year": "orig",
-      "num": 829,
+      "num": 10829,
       "field": "rights",
       "text": "AはB銀行に対して2000万円の債務を負い、A所有の甲マンション（時価3000万円）に第一順位の抵当権を設定した。その後AはC信用金庫に対して1000万円の債務を負い、同じ甲マンションに第二順位の抵当権を設定した。AがB銀行の債務のみを完済して抵当権の抹消登記を申請しようとする場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13268,12 +13264,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "B銀行の第一順位抵当権が抹消されると、C信用金庫の第二順位抵当権が繰り上がって第一順位になります。抵当権の順位は相対的なものであり、上位の権利が消滅すれば下位の権利が自動的に順位上昇します。Aが法定代位を取得するという考えは本問の状況では当てはまりません。",
-      "publicPath": "q/practice/p829/index.html"
+      "publicPath": "q/practice/p10829/index.html"
     },
     {
-      "id": 900830,
+      "id": 910830,
       "year": "orig",
-      "num": 830,
+      "num": 10830,
       "field": "rights",
       "text": "AはBに対して2020年4月1日に100万円を貸し付け（利息なし・期限の定めなし）、翌日から随時弁済を求めることができる状態にあった。Aは2022年3月31日にBに対して内容証明郵便にて100万円の返済を催告した。その後Aは2022年10月1日に訴訟を提起した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13282,14 +13278,14 @@ const PRACTICE_QUESTIONS = {
         "期限の定めのない消費貸借は貸付けの翌日から時効が進行し5年（民法166条1項1号）で完成する可能性がある",
         "催告は書面でなければ効力が生じない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "期限の定めのない消費貸借は貸付日の翌日から権利行使できる状態（民法591条1項）なので主観的起算点からの消滅時効（5年）が問題となります。催告から6か月以内に裁判上の請求等をすれば時効の完成猶予効が延長されますが（民法150条）、催告それ自体は時効を更新しません。また訴訟提起の日は10月1日で催告3月31日から6か月は9月30日で、時効完成猶予の期間内に訴訟を提起できているかが問題です（催告後6か月以内に訴訟提起が必要）。",
-      "publicPath": "q/practice/p830/index.html"
+      "publicPath": "q/practice/p10830/index.html"
     },
     {
-      "id": 900831,
+      "id": 910831,
       "year": "orig",
-      "num": 831,
+      "num": 10831,
       "field": "law",
       "text": "宅建士Aは、甲県知事の登録を受けており、甲県内の宅建業者Bに勤務している。Aは業務上で重大な過失により取引の相手方に損害を与えたとして、甲県知事から1年間の事務禁止処分を受けた。また、Aはその後に転職して乙県内の宅建業者Cに勤務することになった。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13300,12 +13296,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "事務禁止処分を受けた宅建士は、処分の期間中、登録している都道府県知事（甲県知事）に宅建士証を提出しなければなりません（宅建業法22条の2第7項）。事務禁止処分中に登録移転を申請することはできません（宅建業法19条の2ただし書）。退職しても処分の効力は変わりません。",
-      "publicPath": "q/practice/p831/index.html"
+      "publicPath": "q/practice/p10831/index.html"
     },
     {
-      "id": 900832,
+      "id": 910832,
       "year": "orig",
-      "num": 832,
+      "num": 10832,
       "field": "law",
       "text": "宅建業者Aは、建物（戸建住宅・新築）の売買を媒介した。この建物はH工務店が建築したものであり、住宅品質確保法（品確法）に基づく住宅性能評価書（設計住宅性能評価書・建設住宅性能評価書）が交付されている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13314,14 +13310,14 @@ const PRACTICE_QUESTIONS = {
         "住宅性能評価書の評価内容を重要事項説明書に全て転記しなければならない",
         "設計住宅性能評価書が交付されていれば建設住宅性能評価書の取得は不要であり、その旨を説明すればよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "住宅性能評価を受けた新築住宅の売買・交換の場合、住宅性能評価を受けた旨（設計住宅性能評価書・建設住宅性能評価書の別）は重要事項説明書の記載事項です（宅建業法35条1項14号・施行規則16条の4の3第6号）。評価内容の全転記は不要ですが、住宅性能評価を受けている旨の記載は必須です。",
-      "publicPath": "q/practice/p832/index.html"
+      "publicPath": "q/practice/p10832/index.html"
     },
     {
-      "id": 900833,
+      "id": 910833,
       "year": "orig",
-      "num": 833,
+      "num": 10833,
       "field": "limit",
       "text": "Aは商業地域内（建ぺい率80%・容積率600%）に事務所ビルを建築しようとしている。敷地面積は500㎡で、前面道路幅員は6m、敷地は特定行政庁指定の防火地域内にある。建築物は耐火建築物とする予定である。この場合の建ぺい率の最高限度として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13330,14 +13326,14 @@ const PRACTICE_QUESTIONS = {
         "100%（指定建ぺい率80%に対し耐火建築物10%加算で90%）",
         "指定建ぺい率80%そのままで変化なし"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "防火地域内の耐火建築物は建ぺい率が10%加算されます（建築基準法53条3項1号）。指定建ぺい率80%の場合は80%+10%=90%となります。ただし指定建ぺい率が80%の地域で防火地域内の耐火建築物の場合は制限なし（100%）となる場合もありますが、指定建ぺい率80%自体が耐火要件とセットになっている場合に限られます（建築基準法53条6項2号）。本問は指定建ぺい率80%の商業地域で防火地域内の耐火建築物なので建ぺい率制限が適用されません。",
-      "publicPath": "q/practice/p833/index.html"
+      "publicPath": "q/practice/p10833/index.html"
     },
     {
-      "id": 900834,
+      "id": 910834,
       "year": "orig",
-      "num": 834,
+      "num": 10834,
       "field": "tax",
       "text": "Aは不動産鑑定士に甲土地の不動産鑑定評価を依頼した。不動産鑑定士は取引事例比較法・収益還元法・原価法の3方式を用いて評価を行い、最終的な鑑定評価額を決定しようとしている。この場合に関する記述として不動産鑑定評価基準の定めによれば正しいものはどれか。",
       "opts": [
@@ -13346,14 +13342,14 @@ const PRACTICE_QUESTIONS = {
         "原価法は必ず再調達原価から減価修正をしない方法で計算しなければならない",
         "3方式のうち最も高い価格が鑑定評価額として採用される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "取引事例比較法では、多数の取引事例を収集・選択し、①事情補正（正常でない取引の補正）②時点修正（時点の違いを補正）③地域要因比較④個別的要因比較の手順で比準価格を求めます（不動産鑑定評価基準）。収益還元法は主に賃貸等の収益物件に適用しますが自己居住用住宅にも適用可能です（むしろ積極的に適用すべきとされています）。原価法は再調達原価から減価修正を行います。3方式の結果を関連付けて最終評価額を決定します。",
-      "publicPath": "q/practice/p834/index.html"
+      "publicPath": "q/practice/p10834/index.html"
     },
     {
-      "id": 900835,
+      "id": 910835,
       "year": "orig",
-      "num": 835,
+      "num": 10835,
       "field": "rights",
       "text": "Aには相続人として配偶者B、長男C、次男Dがいる。Aは生前に次男Dに対して生計の資本として2000万円を贈与していた。Aが死亡した時の相続財産は6000万円であった（贈与は相続財産に含まれていない）。遺産分割において特別受益の持ち戻しを計算する場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13362,14 +13358,14 @@ const PRACTICE_QUESTIONS = {
         "Dへの贈与額2000万円は相続財産6000万円より少ないので特別受益の持ち戻しは不要",
         "特別受益の持ち戻しにより相続分が0円以下になった場合、Dは既に受け取った贈与分を返還しなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特別受益の持ち戻し計算（民法903条）では、相続財産6000万円＋特別受益2000万円＝みなし相続財産8000万円を基礎に相続分を計算します。B（配偶者）：8000万円×1/2＝4000万円、CとD（子）：各8000万円×1/4＝各2000万円。DはすでにAから2000万円を受け取っているので相続分2000万円から差し引き0円となります。Dの相続分がマイナスになっても返還義務は生じません（民法903条2項）。",
-      "publicPath": "q/practice/p835/index.html"
+      "publicPath": "q/practice/p10835/index.html"
     },
     {
-      "id": 900836,
+      "id": 910836,
       "year": "orig",
-      "num": 836,
+      "num": 10836,
       "field": "law",
       "text": "宅建業者A（自ら売主）は買主B（宅建業者でない）との間で宅地の売買契約を締結した。代金は3000万円で、Bは手付金として300万円を支払った。この宅地は未完成物件であった。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13378,14 +13374,14 @@ const PRACTICE_QUESTIONS = {
         "未完成物件の手付金保全措置は代金の10%超が基準であり300万円は10%丁度なので保全措置は不要",
         "保全措置が必要でも手付金を受け取る前に保全措置を講じる必要はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "未完成物件の手付金等の保全措置は、手付金等が代金の5%を超えるまたは1000万円を超える場合に必要です（宅建業法41条1項）。代金3000万円の5%は150万円であり、手付金300万円は150万円を超えているため保全措置が必要です。また保全措置は手付金等を受領する前に講じなければなりません（同条2項）。",
-      "publicPath": "q/practice/p836/index.html"
+      "publicPath": "q/practice/p10836/index.html"
     },
     {
-      "id": 900837,
+      "id": 910837,
       "year": "orig",
-      "num": 837,
+      "num": 10837,
       "field": "rights",
       "text": "AはBから事務所用建物を月額30万円で賃借している。賃貸借契約には期間の定めがなく、契約から5年が経過している。近年、周辺の類似物件の賃料相場が上昇しており、Bは賃料をAに対して月額40万円に増額するよう求めてきた。Aはこの増額に応じられないとしている。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13394,14 +13390,14 @@ const PRACTICE_QUESTIONS = {
         "事務所用建物の賃貸借には借地借家法が適用されないので、賃料増額は全額即時に応じる必要がある",
         "Bが増額請求をした翌月から自動的に新賃料が適用される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物賃貸借（事務所用も適用対象）において増額請求があり当事者間で協議が調わない場合、増額の当否と相当賃料額は最終的に裁判所が決定します（借地借家法32条2項）。確定するまでの間、借主は自ら相当と認める額（現行賃料額以上）を支払えばよく、確定後に差額を利息付きで精算します。",
-      "publicPath": "q/practice/p837/index.html"
+      "publicPath": "q/practice/p10837/index.html"
     },
     {
-      "id": 900838,
+      "id": 910838,
       "year": "orig",
-      "num": 838,
+      "num": 10838,
       "field": "rights",
       "text": "AとBはそれぞれ隣接する土地を所有している。AとBの土地の境界に植えられた樹木の枝がBの土地に越境し、Bの建物に影や落ち葉による被害を生じさせている。また、同じ樹木の根もBの土地に越境しており、Bの庭の排水設備に影響を与えている。この場合に関する記述として民法の規定（2021年改正後）によれば正しいものはどれか。",
       "opts": [
@@ -13410,14 +13406,14 @@ const PRACTICE_QUESTIONS = {
         "Aの許可がなければBは越境した枝も根も切除できない",
         "Bは枝・根の越境について損害賠償のみ請求できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2021年民法改正後、越境した根はBが自ら切除できます（民法233条1項ただし書の反対解釈）。越境した枝についてはAに切除を請求でき（民法233条1項）、Aが相当期間内に切除しない場合・樹木の所有者が不明または所在不明の場合・急迫の事情がある場合は自ら切除できます（民法233条3項）。",
-      "publicPath": "q/practice/p838/index.html"
+      "publicPath": "q/practice/p10838/index.html"
     },
     {
-      "id": 900839,
+      "id": 910839,
       "year": "orig",
-      "num": 839,
+      "num": 10839,
       "field": "law",
       "text": "宅建業者A（国土交通大臣免許）の従業員Bが、顧客Cとの売買取引において重要事項を故意に告知せず、Cに1000万円の損害を与えた。国土交通大臣がAに対して業務停止処分（6か月）を命じた場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13426,14 +13422,14 @@ const PRACTICE_QUESTIONS = {
         "業務停止処分はAの主たる事務所のみに適用され従たる事務所の業務は継続できる",
         "業務停止処分を受けたAの専任の宅建士は全員登録消除となる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者が業務停止処分に違反して宅建業を継続した場合は、免許取消処分（必要的取消し）の対象となります（宅建業法66条1項9号）。業務停止処分は会社全体（全事務所）に対する処分であり、特定の事務所だけに限定されません。業務停止処分と免許取消処分を同時に行うことはできません（段階的な処分）。",
-      "publicPath": "q/practice/p839/index.html"
+      "publicPath": "q/practice/p10839/index.html"
     },
     {
-      "id": 900840,
+      "id": 910840,
       "year": "orig",
-      "num": 840,
+      "num": 10840,
       "field": "limit",
       "text": "AはB県内（都市計画区域外・準都市計画区域外）の山林（面積20000㎡）を購入する予定である。売主はC社（土地所有者）であり、売買代金は3億円である。この場合に関する記述として国土利用計画法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13442,14 +13438,14 @@ const PRACTICE_QUESTIONS = {
         "事後届出の期限は契約締結後1か月以内である",
         "都市計画区域外では100000㎡以上でなければ届出不要である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "国土利用計画法の事後届出（同法23条）は都市計画区域外（準都市計画区域を除く）では10000㎡（1ha）以上の土地取引に必要です。20000㎡はこれを超えるため届出が必要です。届出期限は契約締結後2週間以内（同法23条1項）で、届出先はB県知事です。",
-      "publicPath": "q/practice/p840/index.html"
+      "publicPath": "q/practice/p10840/index.html"
     },
     {
-      "id": 900841,
+      "id": 910841,
       "year": "orig",
-      "num": 841,
+      "num": 10841,
       "field": "rights",
       "text": "AはBに対して甲土地を売却する契約を締結した。甲土地の登記名義はまだAのままである。AはDに対しても同じ甲土地を売却する二重売買をしてしまった。BはAから引渡しは受けたが登記をまだ備えていない。DはBよりも後に契約をしたが、DはBが既に買い受けていることを知っていた。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -13458,14 +13454,14 @@ const PRACTICE_QUESTIONS = {
         "悪意者（Dがすでに買い受けていることを知っていた）は常にBに登記なしに対抗できる",
         "BがAから引渡しを受けているため所有権はBにある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "判例上、不法に登記の欠如を主張することが信義則に反するような「背信的悪意者」に対しては、登記なしに物権変動を対抗できます（最高裁判例）。単なる悪意（二重売買を知っていた）だけでは背信的悪意者にはなりませんが、積極的に妨害する等の悪質な場合は背信的悪意者とされBが勝てる可能性があります。",
-      "publicPath": "q/practice/p841/index.html"
+      "publicPath": "q/practice/p10841/index.html"
     },
     {
-      "id": 900842,
+      "id": 910842,
       "year": "orig",
-      "num": 842,
+      "num": 10842,
       "field": "tax",
       "text": "Aはフラット35を利用して新築住宅を購入しようとしている。フラット35の審査基準・利用条件について確認している。この場合に関する記述として住宅金融支援機構法・フラット35の規定によれば正しいものはどれか。",
       "opts": [
@@ -13474,14 +13470,14 @@ const PRACTICE_QUESTIONS = {
         "フラット35は民間金融機関が貸し付けを行い住宅金融支援機構がその債権を買い取る証券化支援型のローンであり、金利は借入時に確定し返済完了まで変わらない全期間固定金利型",
         "フラット35を利用する場合、頭金は不要で購入金額全額を融資できる"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "フラット35は民間金融機関が貸し付けを行い住宅金融支援機構が債権を買い取る証券化支援業務を利用したローンで、全期間固定金利型です（住宅金融支援機構法13条1項1号）。融資対象住宅の床面積は一戸建て70㎡以上・マンション30㎡以上が条件（省エネ基準適合も必要）です。融資割合は購入価格の90%が上限（頭金10%以上が必要）が基本です。",
-      "publicPath": "q/practice/p842/index.html"
+      "publicPath": "q/practice/p10842/index.html"
     },
     {
-      "id": 900843,
+      "id": 910843,
       "year": "orig",
-      "num": 843,
+      "num": 10843,
       "field": "rights",
       "text": "AはBに自己の土地（甲地）の売買に関する一切の代理権を与えた。BはこのA代理人として、Cとの間でAを売主とする甲地の売買契約を締結した。ところが契約締結後にAが死亡した。相続人はDのみである。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13492,12 +13488,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "代理権は本人の死亡により消滅します（民法111条1項1号）。しかしAの死亡前にBがCとの間で締結した売買契約は有効であり、その効果はAの地位を承継した相続人Dに帰属します（民法896条）。代理権が消滅した後にBが行う行為（もし行うとすれば）は無権代理となります。",
-      "publicPath": "q/practice/p843/index.html"
+      "publicPath": "q/practice/p10843/index.html"
     },
     {
-      "id": 900844,
+      "id": 910844,
       "year": "orig",
-      "num": 844,
+      "num": 10844,
       "field": "rights",
       "text": "AはBからB所有のマンション（築20年・中古）を2000万円で購入した。売買契約書には「売買物件は現状のままで引き渡す」との文言があったが、契約不適合責任の免責については何も書かれていなかった。引渡し後6か月が経過したところで、雨漏りが発生した。Aが調査したところ、屋上防水の劣化が原因であることがわかり、修繕には400万円かかることが判明した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13506,14 +13502,14 @@ const PRACTICE_QUESTIONS = {
         "Aは不適合を知った時から2年以内に訴訟を提起しなければ権利が消滅する",
         "「現状有姿渡し」の特約があれば引渡しから1年以上経過した不具合については売主は一切責任を負わない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "「現状のままで引き渡す」との文言は単なる物件の引渡し状態を示すものであり、契約不適合責任の明示的な免責特約とはなりません。免責特約がない以上、BはAに対して契約不適合責任を負います。Aは不適合を知った時から1年以内に「通知」（権利行使の通知）を行えば、通知後は消滅時効の範囲内（5年または10年）で権利行使できます（民法566条）。",
-      "publicPath": "q/practice/p844/index.html"
+      "publicPath": "q/practice/p10844/index.html"
     },
     {
-      "id": 900845,
+      "id": 910845,
       "year": "orig",
-      "num": 845,
+      "num": 10845,
       "field": "law",
       "text": "宅建業者Aが媒介して、売主BとC（買主・宅建業者でない）の間で中古住宅（木造2階建て）の売買契約が成立した。代金は2500万円で、BはCに代金全額の受領と同時に鍵を渡す（代金・引渡し同時）こととし、登記移転は引渡しから1か月以内とすることでBCが合意した。また、インスペクション（建物状況調査）は実施していない。この場合37条書面への記載に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13524,12 +13520,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "37条書面の必要的記載事項には代金の額・支払時期・方法（2500万円・引渡しと同時）、宅地建物の引渡し時期、移転登記申請の時期（引渡しから1か月以内）が含まれます（宅建業法37条1項）。インスペクション実施の有無は35条書面（重要事項説明）での記載事項です。37条書面はBとCの双方に交付し、宅建士が記名しなければなりません。",
-      "publicPath": "q/practice/p845/index.html"
+      "publicPath": "q/practice/p10845/index.html"
     },
     {
-      "id": 900846,
+      "id": 910846,
       "year": "orig",
-      "num": 846,
+      "num": 10846,
       "field": "limit",
       "text": "Aは自己の土地（宅地造成等工事規制区域内）において、次の造成工事を計画している。①切土で高さ3mの崖を生じさせる工事②盛土で高さ2mの崖を生じさせる工事③切土と盛土を合わせて高さ3mの崖を生じさせる工事④土地の面積500㎡に盛土を施す工事（高さ1m以下）。この場合に関する記述として盛土規制法（宅地造成及び特定盛土等規制法）の規定によれば正しいものはどれか。",
       "opts": [
@@ -13538,14 +13534,14 @@ const PRACTICE_QUESTIONS = {
         "①切土3mは許可対象（2m超）、②盛土2mは許可対象（1m超）、③合計3mは許可対象（2m超）、④面積500㎡盛土（高さ1m以下）は500㎡を超えないため許可不要",
         "④の面積500㎡の盛土が最も危険なため最優先で許可が必要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "宅地造成工事規制区域内で許可が必要な宅地造成工事は、①切土で2m超の崖を生じさせるもの②盛土で1m超の崖を生じさせるもの③切土・盛土合わせて2m超の崖を生じさせるもの④土地の面積500㎡超の工事などです（盛土規制法令3条）。したがって①（切土3m・2m超）②（盛土2m・1m超）③（合計3m・2m超）は許可対象。④（面積500㎡以下・高さ1m以下）は許可対象の面積要件（500㎡超）を満たさず許可不要。",
-      "publicPath": "q/practice/p846/index.html"
+      "publicPath": "q/practice/p10846/index.html"
     },
     {
-      "id": 900847,
+      "id": 910847,
       "year": "orig",
-      "num": 847,
+      "num": 10847,
       "field": "rights",
       "text": "AはBに対して不法行為による損害賠償請求権を有している（損害発生日：2020年4月1日、AがBによる加害行為および損害を知った日：2021年1月1日）。AはBに対していつまでに損害賠償請求の訴訟を提起すれば消滅時効にかかることなく請求できるか。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13554,14 +13550,14 @@ const PRACTICE_QUESTIONS = {
         "不法行為の時効は常に5年である",
         "不法行為による損害賠償請求権には時効がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不法行為による損害賠償請求権の消滅時効は、被害者が損害および加害者を知った時から3年（人の生命・身体を害する不法行為は5年）または不法行為の時から20年のいずれか早い方です（民法724条）。本問では2021年1月1日から3年の2024年1月1日と、2020年4月1日から20年の2040年4月1日を比較し、早い方（2024年1月1日）が時効完成日となります。",
-      "publicPath": "q/practice/p847/index.html"
+      "publicPath": "q/practice/p10847/index.html"
     },
     {
-      "id": 900848,
+      "id": 910848,
       "year": "orig",
-      "num": 848,
+      "num": 10848,
       "field": "rights",
       "text": "分譲マンション（専有部分20戸）の一室を所有するAが、自室の一部をペットのために改造し、共用部分の廊下にペット用の水飲み場を設置した。管理規約ではペットの飼育および共用部分の改変は管理組合の承認が必要と定められているが、Aは承認を得ていない。管理組合の理事長Bは規約違反を理由にAに是正を求めた。この場合に関する記述として区分所有法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13570,14 +13566,14 @@ const PRACTICE_QUESTIONS = {
         "管理規約はあくまで任意的なものであり、Aが規約に違反しても管理組合は何もできない",
         "管理規約は区分所有者全員の同意がなければ改正できないため、現在の規約がAに不利であれば全員の同意を得て規約を改正してもらうしかない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有法57条により、区分所有者・占有者が区分所有者の共同の利益に反する行為をする場合、管理者・管理組合は行為の停止・専有部分の使用禁止・競売・引渡し請求等を集会決議に基づき裁判所に請求できます。共用部分への無断設置は規約違反として是正請求・訴訟が可能です。",
-      "publicPath": "q/practice/p848/index.html"
+      "publicPath": "q/practice/p10848/index.html"
     },
     {
-      "id": 900849,
+      "id": 910849,
       "year": "orig",
-      "num": 849,
+      "num": 10849,
       "field": "tax",
       "text": "Aは2024年1月1日に中古一戸建て住宅（土地150㎡・建物評価額800万円・土地評価額1800万円）を購入した。前の所有者（売主）は2023年12月31日に売却した。固定資産税の賦課期日は1月1日である。この場合に関する記述として地方税法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13586,14 +13582,14 @@ const PRACTICE_QUESTIONS = {
         "固定資産税は3か月ごとに4回に分けて納付するが、Aは1月1日以降の分のみ按分して支払えばよい",
         "建物の固定資産税は2024年が新築から何年目かによって税額が自動的に軽減される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "固定資産税の賦課期日は1月1日であり、2024年1月1日現在の所有者（A）が2024年度分の固定資産税の法的な納税義務者です（地方税法343条1項）。売買の場合、売主と買主の間で1月1日以前・以後の所有期間を按分して固定資産税相当額を授受するのが一般的ですが、これは当事者間の合意によるものであり法的には全額がAの義務です。",
-      "publicPath": "q/practice/p849/index.html"
+      "publicPath": "q/practice/p10849/index.html"
     },
     {
-      "id": 900850,
+      "id": 910850,
       "year": "orig",
-      "num": 850,
+      "num": 10850,
       "field": "law",
       "text": "宅建業者Aは個人事業主として甲県知事の免許を受けて宅建業を営んでいる。AはBを専任の宅建士として採用していたが、BがC社（別会社）の専任の宅建士にも就任していることが判明した。また、Aの業務従事者は4名であり、Bを含む専任の宅建士が1名のみという状況である。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13602,14 +13598,14 @@ const PRACTICE_QUESTIONS = {
         "業務従事者4名に対し専任宅建士1名は法定要件（5名に1名以上）を満たしており問題ない",
         "Bが専任を辞した場合でも、Aは補充なしに宅建業を継続できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専任の宅建士は常時勤務する必要があり（宅建業法施行規則6条の2）、同一の宅建業者の複数事務所の専任宅建士を兼任できません。他の宅建業者（C社）の専任宅建士との兼任もできません。BはAとC社のどちらかの専任宅建士を辞する必要があります。業務従事者4名の場合、1名の専任宅建士は法定要件（5名に1名以上）を満たしています（4名÷5＝0.8→切り上げ1名）。",
-      "publicPath": "q/practice/p850/index.html"
+      "publicPath": "q/practice/p10850/index.html"
     },
     {
-      "id": 900851,
+      "id": 910851,
       "year": "orig",
-      "num": 851,
+      "num": 10851,
       "field": "rights",
       "text": "AはBから「この土地は近く区画整理の対象になり、必ず値上がりする」と断言されて信じ込み、B所有の甲土地を相場より500万円高い2000万円で購入した。しかし実際には区画整理の計画はなく、Bは全くの作り話をしていた。売買契約締結から2年後にAはこの事実を知った。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13618,14 +13614,14 @@ const PRACTICE_QUESTIONS = {
         "AはBとの売買契約の取消しには相当の理由があるが、契約締結から2年が経過しているためもはや取消権は時効で消滅している",
         "Aは錯誤（民法95条）を理由に取り消すこともできるが詐欺と錯誤は同時に主張できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "将来の値上がりを断言するという方法でAを錯誤に陥らせた場合、これは詐欺（民法96条1項）に当たります。詐欺による取消権の時効は、詐欺を知った時から5年・行為の時から20年です（民法126条）。Aが詐欺を知ったのは契約から2年後であり、そこから5年以内であれば取消権を行使できます。錯誤と詐欺の主張は重複して行うことも可能です。",
-      "publicPath": "q/practice/p851/index.html"
+      "publicPath": "q/practice/p10851/index.html"
     },
     {
-      "id": 900852,
+      "id": 910852,
       "year": "orig",
-      "num": 852,
+      "num": 10852,
       "field": "rights",
       "text": "AはBに対して「A所有の乙土地を1500万円で売却する権限」を与える代理権を授与した。ところがBは代理人として行動する際に、C（第三者）の利益を図る目的でAに不利な条件（1000万円）でCとの間で売買契約を締結した。Cは、BがAに不利な条件で契約することを知っていた。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -13634,14 +13630,14 @@ const PRACTICE_QUESTIONS = {
         "Bが代理権を濫用してもCは善意であればAに対して契約の効力を主張できる",
         "代理人の動機は代理行為の効力に影響しない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代理人が自己または第三者の利益を図る目的で代理権の範囲内の行為をした場合（代理権の濫用・民法107条）、相手方がその目的を知りまたは知ることができたときは、その行為は無権代理とみなされます。本問ではCがBの濫用目的を知っていたため、Aはその契約に拘束されません。",
-      "publicPath": "q/practice/p852/index.html"
+      "publicPath": "q/practice/p10852/index.html"
     },
     {
-      "id": 900853,
+      "id": 910853,
       "year": "orig",
-      "num": 853,
+      "num": 10853,
       "field": "rights",
       "text": "AはB銀行から1億円を借り入れ、A所有の甲ビル（時価1億5000万円）に抵当権を設定した。その後、甲ビルが火災で全焼し、Aが加入していた火災保険会社から保険金1億2000万円が支払われることになった。B銀行はこの保険金から優先弁済を受けたいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13650,14 +13646,14 @@ const PRACTICE_QUESTIONS = {
         "B銀行は物上代位により保険金1億2000万円全額を受け取ることができる",
         "火災が発生した以上抵当権の目的物が滅失したため、抵当権は消滅し、B銀行は残債権を一般債権として請求するのみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当権の物上代位（民法304条）は火災保険金にも及びます。B銀行は保険金がAに払い渡される前に差押えをすれば、保険金から被担保債権1億円の優先弁済を受けることができます。残額2000万円（1億2000万円－1億円）はAに帰属します。払渡し前の差押えが要件です。",
-      "publicPath": "q/practice/p853/index.html"
+      "publicPath": "q/practice/p10853/index.html"
     },
     {
-      "id": 900854,
+      "id": 910854,
       "year": "orig",
-      "num": 854,
+      "num": 10854,
       "field": "rights",
       "text": "AはBに対して500万円の売買代金債権（弁済期：2024年4月1日）を有している。BはAのほかC・Dにも多額の債務を負っており、Bの財産は唯一の不動産（時価200万円）のみである。AはBが無資力であることを知りつつ、Bが自己の唯一の財産である不動産を弟Eに対して代金100万円（時価の半額）で売却したことを知った。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13668,12 +13664,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "Bが無資力の状態で唯一の財産を廉価で処分した行為は詐害行為に該当し、AはBE間の売買契約を取り消すことができます（民法424条）。ただし取消しの範囲はAの債権額（500万円）の保全に必要な限度です。また2020年改正民法により、詐害行為取消権の行使は転得者（Eから転得した者）にも及ぶ場合があります。",
-      "publicPath": "q/practice/p854/index.html"
+      "publicPath": "q/practice/p10854/index.html"
     },
     {
-      "id": 900855,
+      "id": 910855,
       "year": "orig",
-      "num": 855,
+      "num": 10855,
       "field": "rights",
       "text": "AはBから店舗用建物を月額20万円で賃借し、飲食店を営業していた。賃貸借期間は3年と定められていた。期間満了の半年前、BはAに対して「自分の息子が店舗として使用したいので更新しない」と通知した。Aは引き続き営業を続けたいと考えている。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13682,14 +13678,14 @@ const PRACTICE_QUESTIONS = {
         "賃貸人が建物を自己使用したい場合は常に正当事由が認められる",
         "賃貸借期間が3年と定められているため借地借家法の更新規定は適用されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物賃貸借の更新拒絶には正当事由が必要です（借地借家法28条）。賃貸人または賃貸人の親族が建物を使用する必要性は正当事由を構成する一要素ですが、それだけで当然に正当事由が認められるわけではありません。賃借人の使用の必要性・従前の経緯・建物の状況・立退料の申出等を総合考慮して判断されます。",
-      "publicPath": "q/practice/p855/index.html"
+      "publicPath": "q/practice/p10855/index.html"
     },
     {
-      "id": 900856,
+      "id": 910856,
       "year": "orig",
-      "num": 856,
+      "num": 10856,
       "field": "rights",
       "text": "Aには子BとCがおり、Aが死亡した時点でBはすでに死亡していた。BにはB1とB2という子（Aの孫）がいる。Aの遺産は3000万円であり、遺産分割協議においてCがB1・B2の代わりに「BとCで半分ずつ相続したことにする」という内容の協議書を作成しようとした。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13698,14 +13694,14 @@ const PRACTICE_QUESTIONS = {
         "CはAの唯一の相続人となり3000万円全額を相続できる",
         "B1・B2はまだ幼いため、CがB1・B2の代理人として遺産分割協議に参加できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "BがAより先に死亡した場合、BのB1・B2が代襲相続人となります（民法887条2項）。有効な遺産分割協議には相続人全員（B1・B2・C）の参加が必要です。CがB1・B2の代わりに協議書を作成しても無効です。なおB1・B2が未成年の場合、親権者が代理人となりますが、親権者がCと利益相反する場合は特別代理人の選任が必要です。",
-      "publicPath": "q/practice/p856/index.html"
+      "publicPath": "q/practice/p10856/index.html"
     },
     {
-      "id": 900857,
+      "id": 910857,
       "year": "orig",
-      "num": 857,
+      "num": 10857,
       "field": "rights",
       "text": "A所有の甲土地についてBが時効取得（20年間の占有継続）を主張している。BはAに対して所有権移転登記を求めているが、時効完成前にAはCに甲土地を売却し、AからCへの所有権移転登記が完了している。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -13714,14 +13710,14 @@ const PRACTICE_QUESTIONS = {
         "時効完成後にAからCへ売却・登記がなされた場合、BはCに対して登記なしには時効取得を対抗できない",
         "時効による所有権取得は登記を必要としない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "判例上、時効完成後に登場した第三者（本問ではCが時効完成前の購入者）との関係について区別があります。時効完成前にAからCへ売却・登記された場合、CはBの時効取得開始時より前に登場した者ではなく、Bが時効取得で対抗できるかは占有継続の問題です。一方、時効完成後にAからCへ登記が移転した場合、BとCは対抗関係（登記の先後）となり、BはCに対し登記なしには時効取得を対抗できません（大連判）。本問はCへの売却・登記が時効完成前であるため、Bは登記なくCに対抗できます。",
-      "publicPath": "q/practice/p857/index.html"
+      "publicPath": "q/practice/p10857/index.html"
     },
     {
-      "id": 900858,
+      "id": 910858,
       "year": "orig",
-      "num": 858,
+      "num": 10858,
       "field": "rights",
       "text": "AはBから土地を借り（借地権の存続期間30年）、その土地上に建物を建築して居住している。借地権の存続期間が満了する1年前、AはBに対して契約の更新を請求した。Bはこの更新請求を拒絶し、「正当事由がある」と主張した。Bの正当事由は、Bの長男が土地を利用したいというものだけであった。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13730,14 +13726,14 @@ const PRACTICE_QUESTIONS = {
         "Aが更新請求すれば常に更新が認められる",
         "立退料を支払えば正当事由の有無にかかわらず更新を拒絶できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地権の更新拒絶には正当事由が必要です（借地借家法6条）。正当事由は土地所有者が土地を必要とする事情・借地権者が土地を必要とする事情・借地に関する従前の経緯・土地の利用状況・財産上の給付（立退料）の申出等を総合考慮して判断されます。長男の使用必要性のみでは正当事由が不十分とされることも多く、その場合は法定更新（借地借家法5条）が成立します。",
-      "publicPath": "q/practice/p858/index.html"
+      "publicPath": "q/practice/p10858/index.html"
     },
     {
-      "id": 900859,
+      "id": 910859,
       "year": "orig",
-      "num": 859,
+      "num": 10859,
       "field": "rights",
       "text": "Aは自己所有の建物の外壁タイルが剥落し、通行中のBに当たって傷害を負わせた。建物の外壁タイル剥落の原因は施工業者Cの施工不良であることが後に判明した。Aは建物の管理において通常の注意は払っていた（無過失）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13746,14 +13742,14 @@ const PRACTICE_QUESTIONS = {
         "BはCに対してのみ損害賠償を請求できる",
         "建物の施工不良による損害は施工業者Cのみが責任を負う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "工作物責任（民法717条）では、工作物の占有者が第一次的責任を負い（管理に過失がなければ免責）、所有者は占有者が免責された場合に絶対的無過失責任（最終責任者）を負います。本問でAは占有者でもあり所有者でもあります。Aが無過失を証明した場合でも、所有者として無過失責任を負います。AはCに対して求償できます（民法717条3項）。",
-      "publicPath": "q/practice/p859/index.html"
+      "publicPath": "q/practice/p10859/index.html"
     },
     {
-      "id": 900860,
+      "id": 910860,
       "year": "orig",
-      "num": 860,
+      "num": 10860,
       "field": "law",
       "text": "宅建業者Aは、売主BとC（買主・宅建業者でない）の間で、用途地域が指定されていない区域内の土地の売買を媒介した。この土地の隣地には工場があり、騒音・振動の影響が懸念される。また、この土地は過去に工場として使用されていた経緯があり土壌汚染の可能性を否定できない。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13762,14 +13758,14 @@ const PRACTICE_QUESTIONS = {
         "騒音・振動については宅建業法に基づく説明義務はなく、Aが任意に伝えれば足りる",
         "土壌汚染の可能性は確認できていない以上、重要事項説明書への記載は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "土壌汚染対策法の規定による形質変更時要届出区域・土壌汚染状況調査の結果については重要事項として説明する義務があります（宅建業法35条1項14号・施行令3条1項33号）。土壌汚染の可能性が懸念される物件については調査結果の有無を含め適切な説明が求められます。また法令上の制限（用途地域外の場合も含む建築基準法・各種規制）も説明対象です。",
-      "publicPath": "q/practice/p860/index.html"
+      "publicPath": "q/practice/p10860/index.html"
     },
     {
-      "id": 900861,
+      "id": 910861,
       "year": "orig",
-      "num": 861,
+      "num": 10861,
       "field": "law",
       "text": "宅建業者AはBから依頼を受け、専属専任媒介契約を締結して、B所有のマンション（専有部分80㎡）の売却活動を行っている。契約締結から3週間が経過したが、Aはレインズへの登録もせず、Bへの業務報告も一切行っていない。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13778,14 +13774,14 @@ const PRACTICE_QUESTIONS = {
         "専属専任媒介契約のレインズ登録期限は7日以内（休業日除く）である",
         "専属専任媒介契約の報告義務は2週間に1回以上でよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専属専任媒介契約では、指定流通機構（レインズ）への登録は媒介契約締結の日から5日以内（休業日を除く）、依頼者への業務報告は1週間に1回以上が義務付けられています（宅建業法34条の2第5項・6項・9項）。専任媒介は7日以内・2週間に1回以上です。Aはいずれも違反しており、指示処分等の行政処分の対象となります。",
-      "publicPath": "q/practice/p861/index.html"
+      "publicPath": "q/practice/p10861/index.html"
     },
     {
-      "id": 900862,
+      "id": 910862,
       "year": "orig",
-      "num": 862,
+      "num": 10862,
       "field": "law",
       "text": "宅建業者A（媒介業者）は、売主B（宅建業者でない）から依頼を受け、代金1億円の土地の売買を媒介し、買主Cとの間で売買契約を成立させた。Aは媒介報酬として、BからもCからも300万円（税別）ずつ受け取った。また、Aは広告宣伝費用として別途Bから50万円を受け取った。この場合に関する記述として宅建業法の規定（報酬告示）によれば正しいものはどれか。",
       "opts": [
@@ -13794,14 +13790,14 @@ const PRACTICE_QUESTIONS = {
         "AがBから別途受け取った広告宣伝費50万円は、依頼者（B）の特別の依頼に基づかない限り報酬の上限とは別に受け取ることはできない",
         "代金が1億円を超えるため報酬計算は400万円超の部分に1%を適用する"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "報酬告示に基づく媒介報酬の上限は代金×3%+6万円（200万円超400万円以下部分等の速算式）。1億円の場合：1億円×3%+6万円=306万円（税別）が一方からの上限。BとC双方から計612万円が上限。各300万円（計600万円）は上限内で適法。ただし広告宣伝費を別途受け取ることは原則として禁止されており（依頼者の特別依頼による実費を除く）、AがBから別途50万円を受け取ることは報酬告示違反となります。",
-      "publicPath": "q/practice/p862/index.html"
+      "publicPath": "q/practice/p10862/index.html"
     },
     {
-      "id": 900863,
+      "id": 910863,
       "year": "orig",
-      "num": 863,
+      "num": 10863,
       "field": "limit",
       "text": "AはF市（都市計画区域内・市街化調整区域）に土地を所有しており、この土地に自己の住宅を建築しようとしている。この場合に関する記述として都市計画法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13810,14 +13806,14 @@ const PRACTICE_QUESTIONS = {
         "市街化調整区域内の自己用住宅は常に開発許可が不要",
         "市街化調整区域では10年間の猶予後に建築が認められる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化調整区域は市街化を抑制する区域であり、原則として開発行為および建築が制限されます（都市計画法43条）。ただし農業・林業・漁業を営む者の住宅（農家住宅等）や公益上必要な建築物等については開発許可なしに建築できる例外があります（都市計画法29条1項2号・3号、43条1項等）。一般の自己用住宅は原則として開発許可が必要です。",
-      "publicPath": "q/practice/p863/index.html"
+      "publicPath": "q/practice/p10863/index.html"
     },
     {
-      "id": 900864,
+      "id": 910864,
       "year": "orig",
-      "num": 864,
+      "num": 10864,
       "field": "limit",
       "text": "Aはある宅地（第二種低層住居専用地域・建ぺい率50%・容積率100%・敷地面積300㎡・前面道路幅員5m）に次の建築物を計画している：木造2階建て・延べ面積250㎡・建築面積130㎡。この計画について建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13828,12 +13824,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "建ぺい率：130㎡÷300㎡≒43.3%＜50%→適法。容積率：前面道路幅員5m×4/10=200%と指定容積率100%を比較し小さい方（100%）が適用。延べ面積250㎡÷300㎡≒83.3%＜100%→適法。第二種低層住居専用地域では2階建ての木造住宅は建築可能です。この計画は適法です。",
-      "publicPath": "q/practice/p864/index.html"
+      "publicPath": "q/practice/p10864/index.html"
     },
     {
-      "id": 900865,
+      "id": 910865,
       "year": "orig",
-      "num": 865,
+      "num": 10865,
       "field": "limit",
       "text": "農業を営むAは、市街化調整区域内の農地（田・面積3000㎡）をBに対して売却しようとしている。BはこのAの農地で農業を営む意思がある。また別途、AはC（農業者でない）に対しても同じ農地の一部（500㎡）を太陽光発電設備の設置のため売却することを検討している。この場合に関する記述として農地法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13842,14 +13838,14 @@ const PRACTICE_QUESTIONS = {
         "太陽光発電設備のためのCへの売却は農地法の適用を受けない",
         "市街化調整区域内の農地の転用には都道府県知事の許可は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地の権利移動（売買・賃貸借等）は農業委員会の許可が必要です（農地法3条）。農業者間の売買であっても許可が必要です。太陽光発電設備のための農地転用を伴う売買（農地法5条）は都道府県知事の許可が必要です（4ha超は農林水産大臣）。市街化区域内なら農業委員会への届出のみとなりますが、本問は市街化調整区域なので許可が必要です。",
-      "publicPath": "q/practice/p865/index.html"
+      "publicPath": "q/practice/p10865/index.html"
     },
     {
-      "id": 900866,
+      "id": 910866,
       "year": "orig",
-      "num": 866,
+      "num": 10866,
       "field": "tax",
       "text": "Aは10年前に2000万円で購入した居住用マンション（所有期間10年2か月）を3500万円で売却した。取得費用（仲介手数料等含む）は2100万円、譲渡費用は130万円であった。AはこのマンションをB（Aの母）に売却した。この場合に関する記述として租税特別措置法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13858,14 +13854,14 @@ const PRACTICE_QUESTIONS = {
         "所有期間が10年を超えているため3000万円控除は不要で10年超軽減税率のみ適用できる",
         "Aの母Bに売却した場合は消費税の課税対象となる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "居住用財産の3000万円特別控除（租税特別措置法35条）は、譲渡先が配偶者・直系血族（父母・祖父母・子・孫等）・生計を一にする親族・内縁関係者等への売却には適用できません（同法35条2項）。AがAの母Bに売却した場合は直系血族への売却に該当するため3000万円控除は適用できません。",
-      "publicPath": "q/practice/p866/index.html"
+      "publicPath": "q/practice/p10866/index.html"
     },
     {
-      "id": 900867,
+      "id": 910867,
       "year": "orig",
-      "num": 867,
+      "num": 10867,
       "field": "tax",
       "text": "AはBから土地（売買代金1億5000万円）を購入した。AB間の土地の売買契約書（不動産売買に関する契約書）に記載された金額は1億5000万円である。この土地の売買契約書に貼付すべき収入印紙の金額として印紙税法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13874,14 +13870,14 @@ const PRACTICE_QUESTIONS = {
         "1億円超5億円以下の不動産売買契約書の本則税率による印紙税額は10万円",
         "1億5000万円の契約書は非課税"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産の譲渡に関する契約書（第1号文書）の印紙税は記載金額によって異なります。1億円超5億円以下の場合、本則税率では10万円ですが、軽減措置（租税特別措置法91条）により2027年3月31日までは6万円です。本問の契約書（1億5000万円）は1億円超5億円以下に該当するため軽減税率適用後6万円の印紙税が必要です。",
-      "publicPath": "q/practice/p867/index.html"
+      "publicPath": "q/practice/p10867/index.html"
     },
     {
-      "id": 900868,
+      "id": 910868,
       "year": "orig",
-      "num": 868,
+      "num": 10868,
       "field": "rights",
       "text": "AはBから「この土地は駅前再開発の計画地で土地価格が必ず上がる」と聞かされて甲土地を2000万円で購入した。しかし実際は再開発の計画は存在しなかった。ところがBもAから聞いて信じていただけで、Bは嘘をついたわけではなかった（Bも虚偽の情報をCから聞き込んでいた）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13890,14 +13886,14 @@ const PRACTICE_QUESTIONS = {
         "Aは錯誤を主張できるが、錯誤取消しは詐欺と異なり善意の第三者に対抗できない",
         "動機の錯誤は一切考慮されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "Bに故意がなければ詐欺（民法96条）は成立しません。しかしAは動機の錯誤（民法95条1項2号）を主張できます。動機が表示されており（再開発計画の存在）かつその錯誤がなければAが契約を締結しなかったと認められる場合で、Aに重大な過失がなければ取り消せます（民法95条3項）。",
-      "publicPath": "q/practice/p868/index.html"
+      "publicPath": "q/practice/p10868/index.html"
     },
     {
-      "id": 900869,
+      "id": 910869,
       "year": "orig",
-      "num": 869,
+      "num": 10869,
       "field": "rights",
       "text": "AはBに対して甲建物（マンション1室・中古）を売却した。引渡し後2か月で、Aが売買前から知っていた雨漏りが発生した。BはAに対して修理費用（150万円）の支払いを求めるとともに、雨漏りがあったことを知っていれば200万円安い価格でしか買わなかったとして、代金の一部減額も求めている。Aは「契約書に現状有姿で引き渡す旨が明記されており責任は負わない」と主張している。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13906,14 +13902,14 @@ const PRACTICE_QUESTIONS = {
         "BはAに対して修理費用（追完請求）または代金減額のどちらか一方しか請求できない",
         "Aが雨漏りを知っていても、現状有姿特約がある限りBは契約を解除できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売主が知りながら告げなかった不適合については、現状有姿特約等の免責特約の効力が及びません（民法572条）。BはAに対して追完請求（修理）および代金減額請求の両方を選択的・累積的に請求できます（民法562条・563条）。重大な契約不適合の場合は解除・損害賠償も請求できます。",
-      "publicPath": "q/practice/p869/index.html"
+      "publicPath": "q/practice/p10869/index.html"
     },
     {
-      "id": 900870,
+      "id": 910870,
       "year": "orig",
-      "num": 870,
+      "num": 10870,
       "field": "law",
       "text": "宅建業者A（法人・甲県知事免許）の代表取締役Bが、宅建業とは関係のない交通事故で拘禁刑刑（執行猶予なし）の確定判決を受けた。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13922,14 +13918,14 @@ const PRACTICE_QUESTIONS = {
         "BがA社を退任すれば免許への影響はなくなる",
         "拘禁刑刑であっても執行猶予がついていないため、刑期終了から3年が欠格期間となる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者の役員が拘禁刑以上の刑に処された場合（宅建業法5条1項5号）、その役員を有する法人は免許欠格事由に該当し（同法5条1項12号）、免許が取り消されます（同法66条1項3号）。刑の執行を終わり・執行を受けることがなくなった日から5年間は欠格期間です（同法5条1項5号）。BがA社を退任してもAの過去の欠格事由は解消されません（退任前の欠格が問題）。",
-      "publicPath": "q/practice/p870/index.html"
+      "publicPath": "q/practice/p10870/index.html"
     },
     {
-      "id": 900871,
+      "id": 910871,
       "year": "orig",
-      "num": 871,
+      "num": 10871,
       "field": "rights",
       "text": "AはBに対して2020年4月1日に請負代金500万円の債権（弁済期：2020年10月1日）を有している。Bは2021年4月1日にAに対して「来月中には必ず支払う」と述べた（口頭での約束）。その後Bからの支払いはなく、Aは2024年5月1日に訴訟を提起した。この場合に関する記続として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13938,14 +13934,14 @@ const PRACTICE_QUESTIONS = {
         "Bが口頭で支払いを約束しても時効の更新にはならず、書面による承認が必要",
         "請負代金債権の消滅時効は5年である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "請負代金債権は主観的起算点（権利を行使できることを知った時）から5年または客観的起算点（権利行使できる時）から10年の短い方で消滅します（民法166条1項）。弁済期2020年10月1日を権利行使できる時とすると、主観的には弁済期に認識しているので5年後の2025年10月1日に時効完成（通常）。しかしBの口頭承認（2021年4月1日）は「承認」として時効を更新します（民法152条）。更新後2021年4月1日から5年後の2026年4月1日が新たな時効完成日となり、2024年5月1日の提訴は時効完成前で有効です。",
-      "publicPath": "q/practice/p871/index.html"
+      "publicPath": "q/practice/p10871/index.html"
     },
     {
-      "id": 900872,
+      "id": 910872,
       "year": "orig",
-      "num": 872,
+      "num": 10872,
       "field": "law",
       "text": "宅建業者Aが媒介した建物の売買契約において、売主Bと買主C（宅建業者でない）の間で次の合意がなされた。①代金3000万円は手付金300万円と残金2700万円の2回払い、②引渡しは2025年4月1日、③建物の構造上の瑕疵について1年間の保証をBがCに付与する、④住宅ローン特約（審査不通過の場合に白紙解除）。37条書面の任意的記載事項に当たるものとして宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13954,14 +13950,14 @@ const PRACTICE_QUESTIONS = {
         "住宅ローン特約（④）は定めがある場合に記載する任意的記載事項",
         "構造上の瑕疵の保証（③）は定めがある場合に記載する必要的記載事項"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "37条書面の必要的記載事項は、代金額・支払時期・方法（①）、引渡し時期（②）、移転登記申請時期等です。住宅ローン特約（融資の利用）（④）は定めがある場合に記載する任意的記載事項（宅建業法37条1項8号）です。建物の構造耐力上主要な部分等の瑕疵を担保すべき責任の履行措置（③）は任意的記載事項（同法37条1項11号）です。",
-      "publicPath": "q/practice/p872/index.html"
+      "publicPath": "q/practice/p10872/index.html"
     },
     {
-      "id": 900873,
+      "id": 910873,
       "year": "orig",
-      "num": 873,
+      "num": 10873,
       "field": "rights",
       "text": "AとBは隣接する土地を所有しており、両土地の境界には古いブロック塀がある。このブロック塀がどちらの土地に属するか不明であり、土地台帳にも記録がない。Aはこのブロック塀が老朽化して危険であるとして解体を希望しているが、Bは反対している。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13970,14 +13966,14 @@ const PRACTICE_QUESTIONS = {
         "ブロック塀は隣地所有者Bのものであるため、Aは手出しできない",
         "境界の工作物は市区町村が管理する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "境界線上に設けられた境界標・囲障・障壁・溝・堀は相隣者の共有と推定されます（民法229条）。共有物の変更（解体）には共有者全員の同意が必要ですが（民法251条）、保存行為は単独でできます（民法252条5項）。老朽化して危険な状態での解体が「保存行為」といえるかは状況による判断が必要で、裁判所に解体の許可を求めることも選択肢です。",
-      "publicPath": "q/practice/p873/index.html"
+      "publicPath": "q/practice/p10873/index.html"
     },
     {
-      "id": 900874,
+      "id": 910874,
       "year": "orig",
-      "num": 874,
+      "num": 10874,
       "field": "limit",
       "text": "土地区画整理事業（組合施行）が行われている地区内に土地を所有するAは、施行区域内の土地を第三者Bに売却したいと考えている。この場合に関する記述として土地区画整理法の規定によれば正しいものはどれか。",
       "opts": [
@@ -13986,14 +13982,14 @@ const PRACTICE_QUESTIONS = {
         "土地区画整理事業の施行中であっても宅地の売買は原則として自由に行えるが、換地処分が完了するまでは仮換地が従前地の代わりに取引の対象となることが多い",
         "施行区域内の土地の売買には土地区画整理審査委員会の許可が必要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "土地区画整理事業の施行中であっても施行区域内の宅地の売買は原則として自由に行えます（土地区画整理法上の特別な許可制はない）。ただし仮換地が指定されている場合には、従前の宅地の権利とともに仮換地上の使用収益権も移転するため、実務では仮換地を対象として取引が行われます。宅建業者による媒介の場合は重要事項説明で区画整理の施行中である旨等の説明が必要です。",
-      "publicPath": "q/practice/p874/index.html"
+      "publicPath": "q/practice/p10874/index.html"
     },
     {
-      "id": 900875,
+      "id": 910875,
       "year": "orig",
-      "num": 875,
+      "num": 10875,
       "field": "tax",
       "text": "Aは甲市内に土地（固定資産税評価額5000万円・都市計画税評価額5000万円）と住宅（固定資産税評価額2000万円・小規模住宅用地（200㎡以下）に該当）を所有している。甲市は固定資産税の標準税率1.4%・都市計画税の税率0.3%を採用している（市街化区域内）。固定資産税及び都市計画税の計算として正しいものはどれか。",
       "opts": [
@@ -14002,14 +13998,14 @@ const PRACTICE_QUESTIONS = {
         "固定資産税の土地部分は評価額そのままに1.4%を乗じる",
         "都市計画税は固定資産税評価額の2分の1に0.3%を乗じる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "住宅用地の特例：小規模住宅用地（200㎡以下）は固定資産税の課税標準が評価額の1/6、都市計画税の課税標準が評価額の1/3に軽減されます（地方税法349条の3の2等）。固定資産税：土地5000万円×1/6×1.4%＝約11.67万円、建物2000万円×1.4%＝28万円、合計約39.67万円。都市計画税：土地5000万円×1/3×0.3%＝5万円、建物2000万円×0.3%＝6万円、合計11万円。",
-      "publicPath": "q/practice/p875/index.html"
+      "publicPath": "q/practice/p10875/index.html"
     },
     {
-      "id": 900876,
+      "id": 910876,
       "year": "orig",
-      "num": 876,
+      "num": 10876,
       "field": "rights",
       "text": "AはBに「A所有の土地を売る権限」を委任した。ところがBはこの代理権を利用して、Aに無断でCから金銭を借り入れA名義の借用書を作成した。BはAが金銭の借入れについての代理権を与えていないことを知っている。Cは「BはAから金銭借入れの代理権も与えられている」と信じ、信じることに正当な理由があった。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -14018,14 +14014,14 @@ const PRACTICE_QUESTIONS = {
         "表見代理が成立するにはAの何らかの帰責行為が必要であり、単に代理権を与えただけでは足りない",
         "CはBに対して無権代理人の責任（民法117条）のみを追及できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法110条の権限外行為の表見代理は、代理人が基本的な代理権（土地売却）を有し、相手方（C）が権限外の行為（金銭借入れ）の権限もあると信じたことに正当な理由がある場合に成立します。代理権を与えたこと自体がAの帰責事由となります。この場合AはCに対して借入れ債務を負います。",
-      "publicPath": "q/practice/p876/index.html"
+      "publicPath": "q/practice/p10876/index.html"
     },
     {
-      "id": 900877,
+      "id": 910877,
       "year": "orig",
-      "num": 877,
+      "num": 10877,
       "field": "law",
       "text": "宅建業者A（保証協会の社員でない）は甲県知事免許を受け、主たる事務所1か所・従たる事務所2か所を有している。Aは宅建業法に従い営業保証金を供託している。Aとの取引により損害を受けたB（宅建業者でない）は、営業保証金から還付を受けようとしている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14034,14 +14030,14 @@ const PRACTICE_QUESTIONS = {
         "営業保証金の還付請求は宅建業者もできる",
         "還付を受けるには裁判所の確定判決が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "営業保証金の還付（宅建業法27条）は宅建業に関する取引で生じた債権について宅建業者でない者が請求できます。還付を受けられる金額の上限は供託している営業保証金の総額（主たる事務所1000万円＋従たる事務所500万円×2か所＝計2000万円）です。還付を受けるには裁判上の確定判決等（確定判決・調停・和解等）が必要です（宅建業法27条2項）。",
-      "publicPath": "q/practice/p877/index.html"
+      "publicPath": "q/practice/p10877/index.html"
     },
     {
-      "id": 900878,
+      "id": 910878,
       "year": "orig",
-      "num": 878,
+      "num": 10878,
       "field": "limit",
       "text": "AはG市（都市計画区域内・市街化区域・近隣商業地域）において、飲食店（延べ面積500㎡）を建築しようとしている。建築にあたっての確認申請について建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14050,14 +14046,14 @@ const PRACTICE_QUESTIONS = {
         "飲食店は特殊建築物（建築基準法別表第一）に該当し、その用途に供する部分の床面積が200㎡を超える場合は建築確認が必要。500㎡は200㎡を超えるため確認申請が必要",
         "飲食店の建築確認は工事着工後に申請できる"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "飲食店は建築基準法別表第一（い）欄の特殊建築物（劇場・映画館・集会場・展示場・百貨店・マーケット・ホテル・旅館・飲食店等）に該当します。特殊建築物でその用途に供する部分の床面積が200㎡を超えるものは、建築確認申請が必要です（建築基準法6条1項1号）。本問では500㎡が200㎡を超えるため確認申請が必要です。",
-      "publicPath": "q/practice/p878/index.html"
+      "publicPath": "q/practice/p10878/index.html"
     },
     {
-      "id": 900879,
+      "id": 910879,
       "year": "orig",
-      "num": 879,
+      "num": 10879,
       "field": "rights",
       "text": "Aが所有する分譲マンション（専有部分）の下の階（Bが所有）の天井から水漏れが発生した。調査の結果、Aの専有部分内の給水管（専有部分に属する管）の亀裂が原因であることが判明した。Bの部屋の内装（壁・天井）の修復費用は50万円かかる。この場合に関する記述として民法・区分所有法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14066,14 +14062,14 @@ const PRACTICE_QUESTIONS = {
         "水漏れは自然現象であるためAは責任を負わない",
         "管理費から修繕費50万円が支払われるため個人Aの負担はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有者は自己の専有部分を適切に管理する義務があります。専有部分内の給水管の亀裂（管理瑕疵）によって生じた損害に対して、Aは工作物責任（民法717条）または不法行為（民法709条）に基づきBに対して損害賠償責任を負います。共用部分に起因する損害の場合は管理組合が責任を負う場合もありますが、本問は専有部分内の問題です。",
-      "publicPath": "q/practice/p879/index.html"
+      "publicPath": "q/practice/p10879/index.html"
     },
     {
-      "id": 900880,
+      "id": 910880,
       "year": "orig",
-      "num": 880,
+      "num": 10880,
       "field": "tax",
       "text": "Aは相続によりB（父）から土地（固定資産税評価額3000万円）を取得した。この土地の相続登記（所有権移転登記）を申請する場合の登録免許税について正しいものはどれか。",
       "opts": [
@@ -14082,14 +14078,14 @@ const PRACTICE_QUESTIONS = {
         "相続登記は非課税であり登録免許税はかからない",
         "固定資産税評価額ではなく売買価格を課税標準とする"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続（包括遺贈を含む）による所有権移転登記の登録免許税の税率は0.4%です（登録免許税法別表1）。課税標準は固定資産税評価額であり、3000万円×0.4%＝12万円が登録免許税となります。売買による所有権移転登記の本則税率は2%（住宅用家屋の軽減あり）とは異なります。",
-      "publicPath": "q/practice/p880/index.html"
+      "publicPath": "q/practice/p10880/index.html"
     },
     {
-      "id": 900881,
+      "id": 910881,
       "year": "orig",
-      "num": 881,
+      "num": 10881,
       "field": "rights",
       "text": "AはBに対して100万円の金銭消費貸借契約を締結し、貸し付けた。その後BはAに「代わりに商品券100万円分で返済したい」と申し出た。Aはこれに応じて商品券を受け取り、BとAは「これで債務は消えた」と合意した。しかし後日、Aは「やはり現金100万円を返せ」と請求してきた。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14098,14 +14094,14 @@ const PRACTICE_QUESTIONS = {
         "代物弁済は当事者の合意だけでは足りず、公正証書が必要",
         "Aが商品券を受け取っても、金銭債務は消滅しない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代物弁済（民法482条）は、債権者の同意を得て本来の給付に代えて他の給付をすることにより債務を消滅させる制度です。AがBの商品券100万円分での代物弁済に合意し受領した以上、BのAに対する金銭債務は消滅します。公正証書等の形式は不要です（合意と給付で成立）。",
-      "publicPath": "q/practice/p881/index.html"
+      "publicPath": "q/practice/p10881/index.html"
     },
     {
-      "id": 900882,
+      "id": 910882,
       "year": "orig",
-      "num": 882,
+      "num": 10882,
       "field": "law",
       "text": "宅建士Aは、宅建業者Bに勤務しており、自社物件の重要事項説明を行った。その際Aは宅建士証を携帯していたが、Cから宅建士証の提示を求められなかったため提示しなかった。また後日、Aは道路交通法違反（酒気帯び運転）により罰金刑に処せられた。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14114,14 +14110,14 @@ const PRACTICE_QUESTIONS = {
         "道路交通法違反（酒気帯び運転）による罰金刑は宅建士の登録消除事由にはならない",
         "宅建士証の提示義務違反には罰則がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士は重要事項説明を行う際、相手方の請求がなくても宅建士証を提示しなければなりません（宅建業法35条4項）。提示なしでの説明は宅建業法違反です。道路交通法違反（酒気帯び運転）による罰金刑は、宅建業法に基づく取消・停止事由ではありませんが、拘禁刑以上の刑（執行猶予含む）に処された場合は登録消除事由となります（宅建業法18条1項3号）。罰金刑では直ちに登録消除にはなりません。",
-      "publicPath": "q/practice/p882/index.html"
+      "publicPath": "q/practice/p10882/index.html"
     },
     {
-      "id": 900883,
+      "id": 910883,
       "year": "orig",
-      "num": 883,
+      "num": 10883,
       "field": "limit",
       "text": "Aは既存の建築物（築30年・木造2階建て）を改築して、新たに木造3階建て（高さ12m）の住宅を建築しようとしている。この土地は第一種低層住居専用地域（建ぺい率50%・容積率100%・北側斜線制限あり）内にある。この場合に関する記述として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14130,14 +14126,14 @@ const PRACTICE_QUESTIONS = {
         "北側斜線制限は商業地域のみに適用される",
         "容積率100%であれば3階建て住宅は問題なく建築できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "第一種低層住居専用地域では絶対高さ制限（10mまたは12m、都市計画で指定・建築基準法55条）があります。高さ12mの建築物は、指定高さが10mの地域では違反となります。北側斜線制限は低層住居系・中高層住居系用途地域に適用されます（建築基準法56条1項3号）。3階建ての住宅自体は第一種低層住居専用地域でも建築可能です（高さ・斜線制限の範囲内であれば）。",
-      "publicPath": "q/practice/p883/index.html"
+      "publicPath": "q/practice/p10883/index.html"
     },
     {
-      "id": 900884,
+      "id": 910884,
       "year": "orig",
-      "num": 884,
+      "num": 10884,
       "field": "rights",
       "text": "AはBから居住用マンション（1LDK・月額賃料10万円・敷金20万円）を賃借した。2年間居住後に退去することになり、Aは敷金の返還を求めた。Bは「クリーニング費用3万円・通常の使用による傷・汚れの修繕費5万円・Aが故意に壊したドア修理費4万円」を敷金から差し引いて残額8万円を返還すると言っている。この場合に関する記述として民法及びガイドライン（国土交通省：原状回復をめぐるトラブルとガイドライン）の規定によれば正しいものはどれか。",
       "opts": [
@@ -14146,14 +14142,14 @@ const PRACTICE_QUESTIONS = {
         "クリーニング費用3万円は常に賃借人負担",
         "敷金は全額返還が義務付けられており、差し引きは一切できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "賃貸借終了時の原状回復では、経年劣化・通常損耗（通常の使用による傷・汚れ）の修繕費は賃貸人負担が原則です（民法621条・国土交通省ガイドライン）。賃借人が負担すべきは故意・過失による損傷のみです。クリーニング費用は特約で賃借人負担とすることも可能ですが、特約がなければ賃貸人負担です。本問では故意に壊したドア修理費4万円のみAの負担が原則であり、残り16万円を返還すべきです。",
-      "publicPath": "q/practice/p884/index.html"
+      "publicPath": "q/practice/p10884/index.html"
     },
     {
-      "id": 900885,
+      "id": 910885,
       "year": "orig",
-      "num": 885,
+      "num": 10885,
       "field": "law",
       "text": "宅建業者Aは、B所有の建物（新耐震基準（1981年6月以降）適合・昭和60年築・木造2階建て）の売却を媒介し、買主Cに重要事項説明を行った。建物の耐震診断については実施していない。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14162,14 +14158,14 @@ const PRACTICE_QUESTIONS = {
         "建物の耐震診断の実施の有無については実施している場合もしていない場合も重要事項説明書に記載しなければならない",
         "耐震診断の有無は売主の任意であり宅建業者は関知しない"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "既存建物（中古住宅等）の売買では、建物の耐震診断の実施の有無を重要事項説明書に記載しなければなりません（宅建業法35条1項14号・施行令3条1項12号）。耐震診断を実施していない場合はその旨（実施していない）を記載します。昭和56年6月以降の建物であっても耐震診断の実施有無の記載義務は免除されません。",
-      "publicPath": "q/practice/p885/index.html"
+      "publicPath": "q/practice/p10885/index.html"
     },
     {
-      "id": 900886,
+      "id": 910886,
       "year": "orig",
-      "num": 886,
+      "num": 10886,
       "field": "rights",
       "text": "A所有の甲土地について、Bを仮登記担保として登記（所有権移転請求権の仮登記）が行われた。その後、BはAに対して仮登記に基づく本登記手続きを求めた。甲土地にはCが第三順位で抵当権の設定を受けていた。この場合に関する記述として仮登記担保法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14178,14 +14174,14 @@ const PRACTICE_QUESTIONS = {
         "仮登記担保は所有権移転の仮登記でないため本登記への移行はできない",
         "仮登記担保の本登記後もCの抵当権は存続する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "仮登記担保の本登記がなされると、仮登記後に登記された後順位権利（Cの抵当権等）は抹消されます（仮登記担保法3条・5条）。ただし担保仮登記権利者（B）は清算義務を負い、甲土地の価額が被担保債権額を超える部分については清算金をAに支払わなければなりません。Cの抵当権は本登記により抹消されますが、BはCへの通知義務等があります。",
-      "publicPath": "q/practice/p886/index.html"
+      "publicPath": "q/practice/p10886/index.html"
     },
     {
-      "id": 900887,
+      "id": 910887,
       "year": "orig",
-      "num": 887,
+      "num": 10887,
       "field": "rights",
       "text": "成年被後見人Aは、後見人Bの同意を得ずに自己所有の土地を第三者Cに1000万円で売却した。後見人BはこのAC間の売買契約の取消しを主張した。Cは売買時にAが成年被後見人であることを知らなかった（善意）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14194,14 +14190,14 @@ const PRACTICE_QUESTIONS = {
         "成年被後見人の行為は後見人Bの同意があれば有効となる",
         "成年被後見人Aが単独で行った売買契約は初めから無効である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "成年被後見人の法律行為は日常生活に関する行為を除き取り消すことができます（民法9条）。制限行為能力者制度による取消しは相手方の善意・悪意を問いません（善意の第三者保護規定なし）。取消権者はA本人・後見人B等です（民法120条）。なお取消しの意思表示をした後の第三者との関係では対抗問題（登記）となります。",
-      "publicPath": "q/practice/p887/index.html"
+      "publicPath": "q/practice/p10887/index.html"
     },
     {
-      "id": 900888,
+      "id": 910888,
       "year": "orig",
-      "num": 888,
+      "num": 10888,
       "field": "limit",
       "text": "Aは都市計画区域（市街化区域）内に土地（面積3000㎡）を所有しており、これをB・Cの2社に1500㎡ずつ売却しようとしている（2社に分割売却）。売買代金はBへの売却分3億円、Cへの売却分3億円（合計6億円）の予定である。この場合に関する記述として国土利用計画法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14210,14 +14206,14 @@ const PRACTICE_QUESTIONS = {
         "市街化区域内の届出面積基準は1000㎡以上であり、1500㎡は届出が必要",
         "分割売却の場合は合算して届出が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "国土利用計画法の事後届出は取引ごとに判断します（一の契約による取引が単位）。市街化区域内の届出基準は2000㎡以上です。B・Cへの各取引（各1500㎡）は個別に判断し、各1500㎡は2000㎡未満であるため各取引とも事後届出は不要です。ただし意図的な分割により届出を免れようとする行為は問題視されます。",
-      "publicPath": "q/practice/p888/index.html"
+      "publicPath": "q/practice/p10888/index.html"
     },
     {
-      "id": 900889,
+      "id": 910889,
       "year": "orig",
-      "num": 889,
+      "num": 10889,
       "field": "rights",
       "text": "AはBに2000万円を貸し付け、AはBの友人C（保証人・物上保証人ではない）から連帯保証を取得した。Bが返済不能となり、AはCに対して連帯保証債務の履行を求めた。CはAに対して「まずBに請求してほしい」と言い、さらに「Bには財産がある」と主張した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14226,14 +14222,14 @@ const PRACTICE_QUESTIONS = {
         "CがBに財産があることを証明すればAはCへの請求をやめなければならない",
         "連帯保証人は主債務者と全く同一の責任を負い、主債務者と区別されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "連帯保証人には催告の抗弁権（まず主債務者Bに請求しろという権利）も検索の抗弁権（Bの財産を先に執行しろという権利）もありません（民法454条）。したがってAはBへの請求なしにCに対して直接2000万円全額の支払いを請求できます。",
-      "publicPath": "q/practice/p889/index.html"
+      "publicPath": "q/practice/p10889/index.html"
     },
     {
-      "id": 900890,
+      "id": 910890,
       "year": "orig",
-      "num": 890,
+      "num": 10890,
       "field": "law",
       "text": "宅建業者A（自ら売主）は、Bとの間でA所有のリゾートマンション（完成物件）の売買契約を締結した。契約場所はBがAのモデルルームを訪れて行われた。Bは後日クーリングオフを主張した。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14242,14 +14238,14 @@ const PRACTICE_QUESTIONS = {
         "クーリングオフはどのような場所で契約しても常にできる",
         "Bが自らモデルルームを訪問して契約したことは関係なく、クーリングオフの可否は書面通知の有無のみで決まる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "クーリングオフは土地に定着する建物内に設けられた売主の宅建業の事務所等（宅建業法施行規則16条の5第1号）、継続的に業務を行うことができる施設のあるモデルルームでBが自ら訪問して申込・契約した場合はクーリングオフできません（宅建業法37条の2第1項1号）。Bが自らモデルルームを訪問して契約したことが重要で、その場合は事務所等に準じる扱いとなります。",
-      "publicPath": "q/practice/p890/index.html"
+      "publicPath": "q/practice/p10890/index.html"
     },
     {
-      "id": 900891,
+      "id": 910891,
       "year": "orig",
-      "num": 891,
+      "num": 10891,
       "field": "rights",
       "text": "AはBに対して特定の絵画（甲）を100万円で売る契約を締結した。引渡し期日の前日に、甲は地震によって損傷した（地震はAの過失ではない）。AはBに対して修繕した上で引き渡すことができるが修繕費に30万円かかる。Bは修繕済みの絵画を受け取ることを拒み、代金の支払いを拒否している。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14258,14 +14254,14 @@ const PRACTICE_QUESTIONS = {
         "AはBに損傷した甲をそのまま引き渡せばよく修繕義務はない",
         "地震による損傷はAの帰責事由がないため、Bは代金を全額支払わなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年改正民法により契約不適合責任の規定が整備されました。不可抗力（地震）による損傷でも引き渡された目的物が契約内容に適合しない場合、Bは追完請求（修繕）・代金減額請求・損害賠償（帰責事由ある場合）・解除ができます（民法562条・563条・564条）。損害賠償はAに帰責事由がなければ請求できませんが、追完請求・代金減額・解除はAの帰責事由不要です。",
-      "publicPath": "q/practice/p891/index.html"
+      "publicPath": "q/practice/p10891/index.html"
     },
     {
-      "id": 900892,
+      "id": 910892,
       "year": "orig",
-      "num": 892,
+      "num": 10892,
       "field": "rights",
       "text": "AはBとCの2名の子を持つ。Aは生前に公正証書遺言を作成し、「全財産を長男Bに相続させる」と記載した。Aの総財産は1億円、負債は2000万円であった。次男Cは遺言に納得できず、自分の遺留分を主張したいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14274,14 +14270,14 @@ const PRACTICE_QUESTIONS = {
         "遺留分は遺産全体の2分の1であり、次男Cが受け取れる遺留分は5000万円",
         "遺留分侵害額請求権の行使期間は相続開始を知ってから3年以内"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "Cの遺留分（民法1042条）は相続財産（債務控除後の正味財産8000万円）に遺留分割合をかけた額です。直系卑属（子）の場合、遺留分の合計は正味財産の1/2であり、子2名のCの遺留分は1/4（8000万円×1/4＝2000万円）です。Cは遺留分侵害額請求権（民法1046条）をBに行使できます。行使期間は遺留分侵害を知った時から1年・相続開始から10年です（民法1048条）。",
-      "publicPath": "q/practice/p892/index.html"
+      "publicPath": "q/practice/p10892/index.html"
     },
     {
-      "id": 900893,
+      "id": 910893,
       "year": "orig",
-      "num": 893,
+      "num": 10893,
       "field": "law",
       "text": "宅建業者Aの従業員Bが、顧客Cの重要事項説明において虚偽の説明を行い、Cに対して多大な損害を与えた。甲県知事はAに対して業務停止処分（3か月）を検討している。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14290,14 +14286,14 @@ const PRACTICE_QUESTIONS = {
         "業務停止処分の期間は最長1年",
         "業務停止処分に対してAは争う手段がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者Aに対しては業務停止処分（最長1年・宅建業法65条）が可能です。また宅建士Bに対しては直接の違反行為者として指示処分・事務禁止処分（最長1年）が可能です（宅建業法68条）。宅建業者への処分と宅建士への処分は独立して行えます。業務停止処分の最長期間は1年（宅建業法65条2項）です。業務停止処分等には行政不服申立て・行政訴訟で争う手段があります。",
-      "publicPath": "q/practice/p893/index.html"
+      "publicPath": "q/practice/p10893/index.html"
     },
     {
-      "id": 900894,
+      "id": 910894,
       "year": "orig",
-      "num": 894,
+      "num": 10894,
       "field": "limit",
       "text": "AはH市（市街化区域内）内の土地（宅地造成等工事規制区域外）において造成工事を行い、切土・盛土を伴う宅地開発を計画している。この土地の面積は8000㎡で、最大盛土高さは2.5m、切土高さは1.5mである。この場合に関する記述として盛土規制法（宅地造成及び特定盛土等規制法）の規定によれば正しいものはどれか。",
       "opts": [
@@ -14306,14 +14302,14 @@ const PRACTICE_QUESTIONS = {
         "市街化区域内であれば盛土規制は一切適用されない",
         "2.5mの盛土は常に許可不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2021年熱海土砂災害等を受けて盛土規制法（宅地造成及び特定盛土等規制法・2023年施行）が制定されました。宅地造成等工事規制区域（市街地・市街地予定地等）のほか、新たに「特定盛土等規制区域」が設けられ（森林・農地等）、規制区域外でも指定区域内では許可または届出が必要となりました（盛土規制法26条・30条）。",
-      "publicPath": "q/practice/p894/index.html"
+      "publicPath": "q/practice/p10894/index.html"
     },
     {
-      "id": 900895,
+      "id": 910895,
       "year": "orig",
-      "num": 895,
+      "num": 10895,
       "field": "tax",
       "text": "AはH県I市内の土地について、地価公示法に基づく公示価格を参考に価格査定を行っている。この場合に関する記述として地価公示法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14322,14 +14318,14 @@ const PRACTICE_QUESTIONS = {
         "公示価格は都市計画区域のみを対象とし、農村部は対象外",
         "公示価格は参考価格にすぎず、収用事業での補償額算定の基準にはならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "地価公示（地価公示法2条）は毎年1月1日を基準日として、土地鑑定委員会が不動産鑑定士の鑑定評価を基に標準地の正常な価格を公示します。公表は毎年3月下旬です。公示価格は①一般の土地取引の指標②公共事業用地の取得価格の基準③不動産鑑定士の鑑定評価の基準として活用されます。都市計画区域に限らず必要な地域にも設定できます。",
-      "publicPath": "q/practice/p895/index.html"
+      "publicPath": "q/practice/p10895/index.html"
     },
     {
-      "id": 900896,
+      "id": 910896,
       "year": "orig",
-      "num": 896,
+      "num": 10896,
       "field": "rights",
       "text": "AはB銀行の融資を受けて甲土地を購入し、B銀行のために第一順位抵当権を設定した。その後AはC銀行の融資も受け、C銀行のために第二順位抵当権を設定した。Aはその後B銀行への残債務1500万円を完済し、抵当権抹消登記の手続きに着手した。しかしAは抹消登記申請前に死亡し、相続人DがAの地位を承継した。この場合に関する記述として民法・不動産登記法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14338,14 +14334,14 @@ const PRACTICE_QUESTIONS = {
         "B銀行への完済後でも、登記が残っている以上C銀行はB銀行に劣後したまま",
         "DはB銀行の抵当権抹消登記がなくても、甲土地を第三者に売却できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当権は被担保債権の弁済により付従性に基づき当然消滅しますが、抵当権設定登記が残ったままでは第三者（甲土地の購入者等）に消滅を対抗できない場合があります。DはAの地位を承継（相続）して抹消登記申請の権利義務も引き継ぎ、B銀行と共同申請で抹消登記ができます（不動産登記法60条）。抵当権抹消後はC銀行の抵当権が第一順位に繰り上がります。",
-      "publicPath": "q/practice/p896/index.html"
+      "publicPath": "q/practice/p10896/index.html"
     },
     {
-      "id": 900897,
+      "id": 910897,
       "year": "orig",
-      "num": 897,
+      "num": 10897,
       "field": "rights",
       "text": "Aは会社Bの従業員として営業活動中に過失により交通事故を起こし、通行人Cに怪我を負わせた。Cの損害は治療費・慰謝料合計300万円である。CはB社に対して使用者責任（民法715条）に基づく損害賠償を請求した。B社はCに300万円を支払った。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -14354,14 +14350,14 @@ const PRACTICE_QUESTIONS = {
         "B社はAに対して一切求償できない",
         "CはB社に対して請求できるが、直接Aに対して請求はできない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "使用者B社がCに300万円を支払った後、B社はAに対して求償権を取得します（民法715条3項）。ただし判例上、使用者の求償権の行使は信義則上一定の制限を受け、被用者の負担すべき割合は事業の性格・業務の必要性・Aの故意過失の程度・使用者の利益享受等を考慮して定められ、必ずしも全額求償が認められるわけではありません。Cは直接Aにも不法行為（民法709条）に基づき請求できます（連帯責任）。",
-      "publicPath": "q/practice/p897/index.html"
+      "publicPath": "q/practice/p10897/index.html"
     },
     {
-      "id": 900898,
+      "id": 910898,
       "year": "orig",
-      "num": 898,
+      "num": 10898,
       "field": "rights",
       "text": "AはBに対して売買代金500万円の債権を持っている。Bはこの債権の存在を知っているが、「時効が完成した」と主張して支払いを拒んでいる。Aが調べると確かに消滅時効期間が経過していた。その後、BはAに対して「わかった。分割で支払う」と言って、第1回分として50万円を振り込んだ。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14370,14 +14366,14 @@ const PRACTICE_QUESTIONS = {
         "時効が完成した以上、BはAへの支払いを拒否できる権利が確定的に生じている",
         "50万円の受領はAが時効の恩恵を放棄したことになる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "時効完成後に債務者が债務の存在を認める行為（承認・一部弁済・支払い約束等）をした場合、信義則上その後の時効援用が許されないとするのが判例の立場です（最高裁判例）。Bが50万円を振り込み支払いを約束したことは、時効完成後の債務承認に当たり、BはAに対して時効援用を主張できなくなります（信義則による時効援用の制限）。",
-      "publicPath": "q/practice/p898/index.html"
+      "publicPath": "q/practice/p10898/index.html"
     },
     {
-      "id": 900899,
+      "id": 910899,
       "year": "orig",
-      "num": 899,
+      "num": 10899,
       "field": "law",
       "text": "宅建業者Aは、売主B・買主C（宅建業者）の間で事業用土地の売買を媒介した（売買代金5億円）。Cが宅建業者であることを理由に、Aは「重要事項説明は省略する」として説明を行わず、37条書面のみを交付した。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14386,14 +14382,14 @@ const PRACTICE_QUESTIONS = {
         "相手方が宅建業者の場合は35条書面も37条書面も不要",
         "37条書面の交付は相手方が宅建業者であっても義務がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相手方（買主C）が宅建業者の場合は重要事項の「説明」（口頭での説明）は省略できますが、35条書面（重要事項説明書）の交付義務は免除されません（宅建業法35条6項：2022年改正で書面交付義務は残存）。また37条書面は相手方の属性にかかわらず交付義務があります（宅建業法37条1項・2項）。",
-      "publicPath": "q/practice/p899/index.html"
+      "publicPath": "q/practice/p10899/index.html"
     },
     {
-      "id": 900900,
+      "id": 910900,
       "year": "orig",
-      "num": 900,
+      "num": 10900,
       "field": "rights",
       "text": "分譲マンションの管理組合は、敷地内の駐車場（共用部分）の管理方針について集会で審議する。現在の規約では駐車場の使用料は月額1万円と定められているが、管理組合の理事長は費用増加を理由に月額2万円への値上げを提案している。さらに、一部の区分所有者からは駐車場を外部業者に売却する提案も出ている。この場合に関する記述として区分所有法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14402,14 +14398,14 @@ const PRACTICE_QUESTIONS = {
         "駐車場（共用部分）の外部業者への売却は区分所有者及び議決権の各過半数の普通決議で足りる",
         "規約の変更は公証人の認証が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "規約の変更は区分所有者及び議決権の各3/4以上の賛成による特別決議が必要です（区分所有法31条1項）。駐車場使用料の変更は規約事項であるため特別決議が必要です。共用部分の売却（処分）は規約に別段の定めがない限り、区分所有者及び議決権の各3/4以上の特別決議が必要です（区分所有法17条）。理事長の単独決定はできず、公証人の認証も不要です。",
-      "publicPath": "q/practice/p900/index.html"
+      "publicPath": "q/practice/p10900/index.html"
     },
     {
-      "id": 900901,
+      "id": 910901,
       "year": "orig",
-      "num": 901,
+      "num": 10901,
       "field": "rights",
       "text": "AはBから「この土地は将来必ず値上がりする」と言われたが、Bは単なる見解として述べただけで、その後Aは自ら判断して甲土地を購入した。しかしAは土地の用途規制について重大な思い違い（工場が建てられると思っていたが第一種低層住居専用地域だった）をしており、これはBとの交渉中には一切表示していなかった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14418,14 +14414,14 @@ const PRACTICE_QUESTIONS = {
         "Bが見解を述べたことは詐欺に当たるため、Aは詐欺を理由に取り消せる",
         "用途規制の確認はAの義務であり、錯誤であっても取り消せない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "動機の錯誤（民法95条1項2号）は、動機が法律行為の内容として相手方に表示されていた場合に限り取消しの対象となります。Aが用途規制について誤認していても、その動機をBに表示していなかった以上、原則として錯誤取消しは認められません。ただしBが用途規制について積極的に誤った情報を提供した場合は詐欺の問題となります。",
-      "publicPath": "q/practice/p901/index.html"
+      "publicPath": "q/practice/p10901/index.html"
     },
     {
-      "id": 900902,
+      "id": 910902,
       "year": "orig",
-      "num": 902,
+      "num": 10902,
       "field": "rights",
       "text": "AはB銀行から事業資金2000万円を借り入れ、A所有の甲土地（時価3000万円）に抵当権を設定した。Aはその後、C（個人）から500万円を借り入れ、Cのために甲土地に第二順位の抵当権を設定した。その後Aは甲土地をDに賃貸した（賃料月額10万円）。B銀行の抵当権設定後にDへの賃貸が行われた場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -14436,12 +14432,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "抵当権設定後に設定された賃借権は、原則として競落人に対抗できません（民法177条・605条の対抗要件の問題）。ただし短期賃貸借保護規定の廃止（2004年改正）後は、抵当権設定後の賃借権は競売により消滅するのが原則です。なお建物の場合は引渡しによる対抗要件があれば別途検討が必要です。",
-      "publicPath": "q/practice/p902/index.html"
+      "publicPath": "q/practice/p10902/index.html"
     },
     {
-      "id": 900903,
+      "id": 910903,
       "year": "orig",
-      "num": 903,
+      "num": 10903,
       "field": "rights",
       "text": "AはBに対して800万円の金銭債権を有している。弁済期が到来したが、BはAに対して「自分はCに対して600万円の反対債権を持っている。Cはあなた（A）の債権をCから譲り受けたのだから、その分を差し引いてほしい」と主張している。AはBのCに対する600万円の債権をCから譲り受けていた。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14450,14 +14446,14 @@ const PRACTICE_QUESTIONS = {
         "債権譲渡があった場合、相殺は一切できない",
         "相殺するにはAの同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "債権が譲渡された場合、債務者（B）は譲渡通知を受けた時点（または承諾時）より前に取得していた譲渡人（C）への反対債権を新債権者（A）に対して相殺の主張ができます（民法469条）。BがCに対して600万円の債権を有しており、AがCからBへの800万円の債権を譲り受けた場合、Bは600万円を相殺として主張でき、残200万円の支払いで足ります。",
-      "publicPath": "q/practice/p903/index.html"
+      "publicPath": "q/practice/p10903/index.html"
     },
     {
-      "id": 900904,
+      "id": 910904,
       "year": "orig",
-      "num": 904,
+      "num": 10904,
       "field": "rights",
       "text": "AはBとの間で土地の売買契約を締結した。代金は5000万円で、契約時に手付金500万円を支払った。残代金4500万円の支払いと引渡しは3か月後の約定であった。支払期日が近づいたころ、BはAに対して「もう少し待ってほしい」と懇願したが、Aはこれを拒否し、自らは残代金4500万円の受領に備えて準備を整えた。その後、BはAに対して手付解除（手付倍返し）を申し出た。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14466,14 +14462,14 @@ const PRACTICE_QUESTIONS = {
         "手付解除は代金支払期日前であればいつでもできる",
         "Aが準備しただけでは履行の着手にはならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "手付解除は「相手方が契約の履行に着手した後」はできません（民法557条1項）。判例上「履行の着手」とは客観的に外部から認識できる程度に履行行為の一部をなしまたは履行の提供をするために欠くことのできない前提行為をした場合をいいます。AがBの残代金4500万円の受領準備を整えたことは履行の着手に当たる可能性があり、その後Bは手付解除できません。",
-      "publicPath": "q/practice/p904/index.html"
+      "publicPath": "q/practice/p10904/index.html"
     },
     {
-      "id": 900905,
+      "id": 910905,
       "year": "orig",
-      "num": 905,
+      "num": 10905,
       "field": "rights",
       "text": "AはBから居住用マンション（1LDK）を月額12万円で賃借している。AはBの承諾を得ずにCにこのマンションを転貸し（月額15万円）、自分はDのマンションに引っ越した。BはAの無断転貸を発見した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14482,14 +14478,14 @@ const PRACTICE_QUESTIONS = {
         "BはAの無断転貸を発見した場合、直ちに賃貸借契約を解除でき、Cに対しても明渡しを求めることができる",
         "CはBに対して転借権を主張できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "無断転貸は賃貸借契約の解除事由となりますが（民法612条2項）、判例上は信頼関係破壊の法理により、信頼関係を破壊しない特段の事情がある場合は解除が認められないことがあります。ただし通常の無断転貸・自己の転出を伴う場合は信頼関係の破壊が認められやすく、Bは解除できることが多いです。Bが解除した場合、CはBに対して転借権を主張できません。",
-      "publicPath": "q/practice/p905/index.html"
+      "publicPath": "q/practice/p10905/index.html"
     },
     {
-      "id": 900906,
+      "id": 910906,
       "year": "orig",
-      "num": 906,
+      "num": 10906,
       "field": "rights",
       "text": "Aには配偶者B、長男C、二男D、長女Eがいる。Aは死亡の1年前に長男Cに対して「老後の面倒を見てくれたお礼として」自己所有の土地（評価額3000万円）を贈与していた。Aが残した財産は預貯金2000万円のみである。Aは遺言を残していなかった。法定相続分に従った遺産分割において、特別受益（民法903条）を考慮した各相続人の相続分として正しいものはどれか。",
       "opts": [
@@ -14498,14 +14494,14 @@ const PRACTICE_QUESTIONS = {
         "全ての贈与は特別受益とならない",
         "老後の面倒を見た対価の贈与は相続財産に持ち戻す必要がない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "老後の世話等への謝礼の贈与も判例上は生計の資本としての特別受益となり得ます（民法903条1項）。みなし相続財産5000万円で計算：B（1/2）=2500万円、C・D・E（各1/6）=各約833万円。Cの相続分833万円から特別受益3000万円を差し引くと超過（-2167万円）となりますが、返還義務はなく（民法903条2項）、Cの相続分は0円となります。残り2000万円はB2000万円×2500/3333≒約1500万円、D・E各250万円程度（持戻し免除なしの計算による）。",
-      "publicPath": "q/practice/p906/index.html"
+      "publicPath": "q/practice/p10906/index.html"
     },
     {
-      "id": 900907,
+      "id": 910907,
       "year": "orig",
-      "num": 907,
+      "num": 10907,
       "field": "rights",
       "text": "A所有の甲建物についてBが抵当権の設定を受け登記を完了した。その後、AはCに甲建物を売却しAからCへの所有権移転登記も完了した。BはCに対して抵当権の実行（競売）を申し立てた。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14514,14 +14510,14 @@ const PRACTICE_QUESTIONS = {
         "AからCへの所有権移転登記が先であれば、Bの抵当権は消滅する",
         "Cは第三取得者として抵当権消滅請求（民法379条）を行使できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "抵当権は登記された後に取得した第三者（C）にも対抗できます（民法177条）。CはBの抵当権付きで甲建物を取得しており、BはCに対して抵当権を実行できます。Cの善意・悪意は無関係です。なおCは第三取得者として抵当権消滅請求（民法379条）を行使して、相当価格を払い込むことで抵当権を消滅させることができます。",
-      "publicPath": "q/practice/p907/index.html"
+      "publicPath": "q/practice/p10907/index.html"
     },
     {
-      "id": 900908,
+      "id": 910908,
       "year": "orig",
-      "num": 908,
+      "num": 10908,
       "field": "rights",
       "text": "AはB所有の土地を賃借して建物を建て居住している（借地権設定・存続期間30年）。存続期間満了の6か月前に、AはBに対して「更新後の借地権の存続期間を20年としてほしい」と申し出た。Bはこれに応じた。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14532,12 +14528,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "借地権の最初の更新後の存続期間は20年（その後の更新は10年）が法定されています（借地借家法4条）。当事者がこれより長い期間を定めることは有効ですが、これより短い期間の合意は無効となり、法定期間（20年）となります（借地借家法9条）。本問の20年という合意は法定期間と同じなので有効です。",
-      "publicPath": "q/practice/p908/index.html"
+      "publicPath": "q/practice/p10908/index.html"
     },
     {
-      "id": 900909,
+      "id": 910909,
       "year": "orig",
-      "num": 909,
+      "num": 10909,
       "field": "law",
       "text": "甲県知事免許を受けている宅建業者Aは、事業縮小のため主たる事務所のみを残して従たる事務所（乙県内）を廃止することにした。また同時に、Aの役員Bが拘禁刑刑（執行猶予2年付き）を受けたことが判明した。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14546,14 +14542,14 @@ const PRACTICE_QUESTIONS = {
         "役員Bの執行猶予付き拘禁刑刑は欠格事由に当たらず、Aの免許に影響はない",
         "役員Bが拘禁刑以上の刑（執行猶予含む）に処された場合、Bは欠格事由（宅建業法5条1項5号）に該当し、Aも免許取消しの対象となる"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "拘禁刑以上の刑に処された者（執行猶予中の者を含む）は宅建業の免許欠格事由に該当します（宅建業法5条1項5号）。役員がこの欠格事由に該当する法人も免許欠格となり（同法5条1項12号）、免許取消しの対象となります（同法66条1項3号）。従たる事務所の廃止は廃止後30日以内に届け出が必要です（同法11条1項4号）。",
-      "publicPath": "q/practice/p909/index.html"
+      "publicPath": "q/practice/p10909/index.html"
     },
     {
-      "id": 900910,
+      "id": 910910,
       "year": "orig",
-      "num": 910,
+      "num": 10910,
       "field": "law",
       "text": "宅建業者Aは、Bが所有するアパート（1棟・8室）の賃貸借の媒介を行っている。Cがこのアパートの1室を賃借しようとしており、AはCに対して重要事項説明を行おうとしている。この建物は石綿（アスベスト）使用調査が実施されており、使用が確認されていないという結果が出ている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14562,14 +14558,14 @@ const PRACTICE_QUESTIONS = {
         "石綿が使用されていないことが確認されているため、調査結果の説明は不要",
         "賃貸借の重要事項説明は売買と比べて記載事項が少ないため、石綿の記載は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "石綿（アスベスト）の使用の有無の調査結果の記録が存在する場合は、その内容を重要事項として説明しなければなりません（宅建業法35条1項14号・施行令3条1項27号）。使用されていないという結果であっても、調査記録が存在する以上その旨を説明する義務があります。賃貸借でも同様に説明義務があります。",
-      "publicPath": "q/practice/p910/index.html"
+      "publicPath": "q/practice/p10910/index.html"
     },
     {
-      "id": 900911,
+      "id": 910911,
       "year": "orig",
-      "num": 911,
+      "num": 10911,
       "field": "law",
       "text": "宅建業者Aは、B所有のマンション（専有部分70㎡）の売却について専任媒介契約を締結した。契約書に「有効期間3か月・更新は依頼者Bの申出がある場合のみ」と定めた。3か月経過後、Bから更新の申出はなかったが、AはBに対して「自動更新です」と説明して引き続き業務を行った。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14578,14 +14574,14 @@ const PRACTICE_QUESTIONS = {
         "媒介契約の更新方法は当事者の自由",
         "3か月経過後はAは業務を行えないため報酬も請求できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専任媒介契約の有効期間は3か月を超えることができず（宅建業法34条の2第3項）、更新は依頼者からの申出によるものでなければなりません（同法34条の2第4項）。宅建業者が自動更新を定めることや、依頼者の申出なしに更新したものとして扱うことは宅建業法違反です。",
-      "publicPath": "q/practice/p911/index.html"
+      "publicPath": "q/practice/p10911/index.html"
     },
     {
-      "id": 900912,
+      "id": 910912,
       "year": "orig",
-      "num": 912,
+      "num": 10912,
       "field": "law",
       "text": "宅建業者Aは、売主B（宅建業者でない・個人）から依頼を受け、B所有の建物（賃貸中・月額賃料50万円）を一般媒介契約で売却の媒介をした。売買代金8000万円で売買契約が成立した。AはBから媒介報酬を受け取るが、その上限額（税別）として宅建業法の規定（報酬告示）によれば正しいものはどれか。",
       "opts": [
@@ -14596,12 +14592,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "売買の媒介報酬の上限額（速算式）は、売買代金が400万円超の場合「代金×3%＋6万円（税別）」です（報酬告示）。8000万円×3%＋6万円＝246万円（税別）が上限となります。一般媒介・専任媒介・専属専任媒介で報酬上限額の計算方法は変わりません。",
-      "publicPath": "q/practice/p912/index.html"
+      "publicPath": "q/practice/p10912/index.html"
     },
     {
-      "id": 900913,
+      "id": 910913,
       "year": "orig",
-      "num": 913,
+      "num": 10913,
       "field": "limit",
       "text": "AはI市（都市計画区域内・用途地域未指定の白地地域）に土地を所有し、倉庫（延べ面積1500㎡）を建築しようとしている。I市は特定用途制限地域を指定しておらず、建ぺい率・容積率の都市計画上の定めもない。この場合に関する記述として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14610,14 +14606,14 @@ const PRACTICE_QUESTIONS = {
         "用途地域未指定地域では建築確認が不要",
         "倉庫は用途地域指定地域にしか建てられない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "用途地域の指定のない区域（白地地域）にも建築基準法は適用されます。用途地域の指定のない区域では建ぺい率の上限は70%（特定行政庁指定）・容積率は200%または400%（特定行政庁指定）が適用されます（建築基準法53条1項6号・52条1項7号）。また建築確認も必要な場合があります（規模・用途による）。",
-      "publicPath": "q/practice/p913/index.html"
+      "publicPath": "q/practice/p10913/index.html"
     },
     {
-      "id": 900914,
+      "id": 910914,
       "year": "orig",
-      "num": 914,
+      "num": 10914,
       "field": "limit",
       "text": "AはJ市内において、既存の木造住宅（築45年・耐震性能が現行基準を大きく下回る）を取り壊して、鉄筋コンクリート造3階建て共同住宅（延べ面積600㎡・各戸30㎡以上）を新築しようとしている。この建物の建築にあたっての確認申請について建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14626,14 +14622,14 @@ const PRACTICE_QUESTIONS = {
         "RC造3階建ては建築確認不要",
         "都市計画区域外では建築確認不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同住宅は建築基準法別表第一（い）欄の特殊建築物に該当し、用途に供する部分の床面積が200㎡を超えるものは建築確認申請が必要です（建築基準法6条1項1号）。延べ面積600㎡の共同住宅は200㎡超であるため確認申請が必要です。また都市計画区域内のRC造3階建て（高さや規模により）も確認申請対象となります。",
-      "publicPath": "q/practice/p914/index.html"
+      "publicPath": "q/practice/p10914/index.html"
     },
     {
-      "id": 900915,
+      "id": 910915,
       "year": "orig",
-      "num": 915,
+      "num": 10915,
       "field": "limit",
       "text": "農業法人Aは、農業委員会の許可を受けて農地（田・面積10000㎡・市街化調整区域内）を取得し農業を営んでいる。その後、Aはこの農地の一部（2000㎡）を採草放牧地に転用し、残り（8000㎡）は引き続き農地として利用しようとしている。この場合に関する記述として農地法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14642,14 +14638,14 @@ const PRACTICE_QUESTIONS = {
         "農地を採草放牧地に転用する場合は農地法3条（権利移動）の許可が必要",
         "農業法人による農地の転用は常に許可不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地を採草放牧地に転用する場合は、農地法4条1項の許可が必要です（農地を農地以外の土地に転用する場合に該当・採草放牧地への転用も「農地以外」への転用）。市街化区域内であれば農業委員会への届出のみで足りますが、本問は市街化調整区域内であるため都道府県知事の許可が必要です。",
-      "publicPath": "q/practice/p915/index.html"
+      "publicPath": "q/practice/p10915/index.html"
     },
     {
-      "id": 900916,
+      "id": 910916,
       "year": "orig",
-      "num": 916,
+      "num": 10916,
       "field": "tax",
       "text": "Aは15年前に3000万円で取得した居住用一戸建て住宅（土地・建物）を4500万円で売却した。Aの取得費（土地・建物の購入価格＋取得諸費用）は3100万円、譲渡費用（仲介手数料等）は135万円である。Aはこの住宅に引き続き居住しており、売却後は別の住宅に転居する予定である（新住宅への買換えは行わない）。居住用財産の3000万円特別控除を適用した場合の課税譲渡所得として正しいものはどれか。",
       "opts": [
@@ -14660,12 +14656,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "譲渡所得＝4500万円（収入）－3100万円（取得費）－135万円（譲渡費用）＝1265万円。3000万円特別控除（租税特別措置法35条）を適用すると、1265万円－3000万円＝△1735万円となり課税なしとなります。所有期間15年で長期譲渡所得に該当しますが、3000万円控除で課税所得がゼロ以下となるため納税は生じません。",
-      "publicPath": "q/practice/p916/index.html"
+      "publicPath": "q/practice/p10916/index.html"
     },
     {
-      "id": 900917,
+      "id": 910917,
       "year": "orig",
-      "num": 917,
+      "num": 10917,
       "field": "tax",
       "text": "AはK県内の中古住宅（昭和63年新築・木造・延べ面積90㎡・固定資産税評価額：建物700万円・土地1500万円）を購入した。不動産取得税の軽減措置を適用した場合の建物の不動産取得税として正しいものはどれか（昭和57年1月1日以降に新築の中古住宅の軽減措置を考慮すること）。",
       "opts": [
@@ -14674,14 +14670,14 @@ const PRACTICE_QUESTIONS = {
         "築年数が古いため軽減措置の適用なし",
         "建物の不動産取得税は固定資産税評価額の2%"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "1982年（昭和57年）1月1日以降に新築された住宅（昭和63年築は該当）は、耐震基準適合住宅として中古住宅取得時の不動産取得税軽減措置（課税標準から1200万円控除）が適用されます（地方税法73条の14第2項）。700万円（評価額）－1200万円（控除額）＝△500万円となり、課税標準がゼロ以下となるため不動産取得税はかかりません。",
-      "publicPath": "q/practice/p917/index.html"
+      "publicPath": "q/practice/p10917/index.html"
     },
     {
-      "id": 900918,
+      "id": 910918,
       "year": "orig",
-      "num": 918,
+      "num": 10918,
       "field": "rights",
       "text": "AはBの自転車の整備を依頼したが、整備作業中にCの不注意で部品が破損した。CはAの従業員ではなく、作業を手伝いに来た友人であった。Bは破損した自転車の修理費用10万円と、自転車が使えないことによる得べかりし利益（逸失利益）5万円の損害を被った。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14690,14 +14686,14 @@ const PRACTICE_QUESTIONS = {
         "BはCに対してのみ損害賠償を請求できる",
         "逸失利益は損害賠償の対象とならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "使用者責任（民法715条）の「被用者」は雇用契約の有無にかかわらず実質的な指揮監督関係があれば認められます（判例）。CがAの指揮監督下で作業していた場合はAの使用者責任が成立します。逸失利益（相当因果関係のある利益の喪失）は損害賠償の対象です（民法416条2項類推）。",
-      "publicPath": "q/practice/p918/index.html"
+      "publicPath": "q/practice/p10918/index.html"
     },
     {
-      "id": 900919,
+      "id": 910919,
       "year": "orig",
-      "num": 919,
+      "num": 10919,
       "field": "rights",
       "text": "Aは不動産業者Bから「この土地は近く新幹線の駅が設置される予定で価値が上がる」という説明を聞き、甲土地を3000万円で購入した。しかし実際には新幹線の駅設置計画は存在せず、Bはこれを知りながら虚偽の説明をしていた。Aはこの事実を購入から1年後に知った。AはBに対して契約を取り消すとともに、支払い済みの代金の返還と損害賠償を請求したいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14706,14 +14702,14 @@ const PRACTICE_QUESTIONS = {
         "取消権の行使期間は詐欺を知ってから1年以内",
         "損害賠償請求には裁判が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "詐欺による取消し（民法96条）と不法行為に基づく損害賠償（民法709条）は同時に主張できます（請求権競合）。取消しにより契約は遡及的に無効となり、AはBに支払い済みの代金3000万円を不当利得として返還請求できます（民法703条）。さらに詐欺によって被った損害（代金と土地の実際の価値との差額等）は不法行為に基づく損害賠償で請求できます。詐欺取消権の消滅時効は詐欺を知った時から5年・行為時から20年です（民法126条）。",
-      "publicPath": "q/practice/p919/index.html"
+      "publicPath": "q/practice/p10919/index.html"
     },
     {
-      "id": 900920,
+      "id": 910920,
       "year": "orig",
-      "num": 920,
+      "num": 10920,
       "field": "rights",
       "text": "AはB（成年被後見人）の成年後見人に選任されている。AはBを代理して、B所有の甲不動産をCに売却しようとしている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14722,14 +14718,14 @@ const PRACTICE_QUESTIONS = {
         "成年後見人は不動産を売却する代理権を持たない",
         "成年後見人による不動産売却には被後見人Bの同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "成年後見人が成年被後見人の居住用不動産を売却・賃貸・担保提供等する場合は家庭裁判所の許可が必要です（民法859条の3）。居住用でない不動産については後見人の代理権の範囲内で売却できます。成年被後見人Bの同意は法律上は不要です（同意能力がない前提のため）。",
-      "publicPath": "q/practice/p920/index.html"
+      "publicPath": "q/practice/p10920/index.html"
     },
     {
-      "id": 900921,
+      "id": 910921,
       "year": "orig",
-      "num": 921,
+      "num": 10921,
       "field": "rights",
       "text": "AはB銀行から3000万円を借り入れ、A所有の甲土地（時価4000万円）にB銀行のために抵当権を設定した。その後Aは甲土地の上に建物（乙建物）を建築した。AはB銀行への返済が滞り、B銀行は甲土地の競売を申し立てた。この場合（法定地上権の成否）に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -14740,12 +14736,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "法定地上権（民法388条）の成立要件は①抵当権設定時に土地と建物が同一人の所有②その後競売で土地・建物が別人の所有になること、の両方が必要です。本問では抵当権設定時（甲土地への抵当権設定時）に乙建物は存在していなかったため、法定地上権の成立要件を満たさず、法定地上権は成立しません。競売後に乙建物の所有者（A）は土地使用権限を失い退去を求められる可能性があります。",
-      "publicPath": "q/practice/p921/index.html"
+      "publicPath": "q/practice/p10921/index.html"
     },
     {
-      "id": 900922,
+      "id": 910922,
       "year": "orig",
-      "num": 922,
+      "num": 10922,
       "field": "law",
       "text": "宅建業者Aが媒介した土地付き建物（新築）の売買契約において、売主（建売業者B）と買主C（個人・宅建業者でない）の間で次の内容が合意された：代金5000万円、手付金500万円（契約時）、残金4500万円（引渡し時）、引渡し日2025年9月1日、住宅品質確保法に基づく住宅性能評価書あり、住宅ローン特約あり（ローン不成立の場合の白紙解除）。37条書面に記載しなければならない事項として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14754,14 +14750,14 @@ const PRACTICE_QUESTIONS = {
         "37条書面は買主Cにのみ交付すれば足りる",
         "住宅性能評価書の有無は37条書面への記載不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "37条書面の必要的記載事項（宅建業法37条1項）：代金の額・支払時期・方法、物件の引渡し時期、移転登記申請の時期等。住宅ローン特約（融資利用に関する定め）は定めがある場合の任意的記載事項（同法37条1項8号）。住宅性能評価書の内容は35条書面（重要事項説明）の記載事項で、37条書面に全内容の転記は不要。37条書面は売主B・買主C双方に交付が必要（同法37条1項・2項）。",
-      "publicPath": "q/practice/p922/index.html"
+      "publicPath": "q/practice/p10922/index.html"
     },
     {
-      "id": 900923,
+      "id": 910923,
       "year": "orig",
-      "num": 923,
+      "num": 10923,
       "field": "rights",
       "text": "Aは都市部に土地（A地）を所有しており、A地の隣にはB所有のB地がある。A地とB地の間には古い塀があり、その塀の所有者が誰か不明である。AはB地に通じる唯一の通路として、A地を通行する権利（通行地役権または囲繞地通行権）をB地のために主張したいと考えている。B地は公道に面していない（袋地）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14770,14 +14766,14 @@ const PRACTICE_QUESTIONS = {
         "Bが通行地役権を登記しなければ通行できない",
         "囲繞地通行権の行使にはAの同意が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "袋地の所有者（B）は、囲繞地（A地等）を通行する権利（囲繞地通行権・民法210条）を有します。この権利は法律上当然に発生するものであり、Aの同意も登記も不要です。ただし通行は袋地の利用に必要な限度に限られ、囲繞地所有者（A）に最も損害の少ない場所・方法で行い、通常は損害に応じた償金を支払う義務があります（民法212条）。",
-      "publicPath": "q/practice/p923/index.html"
+      "publicPath": "q/practice/p10923/index.html"
     },
     {
-      "id": 900924,
+      "id": 910924,
       "year": "orig",
-      "num": 924,
+      "num": 10924,
       "field": "limit",
       "text": "土地区画整理事業（市施行）において、換地計画が作成され換地処分が行われようとしている。区域内に土地を所有するAは、自己の従前地（面積200㎡）に対して指定された換地（面積160㎡）が従前地より小さいことに不満を持っている。この場合に関する記述として土地区画整理法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14786,14 +14782,14 @@ const PRACTICE_QUESTIONS = {
         "換地は施行者が自由に決定できるため、AはAへの換地の内容を争えない",
         "換地が従前地より小さくなることはあり得ない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "換地計画では従前地と換地の照応原則が適用されますが、形状・位置・地積・環境等を総合考慮して換地が決定されます（土地区画整理法89条1項）。換地面積が従前地より小さい場合は、換地処分後に差額に相当する清算金が徴収または交付されます（同法94条）。AはBから清算金（160㎡と200㎡の差額相当）を受け取ることになります。",
-      "publicPath": "q/practice/p924/index.html"
+      "publicPath": "q/practice/p10924/index.html"
     },
     {
-      "id": 900925,
+      "id": 910925,
       "year": "orig",
-      "num": 925,
+      "num": 10925,
       "field": "tax",
       "text": "AはL市（都市計画区域内・市街化区域）内に次の不動産を所有している：①居住用住宅の敷地（小規模住宅用地・180㎡・固定資産税評価額2000万円）②居住用住宅（新築から3年経過・木造・延べ面積120㎡・固定資産税評価額1200万円）。この場合の固定資産税額として正しいものはどれか（標準税率1.4%・新築住宅の軽減特例を考慮）。",
       "opts": [
@@ -14802,14 +14798,14 @@ const PRACTICE_QUESTIONS = {
         "①2000万円×1/3×1.4%+②1200万円×1.4%＝9.33万円+16.8万円≒26.13万円",
         "土地・建物とも特例なし"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "①小規模住宅用地（200㎡以下・1戸あたり）の固定資産税の課税標準は評価額の1/6（地方税法349条の3の2）。②新築住宅（一般木造）は新築から3年間、居住部分（120㎡まで）の固定資産税税額が1/2に軽減（地方税法附則15条の6）。①：2000万円×1/6×1.4%≒4.67万円。②：1200万円×1.4%×1/2（税額軽減）≒8.4万円。合計約13.07万円。",
-      "publicPath": "q/practice/p925/index.html"
+      "publicPath": "q/practice/p10925/index.html"
     },
     {
-      "id": 900926,
+      "id": 910926,
       "year": "orig",
-      "num": 926,
+      "num": 10926,
       "field": "rights",
       "text": "AはBとの間で商品売買契約を締結し、BはAに100万円を支払った。しかしAは商品をBに引き渡さないまま1年が経過した。Bは催告もせずにいたが、2年後にAに対して商品の引渡しを求め、引渡しができないなら損害賠償を請求した。Aは「消滅時効が完成している」と主張している。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14818,14 +14814,14 @@ const PRACTICE_QUESTIONS = {
         "Bが催告しなかったことは信義則上問題となり請求できない",
         "Bは催告後6か月以内に提訴しなければ時効が完成する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "商品引渡し債権（売買契約に基づく引渡し請求権）の消滅時効は主観的起算点（権利を行使できることを知った時）から5年または客観的起算点（権利を行使できる時）から10年の短い方です（民法166条1項）。Bは契約時から引渡し請求権を有していることを知っていると考えられ、5年が適用されます。2年経過はまだ5年以内であり、時効は完成していません。",
-      "publicPath": "q/practice/p926/index.html"
+      "publicPath": "q/practice/p10926/index.html"
     },
     {
-      "id": 900927,
+      "id": 910927,
       "year": "orig",
-      "num": 927,
+      "num": 10927,
       "field": "law",
       "text": "宅建業者A（保証協会の社員）は、買主Bとの間で中古マンション（代金3000万円）の売買契約を媒介した（売主は宅建業者でないC）。Bは手付金300万円を売主Cに直接支払った。その後Cが倒産し、手付金が返還されなくなった。BはAに対して保証協会への弁済申請を代わりに行ってほしいと依頼した。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14834,14 +14830,14 @@ const PRACTICE_QUESTIONS = {
         "Cが倒産した場合は保証協会が自動的に補償する",
         "Aは媒介業者として手付金の返還義務を負う"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済業務保証金からの還付請求は宅建業者（ここではA）と宅建業に関する取引をしたことによって生じた債権について行えます（宅建業法64条の8）。BのCに対する手付金返還請求権はA（媒介業者）との取引から生じたものではなく、C（売主・宅建業者でない）との取引から生じたものです。したがってAの保証協会からの還付は受けられません。",
-      "publicPath": "q/practice/p927/index.html"
+      "publicPath": "q/practice/p10927/index.html"
     },
     {
-      "id": 900928,
+      "id": 910928,
       "year": "orig",
-      "num": 928,
+      "num": 10928,
       "field": "limit",
       "text": "AはM市（都市計画区域内）に所有する土地（第一種中高層住居専用地域）に老人ホームを建築しようとしている。老人ホームの床面積は1500㎡を予定している。この場合に関する記述として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14850,14 +14846,14 @@ const PRACTICE_QUESTIONS = {
         "老人ホームは商業地域のみ建築できる",
         "床面積が1500㎡以上であれば用途地域にかかわらず許可が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "老人ホーム（社会福祉施設）は第一種中高層住居専用地域でも建築することができます（建築基準法別表第二（ろ）欄・施行令130条の5の4）。社会福祉施設（老人ホーム・保育所・診療所等）は住居系用途地域において比較的広く建築が認められています。床面積は制限の対象となる場合もありますが、老人ホームは面積制限なく建築可能です。",
-      "publicPath": "q/practice/p928/index.html"
+      "publicPath": "q/practice/p10928/index.html"
     },
     {
-      "id": 900929,
+      "id": 910929,
       "year": "orig",
-      "num": 929,
+      "num": 10929,
       "field": "rights",
       "text": "AはBに対して貸金債権100万円（弁済期2020年4月1日）を有している。AはBに対してこの債権に基づく訴訟を提起し、2021年10月1日に確定判決を得た。しかしBは支払いをしないため、AはBの銀行預金を差し押さえようとしている。確定判決取得後の時効について正しいものはどれか。",
       "opts": [
@@ -14866,14 +14862,14 @@ const PRACTICE_QUESTIONS = {
         "確定判決後は時効は進行しない",
         "確定判決後の時効期間は3年である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "確定判決または確定判決と同一の効力を有するものによって確定した権利の消滅時効期間は10年です（民法169条1項）。元の債権の時効期間が5年であっても、確定判決を得た後は10年の時効期間が適用されます。Aは確定判決から10年以内（2031年10月1日まで）に強制執行等を行えばよいことになります。",
-      "publicPath": "q/practice/p929/index.html"
+      "publicPath": "q/practice/p10929/index.html"
     },
     {
-      "id": 900930,
+      "id": 910930,
       "year": "orig",
-      "num": 930,
+      "num": 10930,
       "field": "law",
       "text": "宅建士Aは甲県知事の登録を受け、甲県内の宅建業者Bに専任の宅建士として勤務している。Aは宅建士としての業務のほかに、勤務時間外に個人的に不動産コンサルティング業を行い、顧客から報酬を受け取っていた。また、Aは名義貸し（Cが宅建業を営む際にAの氏名・宅建士証番号を使用させること）を行っていた。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14882,14 +14878,14 @@ const PRACTICE_QUESTIONS = {
         "名義貸しは宅建業法では禁止されていない",
         "不動産コンサルティング業は宅建業に該当しないため問題ない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士の名義貸しは宅建士制度の信頼を害する行為であり、指示処分・事務禁止処分や、情状が特に重い場合等には登録消除処分の対象となります。名義貸しを行った宅建士は事務禁止処分・登録消除処分の対象となります。なお宅建業者が宅建士の名義を借りて業を行った場合は無免許営業等の問題が生じます。",
-      "publicPath": "q/practice/p930/index.html"
+      "publicPath": "q/practice/p10930/index.html"
     },
     {
-      "id": 900931,
+      "id": 910931,
       "year": "orig",
-      "num": 931,
+      "num": 10931,
       "field": "limit",
       "text": "AはN市（都市計画区域内・第一種住居地域）の角地（特定行政庁が指定した角地）に、建ぺい率60%・容積率300%の土地（敷地面積200㎡）に住宅（耐火建築物）を建築しようとしている。この土地に建てられる建築物の最大建築面積として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14898,14 +14894,14 @@ const PRACTICE_QUESTIONS = {
         "200㎡×70%=140㎡（角地加算のみ）",
         "200㎡×80%=160㎡"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建ぺい率の加算：①防火地域・準防火地域内の耐火建築物（10%加算）②特定行政庁指定の角地（10%加算）（建築基準法53条3項）。本問の土地が防火地域・準防火地域内にある場合は60%+10%+10%=80%となりますが、問題文に防火地域の記載がないため角地加算のみ（60%+10%=70%）の可能性もあります。ただし選択肢②の160㎡は防火地域内の耐火建築物＋角地のダブル加算（80%×200㎡=160㎡）を示していると解釈し、これが正解となります（防火地域内が前提）。",
-      "publicPath": "q/practice/p931/index.html"
+      "publicPath": "q/practice/p10931/index.html"
     },
     {
-      "id": 900932,
+      "id": 910932,
       "year": "orig",
-      "num": 932,
+      "num": 10932,
       "field": "rights",
       "text": "AはBとの間で甲土地の売買契約を締結したが、後日、甲土地は実際には第三者Cの所有であることが判明した（Bは無権利者であった）。Aは代金を支払い済みで引渡しも受けていたが、土地の登記はCのままであった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14914,14 +14910,14 @@ const PRACTICE_QUESTIONS = {
         "AがCに対して時効取得（10年）の要件を満たせば所有権を取得できる",
         "Aは善意無過失でBから購入したため所有権を取得できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "BはCの所有地を無断で売却した無権利者（無権利の法理）であり、AB間の売買は他人物売買として有効ですが（民法561条）、BはCの所有権を取得してAに移転する義務を履行できません。Aは代金の返還請求等をBに求めることができます。ただしAが甲土地を善意無過失で平穏・公然と10年間占有すれば時効取得（民法162条2項）が成立します。",
-      "publicPath": "q/practice/p932/index.html"
+      "publicPath": "q/practice/p10932/index.html"
     },
     {
-      "id": 900933,
+      "id": 910933,
       "year": "orig",
-      "num": 933,
+      "num": 10933,
       "field": "rights",
       "text": "Aには子Bのみがいる。Aは死亡前に「全財産をNPO法人Xに遺贈する」旨の公正証書遺言を作成した。Aの遺産は5000万円であった。Bは遺言に反対しており、自分の相続分を確保したいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14930,14 +14926,14 @@ const PRACTICE_QUESTIONS = {
         "遺留分は直系血族にのみ認められ、子には認められない",
         "公正証書遺言に対して遺留分請求はできない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "子は遺留分権利者です（民法1042条1項2号）。子のみが相続人の場合の遺留分割合は財産の1/2です（同条1項2号）。Bの遺留分は5000万円×1/2=2500万円。BはX法人に対して遺留分侵害額請求権（民法1046条）を行使し、2500万円の金銭の支払いを求めることができます。遺言の有効・無効にかかわらず遺留分請求は可能です。",
-      "publicPath": "q/practice/p933/index.html"
+      "publicPath": "q/practice/p10933/index.html"
     },
     {
-      "id": 900934,
+      "id": 910934,
       "year": "orig",
-      "num": 934,
+      "num": 10934,
       "field": "law",
       "text": "宅建業者A（自ら売主）は買主B（宅建業者でない）に対して宅地を2000万円で売却した。Bはクーリングオフができる旨の書面による告知をAから受けた翌日から数えて8日目に、電子メールでクーリングオフの意思表示を送信した。翌日（9日目）にAはBからのメールを確認した。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14946,14 +14942,14 @@ const PRACTICE_QUESTIONS = {
         "電子メールはクーリングオフの意思表示の手段として認められる場合もある",
         "クーリングオフの書面は内容証明郵便でなければならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業法37条の2のクーリングオフの意思表示は「書面」によって行う必要があります（宅建業法37条の2第1項）。電子メールは従来は「書面」とは認められていませんでしたが、2022年の宅建業法改正により、相手方の承諾がある場合は電磁的方法による提供が認められるようになっています。ただし一般的にはクーリングオフには書面（紙）が必要とされており、電子メールの可否は慎重な判断が必要です。本問では改正前の考え方では電子メールは書面に当たらず無効と解釈されます。",
-      "publicPath": "q/practice/p934/index.html"
+      "publicPath": "q/practice/p10934/index.html"
     },
     {
-      "id": 900935,
+      "id": 910935,
       "year": "orig",
-      "num": 935,
+      "num": 10935,
       "field": "rights",
       "text": "AはB所有の事務所ビル（1フロア・床面積200㎡）を月額40万円で3年間賃借している。賃貸借期間の2年が経過したとき、Bはビルを建て替えるため「残り1年で退去してほしい」と申し入れた。Aは事業継続のためこのビルを引き続き使用したい。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14962,14 +14958,14 @@ const PRACTICE_QUESTIONS = {
         "Bが建て替えを理由とする場合は常に正当事由が認められる",
         "事務所の賃貸借には借地借家法が適用されないため、Bは自由に退去を求めることができる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物賃貸借（事務所用も含む）では更新拒絶には正当事由が必要です（借地借家法28条）。正当事由は賃貸人側・賃借人側双方の必要性の比較と、立退料の申出等を総合考慮して判断されます。建て替えの必要性はBの正当事由の一つとなりますが、Aの事業継続の必要性が大きければ正当事由が認められないこともあります。",
-      "publicPath": "q/practice/p935/index.html"
+      "publicPath": "q/practice/p10935/index.html"
     },
     {
-      "id": 900936,
+      "id": 910936,
       "year": "orig",
-      "num": 936,
+      "num": 10936,
       "field": "rights",
       "text": "分譲マンションの区分所有者Aは、管理組合の集会を招集しようと考えている。Aは区分所有者（議決権）の1/5以上を確保している。管理者（理事長B）に集会招集を求めたが、Bは2か月経過しても集会を招集しなかった。この場合に関する記述として区分所有法の規定によれば正しいものはどれか。",
       "opts": [
@@ -14978,14 +14974,14 @@ const PRACTICE_QUESTIONS = {
         "集会の招集は管理者のみが行える",
         "区分所有者の過半数の同意があれば集会を開催できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "区分所有法34条2項により、区分所有者の1/5以上（規約で減じることも可）および議決権の1/5以上を有する者は管理者に対して集会の招集を請求できます。管理者がその請求から2週間以内に集会招集の通知をしない場合は、請求者自ら集会を招集することができます（同条4項）。",
-      "publicPath": "q/practice/p936/index.html"
+      "publicPath": "q/practice/p10936/index.html"
     },
     {
-      "id": 900937,
+      "id": 910937,
       "year": "orig",
-      "num": 937,
+      "num": 10937,
       "field": "tax",
       "text": "AはBから住宅ローンを利用して中古住宅（昭和58年新築・木造・延べ面積80㎡・耐震診断実施済み・耐震基準適合証明書取得済み・自己居住用）を購入した。この住宅の所有権移転登記と住宅ローンの抵当権設定登記を行う場合の登録免許税について正しいものはどれか。",
       "opts": [
@@ -14994,14 +14990,14 @@ const PRACTICE_QUESTIONS = {
         "昭和58年築の中古住宅は築年数制限（昭和57年1月1日以降新築）をクリアしているため軽減税率が適用される",
         "抵当権設定登記の軽減（0.1%）は新築住宅のみに適用される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "中古住宅（既存住宅）の所有権移転登記の軽減税率（0.3%）は、一定要件を満たす場合に適用されます（租税特別措置法73条）。要件：①床面積50㎡以上②取得後1年以内の登記③自己居住用④一定の耐震基準（昭和57年1月1日以降新築または耐震基準適合証明書取得等）。本問は耐震基準適合証明書を取得しているため④の要件を満たし、軽減税率が適用されます。抵当権設定登記の軽減（0.1%）も住宅ローン減税の要件を満たせば適用可能です。",
-      "publicPath": "q/practice/p937/index.html"
+      "publicPath": "q/practice/p10937/index.html"
     },
     {
-      "id": 900938,
+      "id": 910938,
       "year": "orig",
-      "num": 938,
+      "num": 10938,
       "field": "rights",
       "text": "Aは自己所有の甲土地をBに売却した。AからBへの所有権移転登記がまだ完了していない段階で、BはCに甲土地を転売し、CはBに代金を支払いBからCへの所有権移転登記も完了した。AはBへの代金未払いを理由にAB間の売買契約を解除した。解除後にCに対して甲土地の返還を求めた場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -15010,14 +15006,14 @@ const PRACTICE_QUESTIONS = {
         "Cは転売を受けているため、AはCへの返還請求はできない",
         "AはBに損害賠償を求めることしかできない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "解除前の第三者（C）との関係について、判例は対抗問題（民法177条）として処理します。解除によりAは所有権を回復しますが、解除前に登記を備えたCとの関係では登記の先後で決します。CがBから登記を備えた以上（BからCへの登記完了）、AはCに対して解除による所有権回復を対抗できません（民法545条1項ただし書）。",
-      "publicPath": "q/practice/p938/index.html"
+      "publicPath": "q/practice/p10938/index.html"
     },
     {
-      "id": 900939,
+      "id": 910939,
       "year": "orig",
-      "num": 939,
+      "num": 10939,
       "field": "law",
       "text": "宅建業者Aは、B所有の中古マンション（築25年・鉄筋コンクリート造）の売却を媒介し、買主C（個人）に対して重要事項説明を行う。このマンションにはエレベーター（共用施設）があるが、最後の保守点検から2年が経過しており、管理組合の議事録には「エレベーターの更新工事を検討中」と記載されている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15026,14 +15022,14 @@ const PRACTICE_QUESTIONS = {
         "共用施設の状況（エレベーターの保守点検状況・更新工事の検討等）は管理の状況として重要事項説明に含め、既存の情報を適切に説明することが求められる",
         "築25年以上のマンションは重要事項説明が免除される"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "区分所有建物（マンション）の売買では、共用部分に関する管理規約・管理費・修繕積立金・大規模修繕の実施状況・管理組合の運営状況等が重要事項の説明対象です（宅建業法35条1項6号等）。エレベーターの保守点検状況や更新工事の検討は管理の状況に関する重要な情報であり、既存の情報（議事録記載等）を適切に説明することが求められます。",
-      "publicPath": "q/practice/p939/index.html"
+      "publicPath": "q/practice/p10939/index.html"
     },
     {
-      "id": 900940,
+      "id": 910940,
       "year": "orig",
-      "num": 940,
+      "num": 10940,
       "field": "limit",
       "text": "AはO市（都市計画区域内・市街化区域）内の土地（面積2500㎡）をB社から購入しようとしている。この取引について国土利用計画法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15042,14 +15038,14 @@ const PRACTICE_QUESTIONS = {
         "事後届出は売主B社がすべき義務",
         "2500㎡は届出基準未満であるため届出不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "国土利用計画法の事後届出（同法23条）は、市街化区域では2000㎡以上の土地取引について必要です。2500㎡は2000㎡以上に該当するため事後届出が必要です。届出義務者は土地の権利取得者（買主A）であり、契約締結後2週間以内に当該土地が所在する都道府県の知事（O市が所在する都道府県の知事）に届け出なければなりません。",
-      "publicPath": "q/practice/p940/index.html"
+      "publicPath": "q/practice/p10940/index.html"
     },
     {
-      "id": 900941,
+      "id": 910941,
       "year": "orig",
-      "num": 941,
+      "num": 10941,
       "field": "rights",
       "text": "医師Aは診察中に誤診を行い、患者Bに健康被害を与えた（不法行為・業務上の過失）。Bの損害は入院費50万円・逸失利益200万円・慰謝料100万円の計350万円である。Aは病院Cに勤務する医師であった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15058,14 +15054,14 @@ const PRACTICE_QUESTIONS = {
         "医師Aの誤診についてはAのみが責任を負い、病院Cは責任を負わない",
         "慰謝料は損害賠償の対象とならない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "医師の誤診による医療過誤は不法行為（民法709条）であり、また診療契約上の債務不履行（民法415条）でもあります（請求権競合）。BはAに対して不法行為・債務不履行で請求でき、AはCに勤務する被用者であるためC病院に対しても使用者責任（民法715条）を追及できます。AとCは不真正連帯（各自全額について責任）の関係にあります。",
-      "publicPath": "q/practice/p941/index.html"
+      "publicPath": "q/practice/p10941/index.html"
     },
     {
-      "id": 900942,
+      "id": 910942,
       "year": "orig",
-      "num": 942,
+      "num": 10942,
       "field": "rights",
       "text": "AはBとの間で甲土地の売買契約を締結した（代金2000万円）。AはBに錯誤（民法95条）があったことを理由に契約の取消しを主張したが、BはAに重大な過失があったとして錯誤取消しを争っている。その後、BはCに甲土地を転売しCへの登記も完了した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15074,14 +15070,14 @@ const PRACTICE_QUESTIONS = {
         "錯誤取消しの効果は第三者に対抗できない",
         "AはCに直接損害賠償請求できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "錯誤取消し後の第三者（本問のCのように、Aが取消しをした後にBからCへの売買・登記がなされた場合）との関係は、AとCが二重に譲受人となるとして対抗関係（民法177条）で処理されます。AはCよりも先に登記を備えれば所有権取得を対抗できます。なお取消し前の善意無過失の第三者への対抗不能（詐欺・強迫・錯誤の場合等）とは異なります。",
-      "publicPath": "q/practice/p942/index.html"
+      "publicPath": "q/practice/p10942/index.html"
     },
     {
-      "id": 900943,
+      "id": 910943,
       "year": "orig",
-      "num": 943,
+      "num": 10943,
       "field": "rights",
       "text": "AはB（建設業者）に建物の建築を注文し、工事代金は完成後に支払う約束をした。建物が完成し引き渡されたが、Aは工事代金を支払わない。Bは甲建物（Aの土地上にBが建築した建物）に対して留置権を主張して引渡しを拒もうとしている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15090,14 +15086,14 @@ const PRACTICE_QUESTIONS = {
         "BはAに対して工事代金債権を被担保債権として留置権を行使し、Aが支払わない限り建物を手元に置いておくことができる",
         "留置権は登記しなければ主張できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "留置権（民法295条）は他人の物を占有する者がその物に関して生じた債権を有する場合、その債権の弁済を受けるまで目的物を留置できる権利です。本問でBはAに建物を引き渡してしまっているため、留置権の前提となる「占有」を失っており、留置権を主張することができません。Bは建物の引渡し前に留置権を行使すべきでした。",
-      "publicPath": "q/practice/p943/index.html"
+      "publicPath": "q/practice/p10943/index.html"
     },
     {
-      "id": 900944,
+      "id": 910944,
       "year": "orig",
-      "num": 944,
+      "num": 10944,
       "field": "law",
       "text": "宅建業者A（甲県知事免許）は、Bから甲土地（甲県内）の売却を依頼され一般媒介契約を締結した。Bは他の宅建業者Cとも同じ甲土地について一般媒介契約を締結していた。Aは1か月後に買主D（乙県在住）を見つけ、甲土地の売買契約をBD間で成立させた。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15106,14 +15102,14 @@ const PRACTICE_QUESTIONS = {
         "AはBとC双方から報酬を請求できる",
         "Dが乙県在住であるため、AはD側に重要事項説明を省略できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "一般媒介契約は依頼者が同時に複数の宅建業者に依頼できる媒介形態です（宅建業法34条の2第1項）。BがAとC双方と一般媒介契約を締結することは適法です。報酬はAがBとの間の媒介に基づき、成約させた業者（A）がBから請求できます（Cは成約させていないため報酬請求権なし）。Dへの重要事項説明は相手方の居住地にかかわらず必要です。",
-      "publicPath": "q/practice/p944/index.html"
+      "publicPath": "q/practice/p10944/index.html"
     },
     {
-      "id": 900945,
+      "id": 910945,
       "year": "orig",
-      "num": 945,
+      "num": 10945,
       "field": "limit",
       "text": "AはP市（宅地造成等工事規制区域内）に土地を所有しており、次の宅地造成工事を計画している。①盛土で高さ1.5mの崖を生じさせる工事（盛土面積300㎡）②切土で高さ1.5mの崖を生じさせる工事（切土面積300㎡）③盛土0.5m以下の工事（面積600㎡）。この場合に関する記述として盛土規制法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15122,14 +15118,14 @@ const PRACTICE_QUESTIONS = {
         "①②③すべて許可が必要",
         "③は面積500㎡超のため許可が必要"
       ],
-      "ans": 3,
+      "ans": 2,
       "exp": "宅地造成等工事規制区域内で許可が必要な宅地造成等工事には、盛土で1m超の崖を生じるもの、切土で2m超の崖を生じるもの、崖を生じない盛土でも高さ2m超のもの、前記に該当しない盛土・切土で面積500㎡超のもの等があります（盛土規制法12条1項・施行令3条）。本問では①は許可対象、②は切土1.5mで2m以下のためこの基準では許可不要、③は面積600㎡で500㎡超のため許可対象です。",
-      "publicPath": "q/practice/p945/index.html"
+      "publicPath": "q/practice/p10945/index.html"
     },
     {
-      "id": 900946,
+      "id": 910946,
       "year": "orig",
-      "num": 946,
+      "num": 10946,
       "field": "rights",
       "text": "Aは妻B・長男C（妻Dあり・子Eあり）・長女Fと生活していた。Aが死亡した直後に長男Cも死亡した。AとCの死亡順序は不明であり、どちらが先に死亡したか判断できない。Aの遺産は4000万円であり、遺言はなかった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15138,14 +15134,14 @@ const PRACTICE_QUESTIONS = {
         "死亡順序不明の場合はすべての遺産が国庫に帰属する",
         "Bが全財産を相続する"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "同時死亡の推定（民法32条の2）により、AとCは同時に死亡したものとみなされ、互いに相続人にはなれません。Aの相続人はB（配偶者）・F（子）・E（Cの子→代襲相続人）となります（民法887条2項）。Aの遺産4000万円はB：2000万円・F：1000万円・E：1000万円（Cの相続分1000万円をEが代襲）となります。",
-      "publicPath": "q/practice/p946/index.html"
+      "publicPath": "q/practice/p10946/index.html"
     },
     {
-      "id": 900947,
+      "id": 910947,
       "year": "orig",
-      "num": 947,
+      "num": 10947,
       "field": "tax",
       "text": "AはQ県内の土地について、基準地標準価格（都道府県地価調査）を参考に売買価格を検討している。この場合に関する記述として国土利用計画法・地価公示法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15154,14 +15150,14 @@ const PRACTICE_QUESTIONS = {
         "基準地標準価格は国土交通省が公示する",
         "基準地標準価格と地価公示価格は同じ水準に設定されている"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "都道府県地価調査（基準地標準価格）は毎年7月1日を価格判定基準日として、都道府県知事が不動産鑑定士の鑑定評価を基に毎年9月に公表します（国土利用計画法24条）。地価公示が1月1日を基準とするのに対し、7月1日を基準とすることで半年ごとの地価動向の把握が可能です。都道府県知事が公表する点が地価公示（国土交通省）と異なります。",
-      "publicPath": "q/practice/p947/index.html"
+      "publicPath": "q/practice/p10947/index.html"
     },
     {
-      "id": 900948,
+      "id": 910948,
       "year": "orig",
-      "num": 948,
+      "num": 10948,
       "field": "rights",
       "text": "AはBに対して100万円の債権を有しており、その弁済期が到来した。Aは急病で入院中であり、弁済を受けることができない。そこでAの妻Cが「Aの代理人として」Bから100万円を受領しようとした。CはAからの代理権授与を受けていない。Bは「本人Aから連絡がない限り代理人には支払わない」と言っている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15170,14 +15166,14 @@ const PRACTICE_QUESTIONS = {
         "AがCに代理権を与えた形跡がなくても表見代理が成立する",
         "Bは第三者への支払いができない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "代理人として行動するためには代理権（授権）が必要です（民法99条）。CはAから代理権を与えられていないため無権代理人です。Bは正当な代理権を持たないCへの支払いを拒否できます（民法478条の弁済受領権者でない者への弁済は原則として効力なし）。Bが弁済を拒否しても債務不履行にはなりません。Aが意思能力を有する限りAに確認することが必要です。",
-      "publicPath": "q/practice/p948/index.html"
+      "publicPath": "q/practice/p10948/index.html"
     },
     {
-      "id": 900949,
+      "id": 910949,
       "year": "orig",
-      "num": 949,
+      "num": 10949,
       "field": "law",
       "text": "宅建業者A（法人・甲県知事免許）は、法令違反により甲県知事から業務停止処分（3か月）を受けた。業務停止処分期間中に、Aは業務を継続して宅地売買の媒介を行い報酬を受領した。また、Aの取締役Bは別の不動産詐欺事件（宅建業とは関係なし）で逮捕・起訴されており、現在公判中である。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15186,14 +15182,14 @@ const PRACTICE_QUESTIONS = {
         "業務停止期間中も媒介は継続できる",
         "Bが起訴されただけでは免許への影響はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "業務停止処分に違反して宅建業を行った場合は、必要的免許取消処分の対象です（宅建業法66条1項9号）。また役員が拘禁刑以上の刑に処された（執行猶予含む）場合も法人の免許取消し事由です（同法66条1項3号・5条1項5号・12号）。Bはまだ起訴・公判中のため確定していない段階では直ちに免許取消事由にはなりませんが、有罪確定後は取消事由となります。",
-      "publicPath": "q/practice/p949/index.html"
+      "publicPath": "q/practice/p10949/index.html"
     },
     {
-      "id": 900950,
+      "id": 910950,
       "year": "orig",
-      "num": 950,
+      "num": 10950,
       "field": "rights",
       "text": "AはBに対して売買代金500万円の債権を有していたが、Aが長年に亘り請求を怠っていたためBは「時効が完成した」と言い消滅時効を援用した。AはBの時効援用は権利の濫用だと主張している。その後、Bはこの状況を知ったうえで弁護士Cに「Aへの500万円の支払義務は存在しない」と相談した。Cが「援用により時効は完成しており、支払義務はない」とBに助言した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15204,12 +15200,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "消滅時効の援用は正当な権利行使であり、原則として権利濫用にはなりません。ただし時効完成前後の事情によって信義則上援用が制限される場合があります（例：時効完成後に債務の存在を認めた場合等・前記10898参照）。単にAが長年請求を怠っていただけではBの援用が権利濫用とはなりません。CがBに適切な法的助言をしたことは弁護士の職務として適法です。",
-      "publicPath": "q/practice/p950/index.html"
+      "publicPath": "q/practice/p10950/index.html"
     },
     {
-      "id": 900951,
+      "id": 910951,
       "year": "orig",
-      "num": 951,
+      "num": 10951,
       "field": "rights",
       "text": "AはBとの間で甲マンション（分譲・2500万円）の売買契約を締結し、手付金250万円を支払った。Aは住宅ローンの審査が通らず残代金が用意できないため、Bに対して「ローンが通らなかった。手付金を返してほしい」と申し出た。売買契約書には「ローン特約」（融資が承認されない場合は白紙解除できる旨）は記載されていなかった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15218,14 +15214,14 @@ const PRACTICE_QUESTIONS = {
         "BはAの債務不履行（残代金不払い）を理由に契約を解除し損害賠償を請求できる",
         "Aはローンが通らなかったことを理由に契約を当然に解除できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "ローン特約がない場合、資金調達できないことはAの責任（履行不能・履行遅滞）です。Aが自ら解除するには手付放棄（250万円放棄）による手付解除（民法557条）が必要です。相手方（B）が履行に着手していなければ手付放棄による解除が可能ですが、この場合Aは250万円を失います。BはAの残代金不払いを理由に債務不履行解除と損害賠償を請求できます。",
-      "publicPath": "q/practice/p951/index.html"
+      "publicPath": "q/practice/p10951/index.html"
     },
     {
-      "id": 900952,
+      "id": 910952,
       "year": "orig",
-      "num": 952,
+      "num": 10952,
       "field": "rights",
       "text": "AはB銀行から4000万円を借り入れ、A所有の甲土地・乙建物（一括）に共同抵当権を設定した（甲土地時価3000万円・乙建物時価2000万円）。その後乙建物が火災で全焼し、Aは保険金1500万円を受け取った。B銀行は甲土地の競売を申し立てるとともに、乙建物の保険金に対しても物上代位を行使したいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15234,14 +15230,14 @@ const PRACTICE_QUESTIONS = {
         "共同抵当の場合、一方の目的物が滅失すると他方の抵当権も消滅する",
         "保険金はAの固有財産となるため、B銀行は一切請求できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同抵当の目的物の一つが滅失した場合でも、その目的物に代わる保険金等（代位物）に対して物上代位を行使できます（民法304条）。B銀行は乙建物の保険金1500万円に対して払渡し前に差押えをすることで物上代位を行使できます。甲土地の競売と保険金への物上代位を組み合わせて4000万円の回収を図ることができます。",
-      "publicPath": "q/practice/p952/index.html"
+      "publicPath": "q/practice/p10952/index.html"
     },
     {
-      "id": 900953,
+      "id": 910953,
       "year": "orig",
-      "num": 953,
+      "num": 10953,
       "field": "rights",
       "text": "AはBに対して1000万円の貸金債権を有し、弁済期が到来している。Bは弁済を拒んでいるが、BはCに対して800万円の貸金債権を有している（Cの弁済期も到来済み）。AはBに代位してCに対し800万円の支払いを求めた（債権者代位権の行使）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15250,14 +15246,14 @@ const PRACTICE_QUESTIONS = {
         "AはBの債権800万円を全額自己のものとして取得できる",
         "AはCから回収した800万円をそのまま自己の取り分として保持できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "債権者代位権の行使にBの同意は不要です。Aは自己の債権額1000万円の範囲で、BのCに対する800万円の貸金債権を代位行使できます（民法423条・423条の2）。また、金銭その他の物の引渡しを求める場合、相手方Cに対してAへ直接支払うよう求めることができます（民法423条の3）。",
-      "publicPath": "q/practice/p953/index.html"
+      "publicPath": "q/practice/p10953/index.html"
     },
     {
-      "id": 900954,
+      "id": 910954,
       "year": "orig",
-      "num": 954,
+      "num": 10954,
       "field": "rights",
       "text": "AはBに対して甲建物（中古・築10年）を1500万円で売却した。売買契約書には「建物の雨漏り・シロアリ被害については売主は一切責任を負わない」という特約があった。Aは売買前にシロアリ被害があることを知っており、駆除処理も施していた（完全駆除済み）が、Bにはこの事実を伝えなかった。引渡し後、Bがシロアリ被害の痕跡を発見し修繕費100万円が必要なことがわかった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15266,14 +15262,14 @@ const PRACTICE_QUESTIONS = {
         "シロアリ駆除処理を施していたため、Aに不適合はない",
         "Bは建物検査をすべきであり、調査しなかった自己責任"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "売主が知りながら告げなかった契約不適合については、免責特約（「一切責任を負わない」という特約）の効力が及びません（民法572条）。Aはシロアリ被害とその痕跡をBに告げなかったため、BはAに対して追完請求・代金減額請求・損害賠償請求が可能です。駆除処理を施していたとしても、その事実をBに告知する義務があります。",
-      "publicPath": "q/practice/p954/index.html"
+      "publicPath": "q/practice/p10954/index.html"
     },
     {
-      "id": 900955,
+      "id": 910955,
       "year": "orig",
-      "num": 955,
+      "num": 10955,
       "field": "rights",
       "text": "AはB所有のマンション（居住用・月額賃料8万円）を賃借中である。Bは「建物を取り壊して駐車場にしたい」として更新拒絶を通知した。Aには8年間その建物に居住してきた実績があり、近隣に同条件の賃貸物件はほとんどない。Bは立退料の申し出はしていない。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15282,14 +15278,14 @@ const PRACTICE_QUESTIONS = {
         "Bが建物取壊しを希望する場合は常に正当事由が認められる",
         "8年間居住した賃借人は永遠に退去させられない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物賃貸借の更新拒絶には正当事由が必要（借地借家法28条）で、賃貸人の建物使用の必要性・賃借人の使用の必要性・従前の経緯・建物の利用状況・立退料の申し出等を総合考慮します。賃借人Aの8年居住実績・代替物件の少なさ・立退料の提示がないことは正当事由の認定を困難にします。Bの取壊し希望だけでは不十分な場合が多く、相当額の立退料提供が必要になることが多いです。",
-      "publicPath": "q/practice/p955/index.html"
+      "publicPath": "q/practice/p10955/index.html"
     },
     {
-      "id": 900956,
+      "id": 910956,
       "year": "orig",
-      "num": 956,
+      "num": 10956,
       "field": "rights",
       "text": "Aはインターネット上でBについて虚偽の事実（「Bは詐欺師だ」という記事）を多数の人が閲覧できるサイトに掲載した。Bはこれにより精神的損害（慰謝料100万円相当）・取引先からの信用失墜による財産的損害（200万円相当）を被った。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15298,14 +15294,14 @@ const PRACTICE_QUESTIONS = {
         "インターネット上の表現は自由であるため不法行為にならない",
         "Bは損害賠償か名誉回復措置のどちらか一方しか請求できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "名誉毀損による不法行為（民法709条・723条）はインターネット上の記事でも成立します。BはAに対して①財産的損害賠償200万円②精神的損害（慰謝料）100万円③名誉回復のための適当な処分（記事削除・謝罪広告等）を組み合わせて請求できます（民法723条）。損害賠償と名誉回復措置は並行して請求可能です。",
-      "publicPath": "q/practice/p956/index.html"
+      "publicPath": "q/practice/p10956/index.html"
     },
     {
-      "id": 900957,
+      "id": 910957,
       "year": "orig",
-      "num": 957,
+      "num": 10957,
       "field": "rights",
       "text": "Aが死亡し、配偶者B・長男C・長女Dが相続人となった。遺産分割協議において、B・C・Dは「甲土地はCが相続し、預貯金500万円はB・Dが250万円ずつ相続する」と合意した。その後、甲土地について以前からAが第三者Eに対して負っていた債務（担保付き）が発覚した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15314,14 +15310,14 @@ const PRACTICE_QUESTIONS = {
         "Cが甲土地を相続したため、EへのAの債務もCのみが全額負担する",
         "Eは遺産分割協議の内容に拘束される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "相続によって生じた債務（被相続人の債務）は法定相続分に応じて各相続人に分割承継されるのが原則です（民法899条・900条）。遺産分割協議でCが甲土地を取得するとしても、Aの債権者Eに対しては協議の内容は対抗できず、Eに対してはB・C・D全員が法定相続分の割合で責任を負います。",
-      "publicPath": "q/practice/p957/index.html"
+      "publicPath": "q/practice/p10957/index.html"
     },
     {
-      "id": 900958,
+      "id": 910958,
       "year": "orig",
-      "num": 958,
+      "num": 10958,
       "field": "rights",
       "text": "A所有の甲土地についてBが時効取得を主張している（20年間占有）。時効完成後にAはCに甲土地を売却し、AからCへの所有権移転登記が完了した。BはCに対して時効取得による所有権を主張したい。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -15330,14 +15326,14 @@ const PRACTICE_QUESTIONS = {
         "Cが善意であれば常にCが優先する",
         "時効取得は登記を必要としない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "判例上、時効完成後に登場した第三者（C）との関係は対抗問題（民法177条）となります。BはCよりも先に所有権移転登記を備えれば時効取得をCに対抗できますが、Cが先に登記を完了した場合はCに対抗できません。時効が完成した後に第三者が現れた場合は、登記の先後で決します。これは時効完成前の第三者（取消し等の問題）とは区別されます。",
-      "publicPath": "q/practice/p958/index.html"
+      "publicPath": "q/practice/p10958/index.html"
     },
     {
-      "id": 900959,
+      "id": 910959,
       "year": "orig",
-      "num": 959,
+      "num": 10959,
       "field": "rights",
       "text": "AはB所有の土地を賃借し（借地権存続期間30年）、その土地上にA所有の建物（登記済み）を建築していた。存続期間満了後、Bは「息子に土地を使わせたい」として更新を拒絶した。Aは引き続き建物に居住したいとして更新を請求し、BとAの協議が成立しなかった。この場合に関する記述として借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15346,14 +15342,14 @@ const PRACTICE_QUESTIONS = {
         "正当事由なしでBが更新を拒絶した場合でも、期間満了後2か月以内にAが退去すれば問題ない",
         "Aは法定更新を主張せず建物買取請求権（同法13条）のみを行使できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "借地権の存続期間満了時に借地権者Aが更新請求をした場合（借地借家法5条1項）、土地所有者Bは正当事由（同法6条）がなければ拒絶できず、法定更新が成立します。正当事由（息子の利用のみでは不十分な場合も多い）がなければAは引き続き建物を使用できます。Bが正当事由ありとして更新を拒絶した場合、Aは建物買取請求権を行使することも可能です（同法13条）。",
-      "publicPath": "q/practice/p959/index.html"
+      "publicPath": "q/practice/p10959/index.html"
     },
     {
-      "id": 900960,
+      "id": 910960,
       "year": "orig",
-      "num": 960,
+      "num": 10960,
       "field": "law",
       "text": "宅建業者A（甲県知事免許・個人事業主）が死亡した。Aの相続人はBのみであり、BはAの宅建業を引き継いで自ら宅建業を営みたいと考えている。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15362,14 +15358,14 @@ const PRACTICE_QUESTIONS = {
         "Bは免許申請なしに即座にAの後継として業を行える",
         "Aの死亡からBの免許取得まで宅建業は完全に停止される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業の免許は一身専属的なものであり、被相続人の免許は相続によって当然に相続人に引き継がれません（宅建業法11条1項1号）。相続人は死亡を知った日から30日以内に免許権者へ届け出る必要があります。また、相続人は被相続人が締結した契約に基づく取引を結了する目的の範囲内で宅建業者とみなされます（同法76条）。Bが新たに宅建業を営むには自ら免許を受ける必要があります。",
-      "publicPath": "q/practice/p960/index.html"
+      "publicPath": "q/practice/p10960/index.html"
     },
     {
-      "id": 900961,
+      "id": 910961,
       "year": "orig",
-      "num": 961,
+      "num": 10961,
       "field": "law",
       "text": "宅建業者Aは、B所有の土地（市街化調整区域内・農地・地目：田）の売買を媒介した。買主Cは住宅建築を目的としており、Aは重要事項説明を行った。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15378,14 +15374,14 @@ const PRACTICE_QUESTIONS = {
         "Cが農業者でないことをAは説明する義務がない",
         "農地法の許可は売買契約の前提条件となるが、重要事項説明書への記載は任意"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "市街化調整区域内の農地（田）は、農地法5条の転用許可・都市計画法43条の建築許可等の規制を受けます。これらの法令上の制限は重要事項として説明しなければなりません（宅建業法35条1項2号）。CがこのAの農地に住宅を建築するためには農地法・都市計画法の許可等が必要であり、許可が得られない場合は目的を達成できないため重要な説明事項です。",
-      "publicPath": "q/practice/p961/index.html"
+      "publicPath": "q/practice/p10961/index.html"
     },
     {
-      "id": 900962,
+      "id": 910962,
       "year": "orig",
-      "num": 962,
+      "num": 10962,
       "field": "law",
       "text": "宅建業者Aは、B所有の土地（売買代金6000万円）の売却について専属専任媒介契約を締結した。A以外の業者が見つけた買主Cとの間でB自らが直接売買契約を締結しようとした。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15394,14 +15390,14 @@ const PRACTICE_QUESTIONS = {
         "専属専任媒介契約でも依頼者は自由に別の業者と取引できる",
         "Aが見つけた買主との取引のみ制限される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "専属専任媒介契約は、依頼者が他の宅建業者に依頼することも、依頼者自ら発見した相手方との取引も禁止する最も拘束力の強い媒介契約です（宅建業法34条の2第3項）。Bが直接相手方を見つけた場合でも（または他の業者が見つけた場合でも）Bは自由に取引できません。違反した場合、Aは違約金を請求できます（報酬告示）。",
-      "publicPath": "q/practice/p962/index.html"
+      "publicPath": "q/practice/p10962/index.html"
     },
     {
-      "id": 900963,
+      "id": 910963,
       "year": "orig",
-      "num": 963,
+      "num": 10963,
       "field": "law",
       "text": "宅建業者Aは、B所有の倉庫（賃貸中・月額賃料100万円）の売買を媒介し、売買代金2億円で売買契約を成立させた。AはBから媒介報酬として消費税込みで726万円を受け取った。この場合に関する記述として宅建業法の規定（報酬告示）によれば正しいものはどれか。",
       "opts": [
@@ -15412,12 +15408,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "売買の媒介報酬の上限（速算式）：代金400万円超は「代金×3%+6万円」（税別）。2億円×3%+6万円=606万円（税別）。消費税10%を加えると606万円×1.1=666.6万円（税込）が上限。AがBから726万円（税込）を受け取ったのは上限666.6万円を超えており、宅建業法違反です（過大な報酬の受領・宅建業法47条の2）。",
-      "publicPath": "q/practice/p963/index.html"
+      "publicPath": "q/practice/p10963/index.html"
     },
     {
-      "id": 900964,
+      "id": 910964,
       "year": "orig",
-      "num": 964,
+      "num": 10964,
       "field": "limit",
       "text": "AはR市（都市計画区域内・市街化区域・近隣商業地域・防火地域）内に土地（敷地面積300㎡・建ぺい率80%・容積率400%）を所有し、耐火構造の商業ビル（7階建て・延べ面積1000㎡）を建築しようとしている。この計画についての建築確認について建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15426,14 +15422,14 @@ const PRACTICE_QUESTIONS = {
         "高さが60m以下かつ一定規模以内の建築物は建築確認が必要。また1000㎡超（特殊建築物）の場合も確認申請が必要",
         "7階建てビルは原則として都道府県知事の許可が必要"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "建築基準法上、建築確認が必要な場合（同法6条1項）：①特殊建築物でその用途に供する部分が200㎡超②木造3階建て以上または延べ面積500㎡超または高さ13m超等③上記以外で地上2階以上または延べ面積200㎡超（都市計画区域内等）。商業ビル（事務所等）は特殊建築物ではないため②または③で判断します。7階建て・延べ面積1000㎡の建築物は建築確認が必要です。",
-      "publicPath": "q/practice/p964/index.html"
+      "publicPath": "q/practice/p10964/index.html"
     },
     {
-      "id": 900965,
+      "id": 910965,
       "year": "orig",
-      "num": 965,
+      "num": 10965,
       "field": "limit",
       "text": "Aは第二種低層住居専用地域（高さ制限10m・北側斜線制限あり・建ぺい率40%・容積率60%）に土地（150㎡）を所有し、小規模な店舗兼住宅（2階建て・延べ面積80㎡・建築面積55㎡）を建築しようとしている。建ぺい率・容積率・高さの適法性について建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15442,14 +15438,14 @@ const PRACTICE_QUESTIONS = {
         "容積率が60%以下なら建築制限は一切ない",
         "北側斜線制限は適用されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建ぺい率：55㎡÷150㎡≒36.7%＜40%→適法。容積率：80㎡÷150㎡≒53.3%＜60%→適法。第二種低層住居専用地域では、床面積150㎡以下の日用品販売小売業等の店舗兼住宅（建築基準法別表第二（ろ）欄2号）は建築可能です。2階建ての一般的な高さ（約7m前後）は10mの高さ制限内に収まります。北側斜線制限は低層住居系で適用されます。",
-      "publicPath": "q/practice/p965/index.html"
+      "publicPath": "q/practice/p10965/index.html"
     },
     {
-      "id": 900966,
+      "id": 910966,
       "year": "orig",
-      "num": 966,
+      "num": 10966,
       "field": "limit",
       "text": "AはS市（市街化区域）の農地（面積400㎡）を所有している。Aはこの農地をBに売却し、BはこれをCに転売する計画がある。BおよびCはいずれも農業者でなく、農地を宅地として利用する予定である。この場合に関する記述として農地法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15458,14 +15454,14 @@ const PRACTICE_QUESTIONS = {
         "AからBへの農地の売却には、常に農業委員会の許可が必要",
         "市街化区域内の農地の宅地転用には農林水産大臣の許可が必要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "農地法の規制：①権利移動（農地→農地・農地法3条）は農業委員会の許可が必要。ただし農業者でない者への農地売買はそもそも農地法3条の許可が得られないため、宅地転用目的の場合は農地法5条（転用目的の権利移動）で扱います。②市街化区域内の農地の転用（農地法4条・5条）は農業委員会への届出のみで足ります（許可不要）。AからBへの宅地転用目的での売却は農地法5条の問題で市街化区域内のため届出のみです。",
-      "publicPath": "q/practice/p966/index.html"
+      "publicPath": "q/practice/p10966/index.html"
     },
     {
-      "id": 900967,
+      "id": 910967,
       "year": "orig",
-      "num": 967,
+      "num": 10967,
       "field": "tax",
       "text": "AはT市内の居住用一戸建て住宅（所有期間8年）を売却しようとしている。売却価格は4500万円、取得費は3500万円（取得時の諸費用込み）、譲渡費用は135万円の予定である。Aはこの3年前に別の居住用財産を売却し3000万円特別控除を利用済みである。この場合に関する記述として租税特別措置法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15474,14 +15470,14 @@ const PRACTICE_QUESTIONS = {
         "3000万円特別控除は一生に一度しか利用できない",
         "3年前に利用済みのため今回は利用できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "居住用財産の3000万円特別控除（租税特別措置法35条）は、譲渡した年の前年・前々年に同控除の適用を受けていなければ利用できます。3年前の利用は「前年」「前々年」に含まれないため（3年前は前々年のさらに1年前）、今回も3000万円特別控除を適用できます。課税譲渡所得：4500万円－3500万円－135万円－3000万円=△135万円→課税なし。",
-      "publicPath": "q/practice/p967/index.html"
+      "publicPath": "q/practice/p10967/index.html"
     },
     {
-      "id": 900968,
+      "id": 910968,
       "year": "orig",
-      "num": 968,
+      "num": 10968,
       "field": "tax",
       "text": "AはU市内の中古住宅（昭和55年新築・木造・延べ面積100㎡・個人から購入・自己居住用）を取得した。この建物は耐震改修工事（耐震基準適合証明書取得済み）を実施している。建物の固定資産税評価額は600万円である。不動産取得税の軽減適用について正しいものはどれか。",
       "opts": [
@@ -15490,14 +15486,14 @@ const PRACTICE_QUESTIONS = {
         "1200万円控除は新築住宅のみ対象",
         "耐震改修工事の費用は不動産取得税から控除できる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "中古住宅の不動産取得税軽減（地方税法73条の14第2項）は、昭和57年1月1日以降新築の住宅（または耐震基準適合証明書取得済みの住宅）の場合に1200万円控除が適用されます。本問では耐震基準適合証明書を取得しているため（昭和55年新築で昭和57年以前ですが耐震証明書により要件を満たす）1200万円控除が適用されます。600万円（評価額）－1200万円=△600万円となり不動産取得税はゼロです。",
-      "publicPath": "q/practice/p968/index.html"
+      "publicPath": "q/practice/p10968/index.html"
     },
     {
-      "id": 900969,
+      "id": 910969,
       "year": "orig",
-      "num": 969,
+      "num": 10969,
       "field": "rights",
       "text": "Aは知人Bから「自分の土地に古墳があり文化財に指定されている。売却は難しい」と聞かされた甲土地を購入した。しかし実際には文化財指定はなく、Bがそのような事実を誤って信じて伝えていた（Bに故意なし）。Aは文化財指定地としての利用価値を前提に購入を決めており、文化財指定がなければ購入しなかった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15506,14 +15502,14 @@ const PRACTICE_QUESTIONS = {
         "Bに故意がなければいかなる場合も取り消せない",
         "Aは動機の錯誤を主張できるが、AB間は錯誤の証明が困難"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "BがAに誤った情報を提供（故意なし）した場合、詐欺は成立しません。しかし文化財指定という動機がBとの交渉過程で法律行為の内容となっていた場合（動機が表示され相手方も認識していた場合）、Aは動機の錯誤（民法95条1項2号）を主張できます。Aに重大な過失がなければ取消しが認められます（民法95条3項）。",
-      "publicPath": "q/practice/p969/index.html"
+      "publicPath": "q/practice/p10969/index.html"
     },
     {
-      "id": 900970,
+      "id": 910970,
       "year": "orig",
-      "num": 970,
+      "num": 10970,
       "field": "rights",
       "text": "A社（会社）の代表取締役Bは、A社の代表者として甲土地をCに売却する契約を締結した。しかし、この売買はBが個人的に資金を調達するためにA社の財産を横領的に処分したものであり、Cはこの事情を知っていた（悪意）。A社はこの売買の効力を争っている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15522,14 +15518,14 @@ const PRACTICE_QUESTIONS = {
         "会社の代表取締役の行為は常に会社を拘束する",
         "CがBの意図を知っていても取引の安全を保護するため有効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "民法107条（代理権の濫用）は法人の代表取締役にも適用されます（会社法354条と民法107条）。代表取締役BがA社の利益に反して個人の利益のために代表権を行使した場合、相手方Cがその事情を知っていた（悪意）または知ることができた（有過失）場合は、その行為は無権代理とみなされ、A社は契約に拘束されません。",
-      "publicPath": "q/practice/p970/index.html"
+      "publicPath": "q/practice/p10970/index.html"
     },
     {
-      "id": 900971,
+      "id": 910971,
       "year": "orig",
-      "num": 971,
+      "num": 10971,
       "field": "rights",
       "text": "AはB銀行から2000万円を借り入れ、A所有の甲建物に抵当権を設定した。その後、Aの友人CはAを助けるためにAの2000万円の債務全額を弁済した。CはAに対して求償権を有するが、BがAに対して有していた抵当権についても何らかの権利を取得したいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15538,14 +15534,14 @@ const PRACTICE_QUESTIONS = {
         "第三者弁済は原則として無効",
         "Cは連帯保証人でないため弁済による代位は認められない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "弁済による代位（民法499条）により、AのためにBに弁済したCはBが有していた権利（抵当権を含む）を代位取得します。Cは法定代位（民法500条）または約定代位として甲建物の抵当権を行使できます。CはAに対する求償権を確保するために抵当権を実行することが可能です。",
-      "publicPath": "q/practice/p971/index.html"
+      "publicPath": "q/practice/p10971/index.html"
     },
     {
-      "id": 900972,
+      "id": 910972,
       "year": "orig",
-      "num": 972,
+      "num": 10972,
       "field": "law",
       "text": "宅建業者A（媒介）が関与した売買契約において、37条書面の記載事項について確認している。次のうち37条書面への記載が任意的記載事項（定めがある場合に記載）に当たるものとして宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15554,14 +15550,14 @@ const PRACTICE_QUESTIONS = {
         "契約の解除に関する定め（違約金・解除条件等）",
         "移転登記申請の時期"
       ],
-      "ans": 2,
+      "ans": 1,
       "exp": "37条書面の必要的記載事項（宅建業法37条1項）：①当事者の氏名・住所②物件の表示③代金・交換差金の額・支払時期・方法④物件の引渡し時期⑤移転登記申請の時期。任意的記載事項（定めがある場合）：契約の解除に関する定め・損害賠償額の予定・天災等の不可抗力による損害の負担・融資（ローン）のあっせんに関する定め・住宅性能評価を受けた旨等（同法37条1項各号）。",
-      "publicPath": "q/practice/p972/index.html"
+      "publicPath": "q/practice/p10972/index.html"
     },
     {
-      "id": 900973,
+      "id": 910973,
       "year": "orig",
-      "num": 973,
+      "num": 10973,
       "field": "rights",
       "text": "AはV市内の土地を所有しているが、Aの土地は公道に面しておらず、Bの所有地を通らなければ公道に出ることができない（袋地）。AはBに対して通行を求めたが、Bは「通行させる代わりに月額3万円の通行料を払え」と要求している。Aはこの金額が高すぎると考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15570,14 +15566,14 @@ const PRACTICE_QUESTIONS = {
         "囲繞地通行権は登記しなければ行使できない",
         "月額3万円に合意しなければ通行は認められない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "囲繞地通行権（民法210条）は袋地所有者Aに法律上当然に認められる権利であり、Bの同意・登記は不要です。通行の対価（償金）については民法212条で定めがあり、当事者間で合意できない場合は裁判所が相当額を決定します。Bの要求する月額3万円が不相当であれば、Aは裁判所に適正な償金の確認を求めることができます。",
-      "publicPath": "q/practice/p973/index.html"
+      "publicPath": "q/practice/p10973/index.html"
     },
     {
-      "id": 900974,
+      "id": 910974,
       "year": "orig",
-      "num": 974,
+      "num": 10974,
       "field": "limit",
       "text": "W市が施行者となって行われている土地区画整理事業の施行区域内において、宅建業者AはBから宅地の売買を依頼された。この宅地は仮換地の指定を受けており、換地処分はまだ完了していない。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15586,14 +15582,14 @@ const PRACTICE_QUESTIONS = {
         "仮換地の指定がある場合は登記された従前地の情報のみを重要事項説明書に記載すれば足りる",
         "換地処分が完了するまで不動産の登記移転ができないため、売買契約は締結できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "土地区画整理事業施行中の宅地売買は可能ですが、宅建業者は重要事項説明として土地区画整理法に基づく事業の施行に関する事項（施行中である旨・仮換地の位置・面積・清算金の見通し等）を説明しなければなりません（宅建業法35条1項14号・施行令3条1項14号）。買主にとって将来の換地・清算金は重要事項です。",
-      "publicPath": "q/practice/p974/index.html"
+      "publicPath": "q/practice/p10974/index.html"
     },
     {
-      "id": 900975,
+      "id": 910975,
       "year": "orig",
-      "num": 975,
+      "num": 10975,
       "field": "tax",
       "text": "Aは相続によりX市内の土地（固定資産税評価額4000万円）を取得した。この土地の固定資産税・都市計画税について確認している。基準年度は2024年度であり、土地の評価は3年ごとに見直される（評価替え）。2025年度・2026年度の固定資産税評価額・課税について正しいものはどれか。",
       "opts": [
@@ -15602,14 +15598,14 @@ const PRACTICE_QUESTIONS = {
         "2025年度・2026年度は評価額が自動的に10%ずつ上昇する",
         "地価が大幅に下落した場合でも固定資産税評価額は変わらない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "固定資産税の評価替えは3年ごとの基準年度（2024年度・2027年度・2030年度…）に行われます（地方税法341条の2）。基準年度に評価替えが行われた後、次の評価替えまでの3年間は原則として同じ評価額（基準年度の価格）が据え置かれます。ただし地価の下落等により著しく評価が不適当となった場合は修正が行われることがあります（地方税法349条1項ただし書）。",
-      "publicPath": "q/practice/p975/index.html"
+      "publicPath": "q/practice/p10975/index.html"
     },
     {
-      "id": 900976,
+      "id": 910976,
       "year": "orig",
-      "num": 976,
+      "num": 10976,
       "field": "rights",
       "text": "AはB社との間で「B社のためにX市の土地を探す」旨の不動産調査の委任契約を締結した。AはX市内で適切な土地を見つけ、B社にその旨を報告したが、B社は「もう必要ない」として委任契約を一方的に解除した。Aはすでに調査費用10万円を支出済みであった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15618,14 +15614,14 @@ const PRACTICE_QUESTIONS = {
         "委任契約は解除できない",
         "Aは委任契約の解除に同意しなければB社は解除できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "委任契約は各当事者がいつでも解除できます（民法651条1項）。ただし相手方に不利な時期に解除した場合や、やむを得ない事由がなく解除した場合は、解除した当事者は相手方に生じた損害を賠償しなければなりません（民法651条2項）。B社がやむを得ない事由なく不利な時期に解除したのであれば、AはB社に対して調査費用等の損害賠償を請求できます。",
-      "publicPath": "q/practice/p976/index.html"
+      "publicPath": "q/practice/p10976/index.html"
     },
     {
-      "id": 900977,
+      "id": 910977,
       "year": "orig",
-      "num": 977,
+      "num": 10977,
       "field": "law",
       "text": "宅建業者A（保証協会の社員）は、B（買主・宅建業者でない）との間でマンション（代金5000万円・未完成）の売買契約を締結した。Aは手付金500万円（代金の10%）を受け取った。未完成物件の手付金の保全措置として正しいものはどれか。",
       "opts": [
@@ -15634,14 +15630,14 @@ const PRACTICE_QUESTIONS = {
         "保証協会の社員であれば手付金の保全措置は不要",
         "500万円以下の手付金は常に保全措置不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "未完成物件の手付金等の保全措置（宅建業法41条1項）が必要となる基準は代金の5%超または1000万円超。5000万円×5%=250万円。500万円は250万円超であるため保全措置が必要です。保証協会の社員であることは保全措置の義務に影響しません。手付金受領前に保全措置（保証保険・銀行保証等）を講じなければなりません。",
-      "publicPath": "q/practice/p977/index.html"
+      "publicPath": "q/practice/p10977/index.html"
     },
     {
-      "id": 900978,
+      "id": 910978,
       "year": "orig",
-      "num": 978,
+      "num": 10978,
       "field": "limit",
       "text": "AはY市（都市計画区域内・市街化区域・第一種住居地域）内の土地（面積600㎡）を購入し、分譲マンション（12戸・各戸専有面積50㎡）を建築しようとしている。この開発行為について都市計画法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15650,14 +15646,14 @@ const PRACTICE_QUESTIONS = {
         "マンション建設には必ず開発許可が必要",
         "600㎡の開発行為は許可不要で届出のみでよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "都市計画法29条1項本文・同法施行令19条：市街化区域での開発行為は1000㎡未満の場合は開発許可不要。600㎡の開発行為は1000㎡未満であるため市街化区域内では開発許可は不要です（ただし特定工作物等の開発は別途検討が必要）。なお三大都市圏の一部特定市街化区域では500㎡未満等基準が異なる場合があります。",
-      "publicPath": "q/practice/p978/index.html"
+      "publicPath": "q/practice/p10978/index.html"
     },
     {
-      "id": 900979,
+      "id": 910979,
       "year": "orig",
-      "num": 979,
+      "num": 10979,
       "field": "rights",
       "text": "分譲マンションの管理組合がマンションの建替えを検討している。区分所有者数は30名（議決権も30）である。建替え決議を成立させるために必要な要件として区分所有法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15666,14 +15662,14 @@ const PRACTICE_QUESTIONS = {
         "区分所有者全員の同意が必要",
         "建替えには区分所有者の3/4以上の賛成で足りる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建替え決議は区分所有者の数及び議決権の各5分の4以上の多数による集会決議が必要です（区分所有法62条1項）。30名×4/5=24名以上の賛成が必要です。なお建替えの決議には、少なくとも建替えについて回答を求める催告・説明会の開催等の手続きが必要であり（同法62条2項以下）、決議成立後も反対区分所有者への売渡請求等の手続きが続きます。",
-      "publicPath": "q/practice/p979/index.html"
+      "publicPath": "q/practice/p10979/index.html"
     },
     {
-      "id": 900980,
+      "id": 910980,
       "year": "orig",
-      "num": 980,
+      "num": 10980,
       "field": "tax",
       "text": "AはB銀行からリノベーション資金として500万円を借り入れ、A所有の甲住宅（床面積80㎡・自己居住用）に抵当権を設定した。この抵当権設定登記の登録免許税として正しいものはどれか。",
       "opts": [
@@ -15684,12 +15680,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "抵当権設定登記の登録免許税：課税標準は「債権金額」500万円。本則税率0.4%（登録免許税法別表1）。軽減税率（0.1%）は住宅取得に係る住宅ローン（新築・既存住宅の取得資金）の抵当権設定登記に適用されます（租税特別措置法75条）。本問はリノベーション資金（住宅取得のためのローンではなく改修資金）であるため、軽減税率の適用要件（住宅取得に係るもの）を満たさない可能性があり、本則税率0.4%が適用されます。500万円×0.4%＝2万円。",
-      "publicPath": "q/practice/p980/index.html"
+      "publicPath": "q/practice/p10980/index.html"
     },
     {
-      "id": 900981,
+      "id": 910981,
       "year": "orig",
-      "num": 981,
+      "num": 10981,
       "field": "rights",
       "text": "AはBと共同でCを殴打し、Cに全治3か月の傷害を負わせた。Cの損害は治療費100万円・休業損害200万円・慰謝料100万円の計400万円である。AとBは共同不法行為（民法719条）の責任を負う。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15698,14 +15694,14 @@ const PRACTICE_QUESTIONS = {
         "共同不法行為では各自の行為の寄与度に応じた責任しか負わない",
         "AがCに400万円を支払った場合、AはBに対して求償できない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "共同不法行為（民法719条1項）では、各行為者が連帯して損害を賠償する責任を負います（不真正連帯）。CはAに対しても、Bに対しても400万円全額を請求できます。AがCに400万円全額を支払った場合、AはBに対して各自の寄与度（通常は過失割合等）に応じた求償（民法442条類推）ができます。",
-      "publicPath": "q/practice/p981/index.html"
+      "publicPath": "q/practice/p10981/index.html"
     },
     {
-      "id": 900982,
+      "id": 910982,
       "year": "orig",
-      "num": 982,
+      "num": 10982,
       "field": "rights",
       "text": "AはBとの間で甲不動産（時価2000万円）について売買契約を締結した。しかしAは契約の内容を著しく誤解しており（1000万円の売却と思っていたが、実際は2000万円での売却だった）、この誤解は契約書の内容（2000万円と明記）を読まなかったというAの重大な過失によるものであった。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15714,14 +15710,14 @@ const PRACTICE_QUESTIONS = {
         "重過失があっても錯誤取消しは常に認められる",
         "契約書に明記されていた以上、錯誤そのものが認められない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "錯誤取消し（民法95条）は表意者（A）に重大な過失（重過失）がある場合は原則として主張できません（民法95条3項）。ただし例外として①相手方Bが錯誤の事実を知りまたは重大な過失によって知らなかった場合②相手方Bが同一の錯誤に陥っていた場合は取消しが認められます（民法95条3項1号・2号）。",
-      "publicPath": "q/practice/p982/index.html"
+      "publicPath": "q/practice/p10982/index.html"
     },
     {
-      "id": 900983,
+      "id": 910983,
       "year": "orig",
-      "num": 983,
+      "num": 10983,
       "field": "rights",
       "text": "Aは死亡する前日に、「BをAの代理人として甲土地の売却権限を授与する」旨の委任状を作成した。翌日Aが死亡した後、BはA名義でCに甲土地を売却する契約を締結した。AにはDという相続人がいる。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15732,12 +15728,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "委任による代理権は本人の死亡によって消滅します（民法111条1項1号）。Aが死亡した後にBが行ったCとの売買契約は無権代理行為となります（民法113条1項）。Dが追認（民法116条・113条2項）すれば契約は有効となりますが、追認しない場合はCはDに甲土地の引渡しを求めることができません。Cは代わりにBに無権代理人としての責任（民法117条）を追及できます。",
-      "publicPath": "q/practice/p983/index.html"
+      "publicPath": "q/practice/p10983/index.html"
     },
     {
-      "id": 900984,
+      "id": 910984,
       "year": "orig",
-      "num": 984,
+      "num": 10984,
       "field": "rights",
       "text": "AはBに対して1000万円の金銭消費貸借契約を締結した（弁済期：1年後）。BはAに「友人CがBのために保証人になってくれると言っている」と伝え、Aはこれを信じてCが保証人だと思っていた。実際にはCは保証人になっておらず、保証契約書も作成されていなかった。弁済期にBが返済できなかった場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15746,14 +15742,14 @@ const PRACTICE_QUESTIONS = {
         "口頭での保証約束でも有効",
         "AはBのCへの言及を信じて貸したのだからCに責任がある"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "保証契約は書面（または電磁的記録）によってしなければその効力を生じません（民法446条2項）。Cが保証契約書に署名・捺印等をしていない以上、口頭での約束のみでは保証契約は成立せず、CはAに対して保証債務を負いません。AはBに対してのみ返済を求めることができます。",
-      "publicPath": "q/practice/p984/index.html"
+      "publicPath": "q/practice/p10984/index.html"
     },
     {
-      "id": 900985,
+      "id": 910985,
       "year": "orig",
-      "num": 985,
+      "num": 10985,
       "field": "law",
       "text": "宅建士Aは、自らが勤務する宅建業者B社の依頼を受け、B社の取引先C社（宅建業者）の役員に対して重要事項の説明を行った。説明の際、AはC社の役員から「宅建士証を見せてくれ」と求められたが、Aはその日たまたま宅建士証を携帯しておらず、提示できなかった。また、AはB社の別の案件でも、相手方から請求されたにもかかわらず宅建士証を提示しなかった。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15762,14 +15758,14 @@ const PRACTICE_QUESTIONS = {
         "宅建士証の提示は任意的なもので、不提示に罰則はない",
         "C社の役員への説明は重要事項説明書の交付のみで足り、説明・提示は不要"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建士は取引の関係者から請求があった場合には業務上の全ての場面で宅建士証を提示しなければなりません（宅建業法22条の4）。また重要事項説明時には請求がなくても提示義務があります（同法35条4項）。相手方が宅建業者であっても提示義務は免除されません。AはC社への説明時・別案件での請求時ともに義務違反であり、指示処分等の対象となります。",
-      "publicPath": "q/practice/p985/index.html"
+      "publicPath": "q/practice/p10985/index.html"
     },
     {
-      "id": 900986,
+      "id": 910986,
       "year": "orig",
-      "num": 986,
+      "num": 10986,
       "field": "limit",
       "text": "AはZ市（第一種低層住居専用地域・建ぺい率50%・容積率100%・絶対高さ制限10m）内に土地（150㎡）を所有し、木造2階建て住宅（建築面積60㎡・延べ面積100㎡・最高高さ8m）を計画している。前面道路幅員は6mである。この計画の建ぺい率・容積率・高さ制限の適合性について建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15780,12 +15776,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "建ぺい率：60㎡÷150㎡=40%＜50%→適法。容積率：前面道路6m×4/10=240%と指定容積率100%を比較し小さい方（100%）を適用。100㎡÷150㎡=66.7%＜100%→適法。高さ：8m＜絶対高さ制限10m→適法。全ての制限に適合しています。",
-      "publicPath": "q/practice/p986/index.html"
+      "publicPath": "q/practice/p10986/index.html"
     },
     {
-      "id": 900987,
+      "id": 910987,
       "year": "orig",
-      "num": 987,
+      "num": 10987,
       "field": "limit",
       "text": "農業法人Aは市街化調整区域内の農地（田・面積5000㎡）の一部（1000㎡）を太陽光発電設備の設置のために転用したいと考えている。また残り（4000㎡）は引き続き農地として利用する予定であるが、Bという農業者に賃貸したいと考えている。この場合に関する記述として農地法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15794,14 +15790,14 @@ const PRACTICE_QUESTIONS = {
         "太陽光発電施設は農業施設のため農地法の適用外",
         "農地の賃貸には許可は不要で届出のみ"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "①農地を太陽光発電のために転用（農地→農地以外）：農地法4条の転用許可が必要（市街化調整区域内のため都道府県知事許可）。②農地のBへの賃貸（農地→農地として利用・農地法3条）：農業委員会の許可が必要。農地のままBが農業利用する場合は農地法3条の問題、転用目的の場合は農地法4条・5条の問題となります。",
-      "publicPath": "q/practice/p987/index.html"
+      "publicPath": "q/practice/p10987/index.html"
     },
     {
-      "id": 900988,
+      "id": 910988,
       "year": "orig",
-      "num": 988,
+      "num": 10988,
       "field": "tax",
       "text": "AはAA市内に所有する事業用土地（所有期間20年・事業用に使用中）を売却し、売却益（長期譲渡所得）2500万円が生じた。AはBB市内に新しい事業用土地を取得し、「特定の事業用資産の買換えの特例」（租税特別措置法37条）の適用を受けようとしている。この場合に関する記述として租税特別措置法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15810,14 +15806,14 @@ const PRACTICE_QUESTIONS = {
         "買換え特例の適用を受けると譲渡所得税が完全に免除される",
         "この特例は相続により取得した土地には適用されない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "特定の事業用資産の買換えの特例（租税特別措置法37条）は、一定の要件（所有期間10年超の事業用資産を売却し一定期間内に新たな事業用資産を取得等）を満たす場合に、課税を繰り延べる（将来に先送りする）制度です。免除ではなく繰延べです。居住用財産の特例（3000万円控除等）とは別の制度です。",
-      "publicPath": "q/practice/p988/index.html"
+      "publicPath": "q/practice/p10988/index.html"
     },
     {
-      "id": 900989,
+      "id": 910989,
       "year": "orig",
-      "num": 989,
+      "num": 10989,
       "field": "rights",
       "text": "AはBとの間で甲土地（時価3000万円）の売買契約を締結した（代金3000万円）。契約後、甲土地が洪水により一部が浸水し損害が生じた。浸水被害は締結後・引渡し前に不可抗力で発生した。売主BはAに対して「このままの状態で引き渡すので代金全額3000万円を支払え」と要求している。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15826,14 +15822,14 @@ const PRACTICE_QUESTIONS = {
         "契約後の不可抗力リスクは買主Aが全部負担する",
         "Bに帰責事由がないため一切の責任を免れる"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "2020年改正民法では、契約不適合責任（民法562条・563条）は売主の帰責事由の有無にかかわらず成立します（無過失責任）。引き渡された目的物が契約内容に適合しない場合（洪水被害による品質低下等）、AはBに対して追完請求・代金減額請求・場合によっては解除を主張できます。ただし損害賠償はBに帰責事由がある場合に限られます（民法564条・民法415条）。",
-      "publicPath": "q/practice/p989/index.html"
+      "publicPath": "q/practice/p10989/index.html"
     },
     {
-      "id": 900990,
+      "id": 910990,
       "year": "orig",
-      "num": 990,
+      "num": 10990,
       "field": "rights",
       "text": "AはBから甲マンション（専有部分）を賃借し月額賃料15万円を支払っている。Bは甲マンションを担保にC銀行から融資を受け、C銀行はBの甲マンションに抵当権（第一順位）を設定していた。その後BがC銀行への返済ができず、C銀行が抵当権を実行して競売にかけた。甲マンションをDが競落した。この場合に関する記述として民法及び借地借家法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15842,14 +15838,14 @@ const PRACTICE_QUESTIONS = {
         "競落人DはAの賃借権を当然に引き継ぐ",
         "Aは競落後6か月は退去しなくてよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "建物の賃借権は建物の引渡しを受けることで対抗要件を取得します（借地借家法31条）。C銀行の抵当権設定後にAが賃借権を取得した場合、AはDに対して賃借権を対抗できません（民法177条・605条）。Aが対抗要件を備えていない場合、Dは競落後にAに退去を求めることができます（ただし明渡し猶予制度（旧・短期賃貸借保護）は廃止済み）。",
-      "publicPath": "q/practice/p990/index.html"
+      "publicPath": "q/practice/p10990/index.html"
     },
     {
-      "id": 900991,
+      "id": 910991,
       "year": "orig",
-      "num": 991,
+      "num": 10991,
       "field": "law",
       "text": "宅建業者A（法人・甲県知事免許）は、取締役会の決議を経て、主たる事務所の所在地を甲県X市から甲県Y市に移転することにした。また、代表取締役の変更（BからCへ）および商号の変更（「A不動産」から「A住宅」へ）も行った。これらについて宅建業法上必要な手続きとして正しいものはどれか。",
       "opts": [
@@ -15860,12 +15856,12 @@ const PRACTICE_QUESTIONS = {
       ],
       "ans": 0,
       "exp": "宅建業者の氏名・商号・名称・主たる事務所・従たる事務所の所在地・役員（代表者・取締役等）に変更があった場合は、変更後30日以内に免許権者（甲県知事）に届け出なければなりません（宅建業法9条・11条）。なお同一都道府県内の移転は免許換えは不要ですが、変更の届出は必要です。",
-      "publicPath": "q/practice/p991/index.html"
+      "publicPath": "q/practice/p10991/index.html"
     },
     {
-      "id": 900992,
+      "id": 910992,
       "year": "orig",
-      "num": 992,
+      "num": 10992,
       "field": "law",
       "text": "宅建業者Aは、B所有の一棟マンション（8室・築30年）の売買を媒介した。このマンションにはエレベーターはなく、1室（2階・C居住）の賃貸借が継続中である。重要事項説明において「既存建物状況調査（インスペクション）の結果」について記載が必要かどうか確認している。この場合に関する記述として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15874,14 +15870,14 @@ const PRACTICE_QUESTIONS = {
         "インスペクションが実施されていない場合は記載不要",
         "一棟マンションの売買はインスペクションの対象外"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "既存建物（中古建物）の売買においては、建物状況調査（インスペクション）の実施の有無を重要事項説明書に記載しなければなりません（宅建業法35条1項14号・施行令3条1項12号）。実施されている場合はその結果（調査報告書等）の概要も記載が必要です。実施されていない場合はその旨を記載します。一棟マンションも既存建物であり対象となります。",
-      "publicPath": "q/practice/p992/index.html"
+      "publicPath": "q/practice/p10992/index.html"
     },
     {
-      "id": 900993,
+      "id": 910993,
       "year": "orig",
-      "num": 993,
+      "num": 10993,
       "field": "limit",
       "text": "AはCC市内の都市計画区域内の土地を購入し、小規模な工場（床面積300㎡）を建築しようとしている。この土地の用途地域は「工業専用地域」に指定されている。工業専用地域において建築できない建築物として建築基準法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15890,14 +15886,14 @@ const PRACTICE_QUESTIONS = {
         "工業系の倉庫",
         "研究所"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "工業専用地域は工業の利便を増進するため定める地域であり（都市計画法9条12項）、住宅・共同住宅・寄宿舎・下宿・学校・病院・ホテル・旅館等は建築できません（建築基準法別表第二）。工場・倉庫・研究所等は建築可能です。工業専用地域は工業用途に特化しており、居住系の建築物は一切認められません。",
-      "publicPath": "q/practice/p993/index.html"
+      "publicPath": "q/practice/p10993/index.html"
     },
     {
-      "id": 900994,
+      "id": 910994,
       "year": "orig",
-      "num": 994,
+      "num": 10994,
       "field": "rights",
       "text": "Aは遺言を残して死亡した。遺言書には「土地甲はBに遺贈する、建物乙はCに遺贈する、預金はDに相続させる」と記されていた。相続人はBのみ（BはAの子）である。CとDはAの友人（相続人ではない）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15906,14 +15902,14 @@ const PRACTICE_QUESTIONS = {
         "遺贈は相続人にしかできない",
         "Bが相続人として全財産を相続し、C・Dへの遺贈は無効"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "遺贈（民法964条）は相続人以外の者（法人を含む）に対しても行うことができます。BへのA（土地甲）・CへのA（建物乙）・DへのA（預金）への遺贈はいずれも有効です（特定遺贈）。ただし相続人Bに最低限度の遺留分（財産の1/2）が認められており、遺留分を侵害する場合はBは遺留分侵害額請求権を行使できます。",
-      "publicPath": "q/practice/p994/index.html"
+      "publicPath": "q/practice/p10994/index.html"
     },
     {
-      "id": 900995,
+      "id": 910995,
       "year": "orig",
-      "num": 995,
+      "num": 10995,
       "field": "law",
       "text": "宅建業者Aが媒介した建物の賃貸借契約において、賃貸人B・賃借人C（いずれも宅建業者でない）の間で次の合意がなされた：月額賃料12万円・敷金24万円（賃料2か月分）・礼金12万円（賃料1か月分）・賃貸借期間2年・更新料（更新時に賃料1か月分）。37条書面に記載しなければならない事項として宅建業法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15922,14 +15918,14 @@ const PRACTICE_QUESTIONS = {
         "賃貸借の37条書面は任意的なもの",
         "37条書面には賃料のみ記載すればよい"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "賃貸借に関する37条書面（宅建業法37条2項）の必要的記載事項には賃料・賃貸借の期間等が含まれます。敷金・礼金・更新料は「金銭の保管・取扱いに関する定め」として定めがある場合に記載する任意的記載事項（同法37条2項4号・施行規則16条の4の5）です。ただし実務上はこれらを記載することが一般的です。",
-      "publicPath": "q/practice/p995/index.html"
+      "publicPath": "q/practice/p10995/index.html"
     },
     {
-      "id": 900996,
+      "id": 910996,
       "year": "orig",
-      "num": 996,
+      "num": 10996,
       "field": "rights",
       "text": "A所有の甲土地に、BがAに無断で甲土地をC名義に所有権移転登記した（偽造書類等を使用）。CはDに甲土地を売却し、CからDへの所有権移転登記が完了した。DはCが適法な所有者だと信じ（善意）、過失はなかった。この場合に関する記述として民法の規定及び判例によれば正しいものはどれか。",
       "opts": [
@@ -15938,14 +15934,14 @@ const PRACTICE_QUESTIONS = {
         "DはCから登記を備えているため常に所有権を取得できる",
         "登記には公信力があるため偽造登記でもDは保護される"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "不動産の登記には公信力がありません（日本法の原則）。Cへの登記はBによる偽造・無断の登記であり、A→Cへの所有権は移転していません。原則としてAはDに対して真の所有者として所有権を主張できます。ただし民法94条2項の類推適用（虚偽の外観を作出した場合の善意の第三者保護）が問題となる場合もありますが、Aに帰責事由がなければ適用されません。",
-      "publicPath": "q/practice/p996/index.html"
+      "publicPath": "q/practice/p10996/index.html"
     },
     {
-      "id": 900997,
+      "id": 910997,
       "year": "orig",
-      "num": 997,
+      "num": 10997,
       "field": "rights",
       "text": "AはBに対して不当利得（民法703条）の返還を請求したいと考えている。BはAの誤振込（Aが誤ってBの口座に100万円を振り込んだ）により利益を得た。Bはこの100万円で遊興費に使ってしまったが、Bは誤振込であることを知っていた（悪意）。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15954,14 +15950,14 @@ const PRACTICE_QUESTIONS = {
         "善意の場合も悪意の場合も返還義務は同じ",
         "誤振込による不当利得は成立しない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "悪意の不当利得者（誤振込であることを知っていたB）は、受けた利益に利息を付けて返還しなければなりません（民法704条）。さらに損害があれば損害賠償も必要です。善意の不当利得者（同法703条）は現に利益を受けている部分（現存利益）のみを返還すれば足りるのとは異なり、悪意者は全額の返還義務を負います。Bがすでに消費していても100万円の返還義務を免れません。",
-      "publicPath": "q/practice/p997/index.html"
+      "publicPath": "q/practice/p10997/index.html"
     },
     {
-      "id": 900998,
+      "id": 910998,
       "year": "orig",
-      "num": 998,
+      "num": 10998,
       "field": "rights",
       "text": "AはBに対して売買代金300万円の債権（弁済期：2022年1月1日）を有している。Bは弁済期に支払いをしなかったため、Aは2022年4月1日にBに対して催告（書面）を行った。その後、Aは2023年3月1日に訴訟を提起した。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -15970,14 +15966,14 @@ const PRACTICE_QUESTIONS = {
         "催告は効力がなく時効に関係しない",
         "売買代金の時効は10年である"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "催告は時効の完成を6か月間猶予する効力があります（民法150条）。催告から6か月以内に裁判上の請求等（提訴・支払督促等）を行わなければ猶予効力が消滅します。2022年4月1日の催告から6か月後は2022年10月1日です。2023年3月1日の提訴はこの期限を大幅に超えており、催告による猶予効力は消滅しています。ただし元の時効（弁済期2022年1月1日から5年）はまだ完成していない（2027年1月1日が完成日）ため、提訴自体は有効です。",
-      "publicPath": "q/practice/p998/index.html"
+      "publicPath": "q/practice/p10998/index.html"
     },
     {
-      "id": 900999,
+      "id": 910999,
       "year": "orig",
-      "num": 999,
+      "num": 10999,
       "field": "law",
       "text": "宅建業者Aは、DD市内の農地（市街化調整区域・面積3000㎡・売買代金2000万円）の売買を媒介した。この農地は農地法5条の許可を条件として売買され、許可取得後に引渡しが行われる予定である。AがBから受け取ることができる媒介報酬の上限額（税別）として宅建業法の規定（報酬告示）によれば正しいものはどれか。",
       "opts": [
@@ -15986,14 +15982,14 @@ const PRACTICE_QUESTIONS = {
         "農地法の許可が条件のため売買代金2000万円×2%=40万円が上限",
         "2000万円の農地売買は高額のため報酬上限はない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "宅建業者の媒介報酬の上限は売買代金に基づいて計算されます（報酬告示）。農地であっても宅地建物取引業者が媒介する場合は報酬告示が適用されます（農地の媒介も宅建業の対象）。2000万円×3%+6万円=66万円（税別）が上限です。農地法の許可が条件であっても、売買代金2000万円が課税標準となります。",
-      "publicPath": "q/practice/p999/index.html"
+      "publicPath": "q/practice/p10999/index.html"
     },
     {
-      "id": 901000,
+      "id": 911000,
       "year": "orig",
-      "num": 1000,
+      "num": 11000,
       "field": "rights",
       "text": "Aは意思能力が十分でない状態（重度の認知症）で、介護施設の職員Bに誘導されて自己所有の甲土地をBの友人Cに著しく低廉な価格（時価1000万円のところ100万円）で売却した。Aの成年後見人Dはこの売買契約を問題にしたいと考えている。この場合に関する記述として民法の規定によれば正しいものはどれか。",
       "opts": [
@@ -16002,9 +15998,11 @@ const PRACTICE_QUESTIONS = {
         "意思能力の有無は本人でなければ主張できない",
         "Cが低廉な価格で購入したことは問題ない"
       ],
-      "ans": 1,
+      "ans": 0,
       "exp": "意思能力を欠く状態でした法律行為は無効です（民法3条の2）。成年後見人Dは成年被後見人Aを代理して甲土地売買の無効確認・返還請求ができます。また不当な勧誘（詐欺・強迫）があれば成年後見人による取消しも可能です（民法96条・120条）。消費者契約法（不当な勧誘による取消し）の適用も検討できます。成年後見人は被後見人の財産管理・法的権利の保護を行います。",
-      "publicPath": "q/practice/p1000/index.html"
+      "publicPath": "q/practice/p11000/index.html"
     }
-  ]
+  ],
+  "2": [],
+  "3": []
 };

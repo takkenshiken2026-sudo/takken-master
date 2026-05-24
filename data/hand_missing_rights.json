@@ -1,0 +1,499 @@
+[
+  {
+    "term": "法定更新",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "借地・借家の法定更新は期間満了で条件を満たせば「同条件で更新」が認められる仕組み（借地法5条・借家法5条）。"
+  },
+  {
+    "term": "債務不履行",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "履行遅滞は催告（412条3項）の要否、債務不履行による解除（541条等）とセット。"
+  },
+  {
+    "term": "条件・期限",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "停止条件・解除条件、始期・終期（127条等）の効力発生時点。"
+  },
+  {
+    "term": "差押え・強制執行",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "差押え・強制執行は民事執行法。"
+  },
+  {
+    "term": "法定地上権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "競売後に建物所有者が土地を使う権利。"
+  },
+  {
+    "term": "行為能力",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "行為能力：成年年齢18歳（民法4条：2022年施行ルールを教材で確認）。"
+  },
+  {
+    "term": "免除",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "免除（債権者の意思表示で債務消滅・508条）。"
+  },
+  {
+    "term": "錯誤",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "錯誤（95条）：要素の錯誤と動機の錯誤の切り分け。"
+  },
+  {
+    "term": "抵当権の順位",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "抵当権の順位は登記の先後順。"
+  },
+  {
+    "term": "抵当権の実行",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "担保不動産競売での参加・買受人負担、短期賃賃権の処理等。"
+  },
+  {
+    "term": "共同抵当",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "共同抵当（民法392条）：代価から配当すべき債権額の算定（代価申出・代価分割）。"
+  },
+  {
+    "term": "敷地権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "借地権のうち建物の敷地についての権利（借地法上の概念整理）。"
+  },
+  {
+    "term": "定期借地権・定期借家権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "定期借地は50年（借地22条の2）等の型、定期借家は1年以上（借家38条）で更新なし。"
+  },
+  {
+    "term": "共有物の分割",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "共有物分割は実物分割・代償分割・競売（民法258条）。"
+  },
+  {
+    "term": "持分",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "持分は共有の割合（民法250条）。"
+  },
+  {
+    "term": "留置的効力",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "留置的効力（留置権の効力の一部を質権が有するかの論点）。"
+  },
+  {
+    "term": "取得時効",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取得時効は162条：所有権は善意無過失10年・その他20年。"
+  },
+  {
+    "term": "消滅時効",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "消滅時効166条：債権の短期5年・長期10年。"
+  },
+  {
+    "term": "違約金",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "違約金は予定額の減額（442条）が争点。"
+  },
+  {
+    "term": "慰謝料",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "慰謝料は精神的損害の金銭評価（710条等）。"
+  },
+  {
+    "term": "履行遅滞による解除",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "履行遅滞からの解除は催告後相当期間経過（541条1項）が基本。"
+  },
+  {
+    "term": "制限行為能力者の保護",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "制限行為能力者の保護：法定代理人同意がない行為の取消（4条等）と相手方の催告権（145条の趣旨）。"
+  },
+  {
+    "term": "履行補助者の故意過失",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "履行補助者の故意過失は原則として債務者の責任（415条2項）。"
+  },
+  {
+    "term": "遺留分",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "遺留分：兄弟姉妹以外の相続人に対する留保（900条の2・1042条）。"
+  },
+  {
+    "term": "消費者契約における特約の制限",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "消費者契約法の無効事由（例：消費者の利益一方的な失わせる約款など）。"
+  },
+  {
+    "term": "契約の成立",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "申込みと承諾が合致して契約が成立する仕組み。"
+  },
+  {
+    "term": "契約解除",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "有効に成立した契約を後から解消する制度。"
+  },
+  {
+    "term": "原状回復義務",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "契約終了後に元の状態へ戻す義務。"
+  },
+  {
+    "term": "損害賠償",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債務不履行や不法行為により生じた損害を補填する制度。"
+  },
+  {
+    "term": "果実",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物から生じる収益や産出物。"
+  },
+  {
+    "term": "所有権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物を全面的に支配できる物権。"
+  },
+  {
+    "term": "占有",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物を事実上支配している状態。"
+  },
+  {
+    "term": "占有回収の訴え",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "奪われた占有を回復するための占有訴権。"
+  },
+  {
+    "term": "抵当権設定契約",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債権を担保するため抵当権を設定する契約。"
+  },
+  {
+    "term": "物上保証人",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他人の債務のため自己の物を担保に出す人。"
+  },
+  {
+    "term": "追及効",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物が移転しても物権の効力が追いかける性質。"
+  },
+  {
+    "term": "優先弁済権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他の債権者に先立って弁済を受ける権利。"
+  },
+  {
+    "term": "第三者弁済",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債務者以外の者が債務を弁済すること。"
+  },
+  {
+    "term": "債務引受",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債務を第三者が引き受ける制度。"
+  },
+  {
+    "term": "債権譲渡",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債権者が債権を第三者へ移転すること。"
+  },
+  {
+    "term": "法定更新（借地借家法）",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "期間満了後の自動更新と更新拒絶の正当事由。"
+  },
+  {
+    "term": "連帯債務",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "複数債務者が各自全額の弁済義務を負う債務形態。"
+  },
+  {
+    "term": "相続放棄",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続による権利義務の承継を拒否する制度。"
+  },
+  {
+    "term": "転貸借（又貸し）",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "賃借人による第三者への再賃貸と承諾要件。"
+  },
+  {
+    "term": "仮登記",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "本登記前に予告的効力を得る登記。"
+  },
+  {
+    "term": "本登記",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物権変動を第三者に対抗させる確定登記。"
+  },
+  {
+    "term": "信託",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "財産の管理・処分を受託者に委ねる制度。"
+  },
+  {
+    "term": "遺言",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "死後の法律行為を指定する意思表示。"
+  },
+  {
+    "term": "死因贈与",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "贈与者の死亡を条件とする贈与契約。"
+  },
+  {
+    "term": "使用貸借",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "無償で物の使用・収益を許諾する契約。"
+  },
+  {
+    "term": "贈与（民法）",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "無償で財産を渡す契約と撤回。"
+  },
+  {
+    "term": "限定承認",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続財産の範囲内でのみ債務を負担する承認。"
+  },
+  {
+    "term": "単純承認",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "無限の責任で相続を受け入れる承認。"
+  },
+  {
+    "term": "借地権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他人の土地を使用して建物を所有する権利。"
+  },
+  {
+    "term": "物上代位",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "担保物売却代金から優先弁済を受ける権利。"
+  },
+  {
+    "term": "無権代理",
+    "category": "権利関係",
+    "related_terms": "代理;表見代理;追認",
+    "legal_basis": "民法第117条",
+    "short_def": "無権代理は、代理権を有しない者が本人のためにした法律行為です。"
+  },
+  {
+    "term": "復代理",
+    "category": "権利関係",
+    "related_terms": "代理;無権代理;委任",
+    "legal_basis": "民法第108条",
+    "short_def": "復代理は、代理人が自己の代理事務の処理を他人に委任した場合の代理です。"
+  },
+  {
+    "term": "背信的悪意者",
+    "category": "権利関係",
+    "related_terms": "177条の対抗要件;物権変動;登記",
+    "legal_basis": "民法第177条ただし書",
+    "short_def": "背信的悪意者は、物権変動について登記を要する場合に、登記の欠缺を知りながら登記をしない者です。"
+  },
+  {
+    "term": "177条の対抗要件",
+    "category": "権利関係",
+    "related_terms": "背信的悪意者;物権変動;本登記",
+    "legal_basis": "民法第177条",
+    "short_def": "177条の対抗要件は、不動産についての物権の得喪及び変更を第三者に対抗するための登記です。"
+  },
+  {
+    "term": "詐害行為取消権",
+    "category": "権利関係",
+    "related_terms": "債権者代位権;原状回復",
+    "legal_basis": "民法第424条",
+    "short_def": "詐害行為取消権は、債権者が債務者の債権者を害することを知ってした行為を取り消し、原状回復を請求する権利です（民法424条）。"
+  },
+  {
+    "term": "手付解除",
+    "category": "権利関係",
+    "related_terms": "手付倍返;手付没収;売買契約",
+    "legal_basis": "民法第557条",
+    "short_def": "手付解除は、手付を交付した者が手付を放棄し、受領した者が手付の倍額を返還することにより契約を解除できる制度です（民法557条）。"
+  },
+  {
+    "term": "手付倍返",
+    "category": "権利関係",
+    "related_terms": "手付解除;手付没収",
+    "legal_basis": "民法第557条",
+    "short_def": "手付倍返は、手付を受領した者が手付解除をするために返還すべき手付の倍額です。"
+  },
+  {
+    "term": "遺贈",
+    "category": "権利関係",
+    "related_terms": "遺言;死因贈与;遺留分",
+    "legal_basis": "民法第549条;第1024条",
+    "short_def": "遺贈は、遺言により遺言者の死亡により受遺者に財産を与える死因処分です。"
+  },
+  {
+    "term": "特別受益",
+    "category": "権利関係",
+    "related_terms": "遺産分割;遺留分;贈与（民法）",
+    "legal_basis": "民法第903条第2項;第1091条",
+    "short_def": "特別受益は、相続人が被相続人の生前に贈与等により受けた利益を、遺産分割の際に他の相続人との公平を図るため考慮する制度です（民法903条2項・第1091条）。"
+  },
+  {
+    "term": "区分所有者",
+    "category": "権利関係",
+    "related_terms": "専有部分;共用部分;管理規約;集会決議",
+    "legal_basis": "建物の区分所有等に関する法律",
+    "short_def": "区分所有者は、一棟の建物の構造上区分された数個の部分を独立した所有権の目的とする者です。"
+  },
+  {
+    "term": "専有部分",
+    "category": "権利関係",
+    "related_terms": "区分所有者;共用部分;区分所有権",
+    "legal_basis": "建物の区分所有等に関する法律第2条",
+    "short_def": "専有部分は、区分所有建物のうち、構造上区分され独立した所有権の目的となる部分です。"
+  },
+  {
+    "term": "共用部分",
+    "category": "権利関係",
+    "related_terms": "専有部分;区分所有者;管理規約",
+    "legal_basis": "建物の区分所有等に関する法律",
+    "short_def": "共用部分は、区分所有建物のうち専有部分以外の部分で、区分所有者の共有に属します。"
+  },
+  {
+    "term": "借地権買取請求権",
+    "category": "権利関係",
+    "related_terms": "借地権;建物再築;正当事由",
+    "legal_basis": "借地借家法第3条の2",
+    "short_def": "借地権買取請求権は、借地権設定者が自己の使用収益の必要により、建物所有を目的とする借地権を買い取ることができる権利です（借地法第3条の2）。"
+  },
+  {
+    "term": "立退料",
+    "category": "権利関係",
+    "related_terms": "正当事由;更新拒絶の正当な事由;借地権買取請求権",
+    "legal_basis": "借地借家法",
+    "short_def": "立退料は、借地借家法上の更新拒絶・買取等により借地人・借家人が受ける補償の趣旨の金銭です。"
+  },
+  {
+    "term": "根抵当権の極度額",
+    "category": "権利関係",
+    "related_terms": "根抵当権;抵当権;物上代位",
+    "legal_basis": "民法第398条の2",
+    "short_def": "極度額は、根抵当権が担保する債権の上限額です。"
+  },
+  {
+    "term": "正当事由",
+    "category": "権利関係",
+    "related_terms": "更新拒絶の正当な事由;立退料;借地権買取請求権",
+    "legal_basis": "借地借家法",
+    "short_def": "正当事由は、借地借家法において借地権・借家権の更新拒絶や借地権買取請求等に必要とされる正当な理由です。"
+  }
+]

@@ -1,0 +1,1647 @@
+[
+  {
+    "term": "法定更新",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "借地・借家の法定更新は期間満了で条件を満たせば「同条件で更新」が認められる仕組み（借地法5条・借家法5条）。"
+  },
+  {
+    "term": "債務不履行",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "履行遅滞は催告（412条3項）の要否、債務不履行による解除（541条等）とセット。"
+  },
+  {
+    "term": "条件・期限",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "停止条件・解除条件、始期・終期（127条等）の効力発生時点。"
+  },
+  {
+    "term": "差押え・強制執行",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "差押え・強制執行は民事執行法。"
+  },
+  {
+    "term": "法定地上権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "競売後に建物所有者が土地を使う権利。"
+  },
+  {
+    "term": "行為能力",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "行為能力：成年年齢18歳（民法4条：2022年施行ルールを教材で確認）。"
+  },
+  {
+    "term": "免除",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "免除（債権者の意思表示で債務消滅・508条）。"
+  },
+  {
+    "term": "錯誤",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "錯誤（95条）：要素の錯誤と動機の錯誤の切り分け。"
+  },
+  {
+    "term": "抵当権の順位",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "抵当権の順位は登記の先後順。"
+  },
+  {
+    "term": "抵当権の実行",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "担保不動産競売での参加・買受人負担、短期賃賃権の処理等。"
+  },
+  {
+    "term": "共同抵当",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "共同抵当（民法392条）：代価から配当すべき債権額の算定（代価申出・代価分割）。"
+  },
+  {
+    "term": "敷地権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "借地権のうち建物の敷地についての権利（借地法上の概念整理）。"
+  },
+  {
+    "term": "定期借地権・定期借家権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "定期借地は50年（借地22条の2）等の型、定期借家は1年以上（借家38条）で更新なし。"
+  },
+  {
+    "term": "共有物の分割",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "共有物分割は実物分割・代償分割・競売（民法258条）。"
+  },
+  {
+    "term": "持分",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "持分は共有の割合（民法250条）。"
+  },
+  {
+    "term": "留置的効力",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "留置的効力（留置権の効力の一部を質権が有するかの論点）。"
+  },
+  {
+    "term": "取得時効",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取得時効は162条：所有権は善意無過失10年・その他20年。"
+  },
+  {
+    "term": "消滅時効",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "消滅時効166条：債権の短期5年・長期10年。"
+  },
+  {
+    "term": "違約金",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "違約金は予定額の減額（442条）が争点。"
+  },
+  {
+    "term": "慰謝料",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "慰謝料は精神的損害の金銭評価（710条等）。"
+  },
+  {
+    "term": "履行遅滞による解除",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "履行遅滞からの解除は催告後相当期間経過（541条1項）が基本。"
+  },
+  {
+    "term": "制限行為能力者の保護",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "制限行為能力者の保護：法定代理人同意がない行為の取消（4条等）と相手方の催告権（145条の趣旨）。"
+  },
+  {
+    "term": "履行補助者の故意過失",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "履行補助者の故意過失は原則として債務者の責任（415条2項）。"
+  },
+  {
+    "term": "遺留分",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "遺留分：兄弟姉妹以外の相続人に対する留保（900条の2・1042条）。"
+  },
+  {
+    "term": "消費者契約における特約の制限",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "消費者契約法の無効事由（例：消費者の利益一方的な失わせる約款など）。"
+  },
+  {
+    "term": "宅地・建物の定義",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅地は原則一筆の土地の全部又は一部で建物が存する土地等（法2条1項1号ロの整理）。"
+  },
+  {
+    "term": "業務上の規制",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取引一任の契約・代理・媒介の区別、二重媒介の報酬、秘密保持。"
+  },
+  {
+    "term": "割賦販売",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "割賦販売法の対象・契約書面・クーリングオフ（同法の日数は条文で要確認）。"
+  },
+  {
+    "term": "住宅品質確保法",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅品質確保法：住宅性能評価・瑕疵保険・建設住宅の性能表示。"
+  },
+  {
+    "term": "重要事項の範囲",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "重要事項の範囲は施行規則で細目（道路位置指定・私道負担・負担金・飲用水等）。"
+  },
+  {
+    "term": "売買現場での説明",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "現場説明と35条説明の役割分担。"
+  },
+  {
+    "term": "契約書の作成・交付（37条）",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "37条書面・契約書の記載必須事項（施行規則）。"
+  },
+  {
+    "term": "報酬の明瞭化",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "報酬の明瞭化：媒介契約時に上限額等を書面で（法34条の2第4項・35条の2第3項周辺の趣旨）。"
+  },
+  {
+    "term": "宅建業者の賠償責任",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業者の損害賠償責任：重要事項の誤説明・不告知（法35条）、契約不適合・媒介の注意義務違反。"
+  },
+  {
+    "term": "貸室・貸パークの賃貸借",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "貸室・貸パークの賃貸借は原則借地借家法の適用除外（法29条の2の趣旨を条文で）。"
+  },
+  {
+    "term": "他人物売買",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他人物売買の代理・媒介の禁止の例外（法39条2項各号）。"
+  },
+  {
+    "term": "定期報告（媒介）",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "定期報告：専任2週に1回以上、専属専任1週に1回以上（法35条の2）。"
+  },
+  {
+    "term": "特定電磁的手段による提供",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "電磁的方法による提供：特定電磁記録の承諾、表示の明確化、電子契約の成立時期。"
+  },
+  {
+    "term": "悪徳業者への規制",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "悪質な勧誘・示談金の不当提供等への規制（割賦法・景表法・宅建業法の行政措置）。"
+  },
+  {
+    "term": "個人情報の取扱い",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "個人情報保護法：取得目的通知、第三者提供、漏えい報告。"
+  },
+  {
+    "term": "空き家・低廉物件の特例",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "空き家・低廉物件の仲介手数料特例（令和6年7月1日～）：800万円以下の宅地・建物で税込33万円上限等（国土交通省告示・教材要確認）。"
+  },
+  {
+    "term": "賃貸住宅管理業の登録",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "賃貸住宅管理業の登録制度：登録要件・業務範囲・主任者。"
+  },
+  {
+    "term": "管理委託契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "管理委託：借主対応・修繕・収納代行の範囲。"
+  },
+  {
+    "term": "借地・借家の譲渡・転貸",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "借地・借家の譲渡・転貸の承諾・優先承認の条文（借地17条の2、借家19条等）。"
+  },
+  {
+    "term": "売却代金の決済",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "売買代金決済：手付・中間金・残金、司法書士の保管・送金、同時履行。"
+  },
+  {
+    "term": "盛土規制法",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "盛土規制法：盛土等の届出・許可の量・高さの閾値（条例・基準は政令・技術基準）。"
+  },
+  {
+    "term": "建築協定・地区計画等の関係",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築協定（建築法68条等）と地区計画・都市計画の優先関係。"
+  },
+  {
+    "term": "河川区域・堤外地",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "河川法：河川区域・河川敷と建築制限。"
+  },
+  {
+    "term": "津波・高潮対策区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "津波災害警戒区域・高潮浸水想定区域：建築物の地下施設制限・避難施設等。"
+  },
+  {
+    "term": "自然公園・保全地域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "自然公園法：特別地域・特別保護地区での行為制限。"
+  },
+  {
+    "term": "文化財保護法の規制",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "文化財保護法：史跡・伝統的建造物群保存地区の行為制限、届出・許可。"
+  },
+  {
+    "term": "住宅生産確保計画区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅生産確保計画区域：一定規模以上の宅地開発で計画区域内かの確認。"
+  },
+  {
+    "term": "特定用途制限地域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "用途地域外で特定用途を制限する地域。"
+  },
+  {
+    "term": "高さの限度（絶対高さ・斜線・道路）",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "高さ限度：絶対高さ、道路斜線（道路幅÷2＋〜mの型）、北側斜線、隣地斜線の四天王。"
+  },
+  {
+    "term": "建築確認申請",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築確認申請の添付図書、構造計算適合性判定、長期優良住宅・耐震等級表示。"
+  },
+  {
+    "term": "完了検査（建築基準法）",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "完了検査（建築法7条）：建築主事の検査合格前に使用禁止。"
+  },
+  {
+    "term": "既存不適格建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "既存不適格建築物：旧法免許・改修の制限、除却・移転・用途変更。"
+  },
+  {
+    "term": "特定建築物等の定期調査",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "大規模建築物等の定期調査・建築設備等の定期検査報告（建築法12条の2等）。"
+  },
+  {
+    "term": "修繕・保存に関する条例",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "外観・色彩・塀高の条例（建築基準法第44条但書の範囲）。"
+  },
+  {
+    "term": "公益的施設の立地調整",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "公益的施設の立地：学校・病院・福祉施設の計画誘導。"
+  },
+  {
+    "term": "土地区画整理事業の換地",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地区画整理の換地計画：清算金・減歩率。"
+  },
+  {
+    "term": "新住宅市街地開発事業",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "新住宅市街地開発事業：土地区画整理・新築市街地開発の違い。"
+  },
+  {
+    "term": "臨港地区計画",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "臨港地区計画：港湾区域・臨港地区と都市計画の重なり。"
+  },
+  {
+    "term": "高度利用地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地の合理的かつ健全な高度利用を図る地区。"
+  },
+  {
+    "term": "農業振興地域・農地転用",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "農業振興地域・農用地区域：農地転用の抑制と都市計画農用地の関係。"
+  },
+  {
+    "term": "住宅取得等資金の贈与税非課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅取得等資金贈与の非課税：婚姻予定直系卑属からの赠与の1,000万円まで等（特例要件・申告義務は国税局通達・法令で確認）。"
+  },
+  {
+    "term": "地価公示・不動産鑑定",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "地価公示：1月1日基準、年1回公表。"
+  },
+  {
+    "term": "固定資産税の課税標準と控除",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税の課税標準：固定資産評価額（路線価・時価比例）。"
+  },
+  {
+    "term": "固定資産税評価の調整",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税の負担調整：再評価の反映、補正率、都市計画税（0.3%のイメージ・条例）との重課計算も地方税演習で。"
+  },
+  {
+    "term": "取得時期と課税関係",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取得時期による課税関係：不動産取得税の賦課基準時、共有持分変更の増減、合併・分割との関係。"
+  },
+  {
+    "term": "譲渡所得の計算の基本",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "譲渡所得の計算：譲渡価額－取得費－譲渡費用、短期・長期の判定は「権利確定時」か「売却年月日」の基準日を問題文で読み分け。"
+  },
+  {
+    "term": "居住用財産の譲渡特例（概要）",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "居住用財産の譲渡特例：3,000万円控除と買換え特例の関係、所有期間10年超の軽減税率（所得税10%+住民税4%のイメージ）など条件表を完成。"
+  },
+  {
+    "term": "譲渡所得と損失の繰越控除",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "譲渡損失の繰越控除：居住用財産の買換え特別控除の対象外取得の損失繰越（対象年数3年等の型は教材要確認）。"
+  },
+  {
+    "term": "不動産取引における消費税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産取引の消費税額計算：税込・税抜の逆算、課税売上割合、仕入税額控除。"
+  },
+  {
+    "term": "相続税の財産評価（不動産）",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続税の財産評価：路線価方式・時価、未登記建物、借地権の割合控除。"
+  },
+  {
+    "term": "敷地権の譲渡と所得税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "敷地権譲渡の所得税：譲渡所得か雑所得かの切り分け、借地権の対価の評価。"
+  },
+  {
+    "term": "地価公示・基準地価",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "地価公示と基準地価：公表主体の違い（国土交通省 vs 都道府県）、利用目的（相続評価・近隣比較）。"
+  },
+  {
+    "term": "住宅ローンの所得税控除と源泉",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅ローン：年末調整・確定申告での控除額計算、給与の源泉と住借特別控除の重複関係。"
+  },
+  {
+    "term": "不動産所得・譲渡所得・雑所得の区分",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産所得・譲渡・雑所得の区分：賃貸の必要経費（減価償却・修繕費）、長期譲渡の分離課税、一時的な売却益の雑所得化の誤りを避ける。"
+  },
+  {
+    "term": "登記関係の国税のまとめ",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "登記関係国税：登録免許税と印紙税の使い分け、電子登記の手数料。"
+  },
+  {
+    "term": "償却資産税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "償却資産税：事業用償却資産の課税（市町村）。"
+  },
+  {
+    "term": "契約の成立",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "申込みと承諾が合致して契約が成立する仕組み。"
+  },
+  {
+    "term": "契約解除",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "有効に成立した契約を後から解消する制度。"
+  },
+  {
+    "term": "原状回復義務",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "契約終了後に元の状態へ戻す義務。"
+  },
+  {
+    "term": "損害賠償",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債務不履行や不法行為により生じた損害を補填する制度。"
+  },
+  {
+    "term": "果実",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物から生じる収益や産出物。"
+  },
+  {
+    "term": "所有権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物を全面的に支配できる物権。"
+  },
+  {
+    "term": "占有",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物を事実上支配している状態。"
+  },
+  {
+    "term": "占有回収の訴え",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "奪われた占有を回復するための占有訴権。"
+  },
+  {
+    "term": "抵当権設定契約",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債権を担保するため抵当権を設定する契約。"
+  },
+  {
+    "term": "物上保証人",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他人の債務のため自己の物を担保に出す人。"
+  },
+  {
+    "term": "追及効",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物が移転しても物権の効力が追いかける性質。"
+  },
+  {
+    "term": "優先弁済権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他の債権者に先立って弁済を受ける権利。"
+  },
+  {
+    "term": "第三者弁済",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債務者以外の者が債務を弁済すること。"
+  },
+  {
+    "term": "債務引受",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債務を第三者が引き受ける制度。"
+  },
+  {
+    "term": "債権譲渡",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "債権者が債権を第三者へ移転すること。"
+  },
+  {
+    "term": "免許の更新",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業免許を継続するための更新手続。"
+  },
+  {
+    "term": "免許換え",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所所在地の変化に応じて免許権者を変える手続。"
+  },
+  {
+    "term": "廃業等の届出",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業をやめた場合などに必要な届出。"
+  },
+  {
+    "term": "宅建士資格登録簿",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建士の登録事項を管理する帳簿。"
+  },
+  {
+    "term": "登録の移転",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "勤務先の都道府県へ宅建士登録を移す制度。"
+  },
+  {
+    "term": "事務所の範囲",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業法上の事務所に当たる場所の判断。"
+  },
+  {
+    "term": "案内所の届出",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定の案内所を設ける場合の届出義務。"
+  },
+  {
+    "term": "標識の掲示",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所や案内所に標識を掲げる義務。"
+  },
+  {
+    "term": "従業者名簿",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所ごとに備える従業者の名簿。"
+  },
+  {
+    "term": "取引台帳",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅建業者が取引内容を記録する帳簿。"
+  },
+  {
+    "term": "報酬額の掲示",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "事務所ごとに報酬額表を掲示する義務。"
+  },
+  {
+    "term": "秘密保持義務",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "業務上知った秘密を漏らしてはならない義務。"
+  },
+  {
+    "term": "断定的判断の提供",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "将来利益などを断定的に告げる禁止行為。"
+  },
+  {
+    "term": "手付金等の保全措置",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定額を超える手付金等を保全する制度。"
+  },
+  {
+    "term": "契約不適合責任の特約制限",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "買主に不利な契約不適合責任特約の制限。"
+  },
+  {
+    "term": "解除等の制限",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "買主に不利な解除条項を制限する規制。"
+  },
+  {
+    "term": "仲介手数料",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "媒介・代理で受け取れる報酬。"
+  },
+  {
+    "term": "媒介契約書",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "媒介契約締結時に作成・交付する書面。"
+  },
+  {
+    "term": "一般媒介契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "複数業者へ依頼できる媒介契約。"
+  },
+  {
+    "term": "専任媒介契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一社にだけ媒介を依頼する契約。"
+  },
+  {
+    "term": "専属専任媒介契約",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "自己発見取引も制限される媒介契約。"
+  },
+  {
+    "term": "書面の電磁的方法による交付",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "35条・37条書面を電子的に交付する制度。"
+  },
+  {
+    "term": "都市計画決定",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "都市計画を定める行政手続。"
+  },
+  {
+    "term": "都市施設",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "道路・公園・下水道など都市計画に定める施設。"
+  },
+  {
+    "term": "都市計画事業",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "都市計画施設などを実施する事業。"
+  },
+  {
+    "term": "開発許可が不要な開発行為",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定の場合に開発許可が不要となる類型。"
+  },
+  {
+    "term": "開発許可の変更許可",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "許可後に設計などを変更する場合の手続。"
+  },
+  {
+    "term": "開発行為の完了検査",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "開発工事完了後に受ける検査。"
+  },
+  {
+    "term": "用途地域の種類",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住居・商業・工業など13種類の用途地域。"
+  },
+  {
+    "term": "特別用途地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "用途地域を補完して用途制限を強化・緩和する地区。"
+  },
+  {
+    "term": "高度地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築物の高さを制限または誘導する地区。"
+  },
+  {
+    "term": "特定街区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "街区単位で容積率や高さを定める制度。"
+  },
+  {
+    "term": "風致地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "都市の自然的景観を維持する地区。"
+  },
+  {
+    "term": "景観地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "良好な景観形成のため建築物の形態意匠などを制限する地区。"
+  },
+  {
+    "term": "歴史的風致維持向上地区計画",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "歴史的な街並みの維持向上を目的とする地区計画。"
+  },
+  {
+    "term": "建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地に定着する工作物のうち建築基準法上の対象。"
+  },
+  {
+    "term": "建築",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "新築・増築・改築・移転を含む行為。"
+  },
+  {
+    "term": "大規模修繕・大規模模様替",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "主要構造部の過半を修繕・模様替えする行為。"
+  },
+  {
+    "term": "用途変更",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築物の用途を他の用途に変えること。"
+  },
+  {
+    "term": "特殊建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "多数利用や防災上の配慮が必要な建築物。"
+  },
+  {
+    "term": "建築基準法上の道路",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築基準法が接道義務の前提とする道路。"
+  },
+  {
+    "term": "道路位置指定",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "私道を建築基準法上の道路として指定する制度。"
+  },
+  {
+    "term": "建築設備",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築物に設ける電気・ガス・給排水・昇降機など。"
+  },
+  {
+    "term": "耐火建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "主要構造部などが耐火性能を満たす建築物。"
+  },
+  {
+    "term": "準耐火建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "耐火建築物に準ずる耐火性能を持つ建築物。"
+  },
+  {
+    "term": "建築協定",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地所有者等が定める建築物の制限ルール。"
+  },
+  {
+    "term": "国土利用計画法の届出",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定面積以上の土地取引後に行う届出。"
+  },
+  {
+    "term": "農地転用",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "農地を農地以外の用途に変えること。"
+  },
+  {
+    "term": "宅地造成等工事規制区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅地造成等の災害防止のため指定される区域。"
+  },
+  {
+    "term": "特定盛土等規制区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "盛土等による災害を防ぐため規制する区域。"
+  },
+  {
+    "term": "固定資産評価額",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税などの基礎となる評価額。"
+  },
+  {
+    "term": "固定資産課税台帳",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税の課税対象を登録する台帳。"
+  },
+  {
+    "term": "固定資産税の縦覧",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "納税者が他の土地家屋の評価額と比較できる制度。"
+  },
+  {
+    "term": "不動産取得税の課税標準",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産取得税の税額計算の基礎。"
+  },
+  {
+    "term": "不動産取得税の免税点",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定額未満なら不動産取得税が課されない基準。"
+  },
+  {
+    "term": "登録免許税の課税標準",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "登記にかかる登録免許税の計算基礎。"
+  },
+  {
+    "term": "登録免許税の軽減税率",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅用家屋などに適用される軽減税率。"
+  },
+  {
+    "term": "印紙税の課税文書",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "印紙税が課される契約書や領収書。"
+  },
+  {
+    "term": "印紙税の納付方法",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "収入印紙の貼付と消印による納付。"
+  },
+  {
+    "term": "分離課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他の所得と分けて税額を計算する課税方式。"
+  },
+  {
+    "term": "総合課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "複数の所得を合算して税額を計算する方式。"
+  },
+  {
+    "term": "不動産所得",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産の貸付けから生じる所得。"
+  },
+  {
+    "term": "減価償却",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建物などの取得費を期間配分する会計・税務処理。"
+  },
+  {
+    "term": "取得費",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "譲渡所得計算で控除する取得に要した費用。"
+  },
+  {
+    "term": "譲渡費用",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "資産を売るために直接かかった費用。"
+  },
+  {
+    "term": "概算取得費",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取得費不明時に譲渡価額の一定割合を取得費とする扱い。"
+  },
+  {
+    "term": "長期譲渡所得・短期譲渡所得",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "所有期間により税率が異なる譲渡所得の区分。"
+  },
+  {
+    "term": "所有期間10年超の軽減税率",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "長期所有の居住用財産譲渡に使える軽減税率。"
+  },
+  {
+    "term": "相続税の基礎控除",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続税計算で遺産総額から差し引く控除。"
+  },
+  {
+    "term": "暦年課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "1年間の贈与額を基に贈与税を計算する方式。"
+  },
+  {
+    "term": "相続時精算課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "贈与時に課税を精算し相続時にまとめて調整する制度。"
+  },
+  {
+    "term": "法定更新（借地借家法）",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "期間満了後の自動更新と更新拒絶の正当事由。"
+  },
+  {
+    "term": "IT重説",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "オンラインによる重要事項説明の要件と手続。"
+  },
+  {
+    "term": "事務所の要件",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "本店・従たる事務所・案内所に課される設置基準。"
+  },
+  {
+    "term": "住宅瑕疵担保履行法",
+    "category": "宅建業法",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "新築住宅の瑕疵に対する保険・供託義務。"
+  },
+  {
+    "term": "連帯債務",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "複数債務者が各自全額の弁済義務を負う債務形態。"
+  },
+  {
+    "term": "相続放棄",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続による権利義務の承継を拒否する制度。"
+  },
+  {
+    "term": "転貸借（又貸し）",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "賃借人による第三者への再賃貸と承諾要件。"
+  },
+  {
+    "term": "都市計画税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "市街化区域内の土地・建物に課される地方税。"
+  },
+  {
+    "term": "贈与税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "暦年課税と相続時精算課税の基礎。"
+  },
+  {
+    "term": "仮登記",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "本登記前に予告的効力を得る登記。"
+  },
+  {
+    "term": "本登記",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "物権変動を第三者に対抗させる確定登記。"
+  },
+  {
+    "term": "信託",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "財産の管理・処分を受託者に委ねる制度。"
+  },
+  {
+    "term": "遺言",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "死後の法律行為を指定する意思表示。"
+  },
+  {
+    "term": "死因贈与",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "贈与者の死亡を条件とする贈与契約。"
+  },
+  {
+    "term": "使用貸借",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "無償で物の使用・収益を許諾する契約。"
+  },
+  {
+    "term": "贈与（民法）",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "無償で財産を渡す契約と撤回。"
+  },
+  {
+    "term": "限定承認",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続財産の範囲内でのみ債務を負担する承認。"
+  },
+  {
+    "term": "単純承認",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "無限の責任で相続を受け入れる承認。"
+  },
+  {
+    "term": "借地権",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他人の土地を使用して建物を所有する権利。"
+  },
+  {
+    "term": "物上代位",
+    "category": "権利関係",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "担保物売却代金から優先弁済を受ける権利。"
+  },
+  {
+    "term": "無権代理",
+    "category": "権利関係",
+    "related_terms": "代理;表見代理;追認",
+    "legal_basis": "民法第117条",
+    "short_def": "無権代理は、代理権を有しない者が本人のためにした法律行為です。"
+  },
+  {
+    "term": "復代理",
+    "category": "権利関係",
+    "related_terms": "代理;無権代理;委任",
+    "legal_basis": "民法第108条",
+    "short_def": "復代理は、代理人が自己の代理事務の処理を他人に委任した場合の代理です。"
+  },
+  {
+    "term": "背信的悪意者",
+    "category": "権利関係",
+    "related_terms": "177条の対抗要件;物権変動;登記",
+    "legal_basis": "民法第177条ただし書",
+    "short_def": "背信的悪意者は、物権変動について登記を要する場合に、登記の欠缺を知りながら登記をしない者です。"
+  },
+  {
+    "term": "177条の対抗要件",
+    "category": "権利関係",
+    "related_terms": "背信的悪意者;物権変動;本登記",
+    "legal_basis": "民法第177条",
+    "short_def": "177条の対抗要件は、不動産についての物権の得喪及び変更を第三者に対抗するための登記です。"
+  },
+  {
+    "term": "詐害行為取消権",
+    "category": "権利関係",
+    "related_terms": "債権者代位権;原状回復",
+    "legal_basis": "民法第424条",
+    "short_def": "詐害行為取消権は、債権者が債務者の債権者を害することを知ってした行為を取り消し、原状回復を請求する権利です（民法424条）。"
+  },
+  {
+    "term": "手付解除",
+    "category": "権利関係",
+    "related_terms": "手付倍返;手付没収;売買契約",
+    "legal_basis": "民法第557条",
+    "short_def": "手付解除は、手付を交付した者が手付を放棄し、受領した者が手付の倍額を返還することにより契約を解除できる制度です（民法557条）。"
+  },
+  {
+    "term": "手付倍返",
+    "category": "権利関係",
+    "related_terms": "手付解除;手付没収",
+    "legal_basis": "民法第557条",
+    "short_def": "手付倍返は、手付を受領した者が手付解除をするために返還すべき手付の倍額です。"
+  },
+  {
+    "term": "遺贈",
+    "category": "権利関係",
+    "related_terms": "遺言;死因贈与;遺留分",
+    "legal_basis": "民法第549条;第1024条",
+    "short_def": "遺贈は、遺言により遺言者の死亡により受遺者に財産を与える死因処分です。"
+  },
+  {
+    "term": "特別受益",
+    "category": "権利関係",
+    "related_terms": "遺産分割;遺留分;贈与（民法）",
+    "legal_basis": "民法第903条第2項;第1091条",
+    "short_def": "特別受益は、相続人が被相続人の生前に贈与等により受けた利益を、遺産分割の際に他の相続人との公平を図るため考慮する制度です（民法903条2項・第1091条）。"
+  },
+  {
+    "term": "区分所有者",
+    "category": "権利関係",
+    "related_terms": "専有部分;共用部分;管理規約;集会決議",
+    "legal_basis": "建物の区分所有等に関する法律",
+    "short_def": "区分所有者は、一棟の建物の構造上区分された数個の部分を独立した所有権の目的とする者です。"
+  },
+  {
+    "term": "専有部分",
+    "category": "権利関係",
+    "related_terms": "区分所有者;共用部分;区分所有権",
+    "legal_basis": "建物の区分所有等に関する法律第2条",
+    "short_def": "専有部分は、区分所有建物のうち、構造上区分され独立した所有権の目的となる部分です。"
+  },
+  {
+    "term": "共用部分",
+    "category": "権利関係",
+    "related_terms": "専有部分;区分所有者;管理規約",
+    "legal_basis": "建物の区分所有等に関する法律",
+    "short_def": "共用部分は、区分所有建物のうち専有部分以外の部分で、区分所有者の共有に属します。"
+  },
+  {
+    "term": "借地権買取請求権",
+    "category": "権利関係",
+    "related_terms": "借地権;建物再築;正当事由",
+    "legal_basis": "借地借家法第3条の2",
+    "short_def": "借地権買取請求権は、借地権設定者が自己の使用収益の必要により、建物所有を目的とする借地権を買い取ることができる権利です（借地法第3条の2）。"
+  },
+  {
+    "term": "立退料",
+    "category": "権利関係",
+    "related_terms": "正当事由;更新拒絶の正当な事由;借地権買取請求権",
+    "legal_basis": "借地借家法",
+    "short_def": "立退料は、借地借家法上の更新拒絶・買取等により借地人・借家人が受ける補償の趣旨の金銭です。"
+  },
+  {
+    "term": "根抵当権の極度額",
+    "category": "権利関係",
+    "related_terms": "根抵当権;抵当権;物上代位",
+    "legal_basis": "民法第398条の2",
+    "short_def": "極度額は、根抵当権が担保する債権の上限額です。"
+  },
+  {
+    "term": "14条書面",
+    "category": "宅建業法",
+    "related_terms": "37条書面;35条書面;8条書面",
+    "legal_basis": "宅地建物取引業法第14条",
+    "short_def": "14条書面は、宅地建物取引業者が契約の申込み又はその承諾をした場合に、相手方に交付しなければならない書面です（宅建業法第14条）。"
+  },
+  {
+    "term": "8条書面",
+    "category": "宅建業法",
+    "related_terms": "媒介契約の種類;14条書面;35条書面",
+    "legal_basis": "宅地建物取引業法第8条",
+    "short_def": "8条書面は、宅地建物取引業者が媒介契約を締結した場合に交付する書面です（宅建業法第8条）。"
+  },
+  {
+    "term": "35条書面",
+    "category": "宅建業法",
+    "related_terms": "重要事項説明（35条書面）;IT重説;37条書面",
+    "legal_basis": "宅地建物取引業法第35条",
+    "short_def": "35条書面は、宅地建物取引士が重要事項を説明した際に記載し、宅建業者が交付する書面です（宅建業法第35条）。"
+  },
+  {
+    "term": "正当事由",
+    "category": "権利関係",
+    "related_terms": "更新拒絶の正当な事由;立退料;借地権買取請求権",
+    "legal_basis": "借地借家法",
+    "short_def": "正当事由は、借地借家法において借地権・借家権の更新拒絶や借地権買取請求等に必要とされる正当な理由です。"
+  },
+  {
+    "term": "業務停止命令",
+    "category": "宅建業法",
+    "related_terms": "免許の取消;指示処分;監督処分",
+    "legal_basis": "宅地建物取引業法第47条",
+    "short_def": "業務停止命令は、宅建業者が法令に違反した場合等に、都道府県知事等が一定期間業務の停止を命じる監督処分です。"
+  },
+  {
+    "term": "免許の取消",
+    "category": "宅建業法",
+    "related_terms": "業務停止命令;監督処分;免許の更新",
+    "legal_basis": "宅地建物取引業法第47条",
+    "short_def": "免許の取消は、宅建業者が重大な違反をした場合等に、その免許を剥奪する監督処分です。"
+  },
+  {
+    "term": "指示処分",
+    "category": "宅建業法",
+    "related_terms": "業務停止命令;免許の取消;監督処分",
+    "legal_basis": "宅地建物取引業法第47条",
+    "short_def": "指示処分は、宅建業者に対し法令の遵守・業務の適正化等を指示する監督処分です。"
+  },
+  {
+    "term": "過料",
+    "category": "宅建業法",
+    "related_terms": "宅建業法違反;罰則;監督処分",
+    "legal_basis": "宅地建物取引業法",
+    "short_def": "過料は、宅建業法違反のうち軽微な行為に対し科される金銭的制裁です。"
+  },
+  {
+    "term": "宅建業法違反",
+    "category": "宅建業法",
+    "related_terms": "過料;業務停止命令;免許の取消",
+    "legal_basis": "宅地建物取引業法",
+    "short_def": "宅建業法違反は、免許・業務規制・書面交付・広告・報酬等に関する宅建業法の規定に反する行為を指します。"
+  },
+  {
+    "term": "転借人",
+    "category": "宅建業法",
+    "related_terms": "転貸借（又貸し）;借地・借家の譲渡・転貸",
+    "legal_basis": "借地借家法第13条;第32条",
+    "short_def": "転借人は、賃借人が賃貸人の承諾を得て転貸した場合に、転貸借により賃借権を取得した者です。"
+  },
+  {
+    "term": "延べ面積",
+    "category": "法令上の制限",
+    "related_terms": "床面積;建ぺい率・容積率;建築面積",
+    "legal_basis": "建築基準法",
+    "short_def": "延べ面積は、建築物の各階の床面積を合計した面積です。"
+  },
+  {
+    "term": "床面積",
+    "category": "法令上の制限",
+    "related_terms": "延べ面積;建ぺい率・容積率",
+    "legal_basis": "建築基準法",
+    "short_def": "床面積は、建築物の各階における床の水平投影面積です。"
+  },
+  {
+    "term": "42条2項道路",
+    "category": "法令上の制限",
+    "related_terms": "接道義務;建築基準法上の道路;2項道路",
+    "legal_basis": "道路法第42条第2項;建築基準法第43条",
+    "short_def": "42条2項道路は、道路法第42条第2項により道路とみなされる通路で、建築基準法上の接道義務を満たす場合があります。"
+  },
+  {
+    "term": "4号特例",
+    "category": "法令上の制限",
+    "related_terms": "建築確認;建築基準法第6条;確認済証",
+    "legal_basis": "建築基準法第6条第1項第4号",
+    "short_def": "4号特例は、建築基準法第6条第1項第4号により、一定の小規模な増築・改築等について建築確認を要しない特例です。"
+  },
+  {
+    "term": "12条区域",
+    "category": "法令上の制限",
+    "related_terms": "市街化区域・市街化調整区域;非線引き区域;都市計画法",
+    "legal_basis": "都市計画法第12条",
+    "short_def": "12条区域は、都市計画法第12条により都市計画区域・準都市計画区域の内外で定められる区域区分です。"
+  },
+  {
+    "term": "22条区域",
+    "category": "法令上の制限",
+    "related_terms": "開発許可;12条区域;市街化調整区域",
+    "legal_basis": "都市計画法第22条",
+    "short_def": "22条区域は、都市計画法第22条により開発行為が制限される区域を指す試験用語です。"
+  },
+  {
+    "term": "確認済証",
+    "category": "法令上の制限",
+    "related_terms": "建築確認;検査済証;4号特例",
+    "legal_basis": "建築基準法第6条;第7条",
+    "short_def": "確認済証は、建築確認が完了し、計画が建築基準法に適合していると確認されたことを証する文書です。"
+  },
+  {
+    "term": "検査済証",
+    "category": "法令上の制限",
+    "related_terms": "確認済証;完了検査（建築基準法）",
+    "legal_basis": "建築基準法第7条",
+    "short_def": "検査済証は、完了検査の結果、建築物が確認済みの計画どおりに完成したことを証する文書です。"
+  },
+  {
+    "term": "建築基準法第6条",
+    "category": "法令上の制限",
+    "related_terms": "建築確認;4号特例;確認済証",
+    "legal_basis": "建築基準法第6条",
+    "short_def": "建築基準法第6条は、建築・増築・改築・移転・大規模修繕・大規模模様替等について建築確認を要する旨を定める条文です。"
+  },
+  {
+    "term": "違法建築物",
+    "category": "法令上の制限",
+    "related_terms": "既存不適格建築物;建築確認;4号特例",
+    "legal_basis": "建築基準法",
+    "short_def": "違法建築物は、建築確認を要するのに受けず、又は確認に適合しない計画で建築された建築物です。"
+  },
+  {
+    "term": "土壌汚染",
+    "category": "法令上の制限",
+    "related_terms": "土砂災害警戒区域;宅地造成",
+    "legal_basis": "土壌汚染対策法",
+    "short_def": "土壌汚染は、土地に特定有害物質が含まれ、健康被害や地下水汚染等のおそれがある状態です。"
+  },
+  {
+    "term": "盛土",
+    "category": "法令上の制限",
+    "related_terms": "切土;擁壁;宅地造成",
+    "legal_basis": "宅地造成等規制法;盛土規制法",
+    "short_def": "盛土は、土地の表面を上げる工事です。"
+  },
+  {
+    "term": "切土",
+    "category": "法令上の制限",
+    "related_terms": "盛土;擁壁;宅地造成",
+    "legal_basis": "宅地造成等規制法",
+    "short_def": "切土は、土地の表面を下げる工事です。"
+  },
+  {
+    "term": "擁壁",
+    "category": "法令上の制限",
+    "related_terms": "盛土;切土;宅地造成",
+    "legal_basis": "宅地造成等規制法",
+    "short_def": "擁壁は、盛土・切土等により生じる土圧を支えるため設置する構造物です。"
+  },
+  {
+    "term": "宅地造成",
+    "category": "法令上の制限",
+    "related_terms": "造成宅地;盛土;切土;擁壁",
+    "legal_basis": "宅地造成等規制法",
+    "short_def": "宅地造成は、土地を宅地として利用できる状態にする造成工事です。"
+  },
+  {
+    "term": "液状化",
+    "category": "法令上の制限",
+    "related_terms": "宅地造成;耐震基準;盛土",
+    "legal_basis": "宅地造成等規制法;建築基準法",
+    "short_def": "液状化は、地震動により飽和した砂質地盤の間隙水圧が上昇し、地盤が一時的に液体状の性質を示す現象です。"
+  },
+  {
+    "term": "耐震基準",
+    "category": "法令上の制限",
+    "related_terms": "建築基準法;液状化;建築確認",
+    "legal_basis": "建築基準法",
+    "short_def": "耐震基準は、建築基準法に基づき建築物が地震動に対して倒壊・崩壊等しないよう定められた構造基準です。"
+  },
+  {
+    "term": "商業地域",
+    "category": "法令上の制限",
+    "related_terms": "用途地域13種類;建ぺい率・容積率;近隣商業地域",
+    "legal_basis": "都市計画法;建築基準法",
+    "short_def": "商業地域は、都市計画法に基づく用途地域の一つで、主に商業その他の業務の利便を増進する地域です。"
+  },
+  {
+    "term": "源泉徴収",
+    "category": "税・その他",
+    "related_terms": "確定申告;住宅ローン;不動産所得",
+    "legal_basis": "所得税法",
+    "short_def": "源泉徴収は、給与・報酬等の支払者が所得税を天引きし、国に納付する制度です。"
+  },
+  {
+    "term": "確定申告",
+    "category": "税・その他",
+    "related_terms": "源泉徴収;譲渡所得（長期・短期）;不動産所得",
+    "legal_basis": "所得税法",
+    "short_def": "確定申告は、納税者が1年間の所得と税額を計算し、税務署に申告・納税する手続です。"
+  },
+  {
+    "term": "景表法",
+    "category": "税・その他",
+    "related_terms": "不当景品類;割賦販売",
+    "legal_basis": "景品表示法",
+    "short_def": "景表法（景品表示法）は、商品・サービスの表示について不当な表示や有利誤認表示を禁止する法律です。"
+  },
+  {
+    "term": "不当景品類",
+    "category": "税・その他",
+    "related_terms": "景表法;割賦販売",
+    "legal_basis": "景品表示法",
+    "short_def": "不当景品類は、景品表示法により提供が制限される景品・割引・サービス等です。"
+  },
+  {
+    "term": "住宅金融支援機構",
+    "category": "税・その他",
+    "related_terms": "住宅ローン;フラット35",
+    "legal_basis": "住宅金融支援機構法",
+    "short_def": "住宅金融支援機構（旧・住宅金融公庫）は、住宅ローンの流動化支援・フラット35等の住宅金融を担う公的機関です。"
+  }
+]

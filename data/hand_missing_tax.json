@@ -1,0 +1,310 @@
+[
+  {
+    "term": "住宅取得等資金の贈与税非課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅取得等資金贈与の非課税：婚姻予定直系卑属からの赠与の1,000万円まで等（特例要件・申告義務は国税局通達・法令で確認）。"
+  },
+  {
+    "term": "地価公示・不動産鑑定",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "地価公示：1月1日基準、年1回公表。"
+  },
+  {
+    "term": "固定資産税の課税標準と控除",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税の課税標準：固定資産評価額（路線価・時価比例）。"
+  },
+  {
+    "term": "固定資産税評価の調整",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税の負担調整：再評価の反映、補正率、都市計画税（0.3%のイメージ・条例）との重課計算も地方税演習で。"
+  },
+  {
+    "term": "取得時期と課税関係",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取得時期による課税関係：不動産取得税の賦課基準時、共有持分変更の増減、合併・分割との関係。"
+  },
+  {
+    "term": "譲渡所得の計算の基本",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "譲渡所得の計算：譲渡価額－取得費－譲渡費用、短期・長期の判定は「権利確定時」か「売却年月日」の基準日を問題文で読み分け。"
+  },
+  {
+    "term": "居住用財産の譲渡特例（概要）",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "居住用財産の譲渡特例：3,000万円控除と買換え特例の関係、所有期間10年超の軽減税率（所得税10%+住民税4%のイメージ）など条件表を完成。"
+  },
+  {
+    "term": "譲渡所得と損失の繰越控除",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "譲渡損失の繰越控除：居住用財産の買換え特別控除の対象外取得の損失繰越（対象年数3年等の型は教材要確認）。"
+  },
+  {
+    "term": "不動産取引における消費税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産取引の消費税額計算：税込・税抜の逆算、課税売上割合、仕入税額控除。"
+  },
+  {
+    "term": "相続税の財産評価（不動産）",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続税の財産評価：路線価方式・時価、未登記建物、借地権の割合控除。"
+  },
+  {
+    "term": "敷地権の譲渡と所得税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "敷地権譲渡の所得税：譲渡所得か雑所得かの切り分け、借地権の対価の評価。"
+  },
+  {
+    "term": "地価公示・基準地価",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "地価公示と基準地価：公表主体の違い（国土交通省 vs 都道府県）、利用目的（相続評価・近隣比較）。"
+  },
+  {
+    "term": "住宅ローンの所得税控除と源泉",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅ローン：年末調整・確定申告での控除額計算、給与の源泉と住借特別控除の重複関係。"
+  },
+  {
+    "term": "不動産所得・譲渡所得・雑所得の区分",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産所得・譲渡・雑所得の区分：賃貸の必要経費（減価償却・修繕費）、長期譲渡の分離課税、一時的な売却益の雑所得化の誤りを避ける。"
+  },
+  {
+    "term": "登記関係の国税のまとめ",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "登記関係国税：登録免許税と印紙税の使い分け、電子登記の手数料。"
+  },
+  {
+    "term": "償却資産税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "償却資産税：事業用償却資産の課税（市町村）。"
+  },
+  {
+    "term": "固定資産評価額",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税などの基礎となる評価額。"
+  },
+  {
+    "term": "固定資産課税台帳",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "固定資産税の課税対象を登録する台帳。"
+  },
+  {
+    "term": "固定資産税の縦覧",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "納税者が他の土地家屋の評価額と比較できる制度。"
+  },
+  {
+    "term": "不動産取得税の課税標準",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産取得税の税額計算の基礎。"
+  },
+  {
+    "term": "不動産取得税の免税点",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定額未満なら不動産取得税が課されない基準。"
+  },
+  {
+    "term": "登録免許税の課税標準",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "登記にかかる登録免許税の計算基礎。"
+  },
+  {
+    "term": "登録免許税の軽減税率",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅用家屋などに適用される軽減税率。"
+  },
+  {
+    "term": "印紙税の課税文書",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "印紙税が課される契約書や領収書。"
+  },
+  {
+    "term": "印紙税の納付方法",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "収入印紙の貼付と消印による納付。"
+  },
+  {
+    "term": "分離課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "他の所得と分けて税額を計算する課税方式。"
+  },
+  {
+    "term": "総合課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "複数の所得を合算して税額を計算する方式。"
+  },
+  {
+    "term": "不動産所得",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "不動産の貸付けから生じる所得。"
+  },
+  {
+    "term": "減価償却",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建物などの取得費を期間配分する会計・税務処理。"
+  },
+  {
+    "term": "取得費",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "譲渡所得計算で控除する取得に要した費用。"
+  },
+  {
+    "term": "譲渡費用",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "資産を売るために直接かかった費用。"
+  },
+  {
+    "term": "概算取得費",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "取得費不明時に譲渡価額の一定割合を取得費とする扱い。"
+  },
+  {
+    "term": "長期譲渡所得・短期譲渡所得",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "所有期間により税率が異なる譲渡所得の区分。"
+  },
+  {
+    "term": "所有期間10年超の軽減税率",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "長期所有の居住用財産譲渡に使える軽減税率。"
+  },
+  {
+    "term": "相続税の基礎控除",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "相続税計算で遺産総額から差し引く控除。"
+  },
+  {
+    "term": "暦年課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "1年間の贈与額を基に贈与税を計算する方式。"
+  },
+  {
+    "term": "相続時精算課税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "贈与時に課税を精算し相続時にまとめて調整する制度。"
+  },
+  {
+    "term": "都市計画税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "市街化区域内の土地・建物に課される地方税。"
+  },
+  {
+    "term": "贈与税",
+    "category": "税・その他",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "暦年課税と相続時精算課税の基礎。"
+  },
+  {
+    "term": "源泉徴収",
+    "category": "税・その他",
+    "related_terms": "確定申告;住宅ローン;不動産所得",
+    "legal_basis": "所得税法",
+    "short_def": "源泉徴収は、給与・報酬等の支払者が所得税を天引きし、国に納付する制度です。"
+  },
+  {
+    "term": "確定申告",
+    "category": "税・その他",
+    "related_terms": "源泉徴収;譲渡所得（長期・短期）;不動産所得",
+    "legal_basis": "所得税法",
+    "short_def": "確定申告は、納税者が1年間の所得と税額を計算し、税務署に申告・納税する手続です。"
+  },
+  {
+    "term": "景表法",
+    "category": "税・その他",
+    "related_terms": "不当景品類;割賦販売",
+    "legal_basis": "景品表示法",
+    "short_def": "景表法（景品表示法）は、商品・サービスの表示について不当な表示や有利誤認表示を禁止する法律です。"
+  },
+  {
+    "term": "不当景品類",
+    "category": "税・その他",
+    "related_terms": "景表法;割賦販売",
+    "legal_basis": "景品表示法",
+    "short_def": "不当景品類は、景品表示法により提供が制限される景品・割引・サービス等です。"
+  },
+  {
+    "term": "住宅金融支援機構",
+    "category": "税・その他",
+    "related_terms": "住宅ローン;フラット35",
+    "legal_basis": "住宅金融支援機構法",
+    "short_def": "住宅金融支援機構（旧・住宅金融公庫）は、住宅ローンの流動化支援・フラット35等の住宅金融を担う公的機関です。"
+  }
+]

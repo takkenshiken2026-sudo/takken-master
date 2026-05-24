@@ -1,0 +1,464 @@
+[
+  {
+    "term": "盛土規制法",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "盛土規制法：盛土等の届出・許可の量・高さの閾値（条例・基準は政令・技術基準）。"
+  },
+  {
+    "term": "建築協定・地区計画等の関係",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築協定（建築法68条等）と地区計画・都市計画の優先関係。"
+  },
+  {
+    "term": "河川区域・堤外地",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "河川法：河川区域・河川敷と建築制限。"
+  },
+  {
+    "term": "津波・高潮対策区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "津波災害警戒区域・高潮浸水想定区域：建築物の地下施設制限・避難施設等。"
+  },
+  {
+    "term": "自然公園・保全地域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "自然公園法：特別地域・特別保護地区での行為制限。"
+  },
+  {
+    "term": "文化財保護法の規制",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "文化財保護法：史跡・伝統的建造物群保存地区の行為制限、届出・許可。"
+  },
+  {
+    "term": "住宅生産確保計画区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住宅生産確保計画区域：一定規模以上の宅地開発で計画区域内かの確認。"
+  },
+  {
+    "term": "特定用途制限地域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "用途地域外で特定用途を制限する地域。"
+  },
+  {
+    "term": "高さの限度（絶対高さ・斜線・道路）",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "高さ限度：絶対高さ、道路斜線（道路幅÷2＋〜mの型）、北側斜線、隣地斜線の四天王。"
+  },
+  {
+    "term": "建築確認申請",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築確認申請の添付図書、構造計算適合性判定、長期優良住宅・耐震等級表示。"
+  },
+  {
+    "term": "完了検査（建築基準法）",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "完了検査（建築法7条）：建築主事の検査合格前に使用禁止。"
+  },
+  {
+    "term": "既存不適格建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "既存不適格建築物：旧法免許・改修の制限、除却・移転・用途変更。"
+  },
+  {
+    "term": "特定建築物等の定期調査",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "大規模建築物等の定期調査・建築設備等の定期検査報告（建築法12条の2等）。"
+  },
+  {
+    "term": "修繕・保存に関する条例",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "外観・色彩・塀高の条例（建築基準法第44条但書の範囲）。"
+  },
+  {
+    "term": "公益的施設の立地調整",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "公益的施設の立地：学校・病院・福祉施設の計画誘導。"
+  },
+  {
+    "term": "土地区画整理事業の換地",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地区画整理の換地計画：清算金・減歩率。"
+  },
+  {
+    "term": "新住宅市街地開発事業",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "新住宅市街地開発事業：土地区画整理・新築市街地開発の違い。"
+  },
+  {
+    "term": "臨港地区計画",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "臨港地区計画：港湾区域・臨港地区と都市計画の重なり。"
+  },
+  {
+    "term": "高度利用地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地の合理的かつ健全な高度利用を図る地区。"
+  },
+  {
+    "term": "農業振興地域・農地転用",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "農業振興地域・農用地区域：農地転用の抑制と都市計画農用地の関係。"
+  },
+  {
+    "term": "都市計画決定",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "都市計画を定める行政手続。"
+  },
+  {
+    "term": "都市施設",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "道路・公園・下水道など都市計画に定める施設。"
+  },
+  {
+    "term": "都市計画事業",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "都市計画施設などを実施する事業。"
+  },
+  {
+    "term": "開発許可が不要な開発行為",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定の場合に開発許可が不要となる類型。"
+  },
+  {
+    "term": "開発許可の変更許可",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "許可後に設計などを変更する場合の手続。"
+  },
+  {
+    "term": "開発行為の完了検査",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "開発工事完了後に受ける検査。"
+  },
+  {
+    "term": "用途地域の種類",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "住居・商業・工業など13種類の用途地域。"
+  },
+  {
+    "term": "特別用途地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "用途地域を補完して用途制限を強化・緩和する地区。"
+  },
+  {
+    "term": "高度地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築物の高さを制限または誘導する地区。"
+  },
+  {
+    "term": "特定街区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "街区単位で容積率や高さを定める制度。"
+  },
+  {
+    "term": "風致地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "都市の自然的景観を維持する地区。"
+  },
+  {
+    "term": "景観地区",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "良好な景観形成のため建築物の形態意匠などを制限する地区。"
+  },
+  {
+    "term": "歴史的風致維持向上地区計画",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "歴史的な街並みの維持向上を目的とする地区計画。"
+  },
+  {
+    "term": "建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地に定着する工作物のうち建築基準法上の対象。"
+  },
+  {
+    "term": "建築",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "新築・増築・改築・移転を含む行為。"
+  },
+  {
+    "term": "大規模修繕・大規模模様替",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "主要構造部の過半を修繕・模様替えする行為。"
+  },
+  {
+    "term": "用途変更",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築物の用途を他の用途に変えること。"
+  },
+  {
+    "term": "特殊建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "多数利用や防災上の配慮が必要な建築物。"
+  },
+  {
+    "term": "建築基準法上の道路",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築基準法が接道義務の前提とする道路。"
+  },
+  {
+    "term": "道路位置指定",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "私道を建築基準法上の道路として指定する制度。"
+  },
+  {
+    "term": "建築設備",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "建築物に設ける電気・ガス・給排水・昇降機など。"
+  },
+  {
+    "term": "耐火建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "主要構造部などが耐火性能を満たす建築物。"
+  },
+  {
+    "term": "準耐火建築物",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "耐火建築物に準ずる耐火性能を持つ建築物。"
+  },
+  {
+    "term": "建築協定",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "土地所有者等が定める建築物の制限ルール。"
+  },
+  {
+    "term": "国土利用計画法の届出",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "一定面積以上の土地取引後に行う届出。"
+  },
+  {
+    "term": "農地転用",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "農地を農地以外の用途に変えること。"
+  },
+  {
+    "term": "宅地造成等工事規制区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "宅地造成等の災害防止のため指定される区域。"
+  },
+  {
+    "term": "特定盛土等規制区域",
+    "category": "法令上の制限",
+    "related_terms": "",
+    "legal_basis": "",
+    "short_def": "盛土等による災害を防ぐため規制する区域。"
+  },
+  {
+    "term": "延べ面積",
+    "category": "法令上の制限",
+    "related_terms": "床面積;建ぺい率・容積率;建築面積",
+    "legal_basis": "建築基準法",
+    "short_def": "延べ面積は、建築物の各階の床面積を合計した面積です。"
+  },
+  {
+    "term": "床面積",
+    "category": "法令上の制限",
+    "related_terms": "延べ面積;建ぺい率・容積率",
+    "legal_basis": "建築基準法",
+    "short_def": "床面積は、建築物の各階における床の水平投影面積です。"
+  },
+  {
+    "term": "42条2項道路",
+    "category": "法令上の制限",
+    "related_terms": "接道義務;建築基準法上の道路;2項道路",
+    "legal_basis": "道路法第42条第2項;建築基準法第43条",
+    "short_def": "42条2項道路は、道路法第42条第2項により道路とみなされる通路で、建築基準法上の接道義務を満たす場合があります。"
+  },
+  {
+    "term": "4号特例",
+    "category": "法令上の制限",
+    "related_terms": "建築確認;建築基準法第6条;確認済証",
+    "legal_basis": "建築基準法第6条第1項第4号",
+    "short_def": "4号特例は、建築基準法第6条第1項第4号により、一定の小規模な増築・改築等について建築確認を要しない特例です。"
+  },
+  {
+    "term": "12条区域",
+    "category": "法令上の制限",
+    "related_terms": "市街化区域・市街化調整区域;非線引き区域;都市計画法",
+    "legal_basis": "都市計画法第12条",
+    "short_def": "12条区域は、都市計画法第12条により都市計画区域・準都市計画区域の内外で定められる区域区分です。"
+  },
+  {
+    "term": "22条区域",
+    "category": "法令上の制限",
+    "related_terms": "開発許可;12条区域;市街化調整区域",
+    "legal_basis": "都市計画法第22条",
+    "short_def": "22条区域は、都市計画法第22条により開発行為が制限される区域を指す試験用語です。"
+  },
+  {
+    "term": "確認済証",
+    "category": "法令上の制限",
+    "related_terms": "建築確認;検査済証;4号特例",
+    "legal_basis": "建築基準法第6条;第7条",
+    "short_def": "確認済証は、建築確認が完了し、計画が建築基準法に適合していると確認されたことを証する文書です。"
+  },
+  {
+    "term": "検査済証",
+    "category": "法令上の制限",
+    "related_terms": "確認済証;完了検査（建築基準法）",
+    "legal_basis": "建築基準法第7条",
+    "short_def": "検査済証は、完了検査の結果、建築物が確認済みの計画どおりに完成したことを証する文書です。"
+  },
+  {
+    "term": "建築基準法第6条",
+    "category": "法令上の制限",
+    "related_terms": "建築確認;4号特例;確認済証",
+    "legal_basis": "建築基準法第6条",
+    "short_def": "建築基準法第6条は、建築・増築・改築・移転・大規模修繕・大規模模様替等について建築確認を要する旨を定める条文です。"
+  },
+  {
+    "term": "違法建築物",
+    "category": "法令上の制限",
+    "related_terms": "既存不適格建築物;建築確認;4号特例",
+    "legal_basis": "建築基準法",
+    "short_def": "違法建築物は、建築確認を要するのに受けず、又は確認に適合しない計画で建築された建築物です。"
+  },
+  {
+    "term": "土壌汚染",
+    "category": "法令上の制限",
+    "related_terms": "土砂災害警戒区域;宅地造成",
+    "legal_basis": "土壌汚染対策法",
+    "short_def": "土壌汚染は、土地に特定有害物質が含まれ、健康被害や地下水汚染等のおそれがある状態です。"
+  },
+  {
+    "term": "盛土",
+    "category": "法令上の制限",
+    "related_terms": "切土;擁壁;宅地造成",
+    "legal_basis": "宅地造成等規制法;盛土規制法",
+    "short_def": "盛土は、土地の表面を上げる工事です。"
+  },
+  {
+    "term": "切土",
+    "category": "法令上の制限",
+    "related_terms": "盛土;擁壁;宅地造成",
+    "legal_basis": "宅地造成等規制法",
+    "short_def": "切土は、土地の表面を下げる工事です。"
+  },
+  {
+    "term": "擁壁",
+    "category": "法令上の制限",
+    "related_terms": "盛土;切土;宅地造成",
+    "legal_basis": "宅地造成等規制法",
+    "short_def": "擁壁は、盛土・切土等により生じる土圧を支えるため設置する構造物です。"
+  },
+  {
+    "term": "宅地造成",
+    "category": "法令上の制限",
+    "related_terms": "造成宅地;盛土;切土;擁壁",
+    "legal_basis": "宅地造成等規制法",
+    "short_def": "宅地造成は、土地を宅地として利用できる状態にする造成工事です。"
+  },
+  {
+    "term": "液状化",
+    "category": "法令上の制限",
+    "related_terms": "宅地造成;耐震基準;盛土",
+    "legal_basis": "宅地造成等規制法;建築基準法",
+    "short_def": "液状化は、地震動により飽和した砂質地盤の間隙水圧が上昇し、地盤が一時的に液体状の性質を示す現象です。"
+  },
+  {
+    "term": "耐震基準",
+    "category": "法令上の制限",
+    "related_terms": "建築基準法;液状化;建築確認",
+    "legal_basis": "建築基準法",
+    "short_def": "耐震基準は、建築基準法に基づき建築物が地震動に対して倒壊・崩壊等しないよう定められた構造基準です。"
+  },
+  {
+    "term": "商業地域",
+    "category": "法令上の制限",
+    "related_terms": "用途地域13種類;建ぺい率・容積率;近隣商業地域",
+    "legal_basis": "都市計画法;建築基準法",
+    "short_def": "商業地域は、都市計画法に基づく用途地域の一つで、主に商業その他の業務の利便を増進する地域です。"
+  }
+]
