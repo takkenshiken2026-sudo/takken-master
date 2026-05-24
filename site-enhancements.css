@@ -1,0 +1,63 @@
+/* ---- 共通ユーティリティ ---- */
+.enh-card{background:#fff;border:1px solid var(--border2);border-radius:var(--r2);padding:18px;margin-bottom:13px;box-shadow:var(--sh)}
+.enh-section-label{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
+.enh-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.enh-sub{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* ---- 1. スペースドリペティション（復習ページの導入カード）---- */
+.srs-review-card{cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s;margin-bottom:16px}
+.srs-review-card:hover{background:var(--bg3);border-color:var(--border2);box-shadow:var(--sh2)}
+.srs-review-card .srs-review-kicker{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.02em;margin-bottom:6px}
+.srs-review-card .srs-review-lead{font-size:13px;color:var(--text2);line-height:1.65;margin:0 0 12px}
+.srs-review-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.srs-review-card-foot .srs-review-action{font-size:12px;color:var(--text3)}
+
+.srs-queue-card{border:1px solid var(--border2);border-radius:var(--r);padding:10px 14px;margin-bottom:7px;cursor:pointer;transition:background .12s;display:flex;align-items:center;gap:10px}
+.srs-queue-card:hover{background:var(--bg3)}
+.srs-queue-card-body{flex:1;min-width:0}
+.srs-queue-q{font-size:13px;color:var(--text);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srs-queue-meta{display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap}
+.srs-level-chip{font-size:10px;font-weight:700;border-radius:3px;padding:1px 6px;letter-spacing:.03em}
+.srs-level-0{background:#fee2e2;color:#b91c1c}
+.srs-level-1{background:#fef3c7;color:#b45309}
+.srs-level-2{background:#e0f2fe;color:#0369a1}
+.srs-level-3{background:#dcfce7;color:#15803d}
+.srs-level-4{background:#f3e8ff;color:#7c3aed}
+.srs-due-chip{font-size:10px;color:var(--text3)}
+.srs-queue-arrow{color:var(--text3);flex-shrink:0}
+
+/* ---- 2. レーダーチャート ---- */
+.radar-wrap{display:flex;justify-content:center;padding:4px 0 2px;width:100%}
+.radar-svg{overflow:visible;width:100%;max-width:420px;height:auto;display:block}
+.radar-legend{display:flex;gap:20px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.radar-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2)}
+.radar-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.radar-axis-label{font-size:11px;fill:var(--text2);font-family:var(--font)}
+.radar-score-label{font-size:14px;font-weight:700;fill:var(--text)}
+
+/* ---- 3. 弱点優先出題 ---- */
+.weak-mode-card{border:1.5px solid var(--border2);border-radius:var(--r2);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.weak-mode-card:hover{border-color:var(--ink);box-shadow:var(--sh2)}
+.weak-mode-card-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.weak-mode-icon{width:36px;height:36px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.weak-mode-icon svg{width:16px;height:16px;stroke:var(--text2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.weak-mode-label{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:2px}
+.weak-mode-name{font-size:15px;font-weight:700;color:var(--text)}
+.weak-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.weak-bar-label{font-size:12px;color:var(--text2);width:70px;flex-shrink:0}
+.weak-bar-track{flex:1;height:6px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.weak-bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.weak-bar-val{font-size:12px;font-weight:700;width:38px;text-align:right;flex-shrink:0}
+.weak-field-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.weak-field-chip{font-size:11px;border:1px solid var(--border2);border-radius:12px;padding:2px 9px;color:var(--text2);background:var(--bg3)}
+.weak-field-chip.bad{background:#fee2e2;border-color:rgba(192,57,43,.2);color:var(--red)}
+.weak-start-btn{width:100%;padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:12px;transition:opacity .15s}
+.weak-start-btn:hover{opacity:.85}
+
+/* ---- 復習ページ SRS モーダル ---- */
+.srs-modal-desc{font-size:13px;color:var(--text2);margin:0 0 16px;line-height:1.65}
+
+@media(max-width:700px){
+  .radar-wrap svg{max-width:min(100%,300px)}
+  .weak-mode-card{padding:14px 14px}
+}

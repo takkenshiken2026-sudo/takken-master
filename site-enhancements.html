@@ -1,0 +1,26 @@
+<!-- ===== 追加HTML: 弱点優先出題モーダル ===== -->
+<div id="weak-mode-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)" onclick="if(event.target===this)closeWeakMode()">
+  <div style="background:#fff;border-radius:16px;padding:24px;max-width:420px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.3)">
+    <div style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px">弱点集中対策</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.65">正答率が低い分野・問題を中心に出題します。苦手を集中的に克服しましょう。</div>
+    <div id="weak-mode-analysis"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px">
+      <button onclick="closeWeakMode()" style="padding:10px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font)">閉じる</button>
+      <button onclick="startWeakModeQuiz()" style="padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font)">スタート</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 追加HTML: SRS セッション通知 (スタート画面に差し込まれる) ===== -->
+<div id="srs-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)" onclick="if(event.target===this)closeSrsModal()">
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:480px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:var(--sh2)">
+    <div class="srs-review-kicker">スペースドリペティション</div>
+    <h2 class="section-label" style="margin-bottom:8px">復習スケジュール</h2>
+    <p class="srs-modal-desc">忘却曲線に基づいて、今日復習すべき問題を表示しています。</p>
+    <div id="srs-queue-list"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px">
+      <button onclick="closeSrsModal()" style="padding:10px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font)">閉じる</button>
+      <button onclick="startSrsQuiz()" id="srs-start-btn" style="padding:10px;border:none;border-radius:var(--r);background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font)">まとめて復習する</button>
+    </div>
+  </div>
+</div>
