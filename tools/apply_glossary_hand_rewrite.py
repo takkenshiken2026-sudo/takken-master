@@ -26,8 +26,11 @@ def apply_hand(row: dict[str, str], overrides: dict[str, str]) -> dict[str, str]
     base = {**row, **overrides}
     if norm(overrides.get("definition")):
         base["short_def"] = _first_sentence(overrides["definition"])
-    if norm(overrides.get("detail_body")) and "explanation" not in overrides:
-        base["explanation"] = norm(overrides["detail_body"])
+    if norm(overrides.get("detail_body")):
+        detail = norm(overrides["detail_body"])
+        base["term_detail_body"] = detail
+        if "explanation" not in overrides:
+            base["explanation"] = detail
     # 手書き適用後は FAQ を手書き内容から再生成
     for key in (
         "faq_1_question",
@@ -41,8 +44,7 @@ def apply_hand(row: dict[str, str], overrides: dict[str, str]) -> dict[str, str]
         "summary_points",
     ):
         base[key] = ""
-    enriched = enrich_glossary_item(base)
-    return build_row(enriched)
+    return build_row(base)
 
 
 def main() -> int:

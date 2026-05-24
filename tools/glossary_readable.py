@@ -102,11 +102,22 @@ def build_concrete_example(item: dict[str, str]) -> str:
     )
 
 
+def _summary_core_sentence(item: dict[str, str]) -> str:
+    """要点の核となる文（短い暗記用語句より定義文を優先）。"""
+    definition = norm(item.get("definition") or "")
+    short = norm(item.get("short_def") or "")
+    if definition and len(definition) >= 28:
+        return _first_sentence(definition, max_len=140)
+    if short and len(short) >= 28 and "：" not in short[:20]:
+        return _first_sentence(short, max_len=140)
+    if definition:
+        return _first_sentence(definition, max_len=140)
+    return _first_sentence(short, max_len=140)
+
+
 def build_summary_points(item: dict[str, str]) -> str:
     """まず押さえる要点（定義＋具体例）。"""
-    core = _first_sentence(
-        item.get("definition") or item.get("short_def") or "", max_len=140
-    )
+    core = _summary_core_sentence(item)
     if not core:
         core = f"{norm(item.get('term'))}の基本的な意味と、試験で問われるポイントを整理します。"
     example = build_concrete_example(item)
@@ -121,7 +132,9 @@ def build_memory_guide(item: dict[str, str]) -> str:
     if "◆" in raw_tip:
         m = re.search(r"ひとことで覚える\s*(.+?)(?=\n*◆|\Z)", raw_tip, re.DOTALL)
         tip = m.group(1).strip() if m else raw_tip.split("◆")[0].strip()
-    elif tip:
+    tip = re.sub(r"^(◆\s*ひとことで覚える\s*)+", "", tip).strip()
+    tip = re.sub(r"ひとことで覚える\s*ひとことで覚える", "ひとことで覚える", tip)
+    if tip:
         tip = to_plain_style(tip)
     pts = split_points_semicolon(norm(item.get("exam_points")))
     mistakes = to_plain_style(norm(item.get("common_mistakes")))

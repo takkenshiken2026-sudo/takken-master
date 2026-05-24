@@ -20,6 +20,7 @@ def run(script: str) -> None:
 def main() -> int:
     run("apply_glossary_hand_rewrite.py")
     run("apply_glossary_readability_pass.py")
+    run("apply_glossary_pro_pass.py")
     run("attach_glossary_examples.py")
     run("build_glossary_pages.py")
     run("csv_to_takken_glossary_js.py")

@@ -244,15 +244,21 @@ def enrich_glossary_item(item: dict[str, str]) -> dict[str, str]:
     term = norm(out.get("term"))
 
     out["short_def"] = short_def
-    out["term_detail_body"] = detail_extra if detail_extra else definition
     out["article_title"] = norm(out.get("article_title")) or build_article_title(
         term, norm(out.get("category"))
     )
     out["article_lead"] = norm(out.get("article_lead")) or build_article_lead(out)
-    if detail_extra and detail_extra != definition:
+
+    existing_detail = norm(out.get("term_detail_body") or "")
+    if len(existing_detail) >= 72 and (
+        "【試験・実務の着眼点】" in existing_detail
+        or len(existing_detail) > len(definition) + 40
+    ):
+        out["term_detail_body"] = existing_detail
+    elif detail_extra and detail_extra != definition:
         out["term_detail_body"] = f"{definition}\n\n{detail_extra}"
     else:
-        out["term_detail_body"] = definition
+        out["term_detail_body"] = detail_extra if detail_extra else definition
     out["explanation"] = exam_expl
     return out
 
