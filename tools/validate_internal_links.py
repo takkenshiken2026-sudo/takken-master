@@ -181,9 +181,14 @@ class InternalLinkValidator:
         if target is None:
             return
         if not target.is_file():
+            try:
+                rel = target.relative_to(ROOT)
+            except ValueError:
+                self.error(page, f"リンク切れ: href={href!r} がサイト外を指しています")
+                return
             self.error(
                 page,
-                f"リンク切れ: href={href!r} → {target.relative_to(ROOT)} が見つかりません",
+                f"リンク切れ: href={href!r} → {rel.as_posix()} が見つかりません",
             )
             return
         if target.resolve() not in self.existing:

@@ -95,16 +95,28 @@ def redirect_privacy() -> None:
 def redirect_practice_to_orig() -> int:
     """旧 q/practice/ を q/orig/ へリダイレクト（リンク切れ防止）。"""
     practice = ROOT / "q" / "practice"
-    if not practice.is_dir():
-        return 0
+    practice.mkdir(parents=True, exist_ok=True)
     write_redirect(practice / "index.html", "/q/orig/")
     count = 1
+    seen: set[str] = set()
     for path in sorted(practice.glob("p*/index.html")):
         num = path.parent.name[1:]
-        if not num.isdigit():
+        if not num.isdigit() or num in seen:
             continue
+        seen.add(num)
         write_redirect(path, f"/q/orig/id{num}/")
         count += 1
+    csv_path = ROOT / "data" / "practice_questions.csv"
+    if csv_path.is_file():
+        with csv_path.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                qno = (row.get("question_no") or "").strip()
+                if not qno.isdigit() or qno in seen:
+                    continue
+                seen.add(qno)
+                stub = practice / f"p{qno}" / "index.html"
+                write_redirect(stub, f"/q/orig/id{qno}/")
+                count += 1
     return count
 
 
