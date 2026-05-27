@@ -123,7 +123,7 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
     related = related_terms_html(page, rel_path)
     adj = nav_adjacent_html(page, rel_path)
     hubs = practice_hub_links_html(page, rel_path)
-    site_header = site_page_header(rel_path, current="q")
+    site_header = site_page_header(rel_path, current="practice")
     site_breadcrumb = breadcrumb_html(
         rel_path,
         [
@@ -134,7 +134,7 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
             (title_mid, None),
         ],
     )
-    site_footer = site_page_footer(rel_path, current="q")
+    site_footer = site_page_footer(rel_path, current="practice")
     app_href = html.escape(rel_href(rel_path, f"index.html#orig-play-{page['question_id']}"))
 
     return f"""<!DOCTYPE html>

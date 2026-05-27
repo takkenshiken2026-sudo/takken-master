@@ -192,12 +192,12 @@ def build_orig_q_index(pages: list[dict], base_url: str) -> str:
     ]
 
     rel_path = Path("q/orig/index.html")
-    header = site_page_header(rel_path, current="q")
+    header = site_page_header(rel_path, current="practice")
     crumb = breadcrumb_html(
         rel_path,
         [("トップ", "index.html"), ("問題一覧", "q/index.html"), ("実践演習", None)],
     )
-    footer = site_page_footer(rel_path, current="q")
+    footer = site_page_footer(rel_path, current="practice")
     trust = trust_table_html(anchor_id="trust", compact=True)
 
     page_title = f"実践演習一覧｜{brand_name()}（{exam_name()}）"

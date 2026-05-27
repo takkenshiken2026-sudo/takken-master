@@ -66,7 +66,7 @@ LEARNING_NAV_ITEMS: list[tuple[str, str, str, str]] = [
     (
         "tnav-past",
         "過去問",
-        "q/index.html",
+        "#past",
         '<svg viewBox="0 0 16 16"><path d="M3 2h10v12H3z"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>',
     ),
     (
@@ -95,16 +95,15 @@ LEARNING_NAV_ITEMS: list[tuple[str, str, str, str]] = [
     ),
 ]
 
-# site_page_header(current=...) で学習ナビの active を付ける
-# 過去問一覧（q）はフッター「過去問一覧」と対応。ヘッダー「過去問」は SPA 演習用のため active にしない。
+# site_page_header(current=...) で学習ナビの active を付ける。
+# ヘッダー「過去問」は SPA 演習（#past）。フッター「過去問一覧」（q/index.html）とは別コンテンツのため q は含めない。
 LEARNING_NAV_ACTIVE_BY_PAGE: dict[str, str] = {
     "terms": "tnav-glossary",
-    "q": "tnav-past",
     "practice": "tnav-orig",
     "ichimon": "tnav-ichimondou",
 }
 
-# ヘッダー学習ナビで既に active になるページでは、フッター同項目の aria-current を付けない（二重ハイライト防止）
+# ヘッダー・フッターが同じ静的一覧を指す項目では、フッター側 aria-current を抑制（二重ハイライト防止）
 FOOTER_SUPPRESS_CURRENT_WHEN_HEADER: frozenset[str] = frozenset(LEARNING_NAV_ACTIVE_BY_PAGE.keys())
 
 
