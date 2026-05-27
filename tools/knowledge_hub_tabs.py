@@ -1,34 +1,25 @@
 # -*- coding: utf-8 -*-
-"""知識ハブ（用語解説 / 頻出・得点源 / 比較 / 数値早見 / よくある誤答）のタブナビ。"""
+"""知識ハブ（用語解説 / 比較 / 数値早見 / よくある誤答）のタブナビ。"""
 
 from __future__ import annotations
 
 import html
 
-HUB_SECTIONS: tuple[str, ...] = ("terms", "priority", "compare", "numbers", "mistakes")
+HUB_SECTIONS: tuple[str, ...] = ("terms", "compare", "numbers", "mistakes")
 
 HUB_TABS: tuple[tuple[str, str], ...] = (
     ("terms", "用語解説"),
-    ("priority", "頻出・得点源"),
     ("compare", "比較・整理表"),
     ("numbers", "数値・期限早見表"),
     ("mistakes", "よくある誤答"),
 )
 
-IMPORTANCE_LABELS: dict[str, str] = {
-    "S": "得点源",
-    "A": "頻出",
-}
-
-PRIORITY_IMPORTANCE_LEVELS: frozenset[str] = frozenset({"S", "A"})
-
 
 def knowledge_hub_tab_hrefs(*, here: str) -> dict[str, str]:
-    """here: terms / priority / compare / numbers / mistakes（samples 等は terms 配下の sibling として扱う）。"""
+    """here: terms / compare / numbers / mistakes（samples 等は terms 配下の sibling として扱う）。"""
     if here not in HUB_SECTIONS:
         return {
             "terms_href": "../index.html",
-            "priority_href": "../priority/index.html",
             "compare_href": "../compare/index.html",
             "numbers_href": "../numbers/index.html",
             "mistakes_href": "../mistakes/index.html",
@@ -75,7 +66,7 @@ def knowledge_hub_tabs_html(*, current: str, **hrefs: str) -> str:
 
     note = (
         '<p class="q-study-modes-note">'
-        "用語の意味確認、得点源・頻出語の整理、似た制度の比較、数値・期限の早見、よくある誤答の確認を、このセクションでまとめて行えます。"
+        "用語の意味確認、似た制度の比較、数値・期限の早見、よくある誤答の確認を、このセクションでまとめて行えます。"
         "タブから他のコンテンツへ移動できます。"
         "</p>"
     )

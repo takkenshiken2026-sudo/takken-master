@@ -104,6 +104,9 @@ LEARNING_NAV_ACTIVE_BY_PAGE: dict[str, str] = {
     "ichimon": "tnav-ichimondou",
 }
 
+# ヘッダー学習ナビで既に active になるページでは、フッター同項目の aria-current を付けない（二重ハイライト防止）
+FOOTER_SUPPRESS_CURRENT_WHEN_HEADER: frozenset[str] = frozenset(LEARNING_NAV_ACTIVE_BY_PAGE.keys())
+
 
 def _in_q_section(rel_path: Path) -> bool:
     return bool(rel_path.parts) and rel_path.parts[0] == "q"
@@ -118,17 +121,21 @@ def html_rel_href(from_file: str, to_site_rel: str) -> str:
     to_s = [p for p in to.split("/") if p]
     if from_s == to_s:
         return to_s[-1]
-    if len(from_s) == 1:
-        return "/".join(to_s)
+    from_dir = from_s[:-1] if from_s and from_s[-1].endswith(".html") else from_s
+    to_dir = to_s[:-1] if to_s and to_s[-1].endswith(".html") else to_s
+    if from_dir == to_dir and to_s:
+        return to_s[-1]
+    if to_s == ["index.html"] and not to_dir:
+        if not from_dir:
+            return "index.html"
+        return "/".join([".."] * len(from_dir) + ["index.html"])
     i = 0
-    while i < len(from_s) - 1 and i < len(to_s) and from_s[i] == to_s[i]:
+    while i < len(from_dir) and i < len(to_dir) and from_dir[i] == to_dir[i]:
         i += 1
     if i == 0 and len(to_s) == 1:
-        ups = len(from_s) - 1
-    elif i == 0:
-        ups = len(from_s)
+        ups = len(from_dir)
     else:
-        ups = len(from_s) - i
+        ups = len(from_dir) - i
     downs = to_s[i:]
     out = "/".join([".."] * ups + downs)
     return out or "."
@@ -304,7 +311,10 @@ def site_shell_footer(
     title = html.escape(f"{brand_name()}（{exam_name()}対策）トップへ")
     links: list[str] = []
     for label, dest, key in SITE_FOOTER_NAV:
-        is_current = bool(current and key == current)
+        suppress_footer_current = bool(
+            current and key == current and key in FOOTER_SUPPRESS_CURRENT_WHEN_HEADER
+        )
+        is_current = bool(current and key == current and not suppress_footer_current)
         cur = ' aria-current="page"' if is_current else ""
         if dest.startswith("http"):
             href = dest

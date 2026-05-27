@@ -19,6 +19,7 @@ CONTENT_DATE_COLUMNS: tuple[str, ...] = (
 SITEMAP_EXCLUDED_REL_PREFIXES: tuple[str, ...] = (
     "terms/samples/",
     "terms/diagram-samples/",
+    "terms/priority/",
 )
 
 SITEMAP_EXCLUDED_BASENAMES: frozenset[str] = frozenset(

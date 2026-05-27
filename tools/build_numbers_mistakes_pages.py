@@ -29,7 +29,9 @@ from tools.build_glossary_pages import (  # noqa: E402
     custom_faq_items,
     faq_items_for_term,
     faq_section_html,
+    field_hub_slug,
     load_glossary_rows,
+    load_guide_slugs,
     make_term_lookup,
     meta_description,
     multi_paragraph_html,
@@ -37,10 +39,27 @@ from tools.build_glossary_pages import (  # noqa: E402
     ordered_term_categories,
     parse_term_tags,
     public_url,
+    rel_css,
+    rel_theme_css,
     semicolon_field_html,
     semicolon_list_html,
     split_semicolon,
     term_slug,
+)
+from tools.glossary_past_questions import past_questions_section_html  # noqa: E402
+from tools.knowledge_hub_seo import (  # noqa: E402
+    build_numbered_sections,
+    find_past_questions_for_hub,
+    hub_article_json_ld,
+    hub_breadcrumb_json_ld,
+    hub_detail_breadcrumb,
+    hub_guide_links,
+    hub_meta_line,
+    hub_next_links_html,
+    official_info_html,
+    seo_action_box_html,
+    seo_quality_panel_html,
+    seo_toc_html,
 )
 from tools.html_footer import (  # noqa: E402
     ROBOTS_INDEX_FOLLOW,
@@ -52,7 +71,7 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_open,
 )
 from tools.knowledge_hub_tabs import knowledge_hub_tab_hrefs, knowledge_hub_tabs_html  # noqa: E402
-from tools.seo_utils import content_date_from_row, json_ld_date_modified, meta_updated_html  # noqa: E402
+from tools.seo_utils import content_date_from_row, meta_updated_html  # noqa: E402
 from tools.site_config import brand_name, clean_origin, exam_name  # noqa: E402
 
 BASE_DEFAULT = clean_origin()
@@ -298,6 +317,7 @@ def build_detail_html(
     rel_path: Path,
     base_url: str,
     term_lookup: dict[str, str],
+    guides: list[dict[str, str]],
     *,
     matrix_html_fn: Callable[[list[dict], str], str],
 ) -> str:
@@ -332,13 +352,12 @@ def build_detail_html(
 
     page_header = site_page_header(rel_path, current="terms")
     page_footer = site_page_footer(rel_path, current="terms")
-    page_breadcrumb = (
-        '<nav class="site-page-header-crumb" aria-label="パンくず">'
-        '<ol class="q-breadcrumb">'
-        '<li><a href="../../index.html">トップ</a></li>'
-        f'<li><a href="index.html">{html.escape(spec.breadcrumb_label)}</a></li>'
-        f'<li aria-current="page">{html.escape(title_text)}</li>'
-        "</ol></nav>"
+    hub_index_rel = f"{spec.out_dir.relative_to(ROOT).as_posix()}/index.html"
+    page_breadcrumb = hub_detail_breadcrumb(
+        rel_path,
+        hub_index_label=spec.breadcrumb_label,
+        title=title_text,
+        category=category,
     )
     tabs_html = knowledge_hub_tabs_html(current=spec.tabs_current, **knowledge_hub_tab_hrefs(here=spec.tabs_current))
     rel_section = related_terms_links_html(related, term_lookup)
@@ -358,89 +377,87 @@ def build_detail_html(
         + "</tbody></table></section>"
     )
 
-    graph: list[dict] = [
-        {
-            "@type": "Article",
-            "@id": canonical + "#article",
-            "headline": article_title,
-            "description": desc,
-            "url": canonical,
-            **json_ld_date_modified(updated),
-            "inLanguage": "ja-JP",
-            "author": {"@type": "Organization", "name": brand_name() + "編集部"},
-        },
-        {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "トップ",
-                    "item": public_url(base_url, "index.html"),
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": spec.breadcrumb_label,
-                    "item": public_url(base_url, f"{spec.out_dir.relative_to(ROOT).as_posix()}/index.html"),
-                },
-                {"@type": "ListItem", "position": 3, "name": title_text, "item": canonical},
-            ],
-        },
-    ]
-    if faq_items:
-        graph.append(
-            {
-                "@type": "FAQPage",
-                "@id": canonical + "#faq",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": item["question"],
-                        "acceptedAnswer": {"@type": "Answer", "text": item["answer"]},
-                    }
-                    for item in faq_items
-                ],
-            }
-        )
+    extra_terms = [detail_line] if detail_line else []
+    if spec.hub_id == "numbers":
+        extra_terms.extend(r.get("item") or "" for r in entry["detail_rows"][:5])
+    elif spec.hub_id == "mistakes":
+        extra_terms.extend(r.get("topic") or "" for r in entry["detail_rows"][:5])
 
-    next_links = (
-        '<div class="related-box" aria-labelledby="hub-next-title">'
-        '<div id="hub-next-title" class="related-box-title">次に確認するページ</div>'
-        '<div class="related-links">'
-        f'<a class="related-link" href="index.html">{html.escape(spec.breadcrumb_label)}一覧へ戻る</a>'
-        '<a class="related-link" href="../index.html">用語解説一覧</a>'
-        '<a class="related-link" href="../../q/index.html">過去問演習で確認する</a>'
-        "</div></div>"
+    content_sections_html, body_toc = build_numbered_sections(
+        [
+            ("matrix", spec.table_section_title, matrix_html),
+            ("points", "試験で押さえるポイント", points_html),
+            ("mistakes", "よくある誤解・注意点", mistakes_html),
+            ("memory", "覚え方・整理のコツ", memory_html),
+        ]
     )
+    past_hits = find_past_questions_for_hub(
+        title=title_text,
+        related_terms=related,
+        extra_terms=extra_terms,
+        limit=3,
+    )
+    past_section = past_questions_section_html(
+        past_hits,
+        rel_path,
+        section_num=len(body_toc) + 1,
+    )
+    if past_section:
+        content_sections_html = f"{content_sections_html}\n    {past_section}" if content_sections_html else past_section
+        body_toc.append(("term-past-title", "関連する過去問"))
 
-    points_section = ""
-    if points_html:
-        points_section = (
-            '<section class="seo-article-section" aria-labelledby="hub-sec-points">'
-            '<h2 id="hub-sec-points"><span class="section-heading-num">2</span>試験で押さえるポイント</h2>'
-            f"{points_html}</section>"
-        )
-    mistakes_section = ""
-    if mistakes_html:
-        mistakes_section = (
-            '<section class="seo-article-section" aria-labelledby="hub-sec-mistakes">'
-            '<h2 id="hub-sec-mistakes"><span class="section-heading-num">3</span>よくある誤解・注意点</h2>'
-            f"{mistakes_html}</section>"
-        )
-    memory_section = ""
-    if memory_html:
-        memory_section = (
-            '<section class="seo-article-section" aria-labelledby="hub-sec-memory">'
-            '<h2 id="hub-sec-memory"><span class="section-heading-num">4</span>覚え方・整理のコツ</h2>'
-            f"{memory_html}</section>"
-        )
     faq_section = ""
     if faq_html:
         faq_section = (
             '<section class="seo-article-section" aria-labelledby="hub-sec-faq">'
             f'<h2 id="hub-sec-faq">よくある質問</h2>{faq_html}</section>'
         )
+
+    quality_html = seo_quality_panel_html(updated=updated)
+    action_html = seo_action_box_html(subject=title_text, hub_label=spec.hub_label)
+    official_html = official_info_html(subject=title_text)
+    guide_links = hub_guide_links(category, guides)
+    next_links = hub_next_links_html(
+        rel_path,
+        hub_type=spec.hub_id,
+        hub_index_label=spec.breadcrumb_label,
+        category=category,
+        guide_links=guide_links,
+    )
+
+    toc_items: list[tuple[str, str]] = [
+        ("quality-panel-title", "この記事の信頼性について"),
+        ("action-box-title", "この記事でできること"),
+        *body_toc,
+    ]
+    if faq_section:
+        toc_items.append(("hub-sec-faq", "よくある質問"))
+    toc_items.append(("hub-info-title", "記事の基本情報"))
+    toc_items.append(("official-info-title", "公式情報の確認"))
+    if rel_section:
+        toc_items.append(("hub-related-title", "関連用語"))
+    toc_items.append(("hub-next-title", "次に確認するページ"))
+    toc_html = seo_toc_html(toc_items)
+
+    graph = hub_article_json_ld(
+        canonical=canonical,
+        page_title=page_title,
+        article_title=article_title,
+        desc=desc,
+        updated=updated,
+        breadcrumb_items=hub_breadcrumb_json_ld(
+            base_url=base_url,
+            hub_index_name=spec.breadcrumb_label,
+            hub_index_url=hub_index_rel,
+            title=title_text,
+            canonical=canonical,
+            category=category,
+            field_hub=field_hub_slug(category) if category else "",
+        ),
+        faq_items=faq_items or None,
+    )
+    hub_short = spec.hub_label[:2]
+    meta_line = hub_meta_line(hub_short=hub_short, category=category)
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -460,8 +477,8 @@ def build_detail_html(
 {json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)}
 </script>
 {HEAD_FONTS}
-<link rel="stylesheet" href="../../site-pages.css?v={TERMS_INDEX_CSS_VER}">
-<link rel="stylesheet" href="../../site-theme.css">
+<link rel="stylesheet" href="{html.escape(rel_css(rel_path))}">
+<link rel="stylesheet" href="{html.escape(rel_theme_css(rel_path))}">
 </head>
 <body class="{shell_body_class(spec.article_body_class)}">
 {site_page_wrap_open()}
@@ -473,19 +490,17 @@ def build_detail_html(
     <div class="article-meta">
       <span class="meta-category">{html.escape(spec.hub_label)}</span>
       {meta_updated_html(updated)}
-      <span class="meta-updated"><span class="q-id">{html.escape(spec.hub_label[:2])}</span> · <span>{html.escape(category)}</span> · <span>{html.escape(detail_line)}</span></span>
+      <span class="meta-updated">{meta_line} · <span>{html.escape(detail_line)}</span></span>
     </div>
     <h1 class="article-title">{html.escape(article_title)}</h1>
     {multi_paragraph_html(article_lead)}
-    <section class="seo-article-section" aria-labelledby="hub-sec-matrix">
-      <h2 id="hub-sec-matrix"><span class="section-heading-num">1</span>{html.escape(spec.table_section_title)}</h2>
-      {matrix_html}
-    </section>
-    {points_section}
-    {mistakes_section}
-    {memory_section}
+    {toc_html}
+    {quality_html}
+    {action_html}
+    {content_sections_html}
     {faq_section}
     {info_table}
+    {official_html}
     {rel_section}
     {next_links}
   </article>
@@ -740,6 +755,7 @@ def build_hub(
     base_url: str,
     row_parser: Callable[[str, int], list[dict]],
     matrix_html_fn: Callable[[list[dict], str], str],
+    guides: list[dict[str, str]],
 ) -> int:
     entries = load_hub_rows(spec, row_parser=row_parser)
     term_lookup = glossary_term_lookup()
@@ -752,7 +768,15 @@ def build_hub(
         out_file = spec.out_dir / entry["slug_file"]
         rel_path = out_file.relative_to(ROOT)
         out_file.write_text(
-            build_detail_html(spec, entry, rel_path, base_url, term_lookup, matrix_html_fn=matrix_html_fn),
+            build_detail_html(
+                spec,
+                entry,
+                rel_path,
+                base_url,
+                term_lookup,
+                guides,
+                matrix_html_fn=matrix_html_fn,
+            ),
             encoding="utf-8",
         )
 
@@ -763,8 +787,21 @@ def build_hub(
 
 
 def build_all(*, base_url: str = BASE_DEFAULT) -> int:
-    n1 = build_hub(NUMBERS_SPEC, base_url=base_url, row_parser=parse_numbers_rows, matrix_html_fn=numbers_matrix_table_html)
-    n2 = build_hub(MISTAKES_SPEC, base_url=base_url, row_parser=parse_mistakes_rows, matrix_html_fn=mistakes_matrix_table_html)
+    guides = load_guide_slugs()
+    n1 = build_hub(
+        NUMBERS_SPEC,
+        base_url=base_url,
+        row_parser=parse_numbers_rows,
+        matrix_html_fn=numbers_matrix_table_html,
+        guides=guides,
+    )
+    n2 = build_hub(
+        MISTAKES_SPEC,
+        base_url=base_url,
+        row_parser=parse_mistakes_rows,
+        matrix_html_fn=mistakes_matrix_table_html,
+        guides=guides,
+    )
     return n1 + n2
 
 

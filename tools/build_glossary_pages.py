@@ -411,7 +411,13 @@ GUIDE_LINK_FALLBACK_SLUGS = (
 )
 
 
-def guide_related_link_items(category: str, guides: list[dict[str, str]], *, limit: int = 3) -> list[str]:
+def guide_related_link_items(
+    category: str,
+    guides: list[dict[str, str]],
+    *,
+    limit: int = 3,
+    articles_prefix: str = "../articles/",
+) -> list[str]:
     if not guides:
         return []
     by_slug = {g["slug"]: g for g in guides}
@@ -425,7 +431,7 @@ def guide_related_link_items(category: str, guides: list[dict[str, str]], *, lim
             if slug not in seen:
                 seen.add(slug)
                 picked.append(
-                    f'<a class="related-link" href="../articles/{html.escape(slug)}/">'
+                    f'<a class="related-link" href="{articles_prefix}{html.escape(slug)}/">'
                     f"{html.escape(g['title'])}</a>"
                 )
         if len(picked) >= limit:
@@ -438,7 +444,7 @@ def guide_related_link_items(category: str, guides: list[dict[str, str]], *, lim
             continue
         seen.add(slug)
         picked.append(
-            f'<a class="related-link" href="../articles/{html.escape(slug)}/">'
+            f'<a class="related-link" href="{articles_prefix}{html.escape(slug)}/">'
             f"{html.escape(g['title'])}</a>"
         )
     return picked
@@ -1331,9 +1337,9 @@ def main() -> int:
     build_compare_pages(base_url=base)
     build_numbers_mistakes_pages(base_url=base)
 
-    from tools.build_priority_pages import build_all as build_priority_pages
+    from tools.build_priority_pages import build_all as build_priority_redirects
 
-    build_priority_pages(entries=entries, base_url=base)
+    build_priority_redirects()
 
     print(f"Wrote {len(entries)} term pages under {TERMS_DIR}")
     print(f"Wrote {hub_count} field hub pages under {TERMS_DIR}/field-*/")
