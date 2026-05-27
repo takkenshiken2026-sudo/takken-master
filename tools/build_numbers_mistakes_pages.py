@@ -660,7 +660,7 @@ def glossary_term_lookup() -> dict[str, str]:
         if legacy_slug:
             slug_file = f"{legacy_slug}.html"
         else:
-            slug_file = term_slug(term, used_slugs) + ".html"
+            slug_file = term_slug(term, row.get("reading") or "", used_slugs) + ".html"
         entries.append({"term": term, "slug_file": slug_file})
     return make_term_lookup(entries)
 

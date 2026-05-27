@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
 from tools.knowledge_hub_content.comparisons import COMPARISONS  # noqa: E402
 from tools.knowledge_hub_content.mistakes import MISTAKES  # noqa: E402
 from tools.knowledge_hub_content.numbers import NUMBERS  # noqa: E402
+from tools.knowledge_hub_content.related_terms_map import RELATED_TERMS_BY_TITLE  # noqa: E402
 
 DATE = "2026-05-27"
 
@@ -142,10 +143,27 @@ def _normalize_list_text(value: str) -> str:
     return value.replace("；", ";")
 
 
+def _prepare_row(raw: dict) -> dict:
+    row = _row_base(raw)
+    title = row.get("title") or ""
+    if title in RELATED_TERMS_BY_TITLE:
+        row["related_terms"] = RELATED_TERMS_BY_TITLE[title]
+    if isinstance(row.get("tags"), list):
+        row["tags"] = ";".join(str(t).strip() for t in row["tags"] if str(t).strip())
+    rt = row.get("related_terms")
+    if isinstance(rt, list):
+        row["related_terms"] = ";".join(str(t).strip() for t in rt if str(t).strip())
+    return row
+
+
 def _serialize_value(key: str, value: object) -> str:
     if value is None:
         return ""
     if key == "col_labels" and isinstance(value, list):
+        return ";".join(str(v).strip() for v in value if str(v).strip())
+    if key == "tags" and isinstance(value, list):
+        return ";".join(str(v).strip() for v in value if str(v).strip())
+    if key == "related_terms" and isinstance(value, list):
         return ";".join(str(v).strip() for v in value if str(v).strip())
     if key in {"exam_points", "common_mistakes"} and isinstance(value, str):
         return _normalize_list_text(value)
@@ -168,7 +186,7 @@ def _row_base(d: dict) -> dict:
 def write_csv(path: Path, fields: list[str], rows: list[dict], json_keys: list[str]) -> None:
     out: list[dict] = []
     for raw in rows:
-        row = _row_base(raw)
+        row = _prepare_row(raw)
         for key in json_keys:
             if key in row and not isinstance(row[key], str):
                 row[key] = _json_field(row[key])

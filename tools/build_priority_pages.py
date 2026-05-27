@@ -202,7 +202,7 @@ def build_priority_index(entries: list[dict], base_url: str) -> str:
     page_footer = site_page_footer(idx_path, current="terms", wide=True)
     page_breadcrumb = breadcrumb_html(
         idx_path,
-        [("トップ", "index.html"), ("用語解説", "../index.html"), ("頻出・得点源", None)],
+        [("トップ", "index.html"), ("用語解説", "terms/index.html"), ("頻出・得点源", None)],
     )
     tabs_html = knowledge_hub_tabs_html(current="priority", **knowledge_hub_tab_hrefs(here="priority"))
 

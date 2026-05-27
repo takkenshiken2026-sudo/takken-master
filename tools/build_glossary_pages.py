@@ -1010,7 +1010,7 @@ def build_field_hub_html(
     page_footer = site_page_footer(rel_path, current="terms")
     hub_tabs = knowledge_hub_tabs_html(
         current="terms",
-        **knowledge_hub_tab_hrefs(here="terms"),
+        **knowledge_hub_tab_hrefs(here="field"),
     )
     ld = {
         "@context": "https://schema.org",

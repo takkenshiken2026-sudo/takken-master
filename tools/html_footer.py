@@ -112,6 +112,8 @@ def _in_q_section(rel_path: Path) -> bool:
 def footer_href(rel_path: Path, site_rel: str) -> str:
     """rel_path: ROOT からの相対パス（例 q/past/y2025/q01/index.html）。site_rel: index.html / q/index.html 等。"""
     site_rel = site_rel.lstrip("/")
+    if site_rel.startswith(".."):
+        return site_rel
     parent = rel_path.parent
     parts = parent.parts
     if parent.as_posix() == "q" and site_rel == "q/index.html":
