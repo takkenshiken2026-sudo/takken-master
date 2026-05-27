@@ -434,7 +434,7 @@ def q_hub_links_html(rel_path: Path, *, current: str) -> str:
     items: list[tuple[str, str, str]] = [
         ("past", "過去問", "q/index.html"),
         ("practice", "実践演習", "q/orig/index.html"),
-        ("ichimon", "一問一答", "index.html#ichimondou"),
+        ("ichimon", "一問一答", "q/ichimon/index.html"),
     ]
     lis: list[str] = []
     for key, label, target in items:

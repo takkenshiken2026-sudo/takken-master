@@ -121,8 +121,14 @@ def redirect_practice_to_orig() -> int:
 
 
 def redirect_ichimon_hub() -> None:
-    """一問一答静的ハブが無い場合は SPA へ誘導。"""
-    write_redirect(ROOT / "q" / "ichimon" / "index.html", "/#ichimondou")
+    """一問一答静的ハブが無い場合のみ SPA へ誘導（既存の一覧ページは上書きしない）。"""
+    path = ROOT / "q" / "ichimon" / "index.html"
+    if not path.is_file():
+        write_redirect(path, "/#ichimondou")
+        return
+    head = path.read_text(encoding="utf-8", errors="replace")[:800]
+    if "refresh" in head.lower() and "0;url=" in head.lower():
+        write_redirect(path, "/#ichimondou")
 
 
 def main() -> int:
