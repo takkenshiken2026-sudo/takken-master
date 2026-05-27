@@ -25,13 +25,20 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.articles_affiliate_courses import affiliate_pr_notice_html  # noqa: E402
 from tools.articles_self_study_hard import (  # noqa: E402
     SELF_STUDY_HARD_CSV_ROW,
     SELF_STUDY_HARD_SLUG,
-    affiliate_pr_notice_html,
     self_study_hard_toc_html,
     self_study_hero_html,
     self_study_sections_html,
+)
+from tools.articles_tsushin_osusume import (  # noqa: E402
+    TSUSHIN_OSUSUME_CSV_ROW,
+    TSUSHIN_OSUSUME_SLUG,
+    tsushin_hero_html,
+    tsushin_osusume_toc_html,
+    tsushin_sections_html,
 )
 from tools.articles_textbook_osusume import (  # noqa: E402
     TEXTBOOK_OSUSUME_SLUG,
@@ -409,7 +416,8 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
     tags = split_semicolon(apply_vars(article.get("tags", "")))
     is_textbook = slug == TEXTBOOK_OSUSUME_SLUG
     is_self_study_hard = slug == SELF_STUDY_HARD_SLUG
-    pr_notice = affiliate_pr_notice_html() if is_self_study_hard else ""
+    is_tsushin_osusume = slug == TSUSHIN_OSUSUME_SLUG
+    pr_notice = affiliate_pr_notice_html() if (is_self_study_hard or is_tsushin_osusume) else ""
     if is_textbook:
         hero = textbook_hero_html()
         sections = textbook_sections_html()
@@ -418,6 +426,10 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
         hero = self_study_hero_html()
         sections = self_study_sections_html()
         toc = self_study_hard_toc_html(bool(faq_items(article)))
+    elif is_tsushin_osusume:
+        hero = tsushin_hero_html()
+        sections = tsushin_sections_html()
+        toc = tsushin_osusume_toc_html(bool(faq_items(article)))
     else:
         hero = ""
         sections = sections_html(article)
@@ -701,6 +713,8 @@ def load_articles() -> list[dict[str, str]]:
         rows.append(TEXTBOOK_OSUSUME_CSV_ROW)
     if SELF_STUDY_HARD_SLUG not in slugs:
         rows.append(SELF_STUDY_HARD_CSV_ROW)
+    if TSUSHIN_OSUSUME_SLUG not in slugs:
+        rows.append(TSUSHIN_OSUSUME_CSV_ROW)
     return sorted(rows, key=lambda x: int(norm(x.get("priority")) or 9999))
 
 

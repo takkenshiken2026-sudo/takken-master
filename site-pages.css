@@ -4094,6 +4094,119 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
     grid-template-columns: 1fr;
   }
 }
+.affiliate-course-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 22px;
+}
+.affiliate-course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  background: var(--bg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--sh);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.affiliate-course-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+.affiliate-course-card-rank {
+  align-self: flex-start;
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  color: var(--accent-emphasis);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.affiliate-course-card-media {
+  overflow: hidden;
+  border-radius: var(--r);
+  background: var(--bg2);
+  aspect-ratio: 16 / 9;
+}
+.affiliate-course-card-media .affiliate-course-section-image {
+  max-height: none;
+  height: 100%;
+  object-fit: contain;
+}
+.affiliate-course-card-name {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+}
+.affiliate-course-card-style,
+.affiliate-course-card-audience {
+  font-size: var(--fs-caption);
+  color: var(--text2);
+  line-height: 1.55;
+}
+.affiliate-course-card-cta {
+  margin-top: 4px;
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  color: var(--accent-emphasis);
+}
+.affiliate-course-compare-table .affiliate-course-table-rank {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--accent-emphasis);
+}
+.affiliate-course-table-thumb img,
+.affiliate-course-table-thumb .affiliate-course-placeholder {
+  width: 72px;
+  max-width: 72px;
+}
+.affiliate-course-table-thumb .affiliate-course-section-image {
+  max-height: 48px;
+}
+.affiliate-course-table-name {
+  font-weight: 700;
+}
+.affiliate-table-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-emphasis);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  border: 1px solid var(--accent-border);
+}
+.affiliate-course-placeholder--thumb {
+  width: 72px;
+  min-height: 48px;
+  padding: 6px;
+}
+.affiliate-course-placeholder--thumb .affiliate-course-placeholder-name,
+.affiliate-course-placeholder--thumb .affiliate-course-placeholder-tag {
+  font-size: var(--fs-tiny);
+  line-height: 1.3;
+}
+@media (max-width: 760px) {
+  .affiliate-course-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .affiliate-course-compare-table {
+    display: none;
+  }
+}
+@media (min-width: 761px) {
+  .affiliate-course-card-grid {
+    display: none;
+  }
+}
 
 .related-box {
   background: var(--bg);

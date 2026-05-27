@@ -4,20 +4,16 @@
 from __future__ import annotations
 
 import html
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-COURSE_IMAGE_DIR = ROOT / "images" / "courses"
-COURSE_IMAGE_REL = "../../images/courses/"
+from tools.articles_affiliate_courses import (
+    COURSE_PRODUCTS,
+    affiliate_cta,
+    affiliate_pr_notice_html,
+    course_hero_html,
+    course_section,
+)
 
 SELF_STUDY_HARD_SLUG = "takken-jikugaku-kitsui"
-
-COURSE_IMAGE_SIZES: dict[str, tuple[int, int]] = {
-    "shikakutaisaku": (700, 329),
-    "onsuku": (545, 307),
-    "square": (800, 418),
-    "yotsuya": (960, 402),
-}
 
 SELF_STUDY_HARD_CSV_ROW = {
     "slug": SELF_STUDY_HARD_SLUG,
@@ -77,6 +73,7 @@ SELF_STUDY_HARD_CSV_ROW = {
         "有料サービスは独学の弱点を補う位置づけで使い、宅建業法と過去問演習は自分でも続けましょう。"
     ),
     "related_links": (
+        "takken-tsushin-osusume:宅建の通信講座おすすめ4選【2026年版】;"
         "takken-ocita:宅建に落ちた・不合格だった場合の対策と再受験の進め方;"
         "takken-chokuzen:宅建試験の直前対策｜1ヶ月・1週間・前日でやること;"
         "takken-dokugaku:宅建を独学で合格する方法;"
@@ -97,168 +94,16 @@ SELF_STUDY_TOC_EXTRA = [
     ("summary", "まとめ"),
 ]
 
-COURSE_PRODUCTS: list[dict[str, str]] = [
-    {
-        "id": "shikakutaisaku",
-        "rank": "第一候補",
-        "name": "資格対策ドットコム",
-        "tag": "低価格オンライン",
-        "href": (
-            "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRY3OY+3L4C+BW0YB"
-            "&a8ejpredirect=https%3A%2F%2Fwww.shikakutaisaku.com%2Fpersonal%2Ftakken.html"
-        ),
-        "cta": "資格対策ドットコムの宅建講座を確認する",
-        "audience_short": "独学の補助として安く始めたい人",
-    },
-    {
-        "id": "onsuku",
-        "rank": "月額制",
-        "name": "オンスク.JP",
-        "tag": "まず安く試す",
-        "href": (
-            "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DUX9PU+408S+BW0YB"
-            "&a8ejpredirect=https%3A%2F%2Fonsuku.jp%2Ftraining%2Ftakkenshi"
-        ),
-        "cta": "オンスク.JPの宅建講座を確認する",
-        "audience_short": "月額制で試したい人",
-    },
-    {
-        "id": "square",
-        "rank": "通信講座",
-        "name": "資格スクエア",
-        "tag": "しっかり比較",
-        "href": (
-            "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB"
-            "&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken"
-        ),
-        "cta": "資格スクエアの宅建講座を確認する",
-        "audience_short": "講座として比較したい人",
-    },
-    {
-        "id": "yotsuya",
-        "rank": "サポート",
-        "name": "四谷学院",
-        "tag": "安心感重視",
-        "href": (
-            "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRCO36+5IEI+BW0YB"
-            "&a8ejpredirect=https%3A%2F%2Fyotsuyagakuin-tsushin.com%2Ftakken%2F"
-        ),
-        "cta": "四谷学院の宅建講座を確認する",
-        "audience_short": "サポートを重視したい人",
-    },
-]
-
-
-def _affiliate_attrs() -> str:
-    return 'target="_blank" rel="nofollow sponsored noopener noreferrer"'
-
-
-def resolve_course_image_src(product_id: str) -> str | None:
-    """WebP/JPG/PNG があれば相対パスを返す。なければ None（CSSプレースホルダー用）。"""
-    for ext in (".webp", ".jpg", ".jpeg", ".png"):
-        path = COURSE_IMAGE_DIR / f"course-{product_id}{ext}"
-        if path.is_file():
-            return f"{COURSE_IMAGE_REL}{path.name}"
-    return None
-
-
-def _course_image_html(
-    product: dict[str, str],
-    *,
-    hero: bool = False,
-    section: bool = False,
-    eager: bool = False,
-) -> str:
-    """講座バナー画像、またはプレースホルダー。"""
-    name = product["name"]
-    alt = html.escape(f"{name}の宅建講座")
-    src = resolve_course_image_src(product["id"])
-    width, height = COURSE_IMAGE_SIZES.get(product["id"], (640, 360))
-    if src:
-        if hero:
-            css = "affiliate-course-hero-image"
-            sizes = "(max-width: 760px) 42vw, 220px"
-        else:
-            css = "affiliate-course-section-image"
-            sizes = "(max-width: 760px) 100vw, 720px"
-        loading = "eager" if eager else "lazy"
-        priority = ' fetchpriority="high"' if eager else ""
-        return (
-            f'<img class="{css}" src="{html.escape(src)}" alt="{alt}" '
-            f'width="{width}" height="{height}" sizes="{sizes}" '
-            f'loading="{loading}" decoding="async"{priority}>'
-        )
-    if hero:
-        size = "affiliate-course-placeholder--hero"
-    else:
-        size = "affiliate-course-placeholder--section"
-    return (
-        f'<div class="affiliate-course-placeholder affiliate-course-placeholder--{product["id"]} {size}" '
-        f'role="img" aria-label="{alt}">'
-        f'<span class="affiliate-course-placeholder-name">{html.escape(name)}</span>'
-        f'<span class="affiliate-course-placeholder-tag">{html.escape(product["tag"])}</span>'
-        f"</div>"
-    )
-
-
-def affiliate_pr_notice_html() -> str:
-    return (
-        '<p class="affiliate-pr-notice" role="note">'
-        "この記事には広告・PR（アフィリエイト）を含みます。"
-        "</p>"
-    )
-
 
 def self_study_hero_html() -> str:
-    attrs = _affiliate_attrs()
-    items: list[str] = []
-    for index, product in enumerate(COURSE_PRODUCTS):
-        primary = " affiliate-course-hero-item--primary" if product["id"] == "shikakutaisaku" else ""
-        image = _course_image_html(product, hero=True, eager=index == 0)
-        items.append(
-            f"""<a class="affiliate-course-hero-item affiliate-course-hero-item--{product['id']}{primary}" href="{product['href']}" {attrs}>
-<span class="affiliate-course-hero-rank">{html.escape(product['rank'])}</span>
-<div class="affiliate-course-hero-media">{image}</div>
-<span class="affiliate-course-hero-name">{html.escape(product['name'])}</span>
-<span class="affiliate-course-hero-tag">{html.escape(product['tag'])}</span>
-</a>"""
-        )
-    return f"""
-<section class="affiliate-course-hero" id="affiliate-course-hero" aria-labelledby="affiliate-course-hero-title">
-<h2 id="affiliate-course-hero-title" class="affiliate-course-hero-heading">通信講座より安く始められる学習サービス</h2>
-<p class="affiliate-course-hero-note">バナーをタップすると各講座の詳細ページを開けます。主導線は<strong>資格対策ドットコム</strong>です。</p>
-<div class="affiliate-course-hero-grid" role="list">{"".join(items)}</div>
-<p class="affiliate-course-hero-foot"><a href="#pick-shikakutaisaku">各講座の特徴・比較はこちら</a></p>
-</section>""".strip()
-
-
-def _affiliate_cta(href: str, label: str) -> str:
-    return (
-        f'<p class="affiliate-cta-wrap">'
-        f'<a class="affiliate-cta-btn" href="{html.escape(href)}" {_affiliate_attrs()}>'
-        f"{html.escape(label)}</a></p>"
+    return course_hero_html(
+        section_id="affiliate-course-hero",
+        heading="通信講座より安く始められる学習サービス",
+        note_html="バナーをタップすると各講座の詳細ページを開けます。主導線は<strong>資格対策ドットコム</strong>です。",
+        products=COURSE_PRODUCTS,
+        foot_href="#pick-shikakutaisaku",
+        foot_label="各講座の特徴・比較はこちら",
     )
-
-
-def _course_section_visual(product: dict[str, str]) -> str:
-    attrs = _affiliate_attrs()
-    image = _course_image_html(product, section=True)
-    return (
-        f'<div class="affiliate-course-section-visual">'
-        f'<a class="affiliate-course-section-link" href="{product["href"]}" {attrs}>{image}</a>'
-        f"</div>"
-    )
-
-
-def _course_section(product: dict[str, str], section_num: int, heading: str, body_html: str) -> str:
-    anchor = f"pick-{product['id']}"
-    return f"""
-<section class="seo-article-section" aria-labelledby="{anchor}">
-<h2 id="{anchor}"><span class="section-heading-num">{section_num}</span>{html.escape(heading)}</h2>
-{_course_section_visual(product)}
-{body_html}
-{_affiliate_cta(product['href'], product['cta'])}
-</section>"""
 
 
 def self_study_sections_html() -> str:
@@ -363,12 +208,12 @@ def self_study_sections_html() -> str:
     return "\n".join(
         [
             intro,
-            _course_section(shikaku, 4, "第一候補：資格対策ドットコム", shikaku_body),
-            _course_section(onsuku, 5, "安さ重視ならオンスク.JP", onsuku_body),
-            _course_section(square, 6, "しっかり講座で比較したいなら資格スクエア", square_body),
-            _course_section(yotsuya, 7, "サポート重視なら四谷学院も候補", yotsuya_body),
+            course_section(shikaku, 4, "第一候補：資格対策ドットコム", shikaku_body),
+            course_section(onsuku, 5, "安さ重視ならオンスク.JP", onsuku_body),
+            course_section(square, 6, "しっかり講座で比較したいなら資格スクエア", square_body),
+            course_section(yotsuya, 7, "サポート重視なら四谷学院も候補", yotsuya_body),
             tail,
-            _affiliate_cta(shikaku["href"], shikaku["cta"]),
+            affiliate_cta(shikaku["href"], shikaku["cta"]),
         ]
     )
 

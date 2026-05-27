@@ -66,6 +66,7 @@ TEXTBOOK_OSUSUME_CSV_ROW = {
         "ただし試験本番は紙の問題なので、紙のテキストに慣れておくことも大切です。"
     ),
     "related_links": (
+        "takken-tsushin-osusume:宅建の通信講座おすすめ4選【2026年版】;"
         "takken-gokaku-ritsu:宅建の合格率・難易度はこちら;"
         "takken-benkyou-jikan:宅建の勉強時間・スケジュールはこちら;"
         "../../q/index.html:過去問を解いてみる（無料）;"
