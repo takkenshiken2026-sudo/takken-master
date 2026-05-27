@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script src="site-perf-loader.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <script>window.__SITE_CDN_BASE__='https://cdn.jsdelivr.net/gh/takkenshiken2026-sudo/takken-master@main';</script>
 <script>
@@ -92,6 +93,7 @@
 </script>
 
 <meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="site-theme.css">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <style>
 :root {
@@ -1459,7 +1461,7 @@ body.is-solving .site-footer{display:none!important}
         <a class="topnav-link" id="tnav-review" href="#review" onclick="event.preventDefault();gotoPage('review')">
           <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
         </a>
-        <a class="topnav-link" id="tnav-glossary" href="terms/index.html">
+        <a class="topnav-link" id="tnav-glossary" href="/terms/" onclick="event.preventDefault();gotoPage('glossary')">
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
         </a>
       </nav>
@@ -1539,7 +1541,7 @@ body.is-solving .site-footer{display:none!important}
       <a class="mobile-nav-item" id="mnav-review" href="#review" onclick="event.preventDefault();gotoPage('review');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
       </a>
-      <a class="mobile-nav-item" id="mnav-glossary" href="terms/index.html" onclick="closeMobileDrawer()">
+      <a class="mobile-nav-item" id="mnav-glossary" href="/terms/" onclick="event.preventDefault();gotoPage('glossary');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
       </a>
 
@@ -3698,6 +3700,12 @@ const PAGE_SEO = {
     desc:  '宅建試験の重要知識を一問一答形式で確認。短時間で基礎知識の定着を進められます。',
     path:  '/quiz/ichimondou/',
     hash:  '#ichimondou'
+  },
+  'glossary': {
+    title: '用語解説｜宅建マスター',
+    desc:  '宅建試験の重要用語を分野別に検索・閲覧。各用語の意味と試験でのポイントを解説します。',
+    path:  '/terms/',
+    hash:  '#glossary'
   }
 };
 
@@ -3728,6 +3736,9 @@ function _updatePageMeta(id) {
       const url = location.pathname.replace(/\/(quiz|dashboard|review).*/, '/') + hash;
       history.pushState({ page: id }, seo.title, url);
     } catch(e) { /* file:// protocol など pushState できない環境では無視 */ }
+  }
+  if (typeof window.ga4PageView === 'function') {
+    try { window.ga4PageView(seo.path || '/', seo.title); } catch (_e) {}
   }
 }
 
@@ -4359,9 +4370,8 @@ function gotoPageImpl(id){
   document.getElementById('topbar-title').textContent=PAGE_TITLES[id]||'';
   // SEOメタ情報・URL更新
   _updatePageMeta(id);
-  // top nav active state
-  // topnav: orig / past / dash / review / glossary
-  {
+  // 用語解説は別サイトヘッダーへ行かず、ナビのハイライトも変えない
+  if(id!=='glossary'){
     const fromOrig = (id==='quiz'||id==='score') && quizState.mode==='orig';
     const inMockFlow = id==='mock'||id==='mock-score'||(id==='quiz'&&typeof mockState!=='undefined'&&mockState.patternId)||(id==='score'&&typeof mockState!=='undefined'&&mockState.patternId);
     const fromPastNav = !fromOrig && !inMockFlow && (id==='past-config'||(id==='quiz'&&quizState.mode==='past')||(id==='score'&&quizState.mode==='past'));
@@ -4378,15 +4388,13 @@ function gotoPageImpl(id){
       const mn = document.getElementById('mnav-'+k);
       if(mn) mn.classList.toggle('active', active);
     });
-  }
-  // mnav-top: TOPページ（quiz-start）のときだけアクティブ
-  const mnavTop = document.getElementById('mnav-top');
-  if(mnavTop) mnavTop.classList.toggle('active', id==='quiz-start');
-  // mnav-quiz-start（過去問）: past-config / 過去問モードの quiz・score のときアクティブ
-  const mnavPast = document.getElementById('mnav-quiz-start');
-  if(mnavPast){
-    const fromPast = (id==='quiz'||id==='score') && quizState.mode==='past';
-    mnavPast.classList.toggle('active', id==='past-config' || fromPast);
+    const mnavTop = document.getElementById('mnav-top');
+    if(mnavTop) mnavTop.classList.toggle('active', id==='quiz-start');
+    const mnavPast = document.getElementById('mnav-quiz-start');
+    if(mnavPast){
+      const fromPast = (id==='quiz'||id==='score') && quizState.mode==='past';
+      mnavPast.classList.toggle('active', id==='past-config' || fromPast);
+    }
   }
   closeSidebar();
   if(id==='dash')        { renderDash(); renderDashLevel(); setTimeout(()=>renderAnalytics(),50); }
@@ -4418,16 +4426,26 @@ window.addEventListener('popstate', function(e) {
     const el = document.getElementById('page-' + e.state.page);
     if (el) el.classList.add('active');
     window.scrollTo(0, 0);
+    if (typeof window.ga4PageView === 'function') {
+      try {
+        const seo = (typeof PAGE_SEO !== 'undefined' && PAGE_SEO[e.state.page]) || null;
+        if (seo) {
+          document.title = seo.title;
+          window.ga4PageView(seo.path || '/', seo.title);
+        } else {
+          window.ga4PageView();
+        }
+      } catch (_e) {}
+    }
   }
 });
 
 // URLハッシュに基づいた初期ページ解決
 function _resolveInitialPage() {
-  // 旧 URL（/#glossary・/glossary/）を用語一覧の静的ページへ
+  // 旧パス /glossary/ のみ静的一覧へ（アプリ内 #glossary は SPA で表示）
   if (typeof location !== 'undefined' && location.protocol !== 'file:') {
     const pn = location.pathname;
-    const isGlossaryPath = pn === '/glossary/' || pn === '/glossary';
-    if (location.hash === '#glossary' || isGlossaryPath) {
+    if (pn === '/glossary/' || pn === '/glossary') {
       try { location.replace('/terms/'); } catch (e) { /* noop */ }
       return 'quiz-start';
     }
@@ -4446,7 +4464,7 @@ function _resolveInitialPage() {
   const path = location.pathname;
   const hashMap = {
     '#past':'past-config','#orig':'orig','#ichimondou':'ichimondou','#dash':'dash',
-    '#review':'review','#mock':'mock','#account':'dash'
+    '#review':'review','#mock':'mock','#account':'dash','#glossary':'glossary'
   };
   const raw=location.hash||'';
   if(/^#past-play-\d+$/.test(raw)||/^#orig-play-\d+$/.test(raw)||/^#mock-play-\d+$/.test(raw)){
@@ -7313,24 +7331,8 @@ if(window.__SITE_DATA_READY__&&typeof window.__SITE_DATA_READY__.then==='functio
 })();
 </script>
 <div id="site-enhancements-mount" hidden></div>
+<!-- GA4: tools/html_footer.analytics_snippet（測定IDは GA4_MEASUREMENT_ID） -->
 <script>window.__GA4_MEASUREMENT_ID__="G-3F5HESVZ9C";</script>
-<script>
-(function(){
-  var loaded=false;
-  function loadAnalytics(){
-    if(loaded) return;
-    loaded=true;
-    var s=document.createElement('script');
-    s.src='site-analytics.js';
-    s.defer=true;
-    document.head.appendChild(s);
-  }
-  ['pointerdown','keydown','scroll'].forEach(function(evt){
-    window.addEventListener(evt,loadAnalytics,{once:true,passive:true});
-  });
-  if(typeof requestIdleCallback==='function') requestIdleCallback(loadAnalytics,{timeout:12000});
-  else window.addEventListener('load',function(){ setTimeout(loadAnalytics,8000); });
-})();
-</script>
+<script defer src="site-analytics.js"></script>
 </body>
 </html>

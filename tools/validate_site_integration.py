@@ -98,7 +98,11 @@ def _q_index(q_index: Path) -> list[Issue]:
         issues.append(Issue("q/index.html: q_hub_links_html（3モードタブ）がありません"))
     if 'aria-current="page">過去問</span>' not in text and "is-current" not in text:
         issues.append(Issue("q/index.html: 過去問タブの current 表示がありません"))
-    if "/q/practice/index.html" not in text and 'href="practice/index.html"' not in text:
+    if (
+        "/q/orig/index.html" not in text
+        and "/q/practice/index.html" not in text
+        and 'href="practice/index.html"' not in text
+    ):
         issues.append(Issue("q/index.html: 実践演習タブへのリンクがありません"))
     return issues
 
@@ -234,13 +238,32 @@ def _mode_index_config(mode: str, index_path: Path) -> list[Issue]:
     return issues
 
 
+def _is_redirect_stub(path: Path) -> bool:
+    if not path.is_file():
+        return False
+    head = path.read_text(encoding="utf-8", errors="replace")[:600]
+    return "refresh" in head.lower() and "0;url=" in head.lower()
+
+
+def _orig_practice_index_ok(path: Path) -> bool:
+    """q/orig/index.html は site-q-orig-index.js ベース（#q-index-data 非使用）。"""
+    if not path.is_file():
+        return False
+    text = path.read_text(encoding="utf-8", errors="replace")
+    return "q-orig-index-page" in text and "site-q-orig-index.js" in text
+
+
 def _mode_index_counts(root: Path) -> list[Issue]:
     issues: list[Issue] = []
     checks = [
-        ("practice", root / "data" / "practice_questions.csv", root / "q" / "practice" / "index.html", True),
+        ("practice", root / "data" / "practice_questions.csv", root / "q" / "orig" / "index.html", True),
         ("ichimon", root / "data" / "ichimon_questions.csv", root / "q" / "ichimon" / "index.html", False),
     ]
     for mode, csv_path, index_path, skip_invalid in checks:
+        if mode == "ichimon" and _is_redirect_stub(index_path):
+            continue
+        if mode == "practice" and _orig_practice_index_ok(index_path):
+            continue
         csv_n = _csv_row_count(csv_path, skip_invalid=skip_invalid)
         json_n = _q_index_data_count(index_path)
         if csv_n == 0:
@@ -277,8 +300,8 @@ def _build_all_includes_practice(build_all: Path) -> Issue | None:
     if not build_all.is_file():
         return Issue("tools/build_all.py がありません")
     text = build_all.read_text(encoding="utf-8")
-    if "build_practice_ichimon_pages.py" not in text:
-        return Issue("tools/build_all.py: build_practice_ichimon_pages.py の呼び出しがありません")
+    if "build_practice_question_pages.py" not in text:
+        return Issue("tools/build_all.py: build_practice_question_pages.py の呼び出しがありません")
     if "validate_site_integration.py" not in text:
         return Issue("tools/build_all.py: validate_site_integration.py の呼び出しがありません")
     return None

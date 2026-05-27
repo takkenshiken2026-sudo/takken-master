@@ -92,14 +92,38 @@ def redirect_privacy() -> None:
     write_redirect(ROOT / "privacy-terms.html", "/privacy.html")
 
 
+def redirect_practice_to_orig() -> int:
+    """旧 q/practice/ を q/orig/ へリダイレクト（リンク切れ防止）。"""
+    practice = ROOT / "q" / "practice"
+    if not practice.is_dir():
+        return 0
+    write_redirect(practice / "index.html", "/q/orig/")
+    count = 1
+    for path in sorted(practice.glob("p*/index.html")):
+        num = path.parent.name[1:]
+        if not num.isdigit():
+            continue
+        write_redirect(path, f"/q/orig/id{num}/")
+        count += 1
+    return count
+
+
+def redirect_ichimon_hub() -> None:
+    """一問一答静的ハブが無い場合は SPA へ誘導。"""
+    write_redirect(ROOT / "q" / "ichimon" / "index.html", "/#ichimondou")
+
+
 def main() -> int:
     rows = load_legacy_rows()
     n_readable, n_hash, n_glossary = redirect_from_csv(rows)
     n_takken = redirect_takken_articles()
     redirect_privacy()
+    n_practice = redirect_practice_to_orig()
+    redirect_ichimon_hub()
     print(
         f"legacy redirects: terms-readable/{n_readable}, terms-hash/{n_hash}, "
-        f"glossary/{n_glossary}, takken/{n_takken}, privacy-terms.html"
+        f"glossary/{n_glossary}, takken/{n_takken}, practice/{n_practice}, "
+        f"privacy-terms.html, ichimon-hub"
     )
     if not rows:
         return 1

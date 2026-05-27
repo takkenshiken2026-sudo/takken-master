@@ -9,7 +9,7 @@ import json
 import re
 from pathlib import Path
 
-from tools.html_footer import footer_href
+from tools.html_footer import analytics_snippet, footer_href
 from tools.seo_common import (
     AUTHOR_LABEL,
     FIELD_HUB_META,
@@ -447,6 +447,7 @@ def build_past_root_hub_html(
   <p class="q-hub-links"><a href="../../terms/index.html">用語解説一覧</a> · <a href="../../articles/index.html">試験ガイド</a></p>
   <p class="q-app-link"><a href="../../index.html#past">アプリで過去問を演習</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""
 
@@ -534,6 +535,7 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
   <p class="q-hub-links"><a href="../index.html">ほかの年度を見る</a> · <a href="../../index.html">過去問一覧（検索）</a></p>
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""
     return body
@@ -624,5 +626,6 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
   <p class="q-hub-links"><a href="{base}/q/past/index.html">年度別一覧</a> · <a href="{to_q}/index.html">過去問一覧（検索）</a></p>
   <p class="q-hub-links"><a href="{to_root}/terms/index.html">用語解説一覧</a> · <a href="{to_root}/articles/index.html">試験ガイド</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""

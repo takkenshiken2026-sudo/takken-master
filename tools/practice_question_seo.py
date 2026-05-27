@@ -7,7 +7,9 @@ from __future__ import annotations
 import html
 import json
 import re
-from tools.html_footer import footer_href
+from pathlib import Path
+
+from tools.html_footer import analytics_snippet, footer_href
 from tools.orig_units import FIELD_LABELS
 from tools.past_question_seo import (
     _collection_json_ld,
@@ -228,6 +230,7 @@ def build_orig_root_hub_html(pages: list[dict], base_url: str, brand: str, exam:
   <ul>{''.join(level_links)}</ul>
   <p class="q-hub-links"><a href="../index.html">過去問一覧</a> · <a href="../mock/index.html">オリジナル模試</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""
 
@@ -329,6 +332,7 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
   <p class="q-hub-links"><a href="../../index.html">実践演習一覧（検索）</a> · <a href="../../../index.html">過去問一覧</a></p>
   <p class="q-app-link"><a href="../../../../index.html#orig">アプリで実践演習</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""
 
@@ -385,6 +389,7 @@ def build_unit_hub_html(unit_id: str, pages: list[dict], base_url: str, brand: s
   <ol>{lis}</ol>
   <p class="q-hub-links"><a href="../../index.html">実践演習トップ</a> · <a href="../../field/{html.escape(fid)}/index.html">{html.escape(cat)}</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""
 
@@ -436,5 +441,6 @@ def build_level_hub_html(level: int, pages: list[dict], base_url: str, brand: st
   {table}
   <p class="q-hub-links"><a href="../../index.html">実践演習一覧（検索）</a></p>
 </main>
+{analytics_snippet(Path(rel_path))}
 </body>
 </html>"""

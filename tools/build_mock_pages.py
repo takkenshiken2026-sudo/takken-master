@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from tools.html_footer import analytics_snippet  # noqa: E402
 from tools.mock_exam_config import MOCK_PATTERNS  # noqa: E402
 from tools.past_question_seo import _collection_json_ld, _hub_meta_tags  # noqa: E402
 from tools.site_config import brand_name, clean_origin, exam_name  # noqa: E402
@@ -112,6 +113,7 @@ def main() -> int:
   <p class="glos-static-intro">各回50問・本試験と同じ配分（権利14・業法20・制限8・税8）。一覧から個別の解説ページへ進むか、アプリで120分の模試形式に挑戦できます。</p>
   <div class="mock-static-grid">{''.join(cards)}</div>
 </main>
+{analytics_snippet(Path("q/mock/index.html"))}
 </body>
 </html>""",
         encoding="utf-8",
@@ -182,6 +184,7 @@ def main() -> int:
   <p class="q-app-link"><a href="../../../index.html#mock-play-{pid}">アプリでこの模試を受ける（120分）</a></p>
   <ol class="mock-set-list">{''.join(lis)}</ol>
 </main>
+{analytics_snippet(Path(f"q/mock/{pid}/index.html"))}
 </body>
 </html>""",
             encoding="utf-8",

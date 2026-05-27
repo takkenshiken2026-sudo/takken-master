@@ -10,6 +10,52 @@ from tools.glossary_readable import to_plain_style
 from tools.guide_pro_pass import norm, split_semicolon
 from tools.site_config import exam_name
 
+_SCAFFOLD_BODY_RE = re.compile(
+    r"【本文を記入】[^。]*?差し替えてください。",
+)
+_SCAFFOLD_BODY_VARIANT_RE = re.compile(
+    r"◯◯試験の[^。]*?差し替えてください。",
+)
+_SCAFFOLD_ACTION_RE = re.compile(r"^【行動\d+】$")
+
+
+def _scaffold_editor_tail_pattern() -> re.Pattern[str]:
+    en = re.escape(exam_name())
+    return re.compile(
+        rf"(?:◯◯試験|{en})の[^。]*?について、公式情報を確認したうえで整理します。"
+        r"受験者が迷いやすい点を具体的に説明し、"
+        r"必要に応じてこのサイトの過去問・用語解説への導線を入れてください。"
+        r"数値・日程・制度名は対象資格の最新情報に差し替えてください。",
+    )
+
+
+def strip_scaffold_placeholder(text: str) -> str:
+    """テンプレ差し替え指示・編集者向けプレースホルダを除去。"""
+    t = text.replace("【本文を記入】", "")
+    t = _SCAFFOLD_BODY_RE.sub("", t)
+    t = _SCAFFOLD_BODY_VARIANT_RE.sub("", t)
+    t = _scaffold_editor_tail_pattern().sub("", t)
+    t = re.sub(r"◯◯試験（プレースホルダー）", "", t)
+    return t.strip()
+
+
+def dedupe_repeated_clauses(text: str) -> str:
+    """同一文・句の連続重複を1つにまとめる。"""
+    t = re.sub(r"\s+", " ", text).strip()
+    if len(t) < 20:
+        return t
+    # 40字以上の句が2回連続している場合は1回に
+    for width in (80, 60, 40):
+        for start in range(0, max(1, len(t) - width)):
+            chunk = t[start : start + width]
+            if len(chunk) < width:
+                continue
+            if t.count(chunk) >= 2 and chunk.strip():
+                t = t.replace(chunk + chunk, chunk, 1)
+                t = re.sub(re.escape(chunk) + r"\s*" + re.escape(chunk), chunk, t)
+    return t.strip()
+
+
 _BOILER = (
     "理解が固まったら、",
     "正解理由を声に出して説明できるかまでチェックしましょう。",
@@ -81,6 +127,8 @@ def strip_repeat_genre_frames(text: str, genre: str, section_idx: int) -> str:
 
 def strip_boiler(text: str) -> str:
     t = to_plain_style(text)
+    t = strip_scaffold_placeholder(t)
+    t = dedupe_repeated_clauses(t)
     for phrase in _BOILER:
         while phrase in t:
             idx = t.find(phrase)
@@ -343,7 +391,11 @@ def upgrade_guide_expert(article: dict[str, str]) -> dict[str, str]:
         out[f"faq_{n}_question"] = ""
         out[f"faq_{n}_answer"] = ""
 
-    actions = split_semicolon(norm(out.get("action_items")))
+    actions = [
+        a
+        for a in split_semicolon(norm(out.get("action_items")))
+        if a and not _SCAFFOLD_ACTION_RE.match(a)
+    ]
     for extra in (
         "用語解説で関連キーワードを確認する",
         "過去問一覧で該当分野を1セット演習する",
