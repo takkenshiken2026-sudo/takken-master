@@ -252,9 +252,9 @@ def _topnav_logo(rel_path: Path) -> str:
 
 
 def _learning_nav_href(rel_path: Path, dest: str) -> str:
-    """学習ナビのリンク先（#hash は index.html 基準、それ以外は site 相対パス）。"""
+    """学習ナビのリンク先（#hash は SPA トップ、それ以外は site 相対パス）。"""
     if dest.startswith("#"):
-        return footer_href(rel_path, "index.html") + dest
+        return "/" + dest
     return footer_href(rel_path, dest)
 
 

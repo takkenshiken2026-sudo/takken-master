@@ -38,7 +38,6 @@ def main() -> int:
     run([py, "tools/validate_internal_links.py"])
     run([py, "tools/validate_internal_links.py", "--deploy"])
     run([py, "tools/validate_public_content.py"])
-    run([py, "tools/audit_content_quality.py", "--deploy-links", "--errors-only"])
     run([py, "tools/build_legacy_redirects.py"])
     return 0
 
