@@ -109,6 +109,31 @@ def _in_q_section(rel_path: Path) -> bool:
     return bool(rel_path.parts) and rel_path.parts[0] == "q"
 
 
+def html_rel_href(from_file: str, to_site_rel: str) -> str:
+    """HTML 文書 from_file から site 相対 to_site_rel への相対 href。"""
+    to = to_site_rel.lstrip("/")
+    if to.startswith("..") or "://" in to:
+        return to_site_rel
+    from_s = [p for p in from_file.split("/") if p]
+    to_s = [p for p in to.split("/") if p]
+    if from_s == to_s:
+        return to_s[-1]
+    if len(from_s) == 1:
+        return "/".join(to_s)
+    i = 0
+    while i < len(from_s) - 1 and i < len(to_s) and from_s[i] == to_s[i]:
+        i += 1
+    if i == 0 and len(to_s) == 1:
+        ups = len(from_s) - 1
+    elif i == 0:
+        ups = len(from_s)
+    else:
+        ups = len(from_s) - i
+    downs = to_s[i:]
+    out = "/".join([".."] * ups + downs)
+    return out or "."
+
+
 def footer_href(rel_path: Path, site_rel: str) -> str:
     """rel_path: ROOT からの相対パス（例 q/past/y2025/q01/index.html）。site_rel: index.html / q/index.html 等。"""
     site_rel = site_rel.lstrip("/")
@@ -118,15 +143,13 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     parts = parent.parts
     if parent.as_posix() == "q" and site_rel == "q/index.html":
         return "index.html"
-    if site_rel == "terms/index.html" and parts and parts[0] == "terms":
-        if len(parts) == 1:
-            return "index.html"
-        return "/".join([".."] * (len(parts) - 1)) + "/index.html"
     if parts and parts[0] == "terms" and len(parts) == 1 and site_rel.startswith("field-") and site_rel.endswith("/index.html"):
         return site_rel
-    if len(parts) >= 3 and parts[0] == "q" and parts[1] == "past" and site_rel == "q/index.html":
-        prefix = "/".join([".."] * (len(parts) - 1))
-        return prefix + "/index.html"
+    if parts and parts[0] == "q" and site_rel.startswith("q/"):
+        q_rel = site_rel[2:]
+        depth = len(parts) - 1
+        prefix = "/".join([".."] * depth)
+        return f"{prefix}/{q_rel}" if prefix else q_rel
     if (
         len(parts) >= 4
         and parts[0] == "q"
@@ -136,18 +159,7 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     ):
         up = len(parts) - 3
         return ("/".join([".."] * up) + "/index.html") if up else "index.html"
-    if parts and parts[0] == "q" and site_rel.startswith("q/"):
-        q_rel = site_rel[2:]
-        depth = len(parts) - 1
-        prefix = "/".join([".."] * depth)
-        return f"{prefix}/{q_rel}" if prefix else q_rel
-    up = len(parts)
-    if len(parts) >= 3 and parts[0] == "q" and parts[1] == "past" and site_rel.startswith("q/") and site_rel.count("/") == 1:
-        up = len(parts) - 1
-    prefix = "/".join([".."] * up)
-    if not prefix:
-        return site_rel
-    return prefix + "/" + site_rel
+    return html_rel_href(rel_path.as_posix(), site_rel)
 
 
 def analytics_snippet(rel_path: Path) -> str:
@@ -237,11 +249,6 @@ def _learning_nav_href(rel_path: Path, dest: str) -> str:
     """学習ナビのリンク先（#hash は index.html 基準、それ以外は site 相対パス）。"""
     if dest.startswith("#"):
         return footer_href(rel_path, "index.html") + dest
-    if dest.startswith("q/") and _in_q_section(rel_path):
-        q_rel = dest[2:]
-        depth = len(rel_path.parent.parts) - 1
-        prefix = "/".join([".."] * depth)
-        return f"{prefix}/{q_rel}" if prefix else q_rel
     return footer_href(rel_path, dest)
 
 
