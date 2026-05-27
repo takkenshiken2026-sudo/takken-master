@@ -61,6 +61,18 @@ def footer_disclaimer() -> str:
     return str(CONFIG.get("footerDisclaimer") or "")
 
 
+def learning_nav_label_overrides() -> dict[str, str]:
+    """SPA 学習ナビの表示ラベル上書き（例: tnav-orig → オリジナル問題）。"""
+    raw = CONFIG.get("learningNavLabelOverrides") or {}
+    if not isinstance(raw, dict):
+        return {}
+    return {str(k): str(v) for k, v in raw.items() if v}
+
+
+def learning_nav_label(nav_id: str, default: str) -> str:
+    return learning_nav_label_overrides().get(nav_id, default)
+
+
 def official_organization() -> str:
     return str(CONFIG.get("officialOrganization") or "試験実施団体")
 

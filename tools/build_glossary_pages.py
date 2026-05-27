@@ -16,7 +16,6 @@ import shutil
 import json
 import re
 import sys
-from datetime import date
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
@@ -28,11 +27,14 @@ if str(ROOT) not in sys.path:
 from tools.html_footer import (
     ROBOTS_INDEX_FOLLOW,
     breadcrumb_html,
+    shell_body_class,
     site_page_footer,
     site_page_header,
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.knowledge_hub_tabs import knowledge_hub_tab_hrefs, knowledge_hub_tabs_html
+from tools.seo_utils import content_date_from_row, json_ld_date_modified, latest_content_date, meta_updated_html
 from tools.glossary_past_questions import (  # noqa: E402
     find_past_questions_for_term,
     past_questions_section_html,
@@ -133,9 +135,17 @@ def term_alias_variants(term: str) -> set[str]:
     return {v for v in variants if v}
 
 
-def term_slug(term: str, reading: str, used: dict[str, str]) -> str:
-    """用語+読みで安定したスラッグ。衝突時は連番を付与。"""
-    base = f"{term.strip()}|{reading.strip()}"
+def term_slug(term: str, reading: str | dict[str, str] = "", used: dict[str, str] | None = None) -> str:
+    """用語+読みで安定したスラッグ。衝突時は連番を付与。
+
+    テンプレ互換: term_slug(term, used_slugs) も可（reading 省略）。
+    """
+    if isinstance(reading, dict):
+        used = reading
+        reading = ""
+    if used is None:
+        used = {}
+    base = f"{term.strip()}|{str(reading).strip()}"
     h = hashlib.sha256(base.encode("utf-8")).hexdigest()[:16]
     s = f"g-{h}"
     if s not in used:
@@ -207,6 +217,14 @@ TERMS_INDEX_JS_VER = "20260521-terms-definition"
 
 def parse_term_tags(raw: str) -> list[str]:
     return [t.strip() for t in re.split(r"[,、/|]", raw or "") if t.strip()]
+
+
+def terms_index_href(slug_file: str) -> str:
+    return f"/terms/{slug_file.lstrip('/')}"
+
+
+def terms_index_snippet(entry: dict) -> str:
+    return terms_index_definition(entry)
 
 
 def terms_index_definition(entry: dict) -> str:
@@ -492,13 +510,19 @@ def legal_basis_html(legal: str) -> str:
     return '<ul class="term-legal-list">' + "".join(f"<li>{html.escape(x)}</li>" for x in items) + "</ul>"
 
 
-def faq_items_for_term(term: str, reading: str, short_def: str, definition: str, explanation: str) -> list[dict[str, str]]:
+def faq_items_for_term(term: str, a: str, b: str, c: str, d: str = "") -> list[dict[str, str]]:
+    if d:
+        reading, short_def, definition, explanation = a, b, c, d
+    else:
+        reading = ""
+        short_def, definition, explanation = a, b, c
     first_points = study_points(explanation, limit=2)
     exam_answer = " ".join(first_points) if first_points else explanation
+    reading_part = f"（{reading}）" if reading else ""
     return [
         {
             "question": f"{term}とは何ですか？",
-            "answer": f"{term}（{reading}）とは、{short_def.rstrip('。')}。{definition}",
+            "answer": f"{term}{reading_part}とは、{short_def.rstrip('。')}。{definition}",
         },
         {
             "question": f"{term}は試験でどう押さえればよいですか？",
@@ -537,6 +561,14 @@ def semicolon_list_html(value: str) -> str:
         return ""
     return '<ol class="term-point-list">' + "".join(f"<li>{html.escape(item)}</li>" for item in items) + "</ol>"
 
+
+def semicolon_field_html(value: str) -> str:
+    """セミコロン区切りの学習メモを箇条書き化（改行のみの場合は段落のまま）。"""
+    if ";" in value:
+        listed = semicolon_list_html(value)
+        if listed:
+            return listed
+    return ""
 
 
 def build_term_html(
@@ -717,8 +749,12 @@ def build_term_html(
     page_header = site_page_header(rel_path, current="terms")
     page_breadcrumb = breadcrumb_html(rel_path, crumb_items)
     page_footer = site_page_footer(rel_path, current="terms")
+    hub_tabs = knowledge_hub_tabs_html(
+        current="terms",
+        **knowledge_hub_tab_hrefs(here="terms"),
+    )
 
-    updated = date.today().isoformat()
+    updated = content_date_from_row(entry)
 
     quality_html = (
         '<section class="seo-quality-panel" aria-labelledby="quality-panel-title">'
@@ -726,8 +762,9 @@ def build_term_html(
         '<table class="seo-info-table"><tbody>'
         f"<tr><th>執筆</th><td>{html.escape(brand_name())}編集部（学習用語、過去問の復習導線、試験ガイドを整理する編集チーム）</td></tr>"
         f"<tr><th>確認</th><td>{html.escape(brand_name())}編集部（公開前に公式情報、法令情報、サイト内の関連ページとの整合性を確認）</td></tr>"
-        f"<tr><th>事実確認日</th><td>{html.escape(updated)}</td></tr>"
     )
+    if updated:
+        quality_html += f"<tr><th>事実確認日</th><td>{html.escape(updated)}</td></tr>"
 
     official_links = external_links() or [primary_external_link()]
     quality_source_items = "".join(
@@ -901,15 +938,16 @@ def build_term_html(
 <link rel="stylesheet" href="{html.escape(css_href)}">
 <link rel="stylesheet" href="{html.escape(theme_href)}">
 </head>
-<body>
+<body class="{shell_body_class('term-article-page')}">
 {site_page_wrap_open()}
 {page_header}
 <main class="seo-article-main">
   {page_breadcrumb}
+  {hub_tabs}
   <article class="seo-article-card article-body">
     <div class="article-meta">
       <span class="meta-category">用語解説</span>
-      <span class="meta-updated">更新日：{html.escape(updated)}</span>
+      {meta_updated_html(updated)}
       <span class="meta-updated">{meta_line}</span>
     </div>
     <h1 class="article-title">{html.escape(article_title or term + 'とは？意味・根拠・試験ポイントを整理')}</h1>
@@ -940,7 +978,7 @@ def build_field_hub_html(
     base_url: str,
 ) -> str:
     rel_path = Path("terms") / field_slug / "index.html"
-    updated = date.today().isoformat()
+    updated = latest_content_date(cat_entries)
     canonical = public_url(base_url, f"terms/{field_slug}/index.html")
     title = f"{category}の用語一覧｜{brand_name()}（{exam_name()}）"
     desc = meta_description(
@@ -959,6 +997,10 @@ def build_field_hub_html(
     page_header = site_page_header(rel_path, current="terms")
     page_breadcrumb = breadcrumb_html(rel_path, crumb_items)
     page_footer = site_page_footer(rel_path, current="terms")
+    hub_tabs = knowledge_hub_tabs_html(
+        current="terms",
+        **knowledge_hub_tab_hrefs(here="terms"),
+    )
     ld = {
         "@context": "https://schema.org",
         "@graph": [
@@ -1001,11 +1043,12 @@ def build_field_hub_html(
 <link rel="stylesheet" href="{html.escape(rel_css(rel_path))}">
 <link rel="stylesheet" href="{html.escape(rel_theme_css(rel_path))}">
 </head>
-<body>
+<body class="{shell_body_class('terms-field-hub-page')}">
 {site_page_wrap_open()}
 {page_header}
 <main class="site-page-main terms-idx-main">
   {page_breadcrumb}
+  {hub_tabs}
   <h1 class="terms-idx-page-title">{html.escape(category)}の用語一覧</h1>
   <p class="terms-idx-lead">{html.escape(exam_name())}の{html.escape(category)}分野で押さえたい用語をまとめています。各リンクから用語の意味・試験ポイント・関連用語を確認できます。</p>
   <p class="terms-idx-lead"><a href="../index.html">用語解説一覧（全分野）</a>へ戻る</p>
@@ -1122,13 +1165,14 @@ def build_terms_index(entries: list[dict], base_url: str) -> str:
 <link rel="stylesheet" href="../site-theme.css">
 <script>document.documentElement.classList.add("js");</script>
 </head>
-<body class="terms-index-page" data-terms-total="{n_terms}">
+<body class="{shell_body_class('terms-index-page')}" data-terms-total="{n_terms}">
 {site_page_wrap_open()}
 {terms_header}
 <main class="site-page-main">
   {page_breadcrumb}
   <h1>用語解説</h1>
   <p class="site-page-lead">{html.escape(lead)}</p>
+  {knowledge_hub_tabs_html(current="terms", **knowledge_hub_tab_hrefs(here="terms"))}
   <section class="terms-index-panel" aria-labelledby="terms-index-heading">
     <div class="terms-index-head">
       <div>
@@ -1269,6 +1313,16 @@ def main() -> int:
         hub_count += 1
 
     (TERMS_DIR / "index.html").write_text(build_terms_index(entries, base), encoding="utf-8")
+
+    from tools.build_compare_pages import build_all as build_compare_pages
+    from tools.build_numbers_mistakes_pages import build_all as build_numbers_mistakes_pages
+
+    build_compare_pages(base_url=base)
+    build_numbers_mistakes_pages(base_url=base)
+
+    from tools.build_priority_pages import build_all as build_priority_pages
+
+    build_priority_pages(entries=entries, base_url=base)
 
     print(f"Wrote {len(entries)} term pages under {TERMS_DIR}")
     print(f"Wrote {hub_count} field hub pages under {TERMS_DIR}/field-*/")

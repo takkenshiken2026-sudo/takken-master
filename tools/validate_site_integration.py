@@ -256,6 +256,7 @@ def _mode_index_counts(root: Path) -> list[Issue]:
                 )
             )
         issues.extend(_mode_index_config(mode, index_path))
+        issues.extend(_mode_index_hub_tabs(mode, index_path))
     return issues
 
 
@@ -273,6 +274,43 @@ def _site_q_index_js(js_path: Path) -> list[Issue]:
     return issues
 
 
+def _mode_index_hub_tabs(mode: str, index_path: Path) -> list[Issue]:
+    if not index_path.is_file():
+        return []
+    text = index_path.read_text(encoding="utf-8")
+    issues: list[Issue] = []
+    if "q-hub-links" not in text:
+        issues.append(Issue(f"q/{mode}/index.html: q_hub_links_html（3モードタブ）がありません"))
+    for href in ("/q/index.html", "/q/practice/index.html", "/q/ichimon/index.html"):
+        if href not in text and href.replace("/q/", "") not in text:
+            issues.append(Issue(f"q/{mode}/index.html: タブリンク {href} がありません"))
+    return issues
+
+
+def _build_all_includes_apply(build_all: Path) -> Issue | None:
+    if not build_all.is_file():
+        return None
+    text = build_all.read_text(encoding="utf-8")
+    if "apply_site_config.py" not in text:
+        return Issue("tools/build_all.py: apply_site_config.py の呼び出しがありません")
+    return None
+
+
+def _ichimon_js_public_paths(root: Path) -> list[Issue]:
+    csv_path = root / "data" / "ichimon_questions.csv"
+    js_path = root / "exam-site-data-ichimondou.js"
+    if not csv_path.is_file() or _csv_row_count(csv_path) == 0:
+        return []
+    if not js_path.is_file():
+        return [Issue("exam-site-data-ichimondou.js がありません（csv_to_exam_site_ichimondou を実行）")]
+    text = js_path.read_text(encoding="utf-8")
+    if 'publicPath": "ichimon/' in text or "publicPath\": \"ichimon/" in text:
+        return [Issue("exam-site-data-ichimondou.js: publicPath が q/ichimon/ で始まっていません")]
+    if "q/ichimon/" not in text:
+        return [Issue("exam-site-data-ichimondou.js: publicPath に q/ichimon/ が含まれません")]
+    return []
+
+
 def _build_all_includes_practice(build_all: Path) -> Issue | None:
     if not build_all.is_file():
         return Issue("tools/build_all.py がありません")
@@ -282,6 +320,40 @@ def _build_all_includes_practice(build_all: Path) -> Issue | None:
     if "validate_site_integration.py" not in text:
         return Issue("tools/build_all.py: validate_site_integration.py の呼び出しがありません")
     return None
+
+
+def _static_chrome(root: Path) -> list[Issue]:
+    """docs/site-chrome.md — ヘッダー topnav 統一・旧 q-static-header 禁止。"""
+    issues: list[Issue] = []
+    samples: list[tuple[str, Path, bool]] = [
+        ("about.html", root / "about.html", True),
+        ("privacy.html", root / "privacy.html", True),
+        ("q/index.html", root / "q" / "index.html", True),
+        ("terms/index.html", root / "terms" / "index.html", True),
+    ]
+    for label, path, require_topnav in samples:
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        if require_topnav and "topnav site-shell-header" not in text:
+            issues.append(
+                Issue(f"{label}: site_page_header 由来の topnav site-shell-header がありません（site-chrome.md）")
+            )
+        if "q-static-header" in text:
+            issues.append(Issue(f"{label}: 旧ヘッダー q-static-header が残っています（site-chrome.md）"))
+
+    q_past = root / "q" / "past"
+    if q_past.is_dir():
+        for html in sorted(q_past.glob("**/index.html"))[:3]:
+            text = html.read_text(encoding="utf-8")
+            rel = html.relative_to(root)
+            if "topnav site-shell-header" not in text:
+                issues.append(
+                    Issue(f"{rel}: topnav site-shell-header がありません（build_past_question_pages / site-chrome.md）")
+                )
+            if "q-static-header" in text:
+                issues.append(Issue(f"{rel}: q-static-header が残っています"))
+    return issues
 
 
 def main() -> int:
@@ -311,8 +383,13 @@ def main() -> int:
     err = _build_all_includes_practice(root / "tools" / "build_all.py")
     if err:
         issues.append(err)
+    err = _build_all_includes_apply(root / "tools" / "build_all.py")
+    if err:
+        issues.append(err)
     issues.extend(_mode_index_counts(root))
+    issues.extend(_ichimon_js_public_paths(root))
     issues.extend(_site_q_index_js(root / "site-q-index.js"))
+    issues.extend(_static_chrome(root))
 
     if not issues:
         print("validate_site_integration: OK")

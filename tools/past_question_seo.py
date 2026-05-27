@@ -9,7 +9,14 @@ import json
 import re
 from pathlib import Path
 
-from tools.html_footer import footer_href
+from tools.html_footer import (
+    breadcrumb_html,
+    footer_href,
+    shell_body_class,
+    site_page_header,
+    site_page_wrap_close,
+    site_page_wrap_open,
+)
 from tools.seo_common import (
     AUTHOR_LABEL,
     FIELD_HUB_META,
@@ -409,6 +416,16 @@ def build_past_root_hub_html(
     )
     trust = trust_table_html(anchor_id="trust", compact=True)
     field_links = _field_hub_links_html(base)
+    rel = Path("q/past/index.html")
+    page_header = site_page_header(rel, current="q")
+    page_breadcrumb = breadcrumb_html(
+        rel,
+        [
+            ("トップ", "index.html"),
+            ("過去問一覧", "q/index.html"),
+            ("年度別一覧", None),
+        ],
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -421,16 +438,11 @@ def build_past_root_hub_html(
 <link rel="stylesheet" href="../../site-pages.css">
 {json_ld}
 </head>
-<body class="q-static-body">
-<header class="q-static-header">
-  <p class="q-static-brand"><a href="../../index.html">{html.escape(brand)}</a>（{html.escape(exam)}）</p>
-  <nav aria-label="パンくず"><ol class="q-breadcrumb">
-    <li><a href="../../index.html">トップ</a></li>
-    <li><a href="../index.html">過去問一覧</a></li>
-    <li aria-current="page">年度別一覧</li>
-  </ol></nav>
-</header>
+<body class="{shell_body_class('q-past-hub-page')}">
+{site_page_wrap_open()}
+{page_header}
 <main class="q-static-main">
+  {page_breadcrumb}
   <h1 class="q-h1">宅建 過去問 年度別一覧</h1>
   <p class="q-meta">全 {len(pages)} 問 · {len(years)} 年度</p>
   <p class="glos-static-intro">
@@ -447,6 +459,7 @@ def build_past_root_hub_html(
   <p class="q-hub-links"><a href="../../terms/index.html">用語解説一覧</a> · <a href="../../articles/index.html">試験ガイド</a></p>
   <p class="q-app-link"><a href="../../index.html#past">アプリで過去問を演習</a></p>
 </main>
+{site_page_wrap_close()}
 </body>
 </html>"""
 
@@ -498,6 +511,18 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
             f"（{len(cat_pages)}問）</h2>{table}</section>"
         )
 
+    rel = Path(f"q/past/y{year}/index.html")
+    page_header = site_page_header(rel, current="q")
+    page_breadcrumb = breadcrumb_html(
+        rel,
+        [
+            ("トップ", "index.html"),
+            ("過去問一覧", "q/index.html"),
+            ("年度別一覧", "q/past/index.html"),
+            (wareki, None),
+        ],
+    )
+
     body = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -509,17 +534,11 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
 <link rel="stylesheet" href="../../../site-pages.css">
 {json_ld}
 </head>
-<body class="q-static-body">
-<header class="q-static-header">
-  <p class="q-static-brand"><a href="../../../index.html">{html.escape(brand)}</a>（{html.escape(exam)}）</p>
-  <nav aria-label="パンくず"><ol class="q-breadcrumb">
-    <li><a href="../../../index.html">トップ</a></li>
-    <li><a href="../../index.html">過去問一覧</a></li>
-    <li><a href="../index.html">年度別一覧</a></li>
-    <li aria-current="page">{html.escape(wareki)}</li>
-  </ol></nav>
-</header>
+<body class="{shell_body_class('q-past-year-hub-page')}">
+{site_page_wrap_open()}
+{page_header}
 <main class="q-static-main">
+  {page_breadcrumb}
   <h1 class="q-h1">{html.escape(wareki)} 過去問まとめ</h1>
   <p class="q-meta">全 {len(year_pages)} 問 · 解説・関連用語リンク付き</p>
   <p class="glos-static-intro">
@@ -534,6 +553,7 @@ def build_year_hub_html(year: int, pages: list[dict], base_url: str, brand: str,
   <p class="q-hub-links"><a href="../index.html">ほかの年度を見る</a> · <a href="../../index.html">過去問一覧（検索）</a></p>
   <p class="q-app-link"><a href="../../../index.html#past">アプリで{html.escape(wareki)}を演習</a></p>
 </main>
+{site_page_wrap_close()}
 </body>
 </html>"""
     return body
@@ -591,6 +611,17 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
     if len(years) > 6:
         year_links += f' … <a href="{base}/q/past/index.html">全年度</a>'
 
+    rel = Path(rel_path)
+    page_header = site_page_header(rel, current="q")
+    page_breadcrumb = breadcrumb_html(
+        rel,
+        [
+            ("トップ", "index.html"),
+            ("過去問一覧", "q/index.html"),
+            (meta["name"], None),
+        ],
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -602,16 +633,11 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
 <link rel="stylesheet" href="{to_root}/site-pages.css">
 {json_ld}
 </head>
-<body class="q-static-body">
-<header class="q-static-header">
-  <p class="q-static-brand"><a href="{to_root}/index.html">{html.escape(brand)}</a>（{html.escape(exam)}）</p>
-  <nav aria-label="パンくず"><ol class="q-breadcrumb">
-    <li><a href="{to_root}/index.html">トップ</a></li>
-    <li><a href="{to_q}/index.html">過去問一覧</a></li>
-    <li aria-current="page">{html.escape(meta["name"])}</li>
-  </ol></nav>
-</header>
+<body class="{shell_body_class('q-field-hub-page')}">
+{site_page_wrap_open()}
+{page_header}
 <main class="q-static-main">
+  {page_breadcrumb}
   <h1 class="q-h1">{html.escape(meta["name"])}の過去問</h1>
   <p class="q-meta">掲載 {len(field_pages)} 問 · {len(years)} 年度</p>
   <p class="glos-static-intro">
@@ -624,5 +650,6 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
   <p class="q-hub-links"><a href="{base}/q/past/index.html">年度別一覧</a> · <a href="{to_q}/index.html">過去問一覧（検索）</a></p>
   <p class="q-hub-links"><a href="{to_root}/terms/index.html">用語解説一覧</a> · <a href="{to_root}/articles/index.html">試験ガイド</a></p>
 </main>
+{site_page_wrap_close()}
 </body>
 </html>"""
