@@ -571,6 +571,17 @@ def semicolon_field_html(value: str) -> str:
     return ""
 
 
+def multi_paragraph_html(value: str, css_class: str = "article-lead") -> str:
+    """改行2つ区切りで複数段落の HTML を返す。"""
+    text = norm(value)
+    if not text:
+        return ""
+    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    if len(paras) <= 1:
+        return f'<p class="{css_class}">{html.escape(text)}</p>'
+    return "".join(f'<p class="{css_class}">{html.escape(p)}</p>' for p in paras)
+
+
 def build_term_html(
     entry: dict,
     rel_path: Path,

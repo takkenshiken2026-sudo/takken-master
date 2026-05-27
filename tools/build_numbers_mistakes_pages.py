@@ -9,6 +9,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import html
+import io
 import json
 import re
 import sys
@@ -31,6 +32,7 @@ from tools.build_glossary_pages import (  # noqa: E402
     load_glossary_rows,
     make_term_lookup,
     meta_description,
+    multi_paragraph_html,
     norm,
     ordered_term_categories,
     parse_term_tags,
@@ -153,7 +155,7 @@ def load_hub_rows(spec: HubSpec, *, row_parser: Callable[[str, int], list[dict]]
     text = spec.csv_path.read_text(encoding="utf-8-sig")
     used: dict[str, str] = {}
     entries: list[dict] = []
-    for i, row in enumerate(csv.DictReader(text.splitlines()), start=2):
+    for i, row in enumerate(csv.DictReader(io.StringIO(text)), start=2):
         title = norm(row.get("title"))
         if not title:
             raise ValueError(f"line {i}: title が空です")
@@ -474,7 +476,7 @@ def build_detail_html(
       <span class="meta-updated"><span class="q-id">{html.escape(spec.hub_label[:2])}</span> · <span>{html.escape(category)}</span> · <span>{html.escape(detail_line)}</span></span>
     </div>
     <h1 class="article-title">{html.escape(article_title)}</h1>
-    <p class="article-lead">{html.escape(article_lead)}</p>
+    {multi_paragraph_html(article_lead)}
     <section class="seo-article-section" aria-labelledby="hub-sec-matrix">
       <h2 id="hub-sec-matrix"><span class="section-heading-num">1</span>{html.escape(spec.table_section_title)}</h2>
       {matrix_html}
