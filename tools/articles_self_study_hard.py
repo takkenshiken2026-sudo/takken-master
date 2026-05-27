@@ -4,8 +4,20 @@
 from __future__ import annotations
 
 import html
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+COURSE_IMAGE_DIR = ROOT / "images" / "courses"
+COURSE_IMAGE_REL = "../../images/courses/"
 
 SELF_STUDY_HARD_SLUG = "takken-jikugaku-kitsui"
+
+COURSE_IMAGE_SIZES: dict[str, tuple[int, int]] = {
+    "shikakutaisaku": (700, 329),
+    "onsuku": (545, 307),
+    "square": (800, 418),
+    "yotsuya": (960, 402),
+}
 
 SELF_STUDY_HARD_CSV_ROW = {
     "slug": SELF_STUDY_HARD_SLUG,
@@ -141,6 +153,54 @@ def _affiliate_attrs() -> str:
     return 'target="_blank" rel="nofollow sponsored noopener noreferrer"'
 
 
+def resolve_course_image_src(product_id: str) -> str | None:
+    """WebP/JPG/PNG があれば相対パスを返す。なければ None（CSSプレースホルダー用）。"""
+    for ext in (".webp", ".jpg", ".jpeg", ".png"):
+        path = COURSE_IMAGE_DIR / f"course-{product_id}{ext}"
+        if path.is_file():
+            return f"{COURSE_IMAGE_REL}{path.name}"
+    return None
+
+
+def _course_image_html(
+    product: dict[str, str],
+    *,
+    hero: bool = False,
+    section: bool = False,
+    eager: bool = False,
+) -> str:
+    """講座バナー画像、またはプレースホルダー。"""
+    name = product["name"]
+    alt = html.escape(f"{name}の宅建講座")
+    src = resolve_course_image_src(product["id"])
+    width, height = COURSE_IMAGE_SIZES.get(product["id"], (640, 360))
+    if src:
+        if hero:
+            css = "affiliate-course-hero-image"
+            sizes = "(max-width: 760px) 42vw, 220px"
+        else:
+            css = "affiliate-course-section-image"
+            sizes = "(max-width: 760px) 100vw, 720px"
+        loading = "eager" if eager else "lazy"
+        priority = ' fetchpriority="high"' if eager else ""
+        return (
+            f'<img class="{css}" src="{html.escape(src)}" alt="{alt}" '
+            f'width="{width}" height="{height}" sizes="{sizes}" '
+            f'loading="{loading}" decoding="async"{priority}>'
+        )
+    if hero:
+        size = "affiliate-course-placeholder--hero"
+    else:
+        size = "affiliate-course-placeholder--section"
+    return (
+        f'<div class="affiliate-course-placeholder affiliate-course-placeholder--{product["id"]} {size}" '
+        f'role="img" aria-label="{alt}">'
+        f'<span class="affiliate-course-placeholder-name">{html.escape(name)}</span>'
+        f'<span class="affiliate-course-placeholder-tag">{html.escape(product["tag"])}</span>'
+        f"</div>"
+    )
+
+
 def affiliate_pr_notice_html() -> str:
     return (
         '<p class="affiliate-pr-notice" role="note">'
@@ -152,11 +212,13 @@ def affiliate_pr_notice_html() -> str:
 def self_study_hero_html() -> str:
     attrs = _affiliate_attrs()
     items: list[str] = []
-    for product in COURSE_PRODUCTS:
+    for index, product in enumerate(COURSE_PRODUCTS):
         primary = " affiliate-course-hero-item--primary" if product["id"] == "shikakutaisaku" else ""
+        image = _course_image_html(product, hero=True, eager=index == 0)
         items.append(
             f"""<a class="affiliate-course-hero-item affiliate-course-hero-item--{product['id']}{primary}" href="{product['href']}" {attrs}>
 <span class="affiliate-course-hero-rank">{html.escape(product['rank'])}</span>
+<div class="affiliate-course-hero-media">{image}</div>
 <span class="affiliate-course-hero-name">{html.escape(product['name'])}</span>
 <span class="affiliate-course-hero-tag">{html.escape(product['tag'])}</span>
 </a>"""
@@ -164,7 +226,7 @@ def self_study_hero_html() -> str:
     return f"""
 <section class="affiliate-course-hero" id="affiliate-course-hero" aria-labelledby="affiliate-course-hero-title">
 <h2 id="affiliate-course-hero-title" class="affiliate-course-hero-heading">通信講座より安く始められる学習サービス</h2>
-<p class="affiliate-course-hero-note">カードをタップすると各講座の詳細ページを開けます。主導線は<strong>資格対策ドットコム</strong>です。</p>
+<p class="affiliate-course-hero-note">バナーをタップすると各講座の詳細ページを開けます。主導線は<strong>資格対策ドットコム</strong>です。</p>
 <div class="affiliate-course-hero-grid" role="list">{"".join(items)}</div>
 <p class="affiliate-course-hero-foot"><a href="#pick-shikakutaisaku">各講座の特徴・比較はこちら</a></p>
 </section>""".strip()
@@ -178,11 +240,22 @@ def _affiliate_cta(href: str, label: str) -> str:
     )
 
 
+def _course_section_visual(product: dict[str, str]) -> str:
+    attrs = _affiliate_attrs()
+    image = _course_image_html(product, section=True)
+    return (
+        f'<div class="affiliate-course-section-visual">'
+        f'<a class="affiliate-course-section-link" href="{product["href"]}" {attrs}>{image}</a>'
+        f"</div>"
+    )
+
+
 def _course_section(product: dict[str, str], section_num: int, heading: str, body_html: str) -> str:
     anchor = f"pick-{product['id']}"
     return f"""
 <section class="seo-article-section" aria-labelledby="{anchor}">
 <h2 id="{anchor}"><span class="section-heading-num">{section_num}</span>{html.escape(heading)}</h2>
+{_course_section_visual(product)}
 {body_html}
 {_affiliate_cta(product['href'], product['cta'])}
 </section>"""
