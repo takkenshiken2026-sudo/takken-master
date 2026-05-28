@@ -10,6 +10,54 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
+HEADER_COMPARE = [
+    "slug",
+    "title",
+    "category",
+    "tags",
+    "summary",
+    "col_labels",
+    "compare_rows",
+    "article_title",
+    "article_lead",
+    "exam_points",
+    "common_mistakes",
+    "memory_tip",
+    "related_terms",
+    "faq_1_question",
+    "faq_1_answer",
+    "faq_2_question",
+    "faq_2_answer",
+    "faq_3_question",
+    "faq_3_answer",
+    "faq_4_question",
+    "faq_4_answer",
+    "fact_checked_at",
+]
+HEADER_NUMBERS = [
+    "slug",
+    "title",
+    "category",
+    "tags",
+    "summary",
+    "highlight",
+    "item_rows",
+    "article_title",
+    "article_lead",
+    "exam_points",
+    "common_mistakes",
+    "memory_tip",
+    "related_terms",
+    "faq_1_question",
+    "faq_1_answer",
+    "faq_2_question",
+    "faq_2_answer",
+    "faq_3_question",
+    "faq_3_answer",
+    "faq_4_question",
+    "faq_4_answer",
+    "fact_checked_at",
+]
 HEADER_MISTAKES = [
     "slug",
     "title",
@@ -52,6 +100,76 @@ _OFFICIAL = (
     "数値・手続の最新は公益財団法人 全日本不動産協会・"
     "公益財団法人 不動産流通推進センターの試験要項・法令改正情報で必ずご確認ください。"
 )
+
+
+def cmp(
+    slug: str,
+    title: str,
+    cat: str,
+    tags: str,
+    summary: str,
+    labels: str,
+    axes: list[tuple[str, list[str]]],
+    article_title: str,
+    lead: str,
+    points: str,
+    mistakes: str,
+    tip: str,
+    related: str,
+    qa: list[tuple[str, str]],
+) -> dict:
+    return {
+        "slug": slug,
+        "title": title,
+        "category": cat,
+        "tags": tags,
+        "summary": summary,
+        "col_labels": labels,
+        "compare_rows": _rows(*[{"axis": a, "cols": c} for a, c in axes]),
+        "article_title": article_title,
+        "article_lead": lead,
+        "exam_points": points,
+        "common_mistakes": mistakes,
+        "memory_tip": tip,
+        "related_terms": related,
+        "fact_checked_at": "2026-05-28",
+        **_faq(qa),
+    }
+
+
+def num(
+    slug: str,
+    title: str,
+    cat: str,
+    tags: str,
+    summary: str,
+    highlight: str,
+    items: list[tuple[str, str, str]],
+    article_title: str,
+    lead: str,
+    points: str,
+    mistakes: str,
+    tip: str,
+    related: str,
+    qa: list[tuple[str, str]],
+) -> dict:
+    return {
+        "slug": slug,
+        "title": title,
+        "category": cat,
+        "tags": tags,
+        "summary": summary,
+        "highlight": highlight,
+        "item_rows": _rows(*[{"item": i, "value": v, "note": n} for i, v, n in items]),
+        "article_title": article_title,
+        "article_lead": lead,
+        "exam_points": points,
+        "common_mistakes": mistakes,
+        "memory_tip": tip,
+        "related_terms": related,
+        "fact_checked_at": "2026-05-28",
+        **_faq(qa),
+    }
 
 
 def mis(
