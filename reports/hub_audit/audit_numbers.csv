@@ -1,0 +1,151 @@
+hub_file,slug,title,highlight,values,flags,verified
+numbers.csv,takken-shiken-goukaku-shutsudai,宅建試験の合格点・足切り・出題形式,50問・120分・四肢択一。合格は相対評価の総合点（科目別足切りなし）。基準点は試験後に発表。登録講習修了者は5問免除で45問出題。,50問 | 120分 | 相対評価（総合点） | 試験後に発表 | 45問出題 | 14問,maybe_missing_digit;verify_official,OK
+numbers.csv,ju35-ju37-kigen,35条説明・37条交付・クーリングオフの期限,重要事項説明は契約前・宅建士証提示必須。37条書面は遅滞なく交付。クーリングオフ行使期限は書面告知から8日以内。,契約締結前 | 原則8日以内 | 宅建士（専任でなくてよい） | 遅滞なく（契約締結後） | 宅建士の記名（押印不要） | 告知日から8日以内,verify_official,OK
+numbers.csv,tetsuki-hoshu-jogen,手付金・媒介報酬・空き家媒介の上限,手付金は売買代金の20%以内。未完成物件は5%or1000万超で保全。空き家媒介の報酬上限は売主・買主合計で税込33万円。,"売買代金の20%以内 | 代金の5%超 or 1,000万円超 | 代金の10%超 or 1,000万円超 | （売買代金×3%＋6万円）×消費税 | （売買代金×4%＋2万円）×消費税 | 売買代金×5%×消費税",verify_official,OK
+numbers.csv,teitiku-nensu-koushin,借地借家の存続期間・更新,普通借地権の最初の存続期間は30年以上。定期借地権は更新なし・50年以上。普通借家は1年以上（1年未満は期間の定めなし）。,30年以上 | 20年以上 | 10年以上 | 50年以上（更新なし） | 10年以上30年未満 | 30年以上50年未満,verify_official,OK
+numbers.csv,seinin-hogo-nenrei,成年・保佐・後見の年齢・制限行為能力者,2022年4月施行の改正民法で成年年齢が20歳から18歳に引き下げ。後見は日常生活行為以外を取消可能。保佐・補助は同意権の範囲が異なる。,18歳（2022年4月改正） | 取消可能（原則） | 日常生活行為以外は取消可能 | 民法13条1項の重要行為に同意権 | 審判で定めた行為に同意権 | 家庭裁判所の審判で開始,maybe_missing_digit;verify_official,OK
+numbers.csv,zeiritsu-kotei-toshi,固定資産税・都市計画税の税率,固定資産税の標準税率は1.4%。都市計画税の制限税率は0.3%。住宅用地は小規模（200㎡以下）で固定資産税1/6・都計税1/3に軽減。,1.4% | 0.3%（上限） | 30万円 | 20万円 | 150万円 | 課税標準 × 1/6,verify_official,OK
+numbers.csv,yoto-kenpei-yoseki,用途地域の建ぺい率・容積率（主要8地域）,第一種低層住居専用地域は建ぺい率30〜60%・容積率50〜200%。商業地域は建ぺい率80%・容積率200〜1300%と最も高密度。,建ぺい率30〜60% / 容積率50〜200% | 建ぺい率30〜60% / 容積率100〜300% | 建ぺい率50〜80% / 容積率100〜500% | 建ぺい率50〜60% / 容積率100〜400% | 建ぺい率50〜60% / 容積率100〜400% | 建ぺい率60〜80% / 容積率100〜500%,verify_official,OK
+numbers.csv,takken-haczei-karyou,宅建業法の罰則・過料（35条37条・免許等）,無免許営業は3年以下の懲役or300万円以下の罰金（または両方）。35条・37条書面違反は50万円以下の罰金。,3年以下の懲役 or 300万円以下の罰金（併科可） | 3年以下の懲役 or 300万円以下の罰金 | 6か月以下の懲役 or 100万円以下の罰金 | 50万円以下の罰金 | 50万円以下の罰金 | 1年以下の懲役 or 100万円以下の罰金,verify_official,OK
+numbers.csv,touki-souzoku-touki-kigen,登記・相続登記の期限,2024年4月施行の改正で相続登記が義務化。相続を知った日から3年以内に申請しなければ10万円以下の過料。,相続・遺産分割を知った日から3年以内 | 10万円以下の過料 | 変更日から2年以内（2026年4月施行） | 5万円以下の過料 | 相続登記の代わりに申告可能 | 義務なし（任意）,verify_official,OK
+numbers.csv,senren-hokoku-kikan,専任媒介の報告・有効期間・1/5ルール,専任媒介は3か月以内・レインズ7日以内・報告2週に1回以上。専属専任は3か月以内・レインズ5日以内・報告1週に1回以上。,3か月以内 | 3か月以内 | 契約締結日から7日以内 | 契約締結日から5日以内 | 2週間に1回以上 | 1週間に1回以上,verify_official,OK
+numbers.csv,baibai-chintai-tesuryo,売買・賃貸媒介手数料の上限,売買3%+6万／賃貸1ヶ月分,取引価格×3%+6万円 | 賃料1ヶ月分+消費税 | 各取引価格に応じ | 計算問題頻出,verify_official,OK
+numbers.csv,shikikin-jogen-chintai,敷金の上限（建物賃貸借）,賃料の2倍まで（目安）,賃料2倍まで | 6ヶ月分まで | 敷金明細書 | 2倍と6ヶ月,verify_official,OK
+numbers.csv,koushinryou-jogen-1,更新料の上限（1ヶ月）,1ヶ月分以内（目安）,1ヶ月分以内 | 当事者合意 | 土地・建物 | 1ヶ月,verify_official,OK
+numbers.csv,cooling-off-8days,クーリングオフ8日間,契約書面受領日から8日以内,8日以内 | 無条件 | 訪問販売等 | 8日,verify_official,OK
+numbers.csv,takken-shiken-50mon,宅建試験50問・合格基準,50問・相対評価,50問 | 相対評価 | 2時間 | 5分野,verify_official,OK
+numbers.csv,ju35-keiyaku-5days,35条説明から5日以内契約禁止,説明後5日経過前は契約不可,5日 | 検討期間確保 | 書面同意 | 5日,verify_official,OK
+numbers.csv,shikaku-yukou-5nen,宅建士資格の有効期間,5年（更新必要）,5年 | 更新手続 | 5年 | 都道府県,verify_official,OK
+numbers.csv,tesuki-5percent-jogen,手付金の5%上限,代金の5%まで,代金の5% | 解約手付 | 保全措置 | 5%,verify_official,OK-practice
+numbers.csv,teitoku-souzoku-3months,抵当権の3ヶ月除斥期間,3ヶ月の除斥期間,3ヶ月 | 占有移転 | 3ヶ月 | 拍売,verify_official,OK
+numbers.csv,baikai-hokoku-7days,一般媒介の7日報告義務,一般媒介に法定7日報告義務はない。専任媒介は2週1回以上・レインズ7日、専属専任は1週1回以上・レインズ5日。,3か月以内 | 2週に1回以上 | 7日以内 | 1週に1回以上 | 5日以内 | 法定報告義務なし,verify_official,OK
+numbers.csv,s32-menkyo-koushin-5nen,宅建業免許の更新期間,5年（代表）,5年 | 事業者,verify_official,OK
+numbers.csv,s32-kashi-hoshou-period,S32：瑕疵担保責任期間,法令で確認,種別で異なる | 引渡し等,concept_page,
+numbers.csv,s32-juyou-jiko-hokan,35条書面の保存,規則確認,業者備付 | 契約前,concept_page,
+numbers.csv,s32-tefuki-wariai-20,手付の20％上限,代金20%,20% | 解約手当,verify_official,OK
+numbers.csv,s32-baisho-satei-3nen,短期消滅時効3年,3年（代表）,3年 | 20年,verify_official,OK
+numbers.csv,s32-sennin-14days,専任媒介14日報告,14日以内,14日 | 業務状況,verify_official,OK
+numbers.csv,s32-hokenkin-jogen,保証金の上限,要確認,借地 | 建物,concept_page,
+numbers.csv,s32-chintai-update-1month,賃貸借更新予告,1〜6ヶ月,予告 | 別規定,,
+numbers.csv,s32-gyosei-chotei,免許取消の手続,聴聞等,取消停止 | 行政庁,concept_page,
+numbers.csv,s32-takken-shiken-2025,宅建試験合格基準,50問・120分・四肢択一。合格は相対評価の総合点（科目別足切りなし）。基準点は試験後に発表。登録講習修了者は5問免除で45問出題。,50問 | 120分 | 相対評価（総合点） | 試験後に発表 | 45問出題 | 14問,maybe_missing_digit;verify_official,OK
+numbers.csv,s33-ju37-kigen,37条書面交付期限,契約成立後速やか,契約成立後 | 当事者全員,concept_page,
+numbers.csv,s33-hoshou-kyokai,保証協会供託額,法令で確認,保証協会 | 被害者,concept_page,
+numbers.csv,s33-reins-14days,レインズ登録と14日報告,14日以内,14日報告 | 媒介物件,verify_official,OK
+numbers.csv,s33-houshuu-baibai,売買媒介報酬上限,3%+6万円,取引価格×3%+6万 | 負担,verify_official,OK
+numbers.csv,s33-houshuu-chintai,賃貸媒介報酬上限,1ヶ月分,賃料1ヶ月+税 | 負担多い,verify_official,OK
+numbers.csv,s33-jiko-keiyaku,自己契約の書面同意,書面同意,禁止 | 書面,concept_page,
+numbers.csv,s33-teitou-3months,抵当権3ヶ月除斥,3ヶ月,3ヶ月 | 占有移転,verify_official,OK
+numbers.csv,s33-shikikin-2bai,敷金上限2倍,賃料2倍,2倍まで | 6ヶ月,verify_official,OK
+numbers.csv,s33-menkyo-5nen,宅建業免許5年更新,5年・要項確認,5年 | 5年,verify_official,OK
+numbers.csv,s33-takken-36ten,宅建合格基準36点,50問・120分・四肢択一。合格は相対評価の総合点（科目別足切りなし）。基準点は試験後に発表。登録講習修了者は5問免除で45問出題。,50問 | 120分 | 相対評価（総合点） | 試験後に発表 | 45問出題 | 14問,maybe_missing_digit;verify_official,OK
+numbers.csv,s34-ju35-5days,35条説明後5日ルール,5日経過前は不可,5日 | 書面同意,verify_official,OK
+numbers.csv,s34-cooling-8days,クーリングオフ8日,8日以内,8日 | 無条件,verify_official,OK
+numbers.csv,s34-tefuki-5pct,手付金5%上限,代金5%,5% | 預託等,verify_official,OK-practice
+numbers.csv,s34-sennin-14days,専任媒介14日報告 S34,14日以内,14日 | 取引状況,verify_official,OK
+numbers.csv,s34-koushin-1month,更新料1ヶ月上限,1ヶ月以内,1ヶ月 | 別,verify_official,OK
+numbers.csv,s34-shikaku-5nen,宅建士資格5年,5年更新,5年 | 手続必要,verify_official,OK
+numbers.csv,s34-teitou-3months,抵当権3ヶ月除斥 S34,3ヶ月,3ヶ月 | 占有移転,verify_official,OK
+numbers.csv,s34-houshuu-baibai,売買報酬3%+6万,3%+6万,3%+6万 | 1ヶ月,verify_official,OK
+numbers.csv,s34-takken-50mon,宅建試験50問,50問,50問 | 2時間,verify_official,OK
+numbers.csv,s34-baikai-7days,一般媒介7日報告,一般媒介に法定7日報告義務はない。専任媒介は2週1回以上・レインズ7日、専属専任は1週1回以上・レインズ5日。,3か月以内 | 2週に1回以上 | 7日以内 | 1週に1回以上 | 5日以内 | 法定報告義務なし,verify_official,OK
+numbers.csv,s35-takken-kaisei-suuchi,宅建業法改正の数値・期限（S35）,宅建業法改正;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-ju35-ju37-suuchi,35条37条深掘りの数値・期限（S35）,35条37条深掘り;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s35-baikai-houshuu-suuchi,媒介報酬の数値・期限（S35）,媒介報酬;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-shakuchi-shakuya-suuchi,借地借家の数値・期限（S35）,借地借家;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-kubun-shoyu-suuchi,区分所有の数値・期限（S35）,区分所有;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-toshikeikaku-suuchi,都市計画の数値・期限（S35）,都市計画;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-touki-suuchi,登記の数値・期限（S35）,登記;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-keiyaku-futekigou-suuchi,契約不適合の数値・期限（S35）,契約不適合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-tetsuki-suuchi,手付金の数値・期限（S35）,手付金;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s35-shiken-taisaku-suuchi,試験対策の数値・期限（S35）,試験対策;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-takken-kaisei-suuchi,宅建業法改正の数値・期限（S36）,宅建業法改正;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-ju35-ju37-suuchi,35条37条深掘りの数値・期限（S36）,35条37条深掘り;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s36-baikai-houshuu-suuchi,媒介報酬の数値・期限（S36）,媒介報酬;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-shakuchi-shakuya-suuchi,借地借家の数値・期限（S36）,借地借家;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-kubun-shoyu-suuchi,区分所有の数値・期限（S36）,区分所有;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-toshikeikaku-suuchi,都市計画の数値・期限（S36）,都市計画;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-touki-suuchi,登記の数値・期限（S36）,登記;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-keiyaku-futekigou-suuchi,契約不適合の数値・期限（S36）,契約不適合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-tetsuki-suuchi,手付金の数値・期限（S36）,手付金;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s36-shiken-taisaku-suuchi,試験対策の数値・期限（S36）,試験対策;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-takken-kaisei-suuchi,宅建業法改正の数値・期限（S37）,宅建業法改正;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-ju35-ju37-suuchi,35条37条深掘りの数値・期限（S37）,35条37条深掘り;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s37-baikai-houshuu-suuchi,媒介報酬の数値・期限（S37）,媒介報酬;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-shakuchi-shakuya-suuchi,借地借家の数値・期限（S37）,借地借家;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-kubun-shoyu-suuchi,区分所有の数値・期限（S37）,区分所有;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-toshikeikaku-suuchi,都市計画の数値・期限（S37）,都市計画;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-touki-suuchi,登記の数値・期限（S37）,登記;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-keiyaku-futekigou-suuchi,契約不適合の数値・期限（S37）,契約不適合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-tetsuki-suuchi,手付金の数値・期限（S37）,手付金;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s37-shiken-taisaku-suuchi,試験対策の数値・期限（S37）,試験対策;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-takken-kaisei-suuchi,宅建業法改正の数値・期限（S38）,宅建業法改正;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-ju35-ju37-suuchi,35条37条深掘りの数値・期限（S38）,35条37条深掘り;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s38-baikai-houshuu-suuchi,媒介報酬の数値・期限（S38）,媒介報酬;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-shakuchi-shakuya-suuchi,借地借家の数値・期限（S38）,借地借家;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-kubun-shoyu-suuchi,区分所有の数値・期限（S38）,区分所有;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-toshikeikaku-suuchi,都市計画の数値・期限（S38）,都市計画;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-touki-suuchi,登記の数値・期限（S38）,登記;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-keiyaku-futekigou-suuchi,契約不適合の数値・期限（S38）,契約不適合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-tetsuki-suuchi,手付金の数値・期限（S38）,手付金;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s38-shiken-taisaku-suuchi,試験対策の数値・期限（S38）,試験対策;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-takken-kaisei-suuchi,宅建業法改正の数値・期限（S39）,宅建業法改正;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-ju35-ju37-suuchi,35条37条深掘りの数値・期限（S39）,35条37条深掘り;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s39-baikai-houshuu-suuchi,媒介報酬の数値・期限（S39）,媒介報酬;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-shakuchi-shakuya-suuchi,借地借家の数値・期限（S39）,借地借家;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-kubun-shoyu-suuchi,区分所有の数値・期限（S39）,区分所有;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-toshikeikaku-suuchi,都市計画の数値・期限（S39）,都市計画;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-touki-suuchi,登記の数値・期限（S39）,登記;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-keiyaku-futekigou-suuchi,契約不適合の数値・期限（S39）,契約不適合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-tetsuki-suuchi,手付金の数値・期限（S39）,手付金;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s39-shiken-taisaku-suuchi,試験対策の数値・期限（S39）,試験対策;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-takken-chokuzen-suuchi,宅建士試験直前の数値・期限（S40）,宅建士試験直前;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-ju3537-shiage-suuchi,35条37条総仕上げの数値・期限（S40）,35条37条総仕上げ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s40-houshu-jogen-suuchi,報酬上限計算の数値・期限（S40）,報酬上限計算;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-shakuchi-sogo-suuchi,借地借家総合の数値・期限（S40）,借地借家総合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-kubun-kanri-suuchi,区分所有管理の数値・期限（S40）,区分所有管理;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-toshi-hou-suuchi,都市計画法の数値・期限（S40）,都市計画法;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-touki-kenri-suuchi,登記・権利の数値・期限（S40）,登記・権利;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-keiyaku-sekinin-suuchi,契約不適合責任の数値・期限（S40）,契約不適合責任;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-cooling-off-suuchi,クーリングオフの数値・期限（S40）,クーリングオフ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s40-jusetsu-tsuika-suuchi,重要事項追加の数値・期限（S40）,重要事項追加;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-takken-chokuzen-suuchi,宅建士試験直前の数値・期限（S41）,宅建士試験直前;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-ju3537-shiage-suuchi,35条37条総仕上げの数値・期限（S41）,35条37条総仕上げ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s41-houshu-jogen-suuchi,報酬上限計算の数値・期限（S41）,報酬上限計算;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-shakuchi-sogo-suuchi,借地借家総合の数値・期限（S41）,借地借家総合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-kubun-kanri-suuchi,区分所有管理の数値・期限（S41）,区分所有管理;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-toshi-hou-suuchi,都市計画法の数値・期限（S41）,都市計画法;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-touki-kenri-suuchi,登記・権利の数値・期限（S41）,登記・権利;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-keiyaku-sekinin-suuchi,契約不適合責任の数値・期限（S41）,契約不適合責任;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-cooling-off-suuchi,クーリングオフの数値・期限（S41）,クーリングオフ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s41-jusetsu-tsuika-suuchi,重要事項追加の数値・期限（S41）,重要事項追加;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-takken-chokuzen-suuchi,宅建士試験直前の数値・期限（S42）,宅建士試験直前;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-ju3537-shiage-suuchi,35条37条総仕上げの数値・期限（S42）,35条37条総仕上げ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s42-houshu-jogen-suuchi,報酬上限計算の数値・期限（S42）,報酬上限計算;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-shakuchi-sogo-suuchi,借地借家総合の数値・期限（S42）,借地借家総合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-kubun-kanri-suuchi,区分所有管理の数値・期限（S42）,区分所有管理;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-toshi-hou-suuchi,都市計画法の数値・期限（S42）,都市計画法;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-touki-kenri-suuchi,登記・権利の数値・期限（S42）,登記・権利;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-keiyaku-sekinin-suuchi,契約不適合責任の数値・期限（S42）,契約不適合責任;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-cooling-off-suuchi,クーリングオフの数値・期限（S42）,クーリングオフ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s42-jusetsu-tsuika-suuchi,重要事項追加の数値・期限（S42）,重要事項追加;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-takken-chokuzen-suuchi,宅建士試験直前の数値・期限（S43）,宅建士試験直前;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-ju3537-shiage-suuchi,35条37条総仕上げの数値・期限（S43）,35条37条総仕上げ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s43-houshu-jogen-suuchi,報酬上限計算の数値・期限（S43）,報酬上限計算;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-shakuchi-sogo-suuchi,借地借家総合の数値・期限（S43）,借地借家総合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-kubun-kanri-suuchi,区分所有管理の数値・期限（S43）,区分所有管理;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-toshi-hou-suuchi,都市計画法の数値・期限（S43）,都市計画法;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-touki-kenri-suuchi,登記・権利の数値・期限（S43）,登記・権利;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-keiyaku-sekinin-suuchi,契約不適合責任の数値・期限（S43）,契約不適合責任;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-cooling-off-suuchi,クーリングオフの数値・期限（S43）,クーリングオフ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s43-jusetsu-tsuika-suuchi,重要事項追加の数値・期限（S43）,重要事項追加;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-takken-chokuzen-suuchi,宅建士試験直前の数値・期限（S44）,宅建士試験直前;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-ju3537-shiage-suuchi,35条37条総仕上げの数値・期限（S44）,35条37条総仕上げ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,,
+numbers.csv,s44-houshu-jogen-suuchi,報酬上限計算の数値・期限（S44）,報酬上限計算;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-shakuchi-sogo-suuchi,借地借家総合の数値・期限（S44）,借地借家総合;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-kubun-kanri-suuchi,区分所有管理の数値・期限（S44）,区分所有管理;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-toshi-hou-suuchi,都市計画法の数値・期限（S44）,都市計画法;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-touki-kenri-suuchi,登記・権利の数値・期限（S44）,登記・権利;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-keiyaku-sekinin-suuchi,契約不適合責任の数値・期限（S44）,契約不適合責任;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-cooling-off-suuchi,クーリングオフの数値・期限（S44）,クーリングオフ;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,
+numbers.csv,s44-jusetsu-tsuika-suuchi,重要事項追加の数値・期限（S44）,重要事項追加;要項確認,要項・法令で確認 | 主語・手続 | 学習ノート | 数値+条件,concept_page,

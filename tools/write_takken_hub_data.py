@@ -89,6 +89,7 @@ from tools.write_takken_hub_s44_content import (  # noqa: E402
     NUMBERS_ADD as NUMBERS_ADD_S44,
 )
 from tools.write_takken_hub_premium_faqs import apply_all as apply_premium_faqs  # noqa: E402
+from tools.hub_numbers_corrections import apply_numbers_corrections  # noqa: E402
 
 # 再実行時に CSV に残った S31-S44 以外の追加分を base に含めない（原本10件のみ）
 _BASE_COMPARE_SLUGS = {
@@ -263,6 +264,7 @@ def main() -> None:
         ),
         apply_premium=apply_premium_faqs,
     )
+    apply_numbers_corrections(numbers)
     mistakes = finalize_hub_rows(
         _merge(
             _base_rows(DATA / "mistakes.csv", exclude, allow_slugs=_BASE_MISTAKE_SLUGS),
