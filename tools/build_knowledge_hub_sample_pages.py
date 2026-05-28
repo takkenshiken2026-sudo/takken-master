@@ -210,13 +210,14 @@ def glossary_entries_for_sample() -> tuple[list[dict], dict[str, str], dict[str,
 
 def build_all(*, base_url: str = BASE_DEFAULT) -> int:
     term_lookup = glossary_term_lookup()
+    guides = load_guide_slugs()
     count = 0
 
     # 比較サンプル
     compare_path = ROOT / "terms" / "compare" / COMPARE_WRITING_SAMPLE["slug_file"]
     compare_rel = compare_path.relative_to(ROOT)
     compare_html = build_compare_detail_html(
-        COMPARE_WRITING_SAMPLE, compare_rel, base_url, term_lookup
+        COMPARE_WRITING_SAMPLE, compare_rel, base_url, term_lookup, guides
     )
     banner = sample_banner_html(
         samples_href="../samples/index.html",
@@ -240,6 +241,7 @@ def build_all(*, base_url: str = BASE_DEFAULT) -> int:
         numbers_rel,
         base_url,
         term_lookup,
+        guides,
         matrix_html_fn=numbers_matrix_table_html,
     )
     banner = sample_banner_html(
@@ -264,6 +266,7 @@ def build_all(*, base_url: str = BASE_DEFAULT) -> int:
         mistakes_rel,
         base_url,
         term_lookup,
+        guides,
         matrix_html_fn=mistakes_matrix_table_html,
     )
     banner = sample_banner_html(
@@ -280,7 +283,6 @@ def build_all(*, base_url: str = BASE_DEFAULT) -> int:
 
     # 用語解説サンプル
     entries, gl_lookup, by_term = glossary_entries_for_sample()
-    guides = load_guide_slugs()
     sample_entry = dict(GLOSSARY_WRITING_SAMPLE)
     glossary_path = ROOT / "terms" / sample_entry["slug_file"]
     glossary_rel = glossary_path.relative_to(ROOT)

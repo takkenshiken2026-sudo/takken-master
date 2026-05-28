@@ -10,10 +10,20 @@ from pathlib import Path
 from tools.build_glossary_pages import (  # noqa: E402
     field_hub_slug,
     glossary_field_badge_html,
+    glossary_field_id,
     guide_related_link_items,
     rel_to_root,
     split_semicolon,
 )
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def field_hub_page_exists(category: str) -> bool:
+    if not category or not glossary_field_id(category):
+        return False
+    hub = field_hub_slug(category)
+    return (ROOT / "terms" / hub / "index.html").is_file()
+
 from tools.glossary_past_questions import (  # noqa: E402
     find_past_questions_for_term,
     past_questions_section_html,
@@ -154,13 +164,13 @@ def hub_detail_breadcrumb(
     title: str,
     category: str,
 ) -> str:
-    field_hub = field_hub_slug(category) if category else ""
+    field_hub = field_hub_slug(category) if category and field_hub_page_exists(category) else ""
     hub_index_href = f"{rel_path.parent.as_posix()}/index.html"
     items: list[tuple[str, str | None]] = [
         ("トップ", "index.html"),
         (hub_index_label, hub_index_href),
     ]
-    if field_hub and category:
+    if field_hub and category and field_hub_page_exists(category):
         items.append((category, f"terms/{field_hub}/index.html"))
     items.append((title, None))
     return breadcrumb_html(rel_path, items)
@@ -175,9 +185,9 @@ def hub_next_links_html(
     guide_links: list[str] | None = None,
 ) -> str:
     root_idx = rel_to_root(rel_path)
-    field_hub = field_hub_slug(category) if category else ""
+    field_hub = field_hub_slug(category) if category and field_hub_page_exists(category) else ""
     links = [f'<a class="related-link" href="index.html">{html.escape(hub_index_label)}一覧へ戻る</a>']
-    if field_hub and category:
+    if field_hub and category and field_hub_page_exists(category):
         links.append(
             f'<a class="related-link" href="../{html.escape(field_hub)}/index.html">'
             f"{html.escape(category)}の用語一覧</a>"

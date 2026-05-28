@@ -3499,9 +3499,6 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   padding: 6px 10px;
 }
 .terms-index-tools {
-  position: sticky;
-  top: var(--site-sticky-top, 54px);
-  z-index: 20;
   display: grid;
   gap: 12px;
   margin-bottom: 18px;
@@ -3644,9 +3641,6 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   padding: 6px 10px;
 }
 .past-index-tools {
-  position: sticky;
-  top: var(--q-index-sticky-top, 52px);
-  z-index: 8;
   display: grid;
   gap: 12px;
   margin-bottom: 18px;

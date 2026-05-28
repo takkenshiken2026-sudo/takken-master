@@ -159,6 +159,17 @@ def term_slug(term: str, reading: str | dict[str, str] = "", used: dict[str, str
             return cand
         n += 1
 
+def slug_file_for_glossary_row(row: dict, used_slugs: dict[str, str]) -> str:
+    """build_glossary_pages とハブ lookup で同一 slug を使う（reading 込み）。"""
+    term = norm(row.get("term"))
+    if not term:
+        raise ValueError("term が空です")
+    reading = norm(row.get("reading"))
+    slug_file = term_slug(term, reading, used_slugs) + ".html"
+    used_slugs[slug_file] = term
+    return slug_file
+
+
 
 def public_url(base: str, rel_path: str) -> str:
     return f"{base.rstrip('/')}/{rel_path.lstrip('/')}"

@@ -112,8 +112,8 @@ class GeneratedSeoValidator:
 
     def validate_hub_detail_page(self, path: Path) -> None:
         text = self.text(path)
-        info_marker = 'id="compare-info-title"' if "/compare/" in path.as_posix() else 'id="hub-info-title"'
-        faq_marker = 'id="compare-sec-faq"' if "/compare/" in path.as_posix() else 'id="hub-sec-faq"'
+        info_marker = 'id="hub-info-title"'
+        faq_marker = 'id="hub-sec-faq"'
 
         if self.index_of(text, info_marker) < 0:
             self.error(path, "記事の基本情報 が生成されていません")

@@ -124,9 +124,9 @@ class InternalLinkValidator:
             target = (page.parent / path_part).resolve()
         else:
             target = page.resolve()
-        if target.suffix == "" and target.exists() and target.is_dir():
+        if target.exists() and target.is_dir():
             target = (target / "index.html").resolve()
-        elif target.suffix == "" and not target.exists():
+        elif not target.suffix and not target.exists():
             index_candidate = Path(str(target) + ".html")
             if index_candidate.is_file():
                 target = index_candidate.resolve()

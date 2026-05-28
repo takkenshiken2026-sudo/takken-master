@@ -30,9 +30,11 @@ from tools.build_glossary_pages import (  # noqa: E402
     faq_items_for_term,
     faq_section_html,
     field_hub_slug,
+    glossary_field_id,
     load_glossary_rows,
     load_guide_slugs,
     make_term_lookup,
+    slug_file_for_glossary_row,
     meta_description,
     norm,
     ordered_term_categories,
@@ -47,7 +49,8 @@ from tools.build_glossary_pages import (  # noqa: E402
     term_slug,
 )
 from tools.glossary_past_questions import past_questions_section_html  # noqa: E402
-from tools.knowledge_hub_seo import (  # noqa: E402
+from tools.knowledge_hub_seo import (
+    field_hub_page_exists,  # noqa: E402
     build_numbered_sections,
     find_past_questions_for_hub,
     hub_article_json_ld,
@@ -413,7 +416,7 @@ def build_compare_detail_html(
             title=title_text,
             canonical=canonical,
             category=category,
-            field_hub=field_hub_slug(category) if category else "",
+            field_hub=field_hub_slug(category) if category and field_hub_page_exists(category) else "",
         ),
         faq_items=faq_items or None,
     )
@@ -641,11 +644,7 @@ def glossary_term_lookup() -> dict[str, str]:
         term = norm(row.get("term"))
         if not term:
             continue
-        legacy_slug = norm(row.get("slug")) or norm(row.get("url_slug"))
-        if legacy_slug:
-            slug_file = f"{legacy_slug}.html"
-        else:
-            slug_file = term_slug(term, row.get("reading") or "", used_slugs) + ".html"
+        slug_file = slug_file_for_glossary_row(row, used_slugs)
         entries.append({"term": term, "slug_file": slug_file})
     return make_term_lookup(entries)
 
