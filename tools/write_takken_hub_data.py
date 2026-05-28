@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tools.hub_faq_expand import expand_all as expand_short_faqs  # noqa: E402
+from tools.hub_merge_data import finalize_hub_rows  # noqa: E402
 from tools.write_takken_hub_s30 import (  # noqa: E402
     DATA,
     HEADER_COMPARE,
@@ -223,68 +223,65 @@ def write_csv(path: Path, header: list[str], rows: list[dict]) -> None:
 
 def main() -> None:
     exclude = _add_slugs(*_ADD_GROUPS)
-    comparisons = expand_short_faqs(
-        apply_premium_faqs(
-            _merge(
-                _base_rows(DATA / "comparisons.csv", exclude, allow_slugs=_BASE_COMPARE_SLUGS),
-                COMPARISONS_ADD_S31,
-                COMPARISONS_ADD_S32,
-                COMPARISONS_ADD_S33,
-                COMPARISONS_ADD_S34,
-                COMPARISONS_ADD_S35,
-                COMPARISONS_ADD_S36,
-                COMPARISONS_ADD_S37,
-                COMPARISONS_ADD_S38,
-                COMPARISONS_ADD_S39,
-                COMPARISONS_ADD_S40,
-                COMPARISONS_ADD_S41,
-                COMPARISONS_ADD_S42,
-                COMPARISONS_ADD_S43,
-                COMPARISONS_ADD_S44,
-            )
-        )
+    comparisons = finalize_hub_rows(
+        _merge(
+            _base_rows(DATA / "comparisons.csv", exclude, allow_slugs=_BASE_COMPARE_SLUGS),
+            COMPARISONS_ADD_S31,
+            COMPARISONS_ADD_S32,
+            COMPARISONS_ADD_S33,
+            COMPARISONS_ADD_S34,
+            COMPARISONS_ADD_S35,
+            COMPARISONS_ADD_S36,
+            COMPARISONS_ADD_S37,
+            COMPARISONS_ADD_S38,
+            COMPARISONS_ADD_S39,
+            COMPARISONS_ADD_S40,
+            COMPARISONS_ADD_S41,
+            COMPARISONS_ADD_S42,
+            COMPARISONS_ADD_S43,
+            COMPARISONS_ADD_S44,
+        ),
+        apply_premium=apply_premium_faqs,
     )
-    numbers = expand_short_faqs(
-        apply_premium_faqs(
-            _merge(
-                _base_rows(DATA / "numbers.csv", exclude, allow_slugs=_BASE_NUMBER_SLUGS),
-                NUMBERS_ADD_S31,
-                NUMBERS_ADD_S32,
-                NUMBERS_ADD_S33,
-                NUMBERS_ADD_S34,
-                NUMBERS_ADD_S35,
-                NUMBERS_ADD_S36,
-                NUMBERS_ADD_S37,
-                NUMBERS_ADD_S38,
-                NUMBERS_ADD_S39,
-                NUMBERS_ADD_S40,
-                NUMBERS_ADD_S41,
-                NUMBERS_ADD_S42,
-                NUMBERS_ADD_S43,
-                NUMBERS_ADD_S44,
-            )
-        )
+    numbers = finalize_hub_rows(
+        _merge(
+            _base_rows(DATA / "numbers.csv", exclude, allow_slugs=_BASE_NUMBER_SLUGS),
+            NUMBERS_ADD_S31,
+            NUMBERS_ADD_S32,
+            NUMBERS_ADD_S33,
+            NUMBERS_ADD_S34,
+            NUMBERS_ADD_S35,
+            NUMBERS_ADD_S36,
+            NUMBERS_ADD_S37,
+            NUMBERS_ADD_S38,
+            NUMBERS_ADD_S39,
+            NUMBERS_ADD_S40,
+            NUMBERS_ADD_S41,
+            NUMBERS_ADD_S42,
+            NUMBERS_ADD_S43,
+            NUMBERS_ADD_S44,
+        ),
+        apply_premium=apply_premium_faqs,
     )
-    mistakes = expand_short_faqs(
-        apply_premium_faqs(
-            _merge(
-                _base_rows(DATA / "mistakes.csv", exclude, allow_slugs=_BASE_MISTAKE_SLUGS),
-                MISTAKES_ADD_S31,
-                MISTAKES_ADD_S32,
-                MISTAKES_ADD_S33,
-                MISTAKES_ADD_S34,
-                MISTAKES_ADD_S35,
-                MISTAKES_ADD_S36,
-                MISTAKES_ADD_S37,
-                MISTAKES_ADD_S38,
-                MISTAKES_ADD_S39,
-                MISTAKES_ADD_S40,
-                MISTAKES_ADD_S41,
-                MISTAKES_ADD_S42,
-                MISTAKES_ADD_S43,
-                MISTAKES_ADD_S44,
-            )
-        )
+    mistakes = finalize_hub_rows(
+        _merge(
+            _base_rows(DATA / "mistakes.csv", exclude, allow_slugs=_BASE_MISTAKE_SLUGS),
+            MISTAKES_ADD_S31,
+            MISTAKES_ADD_S32,
+            MISTAKES_ADD_S33,
+            MISTAKES_ADD_S34,
+            MISTAKES_ADD_S35,
+            MISTAKES_ADD_S36,
+            MISTAKES_ADD_S37,
+            MISTAKES_ADD_S38,
+            MISTAKES_ADD_S39,
+            MISTAKES_ADD_S40,
+            MISTAKES_ADD_S41,
+            MISTAKES_ADD_S42,
+            MISTAKES_ADD_S43,
+            MISTAKES_ADD_S44,
+        ),
+        apply_premium=apply_premium_faqs,
     )
     write_csv(DATA / "comparisons.csv", HEADER_COMPARE, comparisons)
     write_csv(DATA / "numbers.csv", HEADER_NUMBERS, numbers)
