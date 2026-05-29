@@ -81,7 +81,10 @@ COMPARE_CSV = ROOT / "data" / "comparisons.csv"
 COMPARE_DIR = ROOT / "terms" / "compare"
 BASE_DEFAULT = clean_origin()
 
-COMPARE_INDEX_JS_VER = "20260527-compare-index"
+HUB_INDEX_JS_VER = "20260527-knowledge-hub-index"
+COMPARE_INDEX_COL1 = "項目"
+COMPARE_INDEX_COL3 = "概要"
+COMPARE_JS_PREFIX = "compare-idx"
 COMPARE_INDEX_SEARCH_PLACEHOLDER = "例：過去問、模擬試験、公式情報…"
 PRESERVED_COMPARE_GLOB = "c-*.html"
 
@@ -219,16 +222,15 @@ def render_compare_index_tbody(entries: list[dict]) -> str:
         href = html.escape(compare_index_href(item["slug_file"]))
         href_attr = f' data-entry-href="{href}"'
         summary = html.escape(item.get("summary") or "")
-        subjects = html.escape(" / ".join(item.get("col_labels") or []))
         rows.append(
             "<tr class=\"terms-idx-table-row compare-idx-table-row\">"
-            f'<td class="terms-idx-td-term compare-idx-td-title" data-label="比較"{href_attr} tabindex="0">'
+            f'<td class="terms-idx-td-term compare-idx-td-title" data-label="{html.escape(COMPARE_INDEX_COL1)}"{href_attr} tabindex="0">'
             f'<div class="terms-idx-term-cell"><a href="{href}">{html.escape(item["title"])}</a>'
             f"</div></td>"
             f'<td class="terms-idx-td-cat" data-label="分野"{href_attr}>'
             f'{html.escape(item.get("category") or "")}</td>'
-            f'<td class="terms-idx-td-snippet compare-idx-td-subjects" data-label="比較対象"{href_attr}>'
-            f"{subjects}</td>"
+            f'<td class="terms-idx-td-snippet compare-idx-td-detail" data-label="{html.escape(COMPARE_INDEX_COL3)}"{href_attr}>'
+            f"{summary}</td>"
             "</tr>"
         )
     return "\n".join(rows)
@@ -571,7 +573,7 @@ def build_compare_index(entries: list[dict], base_url: str) -> str:
 <link rel="stylesheet" href="../../site-theme.css">
 <script>document.documentElement.classList.add("js");</script>
 </head>
-<body class="{shell_body_class('compare-index-page')}" data-compare-total="{n_items}">
+<body class="{shell_body_class('compare-index-page')}" data-compare-total="{n_items}" data-hub-index-prefix="{COMPARE_JS_PREFIX}" data-hub-base="/terms/compare/" data-hub-col1="{html.escape(COMPARE_INDEX_COL1, quote=True)}" data-hub-col3="{html.escape(COMPARE_INDEX_COL3, quote=True)}">
 {site_page_wrap_open()}
 {page_header}
 <main class="site-page-main">
@@ -609,9 +611,9 @@ def build_compare_index(entries: list[dict], base_url: str) -> str:
       <div class="terms-idx-table-wrap">
         <table class="terms-idx-table compare-idx-table">
           <thead><tr>
-            <th scope="col" class="terms-idx-th-term">比較</th>
+            <th scope="col" class="terms-idx-th-term">{html.escape(COMPARE_INDEX_COL1)}</th>
             <th scope="col" class="terms-idx-th-cat">分野</th>
-            <th scope="col" class="terms-idx-th-def">比較対象</th>
+            <th scope="col" class="terms-idx-th-def">{html.escape(COMPARE_INDEX_COL3)}</th>
           </tr></thead>
           <tbody id="compare-idx-flat-body">
 {tbody_html}
@@ -627,8 +629,8 @@ def build_compare_index(entries: list[dict], base_url: str) -> str:
 {page_footer}
 {site_page_wrap_close()}
 <button type="button" class="terms-idx-top compare-idx-top" id="compare-idx-top" aria-label="ページ上部へ">↑</button>
-<script type="application/json" id="compare-index-data">{json_data}</script>
-<script defer src="../../site-compare-index.js?v={COMPARE_INDEX_JS_VER}"></script>
+<script type="application/json" id="{COMPARE_JS_PREFIX}-data">{json_data}</script>
+<script defer src="../../site-knowledge-hub-index.js?v={HUB_INDEX_JS_VER}"></script>
 </body>
 </html>
 """

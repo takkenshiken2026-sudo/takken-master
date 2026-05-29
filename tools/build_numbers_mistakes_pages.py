@@ -302,7 +302,7 @@ def render_index_tbody(spec: HubSpec, entries: list[dict]) -> str:
     for item in items:
         href = html.escape(hub_index_href(spec, item["slug_file"]))
         href_attr = f' data-entry-href="{href}"'
-        detail = html.escape(item.get(spec.index_detail_field) or item.get("summary") or "")
+        detail = html.escape(item.get("summary") or item.get(spec.index_detail_field) or "")
         rows.append(
             f'<tr class="terms-idx-table-row {spec.index_table_class}-row">'
             f'<td class="terms-idx-td-term {spec.index_table_class}-td-title" data-label="{html.escape(spec.index_col1)}"{href_attr} tabindex="0">'
@@ -689,7 +689,7 @@ NUMBERS_SPEC = HubSpec(
     article_body_class="numbers-article-page",
     hub_label="数値・期限早見表",
     index_col1="項目",
-    index_col3="代表的な数値・期限",
+    index_col3="概要",
     index_detail_field="highlight",
     search_placeholder="例：8日、20%、30年、18歳…",
     js_prefix="numbers-idx",
@@ -722,8 +722,8 @@ MISTAKES_SPEC = HubSpec(
     index_body_class="mistakes-index-page",
     article_body_class="mistakes-article-page",
     hub_label="よくある誤答",
-    index_col1="パターン",
-    index_col3="混同しやすい点",
+    index_col1="項目",
+    index_col3="概要",
     index_detail_field="confusion_point",
     search_placeholder="例：35条、媒介、先取特権、税率…",
     js_prefix="mistakes-idx",
