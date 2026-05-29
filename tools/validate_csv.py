@@ -25,6 +25,7 @@ from tools.knowledge_hub_rules import (
 )
 
 from tools.site_config import category_to_field_map, guide_genre_labels
+from tools.validate_past_answer_consistency import find_issues as find_past_answer_issues
 
 
 def split_semicolon(value: str) -> list[str]:
@@ -190,6 +191,16 @@ class Validator:
             self.require_text(path, row, idx, "stem")
             self.require_text(path, row, idx, "explanation")
             self.validate_choices_and_correct(path, row, idx, allow_invalidated=True)
+        for issue in find_past_answer_issues(rows):
+            self.error(
+                path,
+                issue.line,
+                (
+                    f"正答({issue.correct})と解説が矛盾 "
+                    f"(推定正答={issue.inferred}, {issue.reason}): "
+                    f"{issue.snippet[:80]}"
+                ),
+            )
 
     def validate_practice_questions(self) -> None:
         path = DATA_DIR / "practice_questions.csv"

@@ -19,6 +19,7 @@ def run(cmd: list[str]) -> None:
 def main() -> int:
     py = sys.executable
     run([py, "tools/validate_csv.py"])
+    run([py, "tools/validate_past_answer_consistency.py"])
     run([py, "tools/apply_site_config.py"])
     run([py, "tools/csv_to_takken_master_js.py"])
     run([py, "tools/csv_to_takken_glossary_js.py"])
