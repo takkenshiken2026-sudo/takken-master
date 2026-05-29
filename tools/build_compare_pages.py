@@ -335,7 +335,7 @@ def build_compare_detail_html(
     info_rows = [
         ("対象試験", exam_name()),
         ("分野", category),
-        ("比較対象", subjects_line),
+        (COMPARE_INDEX_COL3, summary or subjects_line),
     ]
     info_table = (
         '<section class="seo-article-section" aria-labelledby="hub-info-title">'
