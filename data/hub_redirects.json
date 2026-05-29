@@ -161,7 +161,10 @@
     "s41-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
     "s42-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
     "s43-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
-    "s44-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi"
+    "s44-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
+    "s34-sennin-14days": "s32-sennin-14days",
+    "s34-teitou-3months": "s33-teitou-3months",
+    "s34-cooling-8days": "cooling-off-8days"
   },
   "mistakes": {
     "s36-kon-takken-kaisei": "s35-kon-takken-kaisei",
