@@ -15,25 +15,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.site_config import (  # noqa: E402
-    brand_name,
-    exam_name,
-    external_links,
-    guide_article_genres,
-    guide_genre_labels,
-)
+from tools.site_config import brand_name, exam_name, guide_article_genres, guide_genre_labels  # noqa: E402
 
 ARTICLES_CSV = ROOT / "data" / "guide_articles.csv"
 TEMPLATE_CSV = ROOT / "data" / "templates" / "guide_article_row.template.csv"
 
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
-
-
-def default_primary_sources() -> str:
-    links = external_links()
-    if not links:
-        return "不動産適正取引推進機構（RETIO）|https://www.retio.or.jp/"
-    return ";".join(f"{item['label']}|{item['url']}" for item in links[:2])
 
 BODY_PLACEHOLDER = (
     "【本文を記入】◯◯試験の{topic}について、公式情報を確認したうえで整理します。"
@@ -147,15 +134,15 @@ GENRE_OUTLINES: dict[str, dict[str, object]] = {
         "related": "study-plan:学習計画;past-question-strategy:過去問の使い方",
         "priority": 40,
     },
-    "用語整理": {
-        "title": "◯◯試験の用語解説を使った知識整理",
-        "meta": "◯◯試験の重要用語を効率よく整理するため、用語解説ページの使い方を紹介します。",
-        "lead": "用語解説は、過去問で出た語句の意味や似た用語との違いを確認する入口です。",
+    "用語ハブ活用法": {
+        "title": "◯◯試験の知識ハブ（用語解説）の活用法",
+        "meta": "◯◯試験の用語解説・比較表・数値早見・誤答タブの使い方と、過去問との往復の仕方を紹介します。",
+        "lead": "用語の定義は用語解説タブに集約しています。本記事では知識ハブ全体の使い方と、効率的な回遊のコツをまとめます。",
         "tags": "用語集;知識整理",
-        "sections": ["用語集の使い方", "重要度の見方", "数字・期限の整理", "関連用語で回遊する", "過去問との往復"],
+        "sections": ["知識ハブ4タブの役割", "用語一覧の使い方", "比較・数値・誤答タブの使い分け", "関連用語で回遊する", "過去問・試験ガイドとの往復"],
         "faqs": [
-            ("用語はどこから読めばよいですか？", "過去問で出た語、重要度の高い語から読むと効率的です。"),
-            ("関連用語はどう使いますか？", "リンクから似た語句へ進み、セットで理解を深めます。"),
+            ("用語の意味はどこで調べますか？", "用語解説タブの各ページで定義と試験論点を確認します。似た語の違いは比較タブも参照してください。"),
+            ("勉強計画はどこにありますか？", "学習スケジュールは試験ガイドの学習計画ジャンルにあります。本記事は知識の調べ方に特化しています。"),
         ],
         "related": "past-question-strategy:過去問の使い方;exam-overview:試験概要",
         "priority": 35,
@@ -238,11 +225,11 @@ def filter_related_links(value: str) -> str:
         if slug in slugs:
             kept.append(item)
     fallbacks = [
-        "takken-to-wa:試験概要",
-        "takken-plan:学習計画",
-        "takken-kakomon:過去問の使い方",
-        "glossary-study-method:用語整理",
-        "takken-dokugaku:独学対策",
+        "exam-overview:試験概要",
+        "study-plan:学習計画",
+        "past-question-strategy:過去問の使い方",
+        "glossary-how-to:用語整理",
+        "self-study-roadmap:独学ロードマップ",
     ]
     for fb in fallbacks:
         if len(kept) >= 2:
@@ -280,7 +267,7 @@ def build_row(slug: str, genre: str, title: str | None = None) -> dict[str, str]
             "reviewer_name": "公式情報確認担当",
             "reviewer_profile": "公開前に一次情報との照合を行う担当者",
             "fact_checked_at": today,
-            "primary_sources": default_primary_sources(),
+            "primary_sources": "試験実施団体（公式）|https://example.com/",
             "original_note": f"{genre}向けテンプレートから作成。公開前に本文・参照URL・関連リンクを差し替える。",
             "user_intent": "【読者がこの記事で得たいことを1文で記入】",
             "action_items": "【行動1】;【行動2】;【行動3】",

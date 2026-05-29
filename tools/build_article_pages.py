@@ -10,7 +10,6 @@ import json
 import re
 import shutil
 import sys
-from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,33 +19,13 @@ if str(ROOT) not in sys.path:
 from tools.html_footer import (  # noqa: E402
     ROBOTS_INDEX_FOLLOW,
     breadcrumb_html,
+    shell_body_class,
     site_page_footer,
     site_page_header,
     site_page_wrap_close,
     site_page_wrap_open,
 )
-from tools.articles_affiliate_courses import affiliate_pr_notice_html  # noqa: E402
-from tools.articles_self_study_hard import (  # noqa: E402
-    SELF_STUDY_HARD_CSV_ROW,
-    SELF_STUDY_HARD_SLUG,
-    self_study_hard_toc_html,
-    self_study_hero_html,
-    self_study_sections_html,
-)
-from tools.articles_tsushin_osusume import (  # noqa: E402
-    TSUSHIN_OSUSUME_CSV_ROW,
-    TSUSHIN_OSUSUME_SLUG,
-    tsushin_hero_html,
-    tsushin_osusume_toc_html,
-    tsushin_sections_html,
-)
-from tools.articles_textbook_osusume import (  # noqa: E402
-    TEXTBOOK_OSUSUME_SLUG,
-    TEXTBOOK_OSUSUME_CSV_ROW,
-    TEXTBOOK_TOC_EXTRA,
-    textbook_hero_html,
-    textbook_sections_html,
-)
+from tools.seo_utils import content_date_from_row, json_ld_date_modified, meta_updated_html  # noqa: E402
 from tools.site_config import (  # noqa: E402
     brand_name,
     clean_origin,
@@ -165,7 +144,7 @@ def toc_html(article: dict[str, str], has_faq: bool) -> str:
 
 def faq_items(article: dict[str, str]) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
-    for idx in range(1, 5):
+    for idx in range(1, 4):
         q = apply_vars(article.get(f"faq_{idx}_question", ""))
         a = apply_vars(article.get(f"faq_{idx}_answer", ""))
         if q and a:
@@ -194,8 +173,7 @@ def parse_related_links(
     links: list[str] = []
     seen: set[str] = set()
     for item in split_semicolon(value):
-        target = item.strip()
-        label = ""
+        target, label = item, item
         if ":" in item:
             target, label = [x.strip() for x in item.split(":", 1)]
         if not target:
@@ -203,24 +181,12 @@ def parse_related_links(
         if target in by_slug and target not in seen:
             seen.add(target)
             href = f"../{html.escape(target)}/"
-            text_label = label or apply_vars(by_slug[target].get("title", target))
-            desc = meta_description(
-                apply_vars(by_slug[target].get("meta_description") or by_slug[target].get("lead") or text_label)
-            )
-            links.append(
-                f'<a class="related-link related-link-card" href="{href}">'
-                f'<span class="related-link-card-title">{html.escape(text_label)}</span>'
-                f'<span class="related-link-card-desc">{html.escape(desc)}</span>'
-                f"</a>"
-            )
-        elif target.startswith(("http://", "https://", "../", "./")):
+            text_label = label or by_slug[target]["title"]
+            links.append(f'<a class="related-link" href="{href}">{html.escape(apply_vars(text_label))}</a>')
+        elif target.startswith(("http://", "https://")):
             text_label = label or target
-            external = target.startswith(("http://", "https://"))
-            extra = ' target="_blank" rel="noopener noreferrer"' if external else ""
             links.append(
-                f'<a class="related-link related-link-card" href="{html.escape(target)}"{extra}>'
-                f'<span class="related-link-card-title">{html.escape(apply_vars(text_label))}</span>'
-                f"</a>"
+                f'<a class="related-link" href="{html.escape(target)}" target="_blank" rel="noopener noreferrer">{html.escape(apply_vars(text_label))}</a>'
             )
     if len(links) < 2 and article:
         genre = apply_vars(article.get("genre", ""))
@@ -248,13 +214,9 @@ def parse_related_links(
             if slug in seen:
                 continue
             seen.add(slug)
-            title_text = apply_vars(other["title"])
-            desc = meta_description(apply_vars(other.get("meta_description") or other.get("lead") or title_text))
             links.append(
-                f'<a class="related-link related-link-card" href="../{html.escape(slug)}/">'
-                f'<span class="related-link-card-title">{html.escape(title_text)}</span>'
-                f'<span class="related-link-card-desc">{html.escape(desc)}</span>'
-                f"</a>"
+                f'<a class="related-link" href="../{html.escape(slug)}/">'
+                f"{html.escape(apply_vars(other['title']))}</a>"
             )
             if len(links) >= 2:
                 break
@@ -263,20 +225,14 @@ def parse_related_links(
                 break
             if slug in by_slug and slug not in seen and slug != current_slug:
                 seen.add(slug)
-                title_text = apply_vars(by_slug[slug]["title"])
-                desc = meta_description(
-                    apply_vars(by_slug[slug].get("meta_description") or by_slug[slug].get("lead") or title_text)
-                )
                 links.append(
-                    f'<a class="related-link related-link-card" href="../{html.escape(slug)}/">'
-                    f'<span class="related-link-card-title">{html.escape(title_text)}</span>'
-                    f'<span class="related-link-card-desc">{html.escape(desc)}</span>'
-                    f"</a>"
+                    f'<a class="related-link" href="../{html.escape(slug)}/">'
+                    f"{html.escape(apply_vars(by_slug[slug]['title']))}</a>"
                 )
     if not links:
         return ""
     return (
-        '<div class="related-box"><div class="related-box-title">関連記事</div><div class="related-links related-links-cards">'
+        '<div class="related-box"><div class="related-box-title">関連記事</div><div class="related-links">'
         + "".join(links)
         + "</div></div>"
     )
@@ -325,21 +281,6 @@ def quality_panel_html(article: dict[str, str]) -> str:
             else:
                 source_items.append(f"<li>{label}</li>")
         rows.append(f'<tr><th>主な参照元</th><td><ul class="quality-source-list">{"".join(source_items)}</ul></td></tr>')
-    disclosure = norm(article.get("affiliate_disclosure", ""))
-    if disclosure == "amazon":
-        rows.append(
-            "<tr><th>広告表記</th><td>"
-            "当記事内のAmazonリンクはアソシエイト・プログラムに参加しています。"
-            "リンク先の価格・在庫はAmazonの表示に準じます。"
-            "</td></tr>"
-        )
-    elif disclosure in ("a8", "affiliate"):
-        rows.append(
-            "<tr><th>広告表記</th><td>"
-            "当記事には広告・PR（アフィリエイト）を含みます。"
-            "リンク先の料金・サービス内容・キャンペーンは各事業者の表示に準じます。"
-            "</td></tr>"
-        )
     if not rows:
         return ""
     return (
@@ -383,61 +324,19 @@ def article_info_table(article: dict[str, str]) -> str:
     )
 
 
-def textbook_toc_html(has_faq: bool) -> str:
-    items: list[tuple[str, str]] = [
-        ("quality-panel-title", "この記事の信頼性について"),
-        ("action-box-title", "この記事でできること"),
-        *TEXTBOOK_TOC_EXTRA,
-    ]
-    if has_faq:
-        items.append(("article-sec-faq", "よくある質問"))
-    items.extend(
-        [
-            ("article-info-title", "記事の基本情報"),
-            ("official-info-title", "公式情報の確認"),
-        ]
-    )
-    links = "".join(f'<li><a href="#{html.escape(anchor)}">{html.escape(label)}</a></li>' for anchor, label in items)
-    return (
-        '<nav class="seo-toc" aria-labelledby="seo-toc-title">'
-        '<h2 id="seo-toc-title">目次</h2>'
-        f"<ol>{links}</ol></nav>"
-    )
-
-
 def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str]]) -> str:
     slug = article["slug"]
     rel_path = Path("articles") / slug / "index.html"
     title = apply_vars(article["title"])
     desc = meta_description(apply_vars(article.get("meta_description") or article.get("lead") or title))
     canonical = public_url(f"articles/{slug}/")
-    updated = apply_vars(article.get("fact_checked_at", "")) or date.today().isoformat()
+    updated = content_date_from_row(article)
     genre = apply_vars(article.get("genre", "試験ガイド"))
     tags = split_semicolon(apply_vars(article.get("tags", "")))
-    is_textbook = slug == TEXTBOOK_OSUSUME_SLUG
-    is_self_study_hard = slug == SELF_STUDY_HARD_SLUG
-    is_tsushin_osusume = slug == TSUSHIN_OSUSUME_SLUG
-    pr_notice = affiliate_pr_notice_html() if (is_self_study_hard or is_tsushin_osusume) else ""
-    if is_textbook:
-        hero = textbook_hero_html()
-        sections = textbook_sections_html()
-        toc = textbook_toc_html(bool(faq_items(article)))
-    elif is_self_study_hard:
-        hero = self_study_hero_html()
-        sections = self_study_sections_html()
-        toc = self_study_hard_toc_html(bool(faq_items(article)))
-    elif is_tsushin_osusume:
-        hero = tsushin_hero_html()
-        sections = tsushin_sections_html()
-        toc = tsushin_osusume_toc_html(bool(faq_items(article)))
-    else:
-        hero = ""
-        sections = sections_html(article)
-        toc = toc_html(article, bool(faq_items(article)))
-    lead_extras_parts = [part for part in (pr_notice, hero) if part]
-    lead_extras = ("\n    " + "\n    ".join(lead_extras_parts)) if lead_extras_parts else ""
+    sections = sections_html(article)
     faqs = faq_items(article)
     faq_section = faq_html(faqs)
+    toc = toc_html(article, bool(faqs))
     related = parse_related_links(article.get("related_links", ""), by_slug, article)
     quality_panel = quality_panel_html(article)
     action_box = action_box_html(article)
@@ -464,7 +363,7 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
         "inLanguage": "ja-JP",
         "about": [genre, *tags],
         "isPartOf": public_url("articles/index.html"),
-        "dateModified": updated,
+        **json_ld_date_modified(updated),
     }
     if author:
         article_schema["author"] = {"@type": "Person", "name": author}
@@ -520,7 +419,7 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
 <link rel="stylesheet" href="{html.escape(css_href(rel_path, "site-pages.css"))}">
 <link rel="stylesheet" href="{html.escape(css_href(rel_path, "site-theme.css"))}">
 </head>
-<body>
+<body class="{shell_body_class('guide-article-page')}">
 {site_page_wrap_open()}
 {site_page_header(rel_path, current="articles")}
 <main class="seo-article-main">
@@ -528,10 +427,10 @@ def build_article_html(article: dict[str, str], by_slug: dict[str, dict[str, str
   <article class="seo-article-card article-body">
     <div class="article-meta">
       <span class="meta-category">{html.escape(genre)}</span>
-      <span class="meta-updated">更新日：{html.escape(updated)}</span>
+      {meta_updated_html(updated)}
     </div>
     <h1 class="article-title">{html.escape(title)}</h1>
-    <p class="article-lead">{html.escape(apply_vars(article.get("lead", "")))}</p>{lead_extras}
+    <p class="article-lead">{html.escape(apply_vars(article.get("lead", "")))}</p>
     {toc}
     {quality_panel}
     {action_box}
@@ -636,7 +535,7 @@ def build_index_html(articles: list[dict[str, str]]) -> str:
 </script>"""
     canonical = public_url("articles/index.html")
     title = f"試験ガイド｜{brand_name()}（{exam_name()}）"
-    desc = f"{exam_name()}の試験概要、受験・申込、学習計画、過去問活用、用語整理などの記事一覧です。"
+    desc = f"{exam_name()}の受験フェーズ別ガイド（制度・学習計画・演習・直前・再受験）一覧です。用語の定義は用語解説（知識ハブ）をご覧ください。"
     item_list = [
         {"@type": "ListItem", "position": i, "name": apply_vars(a["title"]), "item": public_url(f"articles/{a['slug']}/")}
         for i, a in enumerate(articles, start=1)
@@ -666,13 +565,13 @@ def build_index_html(articles: list[dict[str, str]]) -> str:
 <link rel="stylesheet" href="../site-pages.css">
 <link rel="stylesheet" href="../site-theme.css">
 </head>
-<body>
+<body class="{shell_body_class('articles-index-page')}">
 {site_page_wrap_open()}
 {site_page_header(rel_path, current="articles")}
 <main class="site-page-main">
   {breadcrumb_html(rel_path, [("トップ", "index.html"), ("試験ガイド", None)])}
   <h1>試験ガイド</h1>
-  <p class="site-page-lead">{html.escape(exam_name())}の制度理解から学習計画・演習・直前対策まで、受験フェーズ別の記事をまとめています。検索とジャンル絞り込みで目的の記事を探せます。</p>
+  <p class="site-page-lead">{html.escape(exam_name())}の制度理解から学習計画・演習・直前対策まで、受験フェーズ別の<strong>進め方</strong>をまとめています。用語の意味・比較・数値は<a href="../terms/index.html">用語解説（知識ハブ）</a>、問題演習は<a href="../q/index.html">過去問一覧</a>からどうぞ。</p>
   <section class="article-index-panel" aria-labelledby="article-index-heading">
     <div class="article-index-head">
       <div>
@@ -708,13 +607,6 @@ def load_articles() -> list[dict[str, str]]:
     if not ARTICLES_CSV.is_file():
         raise FileNotFoundError(str(ARTICLES_CSV))
     rows = list(csv.DictReader(ARTICLES_CSV.read_text(encoding="utf-8-sig").splitlines()))
-    slugs = {norm(row.get("slug")) for row in rows}
-    if TEXTBOOK_OSUSUME_SLUG not in slugs:
-        rows.append(TEXTBOOK_OSUSUME_CSV_ROW)
-    if SELF_STUDY_HARD_SLUG not in slugs:
-        rows.append(SELF_STUDY_HARD_CSV_ROW)
-    if TSUSHIN_OSUSUME_SLUG not in slugs:
-        rows.append(TSUSHIN_OSUSUME_CSV_ROW)
     return sorted(rows, key=lambda x: int(norm(x.get("priority")) or 9999))
 
 
