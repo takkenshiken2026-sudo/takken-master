@@ -48,7 +48,7 @@
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://takken-master.jp/terms/?q={search_term_string}"
+          "urlTemplate": "https://takken-master.jp/terms/index.html?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
@@ -85,7 +85,7 @@
         {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://takken-master.jp/"},
         {"@type": "ListItem", "position": 2, "name": "過去問一覧", "item": "https://takken-master.jp/q/index.html"},
         {"@type": "ListItem", "position": 3, "name": "実践演習", "item": "https://takken-master.jp/#orig"},
-        {"@type": "ListItem", "position": 4, "name": "用語解説", "item": "https://takken-master.jp/terms/"}
+        {"@type": "ListItem", "position": 4, "name": "用語解説", "item": "https://takken-master.jp/terms/index.html"}
       ]
     }
   ]
@@ -1471,7 +1471,7 @@ body.is-solving .site-footer{display:none!important}
         <a class="topnav-link" id="tnav-review" href="#review" onclick="event.preventDefault();gotoPage('review')">
           <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
         </a>
-        <a class="topnav-link" id="tnav-glossary" href="/terms/" onclick="event.preventDefault();gotoPage('glossary')">
+        <a class="topnav-link" id="tnav-glossary" href="/terms/index.html">
           <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
         </a>
       </nav>
@@ -1551,7 +1551,7 @@ body.is-solving .site-footer{display:none!important}
       <a class="mobile-nav-item" id="mnav-review" href="#review" onclick="event.preventDefault();gotoPage('review');closeMobileDrawer()">
         <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></svg>復習
       </a>
-      <a class="mobile-nav-item" id="mnav-glossary" href="/terms/" onclick="event.preventDefault();gotoPage('glossary');closeMobileDrawer()">
+      <a class="mobile-nav-item" id="mnav-glossary" href="/terms/index.html">
         <svg viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>用語解説
       </a>
 
@@ -3605,12 +3605,6 @@ const PAGE_SEO = {
     desc:  '宅建試験の重要知識を一問一答形式で確認。短時間で基礎知識の定着を進められます。',
     path:  '/quiz/ichimondou/',
     hash:  '#ichimondou'
-  },
-  'glossary': {
-    title: '用語解説｜宅建マスター',
-    desc:  '宅建試験の重要用語を分野別に検索・閲覧。各用語の意味と試験でのポイントを解説します。',
-    path:  '/terms/',
-    hash:  '#glossary'
   }
 };
 
@@ -4154,7 +4148,6 @@ function siteDataBundlesForPage(id){
   if(id==='past-config') return ['past'];
   if(id==='orig') return ['orig'];
   if(id==='ichimondou'||id==='ichimondou-score') return ['past','orig'];
-  if(id==='glossary') return ['glossary'];
   if(id==='dash'||id==='review'||id==='mock'||id==='mock-score') return ['past','orig'];
   return [];
 }
@@ -4347,11 +4340,12 @@ window.addEventListener('popstate', function(e) {
 
 // URLハッシュに基づいた初期ページ解決
 function _resolveInitialPage() {
-  // 旧パス /glossary/ のみ静的一覧へ（アプリ内 #glossary は SPA で表示）
+  // 旧パス /glossary/ および #glossary は静的一覧へ
   if (typeof location !== 'undefined' && location.protocol !== 'file:') {
     const pn = location.pathname;
-    if (pn === '/glossary/' || pn === '/glossary') {
-      try { location.replace('/terms/'); } catch (e) { /* noop */ }
+    const hash = location.hash || '';
+    if (pn === '/glossary/' || pn === '/glossary' || hash === '#glossary') {
+      try { location.replace('/terms/index.html'); } catch (e) { /* noop */ }
       return 'quiz-start';
     }
   }
@@ -4369,7 +4363,7 @@ function _resolveInitialPage() {
   const path = location.pathname;
   const hashMap = {
     '#past':'past-config','#orig':'orig','#ichimondou':'ichimondou','#dash':'dash',
-    '#review':'review','#mock':'mock','#account':'dash','#glossary':'glossary'
+    '#review':'review','#mock':'mock','#account':'dash'
   };
   const raw=location.hash||'';
   if(/^#past-play-\d+$/.test(raw)||/^#orig-play-\d+$/.test(raw)||/^#mock-play-\d+$/.test(raw)){
