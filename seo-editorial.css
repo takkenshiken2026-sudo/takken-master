@@ -183,13 +183,13 @@ body.seo-editorial-preview-page .seo-editorial.seo-article-card {
   font-size: var(--seo-fs-body);
 }
 
-.seo-editorial .seo-article-section ul {
+.seo-editorial .seo-article-section ul:not(.term-past-list) {
   margin: 0.75em 0 1em;
   padding-left: 1.35em;
   list-style: disc;
 }
 
-.seo-editorial .seo-article-section ul li + li {
+.seo-editorial .seo-article-section ul:not(.term-past-list) li + li {
   margin-top: 0.35em;
 }
 
@@ -543,11 +543,6 @@ body.seo-editorial-preview-page .seo-editorial.seo-article-card {
 
 .seo-editorial .term-past-list {
   margin: 0.75em 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 /* 表 */
