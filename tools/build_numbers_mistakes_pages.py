@@ -59,9 +59,14 @@ from tools.knowledge_hub_seo import (
     hub_article_json_ld,
     hub_breadcrumb_json_ld,
     hub_detail_breadcrumb,
+    hub_faq_items_resolved,
     hub_guide_links,
     hub_meta_line,
+    hub_mistakes_points_body_html,
     hub_next_links_html,
+    hub_numbers_points_body_html,
+    hub_stub_memory_body_html,
+    hub_stub_mistakes_body_html,
     official_info_html,
     seo_hub_key_points_box_html,
     seo_quality_panel_html,
@@ -446,16 +451,17 @@ def build_detail_html(
     updated = content_date_from_row(entry)
 
     matrix_html = matrix_html_fn(entry["detail_rows"], note_html=spec.note_html)
-    points_html = semicolon_list_html(exam_points)
-    mistakes_html = semicolon_field_html(common_mistakes) or (
-        f"<p>{html.escape(common_mistakes)}</p>" if common_mistakes else ""
-    )
-    memory_html = (
-        f"<blockquote><p>{html.escape(memory_tip)}</p></blockquote>" if memory_tip else ""
-    )
+    if spec.hub_id == "numbers":
+        points_html = hub_numbers_points_body_html(entry)
+    elif spec.hub_id == "mistakes":
+        points_html = hub_mistakes_points_body_html(entry)
+    else:
+        points_html = semicolon_list_html(exam_points)
+    mistakes_html = hub_stub_mistakes_body_html(entry)
+    memory_html = hub_stub_memory_body_html(entry)
 
     fallback_faq = faq_items_for_term(title_text, summary, summary, exam_points or summary)
-    faq_items = custom_faq_items(entry, fallback_faq)
+    faq_items = hub_faq_items_resolved(entry, fallback_faq, hub_type=spec.hub_id)
 
     page_header = site_page_header(rel_path, current="terms")
     page_footer = site_page_footer(rel_path, current="terms")

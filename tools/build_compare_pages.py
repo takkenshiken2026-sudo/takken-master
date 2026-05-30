@@ -59,6 +59,10 @@ from tools.knowledge_hub_seo import (
     hub_article_json_ld,
     hub_breadcrumb_json_ld,
     hub_detail_breadcrumb,
+    hub_compare_memory_body_html,
+    hub_compare_mistakes_body_html,
+    hub_compare_points_body_html,
+    hub_faq_items_resolved,
     hub_guide_links,
     hub_meta_line,
     hub_next_links_html,
@@ -305,13 +309,9 @@ def build_compare_detail_html(
     css_href = rel_editorial_css(rel_path)
 
     matrix_html = compare_matrix_table_html(col_labels, compare_rows)
-    points_html = semicolon_list_html(exam_points)
-    mistakes_html = semicolon_field_html(common_mistakes) or (
-        f"<p>{html.escape(common_mistakes)}</p>" if common_mistakes else ""
-    )
-    memory_html = (
-        f"<blockquote><p>{html.escape(memory_tip)}</p></blockquote>" if memory_tip else ""
-    )
+    points_html = hub_compare_points_body_html(entry)
+    mistakes_html = hub_compare_mistakes_body_html(entry)
+    memory_html = hub_compare_memory_body_html(entry)
 
     fallback_faq = faq_items_for_term(
         title_text,
@@ -319,7 +319,7 @@ def build_compare_detail_html(
         summary,
         exam_points or summary,
     )
-    faq_items = custom_faq_items(entry, fallback_faq)
+    faq_items = hub_faq_items_resolved(entry, fallback_faq)
 
     rel_path_breadcrumb = rel_path
     page_header = site_page_header(rel_path_breadcrumb, current="terms")

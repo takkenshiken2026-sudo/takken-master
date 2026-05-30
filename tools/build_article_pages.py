@@ -105,6 +105,26 @@ def list_or_paragraph(
     )
 
 
+def resolve_guide_section_body(article: dict[str, str], body: str) -> str:
+    """量産テンプレの冒頭をリード文ベースの本文に差し替える。"""
+    text = norm(body)
+    if not text or "の観点で整理します" not in text:
+        return body
+    lead = norm(article.get("lead"))
+    if not lead:
+        return body
+    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    rest = [
+        p
+        for p in paras[1:]
+        if "このサイトでは過去問・用語解説・比較表を組み合わせ" not in p
+        and "間違えた問題は理由を短くメモし" not in p
+    ]
+    lead_paras = [p.strip() for p in re.split(r"\n\s*\n", lead) if p.strip()]
+    merged = lead_paras + rest
+    return "\n\n".join(merged)
+
+
 def section_html(
     article: dict[str, str],
     idx: int,
@@ -114,7 +134,7 @@ def section_html(
     linked_terms: set[str] | None = None,
 ) -> str:
     heading = apply_vars(article.get(f"section_{idx}_heading", ""))
-    body = article.get(f"section_{idx}_body", "")
+    body = resolve_guide_section_body(article, article.get(f"section_{idx}_body", ""))
     if not heading or not norm(body):
         return ""
     sid = f"article-sec-{idx}"
