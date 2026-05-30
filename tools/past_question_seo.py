@@ -401,12 +401,13 @@ def build_past_root_hub_html(
     year_rows = []
     list_items: list[tuple[str, str]] = []
     for y in sorted(years, reverse=True):
-        ys = by_year[y]
+        ys = sorted(by_year[y], key=lambda p: p["qno"])
         wareki = ys[0]["wareki"]
         n = len(ys)
-        url = f"{base}/q/past/y{y}/index.html"
+        first_href = ys[0]["rel_path"].removeprefix("q/past/")
+        url = f"{base}/q/past/{first_href}"
         year_rows.append(
-            f'<li><a href="y{y}/index.html"><strong>{html.escape(wareki)}</strong>'
+            f'<li><a href="{html.escape(first_href)}"><strong>{html.escape(wareki)}</strong>'
             f"（{y}年）— {n}問掲載</a></li>"
         )
         list_items.append((f"{wareki}（{y}年）", url))

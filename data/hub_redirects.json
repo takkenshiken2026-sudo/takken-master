@@ -82,6 +82,8 @@
     "s44-jusetsu-tsuika-hikaku": "s40-jusetsu-tsuika-hikaku"
   },
   "numbers": {
+    "s34-sennin-14days": "s32-sennin-14days",
+    "s34-teitou-3months": "s33-teitou-3months",
     "s36-takken-kaisei-suuchi": "s35-takken-kaisei-suuchi",
     "s37-takken-kaisei-suuchi": "s35-takken-kaisei-suuchi",
     "s38-takken-kaisei-suuchi": "s35-takken-kaisei-suuchi",
@@ -161,21 +163,13 @@
     "s41-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
     "s42-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
     "s43-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
-    "s44-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi",
-    "s34-sennin-14days": "s32-sennin-14days",
-    "s34-teitou-3months": "s33-teitou-3months",
-    "s34-cooling-8days": "cooling-off-8days",
-    "s34-tefuki-5pct": "tesuki-5percent-jogen"
+    "s44-jusetsu-tsuika-suuchi": "s40-jusetsu-tsuika-suuchi"
   },
   "mistakes": {
     "s36-kon-takken-kaisei": "s35-kon-takken-kaisei",
     "s37-kon-takken-kaisei": "s35-kon-takken-kaisei",
     "s38-kon-takken-kaisei": "s35-kon-takken-kaisei",
     "s39-kon-takken-kaisei": "s35-kon-takken-kaisei",
-    "s36-kon-ju35-ju37": "s35-kon-ju35-ju37",
-    "s37-kon-ju35-ju37": "s35-kon-ju35-ju37",
-    "s38-kon-ju35-ju37": "s35-kon-ju35-ju37",
-    "s39-kon-ju35-ju37": "s35-kon-ju35-ju37",
     "s36-kon-baikai-houshuu": "s35-kon-baikai-houshuu",
     "s37-kon-baikai-houshuu": "s35-kon-baikai-houshuu",
     "s38-kon-baikai-houshuu": "s35-kon-baikai-houshuu",
@@ -192,10 +186,6 @@
     "s37-kon-toshikeikaku": "s35-kon-toshikeikaku",
     "s38-kon-toshikeikaku": "s35-kon-toshikeikaku",
     "s39-kon-toshikeikaku": "s35-kon-toshikeikaku",
-    "s36-kon-touki": "s35-kon-touki",
-    "s37-kon-touki": "s35-kon-touki",
-    "s38-kon-touki": "s35-kon-touki",
-    "s39-kon-touki": "s35-kon-touki",
     "s36-kon-keiyaku-futekigou": "s35-kon-keiyaku-futekigou",
     "s37-kon-keiyaku-futekigou": "s35-kon-keiyaku-futekigou",
     "s38-kon-keiyaku-futekigou": "s35-kon-keiyaku-futekigou",
@@ -247,7 +237,6 @@
     "s41-kon-jusetsu-tsuika": "s40-kon-jusetsu-tsuika",
     "s42-kon-jusetsu-tsuika": "s40-kon-jusetsu-tsuika",
     "s43-kon-jusetsu-tsuika": "s40-kon-jusetsu-tsuika",
-    "s44-kon-jusetsu-tsuika": "s40-kon-jusetsu-tsuika",
-    "s34-kon-kashi-35": "s32-kon-kashi-hoshou"
+    "s44-kon-jusetsu-tsuika": "s40-kon-jusetsu-tsuika"
   }
 }
