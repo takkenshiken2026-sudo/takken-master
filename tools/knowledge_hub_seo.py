@@ -78,19 +78,44 @@ def seo_quality_panel_html(*, updated: str = "") -> str:
     return panel
 
 
-def seo_action_box_html(*, subject: str, hub_label: str) -> str:
+def seo_hub_key_points_box_html(*, subject: str, hub_label: str) -> str:
+    """比較・数値・誤答ハブ向け要点ボックス（旧「この記事でできること」を統合）。"""
+    intro = (
+        f"この記事では、{subject}について{hub_label}形式で整理し、"
+        f"{exam_name()}で迷いやすい部分を短時間で復習できます。"
+        "表を読んだあとは、関連用語と過去問を合わせて確認し、選択肢で使える状態に近づけてください。"
+    )
+    items = [
+        f"{subject}の違い・数値・誤答パターンを一覧で確認する",
+        "試験で問われやすい条件や表現を整理する",
+        "混同しやすい選択肢や注意点を復習する",
+        "関連する用語解説や過去問へ進む",
+    ]
+    return seo_key_points_box_html(items, intro=intro)
+
+
+def seo_key_points_box_html(
+    items: list[str],
+    *,
+    title: str = "この記事の要点",
+    heading_id: str = "key-points-title",
+    intro: str = "",
+) -> str:
+    """リード直後に置く要点ボックス（導入文 + 3〜5項目）。"""
+    cleaned = [item.strip() for item in items if item and item.strip()]
+    intro_text = intro.strip()
+    if not cleaned and not intro_text:
+        return ""
+    intro_html = f"<p>{html.escape(intro_text)}</p>" if intro_text else ""
+    list_html = ""
+    if cleaned:
+        lis = "".join(f"<li>{html.escape(item)}</li>" for item in cleaned[:5])
+        list_html = f'<ul class="seo-key-points-list">{lis}</ul>'
     return (
-        '<section class="seo-action-box" aria-labelledby="action-box-title">'
-        '<h2 id="action-box-title">この記事でできること</h2>'
-        f"<p>この記事では、{html.escape(subject)}について{html.escape(hub_label)}形式で整理し、"
-        f"{html.escape(exam_name())}で迷いやすい部分を短時間で復習できます。"
-        "表を読んだあとは、関連用語と過去問を合わせて確認し、選択肢で使える状態に近づけてください。</p>"
-        "<ul>"
-        f"<li>{html.escape(subject)}の違い・数値・誤答パターンを一覧で確認する</li>"
-        "<li>試験で問われやすい条件や表現を整理する</li>"
-        "<li>混同しやすい選択肢や注意点を復習する</li>"
-        "<li>関連する用語解説や過去問へ進む</li>"
-        "</ul></section>"
+        f'<section class="seo-key-points-box" aria-labelledby="{html.escape(heading_id)}">'
+        f'<h2 id="{html.escape(heading_id)}">{html.escape(title)}</h2>'
+        f"{intro_html}{list_html}"
+        "</section>"
     )
 
 
@@ -138,6 +163,37 @@ def hub_article_section(sec_id: str, label: str, body_html: str, number: int | N
         f'<section class="seo-article-section" aria-labelledby="{hid}">'
         f'<h2 id="{hid}">{num_html}{html.escape(label)}</h2>'
         f"{body_html}</section>"
+    )
+
+
+def faq_items_html(items: list[dict[str, str]]) -> str:
+    """FAQ を details で出力（FAQPage JSON-LD と併用）。すべて open。"""
+    if not items:
+        return ""
+    return "".join(
+        '<details class="term-faq-item" open>'
+        f'<summary>{html.escape(item["question"])}</summary>'
+        f'<div>{html.escape(item["answer"])}</div>'
+        "</details>"
+        for item in items
+    )
+
+
+def faq_section_html(
+    items: list[dict[str, str]],
+    *,
+    heading_id: str,
+    section_num: int | None = None,
+) -> str:
+    """「よくある質問」セクション。H2 見出しにのみ section-heading-num を付ける。"""
+    body = faq_items_html(items)
+    if not body:
+        return ""
+    num_html = f'<span class="section-heading-num">{section_num}</span>' if section_num is not None else ""
+    return (
+        f'<section class="seo-article-section" aria-labelledby="{heading_id}">'
+        f'<h2 id="{heading_id}">{num_html}よくある質問</h2>'
+        f"{body}</section>"
     )
 
 

@@ -50,10 +50,13 @@ from tools.site_config import (
     field_labels,
     primary_external_link,
 )
+from tools.seo_editorial_chrome import (  # noqa: E402
+    seo_editorial_article_class,
+    seo_editorial_head_fonts,
+    seo_editorial_stylesheet_links,
+)
 
-HEAD_FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">"""
+HEAD_FONTS = seo_editorial_head_fonts()
 
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 TERMS_DIR = ROOT / "terms"
@@ -188,6 +191,10 @@ def rel_css(rel_file: Path) -> str:
 def rel_theme_css(rel_file: Path) -> str:
     depth = len(rel_file.parent.parts)
     return "/".join([".."] * depth) + "/site-theme.css"
+
+
+def rel_editorial_css(rel_file: Path) -> str:
+    return seo_editorial_stylesheet_links(rel_file, site_pages_ver=TERMS_INDEX_CSS_VER)
 
 
 def glossary_field_id(category: str) -> str | None:
@@ -467,6 +474,8 @@ def next_links_html(
     category: str,
     guide_links: list[str],
 ) -> str:
+    from tools.internal_links import TERM_NEXT_HUB_LINKS
+
     links = [
         '<a class="related-link" href="index.html">用語解説一覧へ戻る</a>',
     ]
@@ -475,6 +484,8 @@ def next_links_html(
             f'<a class="related-link" href="{html.escape(field_hub)}/index.html">'
             f"{html.escape(category)}の用語一覧</a>"
         )
+    for href, label in TERM_NEXT_HUB_LINKS:
+        links.append(f'<a class="related-link" href="{html.escape(href)}">{html.escape(label)}</a>')
     links.append(f'<a class="related-link" href="{html.escape(root_idx)}#past">過去問演習で確認する</a>')
     links.extend(guide_links)
     return (
@@ -492,31 +503,15 @@ def related_terms_html(
     entries: list[dict],
     limit: int = 6,
 ) -> str:
-    items: list[str] = []
-    seen: set[str] = set()
-    for label in split_semicolon(related):
-        href = term_lookup.get(label) or term_lookup.get(lookup_key(label))
-        if href and href not in seen:
-            seen.add(href)
-            items.append(f'<a class="related-link" href="{html.escape(href)}">{html.escape(label)}</a>')
-        elif label and label not in {e["term"] for e in entries}:
-            items.append(f'<span class="related-link related-link-static">{html.escape(label)}</span>')
-    if len(items) < 2:
-        category = current.get("category") or ""
-        for e in entries:
-            if e["slug_file"] == current.get("slug_file"):
-                continue
-            if category and e.get("category") != category:
-                continue
-            href = e["slug_file"]
-            if href in seen:
-                continue
-            seen.add(href)
-            items.append(f'<a class="related-link" href="{html.escape(href)}">{html.escape(e["term"])}</a>')
-            if len(items) >= limit:
-                break
-    if not items:
-        return ""
+    from tools.internal_links import collect_related_term_link_items
+
+    items = collect_related_term_link_items(
+        related,
+        term_lookup,
+        entries=entries,
+        current=current,
+        limit=limit,
+    )
     return "".join(items)
 
 
@@ -759,6 +754,25 @@ def build_term_html(
     faq_items = custom_faq_items(entry, faq_items_for_term(term, reading, short_def, definition, explanation))
     faq_html = faq_section_html(faq_items)
 
+    key_points_source = split_semicolon(exam_points)[:5]
+    if not key_points_source:
+        key_points_source = study_points(explanation, limit=3)
+    if not key_points_source:
+        key_points_source = [
+            f"{term}の定義と位置づけを確認する",
+            "試験で問われやすい条件や表現を整理する",
+            "頻出の誤り選択肢や混同しやすい点を復習する",
+        ]
+    if not any("過去問" in item for item in key_points_source):
+        key_points_source = [*key_points_source, "関連する用語解説や過去問へ進む"]
+    from tools.knowledge_hub_seo import seo_key_points_box_html
+
+    key_points_intro = f"この記事では、{term}の意味と試験での見方を、問題の解説に沿って整理します。"
+    key_points_html = seo_key_points_box_html(
+        key_points_source[:5],
+        intro=key_points_intro,
+    )
+
     badge_html = glossary_field_badge_html(category)
     meta_bits: list[str] = ['<span class="q-id">用語</span>']
     if badge_html:
@@ -861,6 +875,7 @@ def build_term_html(
     content_sections_html = "\n    ".join(content_sections)
 
     toc_items: list[tuple[str, str]] = [
+        ("key-points-title", "この記事の要点"),
         ("quality-panel-title", "この記事の信頼性について"),
         ("action-box-title", "この記事でできること"),
         *body_toc_items,
@@ -962,8 +977,8 @@ def build_term_html(
 <script type="application/ld+json">
 {json.dumps(json_ld, ensure_ascii=False, indent=2)}
 </script>
-{HEAD_FONTS}
-<link rel="stylesheet" href="{html.escape(css_href)}">
+{seo_editorial_head_fonts()}
+{seo_editorial_stylesheet_links(rel_path, site_pages_ver=TERMS_INDEX_CSS_VER)}
 <link rel="stylesheet" href="{html.escape(theme_href)}">
 </head>
 <body class="{shell_body_class('term-article-page')}">
@@ -972,7 +987,7 @@ def build_term_html(
 <main class="seo-article-main">
   {page_breadcrumb}
   {hub_tabs}
-  <article class="seo-article-card article-body">
+  <article class="{seo_editorial_article_class()}">
     <div class="article-meta">
       <span class="meta-category">用語解説</span>
       {meta_updated_html(updated)}
@@ -980,6 +995,7 @@ def build_term_html(
     </div>
     <h1 class="article-title">{html.escape(article_title or term + 'とは？意味・根拠・試験ポイントを整理')}</h1>
     <p class="article-lead">{html.escape(article_lead) if article_lead else f"<strong>{html.escape(term)}</strong>{f'（{html.escape(reading)}）' if reading else ''}について、定義・根拠・試験での押さえ方をまとめます。{html.escape(lead)}"}</p>
+    {key_points_html}
     {toc_html}
     {quality_html}
     {can_do_html}
@@ -1258,6 +1274,36 @@ def load_glossary_rows() -> list[dict]:
         raise FileNotFoundError(str(GLOSSARY_CSV))
     text = GLOSSARY_CSV.read_text(encoding="utf-8-sig")
     return list(csv.DictReader(text.splitlines()))
+
+
+def load_glossary_entries(*, strict: bool = True) -> list[dict]:
+    """CSV から slug_file 付き用語エントリ一覧（reading 込み slug）。"""
+    rows = load_glossary_rows()
+    used_slugs: dict[str, str] = {}
+    entries: list[dict] = []
+    for i, row in enumerate(rows, start=2):
+        term = norm(row.get("term"))
+        if not term:
+            if strict:
+                raise ValueError(f"line {i}: term が空です")
+            continue
+        reading = norm(row.get("reading"))
+        slug_file = slug_file_for_glossary_row(row, used_slugs)
+        entries.append(
+            {
+                "term": term,
+                "reading": reading,
+                "category": norm(row.get("category")),
+                "tags": norm(row.get("tags")),
+                "short_def": norm(row.get("short_def")),
+                "definition": norm(row.get("definition")),
+                "related_terms": norm(row.get("related_terms")),
+                "legal_basis": norm(row.get("legal_basis")),
+                "slug_file": slug_file,
+                "field_hub": field_hub_slug(norm(row.get("category"))),
+            }
+        )
+    return entries
 
 
 def main() -> int:
