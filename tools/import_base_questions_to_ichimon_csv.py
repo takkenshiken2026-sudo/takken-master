@@ -201,34 +201,6 @@ def base_to_ichimon_row(
     }
 
 
-def load_past_rows() -> list[dict]:
-    if not PAST_CSV.is_file():
-        return []
-    text = PAST_CSV.read_text(encoding="utf-8-sig")
-    rows = list(csv.DictReader(text.splitlines()))
-    out: list[dict] = []
-    for i, row in enumerate(rows, start=2):
-        obj = row_to_obj(row, i)
-        if obj is None:
-            continue
-        out.append({"row": row, "obj": obj})
-    return out
-
-
-def load_practice_rows() -> list[dict]:
-    if not PRACTICE_CSV.is_file():
-        return []
-    text = PRACTICE_CSV.read_text(encoding="utf-8-sig")
-    rows = list(csv.DictReader(text.splitlines()))
-    out: list[dict] = []
-    for i, row in enumerate(rows, start=2):
-        obj = practice_row_to_obj(row, i)
-        if obj is None:
-            continue
-        out.append({"row": row, "obj": obj})
-    return out
-
-
 def read_manual_rows(path: Path) -> list[dict[str, str]]:
     if not path.is_file():
         return []

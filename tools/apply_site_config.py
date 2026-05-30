@@ -98,30 +98,7 @@ def replace_all(text: str) -> str:
     return text
 
 
-def ensure_site_pages_css(text: str, rel_path: Path) -> str:
-    if "site-pages.css" in text:
-        return text
-    pages_href = "site-pages.css" if rel_path.parent == Path(".") else "../site-pages.css"
-    theme_href = "site-theme.css" if rel_path.parent == Path(".") else "../site-theme.css"
-    inject = (
-        f'<link rel="stylesheet" href="{pages_href}">\n'
-        f'  <link rel="stylesheet" href="{theme_href}">'
-    )
-    font_link = "fonts.googleapis.com/css2?family=Noto+Sans+JP"
-    if font_link in text:
-        text = re.sub(
-            rf'(<link href="https://{re.escape(font_link)}[^"]*" rel="stylesheet">)',
-            rf"\1\n  {inject}",
-            text,
-            count=1,
-        )
-    elif "</head>" in text:
-        text = text.replace("</head>", f"  {inject}\n</head>", 1)
-    return text
-
-
 def ensure_theme_link(text: str, rel_path: Path) -> str:
-    text = ensure_site_pages_css(text, rel_path)
     if "site-theme.css" in text:
         return text
     href = "site-theme.css" if rel_path.parent == Path(".") else "../site-theme.css"
@@ -149,29 +126,8 @@ def replace_static_chrome(text: str, path: Path) -> str:
         return text
     rel_path = path.relative_to(ROOT)
     text = re.sub(
-        r'<!-- HEADER -->\s*<nav class="topnav">.*?</nav>',
-        site_page_header(rel_path, current=current),
-        text,
-        count=1,
-        flags=re.S,
-    )
-    text = re.sub(
-        r'\s*<footer class="footer">.*?</footer>\s*',
-        "\n" + site_page_footer(rel_path, current=current) + "\n",
-        text,
-        count=1,
-        flags=re.S,
-    )
-    text = re.sub(
-        r'\s*<header class="(?:about-header|site-page-header(?: site-page-header--wide)?|topnav site-shell-header(?: site-shell-header--wide)?)">.*?</header>',
+        r'\s*<header class="(?:site-page-header(?: site-page-header--wide)?|topnav site-shell-header(?: site-shell-header--wide)?)">.*?</header>',
         "\n" + site_page_header(rel_path, current=current),
-        text,
-        count=1,
-        flags=re.S,
-    )
-    text = re.sub(
-        r'\s*<footer class="about-foot">.*?</footer>\s*',
-        "",
         text,
         count=1,
         flags=re.S,
@@ -191,13 +147,6 @@ def replace_static_chrome(text: str, path: Path) -> str:
         count=1,
         flags=re.S,
     )
-    if 'class="site-footer"' not in text:
-        text = re.sub(
-            r"\s*</body>",
-            "\n" + site_page_footer(rel_path, current=current) + "\n</body>",
-            text,
-            count=1,
-        )
     return ensure_theme_link(text, rel_path)
 
 
