@@ -177,7 +177,8 @@ def slug_file_for_glossary_row(row: dict, used_slugs: dict[str, str]) -> str:
     if legacy_slug:
         slug_file = f"{legacy_slug}.html"
     else:
-        slug_file = term_slug(term, used_slugs) + ".html"
+        reading = norm(row.get("reading"))
+        slug_file = term_slug(term, reading, used_slugs) + ".html"
     used_slugs[slug_file] = term
     return slug_file
 
@@ -1370,7 +1371,8 @@ def load_glossary_entries(*, strict: bool = True) -> list[dict]:
                 raise ValueError(f"line {i}: slug が重複しています: {legacy_slug}")
             used_slugs[slug_file] = term
         else:
-            slug_file = term_slug(term, used_slugs) + ".html"
+            reading = norm(row.get("reading"))
+            slug_file = term_slug(term, reading, used_slugs) + ".html"
         entries.append(
             {
                 "term": term,
