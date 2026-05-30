@@ -68,6 +68,7 @@ from tools.knowledge_hub_seo import (
     hub_stub_memory_body_html,
     hub_stub_mistakes_body_html,
     official_info_html,
+    sanitize_hub_article_lead,
     seo_hub_key_points_box_html,
     seo_quality_panel_html,
     seo_toc_html,
@@ -439,7 +440,7 @@ def build_detail_html(
     summary = entry.get("summary") or ""
     detail_line = entry.get(spec.index_detail_field) or ""
     article_title = entry.get("article_title") or f"{title_text}｜{exam_name()}"
-    article_lead = entry.get("article_lead") or summary
+    article_lead = sanitize_hub_article_lead(entry.get("article_lead") or summary)
     exam_points = entry.get("exam_points") or ""
     common_mistakes = entry.get("common_mistakes") or ""
     memory_tip = entry.get("memory_tip") or ""

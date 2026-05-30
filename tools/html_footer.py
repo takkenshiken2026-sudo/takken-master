@@ -168,6 +168,23 @@ def footer_href(rel_path: Path, site_rel: str) -> str:
     return html_rel_href(rel_path.as_posix(), site_rel)
 
 
+def ga4_head_snippet() -> str:
+    """生成 HTML の <head> 内用 Google タグ（site-analytics.js の二重初期化を防ぐ）。"""
+    mid = html.escape(GA4_MEASUREMENT_ID)
+    return (
+        "<!-- Google tag (gtag.js) -->\n"
+        f'<script async src="https://www.googletagmanager.com/gtag/js?id={mid}"></script>\n'
+        "<script>\n"
+        "window.dataLayer = window.dataLayer || [];\n"
+        "function gtag(){dataLayer.push(arguments);}\n"
+        "window.gtag = gtag;\n"
+        f'window.__GA4_HEAD_INIT__ = "{mid}";\n'
+        'gtag("js", new Date());\n'
+        f'gtag("config", "{mid}");\n'
+        "</script>"
+    )
+
+
 def analytics_snippet(rel_path: Path) -> str:
     """全静的ページ共通: フッター直後（</body> 直前想定）に置く GA4 タグ。相対パスで site-analytics.js を読む。"""
     src = html.escape(footer_href(rel_path, "site-analytics.js"))
@@ -449,7 +466,7 @@ def q_hub_links_html(rel_path: Path, *, current: str) -> str:
     """過去問・実践演習・一問一答のモード切替タブ（一覧・個別ページ共通）。"""
     items: list[tuple[str, str, str]] = [
         ("past", "過去問", "q/index.html"),
-        ("practice", "実践演習", "q/orig/index.html"),
+        ("practice", "実践演習", "q/practice/index.html"),
         ("ichimon", "一問一答", "q/ichimon/index.html"),
     ]
     lis: list[str] = []

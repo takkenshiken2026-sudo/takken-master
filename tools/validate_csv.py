@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import csv
+import io
 import re
 import sys
 from dataclasses import dataclass
@@ -14,7 +15,13 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.build_glossary_pages import lookup_key, make_term_lookup
+from tools.build_glossary_pages import make_term_lookup
+from tools.glossary_term_rules import (
+    GLOSSARY_BASE_REQUIRED,
+    GLOSSARY_PRODUCTION_TARGET,
+    check_glossary_row,
+)
+from tools.guide_article_rules import check_guide_row
 from tools.knowledge_hub_rules import (
     HUB_CSV_NAMES,
     HUB_LABELS,
@@ -23,15 +30,22 @@ from tools.knowledge_hub_rules import (
     check_numbers_row,
     production_count_message,
 )
-
 from tools.site_config import category_to_field_map, guide_genre_labels
-from tools.validate_past_answer_consistency import find_issues as find_past_answer_issues
+from tools.term_diagram import DIAGRAM_ID_RE, diagram_id_exists
 
 
 def split_semicolon(value: str) -> list[str]:
     return [x.strip() for x in value.split(";") if x.strip()]
 
 DATA_DIR = ROOT / "data"
+
+# Guide rows with this tag in `tags` are counted as affiliate articles (production target: 10).
+AFFILIATE_TAG = "アフィリエイト"
+AFFILIATE_TARGET_COUNT = 10
+AFFILIATE_GENRES = frozenset(
+    {"独学対策", "学習計画", "過去問活用", "直前・当日", "試験概要", "受験・申込"}
+)
+AFFILIATE_PR_MARKERS = ("アフィリエイト", "広告", "PR", "プロモーション")
 
 # Must not appear in published section headings / body (guide_articles.csv).
 OPERATOR_CONTENT_FRAGMENTS: list[tuple[str, str]] = [
@@ -86,7 +100,7 @@ class Validator:
         for h in dupes:
             self.error(path, 1, f"列名が重複しています: {h}")
 
-        rows = list(csv.DictReader(text.splitlines()))
+        rows = list(csv.DictReader(io.StringIO(text)))
         fieldnames = list(rows[0].keys()) if rows else (headers or [])
         missing = sorted(required - set(fieldnames))
         for col in missing:
@@ -191,16 +205,16 @@ class Validator:
             self.require_text(path, row, idx, "stem")
             self.require_text(path, row, idx, "explanation")
             self.validate_choices_and_correct(path, row, idx, allow_invalidated=True)
-        for issue in find_past_answer_issues(rows):
-            self.error(
-                path,
-                issue.line,
-                (
-                    f"正答({issue.correct})と解説が矛盾 "
-                    f"(推定正答={issue.inferred}, {issue.reason}): "
-                    f"{issue.snippet[:80]}"
-                ),
-            )
+            related = self.norm(row.get("related_links"))
+            if related:
+                for token in split_semicolon(related):
+                    if ":" not in token:
+                        self.warn(
+                            path,
+                            idx,
+                            f"related_links の形式を確認してください（例: guide:slug:ラベル）: {token!r}",
+                        )
+            self._validate_diagram_id(path, row, idx)
 
     def validate_practice_questions(self) -> None:
         path = DATA_DIR / "practice_questions.csv"
@@ -229,6 +243,7 @@ class Validator:
             self.require_text(path, row, idx, "stem")
             self.require_text(path, row, idx, "explanation")
             self.validate_choices_and_correct(path, row, idx, allow_invalidated=False)
+            self._validate_diagram_id(path, row, idx)
 
     def validate_ichimon_questions(self) -> None:
         path = DATA_DIR / "ichimon_questions.csv"
@@ -249,22 +264,11 @@ class Validator:
             answer = self.require_text(path, row, idx, "answer")
             if answer and answer not in {"○", "〇", "×", "✕", "╳"}:
                 self.error(path, idx, f"answer は ○ または × で入力してください: {answer!r}")
+            self._validate_diagram_id(path, row, idx)
 
     def validate_glossary(self) -> None:
         path = DATA_DIR / "glossary_terms.csv"
-        required = {
-            "term",
-            "reading",
-            "category",
-            "tags",
-            "short_def",
-            "definition",
-            "related_terms",
-            "legal_basis",
-            "importance",
-            "explanation",
-        }
-        _, rows = self.read_csv(path, required)
+        _, rows = self.read_csv(path, set(GLOSSARY_BASE_REQUIRED))
         entries: list[dict[str, str]] = []
         for row in rows:
             term = self.norm(row.get("term"))
@@ -272,49 +276,59 @@ class Validator:
                 entries.append(
                     {
                         "term": term,
-                        "reading": self.norm(row.get("reading")),
                         "slug_file": "g-dummy.html",
                     }
                 )
         term_lookup = make_term_lookup(entries)
-        seen: set[tuple[str, str]] = set()
+        if len(entries) < GLOSSARY_PRODUCTION_TARGET:
+            self.warn(
+                path,
+                None,
+                f"用語数が {GLOSSARY_PRODUCTION_TARGET} 件未満です（現在 {len(entries)} 件）。本番は詳細記事を {GLOSSARY_PRODUCTION_TARGET} 件以上推奨",
+            )
+        seen: set[str] = set()
         for idx, row in enumerate(rows, start=2):
             term = self.require_text(path, row, idx, "term")
-            reading = self.require_text(path, row, idx, "reading")
             if term:
-                key = (term, reading)
-                if key in seen:
-                    self.error(path, idx, f"term + reading が重複しています: {term} / {reading}")
-                seen.add(key)
+                if term in seen:
+                    self.error(path, idx, f"term が重複しています: {term}")
+                seen.add(term)
             self.validate_category(path, row, idx)
-            self.require_text(path, row, idx, "short_def")
-            self.require_text(path, row, idx, "definition")
-            self.require_text(path, row, idx, "explanation")
-            importance = self.norm(row.get("importance"))
-            if importance and importance not in {"A", "B", "C", "S"}:
-                self.warn(path, idx, f"importance は A/B/C/S のいずれかを推奨します: {importance}")
-            for col in (
-                "article_title",
-                "article_lead",
-                "term_detail_body",
-                "exam_points",
-                "common_mistakes",
-                "memory_tip",
-                "example_question",
-                "example_answer",
-            ):
-                if col in row and self.norm(row.get(col)) and len(self.norm(row.get(col))) < 12:
-                    self.warn(path, idx, f"{col} は詳細記事用の任意列です。本文としては短めです")
-            related_raw = self.norm(row.get("related_terms"))
-            if related_raw:
-                for label in split_semicolon(related_raw):
-                    if term_lookup.get(label) or term_lookup.get(lookup_key(label)):
-                        continue
-                    self.warn(
-                        path,
-                        idx,
-                        f"related_terms の {label!r} は用語ページにリンク化されません（登録済み用語名に直すと内部リンクになります）",
-                    )
+            for col in ("short_def", "definition", "explanation", "term_detail_body"):
+                body = self.norm(row.get(col))
+                if not body:
+                    continue
+                for fragment, reason in OPERATOR_CONTENT_FRAGMENTS:
+                    if fragment in body:
+                        self.error(
+                            path,
+                            idx,
+                            f"{col} に公開禁止の文言「{fragment}」: {reason}",
+                        )
+            for issue in check_glossary_row(row, term_lookup=term_lookup, line=idx):
+                if issue.level == "ERROR":
+                    self.error(path, idx, issue.message)
+                else:
+                    self.warn(path, idx, issue.message)
+            self._validate_diagram_id(path, row, idx)
+
+    def _validate_diagram_id(self, path: Path, row: dict[str, str], line: int) -> None:
+        raw = self.norm(row.get("diagram_id"))
+        if not raw:
+            return
+        if not DIAGRAM_ID_RE.fullmatch(raw):
+            self.error(
+                path,
+                line,
+                f"diagram_id は半角英小文字・数字・ハイフンのみ: {raw!r}",
+            )
+            return
+        if not diagram_id_exists(raw):
+            self.error(
+                path,
+                line,
+                f"diagram_id に対応する JSON がありません: data/term_diagrams/{raw}.json",
+            )
 
     def validate_guide_articles(self) -> None:
         path = DATA_DIR / "guide_articles.csv"
@@ -338,6 +352,7 @@ class Validator:
             )
         slugs: set[str] = {self.norm(r.get("slug")) for r in rows if self.norm(r.get("slug"))}
         seen: set[str] = set()
+        affiliate_count = 0
         for idx, row in enumerate(rows, start=2):
             slug = self.require_text(path, row, idx, "slug")
             if slug:
@@ -418,13 +433,62 @@ class Validator:
                             idx,
                             f"related_links の slug が guide_articles.csv に存在しません: {target!r}",
                         )
+            tags = split_semicolon(self.norm(row.get("tags")))
+            if AFFILIATE_TAG in tags:
+                affiliate_count += 1
+                if genre and genre not in AFFILIATE_GENRES:
+                    self.warn(
+                        path,
+                        idx,
+                        f"アフィリエイト記事の genre は通常 {sorted(AFFILIATE_GENRES)} のいずれかにしてください（現在: {genre!r}）",
+                    )
+                lead = self.norm(row.get("lead"))
+                if lead and not any(marker in lead for marker in AFFILIATE_PR_MARKERS):
+                    self.warn(
+                        path,
+                        idx,
+                        "アフィリエイト記事の lead に広告・PR（アフィリエイト）である旨を含めてください",
+                    )
+                internal_related = 0
+                if related:
+                    for item in split_semicolon(related):
+                        target = item.split(":", 1)[0].strip()
+                        if target and not target.startswith(("http://", "https://")):
+                            internal_related += 1
+                if internal_related < 2:
+                    self.warn(
+                        path,
+                        idx,
+                        "アフィリエイト記事の related_links には、試験ガイド・無料コンテンツへ向ける内部 slug を2件以上推奨します",
+                    )
 
+            for issue in check_guide_row(row, slug_set=slugs, line=idx):
+                if issue.level == "ERROR":
+                    self.error(path, idx, f"[{issue.column}] {issue.message}")
+                else:
+                    self.warn(path, idx, f"[{issue.column}] {issue.message}")
+
+        if affiliate_count < AFFILIATE_TARGET_COUNT:
+            self.warn(
+                path,
+                None,
+                f"アフィリエイト記事は本番テンプレート標準で{AFFILIATE_TARGET_COUNT}本を目安にしてください"
+                f"（tags に「{AFFILIATE_TAG}」を含む行: 現在 {affiliate_count} 本）。"
+                " docs/guide-article-catalog.md の「アフィリエイト記事（10本目安）」を参照してください。",
+            )
+        elif affiliate_count > 18:
+            self.warn(
+                path,
+                None,
+                f"アフィリエイト記事が {affiliate_count} 本あります（目安は{AFFILIATE_TARGET_COUNT}本前後）。"
+                " 検索意図の重複と更新負荷がないか確認してください。",
+            )
 
     def validate_knowledge_hub(self) -> None:
         entries: list[dict[str, str]] = []
         glossary_path = DATA_DIR / "glossary_terms.csv"
         if glossary_path.is_file():
-            _, gloss_rows = self.read_csv(glossary_path, set())
+            _, gloss_rows = self.read_csv(glossary_path, set(GLOSSARY_BASE_REQUIRED))
             for row in gloss_rows:
                 term = self.norm(row.get("term"))
                 if term:
@@ -445,9 +509,7 @@ class Validator:
                     f"{HUB_LABELS[hub_type]} の CSV がありません: {HUB_CSV_NAMES[hub_type]}",
                 )
                 continue
-            _, rows = self.read_csv(
-                path, required | {"article_title", "article_lead", "exam_points", "related_terms"}
-            )
+            _, rows = self.read_csv(path, required | {"article_title", "article_lead", "exam_points", "related_terms"})
             published = [row for row in rows if self.norm(row.get("title"))]
             msg = production_count_message(hub_type, len(published))
             if msg:
@@ -460,8 +522,7 @@ class Validator:
                 if title in seen_titles:
                     self.error(path, idx, f"title が重複しています: {title}")
                 seen_titles.add(title)
-                if hasattr(self, "validate_category"):
-                    self.validate_category(path, row, idx)
+                self.validate_category(path, row, idx)
                 for issue in checker(row, term_lookup=term_lookup, line=idx):
                     if issue.level == "ERROR":
                         self.error(path, idx, f"[{issue.column}] {issue.message}")
