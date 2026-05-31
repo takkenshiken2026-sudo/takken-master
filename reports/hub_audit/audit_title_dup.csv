@@ -1,11 +1,1 @@
-hub_a,hub_b,kind,similarity,slug_a,slug_b,title,title_a,title_b
-comparisons.csv,comparisons.csv,similar,0.900,baikai-keiyakusho-37jo,s34-baikai-tsuika,,媒介契約書と37条書面,媒介契約書と37条
-comparisons.csv,mistakes.csv,similar,0.889,cooling-off-torihiki,cooling-off-tetsuke-kaijo-kon,,クーリングオフと手付解除,クーリングオフと手付解除の混同
-comparisons.csv,mistakes.csv,exact,1.000,hoshoukin-hoshougaisha,s32-kon-hoshoukin,保証金と保証会社,,
-comparisons.csv,comparisons.csv,similar,0.909,jutaku-kashi-hoshou,s34-kashi-hoshou-35,,住宅瑕疵担保と35条説明,瑕疵担保と35条説明
-comparisons.csv,numbers.csv,exact,1.000,s34-reins-touroku,s33-reins-14days,レインズ登録と14日報告,,
-comparisons.csv,comparisons.csv,similar,0.884,s40-ju3537-shiage-hikaku,s42-ju3537-shiage-hikaku,,35条37条総仕上げの比較整理（深化整理）,35条37条総仕上げの比較整理（頻出再整理）
-numbers.csv,numbers.csv,similar,0.947,cooling-off-8days,s34-cooling-8days,,クーリングオフ8日間,クーリングオフ8日
-numbers.csv,numbers.csv,similar,0.933,tesuki-5percent-jogen,s34-tefuki-5pct,,手付金の5%上限,手付金5%上限
-numbers.csv,numbers.csv,similar,0.889,s40-ju3537-shiage-suuchi,s42-ju3537-shiage-suuchi,,35条37条総仕上げの数値・期限（深化整理）,35条37条総仕上げの数値・期限（頻出再整理）
-mistakes.csv,mistakes.csv,similar,0.884,s40-kon-ju3537-shiage,s42-kon-ju3537-shiage,,35条37条総仕上げの典型誤答（深化整理）,35条37条総仕上げの典型誤答（頻出再整理）
+
