@@ -59,16 +59,20 @@ GENERIC_CMP_AXES = (
 )
 
 ANGLE_BY_BATCH: dict[int, str] = {
+    31: "論点整理",
+    32: "手続確認",
+    33: "数値確認",
+    34: "頻出整理",
     35: "基礎整理",
     36: "実務連動",
     37: "試験頻出",
     38: "判例・ガイド",
     39: "横断総合",
-    40: "基礎整理",
-    41: "実務連動",
-    42: "試験頻出",
-    43: "判例・ガイド",
-    44: "横断総合",
+    40: "深化整理",
+    41: "現場応用",
+    42: "頻出再整理",
+    43: "ガイド更新",
+    44: "直前総合",
 }
 
 CONFUSION_BY_ANGLE: dict[str, str] = {
@@ -77,6 +81,15 @@ CONFUSION_BY_ANGLE: dict[str, str] = {
     "試験頻出": "{topic}の過去問で主語・数値・条件文が入れ替わる肢に注意。",
     "判例・ガイド": "{topic}のガイドライン・通知と法令条文の関係を誤解しやすい。",
     "横断総合": "{topic}と類似制度の境界が曖昧になり、総合問題で誤答しやすい。",
+    "深化整理": "{topic}の細部要件と例外規定の取り違えに注意。",
+    "現場応用": "{topic}の実務判断と記録の対応を混同しやすい。",
+    "頻出再整理": "{topic}の再出題パターンで条件の読み飛ばしが起きやすい。",
+    "ガイド更新": "{topic}の最新ガイドと旧解説の差分を見落としやすい。",
+    "直前総合": "{topic}と近接論点の総合肢で境界を誤答しやすい。",
+    "論点整理": "{topic}の論点の切り分けを誤りやすい。",
+    "手続確認": "{topic}の手続順序と提出先の混同に注意。",
+    "数値確認": "{topic}の数値・単位の読み取りを誤りやすい。",
+    "頻出整理": "{topic}の頻出論点の整理不足で誤答しやすい。",
 }
 
 LEAD_BY_ANGLE: dict[str, str] = {
@@ -85,6 +98,15 @@ LEAD_BY_ANGLE: dict[str, str] = {
     "試験頻出": "{topic}は過去問の逆転肢・数値混同を型別に分類し、条件文を最後まで読んでください。",
     "判例・ガイド": "{topic}は法令条文とガイドライン・通知の対応表を作成し、優先関係を確認してください。",
     "横断総合": "{topic}は関連制度との違いを横断マップにまとめ、直前総仕上げに使ってください。",
+    "深化整理": "{topic}は例外・細則を比較表に追記し、定義から深掘りしてください。",
+    "現場応用": "{topic}は現場フローと記録様式を対応づけて復習してください。",
+    "頻出再整理": "{topic}は直近の頻出論点を型別に再分類し、条件文を確認してください。",
+    "ガイド更新": "{topic}はガイドライン改定点を条文表に反映してから演習してください。",
+    "直前総合": "{topic}は総合マップで近接論点との違いを直前に確認してください。",
+    "論点整理": "{topic}は論点を比較表に分解してから演習してください。",
+    "手続確認": "{topic}は手続の順序と提出先をフロー図で確認してください。",
+    "数値確認": "{topic}は数値・単位・条件をセットで暗記してください。",
+    "頻出整理": "{topic}は頻出論点を型別に整理してから過去問へ進んでください。",
 }
 
 TITLE_SUFFIXES = (
@@ -613,7 +635,7 @@ def _summary_numbers(row: dict[str, str], topic: str, angle: str) -> str:
 
 def _personalize_confusion_point(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35 or "confusion_point" not in row:
+    if batch is None or batch < 31 or "confusion_point" not in row:
         return
     cp = (row.get("confusion_point") or "").strip()
     if cp and not _is_template_confusion(cp):
@@ -633,7 +655,7 @@ def _patterns_need_refresh(row: dict[str, str]) -> bool:
 
 def _diversify_mistake(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         return
     topic = _core_topic(_clean_public_title(_strip_angle_suffix(row.get("title", ""))))
     angle = ANGLE_BY_BATCH.get(batch, "試験頻出")
@@ -659,7 +681,7 @@ def _diversify_mistake(row: dict[str, str]) -> None:
 
 def _refresh_mistake_patterns(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35 or "confusion_point" not in row:
+    if batch is None or batch < 31 or "confusion_point" not in row:
         return
     topic = _core_topic(_clean_public_title(_strip_angle_suffix(row.get("title", ""))))
     angle = ANGLE_BY_BATCH.get(batch, "試験頻出")
@@ -671,7 +693,7 @@ def _refresh_mistake_patterns(row: dict[str, str]) -> None:
 
 
 def _apply_batch_angle_title(row: dict[str, str], batch: int | None) -> None:
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         return
     angle = ANGLE_BY_BATCH.get(batch, "試験頻出")
     base = _strip_angle_suffix(row.get("title", ""))
@@ -804,7 +826,7 @@ def _reader_disambig(row: dict[str, str], slug: str) -> str:
 
 def _ensure_compare_content(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         return
     base_title = _strip_angle_suffix(row.get("title", ""))
     topic = _core_topic(base_title)
@@ -826,7 +848,7 @@ def _ensure_compare_content(row: dict[str, str]) -> None:
 
 def _apply_compare_batch_angle(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         return
     angle = ANGLE_BY_BATCH.get(batch, "試験頻出")
     base_title = _strip_angle_suffix(row.get("title", ""))
@@ -881,7 +903,7 @@ def _compare_needs_refresh(row: dict[str, str]) -> bool:
 
 def _diversify_compare(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         return
     if _compare_needs_refresh(row):
         base_title = _strip_angle_suffix(row.get("title", ""))
@@ -1053,7 +1075,7 @@ def _refresh_numbers_highlight(row: dict[str, str]) -> None:
 
 def _diversify_numbers(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         if (row.get("highlight") or "").strip() in GENERIC_NUMBER_HIGHLIGHTS:
             _enrich_numbers_highlight(row)
         return
@@ -1179,7 +1201,7 @@ def _dedupe_compare_col_labels(rows: list[dict[str, str]]) -> None:
         if "compare_rows" not in row:
             continue
         batch = _batch_num(row.get("slug", ""))
-        if batch is None or batch < 35:
+        if batch is None or batch < 31:
             continue
         key = row.get("col_labels", "")
         by_batch.setdefault(batch, {}).setdefault(key, []).append(row)
@@ -1206,7 +1228,7 @@ def _dedupe_compare_col_labels(rows: list[dict[str, str]]) -> None:
 
 def _apply_row_faqs(row: dict[str, str]) -> None:
     batch = _batch_num(row.get("slug", ""))
-    if batch is None or batch < 35:
+    if batch is None or batch < 31:
         return
     if not _faqs_need_rewrite(row):
         return
@@ -1223,7 +1245,7 @@ def _apply_row_faqs(row: dict[str, str]) -> None:
 
 def diversify_hub_row(row: dict[str, str]) -> dict[str, str]:
     batch = _batch_num(row.get("slug", ""))
-    if batch is not None and batch >= 35:
+    if batch is not None and batch >= 31:
         if "confusion_point" in row:
             _diversify_mistake(row)
         elif "compare_rows" in row:
@@ -1267,7 +1289,7 @@ def _dedupe_mistake_patterns(rows: list[dict[str, str]]) -> None:
         if "confusion_point" not in row:
             continue
         batch = _batch_num(row.get("slug", ""))
-        if batch is None or batch < 35:
+        if batch is None or batch < 31:
             continue
         pat = row.get("pattern_rows", "")
         by_batch.setdefault(batch, {}).setdefault(pat, []).append(row)
@@ -1299,7 +1321,7 @@ def _resolve_title_collisions(rows: list[dict[str, str]]) -> None:
     by_title: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         batch = _batch_num(row.get("slug", ""))
-        if batch is not None and batch >= 35:
+        if batch is not None and batch >= 31:
             continue
         by_title[(row.get("title") or "").strip()].append(row)
     for title, group in by_title.items():
@@ -1316,7 +1338,7 @@ def _dedupe_mistake_confusion(rows: list[dict[str, str]]) -> None:
     by_batch: dict[int, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         batch = _batch_num(row.get("slug", ""))
-        if batch is not None and batch >= 35 and "confusion_point" in row:
+        if batch is not None and batch >= 31 and "confusion_point" in row:
             by_batch[batch].append(row)
     for batch_rows in by_batch.values():
         seen: set[str] = set()
