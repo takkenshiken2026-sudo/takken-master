@@ -1,8 +1,8 @@
 {
   "numbers_rows": 150,
-  "numbers_flagged": 57,
+  "numbers_flagged": 56,
   "numbers_verified_ok": 57,
-  "numbers_verify_pending": 0,
+  "numbers_verify_pending": 2,
   "faq_issues": 0,
   "batch_suffix": 0,
   "thin_body": 0,

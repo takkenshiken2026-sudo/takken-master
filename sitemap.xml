@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://takken-master.jp/about.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -247,7 +247,7 @@
   </url>
   <url>
     <loc>https://takken-master.jp/privacy.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -20152,7 +20152,7 @@
   </url>
   <url>
     <loc>https://takken-master.jp/related-sites.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -20161,7 +20161,27 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://takken-master.jp/terms/field-other/index.html</loc>
+    <loc>https://takken-master.jp/terms/field-guide/index.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/field-law/index.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/field-limit/index.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/field-rights/index.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://takken-master.jp/terms/field-tax/index.html</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>

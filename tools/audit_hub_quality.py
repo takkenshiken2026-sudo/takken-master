@@ -23,9 +23,7 @@ from tools.knowledge_hub_rules import HUB_MIN_LENGTHS  # noqa: E402
 
 DATA = ROOT / "data"
 OUT = ROOT / "reports" / "hub_audit"
-REGISTRY = Path("/Users/otedaiki/Projects/exam-site-shell/docs/hub_numbers_verified.json")
-if not REGISTRY.is_file():
-    REGISTRY = Path("/Users/otedaiki/Projects/docs/hub_numbers_verified.json")
+REGISTRY = Path("/Users/otedaiki/Projects/docs/hub_numbers_verified.json")
 HUB_FILES = ("comparisons.csv", "numbers.csv", "mistakes.csv")
 DIGIT_RE = re.compile(r"\d")
 
@@ -213,6 +211,8 @@ def audit_title_similar(rows_by_file: dict[str, list[dict[str, str]]]) -> list[d
     out: list[dict[str, str]] = []
     for i, (f1, s1, t1) in enumerate(entries):
         for f2, s2, t2 in entries[i + 1 :]:
+            if f1 != f2:
+                continue
             if t1 == t2:
                 out.append(
                     {
