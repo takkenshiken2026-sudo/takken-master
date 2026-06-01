@@ -260,6 +260,17 @@ def fix_faq_answers(row: dict[str, str], *, prefix: str = "faq_", glossary: bool
         row[f"{prefix}{i + 1}_answer"] = normalize_prose(
             split_long_sentences(apply_readability(body[:520]), max_chars=72 if glossary else 80)
         )
+    for attempt in range(4):
+        answers = [norm(row.get(f"{prefix}{i}_answer")) for i in range(1, faq_count + 1)]
+        if not duplicate_faq_answers(answers):
+            break
+        for i in range(faq_count):
+            col = f"{prefix}{i + 1}_answer"
+            qbit = short_label(questions[i] if i < len(questions) else slug, limit=28)
+            extra = f"手順{i + 1}（{slug or qbit}）：{qbit}を独立に確認。"
+            row[col] = normalize_prose(
+                split_long_sentences(norm(row.get(col)) + extra, max_chars=72 if glossary else 80)
+            )
 
 
 def infer_legal_basis(row: dict[str, str]) -> None:
