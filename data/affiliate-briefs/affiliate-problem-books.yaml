@@ -1,0 +1,70 @@
+slug: affiliate-problem-books
+theme_key: problem-books
+search_intent: 宅地建物取引士試験の問題集・過去問を比較して選びたい
+title: 宅建士のおすすめ問題集3選【論点別・分野別過去問2026】
+layout: product-comparison
+asp_primary: amazon
+comparison_kind: books
+comparison_title: おすすめ問題集3選（比較）
+price_disclaimer: 価格・在庫は執筆時点（2026-06-04）のAmazon税込参考です。購入前に販売ページで最新版を確認してください。
+products:
+- rank: 1
+  offer_type: book
+  name: 2026年度版 みんなが欲しかった! 宅建士の論点別過去問題集
+  publisher: TAC出版
+  edition: 2026年度版
+  price_yen: 2750
+  price_note: Amazon税込参考・送料別
+  pages: 680
+  format: B5判
+  asin: '4300119287'
+  image_file: takken-book-4300119287.webp
+  amazon_url: https://www.amazon.co.jp/dp/4300119287/ref=nosim?tag=ue083093-22
+  for_who: TAC教科書とセットで論点別演習をしたい人
+  highlights:
+  - TAC教科書と章立ての相性がよい定番過去問
+  - 4分野を論点別に弱点演習しやすい
+  - 一問一答セレクト1000（別記事）との併用も向く
+- rank: 2
+  offer_type: book
+  name: 2026年版 宅建士 合格のトリセツ 厳選分野別過去問題集
+  publisher: LEC
+  edition: 2026年版
+  price_yen: 2750
+  price_note: Amazon税込参考・送料別
+  pages: 734
+  format: B5判
+  asin: '4844948245'
+  image_file: takken-book-4844948245.webp
+  amazon_url: https://www.amazon.co.jp/dp/4844948245/ref=nosim?tag=ue083093-22
+  for_who: LECトリセツ基本テキストとセットで過去問演習をしたい人
+  highlights:
+  - 合格のトリセツシリーズで解説付き過去問
+  - 分野別に演習量を確保しやすい
+  - 頻出一問一答（別記事）へのステップアップがしやすい
+- rank: 3
+  offer_type: book
+  name: 2026年版 出る順宅建士 ウォーク問過去問題集
+  publisher: LEC
+  edition: 2026年版
+  price_yen: 1980
+  price_note: Amazon税込参考・送料別
+  pages: 342
+  format: B5判
+  asin: '4844948296'
+  image_file: takken-book-4844948296.webp
+  amazon_url: https://www.amazon.co.jp/dp/4844948296/ref=nosim?tag=ue083093-22
+  for_who: 出る順テキスト読了後にウォーク問形式で演習したい人
+  highlights:
+  - 出る順シリーズの過去問演習定番
+  - ウォーク問形式で解説を追いながら進めやすい
+  - 過去30年良問厳選模試（別記事）と併用しやすい
+related_links:
+- takken-kakomon:過去問活用法
+- takken-dokugaku:独学の始め方
+- takken-goukakuten:合格点
+- affiliate-textbooks-recommend:おすすめテキスト
+- affiliate-mock-exam-materials:模試・一問一答
+- takken-plan:学習計画
+operator_note: Amazon tag=ue083093-22。4300119287 / 4844948245 / 4844948296。B0GLNR5JBT
+  FAQ。

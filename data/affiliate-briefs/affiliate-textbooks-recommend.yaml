@@ -1,0 +1,70 @@
+slug: affiliate-textbooks-recommend
+theme_key: textbooks-recommend
+search_intent: 宅地建物取引士試験の独学向けテキストを比較して選びたい
+title: 宅建士のおすすめテキスト3選【2026年度版・独学】
+layout: product-comparison
+asp_primary: amazon
+comparison_kind: books
+comparison_title: おすすめテキスト3選（比較）
+price_disclaimer: 価格・在庫・版情報は執筆時点（2026-06-04）のAmazon税込参考です。購入前に必ず販売ページでご確認ください。
+products:
+- rank: 1
+  offer_type: book
+  name: 2026年度版 みんなが欲しかった! 宅建士の教科書
+  publisher: TAC出版
+  edition: 2026年度版
+  price_yen: 3850
+  price_note: Amazon税込参考・送料別
+  pages: 880
+  format: B5判
+  asin: B0GLN6ZMNF
+  image_file: takken-book-b0gln6zmnf.webp
+  amazon_url: https://www.amazon.co.jp/dp/B0GLN6ZMNF/ref=nosim?tag=ue083093-22
+  for_who: 解説厚めの本格テキストで4分野を体系的に学びたい独学者
+  highlights:
+  - 権利・法令・税務・宅建業法の4分野を1冊で整理
+  - TAC論点別過去問題集・一問一答と章立ての相性がよい
+  - 社会人独学のメインテキスト定番
+- rank: 2
+  offer_type: book
+  name: 2026年版 宅建士 合格のトリセツ 基本テキスト
+  publisher: LEC
+  edition: 2026年版
+  price_yen: 3300
+  price_note: Amazon税込参考・送料別
+  pages: 644
+  format: B5判
+  asin: '4844948237'
+  image_file: takken-book-4844948237.webp
+  amazon_url: https://www.amazon.co.jp/dp/4844948237/ref=nosim?tag=ue083093-22
+  for_who: 動画講義付きで論点整理から学びたい人
+  highlights:
+  - 無料講義動画付きで独学の理解を補強しやすい
+  - 分冊可能で持ち運び・分野別復習に向く
+  - 厳選分野別過去問題集（別記事）への接続がスムーズ
+- rank: 3
+  offer_type: book
+  name: 2026年版 出る順宅建士 合格テキスト
+  publisher: LEC
+  edition: 2026年版
+  price_yen: 2420
+  price_note: Amazon税込参考・送料別
+  pages: 427
+  format: B5判
+  asin: '4844948326'
+  image_file: takken-book-4844948326.webp
+  amazon_url: https://www.amazon.co.jp/dp/4844948326/ref=nosim?tag=ue083093-22
+  for_who: 出る順シリーズでコンパクトに論点を押さえたい人
+  highlights:
+  - 出る順シリーズの論点整理型テキスト
+  - ウォーク問過去問題集・模試（別記事）と縦串が明確
+  - TAC教科書より薄く、短期学習にも向く
+related_links:
+- takken-dokugaku:独学の始め方
+- takken-kakomon:過去問活用法
+- takken-goukakuten:合格点
+- affiliate-problem-books:おすすめ問題集
+- affiliate-mock-exam-materials:模試・一問一答
+- takken-kyozai:教材選び
+operator_note: Amazon tag=ue083093-22。B0GLN6ZMNF / 4844948237 / 4844948326。2026-06-04
+  価格確認。

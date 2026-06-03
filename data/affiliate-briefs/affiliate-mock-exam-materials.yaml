@@ -1,0 +1,70 @@
+slug: affiliate-mock-exam-materials
+theme_key: mock-exam-materials
+search_intent: 宅地建物取引士試験の模試・一問一答教材を比較して選びたい
+title: 宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】
+layout: product-comparison
+asp_primary: amazon
+comparison_kind: books
+comparison_title: 模試・一問一答3選（比較）
+price_disclaimer: 価格は執筆時点（2026-06-04）のAmazon税込参考です。試験日程・出題範囲は公益財団法人 不動産適正取引推進機構（宅建試験・公式）で必ず確認してください。
+products:
+- rank: 1
+  offer_type: book
+  name: 2026年版 出る順宅建士 過去30年良問厳選模試
+  publisher: LEC
+  edition: 2026年版
+  price_yen: 2750
+  price_note: Amazon税込参考・送料別
+  pages: 483
+  format: B5判
+  asin: '4844948334'
+  image_file: takken-book-4844948334.webp
+  amazon_url: https://www.amazon.co.jp/dp/4844948334/ref=nosim?tag=ue083093-22
+  for_who: 本試験直前に模試形式で時間配分を確認したい人
+  highlights:
+  - 過去30年から厳選した模試形式の演習
+  - 出る順シリーズの総仕上げ向け
+  - 時間を計って解く練習に向く
+- rank: 2
+  offer_type: book
+  name: 2026年版 宅建士 合格のトリセツ 頻出一問一答式過去問題集
+  publisher: LEC
+  edition: 2026年版
+  price_yen: 2200
+  price_note: Amazon税込参考・送料別
+  pages: 417
+  format: B5判
+  asin: '4844948253'
+  image_file: takken-book-4844948253.webp
+  amazon_url: https://www.amazon.co.jp/dp/4844948253/ref=nosim?tag=ue083093-22
+  for_who: LECトリセツで短問演習量を確保したい人
+  highlights:
+  - 読上音声付きでスキマ時間学習に向く
+  - 頻出論点を一問一答形式で総復習
+  - 厳選分野別過去問題集との使い分けが明確
+- rank: 3
+  offer_type: book
+  name: 2026年度版 わかって合格る宅建士 一問一答セレクト1000
+  publisher: TAC出版
+  edition: 2026年度版
+  price_yen: 2750
+  price_note: Amazon税込参考・送料別
+  pages: 700
+  format: B5判
+  asin: 430011935X
+  image_file: takken-book-430011935x.webp
+  amazon_url: https://www.amazon.co.jp/dp/430011935X/ref=nosim?tag=ue083093-22
+  for_who: TAC系教材で一問一答総仕上げをしたい人
+  highlights:
+  - 厳選1000問で演習量を確保
+  - 音声データDL付きで復習しやすい
+  - TAC教科書・論点別過去問との併用例が多い
+related_links:
+- takken-chokuzen:直前対策
+- takken-moshi:模擬試験の活用法
+- takken-goukakuten:合格点
+- affiliate-textbooks-recommend:おすすめテキスト
+- affiliate-problem-books:おすすめ問題集
+- takken-plan:学習計画
+operator_note: Amazon tag=ue083093-22。4844948334 / 4844948253 / 430011935X。2026-06-04
+  価格確認。
