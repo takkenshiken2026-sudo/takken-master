@@ -4865,20 +4865,20 @@ function getShareTwitterHashtagList(){
   ].filter(Boolean);
   return [...new Set(tags)].map(tag=>'#'+tag);
 }
-function appendShareTwitterHashtags(bodyCore){
+function buildTwitterShareText(bodyCore){
+  const body=String(bodyCore||'').trim();
   const tags=getShareTwitterHashtagList();
-  const text=String(bodyCore||'').trim();
-  if(!tags.length) return text;
-  return text+'\n\n'+tags.join('\n');
+  const parts=[body, SHARE_URL];
+  if(tags.length) parts.push(tags.join('\n'));
+  return parts.join('\n\n');
 }
 function getSiteShareLabel(){
   return `${SITE_CONFIG.brandName||'宅建マスター'}（${SITE_CONFIG.examName||'宅地建物取引士試験'}）`;
 }
-/** X Web Intent 用：本文・公式URL・ハッシュタグをパラメータで渡す（投稿欄に読み込まれる） */
+/** X Web Intent：投稿欄の並びは 本文 → URL → ハッシュタグ */
 function openTwitterShareIntent(bodyCore){
   const params=new URLSearchParams();
-  params.set('text', appendShareTwitterHashtags(bodyCore));
-  params.set('url', SHARE_URL);
+  params.set('text', buildTwitterShareText(bodyCore));
   window.open(`https://twitter.com/intent/tweet?${params.toString()}`,'_blank','noopener,noreferrer');
 }
 let lastSessionShareData = null;
