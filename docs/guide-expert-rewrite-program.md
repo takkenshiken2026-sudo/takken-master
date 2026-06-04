@@ -9,4 +9,4 @@
 
 **5本 batch の手順:** `docs/guide-hand-rewrite-batch-workflow.md`（`exam-site-shell` から sync）
 
-**運用:** マン管 129/129 完走後に着手。現状 expert_pass **11/49**（batch1–2 適用済み）。
+**運用:** マン管 129/129 完走後に着手。現状 expert_pass **16/49**（batch1–3 適用済み）。
