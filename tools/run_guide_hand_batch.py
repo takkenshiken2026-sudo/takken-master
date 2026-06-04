@@ -59,6 +59,7 @@ def main() -> int:
     print(f"stripped padding on {changed} rows")
 
     py = sys.executable
+    slug_arg = ",".join(sorted(slugs))
     steps = [
         [py, "tools/validate_csv.py", "--scope", "guide"],
         [py, "tools/audit_guide_prose_quality.py", "--root", str(root), "--strict"],
