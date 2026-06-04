@@ -46,6 +46,21 @@ FAQ_Q_KEYS = tuple(f"faq_{n}_question" for n in range(1, 4))
 FAQ_A_KEYS = tuple(f"faq_{n}_answer" for n in range(1, 4))
 TITLE_DUP_EXAM_RE = re.compile(r"試験の試験[のと]|試験試験")
 
+_REVISION_ONLY_KEYS = frozenset(
+    {
+        "revision_note",
+        "fact_checked_at",
+        "last_reviewed_at",
+        "source_checked_at",
+        "original_note",
+    }
+)
+
+
+def _is_revision_only_patch(patch: dict[str, str]) -> bool:
+    active = {k for k, v in patch.items() if norm(v)}
+    return bool(active) and active <= _REVISION_ONLY_KEYS and "revision_note" in active
+
 
 def _visible_body(slug: str, text: str) -> str:
     return sanitize_guide_text(strip_padding_from_text(norm(text)), slug)
@@ -64,6 +79,8 @@ def validate_rewrites(rewrites: dict[str, dict[str, str]], *, root: Path) -> lis
 
     for slug, patch in rewrites.items():
         prefix = f"{slug}:"
+        if _is_revision_only_patch(patch):
+            continue
         for key in REQUIRED_KEYS:
             if not norm(patch.get(key)):
                 errors.append(f"{prefix} missing {key}")
