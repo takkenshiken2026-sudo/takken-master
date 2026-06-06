@@ -151,7 +151,6 @@ window.SITE_CONFIG = {
     "modeTitle": "予想模試（PDF・2回分）",
     "modePurpose": "本番と同じ50問・2時間で実力確認したい",
     "priceLabel": "¥590",
-    "footnote": "※ note で販売する有料コンテンツ（¥590）です。サイト内の無料演習とは別商品です。",
     "scoreMeta": "50問×2",
     "scoreLead": "本番同形式の50問"
   }

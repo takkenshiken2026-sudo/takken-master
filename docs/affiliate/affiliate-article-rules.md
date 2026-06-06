@@ -8,12 +8,11 @@
 | 文書 | 内容 |
 |------|------|
 | **本書** | 作成手順・UI・画像・ASP・チェックリスト |
-| [multi-site-affiliate-workflow.md](./multi-site-affiliate-workflow.md) | **全サイト**への同期・新規・リライト手順 |
 | [seo-article-guidelines.md](../seo-article-guidelines.md) の「アフィリエイト記事」 | 識別・法務・本数・内部リンク方針 |
 | [guide-article-catalog.md](../guide-article-catalog.md) | 標準 slug 一覧（10本目安） |
 | [auto-create-workflow.md](./auto-create-workflow.md) | CLI / AI による雛形生成フロー |
 
-各本番サイトの `docs/affiliate/` は **[PRODUCTION-SITE-STUB.md](./PRODUCTION-SITE-STUB.md)** の短い案内のみ。**旧版フルコピーは置かない**。
+各本番サイトの `docs/` はスタブ。**詳細は exam-site-shell を正本** とする。
 
 ---
 
@@ -91,7 +90,7 @@ ASP URL 確定 → 各商品ページで価格確認 → brief 記入
 | 反映先 | brief の `price_yen` / `price_label` / `price_note`、本文・比較表に載る数値 |
 | タイミング | 新規執筆時、**公開前**、価格改定・キャンペーン期の **再公開前** |
 | 禁止 | テンプレ・他記事・記憶・推測からの価格転記、未確認のまま `published` |
-| 記録 | CSV の **`fact_checked_at` 列**（brief フィールドではない）を更新。必要なら `revision_note` に確認日を残す |
+| 記録 | `fact_checked_at` を更新。必要なら `revision_note` に確認日を残す |
 
 **書籍（Amazon）:** 商品ページの税込価格・版・在庫状況を確認。  
 **講座（A8 / afb / 公式）:** 通常料金・キャンペーン料金・月額/一括・受講期限を公式 LP で確認。キャンペーン表記は執筆日と整合させる。
@@ -132,7 +131,7 @@ brief の `price_yen` と本文の価格表記が **不一致のまま公開し�
 
 - `related_links` には上記6件を **非アフィリエイト3 → アフィリエイト3** の順で記載
 - 自動付与の知識ハブリンク（用語一覧・過去問演習など）は **付けない**
-- Amazon / A8 等の **外部商品 URL は `related_links` に書かない**（関連ボックスに出ない）。ASP URL は brief・本文 CTA に置く
+- Amazon / A8 等の外部商品 URL は `related_links` に書いても関連ボックスには表示されない（ASP 判定用に brief・本文に残す）
 
 外部リンク属性: `target="_blank" rel="nofollow sponsored noopener noreferrer"`
 
@@ -161,28 +160,13 @@ python3 tools/build_article_pages.py   # または build_all.py
 # 5. デプロイ（各サイト main → GitHub Pages）
 ```
 
-### 4.2 本番サイト（マルチサイト）
-
-[multi-site-affiliate-workflow.md](./multi-site-affiliate-workflow.md) を参照。
-
-1. `sync_from_template.py` で affiliate ツール + CSS を同期
-2. brief / CSV は **本番リポジトリ** で管理
-3. `fetch_affiliate_product_images.py` → `prepare_public_site.sh` で images デプロイ
-
-### 4.3 リライト
-
-1. 各 ASP URL で価格・版を再確認 → brief / CSV 更新
-2. CSV **`fact_checked_at`** 更新
-3. section 本文をオリジナルで全面見直し
-4. `validate_csv.py` → `build_article_pages.py` → デプロイ
-
-### 4.4 リンク未設定行を draft に戻す
+### 4.2 リンク未設定行を draft に戻す
 
 ```bash
 python3 tools/draft_unlinked_affiliate_articles.py
 ```
 
-### 4.5 PR 定型文の除去（既存 CSV 用）
+### 4.3 PR 定型文の除去（既存 CSV 用）
 
 ```bash
 python3 tools/strip_affiliate_pr_disclaimer.py
@@ -406,13 +390,11 @@ CSV 本文には商品名を **括弧なし** で書いてよい。ビルド時�
 self-study-roadmap:独学の進め方
 study-plan:学習計画の立て方
 ../../q/index.html:過去問を解く（無料）
-affiliate-problem-books:おすすめ問題集
-affiliate-online-course-compare:オンライン講座比較
-affiliate-beginner-material-set:初学者向け教材
+https://px.a8.net/...:SMART合格講座（公式）
 ```
 
-- 内部: 同 CSV に存在する slug のみ（**非アフィリ3 + アフィリ3 = 6件** 推奨）
-- 外部 ASP URL: **`related_links` には書かない**（brief `products.*_url` と本文 CTA へ）
+- 内部: 同 CSV に存在する slug のみ
+- 外部 ASP: `https://` で始める
 - フッター一括貼り付けはしない
 
 ---
@@ -443,7 +425,7 @@ affiliate-beginner-material-set:初学者向け教材
 - [ ] `related_links` に内部 slug **2件以上**
 - [ ] 公開本文・表に `【PR・広告】` がない
 - [ ] ASP と公式 URL を混同していない
-- [ ] `python3 tools/validate_csv.py` がエラーなし
+- [ ] `python3 tools/validate_csv.py` がエラーなし（アフィリエイト行は `tools/affiliate_article_rules.py` の専用ルール。通常ガイドの手書きリライト180字ルールは適用しない）
 - [ ] `python3 tools/build_article_pages.py` 後、当該 slug の HTML が生成されている
 
 ### 商品比較 UI がある場合
@@ -470,7 +452,7 @@ affiliate-beginner-material-set:初学者向け教材
 | `affiliate_links.py` | ASP リンク有無の判定（ビルド・validate 共通） |
 | `draft_unlinked_affiliate_articles.py` | 未リンク行を `draft` に一括変更 |
 | `strip_affiliate_pr_disclaimer.py` | PR 定型文を CSV から除去 |
-| `validate_csv.py` | 本数・リンク・genre 検査 |
+| `validate_csv.py` | 本数・リンク・genre 検査（アフィリエイト行は `affiliate_article_rules.py`） |
 | `build_article_pages.py` | 記事 HTML 生成（要点・hub 挿入位置・skip section） |
 | `affiliate_body_links.py` | 商品名「」括り + 本文 ASP リンク自動化 |
 | `affiliate_product_ui.py` | 商品カード・比較表・要点右端表紙 |
