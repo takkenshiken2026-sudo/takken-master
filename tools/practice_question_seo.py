@@ -25,6 +25,7 @@ from tools.seo_common import (
     match_terms_in_text,
     trust_table_html,
 )
+from tools.site_config import brand_name
 
 
 def enrich_practice_pages(pages: list[dict]) -> None:
@@ -64,10 +65,12 @@ def page_meta_description(page: dict, limit: int = 155) -> str:
     if theme:
         prefix += f"「{theme}」"
     body = stem or page.get("category") or ""
+    correct = page.get("correct")
+    ans_part = f" 正答: （{correct}）。" if correct is not None else ""
     one = re.sub(
         r"\s+",
         " ",
-        f"{prefix}。{body} 正答・解説・関連用語リンク付き。宅建マスターで無料演習。",
+        f"{prefix}。{body}{ans_part} 正答・解説・関連用語リンク付き。{brand_name()}で無料演習。",
     ).strip()
     if len(one) <= limit:
         return one

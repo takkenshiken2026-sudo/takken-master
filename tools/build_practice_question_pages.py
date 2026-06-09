@@ -8,6 +8,7 @@
 
 from __future__ import annotations
 
+import csv
 import html
 import json
 import shutil
@@ -22,7 +23,6 @@ from tools.build_past_question_pages import (  # noqa: E402
     HEAD_FONTS,
     Q_ROOT,
     build_stem_html,
-    load_rows,
     norm,
     parse_correct,
     parse_tags,
@@ -53,12 +53,19 @@ from tools.practice_question_seo import (  # noqa: E402
     question_json_ld,
     related_terms_html,
 )
+from tools.q_explanation import build_explanation_html  # noqa: E402
+from tools.seo_editorial_chrome import seo_brand_asset_tags  # noqa: E402
 from tools.site_config import brand_name, clean_origin, exam_name  # noqa: E402
 from tools.seo_common import trust_table_html  # noqa: E402
 
 DATA_CSV_DEFAULT = ROOT / "data" / "practice_questions.csv"
 ORIG_ROOT = Q_ROOT / "orig"
 BASE_DEFAULT = clean_origin()
+
+
+def load_practice_rows(csv_path: Path) -> list[dict]:
+    with csv_path.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
 
 
 def practice_page_dict(row: dict, line_no: int) -> dict:
@@ -102,7 +109,7 @@ def practice_page_dict(row: dict, line_no: int) -> dict:
     }
 
 
-def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
+def build_question_html(page: dict, row: dict, rel_path: Path, base_url: str) -> str:
     title_mid = page_title_mid(page)
     title = f"{title_mid}｜解説付き｜{brand_name()}（{exam_name()}）"
     desc = page_meta_description(page)
@@ -117,7 +124,16 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
         for i, o in enumerate(page["opts"], start=1)
     )
     ans_block = f'<p>正答は <strong>（{page["correct"]}）</strong> です。</p>'
-    exp_html = html.escape(page["exp"]).replace("\n", "<br>\n")
+    exp_html = build_explanation_html(
+        {
+            **page,
+            "year": 0,
+            "qno": page["question_id"],
+            "is_invalidated": False,
+            "is_exempt": False,
+        },
+        row,
+    )
     json_ld = question_json_ld(page, canonical, title, desc)
     trust = trust_table_html(anchor_id="trust", compact=True)
     related = related_terms_html(page, rel_path)
@@ -141,6 +157,7 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+{seo_brand_asset_tags(rel_path)}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
@@ -150,7 +167,7 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{html.escape(canonical)}">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 {HEAD_FONTS}
 <link rel="stylesheet" href="{html.escape(css_href)}">
 <link rel="stylesheet" href="{html.escape(theme_href)}">
@@ -184,7 +201,7 @@ def build_question_html(page: dict, rel_path: Path, base_url: str) -> str:
   </section>
   <section class="q-block" aria-labelledby="q-exp-h">
     <h2 id="q-exp-h" class="q-h2">解説</h2>
-    <div class="q-exp">{exp_html}</div>
+    {exp_html}
     <p class="q-rich-note">図解つきの詳しい解説は<a href="{app_href}">アプリの実践演習</a>で表示できます。</p>
   </section>
   {related}
@@ -209,7 +226,7 @@ def main() -> int:
     base = args.base_url.rstrip("/")
     csv_path = Path(args.csv).resolve() if args.csv else DATA_CSV_DEFAULT
 
-    rows = load_rows(csv_path)
+    rows = load_practice_rows(csv_path)
     if not rows:
         print(f"no data: {csv_path} (run tools/export_orig_to_practice_csv.py first)", file=sys.stderr)
         return 1
@@ -217,16 +234,17 @@ def main() -> int:
     pages = [practice_page_dict(r, i) for i, r in enumerate(rows, start=2)]
     if args.limit and args.limit > 0:
         pages = pages[: args.limit]
+        rows = rows[: args.limit]
     enrich_practice_pages(pages)
 
     if ORIG_ROOT.exists():
         shutil.rmtree(ORIG_ROOT)
 
-    for p in pages:
+    for p, row in zip(pages, rows):
         rel = Path(p["rel_path"])
         out_file = ROOT / rel
         out_file.parent.mkdir(parents=True, exist_ok=True)
-        html_out = build_question_html(p, out_file.relative_to(ROOT), base)
+        html_out = build_question_html(p, row, out_file.relative_to(ROOT), base)
         out_file.write_text(html_out, encoding="utf-8")
 
     brand = brand_name()
