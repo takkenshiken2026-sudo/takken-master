@@ -1316,7 +1316,7 @@ def infer_ichimon_opposite_note(page: dict, row: dict) -> str:
             "一見もっともらしい表現に引っ張られ、判断対象の一文だけを精査していない可能性があります。"
         )
 
-    exp = norm(row.get("explanation_correct") or row.get("explanation"))
+    exp = strip_four_choice_leak(norm(row.get("explanation_correct") or row.get("explanation")))
     if exp:
         for sent in re.split(r"(?<=[。！？!?])\s*", exp):
             s = sent.strip()
