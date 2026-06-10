@@ -53,13 +53,15 @@ def parse_numbered_choice_notes(text: str) -> dict[int, str]:
     out: dict[int, str] = {}
     if not text:
         return out
-    for m in re.finditer(
-        r"([０-９]|\d+)[．.]\s*(.+?)(?=(?:[０-９]|\d+)[．.]|$)",
-        text,
-        flags=re.DOTALL,
-    ):
-        num = _parse_choice_num(m.group(1))
-        note = norm(m.group(2))
+    section_re = (
+        r"(?:^|(?<=[。．\n]))"
+        r"(?:([０-９]+)[．.]|(\d{1,2})[．.](?![0-9]))\s*"
+        r"(.+?)"
+        r"(?=(?:^|(?<=[。．\n]))(?:[０-９]+[．.]|\d{1,2}[．.](?![0-9]))|$)"
+    )
+    for m in re.finditer(section_re, text, flags=re.DOTALL):
+        num = _parse_choice_num(m.group(1) or m.group(2))
+        note = norm(m.group(3))
         if num is not None and note:
             out[num] = note
     return out
