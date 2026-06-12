@@ -406,6 +406,53 @@ def public_url(rel_path: str) -> str:
     return f"{origin}/{rel}" if rel else origin
 
 
+GUIDE_INDEX_PICK_KIND_LABELS: dict[str, str] = {
+    "course": "講座",
+    "textbook": "テキスト",
+    "problem-book": "問題集",
+    "mock": "模試",
+}
+
+
+def guide_index_picks() -> dict[str, Any] | None:
+    """試験ガイド一覧（articles/index.html）のおすすめ講座・教材カード。最大3件。"""
+    raw = CONFIG.get("guideIndexPicks")
+    if not isinstance(raw, dict):
+        return None
+    items_raw = raw.get("items")
+    if not isinstance(items_raw, list):
+        return None
+    items: list[dict[str, str]] = []
+    for item in items_raw[:3]:
+        if not isinstance(item, dict):
+            continue
+        title = str(item.get("title") or "").strip()
+        href = str(item.get("href") or "").strip()
+        if not title or not href:
+            continue
+        kind = str(item.get("kind") or "textbook").strip() or "textbook"
+        kind_label = str(item.get("kindLabel") or "").strip() or GUIDE_INDEX_PICK_KIND_LABELS.get(kind, "教材")
+        description = str(item.get("description") or "").strip()
+        cta = str(item.get("cta") or "記事を読む").strip() or "記事を読む"
+        items.append(
+            {
+                "kind": kind,
+                "kindLabel": kind_label,
+                "title": title,
+                "description": description,
+                "href": href,
+                "cta": cta,
+            }
+        )
+    if not items:
+        return None
+    return {
+        "title": str(raw.get("title") or "おすすめの講座・教材").strip() or "おすすめの講座・教材",
+        "lead": str(raw.get("lead") or "").strip(),
+        "items": items,
+    }
+
+
 def paid_mock_exam() -> dict[str, str] | None:
     raw = CONFIG.get("paidMockExam")
     if not isinstance(raw, dict):

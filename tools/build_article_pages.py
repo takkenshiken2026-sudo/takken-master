@@ -34,6 +34,7 @@ from tools.site_config import (  # noqa: E402
     guide_article_genres,
     guide_genre_order_index,
     guide_genre_style_by_label,
+    guide_index_picks,
     primary_external_link,
 )
 
@@ -151,6 +152,7 @@ def sanitize_guide_text(text: str, slug: str = "") -> str:
 
 
 from tools.affiliate_links import affiliate_article_is_buildable  # noqa: E402
+from tools.editorial_quality import is_published_guide  # noqa: E402
 from tools.guide_field_prose import field_prefix_labels, resolve_reader_slug_prose  # noqa: E402
 from tools.guide_slug_prose import url_label_map_from_sources  # noqa: E402
 from tools.guide_slug_prose import resolve_slug_references  # noqa: E402
@@ -840,6 +842,43 @@ def sort_articles_for_index(articles: list[dict[str, str]]) -> list[dict[str, st
     )
 
 
+def build_guide_index_picks_html() -> str:
+    picks = guide_index_picks()
+    if not picks:
+        return ""
+    cards: list[str] = []
+    for item in picks["items"]:
+        href = apply_vars(item["href"])
+        title = apply_vars(item["title"])
+        description = apply_vars(item.get("description") or "")
+        kind = html.escape(item.get("kind") or "textbook", quote=True)
+        kind_label = html.escape(apply_vars(item.get("kindLabel") or "教材"))
+        cta = html.escape(apply_vars(item.get("cta") or "記事を読む"))
+        external = href.startswith("http://") or href.startswith("https://")
+        rel_attr = ' rel="noopener noreferrer"' if external else ""
+        target_attr = ' target="_blank"' if external else ""
+        cards.append(
+            f'<article class="article-index-pick" data-pick-kind="{kind}">'
+            f'<a class="article-index-pick-link" href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
+            f'<span class="article-index-pick-kind">{kind_label}</span>'
+            f"<h3>{html.escape(title)}</h3>"
+            + (f"<p>{html.escape(description)}</p>" if description else "")
+            + f'<span class="article-index-pick-cta">{cta}</span>'
+            + "</a></article>"
+        )
+    lead = apply_vars(picks.get("lead") or "")
+    lead_html = f"<p>{html.escape(lead)}</p>" if lead else ""
+    return (
+        '<section class="article-index-picks" aria-labelledby="article-index-picks-heading">'
+        '<div class="article-index-picks-head">'
+        f'<h2 id="article-index-picks-heading">{html.escape(apply_vars(picks["title"]))}</h2>'
+        f"{lead_html}"
+        "</div>"
+        f'<div class="article-index-picks-grid">{"".join(cards)}</div>'
+        "</section>"
+    )
+
+
 def build_index_html(articles: list[dict[str, str]]) -> str:
     rel_path = Path("articles/index.html")
     articles = sort_articles_for_index(articles)
@@ -965,6 +1004,7 @@ def build_index_html(articles: list[dict[str, str]]) -> str:
       </div>
       <span id="article-index-hit" class="article-index-hit">{len(articles)} / {len(articles)} 記事</span>
     </div>
+    {build_guide_index_picks_html()}
     <div class="article-index-tools">
       <label class="article-index-search" for="article-index-q">
         <span>記事検索</span>
@@ -1006,7 +1046,11 @@ def clean_generated_dirs() -> None:
 
 def main() -> int:
     articles = load_articles()
-    buildable = [article for article in articles if affiliate_article_is_buildable(article)]
+    buildable = [
+        article
+        for article in articles
+        if is_published_guide(article) and affiliate_article_is_buildable(article)
+    ]
     skipped_affiliate = len(articles) - len(buildable)
     by_slug = {norm(a.get("slug")): a for a in buildable if norm(a.get("slug"))}
     term_hrefs: dict[str, str] | None = None

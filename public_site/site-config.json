@@ -235,6 +235,36 @@
       "legacyGlossaryCat": "guide"
     }
   ],
+  "guideIndexPicks": {
+    "title": "おすすめの講座・教材",
+    "lead": "2026年度版の比較記事から、通信講座・テキスト・問題集の選び方へ。",
+    "items": [
+      {
+        "kind": "course",
+        "kindLabel": "通信講座",
+        "title": "通信講座・独学・通学の比較",
+        "description": "週10時間の確保と過去問15問/週を軸に、自分に合う学習スタイルを選ぶ基準を整理します。",
+        "href": "takken-tsushin-hikaku/",
+        "cta": "比較記事を読む"
+      },
+      {
+        "kind": "textbook",
+        "kindLabel": "テキスト",
+        "title": "おすすめテキスト3選【2026年度版】",
+        "description": "TAC・LEC・出る順の3冊を比較。4分野の章立てと週次計画への組み込み方を解説します。",
+        "href": "affiliate-textbooks-recommend/",
+        "cta": "3冊を比較する"
+      },
+      {
+        "kind": "problem-book",
+        "kindLabel": "問題集",
+        "title": "おすすめ問題集3選【2026年度版】",
+        "description": "論点別・分野別・ウォーク問の違いと、テキスト読了後の演習1冊の選び方をまとめます。",
+        "href": "affiliate-problem-books/",
+        "cta": "3冊を比較する"
+      }
+    ]
+  },
   "paidMockExam": {
     "url": "https://note.com/shikaku_master/n/ne363ab527f36",
     "modeTitle": "予想模試（PDF・2回分）",
