@@ -20,6 +20,7 @@ def strip_affiliate_pr_disclaimer(text: str) -> str:
     out = text or ""
     for snippet in _AFFILIATE_PR_SNIPPETS:
         out = out.replace(snippet, "")
+    out = re.sub(r"本記事には広告・アフィリエイトリンクが含まれます[。、]?\s*", "", out)
     out = re.sub(r"【PR・広告】\s*", "", out)
     out = re.sub(r"[ \t]{2,}", " ", out)
     return out.strip()
