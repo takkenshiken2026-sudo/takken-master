@@ -3352,9 +3352,12 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  align-items: stretch;
 }
 .article-index-pick {
+  display: flex;
   min-width: 0;
+  min-height: 100%;
 }
 .article-index-pick-link:has(.article-index-pick-media) {
   padding-top: 0;
@@ -3363,12 +3366,17 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .article-index-pick-media {
   margin: 0 -16px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
 }
 .article-index-pick-media--course {
-  aspect-ratio: 16 / 9;
+  display: block;
 }
 .article-index-pick-media--course img {
   width: 100%;
@@ -3376,21 +3384,13 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   object-fit: cover;
   display: block;
 }
-.article-index-pick-media--book {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 7.5rem;
-  padding: 0.65rem 1rem;
-}
 .article-index-pick-media--book img {
   width: auto;
-  max-width: 5.5rem;
-  max-height: 6.5rem;
-  height: auto;
+  height: 82%;
+  max-width: 44%;
   object-fit: contain;
   display: block;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
   border-radius: 2px;
 }
 .article-index-pick-link {
@@ -3459,6 +3459,11 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   color: var(--text);
   font-weight: 700;
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2 * 1.45em);
 }
 .article-index-pick p {
   color: var(--ink);
@@ -3466,6 +3471,11 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   line-height: 1.7;
   margin: 0;
   flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(3 * 1.7em);
 }
 .article-index-pick-cta {
   margin-top: auto;
