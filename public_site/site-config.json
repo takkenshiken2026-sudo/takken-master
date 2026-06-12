@@ -237,11 +237,11 @@
   ],
   "guideIndexPicks": {
     "title": "おすすめの講座・教材",
-    "lead": "2026年度版の比較記事から、通信講座・テキスト・問題集の選び方へ。",
+    "lead": "2026年度版の比較記事から、講座・テキスト・問題集の選び方へ。",
     "items": [
       {
         "kind": "course",
-        "kindLabel": "通信講座",
+        "kindLabel": "講座",
         "title": "おすすめ通信講座4選【2026年度】",
         "description": "資格スクエア・オンスク・四谷学院・資格対策ドットコムを比較。週10時間と過去問15問/週の併用設計を解説します。",
         "href": "affiliate-correspondence-course/",
