@@ -413,9 +413,11 @@ GUIDE_INDEX_PICK_KIND_LABELS: dict[str, str] = {
     "mock": "模試",
 }
 
+GUIDE_INDEX_PICK_LAYOUTS = frozenset({"grid-3", "grid-2", "strip", "compact", "text"})
+
 
 def guide_index_picks() -> dict[str, Any] | None:
-    """試験ガイド一覧（articles/index.html）のおすすめ講座・教材カード。最大3件。"""
+    """ハブ一覧（articles/terms/q index）のおすすめ講座・教材カード。最大3件。"""
     raw = CONFIG.get("guideIndexPicks")
     if not isinstance(raw, dict):
         return None
@@ -451,9 +453,13 @@ def guide_index_picks() -> dict[str, Any] | None:
         items.append(pick)
     if not items:
         return None
+    layout = str(raw.get("layout") or "grid-3").strip().lower()
+    if layout not in GUIDE_INDEX_PICK_LAYOUTS:
+        layout = "grid-3"
     return {
         "title": str(raw.get("title") or "おすすめの講座・教材").strip() or "おすすめの講座・教材",
         "lead": str(raw.get("lead") or "").strip(),
+        "layout": layout,
         "items": items,
     }
 

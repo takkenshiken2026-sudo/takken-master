@@ -238,6 +238,7 @@
   "guideIndexPicks": {
     "title": "おすすめの講座・教材",
     "lead": "2026年度版の比較記事から、講座・テキスト・問題集の選び方へ。",
+    "layout": "grid-3",
     "items": [
       {
         "kind": "course",

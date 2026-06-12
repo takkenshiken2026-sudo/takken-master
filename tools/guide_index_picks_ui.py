@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""試験ガイド・用語・過去問一覧に共通のおすすめ講座・教材カード HTML。"""
+"""試験ガイド・用語・過去問一覧などに共通のおすすめ講座・教材カード HTML。"""
 
 from __future__ import annotations
 
 import html
+import re
 from pathlib import Path
 
 from tools.site_config import brand_name, exam_name, guide_index_picks
+
+GUIDE_INDEX_PICK_LAYOUTS = frozenset({"grid-3", "grid-2", "strip", "compact", "text"})
 
 
 def apply_vars(value: str) -> str:
@@ -48,67 +51,156 @@ def guide_index_pick_image_src(image: str, rel_path: Path) -> str:
     return f"{prefix}{raw.lstrip('/')}"
 
 
+def _link_attrs(href: str) -> tuple[str, str]:
+    external = href.startswith("http://") or href.startswith("https://")
+    rel_attr = ' rel="noopener noreferrer"' if external else ""
+    target_attr = ' target="_blank"' if external else ""
+    return target_attr, rel_attr
+
+
 def build_guide_index_pick_image_html(
     item: dict[str, str],
     *,
     title: str,
     rel_path: Path,
+    layout: str,
 ) -> str:
     image = (item.get("image") or "").strip()
-    if not image:
+    if not image or layout == "text":
         return ""
     src = guide_index_pick_image_src(image, rel_path)
     alt = (item.get("imageAlt") or title or "おすすめ教材").strip()
     kind = (item.get("kind") or "textbook").strip()
     media_kind = "course" if kind == "course" else "book"
+    bleed_cls = " hub-promo-card__media--bleed" if layout in {"grid-3", "grid-2", "compact"} else ""
     if media_kind == "course":
         size_attrs = 'width="320" height="180"'
     else:
         size_attrs = 'width="160" height="220"'
     return (
-        f'<div class="article-index-pick-media article-index-pick-media--{media_kind}">'
+        f'<div class="hub-promo-card__media hub-promo-card__media--{media_kind}'
+        f' article-index-pick-media article-index-pick-media--{media_kind}{bleed_cls}">'
         f'<img src="{html.escape(src, quote=True)}" alt="{html.escape(alt)}" '
         f'{size_attrs} loading="lazy" decoding="async">'
         f"</div>"
     )
 
 
+def _card_body(
+    *,
+    title: str,
+    description: str,
+    kind_label: str,
+    cta: str,
+    layout: str,
+) -> str:
+    desc_html = ""
+    if description and layout not in {"compact"}:
+        desc_html = f'<p class="hub-promo-card__desc article-index-pick-desc">{html.escape(description)}</p>'
+    elif description and layout == "compact":
+        desc_html = (
+            f'<p class="hub-promo-card__desc hub-promo-card__desc--compact article-index-pick-desc">'
+            f"{html.escape(description)}</p>"
+        )
+    cta_class = "hub-promo-card__cta article-index-pick-cta"
+    if layout == "text":
+        cta_class += " hub-promo-card__cta--text"
+    foot = (
+        '<div class="hub-promo-card__foot article-index-pick-foot">'
+        f'<span class="{cta_class}">{cta}</span>'
+        f'<span class="hub-promo-card__kind article-index-pick-kind">{kind_label}</span>'
+        "</div>"
+    )
+    if layout == "strip":
+        return (
+            '<div class="hub-promo-card__body">'
+            f'<span class="hub-promo-card__kind hub-promo-card__kind--strip article-index-pick-kind">{kind_label}</span>'
+            f"<h3>{html.escape(title)}</h3>"
+            f"{desc_html}"
+            f'<span class="{cta_class}">{cta}</span>'
+            "</div>"
+        )
+    return (
+        '<div class="hub-promo-card__body">'
+        f"<h3>{html.escape(title)}</h3>"
+        f"{desc_html}"
+        f"{foot}"
+        "</div>"
+    )
+
+
+def build_guide_index_pick_card_html(
+    item: dict[str, str],
+    *,
+    rel_path: Path,
+    layout: str,
+) -> str:
+    href = guide_index_pick_href(apply_vars(item["href"]), rel_path)
+    title = apply_vars(item["title"])
+    description = apply_vars(item.get("description") or "")
+    kind = html.escape(item.get("kind") or "textbook", quote=True)
+    kind_label = html.escape(apply_vars(item.get("kindLabel") or "教材"))
+    cta = html.escape(apply_vars(item.get("cta") or "記事を読む"))
+    target_attr, rel_attr = _link_attrs(href)
+    image_html = build_guide_index_pick_image_html(item, title=title, rel_path=rel_path, layout=layout)
+    link_extra = ""
+    if layout == "strip":
+        link_extra = " hub-promo-card__link--strip"
+    elif layout == "text":
+        link_extra = " hub-promo-card__link--text"
+    elif layout == "compact":
+        link_extra = " hub-promo-card__link--compact"
+    body_html = _card_body(
+        title=title,
+        description=description,
+        kind_label=kind_label,
+        cta=cta,
+        layout=layout,
+    )
+    inner = image_html + body_html
+    if layout in {"grid-3", "grid-2", "compact"} and image_html:
+        return (
+            f'<article class="hub-promo-card article-index-pick" data-pick-kind="{kind}">'
+            f'<a class="hub-promo-card__link article-index-pick-link{link_extra}" '
+            f'href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
+            f"{inner}"
+            f"</a></article>"
+        )
+    return (
+        f'<article class="hub-promo-card article-index-pick" data-pick-kind="{kind}">'
+        f'<a class="hub-promo-card__link article-index-pick-link{link_extra}" '
+        f'href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
+        f"{inner}"
+        f"</a></article>"
+    )
+
+
+def normalize_guide_index_pick_layout(layout: str) -> str:
+    key = re.sub(r"[^a-z0-9-]", "", (layout or "grid-3").strip().lower())
+    return key if key in GUIDE_INDEX_PICK_LAYOUTS else "grid-3"
+
+
 def build_guide_index_picks_html(rel_path: Path) -> str:
     picks = guide_index_picks()
     if not picks:
         return ""
-    cards: list[str] = []
-    for item in picks["items"]:
-        href = guide_index_pick_href(apply_vars(item["href"]), rel_path)
-        title = apply_vars(item["title"])
-        description = apply_vars(item.get("description") or "")
-        kind = html.escape(item.get("kind") or "textbook", quote=True)
-        kind_label = html.escape(apply_vars(item.get("kindLabel") or "教材"))
-        cta = html.escape(apply_vars(item.get("cta") or "記事を読む"))
-        external = href.startswith("http://") or href.startswith("https://")
-        rel_attr = ' rel="noopener noreferrer"' if external else ""
-        target_attr = ' target="_blank"' if external else ""
-        image_html = build_guide_index_pick_image_html(item, title=title, rel_path=rel_path)
-        cards.append(
-            f'<article class="article-index-pick" data-pick-kind="{kind}">'
-            f'<a class="article-index-pick-link" href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
-            + image_html
-            + f"<h3>{html.escape(title)}</h3>"
-            + (f"<p>{html.escape(description)}</p>" if description else "")
-            + '<div class="article-index-pick-foot">'
-            + f'<span class="article-index-pick-cta">{cta}</span>'
-            + f'<span class="article-index-pick-kind">{kind_label}</span>'
-            + "</div>"
-            + "</a></article>"
-        )
+    layout = normalize_guide_index_pick_layout(str(picks.get("layout") or "grid-3"))
+    items = picks["items"]
+    if layout == "grid-2":
+        items = items[:2]
+    cards = [
+        build_guide_index_pick_card_html(item, rel_path=rel_path, layout=layout)
+        for item in items
+    ]
     lead = apply_vars(picks.get("lead") or "")
-    lead_html = f"<p>{html.escape(lead)}</p>" if lead else ""
+    lead_html = f'<p class="hub-promo__lead">{html.escape(lead)}</p>' if lead else ""
     return (
-        '<section class="article-index-picks" aria-labelledby="article-index-picks-heading">'
-        '<div class="article-index-picks-head">'
+        f'<section class="hub-promo hub-promo--{html.escape(layout, quote=True)} article-index-picks" '
+        'aria-labelledby="article-index-picks-heading">'
+        '<div class="hub-promo__head article-index-picks-head">'
         f'<h2 id="article-index-picks-heading">{html.escape(apply_vars(picks["title"]))}</h2>'
         f"{lead_html}"
         "</div>"
-        f'<div class="article-index-picks-grid">{"".join(cards)}</div>'
+        f'<div class="hub-promo__grid article-index-picks-grid">{"".join(cards)}</div>'
         "</section>"
     )

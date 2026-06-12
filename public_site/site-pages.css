@@ -3522,6 +3522,143 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 .article-index-pick-link:hover .article-index-pick-cta::after {
   transform: translateX(3px);
 }
+/* hub-promo: 一覧・記事内など設置先に応じたレイアウト型（.article-index-pick-* は後方互換） */
+.hub-promo__head,
+.article-index-picks-head {
+  margin-bottom: 14px;
+}
+.hub-promo__lead {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--fs-sub);
+  line-height: 1.65;
+}
+.hub-promo__grid,
+.article-index-picks-grid {
+  display: grid;
+  gap: 14px;
+  align-items: stretch;
+}
+.hub-promo--grid-3 .hub-promo__grid,
+.hub-promo--grid-3 .article-index-picks-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.hub-promo--grid-2 .hub-promo__grid,
+.hub-promo--grid-2 .article-index-picks-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.hub-promo--strip .hub-promo__grid,
+.hub-promo--strip .article-index-picks-grid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.hub-promo--compact .hub-promo__grid,
+.hub-promo--compact .article-index-picks-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.hub-promo--text .hub-promo__grid,
+.hub-promo--text .article-index-picks-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.hub-promo-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.hub-promo-card__media--bleed {
+  margin: 0 -16px;
+}
+.hub-promo-card__link--strip {
+  flex-direction: row;
+  align-items: stretch;
+  padding: 12px 16px;
+  gap: 14px;
+}
+.hub-promo-card__link--strip .hub-promo-card__media,
+.hub-promo-card__link--strip .article-index-pick-media {
+  margin: 0;
+  width: min(36%, 168px);
+  min-width: 120px;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  border-bottom: none;
+  border-right: 1px solid var(--border);
+  border-radius: var(--r2) 0 0 var(--r2);
+}
+.hub-promo-card__link--strip .hub-promo-card__body {
+  justify-content: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+.hub-promo-card__link--strip .hub-promo-card__kind--strip,
+.hub-promo-card__link--strip .article-index-pick-kind {
+  align-self: flex-start;
+}
+.hub-promo-card__link--strip h3 {
+  min-height: auto;
+  -webkit-line-clamp: 2;
+}
+.hub-promo-card__link--strip .hub-promo-card__desc,
+.hub-promo-card__link--strip .article-index-pick-desc {
+  -webkit-line-clamp: 2;
+  min-height: auto;
+}
+.hub-promo-card__link--strip .hub-promo-card__cta,
+.hub-promo-card__link--strip .article-index-pick-cta {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+.hub-promo-card__link--compact {
+  padding: 12px 12px 10px;
+  gap: 6px;
+}
+.hub-promo-card__link--compact .hub-promo-card__media--bleed,
+.hub-promo-card__link--compact .article-index-pick-media {
+  margin: 0 -12px;
+  max-height: 96px;
+}
+.hub-promo-card__link--compact h3 {
+  min-height: auto;
+  -webkit-line-clamp: 2;
+  font-size: var(--fs-sub);
+}
+.hub-promo-card__desc--compact {
+  -webkit-line-clamp: 2;
+  min-height: auto;
+  font-size: var(--fs-caption);
+  line-height: 1.55;
+}
+.hub-promo-card__link--text {
+  padding: 14px 16px 12px;
+}
+.hub-promo-card__link--text h3 {
+  min-height: auto;
+}
+.hub-promo-card__link--text .hub-promo-card__desc,
+.hub-promo-card__link--text .article-index-pick-desc {
+  -webkit-line-clamp: 2;
+  min-height: auto;
+}
+.hub-promo-card__cta--text {
+  background: transparent;
+  color: var(--accent-emphasis);
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+.hub-promo-card__link:hover .hub-promo-card__cta--text,
+.hub-promo-card__link:hover .article-index-pick-cta.hub-promo-card__cta--text {
+  background: transparent;
+  border-color: transparent;
+  color: var(--accent);
+  box-shadow: none;
+  transform: none;
+}
 .article-index-tools {
   display: grid;
   gap: 12px;
@@ -4784,8 +4921,11 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   .site-page-main > h1,
   .site-page-main > .site-page-lead,
   .articles-index-page .site-page-main > .article-index-picks,
+  .articles-index-page .site-page-main > .hub-promo,
   .terms-index-page .site-page-main > .article-index-picks,
+  .terms-index-page .site-page-main > .hub-promo,
   .q-index-page .site-page-main > .article-index-picks,
+  .q-index-page .site-page-main > .hub-promo,
   .terms-index-page .site-page-main > .site-page-header-crumb,
   .terms-index-page .site-page-main > h1,
   .terms-index-page .site-page-main > .site-page-lead,
@@ -5031,8 +5171,11 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
     overflow: visible;
   }
   .articles-index-page .site-page-main > .article-index-picks,
+  .articles-index-page .site-page-main > .hub-promo,
   .terms-index-page .site-page-main > .article-index-picks,
-  .q-index-page .site-page-main > .article-index-picks {
+  .terms-index-page .site-page-main > .hub-promo,
+  .q-index-page .site-page-main > .article-index-picks,
+  .q-index-page .site-page-main > .hub-promo {
     margin: 0 0 14px;
     padding: 14px 16px;
     border-radius: 0;
@@ -5040,9 +5183,26 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
     border-right: none;
     box-shadow: none;
   }
-  .article-index-picks-grid {
+  .article-index-picks-grid,
+  .hub-promo__grid {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+  .hub-promo-card__link--strip {
+    flex-direction: column;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .hub-promo-card__link--strip .hub-promo-card__media,
+  .hub-promo-card__link--strip .article-index-pick-media {
+    width: auto;
+    min-width: 0;
+    margin: 0 -14px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    aspect-ratio: 2 / 1;
+    max-height: 120px;
   }
   .article-index-pick h3 {
     font-size: var(--fs-sub);
@@ -5988,7 +6148,10 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .articles-index-page .article-index-picks-head p,
 .terms-index-page .article-index-picks-head p,
-.q-index-page .article-index-picks-head p {
+.q-index-page .article-index-picks-head p,
+.articles-index-page .hub-promo__lead,
+.terms-index-page .hub-promo__lead,
+.q-index-page .hub-promo__lead {
   color: var(--ink);
   font-size: var(--fs-sub);
 }
