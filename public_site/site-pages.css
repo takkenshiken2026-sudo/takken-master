@@ -3352,12 +3352,11 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  align-items: stretch;
+  align-items: start;
 }
 .article-index-pick {
   display: flex;
   min-width: 0;
-  min-height: 100%;
 }
 .article-index-pick-link:has(.article-index-pick-media) {
   padding-top: 0;
@@ -3397,7 +3396,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  width: 100%;
   gap: 8px;
   padding: 16px 16px 14px;
   background: var(--bg);
@@ -3425,8 +3424,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   outline-offset: 2px;
 }
 .article-index-pick-foot {
-  margin-top: auto;
-  padding-top: 4px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
