@@ -3330,7 +3330,9 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   border-radius: var(--r2);
   box-shadow: var(--sh);
 }
-.articles-index-page .site-page-main > .article-index-picks {
+.articles-index-page .site-page-main > .article-index-picks,
+.terms-index-page .site-page-main > .article-index-picks,
+.q-index-page .site-page-main > .article-index-picks {
   margin-bottom: 18px;
 }
 .article-index-picks-head {
@@ -4782,6 +4784,8 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   .site-page-main > h1,
   .site-page-main > .site-page-lead,
   .articles-index-page .site-page-main > .article-index-picks,
+  .terms-index-page .site-page-main > .article-index-picks,
+  .q-index-page .site-page-main > .article-index-picks,
   .terms-index-page .site-page-main > .site-page-header-crumb,
   .terms-index-page .site-page-main > h1,
   .terms-index-page .site-page-main > .site-page-lead,
@@ -5026,7 +5030,9 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
     border-right: none;
     overflow: visible;
   }
-  .articles-index-page .site-page-main > .article-index-picks {
+  .articles-index-page .site-page-main > .article-index-picks,
+  .terms-index-page .site-page-main > .article-index-picks,
+  .q-index-page .site-page-main > .article-index-picks {
     margin: 0 0 14px;
     padding: 14px 16px;
     border-radius: 0;
@@ -5974,26 +5980,38 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   color: var(--ink);
   font-size: var(--fs-sub);
 }
-.articles-index-page .article-index-picks-head h2 {
+.articles-index-page .article-index-picks-head h2,
+.terms-index-page .article-index-picks-head h2,
+.q-index-page .article-index-picks-head h2 {
   color: var(--text);
   font-size: var(--fs-h2);
 }
-.articles-index-page .article-index-picks-head p {
+.articles-index-page .article-index-picks-head p,
+.terms-index-page .article-index-picks-head p,
+.q-index-page .article-index-picks-head p {
   color: var(--ink);
   font-size: var(--fs-sub);
 }
-.articles-index-page .article-index-pick h3 {
+.articles-index-page .article-index-pick h3,
+.terms-index-page .article-index-pick h3,
+.q-index-page .article-index-pick h3 {
   color: var(--text);
   font-size: var(--fs-body);
 }
-.articles-index-page .article-index-pick p {
+.articles-index-page .article-index-pick p,
+.terms-index-page .article-index-pick p,
+.q-index-page .article-index-pick p {
   color: var(--ink);
   font-size: var(--fs-small);
 }
-.articles-index-page .article-index-pick-cta {
+.articles-index-page .article-index-pick-cta,
+.terms-index-page .article-index-pick-cta,
+.q-index-page .article-index-pick-cta {
   font-size: var(--fs-caption);
 }
-.articles-index-page .article-index-pick-kind {
+.articles-index-page .article-index-pick-kind,
+.terms-index-page .article-index-pick-kind,
+.q-index-page .article-index-pick-kind {
   font-size: var(--fs-tiny);
 }
 .articles-index-page .article-index-search {

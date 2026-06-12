@@ -25,6 +25,7 @@ from tools.html_footer import (  # noqa: E402
     site_page_wrap_close,
     site_page_wrap_open,
 )
+from tools.guide_index_picks_ui import build_guide_index_picks_html  # noqa: E402
 from tools.seo_utils import content_date_from_row, json_ld_date_modified, meta_updated_html  # noqa: E402
 from tools.site_config import (  # noqa: E402
     brand_name,
@@ -34,7 +35,6 @@ from tools.site_config import (  # noqa: E402
     guide_article_genres,
     guide_genre_order_index,
     guide_genre_style_by_label,
-    guide_index_picks,
     primary_external_link,
 )
 
@@ -993,76 +993,6 @@ def sort_articles_for_index(articles: list[dict[str, str]]) -> list[dict[str, st
     )
 
 
-def guide_index_pick_image_src(image: str) -> str:
-    raw = (image or "").strip()
-    if not raw:
-        return ""
-    if raw.startswith(("../", "http://", "https://", "/")):
-        return raw
-    return f"../{raw.lstrip('/')}"
-
-
-def build_guide_index_pick_image_html(item: dict[str, str], *, title: str) -> str:
-    image = (item.get("image") or "").strip()
-    if not image:
-        return ""
-    src = guide_index_pick_image_src(image)
-    alt = (item.get("imageAlt") or title or "おすすめ教材").strip()
-    kind = (item.get("kind") or "textbook").strip()
-    media_kind = "course" if kind == "course" else "book"
-    if media_kind == "course":
-        size_attrs = 'width="320" height="180"'
-    else:
-        size_attrs = 'width="160" height="220"'
-    return (
-        f'<div class="article-index-pick-media article-index-pick-media--{media_kind}">'
-        f'<img src="{html.escape(src, quote=True)}" alt="{html.escape(alt)}" '
-        f"{size_attrs} loading=\"lazy\" decoding=\"async\">"
-        f"</div>"
-    )
-
-
-def build_guide_index_picks_html() -> str:
-    picks = guide_index_picks()
-    if not picks:
-        return ""
-    cards: list[str] = []
-    for item in picks["items"]:
-        href = apply_vars(item["href"])
-        title = apply_vars(item["title"])
-        description = apply_vars(item.get("description") or "")
-        kind = html.escape(item.get("kind") or "textbook", quote=True)
-        kind_label = html.escape(apply_vars(item.get("kindLabel") or "教材"))
-        cta = html.escape(apply_vars(item.get("cta") or "記事を読む"))
-        external = href.startswith("http://") or href.startswith("https://")
-        rel_attr = ' rel="noopener noreferrer"' if external else ""
-        target_attr = ' target="_blank"' if external else ""
-        image_html = build_guide_index_pick_image_html(item, title=title)
-        cards.append(
-            f'<article class="article-index-pick" data-pick-kind="{kind}">'
-            f'<a class="article-index-pick-link" href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
-            + image_html
-            + f"<h3>{html.escape(title)}</h3>"
-            + (f"<p>{html.escape(description)}</p>" if description else "")
-            + '<div class="article-index-pick-foot">'
-            + f'<span class="article-index-pick-cta">{cta}</span>'
-            + f'<span class="article-index-pick-kind">{kind_label}</span>'
-            + "</div>"
-            + "</a></article>"
-        )
-    lead = apply_vars(picks.get("lead") or "")
-    lead_html = f"<p>{html.escape(lead)}</p>" if lead else ""
-    return (
-        '<section class="article-index-picks" aria-labelledby="article-index-picks-heading">'
-        '<div class="article-index-picks-head">'
-        f'<h2 id="article-index-picks-heading">{html.escape(apply_vars(picks["title"]))}</h2>'
-        f"{lead_html}"
-        "</div>"
-        f'<div class="article-index-picks-grid">{"".join(cards)}</div>'
-        "</section>"
-    )
-
-
 def build_index_html(articles: list[dict[str, str]]) -> str:
     rel_path = Path("articles/index.html")
     articles = sort_articles_for_index(articles)
@@ -1180,7 +1110,7 @@ def build_index_html(articles: list[dict[str, str]]) -> str:
   {breadcrumb_html(rel_path, [("トップ", "index.html"), ("試験ガイド", None)])}
   <h1>試験ガイド</h1>
   <p class="site-page-lead">{html.escape(exam_name())}の制度理解から学習計画・演習・直前対策まで、受験フェーズ別の<strong>進め方</strong>をまとめています。用語の意味・比較・数値は<a href="../terms/index.html">用語解説（知識ハブ）</a>、問題演習は<a href="../q/index.html">過去問一覧</a>からどうぞ。</p>
-  {build_guide_index_picks_html()}
+  {build_guide_index_picks_html(rel_path)}
   <section class="article-index-panel" aria-labelledby="article-index-heading">
     <div class="article-index-head">
       <div>
