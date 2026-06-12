@@ -56,10 +56,7 @@ REWRITES: dict[str, dict[str, str]] = {
             f"{_A8_YOTSUYA};"
             f"{_A8_SHIKAKU_TAISAKU}"
         ),
-        "key_points": (
-            "8/15までに1社;過去問15問/週;"
-            "週10時間;講座は補助;50問120分"
-        ),
+        "key_points": "",
         "content_status": "published",
         "revision_note": "2026-06-12: 編集合格（A8 URL確定・通信講座4社比較・具体例）",
         "fact_checked_at": "2026-06-12",
