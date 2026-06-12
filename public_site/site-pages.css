@@ -3432,7 +3432,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .article-index-pick-foot {
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3478,7 +3478,6 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  min-height: calc(2 * 1.45em);
 }
 .article-index-pick p {
   color: var(--ink);
@@ -3489,7 +3488,6 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  min-height: calc(3 * 1.7em);
 }
 .article-index-pick-cta {
   display: inline-flex;
@@ -3565,7 +3563,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 .hub-promo-card__body {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   flex: 1;
   min-width: 0;
 }
