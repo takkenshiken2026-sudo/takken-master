@@ -19,6 +19,7 @@ products:
     duration: 受講期間は公式参照
     support: 教材セット・動画・質問サポート（詳細は公式参照）
     image_file: takken-course-shikaku-square.webp
+    lp_url: https://www.shikaku-square.com/takken
     a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken
     affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken
     for_who: 教材一式と動画で4分野をまとめて進めたい社会人独学者
@@ -35,6 +36,8 @@ products:
     duration: 受講期間は公式参照
     support: オンライン完結・スマホ視聴（詳細は公式参照）
     image_file: takken-course-onsuku.webp
+    lp_url: https://onsuku.jp/training/takkenshi
+    image_url: https://s3.ap-northeast-1.amazonaws.com/onsuku.jp/img/parts/training/top/thumb_takkenshi_top.jpg
     a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DUX9PU+408S+BW0YB&a8ejpredirect=https%3A%2F%2Fonsuku.jp%2Ftraining%2Ftakkenshi
     affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DUX9PU+408S+BW0YB&a8ejpredirect=https%3A%2F%2Fonsuku.jp%2Ftraining%2Ftakkenshi
     for_who: オンライン完結で仕事と両立しながら動画学習したい人
@@ -51,6 +54,8 @@ products:
     duration: 受講期間は公式参照
     support: 予備校ブランドの通信カリキュラム（詳細は公式参照）
     image_file: takken-course-yotsuya.webp
+    lp_url: https://yotsuyagakuin-tsushin.com/takken/
+    image_url: https://yotsuyagakuin-tsushin.com/img/item/takken/recommend_takken.png
     a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRCO36+5IEI+BW0YB&a8ejpredirect=https%3A%2F%2Fyotsuyagakuin-tsushin.com%2Ftakken%2F
     affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRCO36+5IEI+BW0YB&a8ejpredirect=https%3A%2F%2Fyotsuyagakuin-tsushin.com%2Ftakken%2F
     for_who: 予備校系の通信講座で計画立てから添削まで任せたい人
@@ -67,6 +72,8 @@ products:
     duration: 受講期間は公式参照
     support: 分野別カリキュラム・質問サポート（詳細は公式参照）
     image_file: takken-course-shikakutaisaku.webp
+    lp_url: https://www.shikakutaisaku.com/personal/takken.html
+    image_url: https://www.shikakutaisaku.com/personal/images/takken/takken01-01a.jpg
     a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRY3OY+3L4C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikakutaisaku.com%2Fpersonal%2Ftakken.html
     affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRY3OY+3L4C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikakutaisaku.com%2Fpersonal%2Ftakken.html
     for_who: 資格対策ドットコムの通信で分野別に着実に進めたい人
