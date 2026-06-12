@@ -3363,10 +3363,8 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   height: 100%;
   gap: 8px;
   padding: 16px 16px 14px;
-  padding-left: 18px;
   background: var(--bg);
   border: 1px solid color-mix(in srgb, var(--border) 70%, var(--accent-border));
-  border-left: 4px solid var(--accent-emphasis);
   border-radius: var(--r2);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
   color: inherit;
@@ -3374,34 +3372,13 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   cursor: pointer;
   transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
 }
-.article-index-pick[data-pick-kind="course"] .article-index-pick-link {
-  border-left-color: var(--article-genre-study-accent);
-}
-.article-index-pick[data-pick-kind="textbook"] .article-index-pick-link {
-  border-left-color: var(--article-genre-overview-accent);
-}
-.article-index-pick[data-pick-kind="problem-book"] .article-index-pick-link,
-.article-index-pick[data-pick-kind="mock"] .article-index-pick-link {
-  border-left-color: var(--article-genre-glossary-accent);
-}
 .article-index-pick-link:hover {
   background: var(--bg);
   border-color: var(--accent-hover-border);
-  border-left-color: var(--accent-emphasis);
   box-shadow: 0 12px 28px var(--accent-shadow), 0 4px 10px rgba(0, 0, 0, 0.08);
   transform: translateY(-3px);
   opacity: 1;
   text-decoration: none;
-}
-.article-index-pick[data-pick-kind="course"] .article-index-pick-link:hover {
-  border-left-color: var(--article-genre-study-accent);
-}
-.article-index-pick[data-pick-kind="textbook"] .article-index-pick-link:hover {
-  border-left-color: var(--article-genre-overview-accent);
-}
-.article-index-pick[data-pick-kind="problem-book"] .article-index-pick-link:hover,
-.article-index-pick[data-pick-kind="mock"] .article-index-pick-link:hover {
-  border-left-color: var(--article-genre-glossary-accent);
 }
 .article-index-pick-link:hover h3 {
   color: var(--accent-emphasis);
