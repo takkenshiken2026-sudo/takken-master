@@ -973,6 +973,7 @@ def build_index_html(articles: list[dict[str, str]]) -> str:
   {breadcrumb_html(rel_path, [("トップ", "index.html"), ("試験ガイド", None)])}
   <h1>試験ガイド</h1>
   <p class="site-page-lead">{html.escape(exam_name())}の制度理解から学習計画・演習・直前対策まで、受験フェーズ別の<strong>進め方</strong>をまとめています。用語の意味・比較・数値は<a href="../terms/index.html">用語解説（知識ハブ）</a>、問題演習は<a href="../q/index.html">過去問一覧</a>からどうぞ。</p>
+  {build_guide_index_picks_html()}
   <section class="article-index-panel" aria-labelledby="article-index-heading">
     <div class="article-index-head">
       <div>
@@ -981,7 +982,6 @@ def build_index_html(articles: list[dict[str, str]]) -> str:
       </div>
       <span id="article-index-hit" class="article-index-hit">{len(articles)} / {len(articles)} 記事</span>
     </div>
-    {build_guide_index_picks_html()}
     <div class="article-index-tools">
       <label class="article-index-search" for="article-index-q">
         <span>記事検索</span>

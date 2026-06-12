@@ -3325,9 +3325,13 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 .article-index-picks {
   margin-bottom: 18px;
   padding: 16px;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: var(--bg2);
+  border: 1px solid var(--border2);
   border-radius: var(--r2);
+  box-shadow: var(--sh);
+}
+.articles-index-page .site-page-main > .article-index-picks {
+  margin-bottom: 18px;
 }
 .article-index-picks-head {
   margin-bottom: 14px;
@@ -4685,6 +4689,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   .site-page-main > .site-page-header-crumb,
   .site-page-main > h1,
   .site-page-main > .site-page-lead,
+  .articles-index-page .site-page-main > .article-index-picks,
   .terms-index-page .site-page-main > .site-page-header-crumb,
   .terms-index-page .site-page-main > h1,
   .terms-index-page .site-page-main > .site-page-lead,
@@ -4928,6 +4933,14 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
     border-left: none;
     border-right: none;
     overflow: visible;
+  }
+  .articles-index-page .site-page-main > .article-index-picks {
+    margin: 0 0 14px;
+    padding: 14px 16px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
   }
   .article-index-picks-grid {
     grid-template-columns: 1fr;
