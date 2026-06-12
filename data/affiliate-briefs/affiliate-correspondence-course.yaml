@@ -1,0 +1,89 @@
+slug: affiliate-correspondence-course
+theme_key: correspondence-course
+search_intent: 宅建の通信講座を比較して独学に組み込みたい
+title: 宅建士のおすすめ通信講座4選【2026年度・独学併用】
+genre: 独学対策
+layout: product-comparison
+asp_primary: a8
+comparison_kind: courses
+comparison_title: おすすめ通信講座4選（比較）
+price_disclaimer: 料金・キャンペーン・受講期間は執筆時点（2026-06-12）の公式参考です。申込前に必ず各講座の公式ページで最新条件を確認してください。試験日程・出題範囲は公益財団法人 不動産適正取引推進機構（宅建試験・公式）で必ず確認してください。
+
+products:
+  - rank: 1
+    offer_type: course
+    name: 宅建コンプリート講座
+    provider: 資格スクエア
+    plan_name: 2026年度版
+    price_label: 公式サイト参照
+    duration: 受講期間は公式参照
+    support: 教材セット・動画・質問サポート（詳細は公式参照）
+    image_file: takken-course-shikaku-square.webp
+    a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken
+    affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken
+    for_who: 教材一式と動画で4分野をまとめて進めたい社会人独学者
+    highlights:
+      - コンプリート講座で業法・権利・法令・税の学習導線が一本化
+      - 通信で自宅学習しつつ、質問サポートで独学の詰まりを解消
+      - 当サイトの過去問演習と週次計画を並行しやすい
+  - rank: 2
+    offer_type: course
+    name: 宅建オンライン通信講座
+    provider: オンスク.JP
+    plan_name: オンライン通信
+    price_label: 公式サイト参照
+    duration: 受講期間は公式参照
+    support: オンライン完結・スマホ視聴（詳細は公式参照）
+    image_file: takken-course-onsuku.webp
+    a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DUX9PU+408S+BW0YB&a8ejpredirect=https%3A%2F%2Fonsuku.jp%2Ftraining%2Ftakkenshi
+    affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DUX9PU+408S+BW0YB&a8ejpredirect=https%3A%2F%2Fonsuku.jp%2Ftraining%2Ftakkenshi
+    for_who: オンライン完結で仕事と両立しながら動画学習したい人
+    highlights:
+      - オンライン通信で通学移動なし
+      - スマホ・タブレット視聴でスキマ時間を活用しやすい
+      - 週10時間のうち動画と過去問を分けて設計しやすい
+  - rank: 3
+    offer_type: course
+    name: 宅建講座
+    provider: 四谷学院
+    plan_name: 通信講座
+    price_label: 公式サイト参照
+    duration: 受講期間は公式参照
+    support: 予備校ブランドの通信カリキュラム（詳細は公式参照）
+    image_file: takken-course-yotsuya.webp
+    a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRCO36+5IEI+BW0YB&a8ejpredirect=https%3A%2F%2Fyotsuyagakuin-tsushin.com%2Ftakken%2F
+    affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRCO36+5IEI+BW0YB&a8ejpredirect=https%3A%2F%2Fyotsuyagakuin-tsushin.com%2Ftakken%2F
+    for_who: 予備校系の通信講座で計画立てから添削まで任せたい人
+    highlights:
+      - 四谷学院ブランドの通信カリキュラム
+      - 添削・質問などサポート重視の学習スタイル向き
+      - 8月15日までにスタイルを固定しやすい構成
+  - rank: 4
+    offer_type: course
+    name: 宅地建物取引士講座
+    provider: 資格対策ドットコム
+    plan_name: 通信講座
+    price_label: 公式サイト参照
+    duration: 受講期間は公式参照
+    support: 分野別カリキュラム・質問サポート（詳細は公式参照）
+    image_file: takken-course-shikakutaisaku.webp
+    a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRY3OY+3L4C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikakutaisaku.com%2Fpersonal%2Ftakken.html
+    affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DRY3OY+3L4C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikakutaisaku.com%2Fpersonal%2Ftakken.html
+    for_who: 資格対策ドットコムの通信で分野別に着実に進めたい人
+    highlights:
+      - 分野別の学習ステップが分かりやすい
+      - 通信講座の定番ブランドで比較検討しやすい
+      - テキスト1冊＋当サイト過去問との併用例が多い
+
+related_links:
+  - takken-tsushin-hikaku:通信講座・独学・通学の比較
+  - takken-dokugaku:独学の始め方
+  - takken-kyozai:教材の選び方
+  - affiliate-textbooks-recommend:おすすめテキスト3選
+  - affiliate-problem-books:おすすめ問題集3選
+  - ../../q/index.html:過去問を解く（無料）
+
+operator_note: |
+  ASP: A8.net（a8mat=4B3TF0 系）
+  講座: 資格スクエア / オンスク.JP / 四谷学院 / 資格対策ドットコム
+  2026-06-12 URL確定。料金は各公式LPで四半期ごとに照合。
