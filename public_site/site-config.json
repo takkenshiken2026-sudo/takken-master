@@ -245,7 +245,9 @@
         "title": "おすすめ通信講座4選【2026年度】",
         "description": "資格スクエア・オンスク・四谷学院・資格対策ドットコムを比較。週10時間と過去問15問/週の併用設計を解説します。",
         "href": "affiliate-correspondence-course/",
-        "cta": "4講座を比較する"
+        "cta": "4講座を比較する",
+        "image": "images/affiliate/takken-course-shikaku-square.webp",
+        "imageAlt": "宅建コンプリート講座 公式イメージ"
       },
       {
         "kind": "textbook",
@@ -253,7 +255,9 @@
         "title": "おすすめテキスト3選【2026年度版】",
         "description": "TAC・LEC・出る順の3冊を比較。4分野の章立てと週次計画への組み込み方を解説します。",
         "href": "affiliate-textbooks-recommend/",
-        "cta": "3冊を比較する"
+        "cta": "3冊を比較する",
+        "image": "images/affiliate/takken-book-b0gln6zmnf.webp",
+        "imageAlt": "2026年度版 みんなが欲しかった! 宅建士の教科書 表紙"
       },
       {
         "kind": "problem-book",
@@ -261,7 +265,9 @@
         "title": "おすすめ問題集3選【2026年度版】",
         "description": "論点別・分野別・ウォーク問の違いと、テキスト読了後の演習1冊の選び方をまとめます。",
         "href": "affiliate-problem-books/",
-        "cta": "3冊を比較する"
+        "cta": "3冊を比較する",
+        "image": "images/affiliate/takken-book-4300119287.webp",
+        "imageAlt": "2026年度版 みんなが欲しかった! 宅建士の論点別過去問題集 表紙"
       }
     ]
   },

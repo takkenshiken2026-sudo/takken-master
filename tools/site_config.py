@@ -434,16 +434,21 @@ def guide_index_picks() -> dict[str, Any] | None:
         kind_label = str(item.get("kindLabel") or "").strip() or GUIDE_INDEX_PICK_KIND_LABELS.get(kind, "教材")
         description = str(item.get("description") or "").strip()
         cta = str(item.get("cta") or "記事を読む").strip() or "記事を読む"
-        items.append(
-            {
-                "kind": kind,
-                "kindLabel": kind_label,
-                "title": title,
-                "description": description,
-                "href": href,
-                "cta": cta,
-            }
-        )
+        image = str(item.get("image") or "").strip()
+        image_alt = str(item.get("imageAlt") or "").strip()
+        pick: dict[str, str] = {
+            "kind": kind,
+            "kindLabel": kind_label,
+            "title": title,
+            "description": description,
+            "href": href,
+            "cta": cta,
+        }
+        if image:
+            pick["image"] = image
+        if image_alt:
+            pick["imageAlt"] = image_alt
+        items.append(pick)
     if not items:
         return None
     return {

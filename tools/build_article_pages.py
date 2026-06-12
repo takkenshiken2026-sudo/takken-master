@@ -153,33 +153,46 @@ def sanitize_guide_text(text: str, slug: str = "") -> str:
 
 from tools.affiliate_links import affiliate_article_is_buildable  # noqa: E402
 from tools.editorial_quality import is_published_guide  # noqa: E402
+from tools.guide_field_prose import field_prefix_labels, resolve_reader_slug_prose  # noqa: E402
+from tools.guide_slug_prose import url_label_map_from_sources  # noqa: E402
+from tools.guide_slug_prose import resolve_slug_references  # noqa: E402
 from tools.seo_body_markup import seo_section_body_html  # noqa: E402
+
+
+def slug_title_map(by_slug: dict[str, dict[str, str]]) -> dict[str, str]:
+    return {s: apply_vars(row.get("title", "")) for s, row in by_slug.items() if s}
+
+
+def article_url_labels(article: dict[str, str]) -> dict[str, str]:
+    return url_label_map_from_sources(parse_source_links(article.get("primary_sources", "")))
+
+
+def resolve_reader_prose(
+    text: str,
+    *,
+    slug_titles: dict[str, str],
+    current_slug: str,
+    link_internal: bool = False,
+    prefix_labels: dict[str, str] | None = None,
+    url_labels: dict[str, str] | None = None,
+    link_external_urls: bool = True,
+) -> str:
+    if not text:
+        return text
+    labels = prefix_labels if prefix_labels is not None else field_prefix_labels(ROOT)
+    return resolve_reader_slug_prose(
+        text,
+        slug_titles=slug_titles or {},
+        current_slug=current_slug,
+        link_internal=link_internal,
+        prefix_labels=labels,
+        url_labels=url_labels,
+        link_external_urls=link_external_urls,
+    )
 
 
 def paragraphs(text: str) -> str:
     return seo_section_body_html(text, transform=apply_vars)
-
-
-def body_text_transform(affiliate_brief: dict | None = None, article: dict | None = None):
-    """Apply site vars, 「」括り、optional affiliate product name → markdown links."""
-    from tools.affiliate_body_links import prepare_affiliate_prose  # noqa: E402
-    from tools.affiliate_brief import brief_has_product_comparison  # noqa: E402
-    from tools.affiliate_links import is_affiliate_article  # noqa: E402
-
-    use_brief = brief_has_product_comparison(affiliate_brief) if affiliate_brief else False
-
-    def transform(text: str) -> str:
-        out = apply_vars(text)
-        if article and is_affiliate_article(article):
-            out = prepare_affiliate_prose(
-                out,
-                brief=affiliate_brief if use_brief else None,
-                article=article,
-                apply_links=bool(use_brief and affiliate_brief),
-            )
-        return out
-
-    return transform
 
 
 def list_or_paragraph(
@@ -187,12 +200,22 @@ def list_or_paragraph(
     *,
     term_hrefs: dict[str, str] | None = None,
     linked_terms: set[str] | None = None,
-    affiliate_brief: dict | None = None,
-    article: dict | None = None,
+    slug_titles: dict[str, str] | None = None,
+    current_slug: str = "",
+    url_labels: dict[str, str] | None = None,
 ) -> str:
+    body = text
+    if slug_titles and current_slug:
+        body = resolve_reader_prose(
+            body,
+            slug_titles=slug_titles,
+            current_slug=current_slug,
+            link_internal=True,
+            url_labels=url_labels,
+        )
     return seo_section_body_html(
-        text,
-        transform=body_text_transform(affiliate_brief, article=article),
+        body,
+        transform=apply_vars,
         term_hrefs=term_hrefs,
         linked_terms=linked_terms,
     )
@@ -228,21 +251,29 @@ def section_html(
     *,
     term_hrefs: dict[str, str] | None = None,
     linked_terms: set[str] | None = None,
-    affiliate_brief: dict | None = None,
+    slug_titles: dict[str, str] | None = None,
+    url_labels: dict[str, str] | None = None,
 ) -> str:
-    heading = apply_vars(article.get(f"section_{idx}_heading", ""))
+    slug = norm(article.get("slug"))
+    heading_raw = apply_vars(article.get(f"section_{idx}_heading", ""))
+    heading = heading_raw
+    if slug_titles and heading_raw:
+        heading = resolve_reader_prose(
+            heading_raw,
+            slug_titles=slug_titles,
+            current_slug=slug,
+            link_internal=False,
+            url_labels=url_labels,
+            link_external_urls=False,
+        )
     body = resolve_guide_section_body(article, article.get(f"section_{idx}_body", ""))
-    from tools.affiliate_links import is_affiliate_skip_section
-
-    if is_affiliate_skip_section(article, heading):
-        return ""
     if not heading or not norm(body):
         return ""
     sid = f"article-sec-{idx}"
     return (
         f'<section class="seo-article-section" aria-labelledby="{sid}">'
         f'<h2 id="{sid}"><span class="section-heading-num">{display_num}</span>{html.escape(heading)}</h2>'
-        f"{list_or_paragraph(body, term_hrefs=term_hrefs, linked_terms=linked_terms, affiliate_brief=affiliate_brief, article=article)}</section>"
+        f"{list_or_paragraph(body, term_hrefs=term_hrefs, linked_terms=linked_terms, slug_titles=slug_titles, current_slug=slug, url_labels=url_labels)}</section>"
     )
 
 
@@ -251,9 +282,8 @@ def sections_html(
     *,
     term_hrefs: dict[str, str] | None = None,
     linked_terms: set[str] | None = None,
-    affiliate_hub: str = "",
-    affiliate_hub_after_section: int = 2,
-    affiliate_brief: dict | None = None,
+    slug_titles: dict[str, str] | None = None,
+    url_labels: dict[str, str] | None = None,
 ) -> str:
     sections: list[str] = []
     display_num = 1
@@ -264,35 +294,19 @@ def sections_html(
             display_num,
             term_hrefs=term_hrefs,
             linked_terms=linked_terms,
-            affiliate_brief=affiliate_brief,
+            slug_titles=slug_titles,
+            url_labels=url_labels,
         )
         if html_text:
             sections.append(html_text)
             display_num += 1
-            if affiliate_hub and idx == affiliate_hub_after_section:
-                sections.append(affiliate_hub)
     return "\n".join(sections)
 
 
-def key_points_items(
-    article: dict[str, str],
-    affiliate_brief: dict | None = None,
-) -> list[str]:
-    from tools.affiliate_brief import brief_has_product_comparison
-    from tools.affiliate_links import affiliate_product_key_points
-
-    if affiliate_brief and brief_has_product_comparison(affiliate_brief):
-        product_points = affiliate_product_key_points(affiliate_brief)
-        if product_points:
-            extras = split_semicolon(apply_vars(article.get("key_points", "")))
-            skip = {"この記事でわかること"}
-            extras = [x for x in extras if x and x not in skip and x not in product_points]
-            return (product_points + extras)[:5]
-
+def key_points_items(article: dict[str, str]) -> list[str]:
     explicit = split_semicolon(apply_vars(article.get("key_points", "")))
     if explicit:
-        filtered = [x for x in explicit if x != "この記事でわかること"]
-        return (filtered or explicit)[:5]
+        return explicit[:5]
     action = split_semicolon(apply_vars(article.get("action_items", "")))
     if action:
         return action[:5]
@@ -300,9 +314,7 @@ def key_points_items(
     for idx in range(1, 9):
         heading = apply_vars(article.get(f"section_{idx}_heading", ""))
         body = norm(article.get(f"section_{idx}_body", ""))
-        from tools.affiliate_links import is_affiliate_skip_section
-
-        if heading and body and not is_affiliate_skip_section(article, heading):
+        if heading and body:
             from_headings.append(heading)
     return from_headings[:3]
 
@@ -310,41 +322,35 @@ def key_points_items(
 def key_points_box_html(
     article: dict[str, str],
     *,
-    affiliate_brief: dict | None = None,
-    rel_path: Path | None = None,
-    site_root: Path | None = None,
+    slug_titles: dict[str, str] | None = None,
+    url_labels: dict[str, str] | None = None,
 ) -> str:
-    from tools.affiliate_brief import brief_has_product_comparison, brief_products
-    from tools.affiliate_product_ui import affiliate_key_points_box_html
     from tools.knowledge_hub_seo import seo_key_points_box_html
 
-    intro = apply_vars(article.get("user_intent", ""))
-    if (
-        affiliate_brief
-        and brief_has_product_comparison(affiliate_brief)
-        and rel_path is not None
-        and site_root is not None
-    ):
-        products = brief_products(affiliate_brief)[:3]
-        if products:
-            all_items = key_points_items(article, affiliate_brief=affiliate_brief)
-            return affiliate_key_points_box_html(
-                intro=intro,
-                items=all_items,
-                highlight_product=products[0],
-                rel_path=rel_path,
-                site_root=site_root,
-                brief=affiliate_brief,
-                article=article,
+    slug = norm(article.get("slug"))
+    items = key_points_items(article)
+    if slug_titles:
+        items = [
+            resolve_reader_prose(
+                item,
+                slug_titles=slug_titles,
+                current_slug=slug,
+                link_internal=False,
+                url_labels=url_labels,
+                link_external_urls=False,
             )
-
-    items = key_points_items(article, affiliate_brief=affiliate_brief)
-    from tools.affiliate_body_links import affiliate_name_labels, wrap_affiliate_names_in_quotes  # noqa: E402
-    from tools.affiliate_links import is_affiliate_article  # noqa: E402
-
-    if is_affiliate_article(article):
-        labels = affiliate_name_labels(affiliate_brief, article)
-        items = [wrap_affiliate_names_in_quotes(item, labels) for item in items]
+            for item in items
+        ]
+    intro = apply_vars(article.get("user_intent", ""))
+    if slug_titles and intro:
+        intro = resolve_reader_prose(
+            intro,
+            slug_titles=slug_titles,
+            current_slug=slug,
+            link_internal=False,
+            url_labels=url_labels,
+            link_external_urls=False,
+        )
     return seo_key_points_box_html(items, intro=intro)
 
 
@@ -352,26 +358,29 @@ def toc_html(
     article: dict[str, str],
     has_faq: bool,
     *,
-    extra_after_section: dict[int, tuple[str, str]] | None = None,
-    affiliate_brief: dict | None = None,
+    slug_titles: dict[str, str] | None = None,
+    url_labels: dict[str, str] | None = None,
 ) -> str:
-    from tools.affiliate_links import is_affiliate_skip_section
-
+    slug = norm(article.get("slug"))
     items: list[tuple[str, str]] = []
-    if key_points_items(article, affiliate_brief=affiliate_brief) or norm(
-        apply_vars(article.get("user_intent", ""))
-    ):
+    if key_points_items(article) or norm(apply_vars(article.get("user_intent", ""))):
         items.append(("key-points-title", "この記事の要点"))
     items.append(("quality-panel-title", "この記事の信頼性について"))
-    extras = extra_after_section or {}
     for idx in range(1, 9):
-        heading = apply_vars(article.get(f"section_{idx}_heading", ""))
+        heading_raw = apply_vars(article.get(f"section_{idx}_heading", ""))
         body = norm(article.get(f"section_{idx}_body", ""))
-        if heading and body and not is_affiliate_skip_section(article, heading):
+        if heading_raw and body:
+            heading = heading_raw
+            if slug_titles:
+                heading = resolve_reader_prose(
+                    heading_raw,
+                    slug_titles=slug_titles,
+                    current_slug=slug,
+                    link_internal=False,
+                    url_labels=url_labels,
+                    link_external_urls=False,
+                )
             items.append((f"article-sec-{idx}", heading))
-            extra = extras.get(idx)
-            if extra:
-                items.append(extra)
     if has_faq:
         items.append(("article-sec-faq", "よくある質問"))
     items.append(("article-info-title", "記事の基本情報"))
@@ -386,19 +395,33 @@ def toc_html(
     )
 
 
-def faq_items(article: dict[str, str], *, brief: dict | None = None) -> list[dict[str, str]]:
-    from tools.affiliate_body_links import prepare_affiliate_prose  # noqa: E402
-    from tools.affiliate_links import is_affiliate_article  # noqa: E402
-
+def faq_items(
+    article: dict[str, str],
+    *,
+    slug_titles: dict[str, str] | None = None,
+    url_labels: dict[str, str] | None = None,
+) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
     slug = norm(article.get("slug"))
-    affiliate = is_affiliate_article(article)
     for idx in range(1, 4):
         q = apply_vars(article.get(f"faq_{idx}_question", ""))
         a = sanitize_guide_text(apply_vars(article.get(f"faq_{idx}_answer", "")), slug)
-        if affiliate:
-            q = prepare_affiliate_prose(q, brief=brief, article=article, apply_links=False)
-            a = prepare_affiliate_prose(a, brief=brief, article=article, apply_links=True)
+        if slug_titles:
+            q = resolve_reader_prose(
+                q,
+                slug_titles=slug_titles,
+                current_slug=slug,
+                link_internal=False,
+                url_labels=url_labels,
+                link_external_urls=False,
+            )
+            a = resolve_reader_prose(
+                a,
+                slug_titles=slug_titles,
+                current_slug=slug,
+                link_internal=True,
+                url_labels=url_labels,
+            )
         if q and a:
             items.append({"question": q, "answer": a})
     return items
@@ -411,13 +434,11 @@ def faq_html(items: list[dict[str, str]], *, section_num: int) -> str:
 
 
 def article_body_section_count(article: dict[str, str]) -> int:
-    from tools.affiliate_links import is_affiliate_skip_section
-
     count = 0
     for idx in range(1, 9):
         heading = apply_vars(article.get(f"section_{idx}_heading", ""))
         body = norm(article.get(f"section_{idx}_body", ""))
-        if heading and body and not is_affiliate_skip_section(article, heading):
+        if heading and body:
             count += 1
     return count
 
@@ -576,61 +597,62 @@ def build_article_html(
 ) -> str:
     slug = article["slug"]
     rel_path = Path("articles") / slug / "index.html"
+    slug_titles = slug_title_map(by_slug)
+    field_labels = field_prefix_labels(ROOT)
+    url_labels = article_url_labels(article)
     title = apply_vars(article["title"])
-    from tools.affiliate_body_links import prepare_affiliate_prose  # noqa: E402
-    from tools.affiliate_brief import brief_has_product_comparison, load_affiliate_brief  # noqa: E402
-    from tools.affiliate_links import is_affiliate_article  # noqa: E402
-
-    brief = load_affiliate_brief(slug)
+    title = resolve_reader_prose(
+        title,
+        slug_titles=slug_titles,
+        current_slug=slug,
+        link_internal=False,
+        prefix_labels=field_labels,
+        url_labels=url_labels,
+        link_external_urls=False,
+    )
     lead_text = sanitize_guide_text(apply_vars(article.get("lead", "")), slug)
-    if is_affiliate_article(article):
-        lead_text = prepare_affiliate_prose(
-            lead_text,
-            brief=brief,
-            article=article,
-            apply_links=False,
-        )
-    desc = meta_description(apply_vars(article.get("meta_description") or "") or lead_text or title)
+    lead_text = resolve_reader_prose(
+        lead_text,
+        slug_titles=slug_titles,
+        current_slug=slug,
+        link_internal=True,
+        prefix_labels=field_labels,
+        url_labels=url_labels,
+    )
+    if lead_text and "[" in lead_text:
+        from tools.inline_markup import render_inline_markup  # noqa: E402
+
+        lead_html = render_inline_markup(lead_text)
+    else:
+        lead_html = html.escape(lead_text)
+    meta_raw = apply_vars(article.get("meta_description") or "") or lead_text or title
+    meta_raw = resolve_reader_prose(
+        meta_raw,
+        slug_titles=slug_titles,
+        current_slug=slug,
+        link_internal=False,
+        prefix_labels=field_labels,
+        url_labels=url_labels,
+        link_external_urls=False,
+    )
+    desc = meta_description(meta_raw)
     canonical = public_url(f"articles/{slug}/")
     updated = content_date_from_row(article)
     genre = apply_vars(article.get("genre", "試験ガイド"))
     tags = split_semicolon(apply_vars(article.get("tags", "")))
     display_tags = public_display_tags(tags)
     linked_terms: set[str] = set()
-    from tools.affiliate_product_ui import affiliate_hub_toc_item, affiliate_product_hub_html  # noqa: E402
-
-    has_product_hub = brief_has_product_comparison(brief)
-    affiliate_hub = ""
-    toc_extra: dict[int, tuple[str, str]] | None = None
-    hub_after_section = 1 if has_product_hub else 2
-    if has_product_hub:
-        affiliate_hub = affiliate_product_hub_html(brief, rel_path, site_root=ROOT)
-        hub_toc = affiliate_hub_toc_item(brief)
-        if hub_toc:
-            toc_extra = {hub_after_section: hub_toc}
     sections = sections_html(
         article,
         term_hrefs=term_hrefs,
         linked_terms=linked_terms,
-        affiliate_hub=affiliate_hub,
-        affiliate_hub_after_section=hub_after_section,
-        affiliate_brief=brief,
+        slug_titles=slug_titles,
+        url_labels=url_labels,
     )
-    faqs = faq_items(article, brief=brief)
+    faqs = faq_items(article, slug_titles=slug_titles, url_labels=url_labels)
     faq_section = faq_html(faqs, section_num=article_body_section_count(article) + 1) if faqs else ""
-    toc = toc_html(
-        article,
-        bool(faqs),
-        extra_after_section=toc_extra,
-        affiliate_brief=brief if has_product_hub else None,
-    )
-    key_points_box = key_points_box_html(
-        article,
-        affiliate_brief=brief if has_product_hub else None,
-        rel_path=rel_path,
-        site_root=ROOT,
-    )
-    from tools.affiliate_links import affiliate_related_box_html, is_affiliate_article  # noqa: E402
+    toc = toc_html(article, bool(faqs), slug_titles=slug_titles, url_labels=url_labels)
+    key_points_box = key_points_box_html(article, slug_titles=slug_titles, url_labels=url_labels)
     from tools.build_glossary_pages import field_hub_slug  # noqa: E402
     from tools.internal_links import (  # noqa: E402
         guide_knowledge_hub_link_items,
@@ -638,33 +660,25 @@ def build_article_html(
     )
     from tools.knowledge_hub_seo import field_hub_page_exists  # noqa: E402
 
-    if is_affiliate_article(article):
-        related = affiliate_related_box_html(
-            article.get("related_links", ""),
-            by_slug,
-            article,
-            label_fn=apply_vars,
-        )
-    else:
-        article_links = parse_related_links(article.get("related_links", ""), by_slug, article)
-        hub_items = guide_knowledge_hub_link_items(
-            {
-                "genre": genre,
-                "tags": apply_vars(article.get("tags", "")),
-                "title": title,
-            },
-            categories=glossary_categories or [],
-            field_hub_slug_fn=field_hub_slug,
-            field_hub_exists_fn=field_hub_page_exists,
-        )
-        hub_box = (
-            '<div class="related-box" aria-labelledby="guide-hub-links-title">'
-            '<div id="guide-hub-links-title" class="related-box-title">知識ハブ</div>'
-            f'<div class="related-links">{"".join(hub_items)}</div></div>'
-            if hub_items
-            else ""
-        )
-        related = merge_related_boxes(article_links, hub_box)
+    article_links = parse_related_links(article.get("related_links", ""), by_slug, article)
+    hub_items = guide_knowledge_hub_link_items(
+        {
+            "genre": genre,
+            "tags": apply_vars(article.get("tags", "")),
+            "title": title,
+        },
+        categories=glossary_categories or [],
+        field_hub_slug_fn=field_hub_slug,
+        field_hub_exists_fn=field_hub_page_exists,
+    )
+    hub_box = (
+        '<div class="related-box" aria-labelledby="guide-hub-links-title">'
+        '<div id="guide-hub-links-title" class="related-box-title">知識ハブ</div>'
+        f'<div class="related-links">{"".join(hub_items)}</div></div>'
+        if hub_items
+        else ""
+    )
+    related = merge_related_boxes(article_links, hub_box)
     quality_panel = quality_panel_html(article)
     author = apply_vars(article.get("author_name", ""))
     reviewer = apply_vars(article.get("reviewer_name", ""))
@@ -748,12 +762,21 @@ def build_article_html(
         ],
     }
     if faqs:
+        from tools.guide_slug_prose import plain_text_from_reader_prose  # noqa: E402
+
         json_ld["@graph"].append(
             {
                 "@type": "FAQPage",
                 "@id": canonical + "#faq",
                 "mainEntity": [
-                    {"@type": "Question", "name": item["question"], "acceptedAnswer": {"@type": "Answer", "text": item["answer"]}}
+                    {
+                        "@type": "Question",
+                        "name": plain_text_from_reader_prose(item["question"]),
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": plain_text_from_reader_prose(item["answer"]),
+                        },
+                    }
                     for item in faqs
                 ],
             }
@@ -790,7 +813,7 @@ def build_article_html(
       {meta_updated_html(updated)}
     </div>
     <h1 class="article-title">{html.escape(title)}</h1>
-    <p class="article-lead">{html.escape(lead_text)}</p>
+    <p class="article-lead">{lead_html}</p>
     {key_points_box}
     {toc}
     {quality_panel}
@@ -819,6 +842,35 @@ def sort_articles_for_index(articles: list[dict[str, str]]) -> list[dict[str, st
     )
 
 
+def guide_index_pick_image_src(image: str) -> str:
+    raw = (image or "").strip()
+    if not raw:
+        return ""
+    if raw.startswith(("../", "http://", "https://", "/")):
+        return raw
+    return f"../{raw.lstrip('/')}"
+
+
+def build_guide_index_pick_image_html(item: dict[str, str], *, title: str) -> str:
+    image = (item.get("image") or "").strip()
+    if not image:
+        return ""
+    src = guide_index_pick_image_src(image)
+    alt = (item.get("imageAlt") or title or "おすすめ教材").strip()
+    kind = (item.get("kind") or "textbook").strip()
+    media_kind = "course" if kind == "course" else "book"
+    if media_kind == "course":
+        size_attrs = 'width="320" height="180"'
+    else:
+        size_attrs = 'width="160" height="220"'
+    return (
+        f'<div class="article-index-pick-media article-index-pick-media--{media_kind}">'
+        f'<img src="{html.escape(src, quote=True)}" alt="{html.escape(alt)}" '
+        f"{size_attrs} loading=\"lazy\" decoding=\"async\">"
+        f"</div>"
+    )
+
+
 def build_guide_index_picks_html() -> str:
     picks = guide_index_picks()
     if not picks:
@@ -834,10 +886,12 @@ def build_guide_index_picks_html() -> str:
         external = href.startswith("http://") or href.startswith("https://")
         rel_attr = ' rel="noopener noreferrer"' if external else ""
         target_attr = ' target="_blank"' if external else ""
+        image_html = build_guide_index_pick_image_html(item, title=title)
         cards.append(
             f'<article class="article-index-pick" data-pick-kind="{kind}">'
             f'<a class="article-index-pick-link" href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
-            f'<span class="article-index-pick-kind">{kind_label}</span>'
+            + image_html
+            + f'<span class="article-index-pick-kind">{kind_label}</span>'
             f"<h3>{html.escape(title)}</h3>"
             + (f"<p>{html.escape(description)}</p>" if description else "")
             + f'<span class="article-index-pick-cta">{cta}</span>'
