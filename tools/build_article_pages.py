@@ -891,10 +891,12 @@ def build_guide_index_picks_html() -> str:
             f'<article class="article-index-pick" data-pick-kind="{kind}">'
             f'<a class="article-index-pick-link" href="{html.escape(href, quote=True)}"{target_attr}{rel_attr}>'
             + image_html
-            + f'<span class="article-index-pick-kind">{kind_label}</span>'
-            f"<h3>{html.escape(title)}</h3>"
+            + f"<h3>{html.escape(title)}</h3>"
             + (f"<p>{html.escape(description)}</p>" if description else "")
+            + '<div class="article-index-pick-foot">'
             + f'<span class="article-index-pick-cta">{cta}</span>'
+            + f'<span class="article-index-pick-kind">{kind_label}</span>'
+            + "</div>"
             + "</a></article>"
         )
     lead = apply_vars(picks.get("lead") or "")

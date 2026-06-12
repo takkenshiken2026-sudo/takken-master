@@ -3424,10 +3424,19 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   outline: 2px solid var(--accent-emphasis);
   outline-offset: 2px;
 }
+.article-index-pick-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
 .article-index-pick-kind {
-  align-self: flex-start;
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
   border-radius: 6px;
   background: var(--accent-soft);
   color: var(--accent-emphasis);
@@ -3478,9 +3487,8 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   min-height: calc(3 * 1.7em);
 }
 .article-index-pick-cta {
-  margin-top: auto;
-  align-self: flex-start;
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 0.4rem;
   padding: 0.58rem 1rem;
