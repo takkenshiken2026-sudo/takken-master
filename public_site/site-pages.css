@@ -3426,8 +3426,9 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
 }
 .article-index-pick-foot {
   margin-top: auto;
+  padding-top: 4px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
   width: 100%;
@@ -3436,7 +3437,6 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  margin-left: auto;
   border-radius: 6px;
   background: var(--accent-soft);
   color: var(--accent-emphasis);
@@ -3472,19 +3472,16 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  min-height: calc(2 * 1.45em);
 }
 .article-index-pick p {
   color: var(--ink);
   font-size: var(--fs-small);
   line-height: 1.7;
   margin: 0;
-  flex: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  min-height: calc(3 * 1.7em);
 }
 .article-index-pick-cta {
   display: inline-flex;
