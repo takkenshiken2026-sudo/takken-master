@@ -417,15 +417,19 @@ GUIDE_INDEX_PICK_LAYOUTS = frozenset({"grid-3", "grid-2", "strip", "compact", "t
 
 
 def guide_index_picks() -> dict[str, Any] | None:
-    """ハブ一覧（articles/terms/q index）のおすすめ講座・教材カード。最大3件。"""
+    """ハブ一覧（articles/terms/q index）のおすすめ講座・教材カード。最大4件。"""
     raw = CONFIG.get("guideIndexPicks")
     if not isinstance(raw, dict):
         return None
     items_raw = raw.get("items")
     if not isinstance(items_raw, list):
         return None
+    layout = str(raw.get("layout") or "grid-3").strip().lower()
+    if layout not in GUIDE_INDEX_PICK_LAYOUTS:
+        layout = "grid-3"
+    max_items = 4 if layout == "grid-2" else 3
     items: list[dict[str, str]] = []
-    for item in items_raw[:3]:
+    for item in items_raw[:max_items]:
         if not isinstance(item, dict):
             continue
         title = str(item.get("title") or "").strip()
@@ -453,12 +457,17 @@ def guide_index_picks() -> dict[str, Any] | None:
         items.append(pick)
     if not items:
         return None
-    layout = str(raw.get("layout") or "grid-3").strip().lower()
-    if layout not in GUIDE_INDEX_PICK_LAYOUTS:
-        layout = "grid-3"
+    leads_by_hub_raw = raw.get("leadsByHub")
+    leads_by_hub: dict[str, str] = {}
+    if isinstance(leads_by_hub_raw, dict):
+        for key, value in leads_by_hub_raw.items():
+            text = str(value or "").strip()
+            if text:
+                leads_by_hub[str(key)] = text
     return {
         "title": str(raw.get("title") or "おすすめの講座・教材").strip() or "おすすめの講座・教材",
         "lead": str(raw.get("lead") or "").strip(),
+        "leadsByHub": leads_by_hub,
         "layout": layout,
         "items": items,
     }

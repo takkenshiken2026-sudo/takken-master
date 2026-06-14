@@ -186,13 +186,18 @@ def build_guide_index_picks_html(rel_path: Path) -> str:
         return ""
     layout = normalize_guide_index_pick_layout(str(picks.get("layout") or "grid-3"))
     items = picks["items"]
-    if layout == "grid-2":
-        items = items[:2]
     cards = [
         build_guide_index_pick_card_html(item, rel_path=rel_path, layout=layout)
         for item in items
     ]
-    lead = apply_vars(picks.get("lead") or "")
+    hub = rel_path.parent.name if rel_path.parent != Path(".") else ""
+    leads_by_hub = picks.get("leadsByHub") or {}
+    lead = ""
+    if isinstance(leads_by_hub, dict) and hub in leads_by_hub:
+        lead = str(leads_by_hub.get(hub) or "").strip()
+    if not lead:
+        lead = str(picks.get("lead") or "").strip()
+    lead = apply_vars(lead)
     lead_html = f'<p class="hub-promo__lead">{html.escape(lead)}</p>' if lead else ""
     return (
         f'<section class="hub-promo hub-promo--{html.escape(layout, quote=True)} article-index-picks" '
