@@ -4766,6 +4766,15 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   gap: 8px;
 }
 .related-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.related-link:hover {
+  color: var(--accent-emphasis);
+  opacity: 1;
+}
+.related-box .related-links .related-link {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -4778,7 +4787,7 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
   border: 1px solid var(--border);
   transition: background 0.15s, border-color 0.15s;
 }
-.related-link:hover {
+.related-box .related-links .related-link:hover {
   background: var(--accent-hover-surface);
   border-color: var(--accent-hover-border);
   color: var(--accent-emphasis);
@@ -5181,10 +5190,23 @@ html:not(.js) .terms-idx-seo-fallback .terms-idx-seo-list a {
     border-right: none;
     box-shadow: none;
   }
+  .hub-promo--grid-3 .hub-promo__grid,
+  .hub-promo--grid-3 .article-index-picks-grid,
+  .hub-promo--grid-2 .hub-promo__grid,
+  .hub-promo--grid-2 .article-index-picks-grid,
+  .hub-promo--compact .hub-promo__grid,
+  .hub-promo--compact .article-index-picks-grid,
+  .hub-promo--text .hub-promo__grid,
+  .hub-promo--text .article-index-picks-grid,
   .article-index-picks-grid,
   .hub-promo__grid {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+  .article-index-pick-foot,
+  .hub-promo-card__foot {
+    flex-wrap: wrap;
+    row-gap: 6px;
   }
   .hub-promo-card__link--strip {
     flex-direction: column;
