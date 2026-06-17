@@ -32,6 +32,19 @@ REDIRECT_HTML = """<!DOCTYPE html>
 """
 
 
+def is_redirect_stub(path: Path) -> bool:
+    """既存の実ページ（一覧・各問）を上書きしない。"""
+    if not path.is_file():
+        return True
+    head = path.read_text(encoding="utf-8", errors="replace")[:800].lower()
+    return "refresh" in head and "0;url=" in head
+
+
+def target_exists(target: str) -> bool:
+    rel = target.lstrip("/")
+    return (ROOT / rel).is_file()
+
+
 def write_redirect(path: Path, target: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     esc = html.escape(target, quote=True)
@@ -57,6 +70,9 @@ def redirect_from_csv(rows: list[dict[str, str]]) -> tuple[int, int, int]:
         target = (row.get("target_url") or "").strip()
         if not slug or not target:
             continue
+        if not target_exists(target):
+            print(f"skip legacy redirect (missing target): {kind}/{slug} -> {target}", file=sys.stderr)
+            continue
         if kind == "terms_readable":
             write_redirect(ROOT / "terms" / slug / "index.html", target)
             n_readable += 1
@@ -67,6 +83,18 @@ def redirect_from_csv(rows: list[dict[str, str]]) -> tuple[int, int, int]:
             write_redirect(ROOT / "glossary" / slug / "index.html", target)
             n_glossary += 1
     return n_readable, n_hash, n_glossary
+
+
+def redirect_takken_legacy_slugs() -> int:
+    """旧 takken/ 配下の非 takken-* slug（通信講座おすすめ等）を現行記事へ。"""
+    legacy_map = {
+        "takken-tsushin-osusume": "/articles/affiliate-correspondence-course/",
+    }
+    count = 0
+    for slug, target in legacy_map.items():
+        write_redirect(ROOT / "takken" / slug / "index.html", target)
+        count += 1
+    return count
 
 
 def redirect_takken_articles() -> int:
@@ -93,15 +121,20 @@ def redirect_privacy() -> None:
 
 
 def redirect_practice_to_orig() -> int:
-    """旧 q/practice/ を q/orig/ へリダイレクト（リンク切れ防止）。"""
+    """旧 q/practice/ を q/orig/ へリダイレクト（既存の実ページは維持）。"""
     practice = ROOT / "q" / "practice"
     practice.mkdir(parents=True, exist_ok=True)
-    write_redirect(practice / "index.html", "/q/orig/")
-    count = 1
+    count = 0
+    index_path = practice / "index.html"
+    if is_redirect_stub(index_path):
+        write_redirect(index_path, "/q/orig/")
+        count += 1
     seen: set[str] = set()
     for path in sorted(practice.glob("p*/index.html")):
         num = path.parent.name[1:]
         if not num.isdigit() or num in seen:
+            continue
+        if not is_redirect_stub(path):
             continue
         seen.add(num)
         write_redirect(path, f"/q/orig/id{num}/")
@@ -113,8 +146,10 @@ def redirect_practice_to_orig() -> int:
                 qno = (row.get("question_no") or "").strip()
                 if not qno.isdigit() or qno in seen:
                     continue
-                seen.add(qno)
                 stub = practice / f"p{qno}" / "index.html"
+                if not is_redirect_stub(stub):
+                    continue
+                seen.add(qno)
                 write_redirect(stub, f"/q/orig/id{qno}/")
                 count += 1
     return count
@@ -134,13 +169,14 @@ def redirect_ichimon_hub() -> None:
 def main() -> int:
     rows = load_legacy_rows()
     n_readable, n_hash, n_glossary = redirect_from_csv(rows)
+    n_takken_legacy = redirect_takken_legacy_slugs()
     n_takken = redirect_takken_articles()
     redirect_privacy()
     n_practice = redirect_practice_to_orig()
     redirect_ichimon_hub()
     print(
         f"legacy redirects: terms-readable/{n_readable}, terms-hash/{n_hash}, "
-        f"glossary/{n_glossary}, takken/{n_takken}, practice/{n_practice}, "
+        f"glossary/{n_glossary}, takken-legacy/{n_takken_legacy}, takken/{n_takken}, practice/{n_practice}, "
         f"privacy-terms.html, ichimon-hub"
     )
     if not rows:

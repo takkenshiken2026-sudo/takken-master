@@ -43,6 +43,11 @@ for d in articles q terms; do
     cp -R "$ROOT/$d" "$OUT/"
   fi
 done
+for d in takken glossary; do
+  if [[ -d "$ROOT/$d" ]]; then
+    cp -R "$ROOT/$d" "$OUT/"
+  fi
+done
 # サイト固有 SPA データ（eisei1 / eisei2 など）。無ければスキップ。
 for f in eisei1-*.js eisei2-*.js; do
   if [[ -f "$ROOT/$f" ]]; then

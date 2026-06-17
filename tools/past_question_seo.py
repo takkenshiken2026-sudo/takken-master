@@ -654,3 +654,98 @@ def build_field_hub_html(field_id: str, pages: list[dict], base_url: str, brand:
 {site_page_wrap_close()}
 </body>
 </html>"""
+
+
+def past_index_page_title(count: int, brand: str) -> str:
+    return f"宅建 過去問（解説付き）{count}問 無料｜年度別・分野別｜{brand}"
+
+
+def past_index_h1() -> str:
+    return "宅建 過去問（解説付き・無料）"
+
+
+def past_index_lead(*, count: int, year_count: int, category_count: int, exam: str) -> str:
+    return (
+        f"{exam}の過去問を<strong>{year_count}年度・全{count}問</strong>掲載しています。"
+        "各問ページに正答・解説・関連用語リンクがあり、<strong>宅建 過去問</strong>の検索・演習にそのまま使えます。"
+        f"年度別一覧・{category_count}分野ハブから探すか、下の検索・絞り込みで目的の問題へ進んでください。"
+    )
+
+
+def past_index_meta_description(*, count: int, year_count: int) -> str:
+    text = (
+        f"宅建 過去問{count}問を年度別・分野別に無料掲載。"
+        f"{year_count}年度分・解説付き。宅建試験 過去問の検索・演習・解き直しに対応。"
+        "実践演習・一問一答も同サイトで学習できます。"
+    )
+    if len(text) <= 155:
+        return text
+    return text[:154] + "…"
+
+
+def past_index_hub_nav_html(base_url: str) -> str:
+    base = base_url.rstrip("/")
+    field_links = _field_hub_links_html(base)
+    return (
+        '<section class="q-hub-past-intro glos-cat-section" aria-labelledby="q-past-hub-intro">'
+        '<h2 class="glos-cat-heading" id="q-past-hub-intro">宅建 過去問の探し方</h2>'
+        '<p class="glos-static-intro">'
+        f'<a href="{html.escape(base)}/q/past/index.html"><strong>年度別一覧</strong></a>から試験年度を選ぶか、'
+        "下の一覧でキーワード検索・分野絞り込みができます。"
+        "アプリで演習する場合は<a href=\"../index.html#past\">過去問モード</a>へ。"
+        "</p>"
+        '<ul class="q-hub-past-links">'
+        f'<li><a href="{html.escape(base)}/q/past/index.html">宅建 過去問 年度別一覧</a></li>'
+        f'<li><a href="{html.escape(base)}/q/field/law/index.html">宅建業法の過去問</a></li>'
+        f'<li><a href="{html.escape(base)}/q/field/rights/index.html">権利関係の過去問</a></li>'
+        f'<li><a href="{html.escape(base)}/q/field/limit/index.html">法令上の制限の過去問</a></li>'
+        f'<li><a href="{html.escape(base)}/q/field/tax/index.html">税・その他の過去問</a></li>'
+        f'<li><a href="{html.escape(base)}/articles/index.html">試験ガイド（勉強法・直前対策）</a></li>'
+        "</ul>"
+        f"{field_links}"
+        "</section>"
+    )
+
+
+def past_index_collection_json_ld(
+    *,
+    canonical: str,
+    title: str,
+    desc: str,
+    count: int,
+    site_url: str,
+) -> str:
+    site_root = site_url.rstrip("/") + "/"
+    graph = [
+        {
+            "@type": "CollectionPage",
+            "@id": canonical + "#webpage",
+            "url": canonical,
+            "name": title,
+            "description": desc,
+            "inLanguage": "ja",
+            "isPartOf": {"@type": "WebSite", "name": "宅建マスター", "url": site_root},
+        },
+        {
+            "@type": "ItemList",
+            "@id": canonical + "#itemlist",
+            "name": "宅建 過去問一覧",
+            "numberOfItems": count,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "年度別一覧",
+                    "url": site_root + "q/past/index.html",
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "宅建業法の過去問",
+                    "url": site_root + "q/field/law/index.html",
+                },
+            ],
+        },
+    ]
+    payload = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+    return f'<script type="application/ld+json">{payload}</script>'

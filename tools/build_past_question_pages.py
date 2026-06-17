@@ -885,22 +885,38 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
     q_index_breadcrumb = breadcrumb_html(rel_path, [("トップ", "index.html"), ("過去問一覧", None)])
     q_index_footer = site_page_footer(rel_path, current="q")
 
-    from tools.q_page_seo import (
-        index_h1,
-        index_lead,
-        index_meta_description,
-        index_page_title,
-        index_search_placeholder,
-        study_modes_note_html,
+    from tools.q_page_seo import index_search_placeholder, study_modes_note_html
+    from tools.past_question_seo import (
+        past_index_collection_json_ld,
+        past_index_h1,
+        past_index_hub_nav_html,
+        past_index_lead,
+        past_index_meta_description,
+        past_index_page_title,
     )
+    from tools.site_config import brand_name, exam_name
 
-    page_title = index_page_title("past")
-    index_h1_text = index_h1("past")
-    page_desc = index_meta_description("past", count=len(pages))
-    page_lead = index_lead("past")
+    page_title = past_index_page_title(len(pages), brand_name())
+    index_h1_text = past_index_h1()
+    page_desc = past_index_meta_description(count=len(pages), year_count=year_count)
+    page_lead = past_index_lead(
+        count=len(pages),
+        year_count=year_count,
+        category_count=len(by_category),
+        exam=exam_name(),
+    )
     search_placeholder = index_search_placeholder("past")
     study_modes_note = study_modes_note_html()
     index_picks_html = build_guide_index_picks_html(rel_path)
+    past_hub_nav = past_index_hub_nav_html(base_url)
+    index_canonical = public_url(base_url, "q/index.html")
+    index_json_ld = past_index_collection_json_ld(
+        canonical=index_canonical,
+        title=page_title,
+        desc=page_desc,
+        count=len(pages),
+        site_url=base_url,
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -914,10 +930,11 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <meta property="og:description" content="{html.escape(page_desc)}">
 <meta name="twitter:card" content="summary_large_image">
 {ROBOTS_INDEX_FOLLOW}
-<link rel="canonical" href="{html.escape(public_url(base_url, "q/index.html"))}">
+<link rel="canonical" href="{html.escape(index_canonical)}">
 {HEAD_FONTS}
 <link rel="stylesheet" href="../site-pages.css?v={Q_INDEX_CSS_VER}">
 <link rel="stylesheet" href="../site-theme.css">
+{index_json_ld}
 </head>
 <body class="{shell_body_class('q-index-page')}">
 {site_page_wrap_open()}
@@ -925,7 +942,8 @@ def build_q_index(pages: list[dict], base_url: str) -> str:
 <main class="site-page-main">
   {q_index_breadcrumb}
   <h1>{html.escape(index_h1_text)}</h1>
-  <p class="site-page-lead">{html.escape(page_lead)}</p>
+  <p class="site-page-lead">{page_lead}</p>
+  {past_hub_nav}
   {index_picks_html}
   {study_modes_note}
   {q_hub_links_html(rel_path, current="past")}
