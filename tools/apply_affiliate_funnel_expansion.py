@@ -15,6 +15,7 @@ AFFILIATE_TITLES = {
     "affiliate-problem-books": "宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
     "affiliate-correspondence-course": "宅建士のおすすめ通信講座4選【2026年度・独学併用】",
     "affiliate-mock-exam-materials": "宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
+    "affiliate-online-course-compare": "宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
 }
 
 # slug → (affiliate_slug, section_N, body追記文)
@@ -131,7 +132,7 @@ GUIDE_UPDATES: dict[str, tuple[str, int, str]] = {
     ),
 }
 
-# 4本の比較記事: 相互リンク（ASP URL行は維持）
+# 比較記事: 相互リンク（ASP URL行は維持）
 AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
     "affiliate-textbooks-recommend": [
         "takken-dokugaku:宅建を独学で合格する方法",
@@ -140,6 +141,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
         "affiliate-mock-exam-materials:宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
         "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
     ],
     "affiliate-problem-books": [
         "takken-kakomon:宅建の過去問の使い方・効果的な解き方を解説",
@@ -148,6 +150,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
         "affiliate-mock-exam-materials:宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
         "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
     ],
     "affiliate-mock-exam-materials": [
         "takken-moshi:宅建の模擬試験の活用法｜何回受ける？点数の見方",
@@ -156,6 +159,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
         "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
         "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
     ],
     "affiliate-correspondence-course": [
         "takken-tsushin-hikaku:宅建の通信講座・独学・通学の比較｜自分に合う学習スタイル",
@@ -164,6 +168,15 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
         "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
         "affiliate-mock-exam-materials:宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
+        "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
+    ],
+    "affiliate-online-course-compare": [
+        "takken-tsushin-hikaku:宅建の通信講座・独学・通学の比較｜自分に合う学習スタイル",
+        "takken-dokugaku:宅建を独学で合格する方法",
+        "takken-douga-kyozai:宅建の動画・YouTube教材の活用法｜独学での使いどころ",
+        "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
+        "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
     ],
 }
 
@@ -239,7 +252,7 @@ def apply_affiliate_cross_links(rows: list[dict[str, str]]) -> int:
 
 
 def main() -> None:
-    with CSV_PATH.open(encoding="utf-8", newline="") as f:
+    with CSV_PATH.open(encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         rows = list(reader)
@@ -249,7 +262,7 @@ def main() -> None:
     g = apply_guide_updates(rows)
     a = apply_affiliate_cross_links(rows)
 
-    with CSV_PATH.open("w", encoding="utf-8", newline="") as f:
+    with CSV_PATH.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)

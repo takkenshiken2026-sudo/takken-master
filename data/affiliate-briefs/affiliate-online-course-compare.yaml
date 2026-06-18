@@ -1,0 +1,67 @@
+slug: affiliate-online-course-compare
+theme_key: online-course-compare
+search_intent: 宅建のオンライン講座を比較して独学に組み込みたい
+title: 宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用
+genre: 独学対策
+layout: product-comparison
+asp_primary: mixed
+comparison_kind: courses
+comparison_title: おすすめオンライン講座2選（比較）
+price_disclaimer: 料金・キャンペーン・受講期間は執筆時点（2026-06-19）の各公式ページ参考です。申込前に必ず最新条件を確認してください。試験日程・出題範囲は公益財団法人 不動産適正取引推進機構（宅建試験・公式）で必ず確認してください。
+
+products:
+  - rank: 1
+    offer_type: course
+    name: スタディング 宅建士合格コース［2026年度試験対応］
+    provider: 株式会社KIYOラーニング（スタディング）
+    plan_name: コンプリート冊子付版（例）
+    price_yen: 29800
+    billing_type: lump
+    price_note: 一括29,800円税込／月々2,727円税込（2026-06-19 公式参考）
+    duration: 2026年度合格目標（詳細は公式参照）
+    lecture_hours: 1動画5分～の細切れ講義（公式訴求）
+    support: スマホ完結・WEBテキスト・問題集・模試（プランにより異なる）
+    lp_url: https://studying.jp/takken/
+    afb_url: https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R
+    affiliate_url: https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R
+    image_file: takken-course-studying.webp
+    image_url: https://www.afi-b.com/upload_image/7404-1488711346-3.jpg
+    trial_label: 無料体験あり
+    for_who: スマホのスキマ時間で細切れ受講し、月額分割も検討したい社会人
+    highlights:
+      - スマホ完結・1動画5分～で通勤時間を活用しやすい
+      - コンプリート版は問題集・過去問・模試までコース内で完結
+      - 当サイトの無料過去問演習と週次計画を並行しやすい
+  - rank: 2
+    offer_type: course
+    name: 宅建コンプリート講座
+    provider: 資格スクエア
+    plan_name: 2026年度版
+    price_label: 公式サイト参照
+    billing_type: lump
+    duration: 受講期間は公式参照
+    support: 教材セット・動画・質問サポート（詳細は公式参照）
+    lp_url: https://www.shikaku-square.com/takken
+    a8_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken
+    affiliate_url: https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken
+    image_file: takken-course-shikaku-square.webp
+    for_who: 教材一式と動画で4分野をまとめて進めたい独学者
+    highlights:
+      - コンプリート講座で業法・権利・法令・税の学習導線が一本化
+      - 通信で自宅学習しつつ、質問サポートで独学の詰まりを解消
+      - 通信講座4選記事と同系統だが、買い切り教材セット型として比較
+
+related_links:
+  - takken-tsushin-hikaku:通信講座・独学・通学の比較
+  - takken-dokugaku:独学の始め方
+  - affiliate-correspondence-course:おすすめ通信講座4選
+  - affiliate-textbooks-recommend:おすすめテキスト3選
+  - affiliate-problem-books:おすすめ問題集3選
+  - ../../q/index.html:過去問を解く（無料）
+  - https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R:スタディング宅建コース（afb）
+  - https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken:資格スクエア宅建コンプリート（A8）
+
+operator_note: |
+  ASP: afb（スタディング text=y7404W-E506961b / banner=T288086j）+ A8（資格スクエア）
+  2026-06-19 brief作成。スタディング29,800円税込は studying.jp/takken で確認。
+  バナー素材: https://www.afi-b.com/upload_image/7404-1488711346-3.jpg

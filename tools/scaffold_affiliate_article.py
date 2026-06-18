@@ -25,6 +25,7 @@ from tools.scaffold_guide_article import (  # noqa: E402
     print_row,
 )
 from tools.affiliate_links import affiliate_brief_has_links  # noqa: E402
+from tools.site_config import exam_name  # noqa: E402
 
 ARTICLES_CSV = ROOT / "data" / "guide_articles.csv"
 BRIEFS_DIR = ROOT / "data" / "affiliate-briefs"
