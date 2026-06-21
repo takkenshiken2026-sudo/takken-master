@@ -8,7 +8,8 @@ _A8_SHIKAKU_SQUARE = (
     "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB"
     "&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken"
 )
-_LP_STUDYING = "https://studying.jp/takken/"
+_AFB_STUDYING = "https://t.afi-b.com/visit.php?a=y7404W-o7286096_2&p=F981344R"
+_STUDYING_BANNER_IMAGE = "https://studying.jp/front/lp/takken/images/fv-bg.webp"
 _A8_ONSUKU = (
     "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DUX9PU+408S+BW0YB"
     "&a8ejpredirect=https%3A%2F%2Fonsuku.jp%2Ftraining%2Ftakkenshi"
@@ -55,7 +56,7 @@ REWRITES: dict[str, dict[str, str]] = {
             "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】;"
             "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用;"
             f"{_A8_SHIKAKU_SQUARE};"
-            f"{_LP_STUDYING}:スタディング宅建コース（公式）;"
+            f"{_AFB_STUDYING}:スタディング宅建コース（afb）;"
             f"{_A8_ONSUKU};"
             f"{_A8_YOTSUYA};"
             f"{_A8_SHIKAKU_TAISAKU}"
@@ -70,7 +71,7 @@ REWRITES: dict[str, dict[str, str]] = {
         "source_checked_at": "2026-06-19",
         "original_note": (
             "手書きリライト 2026-06-19。"
-            "A8 a8mat=4B3TF0 系。スタディングは studying.jp/takken/ 公式直リンク。"
+            "A8 a8mat=4B3TF0 系 + afb スタディング（banner o7286096_2）。"
             "5講座URL確定。"
         ),
         "section_1_heading": "6月開始：通信講座を選ぶ2つの基準",

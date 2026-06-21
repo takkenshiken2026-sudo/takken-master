@@ -103,7 +103,7 @@ ASP URL 確定前は **brief だけ下書き可**。CSV 追記・HTML 生成は 
 |-----|--------|----------|
 | Amazon Associates | `tag=ue083093-22` | textbooks / problem-books / mock-exam |
 | A8.net | `a8mat=4B3TF0` 系 | correspondence-course / online-course-compare（資格スクエア） |
-| afb | `y7404W-E506961b`（text）/ `T288086j`（banner） | online-course-compare（スタディング） |
+| afb | `y7404W-o7286096_2`（banner）/ `y7404W-E506961b`（text・参照） | correspondence-course / online-course-compare（スタディング） |
 
 ---
 

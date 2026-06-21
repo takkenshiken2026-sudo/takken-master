@@ -154,6 +154,16 @@ def replace_row_affiliate_urls(text: str, article: dict[str, Any] | None) -> str
             out = pattern.sub(md, out)
             continue
 
+        afb_a = re.search(r"[?&]a=([^&]+)", target, re.I)
+        if afb_a and "afi-b.com" in target.lower():
+            token = re.escape(afb_a.group(1))
+            pattern = re.compile(
+                rf"https://t\.afi-b\.com/visit\.php\?a={token}(?:[&][^\s——]*)?",
+                re.I,
+            )
+            out = pattern.sub(md, out)
+            continue
+
         a8mat = re.search(r"a8mat=([^&]+)", target, re.I)
         if a8mat and "px.a8.net" in target.lower():
             token_esc = re.escape(a8mat.group(1))

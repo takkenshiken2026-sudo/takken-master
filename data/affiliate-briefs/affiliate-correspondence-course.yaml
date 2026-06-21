@@ -38,10 +38,10 @@ products:
     duration: 2026年度合格目標（詳細は公式参照）
     support: スマホ完結・WEBテキスト・問題集・模試（プランにより異なる）
     lp_url: https://studying.jp/takken/
-    afb_url: https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R
-    affiliate_url: https://studying.jp/takken/
+    afb_url: https://t.afi-b.com/visit.php?a=y7404W-o7286096_2&p=F981344R
+    affiliate_url: https://t.afi-b.com/visit.php?a=y7404W-o7286096_2&p=F981344R
     image_file: takken-course-studying.webp
-    image_url: https://www.afi-b.com/upload_image/7404-1488711346-3.jpg
+    image_url: https://studying.jp/front/lp/takken/images/fv-bg.webp
     trial_label: 無料体験あり
     for_who: スマホのスキマ時間で細切れ受講し、月額分割も検討したい社会人
     highlights:
@@ -111,9 +111,9 @@ related_links:
   - affiliate-problem-books:おすすめ問題集3選
   - affiliate-online-course-compare:オンライン講座2社比較
   - ../../q/index.html:過去問を解く（無料）
-  - https://studying.jp/takken/:スタディング宅建コース（公式）
+  - https://t.afi-b.com/visit.php?a=y7404W-o7286096_2&p=F981344R:スタディング宅建コース（afb）
 
 operator_note: |
-  ASP: A8.net（a8mat=4B3TF0 系）。スタディングは studying.jp/takken/ 公式直リンク（afb y7404W-E506961b は参照用）。
+  ASP: A8.net（a8mat=4B3TF0 系）+ afb（スタディング banner y7404W-o7286096_2 / lead o7286096_2）
   講座: 資格スクエア / スタディング / オンスク.JP / 四谷学院 / 資格対策ドットコム
   2026-06-19 スタディング追加（5選化）。料金は各公式LPで四半期ごとに照合。
