@@ -153,5 +153,14 @@ window.SITE_CONFIG = {
     "priceLabel": "¥590",
     "scoreMeta": "50問×2",
     "scoreLead": "本番同形式の50問"
+  },
+  "coursePromo": {
+    "url": "https://t.afi-b.com/visit.php?a=y7404W-o7286096_2&p=F981344R",
+    "modeTitle": "スタディング 宅建士合格コース",
+    "modePurpose": "スマホのスキマ時間で細切れ動画学習したい",
+    "priceLabel": "29,800円〜",
+    "tagLabel": "PR",
+    "footnote": "※ スタディング（KIYOラーニング）公式サイトへ移動します。料金・受講条件は申込前に各ページでご確認ください。",
+    "lpUrl": "https://studying.jp/takken/"
   }
 };
