@@ -13,7 +13,7 @@ CSV_PATH = ROOT / "data" / "guide_articles.csv"
 AFFILIATE_TITLES = {
     "affiliate-textbooks-recommend": "宅建士のおすすめテキスト3選【2026年度版・独学】",
     "affiliate-problem-books": "宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
-    "affiliate-correspondence-course": "宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+    "affiliate-correspondence-course": "宅建士のおすすめ通信講座5選【2026年度・独学併用】",
     "affiliate-mock-exam-materials": "宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
     "affiliate-online-course-compare": "宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
 }
@@ -43,7 +43,7 @@ GUIDE_UPDATES: dict[str, tuple[str, int, str]] = {
     "takken-schedule": (
         "affiliate-correspondence-course",
         5,
-        "週次ルーティンが続かない場合は、affiliate-correspondence-course で通信講座4社の学習設計の違いを確認し、過去問演習は週15問以上を維持したまま1社に絞ってください。",
+        "週次ルーティンが続かない場合は、affiliate-correspondence-course で通信講座5社の学習設計の違いを確認し、過去問演習は週15問以上を維持したまま1社に絞ってください。",
     ),
     "takken-goukakuten": (
         "affiliate-mock-exam-materials",
@@ -140,7 +140,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "takken-kyozai:宅建の教材の選び方｜テキスト・問題集・通信講座を比較",
         "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
         "affiliate-mock-exam-materials:宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
-        "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-correspondence-course:宅建士のおすすめ通信講座5選【2026年度・独学併用】",
         "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
     ],
     "affiliate-problem-books": [
@@ -149,7 +149,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "takken-gyoho-study:宅建業法の勉強法・完全攻略",
         "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
         "affiliate-mock-exam-materials:宅建士の模試・一問一答3選【厳選模試・セレクト1000・2026】",
-        "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-correspondence-course:宅建士のおすすめ通信講座5選【2026年度・独学併用】",
         "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
     ],
     "affiliate-mock-exam-materials": [
@@ -158,7 +158,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "takken-jikan-haibun:宅建試験の時間配分｜50問・2時間を落とさない解き方",
         "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
         "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
-        "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-correspondence-course:宅建士のおすすめ通信講座5選【2026年度・独学併用】",
         "affiliate-online-course-compare:宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
     ],
     "affiliate-correspondence-course": [
@@ -174,7 +174,7 @@ AFFILIATE_CROSS_LINKS: dict[str, list[str]] = {
         "takken-tsushin-hikaku:宅建の通信講座・独学・通学の比較｜自分に合う学習スタイル",
         "takken-dokugaku:宅建を独学で合格する方法",
         "takken-douga-kyozai:宅建の動画・YouTube教材の活用法｜独学での使いどころ",
-        "affiliate-correspondence-course:宅建士のおすすめ通信講座4選【2026年度・独学併用】",
+        "affiliate-correspondence-course:宅建士のおすすめ通信講座5選【2026年度・独学併用】",
         "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】",
         "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】",
     ],

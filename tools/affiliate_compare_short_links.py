@@ -42,7 +42,7 @@ def labels_for_site(site_id: str) -> dict[str, str]:
     labels = dict(_DEFAULT_LABELS)
     labels.update(_GUIDE_LABELS)
     if site_id == "takken-master":
-        labels["affiliate-correspondence-course"] = "おすすめ通信講座4選"
+        labels["affiliate-correspondence-course"] = "おすすめ通信講座5選"
     return labels
 
 
