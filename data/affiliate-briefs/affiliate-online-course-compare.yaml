@@ -23,7 +23,7 @@ products:
     support: スマホ完結・WEBテキスト・問題集・模試（プランにより異なる）
     lp_url: https://studying.jp/takken/
     afb_url: https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R
-    affiliate_url: https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R
+    affiliate_url: https://studying.jp/takken/
     image_file: takken-course-studying.webp
     image_url: https://www.afi-b.com/upload_image/7404-1488711346-3.jpg
     trial_label: 無料体験あり
@@ -58,10 +58,10 @@ related_links:
   - affiliate-textbooks-recommend:おすすめテキスト3選
   - affiliate-problem-books:おすすめ問題集3選
   - ../../q/index.html:過去問を解く（無料）
-  - https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R:スタディング宅建コース（afb）
+  - https://studying.jp/takken/:スタディング宅建コース（公式）
   - https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken:資格スクエア宅建コンプリート（A8）
 
 operator_note: |
-  ASP: afb（スタディング text=y7404W-E506961b / banner=T288086j）+ A8（資格スクエア）
+  ASP: A8（資格スクエア）。スタディングは studying.jp/takken/ 公式直リンク（afb y7404W-E506961b / banner T288086j は参照用）。
   2026-06-19 brief作成。スタディング29,800円税込は studying.jp/takken で確認。
   バナー素材: https://www.afi-b.com/upload_image/7404-1488711346-3.jpg

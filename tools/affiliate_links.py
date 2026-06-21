@@ -65,6 +65,18 @@ def is_trackable_asp_url(url: str) -> bool:
     return False
 
 
+def is_studying_official_url(url: str) -> bool:
+    """True for Studying course official LP (direct link, no ASP wrapper)."""
+    if not is_affiliate_url(url):
+        return False
+    return norm(url).lower().startswith("https://studying.jp/")
+
+
+def is_product_link_url(url: str) -> bool:
+    """Clickable product URL: ASP tracking or Studying official LP."""
+    return is_trackable_asp_url(url) or is_studying_official_url(url)
+
+
 def affiliate_urls_in_text(text: str) -> list[str]:
     found: list[str] = []
     for match in _AFFILIATE_URL_IN_TEXT_RE.finditer(text or ""):

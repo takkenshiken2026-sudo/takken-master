@@ -9,7 +9,7 @@ from collections.abc import Callable
 from typing import Any
 
 from tools.affiliate_brief import brief_products, norm, product_affiliate_url
-from tools.affiliate_links import is_affiliate_url
+from tools.affiliate_links import is_affiliate_url, is_product_link_url, is_studying_official_url, is_trackable_asp_url
 
 _MD_LINK = re.compile(r"\[[^\]]+\]\(https?://[^)\s]+\)")
 _A8_NET_URL = re.compile(r"https://px\.a8\.net/svt/ejp\?a8mat=[^\s——]+", re.I)
@@ -114,14 +114,14 @@ def affiliate_url_labels_from_row(article: dict[str, Any] | None) -> dict[str, s
     """related_links の https://…:ラベル から裸 URL 置換用辞書を作る。"""
     if not article:
         return {}
-    from tools.affiliate_links import is_trackable_asp_url, split_semicolon
+    from tools.affiliate_links import is_product_link_url, is_studying_official_url, is_trackable_asp_url, split_semicolon
     from tools.guide_slug_prose import url_label_map_from_sources
     from tools.related_links import parse_related_link_token
 
     items: list[dict[str, str]] = []
     for token in split_semicolon(str(article.get("related_links") or "")):
         target, label = parse_related_link_token(token)
-        if not is_trackable_asp_url(target):
+        if not is_product_link_url(target):
             continue
         items.append({"url": target, "label": label or affiliate_url_label({})})
     return url_label_map_from_sources(items)
@@ -131,7 +131,7 @@ def replace_row_affiliate_urls(text: str, article: dict[str, Any] | None) -> str
     """related_links 内 ASP URL（a8mat / Amazon ASIN 一致）を Markdown 外部リンクへ。"""
     if not text or not article:
         return text
-    from tools.affiliate_links import is_trackable_asp_url, split_semicolon
+    from tools.affiliate_links import is_product_link_url, is_studying_official_url, is_trackable_asp_url, split_semicolon
     from tools.related_links import parse_related_link_token
 
     slots: list[str] = []
@@ -143,10 +143,16 @@ def replace_row_affiliate_urls(text: str, article: dict[str, Any] | None) -> str
     out = _MD_LINK.sub(stash_md, text)
     for token in split_semicolon(str(article.get("related_links") or "")):
         target, label = parse_related_link_token(token)
-        if not is_trackable_asp_url(target):
+        if not is_product_link_url(target):
             continue
         link_label = label or affiliate_url_label({})
         md = f"[{link_label}]({target})"
+
+        if is_studying_official_url(target):
+            base = re.escape(target.rstrip("/"))
+            pattern = re.compile(rf"{base}/?", re.I)
+            out = pattern.sub(md, out)
+            continue
 
         a8mat = re.search(r"a8mat=([^&]+)", target, re.I)
         if a8mat and "px.a8.net" in target.lower():

@@ -4,7 +4,7 @@
 
 from __future__ import annotations
 
-_AFB_STUDYING = "https://t.afi-b.com/visit.php?a=y7404W-E506961b&p=F981344R"
+_LP_STUDYING = "https://studying.jp/takken/"
 _A8_SHIKAKU_SQUARE = (
     "https://px.a8.net/svt/ejp?a8mat=4B3TF0+DXB04Y+373C+BW0YB"
     "&a8ejpredirect=https%3A%2F%2Fwww.shikaku-square.com%2Ftakken"
@@ -15,7 +15,7 @@ REWRITES: dict[str, dict[str, str]] = {
         "title": "宅建士のオンライン講座比較【スタディング vs 資格スクエア】独学との併用",
         "meta_description": (
             "宅建士向けオンライン講座2社比較。"
-            "スタディング（afb）と資格スクエア（A8）を"
+            "スタディング（公式）と資格スクエア（A8）を"
             "50問120分・10月18日試験を前提に料金体系・演習量・サポートで整理。"
             "スマホ細切れ受講と教材セット型の使い分けを具体例付き解説。"
         ),
@@ -49,23 +49,23 @@ REWRITES: dict[str, dict[str, str]] = {
             "affiliate-correspondence-course:宅建士のおすすめ通信講座5選【2026年度・独学併用】;"
             "affiliate-textbooks-recommend:宅建士のおすすめテキスト3選【2026年度版・独学】;"
             "affiliate-problem-books:宅建士のおすすめ問題集3選【論点別・分野別過去問2026】;"
-            f"{_AFB_STUDYING};"
+            f"{_LP_STUDYING}:スタディング宅建コース（公式）;"
             f"{_A8_SHIKAKU_SQUARE}"
         ),
         "key_points": (
             "18週逆算;スマホ細切れ;教材セット型;"
-            "afb+A8;過去問15問/週;8月15日までに1社"
+            "公式+A8;過去問15問/週;8月15日までに1社"
         ),
         "content_status": "published",
         "revision_note": (
-            "2026-06-19: 全面リライト v1（スタディング afb + 資格スクエア A8·2講座比較·published）"
+            "2026-06-19: 全面リライト v1（スタディング公式LP + 資格スクエア A8·2講座比較·published）"
         ),
         "fact_checked_at": "2026-06-19",
         "last_reviewed_at": "2026-06-19",
         "source_checked_at": "2026-06-19",
         "original_note": (
             "手書きリライト 2026-06-19。"
-            "afb y7404W-E506961b（スタディング）+ A8 資格スクエア。"
+            "スタディング studying.jp/takken/ 公式直リンク + A8 資格スクエア。"
             "スタディング29,800円税込は studying.jp/takken で確認。"
         ),
         "section_1_heading": "6月開始：オンライン講座を検討する3つのサイン",
