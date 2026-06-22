@@ -72,6 +72,23 @@ def is_studying_official_url(url: str) -> bool:
     return norm(url).lower().startswith("https://studying.jp/")
 
 
+def is_afb_url(url: str) -> bool:
+    """True for afb (afi-b.com) tracking links."""
+    if not url:
+        return False
+    return "afi-b.com" in norm(url).lower()
+
+
+def affiliate_external_link_attrs(url: str) -> str:
+    """HTML attributes for outbound affiliate links.
+
+    afb 計測タグは rel=\"nofollow\" のみ（noreferrer / target=_blank 不可）。
+    """
+    if is_afb_url(url):
+        return 'rel="nofollow sponsored"'
+    return 'target="_blank" rel="nofollow sponsored noopener noreferrer"'
+
+
 def is_product_link_url(url: str) -> bool:
     """Clickable product URL: ASP tracking or Studying official LP."""
     return is_trackable_asp_url(url) or is_studying_official_url(url)

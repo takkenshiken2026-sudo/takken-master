@@ -7243,6 +7243,7 @@ function getCoursePromoConfig(){
     priceLabel: String(cfg.priceLabel||'').trim(),
     tagLabel: String(cfg.tagLabel||'PR').trim(),
     footnote: String(cfg.footnote||'').trim(),
+    afbLeadUrl: String(cfg.afbLeadUrl||'').trim(),
   };
 }
 
@@ -7255,7 +7256,7 @@ function injectCoursePromoCard(modeList){
   const priceTag=c.priceLabel?`<span class="mode-course-tag mode-course-tag--muted">${escapeAttr(c.priceLabel)}</span>`:'';
   const label=`${c.modeTitle}（${c.tagLabel}）`;
   wrapper.innerHTML=`
-    <a class="mode-card-v2 mode-card-v2--course" href="${escapeAttr(c.url)}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="${escapeAttr(label)}">
+    <a class="mode-card-v2 mode-card-v2--course" href="${escapeAttr(c.url)}" rel="nofollow sponsored" aria-label="${escapeAttr(label)}">
       <div class="mode-num-v2">${num}</div>
       <div class="mode-body-v2">
         <div class="mode-purpose-v2 mode-purpose-v2--course">${escapeAttr(c.modePurpose)} <span class="mode-course-tag">${escapeAttr(c.tagLabel)}</span>${priceTag}</div>
@@ -7264,6 +7265,16 @@ function injectCoursePromoCard(modeList){
       <div class="mode-arrow-v2 mode-arrow-v2--ext" aria-hidden="true">↗</div>
     </a>
     ${c.footnote?`<p class="mode-course-footnote">${escapeAttr(c.footnote)}</p>`:''}`;
+  if(c.afbLeadUrl){
+    const px=document.createElement('img');
+    px.src=c.afbLeadUrl;
+    px.width=1;
+    px.height=1;
+    px.alt='';
+    px.decoding='async';
+    px.style.cssText='border:none;width:1px;height:1px;position:absolute;opacity:0;pointer-events:none';
+    wrapper.appendChild(px);
+  }
   modeList.appendChild(wrapper);
 }
 

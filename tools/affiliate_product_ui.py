@@ -16,7 +16,7 @@ from tools.affiliate_brief import (
     product_affiliate_url,
     product_offer_type,
 )
-from tools.affiliate_links import is_product_link_url, is_trackable_asp_url
+from tools.affiliate_links import affiliate_external_link_attrs, is_product_link_url, is_trackable_asp_url
 
 EXTERNAL_REL = "nofollow sponsored noopener noreferrer"
 
@@ -125,7 +125,7 @@ def cta_link(url: str, label: str, *, css_class: str = "affiliate-product-cta") 
     if not is_product_link_url(url):
         return ""
     return (
-        f'<a class="{css_class}" href="{html.escape(url)}" target="_blank" rel="{EXTERNAL_REL}">'
+        f'<a class="{css_class}" href="{html.escape(url)}" {affiliate_external_link_attrs(url)}>'
         f"{html.escape(label)}</a>"
     )
 
@@ -218,8 +218,8 @@ def product_card_html(
     aria = f'{name} を{"公式サイト" if offer_type == "course" else "Amazon"}で見る'
     if is_product_link_url(url):
         hit = (
-            f'<a class="affiliate-product-card-hit" href="{html.escape(url)}" target="_blank" '
-            f'rel="{EXTERNAL_REL}" aria-label="{html.escape(aria)}">'
+            f'<a class="affiliate-product-card-hit" href="{html.escape(url)}" '
+            f'{affiliate_external_link_attrs(url)} aria-label="{html.escape(aria)}">'
             f"{body}</a>"
         )
     else:
@@ -368,7 +368,7 @@ def key_points_aside_cover_html(
     if is_product_link_url(url):
         return (
             f'<a class="seo-key-points-aside-link" href="{html.escape(url)}" '
-            f'target="_blank" rel="{EXTERNAL_REL}">{cover}</a>'
+            f'{affiliate_external_link_attrs(url)}>{cover}</a>'
         )
     return cover
 

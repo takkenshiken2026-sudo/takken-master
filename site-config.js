@@ -146,6 +146,11 @@ window.SITE_CONFIG = {
       "legacyGlossaryCat": "guide"
     }
   ],
+  "questionModes": {
+    "practiceFormats": [],
+    "practicePreset": {},
+    "practiceTiers": []
+  },
   "paidMockExam": {
     "url": "https://note.com/shikaku_master/n/ne363ab527f36",
     "modeTitle": "予想模試（PDF・2回分）",
@@ -161,6 +166,7 @@ window.SITE_CONFIG = {
     "priceLabel": "29,800円〜",
     "tagLabel": "PR",
     "footnote": "※ スタディング（KIYOラーニング）公式サイトへ移動します。料金・受講条件は申込前に各ページでご確認ください。",
-    "lpUrl": "https://studying.jp/takken/"
+    "lpUrl": "https://studying.jp/takken/",
+    "afbLeadUrl": "https://t.afi-b.com/lead/y7404W/F981344R/o7286096_2"
   }
 };
