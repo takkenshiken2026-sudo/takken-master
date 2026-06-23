@@ -455,11 +455,20 @@ function getWeakUnlocked(){
   return total>=WEAK_UNLOCK_COUNT;
 }
 
+function clearQuizStartInjectedCards(){
+  ['weak-mode-inject','paid-mock-inject','course-promo-inject'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.remove();
+  });
+}
+
 function injectQuizStartEnhancements(){
   const startEl=document.getElementById('page-quiz-start');
-  if(!startEl||startEl.querySelector('#weak-mode-inject')) return;
+  if(!startEl) return;
   const modeList=startEl.querySelector('.mode-list-v2');
   if(!modeList) return;
+
+  clearQuizStartInjectedCards();
 
   const unlocked=getWeakUnlocked();
   const u=typeof getUserData==='function'?getUserData():null;
@@ -526,9 +535,6 @@ window.gotoPage=function(id){
   if(_origGotoPage) _origGotoPage.apply(this,arguments);
   setTimeout(()=>{
     if(id==='quiz-start'){
-      // 弱点カードが既にある場合は解放状態が変わっていれば再描画
-      const existing=document.getElementById('weak-mode-inject');
-      if(existing) existing.remove();
       injectQuizStartEnhancements();
     }
     if(id==='review'){

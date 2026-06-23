@@ -7180,12 +7180,21 @@ function getWeakUnlocked(){
   return total>=WEAK_UNLOCK_COUNT;
 }
 
+function clearQuizStartInjectedCards(){
+  ['weak-mode-inject','paid-mock-inject','course-promo-inject'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.remove();
+  });
+}
+
 function injectQuizStartEnhancements(){
   if(typeof window.updateQuizStartModeStats==='function') window.updateQuizStartModeStats();
   const startEl=document.getElementById('page-quiz-start');
-  if(!startEl||startEl.querySelector('#weak-mode-inject')) return;
+  if(!startEl) return;
   const modeList=startEl.querySelector('.mode-list-v2');
   if(!modeList) return;
+
+  clearQuizStartInjectedCards();
 
   const unlocked=getWeakUnlocked();
   const u=typeof getUserData==='function'?getUserData():null;
@@ -7220,17 +7229,8 @@ function injectQuizStartEnhancements(){
     </div>`;
   }
   modeList.appendChild(weakCard);
-
-  if(!startEl.querySelector('#paid-mock-inject')){
-    injectPaidMockExamCard(modeList);
-  }
-  if(!startEl.querySelector('#course-promo-inject')){
-    injectCoursePromoCard(modeList);
-  }
-}
-
-function nextModeCardNum(modeList){
-  return String(modeList.querySelectorAll('.mode-num-v2').length+1).padStart(2,'0');
+  injectPaidMockExamCard(modeList);
+  injectCoursePromoCard(modeList);
 }
 
 function getCoursePromoConfig(){
@@ -7250,14 +7250,13 @@ function getCoursePromoConfig(){
 function injectCoursePromoCard(modeList){
   const c=getCoursePromoConfig();
   if(!c.url) return;
-  const num=nextModeCardNum(modeList);
   const wrapper=document.createElement('div');
   wrapper.id='course-promo-inject';
   const priceTag=c.priceLabel?`<span class="mode-course-tag mode-course-tag--muted">${escapeAttr(c.priceLabel)}</span>`:'';
   const label=`${c.modeTitle}（${c.tagLabel}）`;
   wrapper.innerHTML=`
     <a class="mode-card-v2 mode-card-v2--course" href="${escapeAttr(c.url)}" rel="nofollow sponsored" aria-label="${escapeAttr(label)}">
-      <div class="mode-num-v2">${num}</div>
+      <div class="mode-num-v2">06</div>
       <div class="mode-body-v2">
         <div class="mode-purpose-v2 mode-purpose-v2--course">${escapeAttr(c.modePurpose)} <span class="mode-course-tag">${escapeAttr(c.tagLabel)}</span>${priceTag}</div>
         <div class="mode-title-v2">${escapeAttr(c.modeTitle)}</div>
@@ -7373,12 +7372,6 @@ window.gotoPage=function(id){
   if(_origGotoPage) _origGotoPage.apply(this,arguments);
   setTimeout(()=>{
     if(id==='quiz-start'){
-      if(typeof window.updateQuizStartModeStats==='function') window.updateQuizStartModeStats();
-      // 弱点カードが既にある場合は解放状態が変わっていれば再描画
-      const existingWeak=document.getElementById('weak-mode-inject');
-      if(existingWeak) existingWeak.remove();
-      const existingPaid=document.getElementById('paid-mock-inject');
-      if(existingPaid) existingPaid.remove();
       injectQuizStartEnhancements();
     }
     if(id==='review'){
