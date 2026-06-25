@@ -161,7 +161,7 @@ def build_question_html(page: dict, row: dict, rel_path: Path, base_url: str) ->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-{ROBOTS_INDEX_FOLLOW}
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="{html.escape(canonical)}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{html.escape(title)}">
