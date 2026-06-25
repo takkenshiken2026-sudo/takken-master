@@ -1467,19 +1467,6 @@ body.is-solving .site-footer{display:none!important}
       <button class="focus-action primary" id="focus-start-btn" onclick="toggleFocusTimer()">開始</button>
       <button class="focus-action ghost" onclick="resetFocusTimer()">リセット</button>
     </div>
-    <div class="focus-section">
-      <div class="focus-section-label">環境音・BGM</div>
-      <div class="sound-row">
-        <button class="sound-btn" id="sound-rain" onclick="toggleFocusSound('rain')">雨音</button>
-        <button class="sound-btn" id="sound-wave" onclick="toggleFocusSound('wave')">波音</button>
-        <button class="sound-btn" id="sound-white" onclick="toggleFocusSound('white')">ホワイト</button>
-        <button class="sound-btn" id="sound-off" onclick="toggleFocusSound('off')">OFF</button>
-      </div>
-      <div class="volume-row">
-        <span>音量</span>
-        <input id="focus-volume" type="range" min="0" max="100" value="35" oninput="setFocusVolume(this.value)" aria-label="環境音の音量">
-      </div>
-    </div>
   </div>
 
   <!-- MOBILE DRAWER -->
@@ -2163,13 +2150,8 @@ function showToast(msg, type='default', duration=1800){
   }, duration);
 }
 
-// --- Focus timer / ambient sound ---
-const focusAudioSources={
-  rain:'focus-rain.ogg',
-  wave:'focus-waves.ogg',
-  white:'focus-white-noise.ogg'
-};
-const focusState={duration:15*60,left:15*60,running:false,timer:null,sound:'off',player:null};
+// --- Focus timer ---
+const focusState={duration:15*60,left:15*60,running:false,timer:null};
 function fmtFocusTime(sec){
   const m=Math.floor(sec/60),s=sec%60;
   return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
@@ -2192,7 +2174,6 @@ function toggleFocusPanel(){
   panel.classList.toggle('open',open);
   if(btn) btn.classList.toggle('on',open);
   renderFocusTimer();
-  renderFocusSound();
   if(open){
     const u=getUserData();
     awardBadgeById('timer_action', u);
@@ -2237,54 +2218,6 @@ function resetFocusTimer(){
   pauseFocusTimer();
   focusState.left=focusState.duration;
   renderFocusTimer();
-}
-function clearFocusSound(){
-  if(focusState.player){
-    focusState.player.pause();
-    focusState.player.src='';
-    focusState.player.load();
-  }
-  focusState.player=null;
-}
-function playFocusSound(kind){
-  clearFocusSound();
-  const src=focusAudioSources[kind];
-  if(!src){
-    showToast('音源が見つかりません','wrong',1800);
-    focusState.sound='off';
-    return;
-  }
-  const player=new Audio(src);
-  player.loop=true;
-  player.preload='auto';
-  player.volume=(Number(document.getElementById('focus-volume')?.value||35)/100);
-  focusState.player=player;
-  player.play().catch(()=>{
-    focusState.sound='off';
-    clearFocusSound();
-    renderFocusSound();
-    showToast('音を再生できませんでした','wrong',2000);
-  });
-}
-function renderFocusSound(){
-  ['rain','wave','white','off'].forEach(k=>{
-    const el=document.getElementById('sound-'+k);
-    if(el) el.classList.toggle('on',focusState.sound===k);
-  });
-}
-function toggleFocusSound(kind){
-  if(kind==='off' || focusState.sound===kind){
-    focusState.sound='off';
-    clearFocusSound();
-  } else {
-    focusState.sound=kind;
-    playFocusSound(kind);
-  }
-  renderFocusSound();
-}
-function setFocusVolume(value){
-  const v=Number(value)/100;
-  if(focusState.player) focusState.player.volume=v;
 }
 
 // --- Feedback messages ---
