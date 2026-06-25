@@ -108,6 +108,22 @@ def index_noscript_inner() -> str:
         <ul>
 {subject_lines}
         </ul>
+        <h2>重要用語ピックアップ</h2>
+        <ul>
+          <li><a href="terms/g-dbb250a06b656e9c.html">追及効とは</a>（権利関係・抵当権）</li>
+          <li><a href="terms/g-9276a24ab5736b33.html">更改とは（こうかい）</a>（権利関係）</li>
+          <li><a href="terms/g-987ef3674a52d355.html">借地借家法とは</a>（権利関係）</li>
+          <li><a href="terms/g-3978c165ac9283d1.html">抵当権の実行とは</a>（権利関係）</li>
+          <li><a href="terms/g-12538c772f9b4d73.html">重要事項説明（35条書面）とは</a>（宅建業法）</li>
+          <li><a href="terms/g-1ccd4b5f7c94e464.html">37条書面とは</a>（宅建業法）</li>
+          <li><a href="terms/g-97036155608da694.html">クーリングオフとは</a>（宅建業法）</li>
+          <li><a href="terms/g-7b001f5d40fc8e60.html">容積率とは</a>（法令上の制限）</li>
+          <li><a href="terms/g-9218d019a982e207.html">固定資産税とは</a>（税・その他）</li>
+          <li><a href="terms/g-32a1926291c5c459.html">印紙税の課税文書とは</a>（税・その他）</li>
+          <li><a href="terms/g-979d850e345a1b0b.html">不動産取得税とは</a>（税・その他）</li>
+          <li><a href="terms/g-a2140bfec8293f35.html">5問免除制度とは</a>（宅建試験）</li>
+        </ul>
+        <p style="font-size:13px"><a href="terms/index.html">重要用語一覧をすべて見る →</a></p>
         <p style="margin-top:24px;font-size:14px;line-height:2"><a href="about.html">このサイトについて</a> ・ <a href="q/index.html">過去問一覧</a> ・ <a href="q/practice/index.html">実践演習一覧</a> ・ <a href="q/ichimon/index.html">一問一答一覧</a> ・ <a href="terms/index.html">用語集</a> ・ <a href="articles/index.html">試験ガイド</a> ・ <a href="related-sites.html">関連リンク</a> ・ <a href="privacy.html">プライバシー</a> ・ <a href="{contact}" target="_blank" rel="noopener noreferrer">お問い合わせ</a></p>
       </div>
     </noscript>"""
