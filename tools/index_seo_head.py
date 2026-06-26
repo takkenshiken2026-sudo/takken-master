@@ -131,7 +131,7 @@ def index_json_ld_graph() -> list[dict]:
 
 
 def index_seo_head_inner() -> str:
-    """SEO block only (og:image は brand_assets の BRAND_ASSET_HEAD が担当)。"""
+    """SEO block。SPA ホームは brand head が social 画像をスキップするため og:image をここで出す。"""
     home_url = index_canonical_url()
     og_title = index_og_title()
     home_title = index_home_title()
@@ -168,11 +168,17 @@ def index_seo_head_inner() -> str:
 <meta property="og:description" content="{html.escape(desc_short)}">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="{html.escape(site_label)}">
+<meta property="og:image" content="{html.escape(home_url)}assets/brand/og-image.png">
+<meta property="og:image:secure_url" content="{html.escape(home_url)}assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(og_title)}">
 <meta name="twitter:description" content="{html.escape(desc_short)}">
+<meta name="twitter:image" content="{html.escape(home_url)}assets/brand/og-image.png">
 <meta name="twitter:image:alt" content="{html.escape(og_title)}">
 
 <!-- Schema.org 構造化データ -->

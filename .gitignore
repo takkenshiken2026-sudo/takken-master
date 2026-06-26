@@ -2,3 +2,7 @@
 
 # ビルド成果物（CIが prepare_public_site.sh で毎回再生成）
 public_site/
+
+# Python キャッシュ
+__pycache__/
+*.pyc
