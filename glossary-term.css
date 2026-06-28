@@ -1,0 +1,517 @@
+/* 用語詳細ページの本文（表・クイズ等）— site-pages.css と併用 */
+.term-rich-content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 8px 0 32px;
+  line-break: strict;
+  word-break: normal;
+  overflow-wrap: break-word;
+  /* 用語ページ本文の共通タイポ（子のカードは背景だけ変え、フォントはここに揃える） */
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.term-rich-content strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1, h2, h3, h4 {
+  font-weight: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb { margin-bottom: 20px; }
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text3);
+}
+.breadcrumb-list li + li::before {
+  content: "›";
+  margin: 0 6px;
+}
+.breadcrumb-list a {
+  color: var(--text3);
+  text-decoration: none;
+}
+.breadcrumb-list a:hover { color: var(--text2); }
+.breadcrumb-list li[aria-current] {
+  color: var(--text2);
+  font-weight: 500;
+}
+
+.term-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.term-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text3);
+  letter-spacing: 0.12em;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 3px 9px;
+  border-radius: 0;
+}
+.term-h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+  margin-bottom: 5px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.term-h1-badge {
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--bg3);
+  color: var(--text2);
+  padding: 2px 8px;
+  border-radius: 0;
+  margin-left: 8px;
+  vertical-align: middle;
+  letter-spacing: 0;
+}
+.term-reading {
+  font-size: 14px;
+  color: var(--text3);
+  margin-bottom: 20px;
+}
+
+/* リード文カード（縦線なし・角丸なし） */
+.term-summary {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text2);
+  margin-bottom: 36px;
+  padding: 16px 20px;
+  background: var(--bg);
+  border-radius: 0;
+  border: 1px solid var(--border);
+  box-shadow: var(--sh);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* まず押さえる要点・覚え方（複数段落） */
+.term-memory-guide {
+  padding: 14px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  line-height: 1.85;
+  font-size: 15px;
+  color: var(--text2);
+}
+.term-memory-guide p {
+  margin: 0 0 12px;
+}
+.term-memory-guide p:last-child {
+  margin-bottom: 0;
+}
+
+.term-section { margin-bottom: 44px; }
+.term-h2 {
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--bg4);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.term-h2-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text3);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.term-h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 0 10px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+}
+
+.term-definition-box {
+  font-size: 16px;
+  line-height: 1.85;
+  font-weight: 500;
+  color: var(--text);
+  padding: 18px 20px;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  box-shadow: var(--sh);
+  position: relative;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.term-definition-box::before {
+  content: "定義";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 0;
+  letter-spacing: 0.08em;
+}
+
+.term-note {
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.term-note-label {
+  font-weight: 700;
+  color: #333;
+  margin-right: 4px;
+}
+
+.diagram-table-wrap { overflow-x: auto; margin-top: 4px; }
+.diagram-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.diagram-table th {
+  background: var(--bg);
+  padding: 9px 10px;
+  text-align: center;
+  font-weight: 700;
+  border: 1px solid var(--border2);
+}
+.diagram-table th:first-child { text-align: left; }
+.diagram-table td {
+  padding: 9px 10px;
+  border: 1px solid var(--border2);
+  text-align: center;
+  vertical-align: middle;
+}
+.diagram-table td:first-child {
+  font-weight: 700;
+  text-align: left;
+}
+.diagram-table tr:nth-child(even) td { background: var(--bg); }
+.diagram-table .mark-ok { color: #111; font-weight: 700; }
+.diagram-table .mark-ng { color: #555; font-weight: 700; }
+.diagram-note {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 8px;
+}
+
+.type-card {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: var(--sh);
+  margin-top: 4px;
+}
+.type-card-body {
+  padding: 18px 20px;
+}
+.type-card-body p { margin-bottom: 6px; word-break: keep-all; overflow-wrap: break-word; }
+.type-card-body p:last-child { margin-bottom: 0; }
+
+.term-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.term-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: var(--sh);
+}
+.term-point-num {
+  min-width: 22px;
+  height: 22px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.term-point-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.term-point-text strong { color: var(--text); font-weight: 700; }
+
+.quiz-box {
+  background: var(--bg);
+  border: 2px solid var(--border2);
+  border-radius: 0;
+  padding: 18px 20px;
+  margin-top: 4px;
+}
+.quiz-box-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text3);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.quiz-q {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.quiz-choices {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.quiz-choice {
+  font-size: 14px;
+  padding: 9px 14px;
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.12s;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.quiz-choice:hover { background: var(--bg3); }
+.quiz-choice.correct {
+  background: var(--grn-s);
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: 700;
+}
+.quiz-choice.wrong {
+  background: #fff0f0;
+  border-color: var(--red);
+  color: var(--red);
+  text-decoration: line-through;
+}
+.quiz-answer {
+  display: none;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text2);
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 0;
+  margin-top: 4px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.quiz-answer.show { display: block; }
+.quiz-answer strong { color: var(--text); }
+
+.term-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+.term-related-card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border2);
+  border-radius: 0;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.15s;
+  background: var(--bg);
+  box-shadow: var(--sh);
+  min-width: 0;
+  word-break: keep-all;
+}
+.term-related-card:hover {
+  border-color: var(--ink);
+  box-shadow: var(--sh2);
+}
+.term-related-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.term-related-reading { font-size: 11px; color: var(--text3); }
+
+.term-cta-section {
+  background: var(--bg);
+  border-radius: 0;
+  padding: 24px 26px;
+  border: 1px solid var(--border);
+  box-shadow: var(--sh);
+  text-align: center;
+}
+.term-cta-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text2);
+  margin-bottom: 18px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.term-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.term-cta-btn:hover { opacity: 0.82; }
+.term-cta-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.term-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.term-faq-item {
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+.term-faq-q {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.term-faq-q-badge {
+  min-width: 20px;
+  height: 20px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.term-faq-a {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text2);
+  padding: 0 18px 16px 48px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.term-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.term-back-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.term-back-link:hover { color: var(--text2); }
+.term-back-link svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.term-footer-copy { font-size: 12px; color: var(--text3); }
+
+.q-app-link {
+  font-size: 13px;
+  margin-top: 24px;
+  color: var(--text3);
+}
+
+@media (max-width: 640px) {
+  .term-h1 { font-size: 22px; }
+  .term-h2 { font-size: 16px; }
+  .term-footer-copy { display: none; }
+}
