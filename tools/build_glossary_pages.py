@@ -68,7 +68,7 @@ from tools.seo_editorial_chrome import (  # noqa: E402
 )
 
 PRESERVED_TERM_SUBDIRS = frozenset({"compare", "numbers", "mistakes", "priority", "samples", "diagram-samples"})
-PRESERVED_TERM_HTML = frozenset({"index.html", "g-writing-sample.html", "g-diagram-sample.html"})
+PRESERVED_TERM_HTML = frozenset({"index.html"})
 
 GLOSSARY_CSV = ROOT / "data" / "glossary_terms.csv"
 TERMS_DIR = ROOT / "terms"
