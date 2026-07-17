@@ -717,6 +717,11 @@ def build_question_html(
             },
         ],
     }
+    from tools.quiz_schema import quiz_jsonld
+
+    quiz = quiz_jsonld(page, question_type="multiple")
+    if quiz:
+        json_ld["@graph"].append(quiz)
 
     site_header = site_page_header(
         rel_path,

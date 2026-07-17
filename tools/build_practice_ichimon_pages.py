@@ -35,6 +35,7 @@ from tools.q_content_quality import (  # noqa: E402
     set_ichimon_primary_ids,
 )
 from tools.q_similar_questions import build_similar_questions_html, load_question_catalog  # noqa: E402
+from tools.quiz_schema import quiz_jsonld  # noqa: E402
 from tools.build_past_question_pages import (  # noqa: E402
     HEAD_FONTS,
     Q_INDEX_CSS_VER,
@@ -417,6 +418,9 @@ def build_practice_question_html(
             },
         ],
     }
+    quiz = quiz_jsonld(page, question_type="multiple")
+    if quiz:
+        json_ld["@graph"].append(quiz)
     site_header = site_page_header(rel_path, current="practice")
     site_breadcrumb = breadcrumb_html(
         rel_path,
@@ -559,6 +563,9 @@ def build_ichimon_question_html(
             },
         ],
     }
+    quiz = quiz_jsonld(page, question_type="marubatsu")
+    if quiz:
+        json_ld["@graph"].append(quiz)
     site_header = site_page_header(rel_path, current="ichimon")
     site_breadcrumb = breadcrumb_html(
         rel_path,
