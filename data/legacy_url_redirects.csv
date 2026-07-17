@@ -178,8 +178,8 @@ terms_readable,morijoken,/terms/g-43ed4c6df20edcab.html
 terms_readable,muko-torikeshi,/terms/g-31b5be0cfff1a57c.html
 terms_readable,nedan-no-shitsugi,/terms/g-74011dd5f1668d67.html
 terms_readable,nekon-teito,/terms/g-c48c1d2411072c36.html
-terms_readable,nichiei-shasen,/terms/g-a09314d5576c9fe4.html
-terms_readable,nikage-shamen,/terms/g-a09314d5576c9fe4.html
+terms_readable,nichiei-shasen,/terms/g-cab4fb62ff6e1050.html
+terms_readable,nikage-shamen,/terms/g-cab4fb62ff6e1050.html
 terms_readable,nikou-douro,/terms/g-626ca2efca29c0f5.html
 terms_readable,nochi,/terms/g-7e02c75909ec445b.html
 terms_readable,nochi-tenyo,/terms/g-74fe119b398c7736.html
@@ -263,7 +263,7 @@ terms_readable,teito-jikko,/terms/g-3978c165ac9283d1.html
 terms_readable,teito-junni,/terms/g-6be9388b5c9f6a26.html
 terms_readable,teito-settei-keiyaku,/terms/g-41ac371ad1832551.html
 terms_readable,tentaishaku,/terms/g-4c48c03b3911db32.html
-terms_readable,tentatsu-matagas,/terms/g-ff5a1d1378e6c50d.html
+terms_readable,tentatsu-matagas,/terms/g-4c48c03b3911db32.html
 terms_readable,tetsuke,/terms/g-f98428062dfa132a.html
 terms_readable,tetsukekin-hozen,/terms/g-f98428062dfa132a.html
 terms_readable,tochi-saiken,/terms/g-068e91320968e091.html
@@ -500,7 +500,7 @@ terms_hash,9ec01e38bc031f39,/terms/g-9ec01e38bc031f39.html
 terms_hash,9fd3cf3c5afa2232,/terms/g-9fd3cf3c5afa2232.html
 terms_hash,a0297426e05d7ebd,/terms/g-a0297426e05d7ebd.html
 terms_hash,a038811abb084333,/terms/g-a038811abb084333.html
-terms_hash,a09314d5576c9fe4,/terms/g-a09314d5576c9fe4.html
+terms_hash,a09314d5576c9fe4,/terms/g-cab4fb62ff6e1050.html
 terms_hash,a138c18964842234,/terms/g-a138c18964842234.html
 terms_hash,a2140bfec8293f35,/terms/g-a2140bfec8293f35.html
 terms_hash,a2b258c485791e37,/terms/g-a2b258c485791e37.html
@@ -548,7 +548,7 @@ terms_hash,c7d953138d9ce42c,/terms/g-c7d953138d9ce42c.html
 terms_hash,c8774199fcae4184,/terms/g-c8774199fcae4184.html
 terms_hash,c9ef86f373683985,/terms/g-c9ef86f373683985.html
 terms_hash,ca69a1181825ed78,/terms/g-ca69a1181825ed78.html
-terms_hash,cab4fb62ff6e1050,/terms/g-a09314d5576c9fe4.html
+terms_hash,cab4fb62ff6e1050,/terms/g-cab4fb62ff6e1050.html
 terms_hash,caf32e336f74857d,/terms/g-caf32e336f74857d.html
 terms_hash,cf0ddbcc77042df9,/terms/g-cf0ddbcc77042df9.html
 terms_hash,cfa236bde7ad0e24,/terms/g-cfa236bde7ad0e24.html
@@ -607,7 +607,7 @@ terms_hash,fc9f14a93a3f9187,/terms/g-fc9f14a93a3f9187.html
 terms_hash,fcbd5bfc2237806e,/terms/g-fcbd5bfc2237806e.html
 terms_hash,fd53a4e423608126,/terms/g-fd53a4e423608126.html
 terms_hash,fe7ec8f7344d3ffd,/terms/g-fe7ec8f7344d3ffd.html
-terms_hash,ff5a1d1378e6c50d,/terms/g-ff5a1d1378e6c50d.html
+terms_hash,ff5a1d1378e6c50d,/terms/g-4c48c03b3911db32.html
 terms_hash,ff5c8ae7ffa09d30,/terms/g-ff5c8ae7ffa09d30.html
 terms_hash,ff7a70d4a8f0f6fa,/terms/g-ff7a70d4a8f0f6fa.html
 terms_hash,ffcc22df05f97f29,/terms/g-ffcc22df05f97f29.html
@@ -790,8 +790,8 @@ glossary,morijoken,/terms/g-43ed4c6df20edcab.html
 glossary,muko-torikeshi,/terms/g-31b5be0cfff1a57c.html
 glossary,nedan-no-shitsugi,/terms/g-74011dd5f1668d67.html
 glossary,nekon-teito,/terms/g-c48c1d2411072c36.html
-glossary,nichiei-shasen,/terms/g-a09314d5576c9fe4.html
-glossary,nikage-shamen,/terms/g-a09314d5576c9fe4.html
+glossary,nichiei-shasen,/terms/g-cab4fb62ff6e1050.html
+glossary,nikage-shamen,/terms/g-cab4fb62ff6e1050.html
 glossary,nikou-douro,/terms/g-626ca2efca29c0f5.html
 glossary,nochi,/terms/g-7e02c75909ec445b.html
 glossary,nochi-tenyo,/terms/g-74fe119b398c7736.html
@@ -875,7 +875,7 @@ glossary,teito-jikko,/terms/g-3978c165ac9283d1.html
 glossary,teito-junni,/terms/g-6be9388b5c9f6a26.html
 glossary,teito-settei-keiyaku,/terms/g-41ac371ad1832551.html
 glossary,tentaishaku,/terms/g-4c48c03b3911db32.html
-glossary,tentatsu-matagas,/terms/g-ff5a1d1378e6c50d.html
+glossary,tentatsu-matagas,/terms/g-4c48c03b3911db32.html
 glossary,tetsuke,/terms/g-f98428062dfa132a.html
 glossary,tetsukekin-hozen,/terms/g-f98428062dfa132a.html
 glossary,tochi-saiken,/terms/g-068e91320968e091.html
