@@ -88,7 +88,14 @@ def redirect_from_csv(rows: list[dict[str, str]]) -> tuple[int, int, int]:
 def redirect_takken_legacy_slugs() -> int:
     """旧 takken/ 配下の非 takken-* slug（通信講座おすすめ等）を現行記事へ。"""
     legacy_map = {
+        # 退避済み slug（現行記事が削除済み）は最終遷移先へ 1 段で送る。
+        # 対応する /articles/{slug}/ 側は guide_retired.json 経由でスタブ化されるため、
+        # ここで明示しないと /takken/ → /articles/{slug}/ → 実記事 の多段になる。
         "takken-tsushin-osusume": "/articles/affiliate-correspondence-course/",
+        "takken-textbook-osusume": "/articles/affiliate-textbooks-recommend/",
+        "takken-to-wa": "/articles/takken-dokugaku/",
+        "takken-shigoto": "/articles/takken-fudosan-gyokai/",
+        "takken-shufu": "/articles/takken-shakaijin/",
     }
     count = 0
     for slug, target in legacy_map.items():
@@ -110,6 +117,11 @@ def redirect_takken_articles() -> int:
         if not slug.startswith("takken-"):
             continue
         if not (slug_dir / "index.html").is_file():
+            continue
+        # 現行記事自体がリダイレクトスタブ（退避済み slug）の場合は多段
+        # リダイレクトになるためスキップ。旧 slug は redirect_takken_legacy_slugs()
+        # の明示マップが最終遷移先へ 1 段で送る。
+        if is_redirect_stub(slug_dir / "index.html"):
             continue
         write_redirect(ROOT / "takken" / slug / "index.html", f"/articles/{slug}/")
         count += 1
@@ -155,6 +167,45 @@ def redirect_practice_to_orig() -> int:
     return count
 
 
+def redirect_practice_short_ids() -> int:
+    """旧 3 桁 ID の q/practice/p001..p1000 を現行 5 桁 ID（+10000）へ。
+
+    実践演習は旧 p{n} から新 p{n+10000} へ一括採番し直された。旧 URL は
+    Google に多数インデックスされ（一部 1 ページ目掲載）現在 404 のため、
+    現行ページへ 1:1 でリダイレクトして掲載順位・被リンクを回収する。
+    """
+    practice = ROOT / "q" / "practice"
+    count = 0
+    for old in range(1, 1001):
+        new = old + 10000
+        if not (practice / f"p{new}" / "index.html").is_file():
+            continue
+        old_stub = practice / f"p{old:03d}" / "index.html"
+        # 現行の実ページ（新 ID 側）は絶対に上書きしない。旧 ID 側のみ生成。
+        if not is_redirect_stub(old_stub):
+            continue
+        write_redirect(old_stub, f"/q/practice/p{new}/")
+        count += 1
+    return count
+
+
+def redirect_past_year_hubs() -> int:
+    """実ページの無い q/past/y{YYYY}/ 年度ハブを一覧へ誘導（soft 404 解消）。"""
+    past = ROOT / "q" / "past"
+    if not (past / "index.html").is_file():
+        return 0
+    count = 0
+    for year_dir in sorted(past.glob("y*")):
+        if not year_dir.is_dir():
+            continue
+        index_path = year_dir / "index.html"
+        if not is_redirect_stub(index_path):
+            continue
+        write_redirect(index_path, "/q/past/")
+        count += 1
+    return count
+
+
 def redirect_ichimon_hub() -> None:
     """一問一答静的ハブが無い場合のみ SPA へ誘導（既存の一覧ページは上書きしない）。"""
     path = ROOT / "q" / "ichimon" / "index.html"
@@ -173,10 +224,13 @@ def main() -> int:
     n_takken = redirect_takken_articles()
     redirect_privacy()
     n_practice = redirect_practice_to_orig()
+    n_practice_short = redirect_practice_short_ids()
+    n_past_hub = redirect_past_year_hubs()
     redirect_ichimon_hub()
     print(
         f"legacy redirects: terms-readable/{n_readable}, terms-hash/{n_hash}, "
         f"glossary/{n_glossary}, takken-legacy/{n_takken_legacy}, takken/{n_takken}, practice/{n_practice}, "
+        f"practice-short/{n_practice_short}, past-hub/{n_past_hub}, "
         f"privacy-terms.html, ichimon-hub"
     )
     if not rows:
