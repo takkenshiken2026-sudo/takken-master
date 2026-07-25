@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import re
 
-from tools.seo_utils import NOINDEX_ROBOTS_META
+from tools.seo_utils import INDEX_ROBOTS_META, NOINDEX_ROBOTS_META
 
 _ICHIMON_ID_NUMERIC = re.compile(r"^(\d{4})-(\d+)-(\d+)$")
 _ICHIMON_ID_KANA = re.compile(r"^(\d{4}-\d+)-([アイウエオ])$")
@@ -148,6 +148,27 @@ def ichimon_is_primary_seo_row(row_id: str) -> bool:
 def ichimon_robots_meta(row_id: str) -> str:
     """一問一答の個別ページはサイト内演習用。過去問・実践演習を index の正本とする。"""
     del row_id  # 枝番・y9000 を問わず個別 URL はすべて noindex
+    return NOINDEX_ROBOTS_META
+
+
+# 人手で内容検証が済み、index へ戻してよい実践演習 ID の許可リスト。
+# AdSense 審査対策として実践演習（AI 生成）は既定で noindex とし、
+# 検証済みの問題だけをこのリストに追加して段階的に index へ戻す。
+# 詳細は docs/adsense-content-strategy.md を参照。
+PRACTICE_INDEX_ALLOWLIST: set[str] = set()
+
+
+def practice_robots_meta(row_id: str = "") -> str:
+    """実践演習（AI 自動生成）の個別ページの robots メタを返す。
+
+    自動生成問題は解説がテンプレート的で事実誤認を含む場合があり、
+    Google AdSense の「有用性の低いコンテンツ／スケーラブルなコンテンツの
+    不正使用」に該当するリスクがある。そのため既定では noindex とし、
+    過去問（実試験）・記事・用語解説を index の正本とする。
+    人手で検証し PRACTICE_INDEX_ALLOWLIST に登録した問題のみ index へ戻す。
+    """
+    if norm(row_id) and norm(row_id) in PRACTICE_INDEX_ALLOWLIST:
+        return INDEX_ROBOTS_META
     return NOINDEX_ROBOTS_META
 
 

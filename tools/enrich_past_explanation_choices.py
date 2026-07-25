@@ -388,10 +388,10 @@ def combo_choice_note(n: int, opt: str, exp: str, correct: int, correct_opt: str
                 hits.append(sent)
     if hits:
         return f"（{n}）の組合せ「{opt}」について：{hits[0]}"
-    correct_letters = "".join(re.findall(r"[A-E]", correct_opt))
     return (
-        f"（{n}）「{opt}」は、作業主任者の選任が必要な作業の組合せ（{correct_letters}）を"
-        f"含んでいません。解説のとおり、該当作業と非該当作業の区別を確認してください。"
+        f"（{n}）「{opt}」は、正答（{correct}）の組合せとは一致しません。"
+        f"各肢が正しい記述か誤った記述かを一つずつ確認し、正しいものだけの"
+        f"組合せを選びましょう。"
     )
 
 

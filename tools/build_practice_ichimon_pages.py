@@ -32,6 +32,7 @@ from tools.q_content_quality import (  # noqa: E402
     build_ichimon_primary_ids,
     ichimon_robots_meta,
     is_demo_practice_question_row,
+    practice_robots_meta,
     set_ichimon_primary_ids,
 )
 from tools.q_similar_questions import build_similar_questions_html, load_question_catalog  # noqa: E402
@@ -431,6 +432,8 @@ def build_practice_question_html(
         ],
     )
     site_footer = site_page_footer(rel_path, current="practice")
+    # 実践演習（AI 生成）は既定で noindex。AdSense 審査での低品質ページ露出を避ける。
+    robots_meta = practice_robots_meta(norm(page.get("id", "")))
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -440,7 +443,7 @@ def build_practice_question_html(
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-{ROBOTS_INDEX_FOLLOW}
+{robots_meta}
 <link rel="canonical" href="{html.escape(canonical)}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{html.escape(title)}">
