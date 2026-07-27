@@ -1,14 +1,1 @@
-# ads.txt — takken-master.jp
-#
-# ▼ 使い方（AdSense「ads.txt が不明」を解消する手順）
-# 1. AdSense 管理画面 → アカウント → 設定 → アカウント情報 で
-#    「サイト運営者 ID（pub-XXXXXXXXXXXXXXXX）」を確認します。
-# 2. 下の行の pub-XXXXXXXXXXXXXXXX を実際の ID に置き換え、
-#    行頭の「# 」（コメント記号）を外して有効化します。
-# 3. main ブランチへマージ／デプロイすると https://takken-master.jp/ads.txt
-#    で配信され、数日以内に AdSense の ads.txt ステータスが「承認済み」になります。
-#
-# ※ 正しい ID を入れるまではプレースホルダを有効化しないでください。
-#    無効な ID を有効化すると AdSense に「無効な販売者」として警告が出ます。
-#
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-7927260139193410, DIRECT, f08c47fec0942fa0

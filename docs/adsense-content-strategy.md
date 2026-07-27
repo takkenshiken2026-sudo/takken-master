@@ -6,27 +6,34 @@
 
 ---
 
-## 1. ads.txt が「不明」のままだった原因と対処
+サイト運営者 ID: **`ca-pub-7927260139193410`**（`site-config.json` の
+`adsenseClient` で管理）。
+
+## 1. ads.txt が「不明」のままだった原因と対処（対応済み）
 
 - **原因**: サイトのルートに `ads.txt` が存在しなかった。ファイルが無いと
   Google クローラは永久に「不明（見つかりません）」と表示する。
-- **対処**: ルートに `ads.txt` を追加した（GitHub Pages がそのまま
-  `https://takken-master.jp/ads.txt` として配信する）。
-- **残作業（要パブリッシャー ID）**: `ads.txt` 内のプレースホルダ
-  `pub-XXXXXXXXXXXXXXXX` を実際の AdSense サイト運営者 ID に置き換え、
-  行頭のコメント記号を外して有効化する。手順はファイル冒頭のコメント参照。
+- **対処**: ルートに `ads.txt` を追加し、実際のサイト運営者 ID を設定済み。
 
-### 併せて必要（承認審査で判定される）: 検証スニペット
+  ```
+  google.com, pub-7927260139193410, DIRECT, f08c47fec0942fa0
+  ```
 
-AdSense の審査・広告配信には、各ページ `<head>` に以下のスニペットが必要。
-これもパブリッシャー ID を入れて全ページへ挿入する（未実施 / ID 待ち）。
+  デプロイ後 `https://takken-master.jp/ads.txt` で配信され、数日以内に
+  AdSense の ads.txt ステータスが「承認済み」になる。
+
+### 検証スニペット・アカウントメタ（対応済み）
+
+AdSense の審査・広告配信・サイト所有権確認のため、全ページ `<head>` に
+以下を出力する。`site-config.json` の `adsenseClient` を単一の情報源とし、
+`tools/brand_assets.py` の `adsense_head_markup()` が全ページ共通で出力する
+（生成ページ・静的ページとも `brand_head_markup()` 経由）。SPA トップ
+（`index.html`）はヘッド構造が特殊なため直接埋め込み。
 
 ```html
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7927260139193410">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7927260139193410" crossorigin="anonymous"></script>
 ```
-
-挿入は各ビルダの `<head>` テンプレート、または一括パッチツールで行う
-（GA4 の `site-analytics.js` と同じ位置が目安）。
 
 ---
 
@@ -92,8 +99,9 @@ AdSense の審査・広告配信には、各ページ `<head>` に以下のス�
 
 ## 5. チェックリスト（合格前の最終確認）
 
-- [ ] `ads.txt` に実際の `pub-` ID を設定し有効化した
-- [ ] 全ページ `<head>` に AdSense 検証スニペットを挿入した（ID 設定後）
-- [ ] `about.html` / `privacy.html` / お問い合わせ が機能している（設置済み）
-- [ ] sitemap に薄い自動生成ページが含まれていない（対応済み）
+- [x] `ads.txt` に実際の `pub-` ID を設定し有効化した
+- [x] 全ページ `<head>` に AdSense 検証スニペット・アカウントメタを挿入した
+- [x] `about.html` / `privacy.html` / お問い合わせ が機能している（設置済み）
+- [x] sitemap に薄い自動生成ページが含まれていない（対応済み）
+- [ ] デプロイ後、AdSense 管理画面でサイトを審査に送信する
 - [ ] Search Console でインデックス数が想定どおり（審査中は絞られる）

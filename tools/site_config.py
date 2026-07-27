@@ -134,6 +134,14 @@ def ga4_measurement_id() -> str:
     return str(CONFIG.get("ga4MeasurementId") or "").strip()
 
 
+def adsense_client() -> str:
+    """Google AdSense のサイト運営者 ID（ca-pub-XXXXXXXXXXXXXXXX）。未設定なら空。"""
+    cid = str(CONFIG.get("adsenseClient") or "").strip()
+    if cid and not cid.startswith("ca-pub-"):
+        cid = f"ca-pub-{cid.lstrip('ca-pub-')}"
+    return cid
+
+
 def copyright_text() -> str:
     configured = str(CONFIG.get("copyright") or "").strip()
     if configured:

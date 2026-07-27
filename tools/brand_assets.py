@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 from tools.site_config import (
+    adsense_client,
     brand_logo_lines,
     brand_name,
     clean_origin,
@@ -369,14 +370,41 @@ def social_image_meta_tags(*, site_root: Path | None = None) -> str:
 <meta name="twitter:image:alt" content="{alt}">"""
 
 
-def brand_head_markup(rel_path: Path, *, site_root: Path | None = None, include_social_image: bool = True) -> str:
+def adsense_head_markup() -> str:
+    """Google AdSense の検証メタタグと広告ローダースクリプトを返す（未設定なら空）。
+
+    全ページ共通で <head> に出力する。site-config.json の adsenseClient で制御。
+    """
+    cid = adsense_client()
+    if not cid:
+        return ""
+    cid = html.escape(cid)
+    return (
+        f'<meta name="google-adsense-account" content="{cid}">\n'
+        f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={cid}"'
+        f' crossorigin="anonymous"></script>'
+    )
+
+
+def brand_head_markup(
+    rel_path: Path,
+    *,
+    site_root: Path | None = None,
+    include_social_image: bool = True,
+    include_adsense: bool = True,
+) -> str:
     block = favicons_head_markup(rel_path, site_root=site_root)
     if not block:
-        return ""
+        # ブランド資産が未生成でも AdSense タグは出す。
+        return adsense_head_markup() if include_adsense else ""
     if include_social_image:
         social = social_image_meta_tags(site_root=site_root)
         if social:
             block += "\n" + social
+    if include_adsense:
+        ads = adsense_head_markup()
+        if ads:
+            block += "\n" + ads
     return block
 
 
@@ -385,8 +413,16 @@ def _is_spa_index(rel_path: Path, html_text: str) -> bool:
 
 
 def inject_brand_head(html_text: str, rel_path: Path, *, site_root: Path | None = None) -> str:
-    include_social = not _is_spa_index(rel_path, html_text)
-    block = brand_head_markup(rel_path, site_root=site_root, include_social_image=include_social)
+    is_spa = _is_spa_index(rel_path, html_text)
+    include_social = not is_spa
+    # SPA トップ（index.html）はヘッド構造が特殊なため AdSense は直接埋め込み済み。
+    # ここでブランドブロックに足すと重複するので除外する。
+    block = brand_head_markup(
+        rel_path,
+        site_root=site_root,
+        include_social_image=include_social,
+        include_adsense=not is_spa,
+    )
     if not block:
         return html_text
     if MARKER in html_text:
