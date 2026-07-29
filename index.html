@@ -657,6 +657,9 @@ details.rich-detail summary{display:none}
 .score-paid-mock-strip-title{display:block;font-size:var(--fs-body);font-weight:700;color:var(--text);margin-bottom:2px;line-height:1.35}
 .score-paid-mock-strip-meta{font-size:var(--fs-caption);color:var(--text2)}
 .score-paid-mock-strip-cta{font-size:var(--fs-sub);font-weight:700;color:var(--paid-mock-accent);flex-shrink:0;white-space:nowrap}
+.score-paid-mock-banner-link{display:block;text-decoration:none;border-radius:var(--r2);overflow:hidden;transition:transform .15s,box-shadow .15s}
+.score-paid-mock-banner-link:hover{transform:translateY(-1px);box-shadow:0 4px 14px var(--paid-mock-accent-shadow)}
+.score-paid-mock-banner-img{display:block;width:100%;height:auto;border-radius:var(--r2)}
 
 /* ===== DASHBOARD ===== */
 .stat-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:18px}
@@ -7377,11 +7380,13 @@ function getPaidMockExamConfig(){
   if(!cfg.url) return {url:''};
   return {
     url: String(cfg.url).trim(),
-    modeTitle: String(cfg.modeTitle||'予想模試').trim(),
+    modeTitle: String(cfg.modeTitle||'本番想定模試').trim(),
     modePurpose: String(cfg.modePurpose||'本番形式で実力確認したい').trim(),
-    priceLabel: String(cfg.priceLabel||'¥590').trim(),
+    priceLabel: String(cfg.priceLabel||'¥980').trim(),
     scoreMeta: String(cfg.scoreMeta||'PDF').trim(),
-    scoreLead: String(cfg.scoreLead||'本番形式の予想模試').trim(),
+    scoreLead: String(cfg.scoreLead||'本番想定の50問模試').trim(),
+    bannerImage: cfg.bannerImage ? String(cfg.bannerImage).trim() : '',
+    bannerAlt: cfg.bannerAlt ? String(cfg.bannerAlt).trim() : '',
   };
 }
 
@@ -7391,15 +7396,22 @@ function injectPaidMockExamCard(modeList){
   const wrapper=document.createElement('div');
   wrapper.id='paid-mock-inject';
   const label=`${m.modeTitle}（有料・note・${m.priceLabel}）`;
-  wrapper.innerHTML=`
-    <a class="mode-card-v2 mode-card-v2--paid" href="${escapeAttr(m.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(label)}">
-      <div class="mode-num-v2 mode-num-v2--paid">05</div>
-      <div class="mode-body-v2">
-        <div class="mode-purpose-v2 mode-purpose-v2--paid">${escapeAttr(m.modePurpose)} <span class="mode-paid-tag">有料 ${escapeAttr(m.priceLabel)}</span></div>
-        <div class="mode-title-v2">${escapeAttr(m.modeTitle)}</div>
-      </div>
-      <div class="mode-arrow-v2 mode-arrow-v2--ext" aria-hidden="true">↗</div>
-    </a>`;
+  if(m.bannerImage){
+    wrapper.innerHTML=`
+      <a class="score-paid-mock-banner-link" href="${escapeAttr(m.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(label)}" style="margin-top:12px">
+        <img class="score-paid-mock-banner-img" src="${escapeAttr(m.bannerImage)}" alt="${escapeAttr(m.bannerAlt||label)}" loading="lazy">
+      </a>`;
+  } else {
+    wrapper.innerHTML=`
+      <a class="mode-card-v2 mode-card-v2--paid" href="${escapeAttr(m.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(label)}">
+        <div class="mode-num-v2 mode-num-v2--paid">05</div>
+        <div class="mode-body-v2">
+          <div class="mode-purpose-v2 mode-purpose-v2--paid">${escapeAttr(m.modePurpose)} <span class="mode-paid-tag">有料 ${escapeAttr(m.priceLabel)}</span></div>
+          <div class="mode-title-v2">${escapeAttr(m.modeTitle)}</div>
+        </div>
+        <div class="mode-arrow-v2 mode-arrow-v2--ext" aria-hidden="true">↗</div>
+      </a>`;
+  }
   modeList.appendChild(wrapper);
 }
 
@@ -7424,16 +7436,24 @@ function renderScorePaidMockPromo(opts){
   const label=`${m.modeTitle}（有料・note・${m.priceLabel}）`;
   const leadHtml=opts.leadHtml!=null?opts.leadHtml:scorePaidMockLeadHtml(m,opts.variant);
   wrap.hidden=false;
-  wrap.innerHTML=`
-    <p class="score-paid-mock-lead">${leadHtml}</p>
-    <a class="score-paid-mock-strip" href="${escapeAttr(m.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(label)}">
-      <span class="score-paid-mock-strip-tag">有料</span>
-      <span class="score-paid-mock-strip-body">
-        <span class="score-paid-mock-strip-title">${escapeAttr(m.modeTitle)}</span>
-        <span class="score-paid-mock-strip-meta">${escapeAttr(m.scoreMeta)} · ${escapeAttr(m.priceLabel)} · note</span>
-      </span>
-      <span class="score-paid-mock-strip-cta">詳細 ↗</span>
-    </a>`;
+  if(m.bannerImage){
+    wrap.innerHTML=`
+      <p class="score-paid-mock-lead">${leadHtml}</p>
+      <a class="score-paid-mock-banner-link" href="${escapeAttr(m.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(label)}">
+        <img class="score-paid-mock-banner-img" src="${escapeAttr(m.bannerImage)}" alt="${escapeAttr(m.bannerAlt||label)}" loading="lazy">
+      </a>`;
+  } else {
+    wrap.innerHTML=`
+      <p class="score-paid-mock-lead">${leadHtml}</p>
+      <a class="score-paid-mock-strip" href="${escapeAttr(m.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(label)}">
+        <span class="score-paid-mock-strip-tag">有料</span>
+        <span class="score-paid-mock-strip-body">
+          <span class="score-paid-mock-strip-title">${escapeAttr(m.modeTitle)}</span>
+          <span class="score-paid-mock-strip-meta">${escapeAttr(m.scoreMeta)} · ${escapeAttr(m.priceLabel)} · note</span>
+        </span>
+        <span class="score-paid-mock-strip-cta">詳細 ↗</span>
+      </a>`;
+  }
 }
 window.renderScorePaidMockPromo=renderScorePaidMockPromo;
 
